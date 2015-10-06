@@ -75,7 +75,13 @@ $blog_post = strpos($ogmeta['url'], '/updates');
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title><?php echo htmlspecialchars(GOTEO_META_TITLE, ENT_QUOTES, 'UTF-8'); ?></title>
+    <?php
+    $lg_title = GOTEO_META_TITLE;
+    if (!empty($project->name)){
+        $lg_title .= ' - ' . $project->name;
+    }
+    ?>
+    <title><?php echo htmlspecialchars($lg_title, ENT_QUOTES, 'UTF-8'); ?></title>
     <link rel="icon" type="image/png" href="/favicon.ico" />
     <meta name="description" content="<?php echo htmlspecialchars(GOTEO_META_DESCRIPTION, ENT_QUOTES, 'UTF-8'); ?>" />
     <meta name="keywords" content="<?php echo htmlspecialchars(GOTEO_META_KEYWORDS, ENT_QUOTES, 'UTF-8'); ?>" />
