@@ -66,7 +66,6 @@ $willpass = strtotime($project->willpass)
         </div>
     </div>
     <?php // todo ラウンド1パス後に決済云々のメッセージ隠すでOKだったか?確認  ?>
-    <?php var_dump($status = $project->round); ?>
     <div class="invest-notice<?php echo ( $status = $project->round ) == 1  ? '' : ' end'; ?>">
         このプロジェクトは <?= date('Y年n月j日', $willpass) . '（' . $week[date('w', $willpass)] . '）'; ?> 午前00:00 の時点で、<?= \amount_format($project->mincost); ?>円以上集まった場合のみ、決済が実施されます。
     </div>
