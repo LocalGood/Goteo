@@ -10965,6 +10965,18 @@ body.user-login .sign-in-with
 	padding:0;
 }
 
+body.user-login div#main > div form > div p.add_info
+{
+	font-size:12px;
+	font-style:normal;
+	font-weight:400;
+	margin: 5px 0;
+	color:#f00;
+	/*-webkit-margin-before: 0;*/
+	/*-webkit-margin-after: 0;*/
+}
+
+
 .sign-in-with li
 {
 	display:block;
