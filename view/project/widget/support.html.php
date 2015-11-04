@@ -67,7 +67,8 @@ $willpass = strtotime($project->willpass)
     </div>
     <?php // todo ラウンド1パス後に決済云々のメッセージ隠すでOKだったか?確認  ?>
     <?php
-        if ( ( $status = $project->round ) == 1 ){
+    if ($project->status == 3) {
+        if (($status = $project->round) == 1) {
             $until = date('Y年n月j日', $willpass);
             $cost = $project->mincost;
             $week_num = date('w', $willpass);
@@ -76,10 +77,14 @@ $willpass = strtotime($project->willpass)
             $cost = $project->maxcost;
             $week_num = date('w', $project->closed);
         }
+        ?>
+        <div class="invest-notice">
+            このプロジェクトは <?php echo $until . '（' . $week[$week_num] . '）'; ?> 午前00:00
+            の時点で、<?php if ($status == 1): ?><?php echo \amount_format($cost); ?>円以上集まった場合のみ、<?php endif; ?>決済が実施されます。
+        </div>
+        <?php
+    } // if ($project->status == 3) {
     ?>
-    <div class="invest-notice">
-        このプロジェクトは <?php echo $until . '（' . $week[$week_num] . '）'; ?> 午前00:00 の時点で、<?php if ($status == 1): ?><?php echo \amount_format($cost); ?>円以上集まった場合のみ、<?php endif; ?>決済が実施されます。
-    </div>
 
     <a class="more" href="/project/<?php echo $project->id; ?>/needs"><?php echo Text::get('regular-see_more'); ?></a>
 
