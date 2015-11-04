@@ -240,6 +240,7 @@ echo new SuperForm(array(
         ),
 
         /* Radio de domicilio postal igual o diferente*/
+/*
         'post_address-radioset' => array(
             'type'      => 'group',
             'class'     => 'inline',
@@ -255,7 +256,6 @@ echo new SuperForm(array(
                     'id'    => 'post_address-radio-same',
                     'checked' => !$project->secondary_address ? true : false,
                     'children' => array(
-                        /* Children vacio si es igual */
                         'post_address-same' => array(
                             'type' => 'hidden',
                             'name' => "post_address-same",
@@ -272,7 +272,6 @@ echo new SuperForm(array(
                     'id'    => 'post_address-radio-different',
                     'checked' => $project->secondary_address ? true : false,
                     'children' => array(
-                        /* Domicilio postal (a desplegar si es diferente) */
                         'post_address' => array(
                             'type'      => 'textbox',
                             'class'     => 'inline',
@@ -295,7 +294,7 @@ echo new SuperForm(array(
                             'ok'        => !empty($okeys['post_zipcode']) ? array($okeys['post_zipcode']) : array(),
                             'value'     => $project->post_zipcode
                         ),
-
+*/
 /*                        'post_location' => array(
                             'type'      => 'textbox',
                             'class'     => 'inline',
@@ -306,7 +305,7 @@ echo new SuperForm(array(
                             'ok'        => !empty($okeys['post_location']) ? array($okeys['post_location']) : array(),
                             'value'     => $project->post_location
                         ),*/
-
+/*
                         'post_country' => array(
                             'type'      => 'textbox',
                             'class'     => 'inline',
@@ -320,7 +319,7 @@ echo new SuperForm(array(
                     )
                 ),
             )
-        ),
+        ),*/
 
         'footer' => array(
             'type'      => 'group',

@@ -28,6 +28,7 @@ namespace Goteo\Controller\Admin {
         Goteo\Library\Message,
         Goteo\Library\Mail,
 		Goteo\Library\Template,
+        Goteo\Library\Evaluation,
         Goteo\Model;
 
     class Projects {
@@ -152,8 +153,28 @@ namespace Goteo\Controller\Admin {
                         
                     }
                     
-                }
+                } elseif ($action == 'evaluation') {
 
+                    $todook = true;
+
+                    if (!empty($_POST['id'])){
+                        $evltn = new Evaluation();
+                        $evltn->project_id = $_POST['id'];
+                        $evltn->name = $_POST['name'];
+                        if ($evltn->update($_POST['id'], $_POST['content'], $errors)) {
+                            throw new Redirection('/admin/projects/evaluation/'.$id);
+                        }
+
+                    } else {
+                        $todook = false;
+                    }
+
+                    if ($todook) {
+                        Message::Info(Text::_('Se han actualizado los datos'));
+                    }
+
+                    throw new Redirection('/admin/projects/evaluation/'.$id);
+                }
             }
 
             /*
@@ -376,6 +397,21 @@ namespace Goteo\Controller\Admin {
                 throw new Redirection('/admin/projects/list');
             }
 
+            // Project Evaluation
+            if ($action == 'evaluation') {
+//                Message::Error('Project Evaluation');
+                $evaluation = Evaluation::get($project->id);
+
+                return new View(
+                    'view/admin/index.html.php',
+                    array(
+                        'folder' => 'projects',
+                        'file' => 'evaluation',
+                        'project' => $project,
+                        'evaluation' => $evaluation
+                    )
+                );
+            }
 
             if (!empty($filters['filtered'])) {
                 $projects = Model\Project::getList($filters, $_SESSION['admin_node']);

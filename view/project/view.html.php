@@ -34,6 +34,8 @@ $post    = $this['post'];
 $blog    = $this['blog'];
 $thread    = $this['thread'];
 
+$evaluation = \Goteo\Library\Evaluation::get($project->id);
+
 $user    = $_SESSION['user'];
 $personalData = ($user instanceof User) ? User::getPersonal($user->id) : new stdClass();
 
@@ -56,6 +58,13 @@ if (!empty($blog->posts)) {
 } else {
     $updates = '';
 }
+if (!empty($evaluation->content)){
+    $ev_label = '評価';
+} else {
+    $ev_label = '';
+}
+
+
 
 
 
@@ -139,7 +148,7 @@ $bodyClass = 'project-show'; include 'view/prologue.html.php' ?>
                                 'supporters' => $supporters,
                                 'messages' => $messages,
                                 'updates' => $updates,
-                                'evaluation' => $this['project']->evaluation,
+                                'evaluation' => $ev_label
                             )
                     );
                 ?>
@@ -255,7 +264,7 @@ $bodyClass = 'project-show'; include 'view/prologue.html.php' ?>
                     
                     case 'evaluation':
                         echo
-                            new View('view/project/widget/evaluation.html.php', array('project' => $project));
+                            new View('view/project/widget/evaluation.html.php', array('project' => $project, 'evaluation' => $evaluation));
                         break;
                     
 					case 'home':

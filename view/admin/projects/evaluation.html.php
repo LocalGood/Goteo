@@ -18,20 +18,17 @@
  *
  */
 
-use Goteo\Library\Text,
-    Goteo\Core\View,
-    Goteo\Model\Blog\Post;
+
+use Goteo\Library\Text;
 
 $project = $this['project'];
 $evaluation = $this['evaluation'];
-
 ?>
-
-<div class="widget project-evaluation">
-    <div class="project-widget-box">
-        <h3 class="title">プロジェクト評価</h3>
-        <div class="evaluation_content">
-            <?php echo $evaluation->content;?>
-        </div>
-    </div>
+<div class="widget board">
+    <form method="post" action="/admin/projects/evaluation/<?php echo $this['project']->id; ?>">
+        <input type="hidden" name="id" value="<?php echo $project->id; ?>" />
+        <p>プロジェクト: <span style="font-weight:bold"><?php echo $this['project']->name; ?></span> の評価</p>
+        <textarea id="richtext_content" name="content" cols="100" rows="20"><?php echo $evaluation->content; ?></textarea>
+        <p><input type="submit" name="save" value="<?= Text::_('Guardar'); ?>" /></p>
+    </form>
 </div>

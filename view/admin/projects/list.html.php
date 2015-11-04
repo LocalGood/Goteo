@@ -167,6 +167,9 @@ $pagedResults = new \Paginated($this['projects'], 10, isset($_GET['page']) ? $_G
                             || (isset($_SESSION['admin_node']) && $_SESSION['admin_node'] == \GOTEO_NODE)
                             || (isset($_SESSION['admin_node']) && $user->node == $_SESSION['admin_node'])) : ?>
                     <a href="/admin/accounts/?projects=<?php echo $project->id; ?>" title="Ver sus aportes">[<?php echo Text::_("Support situation"); ?>]</a>
+                        <?php if($project->status >= 4): ?>
+                    <a href="/admin/projects/evaluation/<?php echo $project->id; ?>" title="Project Evaluation">[<?php echo Text::get("project-menu-evaluation"); ?>]</a>
+                        <?php endif; ?>
                     <?php else:  ?>
                     <a href="/admin/invests/?projects=<?php echo $project->id; ?>" title="Ver sus aportes">[<?php echo Text::_("Supporters List"); ?>]</a>
                     <?php endif; ?>
