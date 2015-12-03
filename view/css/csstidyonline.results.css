@@ -6906,6 +6906,7 @@ div.widget.project-supporters .supporters > ul > li div.supporterContainer
 div.center.supporters div.widget.project-supporters .supporters > ul > li div.supporterContainer
 {
 	width:130px;
+	overflow: hidden;
 }
 
 div.widget.project-supporters .supporters ul li.active
@@ -6970,12 +6971,36 @@ div.widget.project-supporters .supporters ul li h3 a,div.widget.project-supporte
 
 div.widget.project-supporters .supporters ul li h4
 {
-	font-size:16px;
-	line-height:18px;
-	margin-bottom:2px;
+	font-size: 16px;
+	height: 35.2px;
+	line-height: 1.1;
+	position: relative;
 	overflow:hidden;
-	width:136px;
 }
+
+div.widget.project-supporters .supporters ul li h4:before,
+div.widget.project-supporters .supporters ul li h4:after{
+	background-color: #fff;
+	position: absolute;
+}
+
+div.widget.project-supporters .supporters ul li h4:before {
+	content: "...";
+	top: 17.6px;
+	right: 0;
+}
+
+div.widget.project-supporters .supporters ul li h4:after{
+	content: "";
+	height: 100%;
+	width: 100%;
+	background-color: #fff;
+}
+
+div.widget.project-supporters .supporters ul li.active h4:after{
+	background-color: #f3f3f3;
+}
+
 
 div.widget.project-supporters .supporters ul li a:hover
 {
