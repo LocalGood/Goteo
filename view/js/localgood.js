@@ -16,7 +16,7 @@ $(function(){
     );
 
     // smooth scroll
-    $('a[href^=#]').click(function(e){
+    $('div#to_page_top a[href^=#]').click(function(e){
         e.preventDefault();
         var speed = 350;
         var href= $(this).attr("href");

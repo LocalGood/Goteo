@@ -31,6 +31,7 @@ namespace Goteo\Library\SuperForm {
             $type,
             $title,            
             $class = '',
+            $is_public = false,
             $hint,
             $required = false,
             $ok = array(),

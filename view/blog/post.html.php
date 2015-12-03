@@ -58,7 +58,8 @@
 	<?php if (count($post->gallery) > 1) : ?>
         <div id="post-gallery<?php echo $post->id ?>" class="post-gallery">
 			<div class="post-gallery-container">
-				<?php $i = 1; foreach ($post->gallery as $image) : ?>
+				<?php $i = 1; foreach ($post->gallery as $image) :
+					?>
 				<div class="gallery-image gallery-post<?php echo $post->id ?>" id="gallery-post<?php echo $post->id ?>-<?php echo $i ?>">
 					<img src="<?php echo $image->getLink(500, 285); ?>" alt="<?php echo $post->title; ?>" />
 				</div>
@@ -78,7 +79,8 @@
 		</div>
 	<?php elseif (!empty($post->image)) : ?>
         <div class="gallery-image gallery-post<?php echo $post->id ?>" id="gallery-post<?php echo $post->id ?>-<?php echo $i ?>">
-            <img src="<?php echo $post->image->getLink(500, 285); ?>" alt="<?php echo $post->title; ?>" />
+<?php /*			<img src="<?php echo $post->image->getLink(500, 285); ?>" alt="<?php echo $post->title; ?>" /> */ ?>
+            <img src="<?php echo $post->image->getLinkEx(); ?>" alt="<?php echo $post->title; ?>" />
         </div>
 	<?php endif; ?>
 	<?php if (!empty($post->media->url)) :

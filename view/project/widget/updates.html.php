@@ -24,6 +24,7 @@ use Goteo\Library\Text,
 
 $project = $this['project'];
 $blog    = $this['blog'];
+
 if (empty($this['post'])) {
     $posts = $blog->posts;
     $action = 'list';
@@ -54,6 +55,28 @@ if ($this['show'] == 'list') {
     $pagedResults = new \Paginated($the_posts, 7, isset($_GET['page']) ? $_GET['page'] : 1);
 }
 
+// 活動報告ナビゲーション -> controlに移動する？
+if ($action == 'post'){
+
+    $link_next = "";
+    $link_prev = "";
+
+    $plist = array();
+    foreach($blog->posts as $k => $p){
+        $plist[] = $k;
+    }
+    $idx = array_search($this['post'],$plist);
+
+    if (!is_null($plist[$idx+1]) && (count($plist) > ($idx + 1))){
+        $_id = $plist[$idx+1];
+        $link_prev = "<li class='prev'><a href='/project/{$project->id}/updates/{$_id}'>前の記事</a></li>";
+    }
+    if (!is_null($plist[$idx-1]) && (0 <= ($idx - 1))){
+        $_id = $plist[$idx-1];
+        $link_next = "<li class='next'><a href='/project/{$project->id}/updates/{$_id}'>次の記事</a></li>";
+    }
+}
+
 // segun lo que tengamos que mostrar :  lista o entrada
 // uso la libreria blog para sacar los datos adecuados para esta vista
 
@@ -65,6 +88,10 @@ $level = (int) $this['level'] ?: 3;
     <?php if ($action == 'post') : ?>
     <div class="post widget">
         <?php echo new View('view/blog/post.html.php', array('post' => $post->id, 'show' => 'post', 'url' => '/project/'.$project->id.'/updates/')); ?>
+        <ul class="post_nav">
+            <?php if (!empty($link_prev)){ echo $link_prev; } ?>
+            <?php if (!empty($link_next)){ echo $link_next; } ?>
+        </ul>
     </div>
     <?php echo new View('view/blog/comments.html.php', array('post' => $post->id, 'owner' => $project->owner)); ?>
     <?php echo new View('view/blog/sendComment.html.php', array('post' => $post->id, 'project' => $project->id)); ?>

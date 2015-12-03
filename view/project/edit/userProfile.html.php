@@ -134,6 +134,7 @@ echo new SuperForm(array(
         'user_name' => array(
             'type'      => 'textbox',
             'required'  => true,
+            'is_public' => true,
             'size'      => 20,
             'title'     => Text::get('profile-field-name'),
             // 'hint'      => Text::get('tooltip-user-name'),
@@ -144,6 +145,7 @@ echo new SuperForm(array(
         'user_location' => array(
             'type'      => 'textbox',
             'required'  => true,
+            'is_public' => true,
             'size'      => 20,
             'title'     => Text::get('profile-field-location'),
             // 'hint'      => Text::get('tooltip-user-location'),
@@ -153,6 +155,7 @@ echo new SuperForm(array(
         ),
         'user_avatar' => array(
             'type'      => 'group',
+            'is_public' => true,
             'required'  => true,
             'title'     => Text::get('profile-fields-image-title'),
             // 'hint'      => Text::get('tooltip-user-image'),
@@ -184,6 +187,7 @@ echo new SuperForm(array(
         'user_about' => array(
             'type'      => 'textarea',
             'required'  => true,
+            'is_public' => true,
             'cols'      => 40,
             'rows'      => 4,
             'title'     => Text::get('profile-field-about'),
@@ -195,6 +199,7 @@ echo new SuperForm(array(
         'interests' => array(
             'type'      => 'checkboxes',
             'required'  => true,
+            'is_public' => true,
             'class'     => 'cols_3',
             'name'      => 'user_interests[]',
             'title'     => Text::get('profile-field-interests'),
@@ -206,6 +211,7 @@ echo new SuperForm(array(
         'skills' => array(
             'type'      => 'checkboxescustom',
             'required'  => true,
+            'is_public' => true,
             'class'     => 'cols_3',
             'name'      => 'user_skills[]',
             'title'     => Text::get('profile-field-skills'),
@@ -238,6 +244,7 @@ echo new SuperForm(array(
         'user_webs' => array(
             'type'      => 'group',
             'required'  => true,
+            'is_public' => true,
             'title'     => Text::get('profile-field-websites'),
             // 'hint'      => Text::get('tooltip-user-webs'),
             'class'     => 'webs',
@@ -265,16 +272,6 @@ echo new SuperForm(array(
                     'ok'        => !empty($okeys['facebook']) ? array($okeys['facebook']) : array(),
                     'value'     => empty($user->facebook) ? Text::get('regular-facebook-url') : $user->facebook
                 ),
-                'user_google' => array(
-                    'type'      => 'textbox',
-                    'class'     => 'google',
-                    'size'      => 40,
-                    'title'     => Text::get('regular-google'),
-                    // 'hint'      => Text::get('tooltip-user-google'),
-                    'errors'    => !empty($errors['google']) ? array($errors['google']) : array(),
-                    'ok'        => !empty($okeys['google']) ? array($okeys['google']) : array(),
-                    'value'     => empty($user->google) ? Text::get('regular-google-url') : $user->google
-                ),
                 'user_twitter' => array(
                     'type'      => 'textbox',
                     'class'     => 'twitter',
@@ -285,26 +282,6 @@ echo new SuperForm(array(
                     'ok'        => !empty($okeys['twitter']) ? array($okeys['twitter']) : array(),
                     'value'     => empty($user->twitter) ? Text::get('regular-twitter-url') : $user->twitter
                 ),
-                'user_identica' => array(
-                    'type'      => 'textbox',
-                    'class'     => 'identica',
-                    'size'      => 40,
-                    'title'     => Text::get('regular-identica'),
-                    // 'hint'      => Text::get('tooltip-user-identica'),
-                    'errors'    => !empty($errors['identica']) ? array($errors['identica']) : array(),
-                    'ok'        => !empty($okeys['identica']) ? array($okeys['identica']) : array(),
-                    'value'     => empty($user->identica) ? Text::get('regular-identica-url') : $user->identica
-                ),
-                'user_linkedin' => array(
-                    'type'      => 'textbox',
-                    'class'     => 'linkedin',
-                    'size'      => 40,
-                    'title'     => Text::get('regular-linkedin'),
-                    // 'hint'      => Text::get('tooltip-user-linkedin'),
-                    'errors'    => !empty($errors['linkedin']) ? array($errors['linkedin']) : array(),
-                    'ok'        => !empty($okeys['linkedin']) ? array($okeys['linkedin']) : array(),
-                    'value'     => empty($user->linkedin) ? Text::get('regular-linkedin-url') : $user->linkedin
-                )
             )
         ),
         'footer' => array(

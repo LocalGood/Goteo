@@ -3234,6 +3234,18 @@ body.js div.superform > div.elements > ol > li.element li.element
 	margin-right:0;
 }
 
+body.js div.superform .is_public {
+	font-size: 12px;
+	background-color: #92c450;
+	padding: 2px 8px;
+	color: #ffffff;
+}
+
+body.js div.superform > div.elements li.element .is_public {
+	float: right;
+	margin-right:54px;
+}
+
 body div.superform > div.elements li.element li.element.inline
 {
 	border-top:none;
@@ -3284,7 +3296,7 @@ div.superform div.elements > ol > li.required > .title
 
 div.superform div.elements > ol > li.ok > .title
 {
-	background:url(superform/badge/ok.png) no-repeat right center;
+	background:url(superform/badge/ok.png) no-repeat right 80%;
 }
 
 div.superform div.elements > ol > li.error > .title
@@ -8169,11 +8181,13 @@ div.widget.project-updates > div
 .project-updates .widget.post .gallery-image
 {
 	text-align:left;
+	padding:18px 0;
 }
 
 .project-updates .widget.post .gallery-image img
 {
-	margin:0 18px;
+	/*margin:0 18px;*/
+	margin:0;
 }
 
 .project-updates .post .comments-num
@@ -8313,6 +8327,23 @@ div.widget.project-updates > div
     margin-top: 8px;
 }
 
+.project-updates .post_nav li {
+	list-style-type: none;
+	margin:0;
+	padding:0;
+}
+
+.project-updates .post_nav {
+	padding:0;
+	margin:0;
+}
+.project-updates .post_nav .prev {
+	float:left;
+}
+
+.project-updates .post_nav .next {
+	float:right;
+}
 
 /*----------------------------------------------------------------------
  project/widget/invest.css
