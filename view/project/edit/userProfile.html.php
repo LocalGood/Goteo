@@ -223,6 +223,7 @@ echo new SuperForm(array(
         'user_keywords' => array(
             'type'      => 'textbox',
             'required'  => false,
+            'is_public' => true,
             'size'      => 20,
             'title'     => Text::get('profile-field-keywords'),
             // 'hint'      => Text::get('tooltip-user-keywords'),
@@ -261,6 +262,7 @@ echo new SuperForm(array(
         'user_social' => array(
             'type'      => 'group',
             'title'     => Text::get('profile-fields-social-title'),
+            'is_public' => true,
             'children'  => array(
                 'user_facebook' => array(
                     'type'      => 'textbox',

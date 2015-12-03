@@ -3246,6 +3246,11 @@ body.js div.superform > div.elements li.element .is_public {
 	margin-right:54px;
 }
 
+body.js div.superform > div.elements li.element .is_public.non_required {
+	margin-right:0;
+}
+
+
 body div.superform > div.elements li.element li.element.inline
 {
 	border-top:none;

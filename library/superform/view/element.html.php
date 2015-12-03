@@ -25,7 +25,7 @@ $element = $this['element'];
 
 ?>
 <?php if (isset($element->title)): ?>
-<h<?php echo $element->level ?> class="title"><?php echo htmlspecialchars($element->title) ?><?php echo $element->is_public ? ' <span class="is_public">公開</span>' : '';?></h<?php echo $element->level ?>>
+<h<?php echo $element->level ?> class="title"><?php echo htmlspecialchars($element->title) ?><?php if ($element->is_public) { $is_required = (!$element->required) ? "non_required" : "" ; echo " <span class='is_public {$is_required}'>公開</span>"; }; ?></h<?php echo $element->level ?>>
 <?php endif ?>
 
 <?php if ('' !== ($innerHTML = $element->getInnerHTML())): ?>
