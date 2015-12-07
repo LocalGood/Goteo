@@ -28,12 +28,12 @@ use Goteo\Core\ACL,
     <ul>
         <?/*<li class="home"><a href="/"><?php echo Text::get('regular-home'); ?></a></li>*/?>
         <li class="explore"><a class="button red" href="/discover"><?php echo Text::get('regular-discover'); ?></a></li>
-        <? if( isset( $_SESSION['user']->roles['project_owner'] ) || (isset( $_SESSION['user']->roles['localadmin'] ) && $_SESSION['user']->home == LG_PLACE_NAME)) { ?>
+        <?php if( isset( $_SESSION['user']->roles['project_owner'] ) || (isset( $_SESSION['user']->roles['localadmin'] ) && $_SESSION['user']->home == LG_PLACE_NAME)) { ?>
             <li class="create"><a class="button aqua" href="/project/create"><?php echo Text::get('regular-create'); ?></a></li>
-        <? } else { ?>
-            <li class="create"><a class="button aqua" href="<?= LOCALGOOD_WP_BASE_URL ?>/user_guide"><?php echo Text::get('regular-create'); ?></a></li>
-        <? } ?>
-        <?/*<li class="search">
+        <?php } else { ?>
+            <li class="create"><a class="button aqua" href="<?php echo LOCALGOOD_WP_BASE_URL ?>/challenge"><?php echo Text::get('regular-create'); ?></a></li>
+        <?php } ?>
+        <?php /*<li class="search">
                 <form method="get" action="/discover/results">
                     <fieldset>
                         <legend><?php echo Text::get('regular-search'); ?></legend>
