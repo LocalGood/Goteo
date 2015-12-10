@@ -49,11 +49,12 @@
             </ul>
         </div>
     </div>
-    <div class="foot_bar_wrapper">
+    <div class="foot_bar_wrapper cf">
         <div class="foot_bar_inner cf">
-            <a class="three_left" href="http://yokohamalab.jp/" target="_blank"><img src="/view/css/ycdl_logo.png" alt="Yokohama Community Design Lab." /></a>
-            <a class="three_center" href="http://www.accenture.com/jp-ja/Pages/index.aspx" target="_blank"><img src="/view/css/accenture_logo.png" alt="accenture" /></a>
-            <img class="three_right" src="/view/css/open_yokohama_logo.png" alt="Open Yokohama" />
+            <a class="logo_1" href="http://yokohamalab.jp/" target="_blank"><img src="/view/css/ycdl_logo.png" alt="Yokohama Community Design Lab." /></a>
+            <a class="logo_2" href="http://www.accenture.com/jp-ja/Pages/index.aspx" target="_blank"><img src="/view/css/accenture_logo.png" alt="accenture" /></a>
+            <img class="logo_3" src="/view/css/open_yokohama_logo.png" alt="Open Yokohama" />
+            <a class="logo_4" href="https://goteo.org/" target="_blank"><img src="/view/css/logo-goteo-H-100.png" alt="Goteo" /></a>
             <p class="copyright">
                 <span>COPYRIGHT&copy; LOCAL GOOD YOKOHAMA. Some rights reserved.</span>
             </p>
