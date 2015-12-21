@@ -75,8 +75,10 @@ $worthcracy = Worth::getAll();
 
     <div class="center profile">
 
-        <?php echo new View('view/user/widget/worth.html.php', array('worthcracy' => $worthcracy, 'level' => $user->worth)) ?>
-
+        <?php // echo new View('view/user/widget/worth.html.php', array('worthcracy' => $worthcracy, 'level' => $user->worth)) ?>
+        <div class="widget worthcracy user-worthcracy">
+            <h3 class="title"><?php echo Text::get('profile-user_detail-header'); ?></h3>
+        </div>
         <?php echo new View('view/user/widget/about.html.php', array('user' => $user, 'projects' => $this['projects'])) ?>
 
         <?php echo new View('view/user/widget/social.html.php', array('user' => $user)) ?>

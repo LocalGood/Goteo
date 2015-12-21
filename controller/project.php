@@ -408,7 +408,7 @@ namespace Goteo\Controller {
         }
 
         public function create () {
-            if(!isset($_SESSION['user']->roles['project_owner']) && !isset($_SESSION['user']->roles['localadmin'])) throw new Redirection('/dashboard/profile/');
+            if(!isset($_SESSION['user']->roles['project_owner']) && !isset($_SESSION['user']->roles['localadmin'])) header("Location:" . LOCALGOOD_WP_BASE_URL . "/challenge");
 
             if (empty($_SESSION['user'])) {
                 $_SESSION['jumpto'] = '/project/create';

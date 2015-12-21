@@ -37,7 +37,7 @@ namespace Goteo\Model\Project {
 
             return '<iframe width="100%" height="100%" src="'
                    . ($https ? 'https' : 'http') . '://www.youtube.com/embed/'
-                   . $video . '?wmode=Opaque" frameborder="0" allowfullscreen></iframe>';
+                   . $video . '?wmode=Opaque&loop=1&playlist=' . $video . '" frameborder="0" allowfullscreen></iframe>';
 
         }
 

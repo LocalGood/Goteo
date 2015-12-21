@@ -29,7 +29,12 @@ $element = $this['element'];
 <?php endif ?>
 
 <?php if ('' !== ($innerHTML = $element->getInnerHTML())): ?>
-<div class="contents">    
+<div class="contents">
+    <?php
+        if (isset($element->desc)):
+            echo '<div style="color:#7f8183;margin-left:20px;">' . $element->desc . '</div>';
+        endif;
+    ?>
     <?php echo $innerHTML?>            
 </div>
 <?php endif ?>

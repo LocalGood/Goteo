@@ -217,7 +217,8 @@ $sfid = 'sf-project-profile';
             // 'hint'      => Text::get('tooltip-user-skills'),
             'errors'    => !empty($errors['skills']) ? array($errors['skills']) : array(),
             'ok'        => !empty($okeys['skills']) ? array($okeys['skills']) : array(),
-            'options'   => $skills
+            'options'   => $skills,
+            'desc'      => 'スキルを登録すると、そのスキルを求めているプロジェクトがマイページに表示されます。'
         ),
         'user_keywords' => array(
             'type'      => 'textbox',

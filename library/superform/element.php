@@ -29,7 +29,8 @@ namespace Goteo\Library\SuperForm {
         public            
             $id,
             $type,
-            $title,            
+            $title,
+            $desc,
             $class = '',
             $is_public = false,
             $hint,
