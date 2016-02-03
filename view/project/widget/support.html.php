@@ -25,7 +25,7 @@ $level = (int) $this['level'] ?: 3;
 
 $project = $this['project'];
 $week = array('日','月','火','水','木','金','土');
-$willpass = strtotime($project->willpass)
+// $willpass = strtotime($project->willpass);
 ?>
 <div class="widget project-support collapsable" id="project-support">
 
@@ -65,22 +65,25 @@ $willpass = strtotime($project->willpass)
             <?php endif; */?>
         </div>
     </div>
-    <?php // todo ラウンド1パス後に決済云々のメッセージ隠すでOKだったか?確認  ?>
     <?php
     if ($project->status == 3) {
-        if (($status = $project->round) == 1) {
-            $until = date('Y年n月j日', $willpass);
-            $cost = $project->mincost;
-            $week_num = date('w', $willpass);
+
+        $published = date('Y年n月j日', strtotime($project->published));
+        $willclose = date('Y年n月j日', strtotime($project->willclose));
+
+        if (($project->round) == 1) {
+            $willpass = date('Y年n月j日', strtotime($project->willpass));
+            $until = date('Y年n月j日', strtotime("-1 minute",strtotime($project->willpass)));
         } else {
-            $until = date('Y年n月j日', strtotime($project->closed));
-            $cost = $project->maxcost;
-            $week_num = date('w', $project->closed);
+            $willpass = date('Y年n月j日', strtotime($project->passed));
+            $until = date('Y年n月j日', strtotime("-1 minute",strtotime($project->passed)));
         }
+        $period_1r = $project->period_1r;
+        $period_2r = $project->period_2r;
+
         ?>
         <div class="invest-notice">
-            このプロジェクトは <?php echo $until . '（' . $week[$week_num] . '）'; ?> 午前00:00
-            の時点で、<?php if ($status == 1): ?><?php echo \amount_format($cost); ?>円以上集まった場合のみ、<?php endif; ?>決済が実施されます。
+            このプロジェクトの挑戦期間は、1stラウンド <?php echo $published; ?>〜<?php echo $until; ?>23:59（<?php echo $project->period_1r; ?>日間）、2ndラウンド<?php echo $willpass; ?>〜<?php echo $willclose; ?>23:59（<?php echo $project->period_2r; ?>日間）です
         </div>
         <?php
     } // if ($project->status == 3) {

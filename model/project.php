@@ -138,7 +138,12 @@ namespace Goteo\Model {
 
             $finishable = false, // llega al progresso mínimo para enviar a revision
 
-            $tagmark = null;  // banderolo a mostrar
+            $tagmark = null,  // banderolo a mostrar
+
+            $period_1r = 0,     // 1R期間
+            $period_2r = 0,     // 2R期間
+
+            $willclose = null;  // プロジェクト終了予定日
 
 
         /**
@@ -210,6 +215,8 @@ namespace Goteo\Model {
                 ':project_location' => ($userPersonal->location) ?
                                 $userPersonal->location :
                                 $userProfile->location,
+                ':period_1r' => 40,
+                ':period_2r' => 40
                 );
 
             $campos = array();
@@ -345,13 +352,14 @@ namespace Goteo\Model {
 
                 // fecha final primera ronda (fecha campaña + 40)
                 if (!empty($project->published)) {
+                    $ptime = strtotime($project->published);
                     if ($project->round === 1){
-                        $ptime = strtotime($project->published);
-                        $project->willpass = date('Y-m-d', \mktime(0, 0, 0, date('m', $ptime), date('d', $ptime)+40, date('Y', $ptime)));
+                        $project->willpass = date('Y-m-d', \mktime(0, 0, 0, date('m', $ptime), date('d', $ptime)+$project->period_1r, date('Y', $ptime)));
                     } elseif ($project->round === 2 && !empty($project->passed)){
                         $pdtime = strtotime($project->passed);
-                        $project->willpass = date('Y-m-d', \mktime(0, 0, 0, date('m', $pdtime), date('d', $pdtime)+40, date('Y', $pdtime)));
+                        $project->willpass = date('Y-m-d', \mktime(0, 0, 0, date('m', $pdtime), date('d', $pdtime)+$project->period_2r, date('Y', $pdtime)));
                     }
+                    $project->willclose = date('Y-m-d', \mktime(0, 0, 0, date('m', $ptime), date('d', $ptime)+($project->period_1r+$project->period_2r), date('Y', $ptime)));
                 }
 
                 //-----------------------------------------------------------------
@@ -486,20 +494,22 @@ namespace Goteo\Model {
         /*
          *  Para calcular los dias y la ronda
          */
+        // todo 日付関係
         private function setDays() {
             //para proyectos en campaña o posterior
+            $this->getDays();
             if ($this->status > 2) {
                 // tiempo de campaña
                 if ($this->status == 3) {
                     $days = $this->daysActive();
-                    if ($days > 81) {
+                    if ($days > ($this->period_1r + $this->period_2r + 1)) {
                         $this->round = 0;
                         $days = 0;
-                    } elseif ($days >= 40) {
-                        $days = 80 - $days;
+                    } elseif ($days >= $this->period_1r) {
+                        $days = ($this->period_1r + $this->period_2r) - $days;
                         $this->round = 2;
                     } else {
-                        $days = 40 - $days;
+                        $days = $this->period_1r - $days;
                         $this->round = 1;
                     }
 
@@ -522,6 +532,19 @@ namespace Goteo\Model {
                 self::query("UPDATE project SET days = '{$days}' WHERE id = ?", array($this->id));
             }
             $this->days = $days;
+        }
+
+        private function getDays() {
+            try {
+                $sql = "SELECT period_1r, period_2r FROM project WHERE id = :id";
+                $query = self::query($sql, array(':id'=>$this->id));
+                foreach ($query->fetchAll(\PDO::FETCH_CLASS) as $items) {
+                    $this->period_1r = $items->period_1r;
+                    $this->period_2r = $items->period_2r;
+                }
+            } catch(\PDOException $e) {
+                throw new \Goteo\Core\Exception($e->getMessage());
+            }
         }
 
         /*
@@ -1433,6 +1456,7 @@ namespace Goteo\Model {
         /*
          * actualizar progreso segun score y max
          */
+        // todo 日付関係
         public function setProgress () {
             // Cálculo del % de progreso
             $progress = 100 * $this->score / $this->max;
@@ -1442,7 +1466,7 @@ namespace Goteo\Model {
             if ($progress < 0)   $progress = 0;
 
             if ($this->status == 1 && 
-                $progress >= 80 &&
+                $progress >= ($this->period_1r + $this->period_2r) &&
                 \array_empty($this->errors)
                 ) {
                 $this->finishable = true;
@@ -1493,7 +1517,9 @@ namespace Goteo\Model {
         public function publish(&$errors = array()) {
 			try {
 				$sql = "UPDATE project SET passed = NULL, status = :status, published = :published WHERE id = :id";
+//                $sql = "UPDATE project SET passed = NULL, status = :status, published = :published, period_1r = :period_1r, period_2r = :period_2r WHERE id = :id";
 				self::query($sql, array(':status'=>3, ':published'=>date('Y-m-d'), ':id'=>$this->id));
+//                self::query($sql, array(':status'=>3, ':published'=>date('Y-m-d'), ':id'=>$this->id, ':period_1r'=>$this->period_1r, ':period_2r'=>$this->period_2r));
 
                 // borramos mensajes anteriores que sean de colaboraciones
                 self::query("DELETE FROM message WHERE id IN (SELECT thread FROM support WHERE project = ?)", array($this->id));
@@ -1850,6 +1876,7 @@ namespace Goteo\Model {
          *
          * @return numeric days remaining to go
          */
+        // todo 日付関係
         public function daysRemain($id) {
             // primero, días desde el published
             $now_local = $this->localNow();
@@ -1861,10 +1888,10 @@ namespace Goteo\Model {
             $days = $query->fetchColumn(0);
             $days--;
 
-            if ($days > 40) {
-                $rest = 80 - $days; //en segunda ronda
+            if ($days > $this->period_1r) {
+                $rest = ($this->period_1r + $this->period_2r) - $days; //en segunda ronda
             } else {
-                $rest = 40 - $days; // en primera ronda
+                $rest = $this->period_1r - $days; // en primera ronda
             }
 
             return $rest;
@@ -2171,7 +2198,8 @@ namespace Goteo\Model {
             $projects = array();
 
             $now_local = static::localNow();
-
+            // 終了まで 35 or 75 日以上のプロジェクトのみアクティブと判断される？
+            /*
             $sql = "
                 SELECT project.id as id
                 FROM  project
@@ -2187,7 +2215,23 @@ namespace Goteo\Model {
                     )
                 ORDER BY name ASC
             ";
-
+            */
+            // debug用
+            $sql = "
+                SELECT project.id as id
+                FROM  project
+                WHERE project.status = 3
+                AND (
+                    (DATE_FORMAT(from_unixtime(unix_timestamp('${now_local}') - unix_timestamp(published)), '%j') >= (period_1r - 5)
+                        AND (passed IS NULL OR passed = '0000-00-00')
+                        )
+                    OR
+                    (DATE_FORMAT(from_unixtime(unix_timestamp('${now_local}') - unix_timestamp(published)), '%j') >= (period_2r - 5)
+                        AND (success IS NULL OR success = '0000-00-00')
+                        )
+                    )
+                ORDER BY name ASC
+            ";
             $query = self::query($sql);
             foreach ($query->fetchAll(\PDO::FETCH_OBJ) as $proj) {
                 $projects[] = self::get($proj->id);

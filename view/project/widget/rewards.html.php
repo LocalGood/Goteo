@@ -59,19 +59,17 @@ uasort($project->individual_rewards,
                             <?/*<div class="title">*/?>
                             <div class="amount"><?php echo Text::get('regular-investing'); ?> <span><?php echo \amount_format($individual->amount); ?>円</span></div>
                             <h<?php echo $level + 3 ?> class="name"><a href="/project/<?php echo $project->id; ?>/rewards#<? echo 'individual_num' . $count; ?>"><?php echo htmlspecialchars($individual->reward) ?></a></h<?php echo $level + 3 ?>>
+                            <?php if (!empty($individual->units)):
+                                $units = ($individual->units - $individual->taken);
+                                ?>
+                            <p class="remain"><strong><?php echo Text::get('project-rewards-individual_reward-limited'); ?> <?php echo $units; ?></strong></p>
+                            <?php endif; ?>
                             <?/*</div>*/?>
                             <p><?php echo nl2br(htmlspecialchars($individual->description))?></p>
 
                             <div class="buttons">
                                 <a class="button violet supportit" href="/project/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it'); ?></a>
                             </div>
-                            <?/*php if (!empty($individual->units)) : ?>
-                    <strong><?php echo Text::get('project-rewards-individual_reward-limited'); ?></strong><br />
-                    <?php $units = ($individual->units - $individual->taken);
-                    echo Text::html('project-rewards-individual_reward-units_left', $units); ?><br />
-                <?php endif; ?>
-                <div class="investors"><span class="taken"><?php echo $individual->taken; ?></span><?php echo Text::get('project-view-metter-investors'); ?></div>
-*/?>
                         </li>
                         <? $count++; ?>
                     <?php endforeach ?>

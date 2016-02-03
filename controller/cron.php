@@ -37,6 +37,9 @@ namespace Goteo\Controller {
         /*
          *  Proceso que ejecuta los cargos, cambia estados, lanza eventos de cambio de ronda
          */
+        /**
+         * @throws \Goteo\Core\Exception
+         */
         public function execute () {
 
             if (!\defined('CRON_EXEC')) {
@@ -89,6 +92,10 @@ namespace Goteo\Controller {
             if ($debug) echo 'Comenzamos con los proyectos en campaña (esto está en '.\LANG.')<br /><br />';
 
             foreach ($projects as $project) {
+
+                // プロジェクト期間取得
+                // $days1r = 1r (passed - published)
+                // $days2r = 2r (success - passed)
 
                 if ($debug) echo 'Proyecto '.$project->name.'<br />';
 
@@ -153,6 +160,12 @@ namespace Goteo\Controller {
 
                 // los dias que lleva el proyecto  (ojo que los financiados llevaran mas de 80 dias)
                 $days = $project->daysActive();
+
+                // デフォルト値は1R、2Rともに40日
+                $period_1r = !empty($project->period_1r) ? $project->period_1r : 40;
+                $period_2r = !empty($project->period_2r) ? $project->period_2r : 40;
+                $period_total = $period_1r + $period_2r;
+
                 if ($debug) echo 'Lleva '.$days.'  dias desde la publicacion<br />';
 
                 /* Verificar si enviamos aviso */
@@ -190,7 +203,7 @@ namespace Goteo\Controller {
                 // si ha llegado a los 40 dias: mínimo-> ejecutar ; no minimo proyecto y todos los preapprovals cancelados
                 // (Funded at 80 or canceled if the 40 does not reach the minimum) 
                 // If it has reached 40 days: minimum-> execute; no minimum project and canceled all preapprovals
-                if ($days >= 40) {
+                if ($days >= $period_1r) {
                     // si no ha alcanzado el mínimo, pasa a estado caducado
                     // If you have not reached the minimum, goes into Expired
                     if ($project->amount < $project->mincost) {
@@ -244,7 +257,7 @@ namespace Goteo\Controller {
                     } else {
                         // tiene hasta 80 días para conseguir el óptimo (o más)
                         // Has up to 80 days for optimum (or more)
-                        if ($days >= 80) {
+                        if ($days >= $period_total) {
                             if ($debug) echo 'Ha llegado a los 80 dias de campaña (final de segunda ronda)<br />';
 
                             echo $project->name . ': ha recaudado ' . $project->amount . ', '.$per_amount.'% de ' . $project->mincost . '/' . $project->maxcost . '<br />';

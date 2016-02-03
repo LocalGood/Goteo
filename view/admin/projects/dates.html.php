@@ -36,39 +36,59 @@ if (!$project instanceof Model\Project) {
 
 $elements = array(
     'created' => array(
-        'type'      => 'datebox',
+        'type'      => 'textbox',
         'title'     => Text::_('Fecha de creación'),
-        'value'     => !empty($project->created) ? $project->created : null
+        'value'     => !empty($project->created) ? $project->created : null,
+        'readonly'  => 'true',
+        'class'     => 'readonly'
     ),
     'updated' => array(
-        'type'      => 'datebox',
+        'type'      => 'textbox',
         'title'     => Text::_('Fecha de enviado a revisión'),
-        'value'     => !empty($project->updated) ? $project->updated : null
+        'value'     => !empty($project->updated) ? $project->updated : null,
+        'readonly'  => 'true',
+        'class'     => 'readonly'
     ),
     'published' => array(
-        'type'      => 'datebox',
+        'type'      => 'textbox',
         'title'     => Text::_('Fecha de inicio de campaña'),
-        'subtitle'  => Text::_('(Segun esta fecha se calculan los días)'),
-        'value'     => !empty($project->published) ? $project->published : null
+        'value'     => !empty($project->published) ? $project->published : null,
+        'readonly'  => 'true',
+        'class'     => 'readonly'
     ),
-    'success' => array(
-        'type'      => 'datebox',
-        'title'     => Text::_('Fecha de éxito'),
-        'subtitle'  => Text::_('(marca fin de segunda ronda)'),
-        'value'     => !empty($project->success) ? $project->success : null
+    'period_1r' => array(
+        'type'      => 'textbox',
+        'title'     => '1stラウンド期間',
+        'value'     => !empty($project->period_1r) ? $project->period_1r : null
     ),
-    'closed' => array(
-        'type'      => 'datebox',
-        'title'     => Text::_('Fecha de cierre'),
-        'value'     => !empty($project->closed) ? $project->closed : null
+    'period_2r' => array(
+        'type'      => 'textbox',
+        'title'     => '2ndラウンド期間',
+        'value'     => !empty($project->period_2r) ? $project->period_2r : null
     ),
     'passed' => array(
-        'type'      => 'datebox',
+        'type'      => 'textbox',
         'title'     => Text::_('Fecha de paso a segunda ronda'),
         'subtitle'  => Text::_('(marca fin de primera ronda)'),
-        'value'     => !empty($project->passed) ? $project->passed : null
+        'value'     => !empty($project->passed) ? $project->passed : null,
+        'readonly'  => 'true',
+        'class'     => 'readonly'
+    ),
+    'success' => array(
+        'type'      => 'textbox',
+        'title'     => Text::_('Fecha de éxito'),
+        'subtitle'  => Text::_('(marca fin de segunda ronda)'),
+        'value'     => !empty($project->success) ? $project->success : null,
+        'readonly'  => 'true',
+        'class'     => 'readonly'
+    ),
+    'closed' => array(
+        'type'      => 'textbox',
+        'title'     => Text::_('Fecha de cierre'),
+        'value'     => !empty($project->closed) ? $project->closed : null,
+        'readonly'  => 'true',
+        'class'     => 'readonly'
     )
-
 );
 ?>
 <div class="widget">
@@ -84,7 +104,7 @@ $elements = array(
 
 </p>
 
-    <p><?php echo Text::_('Cambiar las fechas puede causar cambios en los días de campaña del proyecto.'); ?></p>
+    <p><?php // echo Text::_('Cambiar las fechas puede causar cambios en los días de campaña del proyecto.'); ?></p>
 
     <form method="post" action="/admin/projects" >
         <input type="hidden" name="id" value="<?php echo $project->id ?>" />
@@ -92,7 +112,19 @@ $elements = array(
 <?php foreach ($elements as $id=>$element) : ?>
     <div id="<?php echo $id ?>">
         <h4><?php echo $element['title'] ?>:</h4>
-        <?php echo new View('library/superform/view/element/datebox.html.php', array('value'=>$element['value'], 'id'=>$id, 'name'=>$id)); ?>
+        <?php
+        $param = array('value'=>$element['value'], 'id'=>$id, 'name'=>$id);
+        if (isset($element['disabled'])){
+            $param['disabled'] = $element['disabled'];
+        }
+        if (isset($element['readonly'])){
+            $param['readonly'] = $element['readonly'];
+        }
+        if (isset($element['class'])){
+            $param['class'] = $element['class'];
+        }
+        ?>
+        <?php echo new View('library/superform/view/element/' . $element['type'] .'.html.php', $param); ?>
         <?php if (!empty($element['subtitle'])) echo $element['subtitle'].'<br />'; ?>
     </div>
         <br />

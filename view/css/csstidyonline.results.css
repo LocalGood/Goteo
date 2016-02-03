@@ -52,6 +52,10 @@ body.admin fieldset {
 	padding: 0;
 }
 
+body.admin input[type="text"].readonly {
+	color:#ccc;
+}
+
 fieldset {
 	display: inline-block;
 	background: transparent;
@@ -7666,6 +7670,16 @@ div.widget.project-rewards ul li > .name,
 	font-size: 13px;
 	font-weight: bold;
 	text-transform: none;
+}
+
+#rewards-summary ul li > .remain {
+	color:#008a00;
+	margin-bottom: 8px;
+}
+
+div.widget.project-rewards ul li > .remain {
+	padding-left: 42px;
+	color:#008a00;
 }
 
 div.center.rewards #rewards-summary ul li > .name {

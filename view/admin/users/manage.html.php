@@ -23,6 +23,7 @@ use Goteo\Library\Text;
 $user = $this['user'];
 $roles = $this['roles'];
 $langs = $this['langs'];
+$userPersonal = $this['user_personal'];
 ?>
 <div class="widget">
     <table>
@@ -33,6 +34,10 @@ $langs = $this['langs'];
         <tr>
             <td><?php echo Text::_('User ID'); ?></td>
             <td><strong><?php echo $user->id ?></strong></td>
+        </tr>
+        <tr>
+            <td>氏名（本名）</td>
+            <td><strong><?php echo $userPersonal->contract_name ?></strong></td>
         </tr>
         <tr>
             <td><?php echo Text::_('Email'); ?></td>

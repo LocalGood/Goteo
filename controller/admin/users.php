@@ -215,6 +215,7 @@ namespace Goteo\Controller\Admin {
                     break;
                 case 'manage':
                     $user = Model\User::get($id);
+                    $userPersonal = Model\User::getPersonal($id);
 
                     // si llega post: ejecutamos + mensaje + seguimos editando
 
@@ -312,6 +313,7 @@ namespace Goteo\Controller\Admin {
                             'folder' => 'users',
                             'file' => 'manage',
                             'user'=>$user,
+                            'user_personal' => $userPersonal,
                             'nodes'=>$nodes
                         );
 

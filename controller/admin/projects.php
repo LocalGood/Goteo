@@ -56,7 +56,9 @@ namespace Goteo\Controller\Admin {
                         'published',
                         'success',
                         'closed',
-                        'passed'
+                        'passed',
+                        'period_1r',
+                        'period_2r'
                         );
 
                     $set = '';

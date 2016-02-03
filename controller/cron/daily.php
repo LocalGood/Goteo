@@ -40,7 +40,7 @@ namespace Goteo\Controller\Cron {
             foreach ($projects as $project) {
                 
                 // por ahora solo tratamos los de primera ronda y hasta 2 meses tras la financiación
-                if ($project->days > 40 || $project->days > 360) continue;
+                if ($project->days > $project->period_1r || $project->days > 360) continue;
 
                 if ($debug) echo "Proyecto {$project->name}, Impulsor:  {$project->user->name}, email: {$project->user->email}, estado {$project->status}, lleva {$project->days} dias<br />";
                 
