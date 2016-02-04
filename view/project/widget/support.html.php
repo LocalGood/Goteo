@@ -69,7 +69,7 @@ $week = array('日','月','火','水','木','金','土');
     if ($project->status == 3) {
 
         $published = date('Y年n月j日', strtotime($project->published));
-        $willclose = date('Y年n月j日', strtotime($project->willclose));
+        $willclose = date('Y年n月j日', strtotime("-1 minute",strtotime($project->willclose)));
 
         if (($project->round) == 1) {
             $willpass = date('Y年n月j日', strtotime($project->willpass));
