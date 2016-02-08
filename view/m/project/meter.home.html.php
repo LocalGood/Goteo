@@ -121,13 +121,31 @@ $minimum_ratio =  min(100, round(($minimum / $optimum) * 100));
             <span class="percent"><?php echo number_format($minimum_done_per) ?>%</span>
         </div>
         <?php endif; ?>
-
-    <?php /*
-    // si en estado 3 ha alcanzado el optimo o segunda ronda, "aun puedes seguir aportando" junto al quedan tantos días
-    if ($project->status == 3 && ($project->round == 2  || $project->amount >= $project->maxcost || ($project->round == 1  && $project->amount >= $project->mincost) )) : ?>
-        <div class="keepiton"><?php echo Text::get('regular-keepiton') ?></div>
-    <?php endif; */ ?>
-
-    </div>
 </div>
+
+    <?php
+    if ($project->status == 3) {
+
+        $published = date('Y年n月j日', strtotime($project->published));
+        $willclose = date('Y年n月j日', strtotime("-1 minute",strtotime($project->willclose)));
+
+        if (($project->round) == 1) {
+            $willpass = date('Y年n月j日', strtotime($project->willpass));
+            $until = date('Y年n月j日', strtotime("-1 minute",strtotime($project->willpass)));
+        } else {
+            $willpass = date('Y年n月j日', strtotime($project->passed));
+            $until = date('Y年n月j日', strtotime("-1 minute",strtotime($project->passed)));
+        }
+        $period_1r = $project->period_1r;
+        $period_2r = $project->period_2r;
+
+        ?>
+        <div class="invest-notice">
+            このプロジェクトの挑戦期間は、1stラウンド <?php echo $published; ?>〜<?php echo $until; ?>23:59（<?php echo $project->period_1r; ?>日間）、2ndラウンド<?php echo $willpass; ?>〜<?php echo $willclose; ?>23:59（<?php echo $project->period_2r; ?>日間）です
+        </div>
+        <?php
+    } // if ($project->status == 3) {
+    ?>
+</div>
+
 </div>

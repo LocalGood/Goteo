@@ -11806,6 +11806,12 @@ body.discover div.widget.project div.meter dl dd {
     text-align: center;
 }
 
+body.project-show div.widget.project-support .invest-notice {
+    margin:5px 16px 0;
+    border:1px solid #ccc;
+    border-radius: 3px;
+    padding:4px;
+}
 
 /*----------------------------------------------------------------------
   goteo.css
