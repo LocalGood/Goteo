@@ -39,24 +39,21 @@ namespace Goteo\Library {
         static public function get ($id, $lang = \LANG) {
 
             // buscamos la página para este nodo en este idioma
-			$sql = "SELECT  template.id as id,
+            $sql = "SELECT  template.id as id,
                             template.group as `group`,
-                            IFNULL(template_lang.name, template.name) as name,
-                            IFNULL(template_lang.purpose, template.purpose) as purpose,
-                            IFNULL(template_lang.title, template.title) as title,
-                            IFNULL(template_lang.text, template.text) as text
+                            template.name as name,
+                            template.purpose as purpose,
+                            template.title as title,
+                            template.text as text
                      FROM template
-                     LEFT JOIN template_lang
-                        ON  template_lang.id = template.id
-                        AND template_lang.lang = :lang
                      WHERE template.id = :id
                 ";
 
-			$query = Model::query($sql, array(
-                                            ':id' => $id,
-                                            ':lang' => $lang
-                                        )
-                                    );
+            $query = Model::query($sql, array(
+                    ':id' => $id
+                )
+            );
+
 			$template = $query->fetchObject(__CLASS__);
             return $template;
 		}
@@ -82,17 +79,13 @@ namespace Goteo\Library {
                     $and = "AND";
                     $values[':name'] = "%{$filters['name']}%";
                 }
-                
                 $sql = "SELECT
                             template.id as id,
-                            IFNULL(template_lang.name, template.name) as name,
-                            IFNULL(template_lang.purpose, template.purpose) as purpose,
-                            IFNULL(template_lang.title, template.title) as title,
-                            IFNULL(template_lang.text, template.text) as text
+                            template.name as name,
+                            template.purpose as purpose,
+                            template.title as title,
+                            template.text as text
                         FROM template
-                        LEFT JOIN template_lang
-                            ON  template_lang.id = template.id
-                            AND template_lang.lang = :lang
                         $sqlFilter
                         ORDER BY name ASC
                         ";
@@ -177,8 +170,7 @@ namespace Goteo\Library {
 				if (Model::query($sql, $values)) {
                     return true;
                 } else {
-                                        $errors[] = Text::_("Ha fallado ") . $sql . Text::_('con') . " <pre>" . print_r($values, 1) . "</pre>";
-
+                    $errors[] = Text::_("Ha fallado ") . $sql . Text::_('con') . " <pre>" . print_r($values, 1) . "</pre>";
                     return false;
                 }
                 
