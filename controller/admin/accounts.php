@@ -468,7 +468,7 @@ namespace Goteo\Controller\Admin {
 
             // ejecutar cargo ahora!!, solo aportes no ejecutados
             // si esta pendiente, ejecutar el cargo ahora (como si fuera final de ronda), deja pendiente el pago secundario
-            if ($action == 'execute' && $invest->status == 0) {
+            if (($action == 'execute' && $invest->status == 0) || ($action == 'execute' && $invest->status == 5)) {
                 $invest = Model\Invest::get($id);
                 if (!$invest instanceof Model\Invest) {
                     Message::Error(Text::get('admin-error-invest-no_object').$id);
@@ -478,58 +478,15 @@ namespace Goteo\Controller\Admin {
                 $userData = Model\User::get($invest->user);
 
                 switch ($invest->method) {
-                    case 'paypal':
-                        // a ver si tiene cuenta paypal
-                        $projectAccount = Model\Project\Account::get($invest->project);
-
-                        if (empty($projectAccount->paypal)) {
-                            // Erroraco!
-                            $errors[] = Text::_('El proyecto no tiene cuenta paypal!!, ponersela en la seccion Contrato del dashboard del autor');
-                            $log_text = null;
-
-                            // Evento Feed
-                            $log = new Feed();
-                            $log->setTarget($project->id);
-                            $log->populate('proyecto sin cuenta paypal (admin)', '/admin/projects',
-                                \vsprintf('El proyecto %s aun no ha puesto su %s !!!', array(
-                                    Feed::item('project', $project->name, $project->id),
-                                    Feed::item('relevant', 'cuenta PayPal')
-                            )));
-                            $log->doAdmin('project');
-                            unset($log);
-
-                            break;
-                        }
-
-                        $invest->account = $projectAccount->paypal;
-                        if (Paypal::pay($invest, $errors)) {
-                            $errors[] = Text::_('Cargo paypal correcto');
-                            $log_text = Text::_("El admin %s ha ejecutado el cargo a %s por su aporte de %s mediante PayPal (id: %s) al proyecto %s del dia %s");
-                            $invest->status = 1;
-                            
-                            // si era incidencia la desmarcamos
+                    case 'axes':
+                        if ($invest->setPayment(date("YmdHis"))){
+                            $invest->setStatus(1);
+                            Model\Invest::setDetail($invest->id, 'executed', 'Preapproval has been executed, manually');
                             if ($invest->issue) {
                                 Model\Invest::unsetIssue($invest->id);
-                                Model\Invest::setDetail($invest->id, 'issue-solved', 'La incidencia se ha dado por resuelta al ejecutar el aporte manualmente por el admin ' . $_SESSION['user']->name);
+                                Model\Invest::setDetail($invest->id, 'issue-solved', 'The incidence has been resolved upon success by the manual process');
                             }
-                            
-                            
-                        } else {
-                            $txt_errors = implode('; ', $errors);
-                            $errors[] = Text::_('Fallo al ejecutar cargo paypal: ') . $txt_errors . '<strong>POSIBLE INCIDENCIA NO COMUNICADA Y APORTE NO CANCELADO, HAY QUE TRATARLA MANUALMENTE</strong>';
-                            $log_text = Text::_("El admin %s ha fallado al ejecutar el cargo a %s por su aporte de %s mediante PayPal (id: %s) al proyecto %s del dia %s. <br />Se han dado los siguientes errores:") . $txt_errors;
-                        }
-                        break;
-                    case 'tpv':
-                        if (Tpv::pay($invest, $errors)) {
-                            $errors[] = Text::_('Cargo sermepa correcto');
-                            $log_text = Text::_("El admin %s ha ejecutado el cargo a %s por su aporte de %s mediante TPV (id: %s) al proyecto %s del dia %s");
-                            $invest->status = 1;
-                        } else {
-                            $txt_errors = implode('; ', $errors);
-                            $errors[] = Text::_('Fallo al ejecutar cargo sermepa: ') . $txt_errors;
-                            $log_text = Text::_("El admin %s ha fallado al ejecutar el cargo a %s por su aporte de %s mediante TPV (id: %s) al proyecto %s del dia %s <br />Se han dado los siguientes errores:") . $txt_errors;
-                        }
+                        };
                         break;
                     case 'cash':
                         $invest->setStatus('1');
@@ -637,6 +594,11 @@ namespace Goteo\Controller\Admin {
                     )
                 );
             }
+
+            if($action == 'pay_failed'){
+                $invest = Model\Invest::get($id);
+                $invest->setStatus(5);
+            };
 
             // listado de aportes
             if ($filters['filtered'] == 'yes') {
