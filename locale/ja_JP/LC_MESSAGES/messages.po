@@ -2801,7 +2801,7 @@ msgstr "事前承認を実行しますか？"
 #: /Users/m454k1/Sites/lg_yokohama_goteo/view/admin/accounts/details.html.php:58
 #: /Users/m454k1/Sites/lg_yokohama_goteo/view/admin/invests/details.html.php:48
 msgid "Ejecutar cargo ahora"
-msgstr "手数料の実行をすぐにしてください"
+msgstr "決済完了に変更する"
 
 #: /Users/m454k1/Sites/lg_yokohama_goteo/view/admin/accounts/details.html.php:62
 #: /Users/m454k1/Sites/lg_yokohama_goteo/view/admin/invests/details.html.php:52
@@ -5227,7 +5227,7 @@ msgstr "このレビューを終了する"
 #~ msgstr "支援をオリジナルの状態に戻すことに失敗しました"
 
 #~ msgid "Reubicado"
-#~ msgstr "再配置された"
+#~ msgstr "決済失敗"
 
 #~ msgid "Paypal"
 #~ msgstr "Paypal"
