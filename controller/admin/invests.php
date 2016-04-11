@@ -54,13 +54,17 @@ namespace Goteo\Controller\Admin {
             );
 
             if($action == 'csv'){
-                $invest = Model\Invest::getPreapproval($id);
+                if (!empty($_GET) && $_GET['round']){
+                    $invest = Model\Invest::getPreapprovalByRound($id, $_GET['round']);
+                } else {
+                    $invest = Model\Invest::getPreapproval($id);
+                }
                 foreach ($invest as $value){
                     $csv[] = array($value->id,$value->amount);
                 }
                 $fileName = "axes_" . date("YmdHis") . ".csv";
 
-                header("Content-Disposition: attachment; filename=\"$filename\"");
+                header("Content-Disposition: attachment; filename=\"$fileName\"");
                 header("Content-type: application/octet-stream");
                 header("Pragma: no-cache");
                 header("Expires: 0");
@@ -69,9 +73,41 @@ namespace Goteo\Controller\Admin {
                 fclose($fp);
                 exit;
             }
+            // todo 要調査
             if ($action == 'dopay') {
-                $query = \Goteo\Core\Model::query("
-                    SELECT  *
+                if (!empty($_GET) && $_GET['round']){
+                    $sql = "SELECT invest.*, project.published, project.passed, project.success, project.closed
+                    FROM  invest
+                    INNER JOIN project ON invest.project = project.id
+                    WHERE   invest.project = ?
+                    AND     (invest.status = 0
+                        OR (invest.method = 'tpv'
+                            AND invest.status = 1
+                        )
+                        OR (invest.method = 'cash'
+                            AND invest.status = 1
+                        )
+                    )
+                    AND (invest.campaign IS NULL OR invest.campaign = 0)
+                    ";
+
+                    $round = $_GET['round'];
+                    switch ($round){
+                        case "willpass":
+                            $sql .= "AND invest.invested >= project.published AND invest.invested < project.passed";
+                            break;
+                        case "succeed":
+                            $sql .= "AND invest.invested >= project.passed AND invest.invested <= project.success";
+                            break;
+                        case "closed":
+                            $sql .= "AND invest.invested >= project.passed AND invest.invested <= project.closed";
+                            break;
+                        case "all":
+                            $sql .= "AND invest.invested >= project.published AND invest.invested <= project.closed";
+                            break;
+                    }
+                } else {
+                    $sql = "SELECT  *
                     FROM  invest
                     WHERE   invest.project = ?
                     AND     (invest.status = 0
@@ -83,7 +119,13 @@ namespace Goteo\Controller\Admin {
                         )
                     )
                     AND (invest.campaign IS NULL OR invest.campaign = 0)
-                    ", array($id));
+                    ";
+                }
+
+//                var_dump($sql);
+//                exit;
+
+                $query = \Goteo\Core\Model::query($sql, array($id));
                 $invests = $query->fetchAll(\PDO::FETCH_CLASS, '\Goteo\Model\Invest');
 
                 foreach ($invests as $key=>$invest) {

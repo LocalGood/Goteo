@@ -204,12 +204,18 @@ $pagedResults = new \Paginated($this['projects'], 10, isset($_GET['page']) ? $_G
             </tr>
             <tr>
                 <td colspan="7">
-                    <?php if (in_array($project->status,array(3,4))) : ?><a href="<?php echo "/admin/invests/csv/{$project->id}"; ?>">[AXES用の決済CSVをダウンロード]</a><?php endif; ?>
-                    <?php if (in_array($project->status,array(3,4))) : ?><a href="<?php echo "/admin/invests/dopay/{$project->id}"; ?>" onclick="return confirm('AXES用の決済CSVの処理後に実行してください。実行してよろしいですか？');">[AXES用の決済CSVの処理後に実行]</a><?php endif; ?>
+                    <?php
+//                    var_dump($project);
+                    ?>
+                    <?php if (in_array($project->status,array(3,4))) : ?><a href="<?php echo "/admin/invests/csv/{$project->id}"; ?>">[AXES用の決済CSVをダウンロード(すべて)]</a><?php endif; ?>
+                    <?php if (in_array($project->status,array(3,4)) && !empty($project->passed)) : ?><a href="<?php echo "/admin/invests/csv/{$project->id}?round=willpass"; ?>">[AXES用の決済CSVをダウンロード(1st Round)]</a><?php endif; ?>
+                    <?php if (in_array($project->status,array(3,4)) && !empty($project->passed) && !empty($project->success)) : ?><a href="<?php echo "/admin/invests/csv/{$project->id}?round=succeed"; ?>">[AXES用の決済CSVをダウンロード(2nd Round)]</a><?php endif; ?><br>
+                    <?php if (in_array($project->status,array(3,4))) : ?><a href="<?php echo "/admin/invests/dopay/{$project->id}"; ?>" onclick="return confirm('AXES用の決済CSVの処理後に実行してください。実行してよろしいですか？');">[AXES用の決済CSVの処理後に実行(すべて)]</a><?php endif; ?>
+                    <?php if (in_array($project->status,array(3,4)) && !empty($project->passed)) : ?><a href="<?php echo "/admin/invests/dopay/{$project->id}?round=willpass"; ?>" onclick="return confirm('AXES用の決済CSVの処理後に実行してください。実行してよろしいですか？');">[AXES用の決済CSVの処理後に実行(1st Round)]</a><?php endif; ?>
+                    <?php if (in_array($project->status,array(3,4)) && !empty($project->passed) && !empty($project->success)) : ?><a href="<?php echo "/admin/invests/dopay/{$project->id}?round=succeed"; ?>" onclick="return confirm('AXES用の決済CSVの処理後に実行してください。実行してよろしいですか？');">[AXES用の決済CSVの処理後に実行(2nd Round)]</a><?php endif; ?>
                 </td>
             </tr>
         </tbody>
-
     </table>
 </div>
 <?php endwhile; ?>

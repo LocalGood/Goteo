@@ -52,6 +52,19 @@ array_walk($rewards, function (&$reward) { $reward = $reward->reward; });
             class="button"><?php echo Text::_("Cancelar este aporte"); ?></a>&nbsp;&nbsp;&nbsp;
         <?php endif; ?>
 
+        <?php if ($invest->status == 1 && $invest->method == 'axes') : ?>
+            <a href="/admin/accounts/pay_failed/<?php echo $invest->id ?>"
+               onclick="return confirm('<?php echo "決済失敗に変更しますか？"; ?>');"
+               class="button"><?php echo "決済失敗に変更する"; ?></a>&nbsp;&nbsp;&nbsp;
+        <?php endif; ?>
+
+        <?php if (($invest->method == 'axes' && $invest->status == 0) || ($invest->method == 'axes' && $invest->status == 5)): ?>
+            <a href="/admin/accounts/execute/<?php echo $invest->id ?>"
+               onclick="return confirm('<?php echo Text::_("¿Seguro que quieres ejecutar ahora el cargo del preapproval?"); ?>');"
+               class="button"><?php echo Text::_("Ejecutar cargo ahora"); ?></a>
+        <?php endif; ?>
+
+        <?php /*
         <?php if ($invest->method == 'paypal' && $invest->status == 0) : ?>
         <a href="/admin/accounts/execute/<?php echo $invest->id ?>"
             onclick="return confirm('<?php echo Text::_("¿Seguro que quieres ejecutar ahora el cargo del preapproval?"); ?>');"
@@ -61,7 +74,7 @@ array_walk($rewards, function (&$reward) { $reward = $reward->reward; });
         <?php if ($invest->method != 'paypal' && $invest->status == 1) : ?>
         <a href="/admin/accounts/move/<?php echo $invest->id ?>" class="button"><?php echo Text::_("Reubicar este aporte"); ?></a>
         <?php endif; ?>
-
+        */ ?>
         <?php if (!$invest->resign && $invest->status == 1 && $invest->status == 3) : ?>
         <a href="/admin/accounts/resign/<?php echo $invest->id ?>/?token=<?php echo md5('resign'); ?>" class="button"><?php echo Text::_("Es donativo"); ?></a>
         <?php endif; ?>
