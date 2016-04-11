@@ -170,6 +170,41 @@ namespace Goteo\Model {
             return $invests;
         }
 
+        public static function getPreapprovalByRound ($project, $round) {
+
+            $sql = "
+                SELECT invest.*, project.published, project.passed, project.success, project.closed
+                FROM  invest
+                INNER JOIN project
+                ON invest.project = project.id
+                WHERE invest.project = ?
+                AND invest.status IN ('0')
+                AND invest.payment IS NULL
+                ";
+
+            switch ($round) {
+                case "willpass":
+                    $sql .= "AND invest.invested >= project.published AND invest.invested < project.passed";
+                    break;
+                case "succeed":
+                    $sql .= "AND invest.invested >= project.passed AND invest.invested <= project.success";
+                    break;
+                case "closed":
+                    $sql .= "AND invest.invested >= project.passed AND invest.invested <= project.closed";
+                    break;
+                case "all":
+                    $sql .= "AND invest.invested >= project.published AND invest.invested <= project.closed";
+                    break;
+            }
+
+            $invests = array();
+            $query = static::query($sql, array($project));
+            foreach ($query->fetchAll(\PDO::FETCH_CLASS, __CLASS__) as $invest) {
+                $invests[$invest->id] = $invest;
+            }
+
+            return $invests;
+        }
 
         /*
          * Lista de aportes individuales
@@ -1028,7 +1063,8 @@ namespace Goteo\Model {
                 2  => Text::_('Cancelado'),
                 3  => Text::_('Pagado al proyecto'),
                 4  => Text::_('Archivado (devuelto)'),
-                /*5  => Text::_('Reubicado')*/
+//                5  => Text::_('Reubicado')
+                5  => '決済失敗'
             );
 
             if (isset($id)) {

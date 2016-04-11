@@ -2426,7 +2426,7 @@ msgstr "プロジェクト不成立（未決済）"
 
 #: C:\Users\USER\PhpstormProjects\localgood_goteo/model/invest.php:1015
 msgid "Reubicado"
-msgstr "再配置された"
+msgstr "決済失敗"
 
 #: C:\Users\USER\PhpstormProjects\localgood_goteo/model/invest.php:1031
 msgid "Paypal"
@@ -2952,12 +2952,12 @@ msgstr "事前承認を実行しますか？"
 #: C:\Users\USER\PhpstormProjects\localgood_goteo/view/admin/accounts/details.html.php:56
 #: C:\Users\USER\PhpstormProjects\localgood_goteo/view/admin/invests/details.html.php:48
 msgid "Ejecutar cargo ahora"
-msgstr "手数料の実行をすぐにしてください"
+msgstr "決済完了に変更する"
 
 #: C:\Users\USER\PhpstormProjects\localgood_goteo/view/admin/accounts/details.html.php:60
 #: C:\Users\USER\PhpstormProjects\localgood_goteo/view/admin/invests/details.html.php:52
 msgid "Reubicar este aporte"
-msgstr "支援を再配置する"
+msgstr "決済失敗に変更する"
 
 #: C:\Users\USER\PhpstormProjects\localgood_goteo/view/admin/accounts/details.html.php:64
 msgid "Es donativo"
@@ -5209,6 +5209,38 @@ msgstr "レビュワーへのコメント: "
 #: C:\Users\USER\PhpstormProjects\localgood_goteo/view/review/reviews/summary.html.php:45
 msgid "Dar por terminada mi revisión"
 msgstr "このレビューを終了する"
+
+#, fuzzy
+#~ msgid ""
+#~ "Se ha cancelado aporte y preapproval de %s de %s mediante PayPal (id: %s) "
+#~ "al proyecto %s del dia %s"
+#~ msgstr ""
+#~ "Admin %s has cancelled the contribution and preapproval of %s of %s via "
+#~ "PayPal (id: %s) to project %s on date %s"
+
+#, fuzzy
+#~ msgid ""
+#~ "Ha fallado al cancelar el aporte de %s de %s mediante PayPal (id: %s) al "
+#~ "proyecto %s del dia %s. <br />Se han dado los siguientes errores:"
+#~ msgstr ""
+#~ "Admin %s has failed to cancel contribution %s for %s via PayPal (id: %s) "
+#~ "to project %s on date %s. <br/>Has the following errors:"
+
+#~ msgid "A fallado al cambiar el estado del aporte original"
+#~ msgstr "支援をオリジナルの状態に戻すことに失敗しました"
+
+#~ msgid "Reubicado"
+#~ msgstr "決済失敗"
+
+#~ msgid "Paypal"
+#~ msgstr "Paypal"
+
+#~ msgid ""
+#~ "Seguro que deseas cambiarle el estado a este aporte?, esto es delicado"
+#~ msgstr "本当に変更しますか？"
+
+#~ msgid "Cambiarle el estado"
+#~ msgstr "状態を変更する"
 
 #~ msgid "Filtros"
 #~ msgstr "フィルター"
