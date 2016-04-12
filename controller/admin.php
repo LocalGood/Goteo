@@ -644,12 +644,12 @@ namespace Goteo\Controller {
                                 'rewards' => $options['rewards'],
                             )
                         ),
-                        'invests' => array(
-                            'label' => $labels['invests'],
-                            'options' => array(
-                                'invests' => $options['invests']
-                            )
-                        ),
+//                        'invests' => array(
+//                            'label' => $labels['invests'],
+//                            'options' => array(
+//                                'invests' => $options['invests']
+//                            )
+//                        ),
                         'users' => array(
                             'label' => $labels['users'],
                             'options' => array(
