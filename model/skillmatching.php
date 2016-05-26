@@ -176,7 +176,7 @@ namespace Goteo\Model {
                 return false;
             }
             // cojemos el número de proyecto de este usuario
-            $query = self::query("SELECT COUNT(id) as num FROM project WHERE owner = ?", array($user));
+            $query = self::query("SELECT COUNT(id) as num FROM skillmatching WHERE owner = ?", array($user));
             if ($now = $query->fetchObject())
                 $num = $now->num + 1;
             else
@@ -223,7 +223,7 @@ namespace Goteo\Model {
                 $campos[] = \str_replace(':', '', $campo);
             }
 
-            $sql = "REPLACE INTO project (" . implode(',', $campos) . ")
+            $sql = "REPLACE INTO skillmatching (" . implode(',', $campos) . ")
                  VALUES (" . implode(',', \array_keys($values)) . ")";
             try {
 				self::query($sql, $values);
@@ -248,7 +248,7 @@ namespace Goteo\Model {
 
             try {
 				// metemos los datos del proyecto en la instancia
-				$query = self::query("SELECT * FROM project WHERE id = ?", array(urldecode($id)));
+				$query = self::query("SELECT * FROM skillmatching WHERE id = ?", array(urldecode($id)));
 				$skillmatching = $query->fetchObject(__CLASS__);
 
                 if (!$skillmatching instanceof \Goteo\Model\Skillmatching) {
@@ -330,7 +330,7 @@ namespace Goteo\Model {
 
                 $amount = Invest::invested($id);
                 if ($skillmatching->invested != $amount) {
-                    self::query("UPDATE project SET amount = '{$amount}' WHERE id = ?", array($id));
+                    self::query("UPDATE skillmatching SET amount = '{$amount}' WHERE id = ?", array($id));
                 }
                 $skillmatching->invested = $amount;
                 $skillmatching->amount   = $amount;
@@ -381,7 +381,7 @@ namespace Goteo\Model {
 
             try {
 				// metemos los datos del proyecto en la instancia
-				$query = self::query("SELECT id, name, owner, comment, lang, status FROM project WHERE id = ?", array($id));
+				$query = self::query("SELECT id, name, owner, comment, lang, status FROM skillmatching WHERE id = ?", array($id));
 				$skillmatching = $query->fetchObject(); // stdClass para qno grabar accidentalmente y machacar todo
 
                 // owner
@@ -401,7 +401,7 @@ namespace Goteo\Model {
 
             try {
 				// metemos los datos del proyecto en la instancia
-				$query = self::query("SELECT * FROM project WHERE id = ?", array($id));
+				$query = self::query("SELECT * FROM skillmatching WHERE id = ?", array($id));
 				$skillmatching = $query->fetchObject(__CLASS__);
 
                 // primero, que no lo grabe
@@ -528,14 +528,14 @@ namespace Goteo\Model {
             }
 
             if ($this->days != $days) {
-                self::query("UPDATE project SET days = '{$days}' WHERE id = ?", array($this->id));
+                self::query("UPDATE skillmatching SET days = '{$days}' WHERE id = ?", array($this->id));
             }
             $this->days = $days;
         }
 
         private function getDays() {
             try {
-                $sql = "SELECT period_1r, period_2r FROM project WHERE id = :id";
+                $sql = "SELECT period_1r, period_2r FROM skillmatching WHERE id = :id";
                 $query = self::query($sql, array(':id'=>$this->id));
                 foreach ($query->fetchAll(\PDO::FETCH_CLASS) as $items) {
                     $this->period_1r = $items->period_1r;
@@ -691,7 +691,7 @@ namespace Goteo\Model {
 //				$values[':updated'] = date('Y-m-d');
 				$values[':id'] = $this->id;
 
-				$sql = "UPDATE project SET " . $set . " WHERE id = :id";
+				$sql = "UPDATE skillmatching SET " . $set . " WHERE id = :id";
 				if (!self::query($sql, $values)) {
                     $errors[] = $sql . '<pre>' . print_r($values, 1) . '</pre>';
                     $fail = true;
@@ -1472,7 +1472,7 @@ namespace Goteo\Model {
             }
             $this->progress = $progress;
             // actualizar el registro
-            self::query("UPDATE project SET progress = :progress WHERE id = :id",
+            self::query("UPDATE skillmatching SET progress = :progress WHERE id = :id",
                 array(':progress'=>$this->progress, ':id'=>$this->id));
         }
 
@@ -1485,7 +1485,7 @@ namespace Goteo\Model {
 			try {
 				$this->rebase();
 
-                $sql = "UPDATE project SET status = :status, updated = :updated WHERE id = :id";
+                $sql = "UPDATE skillmatching SET status = :status, updated = :updated WHERE id = :id";
                 self::query($sql, array(':status'=>2, ':updated'=>date('Y-m-d'), ':id'=>$this->id));
                 
                 return true;
@@ -1501,7 +1501,7 @@ namespace Goteo\Model {
          */
         public function enable(&$errors = array()) {
 			try {
-				$sql = "UPDATE project SET status = :status WHERE id = :id";
+				$sql = "UPDATE skillmatching SET status = :status WHERE id = :id";
 				self::query($sql, array(':status'=>1, ':id'=>$this->id));
                 return true;
             } catch (\PDOException $e) {
@@ -1515,8 +1515,8 @@ namespace Goteo\Model {
          */
         public function publish(&$errors = array()) {
 			try {
-				$sql = "UPDATE project SET passed = NULL, status = :status, published = :published WHERE id = :id";
-//                $sql = "UPDATE project SET passed = NULL, status = :status, published = :published, period_1r = :period_1r, period_2r = :period_2r WHERE id = :id";
+				$sql = "UPDATE skillmatching SET passed = NULL, status = :status, published = :published WHERE id = :id";
+//                $sql = "UPDATE skillmatching SET passed = NULL, status = :status, published = :published, period_1r = :period_1r, period_2r = :period_2r WHERE id = :id";
 				self::query($sql, array(':status'=>3, ':published'=>date('Y-m-d'), ':id'=>$this->id));
 //                self::query($sql, array(':status'=>3, ':published'=>date('Y-m-d'), ':id'=>$this->id, ':period_1r'=>$this->period_1r, ':period_2r'=>$this->period_2r));
 
@@ -1552,7 +1552,7 @@ namespace Goteo\Model {
          */
         public function cancel(&$errors = array()) {
 			try {
-				$sql = "UPDATE project SET status = :status, closed = :closed WHERE id = :id";
+				$sql = "UPDATE skillmatching SET status = :status, closed = :closed WHERE id = :id";
 				self::query($sql, array(':status'=>0, ':closed'=>date('Y-m-d'), ':id'=>$this->id));
                 return true;
             } catch (\PDOException $e) {
@@ -1566,7 +1566,7 @@ namespace Goteo\Model {
          */
         public function fail(&$errors = array()) {
 			try {
-				$sql = "UPDATE project SET status = :status, closed = :closed WHERE id = :id";
+				$sql = "UPDATE skillmatching SET status = :status, closed = :closed WHERE id = :id";
 				self::query($sql, array(':status'=>6, ':closed'=>date('Y-m-d'), ':id'=>$this->id));
                 return true;
             } catch (\PDOException $e) {
@@ -1580,7 +1580,7 @@ namespace Goteo\Model {
          */
         public function succeed(&$errors = array()) {
 			try {
-				$sql = "UPDATE project SET status = :status, success = :success WHERE id = :id";
+				$sql = "UPDATE skillmatching SET status = :status, success = :success WHERE id = :id";
 				self::query($sql, array(':status'=>4, ':success'=>date('Y-m-d'), ':id'=>$this->id));
                 return true;
             } catch (\PDOException $e) {
@@ -1594,7 +1594,7 @@ namespace Goteo\Model {
          */
         public function passed(&$errors = array()) {
 			try {
-				$sql = "UPDATE project SET passed = :passed WHERE id = :id";
+				$sql = "UPDATE skillmatching SET passed = :passed WHERE id = :id";
 				self::query($sql, array(':passed'=>date('Y-m-d'), ':id'=>$this->id));
                 return true;
             } catch (\PDOException $e) {
@@ -1608,7 +1608,7 @@ namespace Goteo\Model {
          */
         public function satisfied(&$errors = array()) {
 			try {
-				$sql = "UPDATE project SET status = :status WHERE id = :id";
+				$sql = "UPDATE skillmatching SET status = :status WHERE id = :id";
 				self::query($sql, array(':status'=>5, ':id'=>$this->id));
                 return true;
             } catch (\PDOException $e) {
@@ -1622,7 +1622,7 @@ namespace Goteo\Model {
          */
         public function rollback(&$errors = array()) {
 			try {
-				$sql = "UPDATE project SET status = :status WHERE id = :id";
+				$sql = "UPDATE skillmatching SET status = :status WHERE id = :id";
 				self::query($sql, array(':status'=>4, ':id'=>$this->id));
                 return true;
             } catch (\PDOException $e) {
@@ -1657,7 +1657,7 @@ namespace Goteo\Model {
                 self::query("DELETE FROM project_account WHERE project = ?", array($this->id));
                 self::query("DELETE FROM review WHERE project = ?", array($this->id));
                 self::query("DELETE FROM project_lang WHERE id = ?", array($this->id));
-                self::query("DELETE FROM project WHERE id = ?", array($this->id));
+                self::query("DELETE FROM skillmatching WHERE id = ?", array($this->id));
                 // y los permisos
                 self::query("DELETE FROM acl WHERE url like ?", array('%'.$this->id.'%'));
                 // si todo va bien, commit y cambio el id de la instancia
@@ -1665,7 +1665,7 @@ namespace Goteo\Model {
                 return true;
             } catch (\PDOException $e) {
                 self::query("ROLLBACK");
-				$sql = "UPDATE project SET status = :status WHERE id = :id";
+				$sql = "UPDATE skillmatching SET status = :status WHERE id = :id";
 				self::query($sql, array(':status'=>0, ':id'=>$this->id));
                 $errors[] = Text::_("Fallo en la transaccion, el proyecto ha quedado como descartado");
                 return false;
@@ -1699,7 +1699,7 @@ namespace Goteo\Model {
                             self::query("UPDATE review SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
                             self::query("UPDATE project_lang SET id = :newid WHERE id = :id", array(':newid'=>$newid, ':id'=>$this->id));
                             self::query("UPDATE blog SET owner = :newid WHERE owner = :id AND type='project'", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE project SET id = :newid WHERE id = :id", array(':newid'=>$newid, ':id'=>$this->id));
+                            self::query("UPDATE skillmatching SET id = :newid WHERE id = :id", array(':newid'=>$newid, ':id'=>$this->id));
                             // borro los permisos, el dashboard los creará de nuevo
                             self::query("DELETE FROM acl WHERE url like ?", array('%'.$this->id.'%'));
 
@@ -1775,7 +1775,7 @@ namespace Goteo\Model {
                             self::query("UPDATE promote SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
                             self::query("UPDATE patron SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
                             self::query("UPDATE invest SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE project SET id = :newid WHERE id = :id", array(':newid'=>$newid, ':id'=>$this->id));
+                            self::query("UPDATE skillmatching SET id = :newid WHERE id = :id", array(':newid'=>$newid, ':id'=>$this->id));
 
 
                             // si todo va bien, commit y cambio el id de la instancia
@@ -1813,7 +1813,7 @@ namespace Goteo\Model {
         public static function checkId($id, $num = 1) {
             try
             {
-                $query = self::query("SELECT id FROM project WHERE id = :id", array(':id'=>$id));
+                $query = self::query("SELECT id FROM skillmatching WHERE id = :id", array(':id'=>$id));
                 $exist = $query->fetchObject();
                 // si  ya existe, cambiar las últimas letras por un número
                 if (!empty($exist->id)) {
@@ -1903,7 +1903,7 @@ namespace Goteo\Model {
         {
             $skillmatchings = array();
 
-            $sql = "SELECT * FROM project WHERE owner = ?";
+            $sql = "SELECT * FROM skillmatching WHERE owner = ?";
             if ($published) {
                 $sql .= " AND status > 2";
             } /* else {
@@ -1929,7 +1929,7 @@ namespace Goteo\Model {
 
             $skillmatchings = array();
             if (!empty($_skills)) {
-                $sql = "SELECT * FROM project WHERE status > 2";
+                $sql = "SELECT * FROM skillmatching WHERE status > 2";
 
                 $skills_str = implode(',', $_skills);
 
@@ -2052,19 +2052,19 @@ namespace Goteo\Model {
                     break;
                 case 'almost-fulfilled':
                     // para gestión de retornos
-                    $sql = "SELECT id, name FROM project WHERE status IN ('4','5') $sqlFilter ORDER BY name ASC";
+                    $sql = "SELECT id, name FROM skillmatching WHERE status IN ('4','5') $sqlFilter ORDER BY name ASC";
                     break;
                 case 'fulfilled':
                     // retorno cumplido
-                    $sql = "SELECT id, name FROM project WHERE status IN ('5') $sqlFilter ORDER BY name ASC";
+                    $sql = "SELECT id, name FROM skillmatching WHERE status IN ('5') $sqlFilter ORDER BY name ASC";
                     break;
                 case 'available':
                     // ni edicion ni revision ni cancelados, estan disponibles para verse publicamente
-                    $sql = "SELECT id, name FROM project WHERE status > 2 AND status < 6 $sqlFilter ORDER BY status ASC";
+                    $sql = "SELECT id, name FROM skillmatching WHERE status > 2 AND status < 6 $sqlFilter ORDER BY status ASC";
                     break;
                 case 'archive':
                     // caducados, financiados o casos de exito
-                    $sql = "SELECT id, name FROM project WHERE status = 6 $sqlFilter ORDER BY closed DESC";
+                    $sql = "SELECT id, name FROM skillmatching WHERE status = 6 $sqlFilter ORDER BY closed DESC";
                     break;
                 case 'others':
                     // todos los que estan 'en campaña', en otro nodo
@@ -2101,7 +2101,7 @@ namespace Goteo\Model {
                     break;
                 default: 
                     // todos los que estan 'en campaña', en cualquier nodo
-                    $sql = "SELECT id, name FROM project WHERE status = 3 ORDER BY name ASC";
+                    $sql = "SELECT id, name FROM skillmatching WHERE status = 3 ORDER BY name ASC";
             }
 
             // Limite
@@ -2141,7 +2141,7 @@ namespace Goteo\Model {
                 $sqlFilter = " WHERE skillmatching.status = 3 OR skillmatching.status = 4";
             }
 
-            $sql = "SELECT id, name FROM  project {$sqlFilter} ORDER BY name ASC";
+            $sql = "SELECT id, name FROM skillmatching {$sqlFilter} ORDER BY name ASC";
 
             $query = self::query($sql);
             foreach ($query->fetchAll(\PDO::FETCH_CLASS, __CLASS__) as $proj) {
@@ -2171,7 +2171,7 @@ namespace Goteo\Model {
             $sql = "SELECT 
                     id, status, 
                     DATE_FORMAT(from_unixtime(unix_timestamp('${now_local}') - unix_timestamp(published)), '%j') as dias
-                FROM  project 
+                FROM skillmatching 
                 WHERE status IN ('3', '4')
                 HAVING status = 3 OR (status = 4 AND  dias > 138)
                 ORDER BY days ASC";
@@ -2446,7 +2446,7 @@ namespace Goteo\Model {
          * Para saber si un usuario es el impulsor
          */
         public static function isMine($id, $user) {
-            $sql = "SELECT id, owner FROM project WHERE id = :id AND owner = :owner";
+            $sql = "SELECT id, owner FROM skillmatching WHERE id = :id AND owner = :owner";
             $values = array(
                 ':id' => $id,
                 ':owner' => $user
