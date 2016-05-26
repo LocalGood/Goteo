@@ -227,6 +227,21 @@ namespace Goteo\Controller {
                     ),
                     'filters' => array('status' => '-1', 'category' => '', 'skill' => '', 'proj_name' => '', 'name' => '', 'node' => '', 'called' => '', 'order' => '')
                 ),
+                'skillmatchings' => array(
+                    'label' => Text::_('Skillmatching'),
+                    'actions' => array(
+                        'list' => array('label' => Text::_('Listando'), 'item' => false),
+                        'dates' => array('label' => Text::_('Fechas del proyecto'), 'item' => true),
+                        'accounts' => array('label' => Text::_('Cuentas del proyecto'), 'item' => true),
+                        'images' => array('label' => Text::_('Imágenes del proyecto'), 'item' => true),
+                        'move' => array('label' => Text::_('Moviendo a otro Nodo el proyecto'), 'item' => true),
+                        'assign' => array('label' => Text::_('Asignando a una Convocatoria el proyecto'), 'item' => true),
+                        'report' => array('label' => Text::_('Informe Financiero del proyecto'), 'item' => true),
+                        'rebase' => array('label' => Text::_('Cambiando Id de proyecto'), 'item' => true),
+                        'images' => array('label' => Text::_('Organizar imágenes'), 'item' => true)
+                    ),
+                    'filters' => array('status' => '-1', 'category' => '', 'skill' => '', 'proj_name' => '', 'name' => '', 'node' => '', 'called' => '', 'order' => '')
+                ),
                 'promote' => array(
                     'label' => Text::_('Proyectos destacados'),
                     'actions' => array(
@@ -487,6 +502,7 @@ namespace Goteo\Controller {
                     $_SESSION['admin_filters'][$option][$field] = (string) $_GET[$field];
                     if (($option == 'reports' && $field == 'user')
                             || ($option == 'projects' && $field == 'user')
+                            || ($option == 'skillmatchings' && $field == 'user')
                             || ($option == 'users' && $field == 'name')
                             || ($option == 'accounts' && $field == 'name')
                             || ($option == 'rewards' && $field == 'name')) {
@@ -502,6 +518,12 @@ namespace Goteo\Controller {
                     // a ver si tenemos un filtro equivalente
                     switch ($option) {
                         case 'projects':
+                            if ($field == 'name' && !empty($_SESSION['admin_filters']['main']['user_name'])) {
+                                $filters['name'] = $_SESSION['admin_filters']['main']['user_name'];
+                                $filtered = true;
+                            }
+                            break;
+                        case 'skillmatchings':
                             if ($field == 'name' && !empty($_SESSION['admin_filters']['main']['user_name'])) {
                                 $filters['name'] = $_SESSION['admin_filters']['main']['user_name'];
                                 $filtered = true;
@@ -553,6 +575,7 @@ namespace Goteo\Controller {
             $labels = array();
             $labels['contents'] = Text::_('Contenidos');
             $labels['projects'] = Text::_('Proyectos');
+            $labels['skillmatchings'] = Text::_('Skillmatching');
             $labels['users'] = Text::_('Usuarios');
             $labels['home'] = Text::_('Portada');
             $labels['texts'] = Text::_('Textos y Traducciones');
@@ -588,6 +611,15 @@ namespace Goteo\Controller {
                             'label' => $labels['projects'],
                             'options' => array(
                                 'projects' => $options['projects'], // proyectos del nodo
+                                'reviews' => $options['reviews'], // revisiones de proyectos del nodo
+                                'translates' => $options['translates'], // traducciones de proyectos del nodo
+                                'invests' => $options['invests'], // gestión de aportes avanzada
+                            )
+                        ),
+                        'skillmatchings' => array(
+                            'label' => $labels['skillmatchings'],
+                            'options' => array(
+                                'skillmatchings' => $options['skillmatchings'], // proyectos del nodo
                                 'reviews' => $options['reviews'], // revisiones de proyectos del nodo
                                 'translates' => $options['translates'], // traducciones de proyectos del nodo
                                 'invests' => $options['invests'], // gestión de aportes avanzada
@@ -638,6 +670,16 @@ namespace Goteo\Controller {
                             'label' => $labels['projects'],
                             'options' => array(
                                 'projects' => $options['projects'],
+                                'accounts' => $options['accounts'],
+                                'reviews' => $options['reviews'],
+                                'translates' => $options['translates'],
+                                'rewards' => $options['rewards'],
+                            )
+                        ),
+                        'skillmatchings' => array(
+                            'label' => $labels['skillmatchings'],
+                            'options' => array(
+                                'skillmatchings' => $options['skillmatchings'],
                                 'accounts' => $options['accounts'],
                                 'reviews' => $options['reviews'],
                                 'translates' => $options['translates'],
