@@ -22,7 +22,7 @@ use Goteo\Core\View,
     Goteo\Library\Text,
     Goteo\Library\SuperForm;
 
-$project = $this['project'];
+$project = $this['skillmatching'];
 $types   = $this['types'];
 $errors = $project->errors ?: array();
 // miramos el pruimer paso con errores para mandarlo a ese
@@ -76,13 +76,13 @@ $elements      = array(
         'html'      =>   '<div class="project-preview" style="position: relative"><div>'
                        . '<div class="overlay" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; z-index: 999"></div>'
                        . '<div style="z-index: 0">'
-                       . new View('view/skillmatching/widget/support.html.php', array('project' => $project))
-                       . new View('view/skillmatching/widget/collaborations.html.php', array('project' => $project))
-                       . new View('view/skillmatching/widget/rewards.html.php', array('project' => $project))
+                       . new View('view/skillmatching/widget/support.html.php', array('skillmatching' => $project))
+                       . new View('view/skillmatching/widget/collaborations.html.php', array('skillmatching' => $project))
+                       . new View('view/skillmatching/widget/rewards.html.php', array('skillmatching' => $project))
                        . new View('view/user/widget/user.html.php', array('user' => $project->user))
-                       . new View('view/skillmatching/widget/summary.html.php', array('project' => $project))
-                       . new View('view/skillmatching/widget/needs.html.php', array('project' => $project, 'types' => $types))
-                       . new View('view/skillmatching/widget/schedule.html.php', array('project' => $project))
+                       . new View('view/skillmatching/widget/summary.html.php', array('skillmatching' => $project))
+                       . new View('view/skillmatching/widget/needs.html.php', array('skillmatching' => $project, 'types' => $types))
+                       . new View('view/skillmatching/widget/schedule.html.php', array('skillmatching' => $project))
                        . '</div>'
                        . '</div></div>'
     )
@@ -107,7 +107,7 @@ $elements['footer'] = array(
         'errors' => array(
             'title' => Text::get('form-footer-errors_title'),
             'view'  => new View('view/skillmatching/edit/errors.html.php', array(
-                'project'   => $project,
+                'skillmatching'   => $project,
                 'step'      => $this['step']
             ))                    
         ),

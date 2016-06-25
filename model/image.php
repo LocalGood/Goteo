@@ -35,7 +35,7 @@ namespace Goteo\Model {
             $dir_originals,
             $dir_cache;
 
-        public static $types = array('user','project', 'post', 'glossary', 'info');
+        public static $types = array('user','project', 'post', 'glossary', 'info','skillmatching');
 
         /**
          * Constructor.
@@ -310,12 +310,14 @@ die("test");
 
             $gallery = array();
 
-            $_which = "`" . GOTEO_DB_SCHEMA ."`." . $which;
+            $tbl = ( $which == 'skillmatching' ) ? 'project' : $which;
+
+            $_which = "`" . GOTEO_DB_SCHEMA ."`." . $tbl;
 
             $_id = $id;
             try {
-                $sql = "SELECT image FROM {$_which}_image WHERE {$which} = :id";
-                $sql .= ($which == 'project') ? " ORDER BY {$_which}_image.section ASC, `order` ASC, image DESC" : " ORDER BY image ASC";
+                $sql = "SELECT image FROM {$_which}_image WHERE {$tbl} = :id";
+                $sql .= ($tbl == 'project') ? " ORDER BY {$_which}_image.section ASC, `order` ASC, image DESC" : " ORDER BY image ASC";
                 $query = self::query($sql, array(':id' => $_id));
                 foreach ($query->fetchAll(\PDO::FETCH_ASSOC) as $image) {
                     $gallery[] = self::get($image['image']);

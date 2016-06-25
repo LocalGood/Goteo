@@ -22,7 +22,7 @@ use Goteo\Library\Text,
     Goteo\Core\View,
     Goteo\Model\Blog\Post;
 
-$project = $this['project'];
+$project = $this['skillmatching'];
 $evaluation = $this['evaluation'];
 
 ?>

@@ -187,7 +187,6 @@ $bodyClass = 'project-show'; include 'view/prologue.html.php' ?>
             <div class="center <?php echo $show; ?>">
 			<?php
                 // los modulos centrales son diferentes segun el show
-            var_dump($show);
                 switch ($show) {
                     case 'needs':
                         if ($this['non-economic']) {

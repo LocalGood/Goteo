@@ -76,7 +76,7 @@ namespace Goteo\Controller {
 
             // para que tenga todas las imágenes
             $skillmatching->gallery = Model\Image::getAll($id, 'skillmatching');
-            
+
             // aunque pueda acceder edit, no lo puede editar si
             if ($skillmatching->owner != $_SESSION['user']->id // no es su proyecto
                 && (isset($_SESSION['admin_node']) && $_SESSION['admin_node'] != \GOTEO_NODE) // es admin pero no es admin de central
@@ -94,7 +94,7 @@ namespace Goteo\Controller {
                      'userProfile'  => 'userProfile',
                      'userPersonal' => 'userPersonal',
                      'overview'     => 'overview',
-                     'costs'        => 'costs',
+//                     'costs'        => 'costs',
                      'rewards'      => 'rewards',
                      'supports'     => 'supports'
                 );
@@ -130,10 +130,10 @@ namespace Goteo\Controller {
                         'name' => Text::get('step-3'),
                         'title' => Text::get('step-overview')
                     ),
-                    'costs'=> array(
-                        'name' => Text::get('step-4'),
-                        'title' => Text::get('step-costs')
-                    ),
+//                    'costs'=> array(
+//                        'name' => Text::get('step-4'),
+//                        'title' => Text::get('step-costs')
+//                    ),
                     'rewards' => array(
                         'name' => Text::get('step-5'),
                         'title' => Text::get('step-rewards')
@@ -778,6 +778,7 @@ namespace Goteo\Controller {
             if (isset($_FILES['image_upload']) && $_FILES['image_upload']['error'] != UPLOAD_ERR_NO_FILE) {
                 $skillmatching->image = $_FILES['image_upload'];
             }
+//            var_dump($_FILES['image_upload']);
 
             // tratar las imagenes que quitan
             foreach ($skillmatching->gallery as $key=>$image) {
@@ -807,7 +808,7 @@ namespace Goteo\Controller {
             }
             $guarda = array_diff($viene, $tiene);
             foreach ($guarda as $key=>$cat) {
-                $category = new Model\Skillmatching\Category(array('id'=>$cat,'skillmatching'=>$skillmatching->id));
+                $category = new Model\Skillmatching\Category(array('id'=>$cat,'project'=>$skillmatching->id));
                 $skillmatching->categories[] = $category;
             }
 
@@ -924,7 +925,7 @@ namespace Goteo\Controller {
             if (!empty($_POST['individual_reward-add'])) {
                 $skillmatching->individual_rewards[] = new Model\Skillmatching\Reward(array(
                     'type'      => 'individual',
-                    'skillmatching'   => $skillmatching->id,
+                    'project'   => $skillmatching->id,
                     'reward'    => '',
                     'icon'      => '',
                     'amount'    => '',
@@ -935,7 +936,7 @@ namespace Goteo\Controller {
             if (!empty($_POST['social_reward-add'])) {
                 $skillmatching->social_rewards[] = new Model\Skillmatching\Reward(array(
                     'type'      => 'social',
-                    'skillmatching'   => $skillmatching->id,
+                    'project'   => $skillmatching->id,
                     'reward'    => '',
                     'icon'      => '',
                     'license'   => ''
@@ -954,7 +955,6 @@ namespace Goteo\Controller {
             if (!isset($_POST['process_supports'])) {
                 return false;
             }
-
             // tratar colaboraciones existentes
             foreach ($skillmatching->supports as $key => $support) {
                 
@@ -1004,7 +1004,7 @@ namespace Goteo\Controller {
             }
             $guarda = array_diff($viene, $tiene);
             foreach ($guarda as $key=>$cat) {
-                $skill = new Model\Skillmatching\Skill(array('id'=>$cat,'skillmatching'=>$skillmatching->id));
+                $skill = new Model\Skillmatching\Skill(array('id'=>$cat,'project'=>$skillmatching->id));
                 $skillmatching->skills[] = $skill;
             }
 
@@ -1018,7 +1018,7 @@ namespace Goteo\Controller {
             // añadir nueva colaboracion
             if (!empty($_POST['support-add'])) {
                 $skillmatching->supports[] = new Model\Skillmatching\Support(array(
-                    'skillmatching'       => $skillmatching->id,
+                    'project'       => $skillmatching->id,
                     'support'       => '',
                     'type'          => 'task',
                     'description'   => ''

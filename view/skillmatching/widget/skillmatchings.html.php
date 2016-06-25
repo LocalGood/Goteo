@@ -25,7 +25,7 @@ use Goteo\Core\View,
     Goteo\Model\Invest,
     Goteo\Model\Image;
 
-$project = $this['project'];
+$project = $this['skillmatching'];
 $level = $this['level'] ?: 3;
 
 if ($this['global'] === true) {
@@ -125,7 +125,7 @@ if (isset($this['investor']) && is_object($this['investor'])) {
         <? endif; ?>
 
     <div class="description"><?php echo Text::shorten(strip_tags($project->description), 50); ?></div>
-    <?php echo new View('view/skillmatching/meter_hor.html.php', array('project' => $project)) ?>
+    <?php echo new View('view/skillmatching/meter_hor.html.php', array('skillmatching' => $project)) ?>
 
     <div class="rewards">
         <h<?php echo $level + 1 ?>><?php echo Text::get('project-rewards-header'); ?></h<?php echo $level + 1?>>

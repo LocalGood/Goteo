@@ -29,6 +29,7 @@ namespace Goteo\Model {
             $id,
             $user,
             $project,
+            $project_type, // project or skillmatching
             $account, // cuenta paypal o email del usuario
             $amount, //cantidad monetaria del aporte
             $preapproval, //clave del preapproval
@@ -89,6 +90,14 @@ namespace Goteo\Model {
                     $usr_address->nif = $usr_address->contract_nif;
 
                     $invest->address = $usr_address;
+                }
+
+                // skillmatching or project
+                if ((strpos($invest->project,'skillmatching_') == 0) && ($invest->amount == 0)){
+                    $invest->project_type = 'skillmatching';
+                    $invest->project = ltrim($invest->project,'skillmatching_');
+                } else {
+                    $invest->project_type = 'project';
                 }
 
                 return $invest;
@@ -367,7 +376,6 @@ namespace Goteo\Model {
 
         public function save (&$errors = array()) {
             if (!$this->validate($errors)) return false;
-
             $fields = array(
                 'id',
                 'user',
@@ -1489,6 +1497,10 @@ namespace Goteo\Model {
             return $list;
 
 
+         }
+
+         private function getProjectName($project){
+             return (strpos($project,'skillmatching_') == 0) ? ltrim($project,'skillmatching_') : $project;
          }
 
     }

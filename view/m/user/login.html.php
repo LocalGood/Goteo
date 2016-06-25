@@ -151,6 +151,7 @@ jQuery(document).ready(function($) {
                 ?>
 
                 </ul>
+                <p style="font-size:12px;margin:10px;color:#ff5555;">※2016年6月6日以前にFacebookアカウントでの自動ログインをご登録された場合は、「Facebookアカウントでログイン」を押したあとに表示される画面に沿って、改めて登録をお願いいたします。なお、過去にLOCAL GOODで登録・ご支援いただいた情報は引き継がれます。</p>
             </div>
         </div>
 

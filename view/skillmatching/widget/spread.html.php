@@ -22,7 +22,7 @@ use Goteo\Core\View,
     Goteo\Library\Text;
 
 $user    = $_SESSION['user'];
-$project = $this['project'];
+$project = $this['skillmatching'];
 $level = (int) $this['level'] ?: 3;
 
 $lsuf = (LANG != 'es') ? '?lang='.LANG : '';
@@ -48,7 +48,7 @@ $widget_code_investor = Text::widget($url.'/invested/'.$user->id.'/'.$lsuf);
         
                     // el proyecto de trabajo
                     echo new View('view/skillmatching/widget/project.html.php', array(
-                    'project'   => $project));
+                    'skillmatching'   => $project));
                 ?>
               </div>
               
@@ -70,7 +70,7 @@ $widget_code_investor = Text::widget($url.'/invested/'.$user->id.'/'.$lsuf);
 
                         // el proyecto de trabajo
                         echo new View('view/skillmatching/widget/project.html.php', array(
-                        'project'   => $project,
+                        'skillmatching'   => $project,
                         'investor'  => $user
                         ));
                     ?>

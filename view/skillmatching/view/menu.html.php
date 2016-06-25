@@ -21,9 +21,9 @@
 use Goteo\Library\Text;
 $menu = array(
     'home'        => Text::get('project-menu-home'),
-    'needs'       => Text::get('project-menu-needs'),
+//    'needs'       => Text::get('project-menu-needs'),
 //    'supporters'  => Text::get('project-menu-supporters').' <span class="digits">'.$this['supporters'].'</span>',
-    'supporters'  => Text::get('project-menu-supporters').' <span class="digits">'.'('.count($this['project']->investors).')'.'</span>',
+    'supporters'  => Text::get('project-menu-supporters').' <span class="digits">'.'('.count($this['skillmatching']->investors).')'.'</span>',
     'messages'    => Text::get('project-menu-messages').' <span class="digits">'.$this['messages'].'</span>',
     'updates'     => Text::get('project-menu-updates').' <span class="digits">'.$this['updates'].'</span>',
     'evaluation'  => Text::get('project-menu-evaluation')
@@ -32,15 +32,15 @@ $menu = array(
 <div class="project-menu">
     <ul>
         <?php
-//        var_dump($this['project']->status);
+//        var_dump($this['skillmatching']->status);
 //        exit;
         foreach ($menu as $id => $show):
-            if (($id == 'evaluation' && empty($this['evaluation'])) || ($id == 'evaluation' && ($this['project']->status < 4 ))){
+            if (($id == 'evaluation' && empty($this['evaluation'])) || ($id == 'evaluation' && ($this['skillmatching']->status < 4 ))){
                 continue;
             }
             ?>
             <li class="<?php echo $id ?><?php if ($this['show'] == $id) echo ' show' ?>">
-                <a href="/skillmatching/<?php echo htmlspecialchars($this['project']->id) ?>/<?php echo $id ?>"><?php echo $show ?></a>
+                <a href="/skillmatching/<?php echo htmlspecialchars($this['skillmatching']->id) ?>/<?php echo $id ?>"><?php echo $show ?></a>
             </li>
         <?php
         endforeach ?>

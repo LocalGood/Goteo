@@ -26,7 +26,7 @@ $horizontal = !empty($this['horizontal']);
 $big = !empty($this['big']);
 $activable = !empty($this['activable']);
 
-$project = $this['project'];
+$project = $this['skillmatching'];
 
 $minimum    = $project->mincost;
 $optimum    = $project->maxcost;

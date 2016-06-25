@@ -22,7 +22,7 @@ use Goteo\Core\View,
     Goteo\Library\Text,
     Goteo\Library\Worth;
 
-$project = $this['project'];
+$project = $this['skillmatching'];
 
 $level = (int) $this['level'] ?: 3;
 
