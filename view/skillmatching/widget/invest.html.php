@@ -25,7 +25,7 @@ use Goteo\Core\View,
     Goteo\Library\Text,
     Goteo\Model\License;
 
-$project = $this['project'];
+$project = $this['skillmatching'];
 $personal = $this['personal'];
 
 // cantidad de aporte
@@ -50,14 +50,15 @@ foreach (License::getAll() as $l) {
 }
 $action = ($step == 'start') ? '/user/login' : '/invest/' . $project->id;
 ?>
+<?php /*
 <div class="widget project-invest project-invest-amount">
     <h<?php echo $level ?> class="title"><?php echo Text::get('invest-amount') ?></h<?php echo $level ?>>
     
-    <form method="post" action="<?php echo $action; ?>">
 
     <label><input type="text" id="amount" name="amount" class="amount" value="<?php echo $amount ?>" /><?php echo Text::get('invest-amount-tooltip') ?></label>
 </div>
-
+*/ ?>
+<form method="post" action="<?php echo $action; ?>">
 
 <div class="widget project-invest project-invest-individual_rewards">
     <h<?php echo $level ?> class="beak"><?php echo Text::get('invest-individual-header') ?></h<?php echo $level ?>>
@@ -155,11 +156,9 @@ if ($step == 'start') : ?>
             
 <input type="hidden" id="paymethod"  />
 
-<?php if (ACL::check('/admin')) : ?>
-<p><button type="submit" class="process pay-cash" name="method" value="cash">現金</button></p>
-<?php endif; ?>
+<p><button type="submit" class="process pay-cash" name="method" value="cash">支援する</button></p>
 <!--<p><button type="submit" class="process pay-paypal" name="method"  value="paypal">PAYPAL</button></p>-->
-<p><button type="submit" class="process pay-axes" name="method"  value="axes">クレジットカード</button></p>
+<!--<p><button type="submit" class="process pay-axes" name="method"  value="axes">クレジットカード</button></p>-->
 
 
 </div>
@@ -204,7 +203,8 @@ if ($step == 'start') : ?>
         var update = function () {
 
             var $reward = null;
-            var val = parseFloat($('#amount').val());
+//            var val = parseFloat($('#amount').val());
+            var val = 0;
 
             $('div.widget.project-invest-individual_rewards input.individual_reward').each(function (i, cb) {
                var $cb = $(cb);
@@ -252,7 +252,7 @@ if ($step == 'start') : ?>
 
         // funcion resetear inpput de cantidad
         var reset_amount = function (preset) {
-            $('#amount').val(preset);
+//            $('#amount').val(preset);
             update();
         };
 
@@ -263,19 +263,20 @@ if ($step == 'start') : ?>
                 euros = 0;
             }
 
-            $('#amount').val(euros);
-            $('#amount-reminder').html(euros);
+//            $('#amount').val(euros);
+//            $('#amount-reminder').html(euros);
         };
 
 /* Actualizar el copy */
-        $('#amount').bind('paste', function () {reset_reminder($('#amount').val());update()});
+//        $('#amount').bind('paste', function () {reset_reminder($('#amount').val());update()});
 
-        $('#amount').change(function () {reset_reminder($('#amount').val());update()});
+//        $('#amount').change(function () {reset_reminder($('#amount').val());update()});
 
 
 /* Si estan marcando o quitando el renuncio */
         $(':radio').bind('change', function () {
-            var curr = $('#amount').val();
+//            var curr = $('#amount').val();
+            var curr = 0;
             var a = $(this).attr('amount');
             var i = $(this).attr('id');
 
@@ -300,16 +301,18 @@ if ($step == 'start') : ?>
         });
 
 /* Verificacion, no tenemos en cuenta el paso porque solo son los botones de pago en el paso confirm */
+
         $('button.process').click(function () {
 
-            var amount = $('#amount').val();
+//            var amount = $('#amount').val();
+            var amount = 0;
             var rest = $('#rest').val();
 
-            if (parseFloat(amount) == 0 || isNaN(amount)) {
-                alert('<?php echo Text::slash('invest-amount-error') ?>');
-                $('#amount').focus();
-                return false;
-            }
+//            if (parseFloat(amount) == 0 || isNaN(amount)) {
+//                alert('<?php //echo Text::slash('invest-amount-error') ?>//');
+//                $('#amount').focus();
+//                return false;
+//            }
 
             /* Renuncias pero no has puesto tu NIF para desgravar el donativo */
             if ($('#resign_reward').prop('checked')) {

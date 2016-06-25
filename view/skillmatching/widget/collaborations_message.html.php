@@ -22,7 +22,7 @@ use Goteo\Library\Text;
 
 $level = (int) $this['level'] ?: 3;
 
-$project = $this['project'];
+$project = $this['skillmatching'];
 
 ?>
 <div class="widget project-collaborations">

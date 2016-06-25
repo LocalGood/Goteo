@@ -22,7 +22,7 @@ use Goteo\Core\View,
     Goteo\Library\Text,
     Goteo\Library\SuperForm;
 
-$project = $this['project'];
+$project = $this['skillmatching'];
 $errors = $project->errors[$this['step']] ?: array();
 $okeys  = $project->okeys[$this['step']] ?: array();
 
@@ -374,7 +374,7 @@ $superform = array(
                 'errors' => array(
                     'title' => Text::get('form-footer-errors_title'),
                     'view'  => new View('view/skillmatching/edit/errors.html.php', array(
-                        'project'   => $project,
+                        'skillmatching'   => $project,
                         'step'      => $this['step']
                     ))                    
                 ),
@@ -412,7 +412,7 @@ $superform['elements']['footer'] = array(
         'errors' => array(
             'title' => Text::get('form-footer-errors_title'),
             'view'  => new View('view/skillmatching/edit/errors.html.php', array(
-                'project'   => $project,
+                'skillmatching'   => $project,
                 'step'      => $this['step']
             ))                    
         ),
@@ -421,7 +421,8 @@ $superform['elements']['footer'] = array(
             'children' => array(
                 'next' => array(
                     'type'  => 'submit',
-                    'name'  => 'view-step-costs',
+//                    'name'  => 'view-step-costs',
+                    'name'  => 'view-step-rewards',
                     'label' => Text::get('form-next-button'),
                     'class' => 'next'
                 )

@@ -22,7 +22,7 @@ use Goteo\Core\View,
     Goteo\Library\Text,
     Goteo\Library\Worth;
 
-$project = $this['project'];
+$project = $this['skillmatching'];
 
 $level = (int) $this['level'] ?: 3;
 
@@ -37,12 +37,10 @@ foreach ($project->investors as $user=>$investor) {
     $investors[] = $investor;
 }
 
-
 // en la p�gina de cofinanciadores, paginaci�n de 20 en 20
 require_once 'library/pagination/pagination.php';
 
 $pagedResults = new \Paginated($investors, 20, isset($_GET['page']) ? $_GET['page'] : 1);
-
 
 ?>
 <div class="widget project-supporters">
@@ -52,16 +50,16 @@ $pagedResults = new \Paginated($investors, 20, isset($_GET['page']) ? $_GET['pag
     <dl class="summary">
         <dt class="supporters"><?php echo Text::get('project-menu-supporters'); ?></dt>
         <dd class="supporters"><?php echo $supporters ?>人</dd>
-        
+<!--
         <dt class="reached"><?php echo Text::get('project-invest-total'); ?></dt>
         <dd class="reached"><?php echo $reached ?> <span>円</span></dd>
-        
+-->
     </dl>   
         
     <div class="supporters">
         <ul>
         <?php while ($investor = $pagedResults->fetchPagedRow()) : ?>
-            <li><?php echo new View('view/user/widget/supporter.html.php', array('user' => $investor, 'worthcracy' => $worthcracy)) ?></li>
+            <li><?php echo new View('view/user/widget/supporter.html.php', array('user' => $investor/*, 'worthcracy' => $worthcracy*/)) ?></li>
         <?php endwhile ?>
         </ul>
     </div>        
