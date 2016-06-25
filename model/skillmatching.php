@@ -479,7 +479,7 @@ namespace Goteo\Model {
                 SELECT
                     skillmatching.id as id,
                     skillmatching.name as name
-                FROM    project
+                FROM skillmatching
                 ORDER BY skillmatching.name ASC
                 ", array(':node' => $node));
 
@@ -1264,18 +1264,18 @@ namespace Goteo\Model {
             $costdif = $this->maxcost - $this->mincost;
             $maxdif = $this->mincost * 0.50;
             $scoredif = $this->mincost * 0.35;
-            if ($this->mincost == 0) {
-                $errors['costs']['total-costs'] = Text::get('mandatory-project-total-costs');
-            } elseif ($costdif > $maxdif ) {
-                $errors['costs']['total-costs'] = Text::get('validate-project-total-costs');
-            } else {
-                $okeys['costs']['total-costs'] = 'ok';
-            }
+//            if ($this->mincost == 0) {
+//                $errors['costs']['total-costs'] = Text::get('mandatory-project-total-costs');
+//            } elseif ($costdif > $maxdif ) {
+//                $errors['costs']['total-costs'] = Text::get('validate-project-total-costs');
+//            } else {
+//                $okeys['costs']['total-costs'] = 'ok';
+//            }
             if ($costdif <= $scoredif ) {
                 ++$score;
             }
 
-            $this->setScore($score, 5);
+            $this->setScore($score, 0);
             /***************** FIN Revisión del paso 4, COSTES *****************/
 
             /***************** Revisión de campos del paso 5, RETORNOS *****************/
@@ -1862,7 +1862,7 @@ namespace Goteo\Model {
             $now_local = $this->localNow();
             $sql = "
                 SELECT DATE_FORMAT(from_unixtime(unix_timestamp('${now_local}') - unix_timestamp(CONCAT(published, DATE_FORMAT('${now_local}', ' %H:%i:%s')))), '%j') as days
-                FROM project
+                FROM skillmatching
                 WHERE id = ?";
             $query = self::query($sql, array($this->id));
             $past = $query->fetchObject();
@@ -1881,7 +1881,7 @@ namespace Goteo\Model {
             $now_local = $this->localNow();
             $sql = "
                 SELECT DATE_FORMAT(from_unixtime(unix_timestamp('${now_local}') - unix_timestamp(published)), '%j') as days
-                FROM project
+                FROM skillmatching
                 WHERE id = ?";
             $query = self::query($sql, array($id));
             $days = $query->fetchColumn(0);
@@ -1979,7 +1979,7 @@ namespace Goteo\Model {
                                         FROM    message
                                         WHERE   message.project = skillmatching.id
                                     ) as followers
-                            FROM project
+                            FROM skillmatching
                             WHERE skillmatching.status= 3
                             $sqlFilter
                             HAVING followers > 20
@@ -1989,7 +1989,7 @@ namespace Goteo\Model {
                     // los que les quedan 15 dias o menos
                     $sql = "SELECT  id,
                                    name
-                            FROM    project
+                            FROM    skillmatching
                             WHERE   days <= 15
                             AND     days > 0
                             AND     status = 3
@@ -2023,7 +2023,7 @@ namespace Goteo\Model {
                     $sql = "SELECT 
                                 skillmatching.id as id,
                                 skillmatching.name as name
-                            FROM project
+                            FROM skillmatching
                             WHERE skillmatching.status = 3
                             AND skillmatching.passed IS NULL
                             $sqlFilter
@@ -2044,7 +2044,7 @@ namespace Goteo\Model {
                                 WHERE   project = skillmatching.id
                                 AND     invest.status IN ('0', '1', '3', '4')
                                 ) as `getamount`
-                        FROM project
+                        FROM skillmatching
                         WHERE status IN ('3', '4', '5')
                         $sqlFilter
                         HAVING getamount >= mincost
@@ -2094,7 +2094,7 @@ namespace Goteo\Model {
                     $sql = "SELECT
                                 skillmatching.id as id,
                                 skillmatching.name as name
-                            FROM project
+                            FROM skillmatching
                             WHERE skillmatching.status = 3
                             $sqlFilter
                             ORDER BY published DESC";
@@ -2201,7 +2201,7 @@ namespace Goteo\Model {
             /*
             $sql = "
                 SELECT skillmatching.id as id
-                FROM  project
+                FROM  skillmatching
                 WHERE skillmatching.status = 3
                 AND (
                     (DATE_FORMAT(from_unixtime(unix_timestamp('${now_local}') - unix_timestamp(published)), '%j') >= 35
@@ -2218,7 +2218,7 @@ namespace Goteo\Model {
             // debug用
             $sql = "
                 SELECT skillmatching.id as id
-                FROM  project
+                FROM  skillmatching
                 WHERE skillmatching.status = 3
                 AND (
                     (DATE_FORMAT(from_unixtime(unix_timestamp('${now_local}') - unix_timestamp(published)), '%j') >= (period_1r - 5)
@@ -2355,7 +2355,7 @@ namespace Goteo\Model {
 
             $sql = "SELECT
                         id
-                    FROM project
+                    FROM skillmatching
                     WHERE translate = 1
                     AND node = :node
                         $sqlFilter
@@ -2432,7 +2432,7 @@ namespace Goteo\Model {
                             WHERE   project = skillmatching.id
                             AND     invest.status IN ('0', '1', '3', '4')
                             ) as `getamount`
-                    FROM project
+                    FROM skillmatching
                     WHERE skillmatching.id = ?
                     HAVING getamount >= mincost
                     LIMIT 1

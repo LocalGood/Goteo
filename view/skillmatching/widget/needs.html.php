@@ -20,7 +20,7 @@
 
 use Goteo\Library\Text;
 
-$project = $this['project'];
+$project = $this['skillmatching'];
 $types   = $this['types'];
 $level = (int) $this['level'] ?: 3;
 

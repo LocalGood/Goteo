@@ -18,8 +18,8 @@
  *
  */
 
-if (!empty($this['project']->video->url)): ?>
+if (!empty($this['skillmatching']->video->url)): ?>
 <div class="widget project-media">
-    <?php echo $this['project']->video->getEmbedCode($this['project']->video_usubs); ?>
+    <?php echo $this['skillmatching']->video->getEmbedCode($this['skillmatching']->video_usubs); ?>
 </div>
 <?php endif ?>

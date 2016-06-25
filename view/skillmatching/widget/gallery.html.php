@@ -21,7 +21,7 @@
 use Goteo\Library\Text,
     Goteo\Core\View;
 
-$project = $this['project'];
+$project = $this['skillmatching'];
 
 ?>
     <?php  if (count($project->gallery) > 1) : ?>

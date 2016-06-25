@@ -23,7 +23,7 @@ use Goteo\Core\View,
 
 $level = (int) $this['level'] ?: 3;
 
-$project = $this['project'];
+$project = $this['skillmatching'];
 $week = array('日','月','火','水','木','金','土');
 // $willpass = strtotime($project->willpass);
 ?>
@@ -52,9 +52,9 @@ $week = array('日','月','火','水','木','金','土');
             echo '<div class="tagmark grey">' . Text::get('regular-fail_mark') . '</div>';
             break;
     } ?>
-
+<?php /*
     <div class="project-widget-box<?php echo $status = $project->round ? '' : ' end'; ?>">
-    <?php echo new View('view/skillmatching/meter.html.php', array('project' => $project, 'level' => $level) ) ?>
+    <?php echo new View('view/skillmatching/meter.html.php', array('skillmatching' => $project, 'level' => $level) ) ?>
 
         <div class="buttons">
             <a class="button violet supportit" href="/skillmatching/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it'); ?></a>
@@ -62,9 +62,10 @@ $week = array('日','月','火','水','木','金','土');
             <a class="button violet supportit" href="/skillmatching/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it'); ?></a>
             <?php else : ?>
             <a class="button view" href="/skillmatching/<?php echo $project->id ?>/updates"><?php echo Text::get('regular-see_blog'); ?></a>
-            <?php endif; */?>
+            <?php endif; ?>
         </div>
     </div>
+*/ ?>
     <?php
     if ($project->status == 3) {
 
@@ -83,12 +84,12 @@ $week = array('日','月','火','水','木','金','土');
 
         ?>
         <div class="invest-notice">
-            このプロジェクトの挑戦期間は、1stラウンド <?php echo $published; ?>〜<?php echo $until; ?>23:59（<?php echo $project->period_1r; ?>日間）、2ndラウンド<?php echo $willpass; ?>〜<?php echo $willclose; ?>23:59（<?php echo $project->period_2r; ?>日間）です
+            このプロジェクトの挑戦期間は <?php echo $published; ?>〜<?php echo $willclose; ?>23:59 の <?php echo ( $project->period_1r + $project->period_2r); ?>日間 です。
         </div>
         <?php
     } // if ($project->status == 3) {
     ?>
-
+<?php /*
     <a class="more" href="/skillmatching/<?php echo $project->id; ?>/needs"><?php echo Text::get('regular-see_more'); ?></a>
-
+*/ ?>
 </div>

@@ -22,7 +22,7 @@ use Goteo\Library\Text,
     Goteo\Core\View,
     Goteo\Model\Blog\Post;
 
-$project = $this['project'];
+$project = $this['skillmatching'];
 $blog    = $this['blog'];
 
 if (empty($this['post'])) {
@@ -94,7 +94,7 @@ $level = (int) $this['level'] ?: 3;
         </ul>
     </div>
     <?php echo new View('view/blog/comments.html.php', array('post' => $post->id, 'owner' => $project->owner)); ?>
-    <?php echo new View('view/blog/sendComment.html.php', array('post' => $post->id, 'project' => $project->id)); ?>
+    <?php echo new View('view/blog/sendComment.html.php', array('post' => $post->id, 'skillmatching' => $project->id)); ?>
     <?php endif ?>
     <!-- Lista de entradas -->
     <?php if ($action == 'list') : ?>

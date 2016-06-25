@@ -22,7 +22,7 @@ use Goteo\Library\Text,
     Goteo\Library\SuperForm,
     Goteo\Core\View;
             
-$project = $this['project'];
+$project = $this['skillmatching'];
 $errors = $project->errors[$this['step']] ?: array();
 $okeys  = $project->okeys[$this['step']] ?: array();
 
@@ -226,7 +226,7 @@ echo new SuperForm(array(
             'errors'    => !empty($errors["total-costs"]) ? array($errors["total-costs"]) : array(),
             'ok'        => !empty($okeys["total-costs"]) ? array($okeys["total-costs"]) : array(),
             'view'      => new View('view/skillmatching/edit/costs/meter.html.php', array(
-                'project'   => $project
+                'skillmatching'   => $project
             )),
             //'hint'      => Text::get('tooltip-project-totals')
         ),
@@ -246,7 +246,7 @@ echo new SuperForm(array(
             'type'      => 'html',
             'class'     => 'schedule',
             //'hint'      => Text::get('tooltip-project-schedule'),
-            'html'      => new View('view/skillmatching/widget/schedule.html.php', array('project' => $project))
+            'html'      => new View('view/skillmatching/widget/schedule.html.php', array('skillmatching' => $project))
         ),
         
         'footer' => array(
@@ -255,7 +255,7 @@ echo new SuperForm(array(
                 'errors' => array(
                     'title' => Text::get('form-footer-errors_title'),
                     'view'  => new View('view/skillmatching/edit/errors.html.php', array(
-                        'project'   => $project,
+                        'skillmatching'   => $project,
                         'step'      => $this['step']
                     ))                    
                 ),
