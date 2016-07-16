@@ -622,17 +622,29 @@ namespace Goteo\Model {
                 $this->entity_cif = str_replace(array('_', '.', ' ', '-', ',', ')', '('), '', $this->entity_cif);
 
                 // Image
+                var_dump($this->image);
+//                exit;
                 if (is_array($this->image) && !empty($this->image['name'])) {
+                    // Imageオブジェクト生成
                     $image = new Image($this->image);
+                    // image テーブルに保存 & アップロード
                     if ($image->save($errors)) {
-                        $this->gallery[] = $image;
+                        $image->order = $this->image['order'];
+                        //
+                        if (is_numeric($image->order)) {
+                            $this->gallery[$image->order] = $image;
+                        } else {
+                            $this->gallery[] = $image;
+                        }
                         $this->image = $image->id;
-
                         /**
                          * Guarda la relación NM en la tabla 'project_image'.
                          */
                         if(!empty($image->id)) {
                             self::query("REPLACE project_image (project, image) VALUES (:project, :image)", array(':project' => $this->id, ':image' => $image->id));
+                            if (is_numeric($image->order)){
+                                self::query("UPDATE project_image SET `order` = :order WHERE project = :project AND image = :image", array(':project' => $this->id, ':image' => $image->id, ':order' => $image->order));
+                            }
                         }
                     }
                 }

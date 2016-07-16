@@ -93,7 +93,8 @@ namespace Goteo\Model\Project {
         public static function getFirst ($id) {
 
             try {
-                $sql = "SELECT image FROM project_image WHERE project = ? AND (section = '' OR section IS NULL) ORDER BY `order` ASC, image DESC LIMIT 1";
+//                $sql = "SELECT image FROM project_image WHERE project = ? AND (section = '' OR section IS NULL) ORDER BY `order` ASC, image DESC LIMIT 1";
+                $sql = "SELECT image FROM project_image WHERE project = ? AND (section = '' OR section IS NULL) AND `order` = 0 ORDER BY `order` ASC, image DESC LIMIT 1";
                 $query = self::query($sql, array($id));
                 $first = $query->fetchColumn(0);
                 return Model\Image::get($first);
@@ -115,6 +116,7 @@ namespace Goteo\Model\Project {
                 $sql = "SELECT image FROM project_image WHERE project = ? AND (section = '' OR section IS NULL) ORDER BY `order` ASC, image DESC";
                 $query = self::query($sql, array($id));
                 foreach ($query->fetchAll(\PDO::FETCH_ASSOC) as $image) {
+//                    error_log(print_r($image,true));
                     $gallery[] = Model\Image::get($image['image']);
                 }
 
