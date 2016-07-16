@@ -773,15 +773,28 @@ namespace Goteo\Controller {
             foreach ($fields as $field) {
                     $project->$field = $_POST[$field];
             }
-            
+
             // tratar la imagen que suben
             if (isset($_FILES['image_upload']) && $_FILES['image_upload']['error'] != UPLOAD_ERR_NO_FILE) {
                 $project->image = $_FILES['image_upload'];
+                $project->image['order'] = 0;
+            }
+
+            if (isset($_FILES['image_upload_1']) && $_FILES['image_upload_1']['error'] != UPLOAD_ERR_NO_FILE) {
+                $project->image = $_FILES['image_upload_1'];
+                $project->image['order'] = 1;
+            }
+
+            if (isset($_FILES['image_upload_2']) && $_FILES['image_upload_2']['error'] != UPLOAD_ERR_NO_FILE) {
+                $project->image = $_FILES['image_upload_2'];
+                $project->image['order'] = 2;
             }
 
             // tratar las imagenes que quitan
             foreach ($project->gallery as $key=>$image) {
                 if (!empty($_POST["gallery-{$image->id}-remove"])) {
+//                    var_dump($key);
+//                    exit;
                     $image->remove('project');
                     unset($project->gallery[$key]);
                 }

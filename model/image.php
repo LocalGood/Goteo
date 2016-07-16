@@ -316,11 +316,16 @@ die("test");
 
             $_id = $id;
             try {
-                $sql = "SELECT image FROM {$_which}_image WHERE {$tbl} = :id";
+//                $sql = "SELECT image FROM {$_which}_image WHERE {$tbl} = :id";
+                $sql = "SELECT * FROM {$_which}_image WHERE {$tbl} = :id";
                 $sql .= ($tbl == 'project') ? " ORDER BY {$_which}_image.section ASC, `order` ASC, image DESC" : " ORDER BY image ASC";
                 $query = self::query($sql, array(':id' => $_id));
                 foreach ($query->fetchAll(\PDO::FETCH_ASSOC) as $image) {
-                    $gallery[] = self::get($image['image']);
+                    if (is_numeric($image['order'])) {
+                        $gallery[$image['order']] = self::get($image['image']);
+                    } else {
+                        $gallery[] = self::get($image['image']);
+                    }
                 }
                 return $gallery;
             } catch(\PDOException $e) {
@@ -356,6 +361,7 @@ die("test");
                 return false;
             }
         }
+
 
         /*
          *  画像をblog幅に合わせて出力 - 2015.11.30
