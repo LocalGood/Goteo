@@ -3975,7 +3975,8 @@ div.superform li#individual_rewards
 	border-bottom:none;
 }
 
-div#main.overview div.superform.aqua #image_upload input[type="submit"],div#main.overview div.superform.aqua #video-upload input.media-upload[type="submit"],div.superform.aqua input.ok[type="submit"]
+div#main.overview div.superform.aqua #image_upload input[type="submit"],div#main.overview div.superform.aqua #video-upload input.media-upload[type="submit"],div.superform.aqua input.ok[type="submit"],
+div#main.overview div.superform.aqua #image_upload_1 input[type="submit"],div#main.overview div.superform.aqua #image_upload_2 input[type="submit"]
 {
 	padding:.3em 1.2em;
 }
