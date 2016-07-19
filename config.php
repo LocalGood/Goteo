@@ -256,6 +256,11 @@ CESIUM
 define('LG_EARTHVIEW', 'http://map.yokohama.localgood.jp.il3c.com/');
 
 /****************************************************
+New Project Format
+ ****************************************************/
+define('LG_DATE_NEW_PROJ_FORMAT', '2016-07-14');
+
+/****************************************************
 Change view type
  ****************************************************/
 \$ua = \$_SERVER['HTTP_USER_AGENT'];

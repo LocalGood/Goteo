@@ -177,8 +177,17 @@ $superform = array(
                 )
             )
         ),
+        'description' => array(
+            'type'      => 'textarea',
+            'title'     => Text::get('overview-field-description'),
+            'required'  => true,
+            //'hint'      => Text::get('tooltip-project-description'),
+            'value'     => $project->description,
+            'errors'    => !empty($errors['description']) ? array($errors['description']) : array(),
+            'ok'        => !empty($okeys['description']) ? array($okeys['description']) : array()
+        ),
         'image_1' => array(
-            'title'     => Text::get('overview-fields-images-title'),
+            'title'     => Text::get('overview-fields-images-title') . ' 2',
             'type'      => 'group',
             'required'  => false,
             //'hint'      => Text::get('tooltip-project-image'),
@@ -201,8 +210,17 @@ $superform = array(
                 )
             )
         ),
+        'description_1' => array(
+            'type'      => 'textarea',
+            'title'     => Text::get('overview-field-description') . ' 2',
+            'required'  => false,
+            //'hint'      => Text::get('tooltip-project-description'),
+            'value'     => $project->description_1,
+            'errors'    => !empty($errors['description']) ? array($errors['description']) : array(),
+            'ok'        => !empty($okeys['description']) ? array($okeys['description']) : array()
+        ),
         'image_2' => array(
-            'title'     => Text::get('overview-fields-images-title'),
+            'title'     => Text::get('overview-fields-images-title') . ' 3',
             'type'      => 'group',
             'required'  => false,
             //'hint'      => Text::get('tooltip-project-image'),
@@ -231,25 +249,6 @@ $superform = array(
 //            'class' => 'inline',
 //            'children'  => $images
 //        ),
-
-        'description' => array(            
-            'type'      => 'textarea',
-            'title'     => Text::get('overview-field-description'),
-            'required'  => true,
-            //'hint'      => Text::get('tooltip-project-description'),
-            'value'     => $project->description,            
-            'errors'    => !empty($errors['description']) ? array($errors['description']) : array(),
-            'ok'        => !empty($okeys['description']) ? array($okeys['description']) : array()
-        ),
-        'description_1' => array(
-            'type'      => 'textarea',
-            'title'     => Text::get('overview-field-description') . ' 2',
-            'required'  => false,
-            //'hint'      => Text::get('tooltip-project-description'),
-            'value'     => $project->description_1,
-            'errors'    => !empty($errors['description']) ? array($errors['description']) : array(),
-            'ok'        => !empty($okeys['description']) ? array($okeys['description']) : array()
-        ),
         'description_2' => array(
             'type'      => 'textarea',
             'title'     => Text::get('overview-field-description') . ' 3',
@@ -259,7 +258,6 @@ $superform = array(
             'errors'    => !empty($errors['description']) ? array($errors['description']) : array(),
             'ok'        => !empty($okeys['description']) ? array($okeys['description']) : array()
         ),
-
         'description_group' => array(
             'type' => 'group',
             'children'  => array(                
