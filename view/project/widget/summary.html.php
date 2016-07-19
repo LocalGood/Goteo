@@ -38,11 +38,48 @@ echo new View('view/project/widget/video.html.php', array('project' => $project)
 <div class="widget project-summary">
 
     <h<?php echo $level ?>><?php echo htmlspecialchars($project->name) ?></h<?php echo $level ?>>
-        
+
+    <?
+    if ( strtotime($project->created) > strtotime(LG_DATE_NEW_PROJ_FORMAT) ) {
+        if (count($project->gallery) > 0 && isset($project->gallery[0])) {
+            echo new View('view/project/widget/gallery.html.php', array('project' => $project, 'index' => 0));
+        }
+    }
+    ?>
+
     <?php if (!empty($project->description)): ?>
     <div class="description">
         <?php echo $project->description; ?>
     </div>
+    <?php endif ?>
+
+    <?
+    // 旧ギャラリー互換
+    if ( strtotime($project->created) <= strtotime(LG_DATE_NEW_PROJ_FORMAT) ){
+        echo new View('view/project/widget/gallery.html.php', array('project' => $project));
+    } else {
+        if (count($project->gallery) > 1 && isset($project->gallery[1])){
+            echo new View('view/project/widget/gallery.html.php', array('project' => $project, 'index' => 1));
+        }
+    }
+    ?>
+
+    <?php if (!empty($project->description_1)): ?>
+        <div class="description">
+            <?php echo $project->description_1; ?>
+        </div>
+    <?php endif ?>
+
+    <?php
+    if (count($project->gallery) > 2 && isset($project->gallery[2])){
+        echo new View('view/project/widget/gallery.html.php', array('project' => $project, 'index' => 2));
+    }
+    ?>
+
+    <?php if (!empty($project->description_2)): ?>
+        <div class="description">
+            <?php echo $project->description_2; ?>
+        </div>
     <?php endif ?>
 
     <?/*php if (!empty($project->about)): ?>
@@ -53,7 +90,7 @@ echo new View('view/project/widget/video.html.php', array('project' => $project)
     <?php endif */?>
 
     <?
-    echo new View('view/project/widget/gallery.html.php', array('project' => $project));
+//    echo new View('view/project/widget/gallery.html.php', array('project' => $project));
     ?>
 
     <?php if (!empty($project->motivation)): ?>
