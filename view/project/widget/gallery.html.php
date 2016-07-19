@@ -23,6 +23,8 @@ use Goteo\Library\Text,
 
 $project = $this['project'];
 
+$index = isset($this['index']) ? $this['index'] : 0;
+/*
 ?>
     <?php  if (count($project->gallery) > 1) : ?>
 		<script type="text/javascript" >
@@ -58,8 +60,10 @@ $project = $this['project'];
         <a class="next">next</a>
 		<!-- carrusel de imagenes -->
 	</div>
-    <?php elseif (!empty($project->gallery)) : ?>
-        <div class="gallery-image" id="gallery-image-<?php echo $i ?>"style="display:block;">
-            <img src="<?php echo $project->gallery[0]->getLink(580, 580); ?>" alt="<?php echo $project->name; ?>" />
+    <?php else
+	*/
+	if (!empty($project->gallery)) : ?>
+        <div class="gallery-image" id="gallery-image-<?php echo ($index + 1) ?>"style="display:block;">
+            <img src="<?php echo $project->gallery[$index]->getLink(580, 580); ?>" alt="<?php echo $project->name; ?>" />
         </div>
     <?php endif; ?>

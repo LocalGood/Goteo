@@ -27,6 +27,7 @@ $errors = $project->errors[$this['step']] ?: array();
 $okeys  = $project->okeys[$this['step']] ?: array();
 
 $images = array();
+/*
 foreach ($project->gallery as $image) {
     $images[] = array(
         'type'  => 'html',
@@ -36,7 +37,7 @@ foreach ($project->gallery as $image) {
                    ''
     );
 }
-
+*/
 $categories = array();
 
 foreach ($this['categories'] as $value => $label) {
@@ -240,6 +241,25 @@ $superform = array(
             'errors'    => !empty($errors['description']) ? array($errors['description']) : array(),
             'ok'        => !empty($okeys['description']) ? array($okeys['description']) : array()
         ),
+        'description_1' => array(
+            'type'      => 'textarea',
+            'title'     => Text::get('overview-field-description') . ' 2',
+            'required'  => false,
+            //'hint'      => Text::get('tooltip-project-description'),
+            'value'     => $project->description_1,
+            'errors'    => !empty($errors['description']) ? array($errors['description']) : array(),
+            'ok'        => !empty($okeys['description']) ? array($okeys['description']) : array()
+        ),
+        'description_2' => array(
+            'type'      => 'textarea',
+            'title'     => Text::get('overview-field-description') . ' 3',
+            'required'  => false,
+            //'hint'      => Text::get('tooltip-project-description'),
+            'value'     => $project->description_2,
+            'errors'    => !empty($errors['description']) ? array($errors['description']) : array(),
+            'ok'        => !empty($okeys['description']) ? array($okeys['description']) : array()
+        ),
+
         'description_group' => array(
             'type' => 'group',
             'children'  => array(                
@@ -481,12 +501,16 @@ $superform['elements']['footer'] = array(
         )
     )
 );
-echo '<pre>';
-var_dump($_FILES['image_upload']);
-var_dump($project->image);
-var_dump($images);
-var_dump($project->gallery);
-echo '</pre>';
+//echo '<pre>';
+//echo "\$_FILES['image_upload']\n";
+//var_dump($_FILES['image_upload']);
+//echo "\n\$project->image\n";
+//var_dump($project->image);
+//echo "\n\$images\n";
+//var_dump($images);
+//echo "\n\$project->gallery\n";
+//var_dump($project->gallery);
+//echo '</pre>';
 foreach ($superform['elements'] as $id => &$element) {
     
     if (!empty($this['errors'][$this['step']][$id])) {
