@@ -397,6 +397,8 @@ namespace Goteo\Controller {
                     break;
             }
 
+//            var_dump($viewData);
+//            exit;
 
             $view = new View (
                 "view/project/edit.html.php",
@@ -767,7 +769,9 @@ namespace Goteo\Controller {
                 //'media',
                 //'media_usubs',
                 'project_location',
-                'evaluation'
+                'evaluation',
+                'description_1',
+                'description_2',
             );
 
             foreach ($fields as $field) {
@@ -778,20 +782,22 @@ namespace Goteo\Controller {
             if (isset($_FILES['image_upload']) && $_FILES['image_upload']['error'] != UPLOAD_ERR_NO_FILE) {
                 $project->image = $_FILES['image_upload'];
                 $project->image['order'] = 0;
-            }
-
-            if (isset($_FILES['image_upload_1']) && $_FILES['image_upload_1']['error'] != UPLOAD_ERR_NO_FILE) {
+            } else if (isset($_FILES['image_upload_1']) && $_FILES['image_upload_1']['error'] != UPLOAD_ERR_NO_FILE) {
                 $project->image = $_FILES['image_upload_1'];
                 $project->image['order'] = 1;
-            }
-
-            if (isset($_FILES['image_upload_2']) && $_FILES['image_upload_2']['error'] != UPLOAD_ERR_NO_FILE) {
+            } else if (isset($_FILES['image_upload_2']) && $_FILES['image_upload_2']['error'] != UPLOAD_ERR_NO_FILE) {
                 $project->image = $_FILES['image_upload_2'];
                 $project->image['order'] = 2;
+            } else {
+                $project->image = [];
             }
 
             // tratar las imagenes que quitan
             foreach ($project->gallery as $key=>$image) {
+//                if ($project->image['order'] == $key){
+//                    error_log(print_r('SAME',true));
+//                    error_log(print_r($project->gallery[$key], true));
+//                }
                 if (!empty($_POST["gallery-{$image->id}-remove"])) {
 //                    var_dump($key);
 //                    exit;

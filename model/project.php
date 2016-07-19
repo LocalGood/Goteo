@@ -79,6 +79,8 @@ namespace Goteo\Model {
             $gallery = array(), // array de instancias image de project_image
             $secGallery = array(), // array de instancias image de project_image (secundarias)
             $description,
+            $description_1,
+            $description_2,
              $motivation,
               $video,   // video de motivacion
                $video_usubs,   // universal subtitles para el video de motivacion
@@ -263,6 +265,8 @@ namespace Goteo\Model {
                     $sql = "
                         SELECT
                             IFNULL(project_lang.description, project.description) as description,
+                            IFNULL(project.description_1,'') as description_1,
+                            IFNULL(project.description_2,'') as description_2,
                             IFNULL(project_lang.motivation, project.motivation) as motivation,
                             IFNULL(project_lang.video, project.video) as video,
                             IFNULL(project_lang.about, project.about) as about,
@@ -622,13 +626,22 @@ namespace Goteo\Model {
                 $this->entity_cif = str_replace(array('_', '.', ' ', '-', ',', ')', '('), '', $this->entity_cif);
 
                 // Image
-                var_dump($this->image);
-//                exit;
                 if (is_array($this->image) && !empty($this->image['name'])) {
                     // Imageオブジェクト生成
                     $image = new Image($this->image);
+
+                    $_order = $this->image['order'];
+
                     // image テーブルに保存 & アップロード
                     if ($image->save($errors)) {
+
+                        // ギャラリーの同一インデクスに格納されていた画像は（削除して）上書き
+                        if (is_numeric($_order) && isset($this->gallery[$_order])) {
+                            $_image = $this->gallery[$_order];
+                            $_image->remove('project');
+                            unset($this->gallery[$_order]);
+                        }
+
                         $image->order = $this->image['order'];
                         //
                         if (is_numeric($image->order)) {
@@ -672,6 +685,8 @@ namespace Goteo\Model {
                     'subtitle',
                     'image',
                     'description',
+                    'description_1',
+                    'description_2',
                     'motivation',
                     'video',
                     'video_usubs',
