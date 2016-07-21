@@ -144,7 +144,7 @@ jQuery(document).ready(function($) {
     <section class="footer_bottom">
         <div class="footer_logo">
             <a href="http://yokohama.localgood.jp.il3c.com">
-                <img src="/view/css/s-footer-logo.jpg" alt="LOCAL GOOD">
+                <img src="/view/css/s-footer-logo.png" alt="LOCAL GOOD">
             </a>
         </div>
         <ul class="sns-area">
