@@ -74,7 +74,7 @@ namespace Goteo\Controller\Admin {
                     }
 
                     try {
-                        $sql = "UPDATE project SET " . $set . " WHERE id = :id";
+                        $sql = "UPDATE skillmatching SET " . $set . " WHERE id = :id";
                         if (Model\Skillmatching::query($sql, $values)) {
                             $log_text = Text::_('El admin %s ha <span class="red">tocado las fechas</span> del proyecto ').$projData->name.' %s';
                         } else {

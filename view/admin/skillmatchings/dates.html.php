@@ -29,7 +29,7 @@ define('ADMIN_NOAUTOSAVE', true);
 
 $project = $this['skillmatching'];
 
-if (!$project instanceof Model\Project) {
+if (!$project instanceof Model\Skillmatching) {
     Message::Error(Text::get('admin-projects-error-corruptproject'));
     throw new Redirection('/admin/skillmatchings');
 }
