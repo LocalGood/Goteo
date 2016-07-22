@@ -52,6 +52,7 @@ $level = (int) $this['level'] ?: 3;
     <div>
         <form method="post" action="/message/<?php echo $project->id; ?>">
             <input type="hidden" id="thread" name="thread" value="<?php echo $thread;?>" />
+            <input type="hidden" id="projType" name="projType" value="skillmatching" />
             <div id="bocadillo"></div>
             <textarea id="message-text" name="message" cols="50" rows="5"></textarea>
             <div style="display:none">
