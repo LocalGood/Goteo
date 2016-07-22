@@ -24,7 +24,7 @@ use Goteo\Library\Text,
 <div class="status">
 
     <div id="project-status">
-        <h3><?php echo Text::get('form-project-status-title'); ?></h3>
+        <h3><?php echo Text::get('form-skillmatching-status-title'); ?></h3>
         <ul>
             <?php foreach (Project::status() as $i => $s): ?>
             <li><?php if ($i == $this['status']) echo '<strong>' ?><?php echo htmlspecialchars($s) ?><?php if ($i == $this['status']) echo '</strong>' ?></li>
