@@ -137,7 +137,7 @@ $superform = array(
         
         'name' => array(
             'type'      => 'textbox',
-            'title'     => Text::get('overview-field-name'),
+            'title'     => Text::get('overview-field-name-sm'),
             'required'  => true,
             //'hint'      => Text::get('tooltip-project-name'),
             'value'     => $project->name,
@@ -147,7 +147,7 @@ $superform = array(
         
         'subtitle' => array(
             'type'      => 'textbox',
-            'title'     => Text::get('overview-field-subtitle'),
+            'title'     => Text::get('overview-field-subtitle-sm'),
             'required'  => false,
             'value'     => $project->subtitle,
             //'hint'      => Text::get('tooltip-project-subtitle'),
@@ -156,7 +156,7 @@ $superform = array(
         ),
 
         'images' => array(        
-            'title'     => Text::get('overview-fields-images-title'),
+            'title'     => Text::get('overview-fields-images-title-sm'),
             'type'      => 'group',
             'required'  => true,
             //'hint'      => Text::get('tooltip-project-image'),
@@ -181,7 +181,7 @@ $superform = array(
 
         'description' => array(            
             'type'      => 'textarea',
-            'title'     => Text::get('overview-field-description'),
+            'title'     => Text::get('overview-field-description-sm'),
             'required'  => true,
             //'hint'      => Text::get('tooltip-project-description'),
             'value'     => $project->description,            
@@ -245,7 +245,7 @@ $superform = array(
                 // fin video motivacion
                 'goal' => array(
                     'type'      => 'textarea',
-                    'title'     => Text::get('overview-field-goal'),
+                    'title'     => Text::get('overview-field-goal-sm'),
                     'required'  => true,
                     //'hint'      => Text::get('tooltip-project-goal'),
                     'errors'    => !empty($errors['goal']) ? array($errors['goal']) : array(),
@@ -254,7 +254,7 @@ $superform = array(
                 ),
                 'related' => array(
                     'type'      => 'textarea',
-                    'title'     => Text::get('overview-field-related'),
+                    'title'     => Text::get('overview-field-related-sm'),
                     'required'  => true,
                     //'hint'      => Text::get('tooltip-project-related'),
                     'errors'    => !empty($errors['related']) ? array($errors['related']) : array(),
@@ -267,7 +267,7 @@ $superform = array(
         'category' => array(    
             'type'      => 'checkboxes',
             'name'      => 'categories[]',
-            'title'     => Text::get('overview-field-categories'),
+            'title'     => Text::get('overview-field-categories-sm'),
             'required'  => true,
             'class'     => 'cols_3',
             'options'   => $categories,
@@ -277,7 +277,7 @@ $superform = array(
         ),
         'keywords' => array(
             'type'      => 'textbox',
-            'title'     => Text::get('overview-field-keywords'),
+            'title'     => Text::get('overview-field-keywords-sm'),
             'required'  => false,
             //'hint'      => Text::get('tooltip-project-keywords'),
             'errors'    => !empty($errors['keywords']) ? array($errors['keywords']) : array(),
@@ -345,7 +345,7 @@ $superform = array(
         ),
 */
         'project_location' => array(
-            'title'     => Text::get('overview-field-project_location'),
+            'title'     => Text::get('overview-field-project_location-sm'),
             'type'      => 'select',
             'required'  => true,
             'options'   => $project_location,

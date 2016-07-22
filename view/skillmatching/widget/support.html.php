@@ -34,13 +34,13 @@ $week = array('日','月','火','水','木','金','土');
     <?php //var_dump($project);
     switch ($project->tagmark) {
         case 'onrun': // "en marcha"
-            echo '<div class="tagmark green">' . Text::get('regular-onrun_mark') . '</div>';
+            echo '<div class="tagmark green">' . Text::get('regular-onrun_mark-sm') . '</div>';
             break;
         case 'keepiton': // "aun puedes"
             echo '<div class="tagmark green">' . Text::get('regular-keepiton_mark') . '</div>';
             break;
         case 'onrun-keepiton': // "en marcha" y "aun puedes"
-            echo '<div class="tagmark green twolines"><span class="small"><strong>' . Text::get('regular-onrun_mark') . '</strong><br />' . Text::get('regular-keepiton_mark') . '</span></div>';
+            echo '<div class="tagmark green twolines"><span class="small"><strong>' . Text::get('regular-onrun_mark-sm') . '</strong><br />' . Text::get('regular-keepiton_mark') . '</span></div>';
             break;
         case 'gotit': // "financiado"
             echo '<div class="tagmark violet">' . Text::get('regular-gotit_mark') . '</div>';
