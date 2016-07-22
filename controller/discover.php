@@ -55,6 +55,10 @@ namespace Goteo\Controller {
             foreach ($types as $type) {
                 $projects = Model\Project::published($type);
                 if (empty($projects)) continue;
+                $skillmatchings = Model\Skillmatching::published($type);
+                if (!empty($skillmatchings)){
+                    $projects = array_merge($projects, $skillmatchings);
+                }
                 $viewData['lists'][$type] = Listing::get($projects);
                 $viewData['title'][$type] = Text::get('discover-group-'.$type.'-header');
             }
