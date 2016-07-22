@@ -244,7 +244,7 @@ $bodyClass = 'project-show'; include 'view/prologue.html.php' ?>
 						
                     case 'messages':
                         echo
-                            new View('view/skillmatching/widget/collaborations_message.html.php', array('skillmatching' => $skillmatching,'thread' => $thread)),
+//                            new View('view/skillmatching/widget/collaborations_message.html.php', array('skillmatching' => $skillmatching,'thread' => $thread)),
                             new View('view/skillmatching/widget/messages.html.php', array('skillmatching' => $skillmatching,'thread' => $thread));
                         break;
                    

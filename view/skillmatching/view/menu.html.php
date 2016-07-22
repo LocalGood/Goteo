@@ -23,8 +23,8 @@ $menu = array(
     'home'        => Text::get('project-menu-home'),
 //    'needs'       => Text::get('project-menu-needs'),
 //    'supporters'  => Text::get('project-menu-supporters').' <span class="digits">'.$this['supporters'].'</span>',
-    'supporters'  => Text::get('project-menu-supporters').' <span class="digits">'.'('.count($this['skillmatching']->investors).')'.'</span>',
-    'messages'    => Text::get('project-menu-messages').' <span class="digits">'.$this['messages'].'</span>',
+    'supporters'  => Text::get('skillmatching-menu-supporters').' <span class="digits">'.'('.count($this['skillmatching']->investors).')'.'</span>',
+    'messages'    => Text::get('skillmatching-menu-messages').' <span class="digits">'.$this['messages'].'</span>',
     'updates'     => Text::get('project-menu-updates').' <span class="digits">'.$this['updates'].'</span>',
     'evaluation'  => Text::get('project-menu-evaluation')
 );

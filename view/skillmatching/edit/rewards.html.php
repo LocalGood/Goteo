@@ -31,7 +31,6 @@ $individual_rewards = array();
 $social_rewards = array();
 
 $txt_details = Text::get('regular-see_details');
-
 foreach ($project->individual_rewards as $individual_reward) {
 
     // a ver si es el que estamos editando o no
@@ -121,14 +120,15 @@ foreach ($project->individual_rewards as $individual_reward) {
                        // 'hint'      => Text::get('tooltip-project-individual_reward-type')
                     ),
                     "individual_reward-{$individual_reward->id}-amount" => array(
-                        'title'     => Text::get('rewards-field-individual_reward-amount'),
-                        'required'  => true,
-                        'type'      => 'textbox',
-                        'size'      => 5,
-                        'class'     => 'inline reward-amount',
-                        'value'     => $individual_reward->amount,
-                        'errors'    => !empty($errors["individual_reward-{$individual_reward->id}-amount"]) ? array($errors["individual_reward-{$individual_reward->id}-amount"]) : array(),
-                        'ok'        => !empty($okeys["individual_reward-{$individual_reward->id}-amount"]) ? array($okeys["individual_reward-{$individual_reward->id}-amount"]) : array(),
+//                        'title'     => Text::get('rewards-field-individual_reward-amount'),
+//                        'required'  => false,
+                        'type'      => 'hidden',
+//                        'size'      => 5,
+//                        'class'     => 'inline reward-amount',
+                        'value'     => 1
+//                        'value'     => $individual_reward->amount,
+//                        'errors'    => !empty($errors["individual_reward-{$individual_reward->id}-amount"]) ? array($errors["individual_reward-{$individual_reward->id}-amount"]) : array(),
+//                        'ok'        => !empty($okeys["individual_reward-{$individual_reward->id}-amount"]) ? array($okeys["individual_reward-{$individual_reward->id}-amount"]) : array(),
                        // 'hint'      => Text::get('tooltip-project-individual_reward-amount')
                     ),
                     "individual_reward-{$individual_reward->id}-units" => array(
@@ -447,6 +447,7 @@ $(function () {
     individuals.delegate('li.element.individual_reward input.edit', 'click', function (event) {
         var data = {};
         data[this.name] = '1';
+//        console.log(individuals);
         Superform.update(individuals, data);
         event.preventDefault();
     });

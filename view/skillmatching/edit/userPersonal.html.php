@@ -34,8 +34,8 @@ echo new SuperForm(array(
 
     'level'         => $this['level'],
     'method'        => 'post',
-    'title'         => Text::get('personal-main-header'),
-    'hint'          => Text::get('guide-project-contract-information'),
+    'title'         => Text::get('personal-main-header-sm'),
+    'hint'          => Text::get('guide-project-contract-information-sm'),
     'elements'      => array(
         'process_userPersonal' => array (
             'type' => 'hidden',
@@ -45,7 +45,7 @@ echo new SuperForm(array(
         /* Radio Tipo de persona */
         'contract_entity-radioset' => array(
             'type'      => 'group',
-            'title'     => Text::get('personal-field-contract_entity'),
+            'title'     => Text::get('personal-field-contract_entity-sm'),
 //            'hint'      => Text::get('tooltip-project-contract_entity'),
             'children'  => array(
                 'contract_entity-person' =>  array(
@@ -117,7 +117,7 @@ echo new SuperForm(array(
 
         'contract' => array(
             'type'      => 'group',
-            'title'     => Text::get('personal-field-contract_data'),
+            'title'     => Text::get('personal-field-contract_data-sm'),
             // 'hint'      => Text::get('tooltip-project-contract_data'),
             'children'  => array(
                 'contract_name' => array(

@@ -53,11 +53,13 @@ uasort($project->individual_rewards,
             <div class="individual">
                 <h<?php echo $level + 2 ?> class="title"><a href="/skillmatching/<?php echo $project->id; ?>/rewards#individual_ttl"><?php echo Text::get('project-rewards-individual_reward-title'); ?></a></h<?php echo $level + 2 ?>>
                 <ul>
-                    <?php foreach ($project->individual_rewards as $individual) : ?>
+                    <?php foreach ($project->individual_rewards as $individual) :?>
 
                         <li class="<?php echo $individual->icon ?>">
                             <?/*<div class="title">*/?>
+                            <?php /*
                             <div class="amount"><?php echo Text::get('regular-investing'); ?> <span><?php echo \amount_format($individual->amount); ?>円</span></div>
+                            */ ?>
                             <h<?php echo $level + 3 ?> class="name"><a href="/skillmatching/<?php echo $project->id; ?>/rewards#<? echo 'individual_num' . $count; ?>"><?php echo htmlspecialchars($individual->reward) ?></a></h<?php echo $level + 3 ?>>
                             <?php if (!empty($individual->units)):
                                 $units = ($individual->units - $individual->taken);
