@@ -129,7 +129,7 @@ namespace Goteo\Controller {
                 Model\User::setPersonal($_SESSION['user']->id, $address, false);
 
                 if (!empty($projType) && ($projType === 'skillmatching')){
-                    $_project = 'skillmatching_' . $project;
+                    $_project = LG_SM_DB_PREFIX . $project;
                     $_amount = 0;
                 } else {
                     $_project = $project;

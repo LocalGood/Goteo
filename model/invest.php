@@ -93,9 +93,9 @@ namespace Goteo\Model {
                 }
 
                 // skillmatching or project
-                if ((strpos($invest->project,'skillmatching_') == 0) && ($invest->amount == 0)){
+                if ((strpos($invest->project,LG_SM_DB_PREFIX) == 0) && ($invest->amount == 0)){
                     $invest->project_type = 'skillmatching';
-                    $invest->project = ltrim($invest->project,'skillmatching_');
+                    $invest->project = ltrim($invest->project,LG_SM_DB_PREFIX);
                 } else {
                     $invest->project_type = 'project';
                 }
@@ -340,11 +340,11 @@ namespace Goteo\Model {
                         $sqlFilter
                     ORDER BY invest.id DESC
                     ";
-            
+
             if ($limited > 0 && is_numeric($limited)) {
                 $sql .= "LIMIT $limited";
             }
-            
+
             $query = self::query($sql, $values);
             foreach ($query->fetchAll(\PDO::FETCH_CLASS) as $item) {
                 $list[$item->id] = $item;
@@ -355,7 +355,7 @@ namespace Goteo\Model {
 
 
 
-        public function validate (&$errors = array()) { 
+        public function validate (&$errors = array()) {
             if (!is_numeric($this->amount))
                 $errors[] = Text::_('La cantidad no es correcta');
 
@@ -433,8 +433,8 @@ namespace Goteo\Model {
                         ':invest'=>$this->id,
                         ':user'=>$this->user,
                         ':address'=>$this->address->address,
-                        ':zipcode'=>$this->address->zipcode, 
-                        ':location'=>$this->address->location, 
+                        ':zipcode'=>$this->address->zipcode,
+                        ':location'=>$this->address->location,
                         ':country'=>$this->address->country,
                         ':name'=>$this->address->name,
                         ':nif'=>$this->address->nif
@@ -540,7 +540,7 @@ namespace Goteo\Model {
 
             $list = array();
             $values = array();
-            
+
             $and = " WHERE";
 
             $sql = "
@@ -758,7 +758,7 @@ namespace Goteo\Model {
                 }
 
             }
-            
+
             return $investors;
         }
 
@@ -909,7 +909,7 @@ namespace Goteo\Model {
             } else {
                 return false;
             }
-            
+
         }
 
         /*
@@ -1041,7 +1041,7 @@ namespace Goteo\Model {
                         returned = :returned,
                         status = $status
                     WHERE id = :id";
-            
+
             if (self::query($sql, $values)) {
                 return true;
             } else {
@@ -1255,7 +1255,7 @@ namespace Goteo\Model {
                         // calcular ultimo dia de primera ronda segun la fecha de pase
                         $passtime = strtotime($passed);
                         $last_day = date('Y-m-d', \mktime(0, 0, 0, date('m', $passtime), date('d', $passtime)-1, date('Y', $passtime)));
-                        
+
                         // CASH first
                         $inv_cash = self::getList(array(
                             'methods' => 'cash',
@@ -1383,7 +1383,7 @@ namespace Goteo\Model {
                             $Data['paypal']['total']['amount'] += $Data['paypal']['second']['amount'];
                         }
 
-                        
+
                     } else {
                         $Data['note'][] = Text::_('No se ha calculado bien el parametro $act_eq');
                     }
@@ -1427,7 +1427,7 @@ namespace Goteo\Model {
                 $item->statusName = $status[$item->status];
                 $list[] = $item;
             }
-            
+
             // añadimos el capital riego de aportes con incidencia
              $sql = "SELECT
                         invest.id as invest,
@@ -1440,9 +1440,9 @@ namespace Goteo\Model {
                     INNER JOIN user
                         ON user.id = invest.user
                     WHERE invest.id IN (
-                        SELECT droped 
-                        FROM invest 
-                        WHERE issue = 1 
+                        SELECT droped
+                        FROM invest
+                        WHERE issue = 1
                         AND droped IS NOT NULL
                         AND invest.project = :id
                     )
@@ -1454,7 +1454,7 @@ namespace Goteo\Model {
                 $item->statusName = $status[$item->status].' (CAPITAL RIEGO)';
                 $list[] = $item;
             }
-            
+
             return $list;
 
 
@@ -1500,7 +1500,7 @@ namespace Goteo\Model {
          }
 
          private function getProjectName($project){
-             return (strpos($project,'skillmatching_') == 0) ? ltrim($project,'skillmatching_') : $project;
+             return (strpos($project,LG_SM_DB_PREFIX) == 0) ? ltrim($project,LG_SM_DB_PREFIX) : $project;
          }
 
     }

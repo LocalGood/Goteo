@@ -325,12 +325,13 @@ namespace Goteo\Model {
                 //-----------------------------------------------------------------
                 // Diferentes verificaciones segun el estado del proyecto
                 //-----------------------------------------------------------------
-                $skillmatching->investors = Invest::investors($id);
-                $skillmatching->num_investors = Invest::numInvestors($id);
+                $prefixed_id = LG_SM_DB_PREFIX.$id;
+                $skillmatching->investors = Invest::investors($prefixed_id);
+                $skillmatching->num_investors = Invest::numInvestors($prefixed_id);
 
-                $amount = Invest::invested($id);
+                $amount = Invest::invested($prefixed_id);
                 if ($skillmatching->invested != $amount) {
-                    self::query("UPDATE skillmatching SET amount = '{$amount}' WHERE id = ?", array($id));
+                    self::query("UPDATE skillmatching SET amount = '{$amount}' WHERE id = ?", array($prefixed_id));
                 }
                 $skillmatching->invested = $amount;
                 $skillmatching->amount   = $amount;
@@ -443,19 +444,19 @@ namespace Goteo\Model {
 				$skillmatching->social_rewards = Skillmatching\Reward::getAll($id, 'social', $lang);
 				// retornos individuales
 				$skillmatching->individual_rewards = Skillmatching\Reward::getAll($id, 'individual', $lang);
-
-                $amount = Invest::invested($id);
+                $prefixed_id = LG_SM_DB_PREFIX . $id;
+                $amount = Invest::invested($prefixed_id);
                 $skillmatching->invested = $amount;
                 $skillmatching->amount   = $amount;
 
 //                $skillmatching->investors = Invest::Investors($id);
-                $skillmatching->num_investors = Invest::numInvestors($id);
+                $skillmatching->num_investors = Invest::numInvestors($prefixed_id);
                 $skillmatching->num_messegers = Message::numMessegers($id);
 
                 // sacamos rapidamente el presupuesto mínimo y óptimo
-                $costs = self::calcCosts($id);
-                $skillmatching->mincost = $costs->mincost;
-                $skillmatching->maxcost = $costs->maxcost;
+//                $costs = self::calcCosts($id);
+//                $skillmatching->mincost = $costs->mincost;
+//                $skillmatching->maxcost = $costs->maxcost;
 
 
                 $skillmatching->setDays();
@@ -1682,7 +1683,7 @@ namespace Goteo\Model {
                     // idealizar el nombre
                     $newid = self::checkId(self::idealiza($this->name));
                     if ($newid == false) return false;
-                    
+                    $prefixed_new_id = LG_SM_DB_PREFIX . $newid;
                     // actualizar las tablas relacionadas en una transacción
                     $fail = false;
                     if (self::query("START TRANSACTION")) {
@@ -1963,6 +1964,7 @@ namespace Goteo\Model {
             }
 
             // segun el tipo (ver controller/discover.php)
+            $lg_sm_db_prefix = LG_SM_DB_PREFIX;
             switch ($type) {
                 case 'popular':
                     // de los que estan en campaña,
@@ -1971,13 +1973,13 @@ namespace Goteo\Model {
                                    skillmatching.name as name,
                                     (SELECT COUNT(DISTINCT(invest.user))
                                         FROM    invest
-                                        WHERE   invest.project = skillmatching.id
+                                        WHERE   invest.project = ($lg_sm_db_prefix + skillmatching.id)
                                         AND     invest.status IN ('0', '1')
                                     )
                                     +
                                     (SELECT  COUNT(DISTINCT(message.user))
                                         FROM    message
-                                        WHERE   message.project = skillmatching.id
+                                        WHERE   message.project = ($lg_sm_db_prefix + skillmatching.id)
                                     ) as followers
                             FROM skillmatching
                             WHERE skillmatching.status= 3
@@ -2041,7 +2043,7 @@ namespace Goteo\Model {
                                 ) as `mincost`,
                                 (SELECT  SUM(amount)
                                 FROM    invest
-                                WHERE   project = skillmatching.id
+                                WHERE   project = ($lg_sm_db_prefix + skillmatching.id)
                                 AND     invest.status IN ('0', '1', '3', '4')
                                 ) as `getamount`
                         FROM skillmatching
