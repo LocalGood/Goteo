@@ -452,12 +452,14 @@ namespace Goteo\Controller {
             // recompensas
             foreach ($skillmatching->individual_rewards as &$reward) {
                 $reward->none = false;
-                $reward->taken = $reward->getTaken(); // cofinanciadores quehan optado por esta recompensas
+                $reward->taken = $reward->getTaken($skillmatching->status); // cofinanciadores quehan optado por esta recompensas
                 // si controla unidades de esta recompensa, mirar si quedan
                 if ($reward->units > 0 && $reward->taken >= $reward->units) {
                     $reward->none = true;
                 }
             }
+//            var_dump($skillmatching);
+//            exit;
 
             // mensaje cuando, sin estar en campaña, tiene fecha de publicación, es que la campaña ha sido cancelada
             if ($skillmatching->status < 3 && !empty($skillmatching->published)) 
