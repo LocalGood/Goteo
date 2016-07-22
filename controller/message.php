@@ -37,9 +37,15 @@ namespace Goteo\Controller {
             if (empty($project))
                 throw new Redirection('/discover', Redirection::PERMANENT);
 
+            $projType = 'project';
 			if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['message'])) {
 
-                $projectData = Model\Project::getMini($project);
+                if (!empty($_POST['projType'])){
+                    $projType = $_POST['projType'];
+                    $projectData = Model\Skillmatching::getMini($project);
+                } else {
+                    $projectData = Model\Project::getMini($project);
+                }
 
                 if ($projectData->status < 3) {
                     \Goteo\Library\Message::Error(Text::get('project-messages-closed'));
@@ -49,6 +55,7 @@ namespace Goteo\Controller {
                 $message = new Model\Message(array(
                     'user' => $_SESSION['user']->id,
                     'project' => $project,
+                    'projType' => $projType,
                     'thread' => $_POST['thread'],
                     'message' => $_POST['message']
                 ));
@@ -158,7 +165,7 @@ namespace Goteo\Controller {
                         $subject = str_replace('%PROJECTNAME%', $projectData->name, $template->title);
 
                         $response_url = SITE_URL . '/user/profile/' . $_SESSION['user']->id . '/message';
-                        $project_url = SITE_URL . '/project/' . $projectData->id . '/messages#message'.$message->id;
+                        $project_url = SITE_URL . "/$projType/" . $projectData->id . '/messages#message'.$message->id;
 
                         $search  = array('%MESSAGE%', '%OWNERNAME%', '%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%', '%RESPONSEURL%');
                         $replace = array($_POST['message'], $projectData->user->name, $_SESSION['user']->name, $projectData->name, $project_url, $response_url);
@@ -181,7 +188,7 @@ namespace Goteo\Controller {
                 }
 			}
 
-            throw new Redirection("/project/{$project}/messages#message".$message->id, Redirection::TEMPORARY);
+            throw new Redirection("/{$projType}/{$project}/messages#message".$message->id, Redirection::TEMPORARY);
         }
 
         public function edit ($id, $project) {
