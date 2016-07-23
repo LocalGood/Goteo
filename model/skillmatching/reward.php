@@ -54,6 +54,7 @@ namespace Goteo\Model\Skillmatching {
                 $array = array();
 
                 $values = array(
+//                    ':project' => 'skillmatching_' . $project,
                     ':project' => $project,
                     ':type' => $type,
 //                    ':lang' => $lang,
@@ -242,12 +243,14 @@ namespace Goteo\Model\Skillmatching {
                     WHERE invest_reward.reward = :reward
                 ";
 
+//            $skillmatchingName =  (is_numeric($proj_stat) && (intval($proj_stat) >= 3)) ? 'skillmatching_' . $this->project : $this->project;
             $values = array(
+//                ':project' => $skillmatchingName,
                 ':project' => $this->project,
                 ':reward' => $this->id
             );
-
             $query = self::query($sql, $values);
+
             if ($taken = $query->fetchColumn(0)) {
                 return $taken;
             } else {
@@ -258,6 +261,7 @@ namespace Goteo\Model\Skillmatching {
         public static function icons($type = 'social') {
             $list = array();
 
+            $icons = Icon::getAll($type);
             $icons = Icon::getAll($type);
 
             foreach ($icons as $icon) {
@@ -304,7 +308,7 @@ namespace Goteo\Model\Skillmatching {
             }
 
             $values = array(
-                ':project' => $project
+                ':project' => 'skillmatching_' . $project
             );
 
             $query = self::query($sql, $values);
@@ -325,7 +329,7 @@ namespace Goteo\Model\Skillmatching {
                 $sqlFilter = "";
                 if (!empty($filters['project'])) {
                     $sqlFilterProj = " AND project.id = :project";
-                    $values[':project'] = $filters['project'];
+                    $values[':project'] = 'skillmatching_' . $filters['project'];
                 }
                 if (!empty($filters['name'])) {
                     $sqlFilterUser = " AND (user.name LIKE :name OR user.email LIKE :name)";
