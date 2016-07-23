@@ -491,7 +491,7 @@ namespace Goteo\Controller {
                     );
 
                 // sus entradas de novedades
-                $blog = Model\Blog::get($skillmatching->id);
+                $blog = Model\Blog::get(LG_SM_DB_PREFIX . $skillmatching->id);
                 // si está en modo preview, ponemos  todas las entradas, incluso las no publicadas
                 if (isset($_GET['preview']) && $_GET['preview'] == $_SESSION['user']->id) {
                     $blog->posts = Model\Blog\Post::getAll($blog->id, null, false);
