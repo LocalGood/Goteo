@@ -31,6 +31,7 @@ namespace Goteo\Model {
 
         public
             $id = null,
+            $prefixed_id = null,
             $dontsave = false,
             $owner, // User who created it
             $node, // Node this project belongs to
@@ -291,11 +292,14 @@ namespace Goteo\Model {
                     $skillmatching->video = new Skillmatching\Media($skillmatching->video);
                 }
 
+                // prefixed id
+                $skillmatching->prefixed_id = LG_SM_DB_PREFIX.$id;
+
                 // owner
                 $skillmatching->user = User::get($skillmatching->owner, $lang);
 
                 // galeria
-                $skillmatching->gallery = Skillmatching\Image::getGallery($skillmatching->id);
+                $skillmatching->gallery = Skillmatching\Image::getGallery($skillmatching->prefixed_id);
 
                 // imágenes por sección
                 foreach (Skillmatching\Image::sections() as $sec => $val) {
@@ -305,40 +309,39 @@ namespace Goteo\Model {
                 }
 
                 // categorias
-                $skillmatching->categories = Skillmatching\Category::get($id);
+                $skillmatching->categories = Skillmatching\Category::get($skillmatching->prefixed_id);
 
                 // skills
-                $skillmatching->skills = Skillmatching\Skill::get($id);
+                $skillmatching->skills = Skillmatching\Skill::get($skillmatching->prefixed_id);
 
 				// costes y los sumammos
 				$skillmatching->costs = Skillmatching\Cost::getAll($id, $lang);
                 $skillmatching->minmax();
 
 				// retornos colectivos
-				$skillmatching->social_rewards = Skillmatching\Reward::getAll($id, 'social', $lang);
+				$skillmatching->social_rewards = Skillmatching\Reward::getAll($skillmatching->prefixed_id, 'social', $lang);
 				// retornos individuales
-				$skillmatching->individual_rewards = Skillmatching\Reward::getAll($id, 'individual', $lang);
+				$skillmatching->individual_rewards = Skillmatching\Reward::getAll($skillmatching->prefixed_id, 'individual', $lang);
 
 				// colaboraciones
-				$skillmatching->supports = Skillmatching\Support::getAll($id, $lang);
+				$skillmatching->supports = Skillmatching\Support::getAll($skillmatching->prefixed_id, $lang);
 
                 //-----------------------------------------------------------------
                 // Diferentes verificaciones segun el estado del proyecto
                 //-----------------------------------------------------------------
-                $prefixed_id = LG_SM_DB_PREFIX.$id;
-                $skillmatching->investors = Invest::investors($prefixed_id);
-                $skillmatching->num_investors = Invest::numInvestors($prefixed_id);
+                $skillmatching->investors = Invest::investors($skillmatching->prefixed_id);
+                $skillmatching->num_investors = Invest::numInvestors($skillmatching->prefixed_id);
 
-                $amount = Invest::invested($prefixed_id);
+                $amount = Invest::invested($skillmatching->prefixed_id);
                 if ($skillmatching->invested != $amount) {
-                    self::query("UPDATE skillmatching SET amount = '{$amount}' WHERE id = ?", array($prefixed_id));
+                    self::query("UPDATE skillmatching SET amount = '{$amount}' WHERE id = ?", array($skillmatching->prefixed_id));
                 }
                 $skillmatching->invested = $amount;
                 $skillmatching->amount   = $amount;
 
                 //mensajes y mensajeros
                 $messegers = array();
-                $skillmatching->messages = Message::getAll($id, $lang);
+                $skillmatching->messages = Message::getAll($skillmatching->prefixed_id, $lang);
                 $skillmatching->num_messages = 0;
                 foreach ($skillmatching->messages as $msg) {
                     $skillmatching->num_messages++;
@@ -385,6 +388,9 @@ namespace Goteo\Model {
 				$query = self::query("SELECT id, name, owner, comment, lang, status FROM skillmatching WHERE id = ?", array($id));
 				$skillmatching = $query->fetchObject(); // stdClass para qno grabar accidentalmente y machacar todo
 
+                // prefixed id
+                $skillmatching->prefixed_id = LG_SM_DB_PREFIX.$id;
+
                 // owner
                 $skillmatching->user = User::getMini($skillmatching->owner);
 
@@ -404,6 +410,9 @@ namespace Goteo\Model {
 				// metemos los datos del proyecto en la instancia
 				$query = self::query("SELECT * FROM skillmatching WHERE id = ?", array($id));
 				$skillmatching = $query->fetchObject(__CLASS__);
+
+                // prefixed id
+                $skillmatching->prefixed_id = LG_SM_DB_PREFIX.$id;
 
                 // primero, que no lo grabe
                 $skillmatching->dontsave = true;
@@ -1688,18 +1697,18 @@ namespace Goteo\Model {
                     $fail = false;
                     if (self::query("START TRANSACTION")) {
                         try {
-                            self::query("UPDATE project_category SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE project_skill SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE cost SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE reward SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE support SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE message SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE project_image SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE project_account SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE invest SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE review SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE project_lang SET id = :newid WHERE id = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE blog SET owner = :newid WHERE owner = :id AND type='project'", array(':newid'=>$newid, ':id'=>$this->id));
+                            self::query("UPDATE project_category SET project = :newid WHERE project = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE project_skill SET project = :newid WHERE project = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE cost SET project = :newid WHERE project = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE reward SET project = :newid WHERE project = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE support SET project = :newid WHERE project = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE message SET project = :newid WHERE project = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE project_image SET project = :newid WHERE project = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE project_account SET project = :newid WHERE project = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE invest SET project = :newid WHERE project = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE review SET project = :newid WHERE project = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE project_lang SET id = :newid WHERE id = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE blog SET owner = :newid WHERE owner = :id AND type='project'", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
                             self::query("UPDATE skillmatching SET id = :newid WHERE id = :id", array(':newid'=>$newid, ':id'=>$this->id));
                             // borro los permisos, el dashboard los creará de nuevo
                             self::query("DELETE FROM acl WHERE url like ?", array('%'.$this->id.'%'));
@@ -1707,6 +1716,7 @@ namespace Goteo\Model {
                             // si todo va bien, commit y cambio el id de la instancia
                             self::query("COMMIT");
                             $this->id = $newid;
+                            $this->prefixed_id = $prefixed_new_id;
                             return true;
 
                         } catch (\PDOException $e) {
@@ -1719,6 +1729,8 @@ namespace Goteo\Model {
                 } elseif (!empty ($newid)) {
 //                   echo "Cambiando id proyecto: de {$this->id} a {$newid}<br /><br />";
                     $fail = false;
+
+                    $prefixed_new_id = LG_SM_DB_PREFIX . $newid;
 
                     if (self::query("START TRANSACTION")) {
                         try {
@@ -1763,20 +1775,20 @@ namespace Goteo\Model {
                             $sql = "UPDATE `user_translate` SET `item` = '{$newid}' WHERE `user_translate`.`type` = 'project' AND `user_translate`.`item` = :id;";
                             self::query($sql, array(':id'=>$this->id));
 
-                            self::query("UPDATE cost SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE message SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE project_category SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE project_skill SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE project_image SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE project_lang SET id = :newid WHERE id = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE reward SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE support SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE project_account SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE invest SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE promote SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE patron SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE invest SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE skillmatching SET id = :newid WHERE id = :id", array(':newid'=>$newid, ':id'=>$this->id));
+                            self::query("UPDATE cost SET project = :newid WHERE project = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE message SET project = :newid WHERE project = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE project_category SET project = :newid WHERE project = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE project_skill SET project = :newid WHERE project = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE project_image SET project = :newid WHERE project = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE project_lang SET id = :newid WHERE id = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE reward SET project = :newid WHERE project = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE support SET project = :newid WHERE project = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE project_account SET project = :newid WHERE project = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE invest SET project = :newid WHERE project = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE promote SET project = :newid WHERE project = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+//                            self::query("UPDATE patron SET project = :newid WHERE project = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE invest SET project = :newid WHERE project = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
+                            self::query("UPDATE skillmatching SET id = :newid WHERE id = :id", array(':newid'=>$prefixed_new_id, ':id'=>$this->id));
 
 
                             // si todo va bien, commit y cambio el id de la instancia
@@ -1964,7 +1976,7 @@ namespace Goteo\Model {
             }
 
             // segun el tipo (ver controller/discover.php)
-            $lg_sm_db_prefix = LG_SM_DB_PREFIX;
+            $lg_sm_db_prefix = "'" . LG_SM_DB_PREFIX . "'";
             switch ($type) {
                 case 'popular':
                     // de los que estan en campaña,
