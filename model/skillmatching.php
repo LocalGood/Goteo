@@ -2076,6 +2076,11 @@ namespace Goteo\Model {
                     // ni edicion ni revision ni cancelados, estan disponibles para verse publicamente
                     $sql = "SELECT id, name FROM skillmatching WHERE status > 2 AND status < 6 $sqlFilter ORDER BY status ASC";
                     break;
+                case 'available_pj_sm':
+                    // ni edicion ni revision ni cancelados, estan disponibles para verse publicamente
+                    $sql = "(SELECT id, name, status, 'project' as type FROM project WHERE status > 2 AND status < 6 $sqlFilter) UNION (SELECT id, name, status, 'skillmatching' as type FROM skillmatching WHERE status > 2 AND status < 6 $sqlFilter) ORDER BY status ASC";
+//                    $sql = "SELECT id, name FROM skillmatching WHERE status > 2 AND status < 6 $sqlFilter ORDER BY status ASC";
+                    break;
                 case 'archive':
                     // caducados, financiados o casos de exito
                     $sql = "SELECT id, name FROM skillmatching WHERE status = 6 $sqlFilter ORDER BY closed DESC";
@@ -2129,7 +2134,11 @@ namespace Goteo\Model {
                 if ($mini) {
                     $skillmatchings[$proj['id']] = $proj['name'];
                 } else {
-                    $skillmatchings[] = self::getMedium($proj['id']);
+                    if (($type == 'available_pj_sm') && ($proj['type'] == 'project')){
+                        $skillmatchings[] = Project::getMedium($proj['id']);
+                    } else {
+                        $skillmatchings[] = self::getMedium($proj['id']);
+                    }
                 }
             }
             return $skillmatchings;

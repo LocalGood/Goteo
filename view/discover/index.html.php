@@ -72,7 +72,8 @@ include 'view/header.html.php' ?>
                                 'categories' => $categories,
                                 'locations'  => $locations,
                                 'rewards'    => $rewards,
-                                'skills' => $skills
+                                'skills' => $skills,
+                                'types' => $types
                             )
             ); ?>
 
