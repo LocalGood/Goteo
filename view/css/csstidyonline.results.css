@@ -9511,6 +9511,11 @@ div.widget.project-support div.buttons {
 	margin:0 0 0 -97px;
 }
 
+div.widget.project-support div.buttons-sm {
+	padding: 16px 0;
+	clear: both;
+}
+
 div.widget.project-support a.button,
 div.widget.project-rewards a.button,
 div.widget.project-rewards-summary a.button,
@@ -13448,7 +13453,7 @@ div.searcher form
 	float:left;
 	margin-right:2px;
 	position:relative;
-	width:238px;
+	width:190px;
 }
 
 .searcher .filter:last-child
