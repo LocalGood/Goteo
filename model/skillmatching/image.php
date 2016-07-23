@@ -48,7 +48,7 @@ namespace Goteo\Model\Skillmatching {
          * @return array of categories identifiers
          */
 	 	public static function get ($id, $section = null) {
-            
+
 //            $URL = SITE_URL;
             $URL = preg_replace('/[A-Za-z0-9.]+\.localgood/','static.localgood',SITE_URL);
             
@@ -112,7 +112,9 @@ namespace Goteo\Model\Skillmatching {
             $gallery = array();
 
             try {
-                $sql = "SELECT image FROM project_image WHERE project = ? AND (section = '' OR section IS NULL) ORDER BY `order` ASC, image DESC";
+//                $sql = "SELECT image FROM project_image WHERE project = ? AND (section = '' OR section IS NULL) ORDER BY `order` ASC, image DESC";
+                $prefixed_id = "'skillmatching_" . $id . "'";
+                $sql = "SELECT image FROM project_image WHERE (project = ? OR project = $prefixed_id) AND (section = '' OR section IS NULL) ORDER BY `order` ASC, image DESC";
                 $query = self::query($sql, array($id));
                 foreach ($query->fetchAll(\PDO::FETCH_ASSOC) as $image) {
                     $gallery[] = Model\Image::get($image['image']);
