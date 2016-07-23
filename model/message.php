@@ -30,6 +30,7 @@ namespace Goteo\Model {
             $id,
             $user,
             $project,
+            $projType,
             $thread, // hilo al que contesta, si es NULL es un hilo y tendrá respuestas ( o no)
             $date, // timestamp del momento en que se creó el mensaje
             $message, // el texto del mensaje en si
@@ -161,6 +162,7 @@ namespace Goteo\Model {
                 'id',
                 'user',
                 'project',
+                'projType',
                 'thread',
                 'message',
                 'blocked',
@@ -172,9 +174,15 @@ namespace Goteo\Model {
 
             foreach ($fields as $field) {
                 if (!empty($this->$field)) {
+//                    error_log('message: ' . print_r($this->$field,true));
+                    if ($field == 'projType') continue;
                     if ($set != '') $set .= ", ";
                     $set .= "`$field` = :$field ";
-                    $values[":$field"] = $this->$field;
+                    if (isset($this->projType) && $this->projType == 'skillmatching' && $field == 'project'){
+                        $values[":$field"] = LG_SM_DB_PREFIX . $this->$field;
+                    } else {
+                        $values[":$field"] = $this->$field;
+                    }
                 }
             }
 
