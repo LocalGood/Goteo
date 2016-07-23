@@ -64,7 +64,7 @@ if (!empty($evaluation->content)){
     $ev_label = '';
 }
 
-$bodyClass = 'project-show'; include 'view/prologue.html.php' ?>
+$bodyClass = 'project-show skillmatching-show'; include 'view/prologue.html.php' ?>
 
 <?php include 'view/header.html.php' ?>
 
@@ -174,9 +174,9 @@ $bodyClass = 'project-show'; include 'view/prologue.html.php' ?>
                 echo new View('view/skillmatching/widget/collaborations.html.php', array('skillmatching' => $skillmatching));
             }
 
-            if ($show != 'rewards') {
-                echo new View('view/skillmatching/widget/rewards.html.php', array('skillmatching' => $skillmatching));
-            }
+//            if ($show != 'rewards') {
+//                echo new View('view/skillmatching/widget/rewards.html.php', array('skillmatching' => $skillmatching));
+//            }
 
             echo new View('view/user/widget/user.html.php', array('user' => $skillmatching->user));
 
