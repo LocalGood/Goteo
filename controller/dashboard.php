@@ -375,8 +375,176 @@ namespace Goteo\Controller {
             return new View(VIEW_PATH . '/dashboard/index.html.php', $viewData);
         }
         // Fin de la sección Mis proyectos
-        
-        
+
+        // Skillmatchings
+        public function skillmatchings($option = 'summary', $action = 'list', $id = null) {
+
+            $jump_switch = false;
+
+            $user = $_SESSION['user'];
+
+            if(!isset($_SESSION['user']->roles['project_owner']) && !(isset($_SESSION['user']->roles['localadmin']) && $_SESSION['user']->home == LG_PLACE_NAME )) throw new Redirection('/dashboard/profile/');
+
+            $errors = array();
+
+            // verificación de proyectos y proyecto de trabajo
+            list($project, $projects) = Dashboard\Skillmatchings::verifySkillmatching($user, $action);
+
+            // teniendo proyecto de trabajo, comprobar si el proyecto esta en estado de tener blog
+            if ($option == 'updates') $blog = Dashboard\Skillmatchings::verifyBlog($project);
+
+            // sacaexcel de cofinanciadores
+            if ($option == 'rewards' && $action == 'table') {
+                $response = new \Goteo\Controller\Sacaexcel;
+                return $response->index('investors', $project->id);
+            }
+
+            // ojo si no tiene retornos
+            if ($option == 'commons' && empty($project->social_rewards)) {
+                Message::Error(Text::get('dashboard-projects_error-no_public_return'));
+                throw new Redirection('/dashboard/projects/');
+            }
+
+
+            // procesamiento de formularios
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+                switch ($option) {
+                    // gestionar retornos (o mensaje a los mensajeros)
+                    case 'messegers':
+                    case 'rewards':
+                        // sacamos del post el filtro y el orden
+                        if ($action == 'filter') {
+                            $_SESSION['dashboard-rewards-filter'] = (isset($_POST['filter'])) ? $_POST['filter'] : $_SESSION['dashboard-rewards-filter'];
+                            $_SESSION['dashboard-rewards-order']  = (isset($_POST['order']))  ?  $_POST['order'] : $_SESSION['dashboard-rewards-order'];
+                        }
+
+                        //procesamos el envio de mails
+                        if ($action == 'message') {
+                            Dashboard\Skillmatchings::process_mailing($option, $project);
+                            // y lo devolvemos a donde estaba
+                            throw new Redirection('/dashboard/projects/' . $option);
+                        }
+                        break;
+
+                    // colaboraciones
+                    case 'supports':
+                        if ($action == 'save') $project = Dashboard\Skillmatchings::process_supports($project, $errors);
+                        break;
+
+                    case 'updates':
+                        // verificación: si no llega blog correcto no lo procesamos
+                        if (empty($_POST['blog']) || $_POST['blog'] != $blog->id) throw new Redirection('/dashboard/projects/summary');
+                        if ($action === 'edit' || $action === 'add'){
+                            $jump_switch = true;
+                        }
+
+                        list($action, $id) = Dashboard\Skillmatchings::process_updates($action, $project, $errors);
+                        if (($action === 'list') && ((bool)$_POST['publish']) && $jump_switch){
+                            $jump_switch = true;
+                        } else {
+                            $jump_switch = false;
+                        }
+
+                        break;
+                }
+            }
+
+            // SubControlador para add, edit, delete y list
+            // devuelve $post en las acciones add y edit y $posts en delete y list
+            // maneja por referencia $action, $posts y $errors
+            if ($option == 'updates') {
+                list($post, $posts) = Dashboard\Skillmatchings::prepare_updates($action, $id, $blog->id);
+            }
+
+
+            // view data basico para esta seccion
+            $viewData = array(
+                'menu' => self::menu(),
+                'section' => __FUNCTION__,
+                'option' => $option,
+                'action' => $action,
+                'projects' => $projects,
+                'errors' => $errors
+            );
+
+
+            switch ($option) {
+                case 'summary':
+                    // los datos json de invests y visitors_data
+                    $viewData['data'] = Dashboard\Skillmatchings::graph($project->id);
+                    break;
+
+                // gestionar recompensas
+                case 'rewards':
+                    // recompensas ofrecidas
+                    $viewData['rewards'] = Model\Skillmatching\Reward::getAll($project->id, 'individual', LANG);
+                    // aportes para este proyecto
+                    $viewData['invests'] = Model\Invest::getAll($project->id);
+                    // ver por (esto son orden y filtros)
+                    $viewData['filter'] = $_SESSION['dashboard-rewards-filter'];
+                    $viewData['order'] = $_SESSION['dashboard-rewards-order'];
+                    break;
+
+                // gestionar retornos
+                case 'commons':
+                    $icons = Model\Icon::getAll('social');
+                    foreach ($icons as $key => $icon) {
+                        $icons[$key] = $icon->name;
+                    }
+                    $viewData['icons'] = $icons;
+                    break;
+
+                // listar mensajeadores
+                case 'messegers':
+                    $viewData['messegers'] = Model\Message::getMessegers($project->id);
+                    break;
+
+                // editar colaboraciones
+                case 'supports':
+                    $viewData['types'] = Model\Skillmatching\Support::types();
+
+                    // para mantener registros desplegados
+                    if ($_POST) {
+                        foreach ($_POST as $k => $v) {
+                            if (!empty($v) && preg_match('/support-(\d+)-edit/', $k, $r)) {
+                                $viewData[$k] = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (!empty($_POST['support-add'])) {
+                        $last = end($project->supports);
+                        if ($last !== false) {
+                            $viewData['support-' . $last->id . '-edit'] = true;
+                        }
+                    }
+
+                    $project->supports = Model\Skillmatching\Support::getAll($project->id);
+                    break;
+
+                // publicar actualizaciones
+                case 'updates':
+                    $viewData['blog'] = $blog;
+                    $viewData['posts'] = $posts;
+                    $viewData['post'] = $post;
+                    if ($jump_switch){
+                        $_url = explode('/',$_SERVER['REQUEST_URI']);
+                        $_postid = $_url[ max(array_keys($_url)) ];
+                        if (!is_numeric($_postid)){
+                            $_postid = "";
+                        }
+                        throw new Redirection("/skillmatching/{$project->id}/updates/{$_postid}");
+                    }
+                    break;
+            }
+
+            $viewData['skillmatching'] = $project;
+
+            return new View(VIEW_PATH . '/dashboard/index.html.php', $viewData);
+        }
+
 
         /*
          * Seccion, Mis traducciones
@@ -695,7 +863,19 @@ namespace Goteo\Controller {
                         //'commons' => Text::get('dashboard-menu-projects-commons')
                     ),
                     'permission' => $_permission
+                ),
+                'skillmatchings' => array(
+                    'label' => Text::get('dashboard-menu-skillmatchings'),
+                    'options' => array(
+                        'summary' => Text::get('dashboard-menu-projects-summary'),  // 概要
+                        'updates' => Text::get('dashboard-menu-projects-updates'),  // ブログ/活動報告
+                        'rewards' => Text::get('dashboard-menu-skillmatchings-rewards')// (募集/参加者の管理？)
+                        //'messegers' => Text::get('dashboard-menu-skillmatchings-messegers'),
+                        //'commons' => Text::get('dashboard-menu-skillmatchings-commons')
+                    ),
+                    'permission' => $_permission
                 )
+
             );
 
             // segun lo que este traduciendo
