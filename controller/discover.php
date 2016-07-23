@@ -77,7 +77,6 @@ namespace Goteo\Controller {
 
             $message = '';
             $results = null;
-
             // si recibimos categoria por get emulamos post con un parametro 'category'
             if (!empty($category)) {
                 $_POST['category'][] = $category;
@@ -88,12 +87,12 @@ namespace Goteo\Controller {
 
                 $params['query'] = \strip_tags($_GET['query']); // busqueda de texto
 
-                $results = \Goteo\Library\Search::text($params['query']);
+                $results = \Goteo\Library\Search::text_all($params['query']);
 
 			} elseif (($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['searcher']) || !empty($category))) {
 
                 // vamos montando $params con los 3 parametros y las opciones marcadas en cada uno
-                $params = array('skills'=>array(), 'category'=>array(), 'location'=>array(), 'reward'=>array());
+                $params = array('types'=>array(),'skills'=>array(), 'category'=>array(), 'location'=>array(), 'reward'=>array());
 
                 foreach ($params as $param => $empty) {
                     foreach ($_POST[$param] as $key => $value) {
@@ -101,7 +100,7 @@ namespace Goteo\Controller {
                             $params[$param] = array();
                             break;
                         }
-                        $params[$param][] = "'{$value}'";
+                        $params[$param][] = ($param == 'types') ? "{$value}" :  "'{$value}'";
                     }
                 }
 

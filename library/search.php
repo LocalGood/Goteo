@@ -21,8 +21,10 @@
 
 namespace Goteo\Library {
 
+//    use Goteo\Controller\Skillmatching;
     use Goteo\Core\Model,
-        Goteo\Model\Project;
+        Goteo\Model\Project,
+        Goteo\Model\Skillmatching;
 
 	/*
 	 * Clase para realizar búsquedas de proyectos
@@ -65,6 +67,57 @@ namespace Goteo\Library {
                 throw new Exception('Fallo la sentencia de busqueda');
             }
 		}
+
+        public static function text_all ($value) {
+
+            $results = array();
+
+            $values = array(':text'=>"%$value%");
+
+            $sql = "(
+                        SELECT id, 'pj' as type
+                        FROM project
+                        WHERE status > 2
+                        AND (name LIKE :text
+                            OR description LIKE :text
+                            OR motivation LIKE :text
+                            OR about LIKE :text
+                            OR goal LIKE :text
+                            OR related LIKE :text
+                            OR keywords LIKE :text
+                            OR location LIKE :text
+                            )
+                    ) UNION (
+                        SELECT id, 'sm' as type
+                        FROM skillmatching
+                        WHERE status > 2
+                        AND (name LIKE :text
+                            OR description LIKE :text
+                            OR motivation LIKE :text
+                            OR about LIKE :text
+                            OR goal LIKE :text
+                            OR related LIKE :text
+                            OR keywords LIKE :text
+                            OR location LIKE :text
+                            )
+                    )
+                    ORDER BY name ASC";
+
+            try {
+                $query = Model::query($sql, $values);
+                foreach ($query->fetchAll(\PDO::FETCH_CLASS) as $match) {
+                    if ($match->type == 'pj'){
+                        $results[] = Project::getMedium($match->id);
+                    } else {
+                        $results[] = Skillmatching::getMedium($match->id);
+                    }
+                }
+                return $results;
+            } catch (\PDOException $e) {
+                throw new Exception('Fallo la sentencia de busqueda');
+            }
+        }
+
 
         /**
          * Metodo para realizar una busqueda por parametros
@@ -134,15 +187,47 @@ namespace Goteo\Library {
             $minstatus = ($showall) ? '1' : '2';
             $maxstatus = ($showall) ? '4' : '7';
 
-            $sql = "SELECT id
+            $where_sql = '';
+            if (!empty($where)) {
+                $where_sql = implode (' ', $where);
+            };
+
+            $sql = "(
+                        SELECT id, 'sm' as type, status, name
+                        FROM skillmatching
+                        WHERE status > $minstatus
+                        AND status < $maxstatus
+                        $where_sql
+                    ) UNION (
+                        SELECT id, 'pj' as type, status, name
+                        FROM project
+                        WHERE status > $minstatus
+                        AND status < $maxstatus
+                        $where_sql
+                    )";
+
+            if (!empty($params['types'])) {
+                if ($params['types'][0] == 'project'){
+                    $sql = "SELECT id, 'pj' as type
                     FROM project
                     WHERE status > $minstatus
                     AND status < $maxstatus
+                    $where_sql
                     ";
-            
-            if (!empty($where)) {
-                $sql .= implode (' ', $where);
-            }
+                } else if ($params['types'][0] == 'skillmatching'){
+
+                    $sql = "SELECT id, 'sm' as type
+                        FROM skillmatching
+                        WHERE status > $minstatus
+                        AND status < $maxstatus
+                        $where_sql
+                    ";
+                }
+            };
+
+//            if (!empty($where)) {
+//                $sql .= implode (' ', $where);
+//            }
 
             $sql .= " ORDER BY ";
 
@@ -165,11 +250,15 @@ namespace Goteo\Library {
 //            var_dump($sql);
 //            var_dump($values);
 //            exit;
-
+//var_dump($sql);exit;
             try {
                 $query = Model::query($sql, $values);
                 foreach ($query->fetchAll(\PDO::FETCH_CLASS) as $match) {
-                    $results[] = Project::getMedium($match->id);
+                    if ($match->type == 'pj'){
+                        $results[] = Project::getMedium($match->id);
+                    } else {
+                        $results[] = Skillmatching::getMedium($match->id);
+                    }
                 }
                 return $results;
             } catch (\PDOException $e) {
