@@ -43,18 +43,31 @@ use Goteo\Library\Text,
                         記事
                     </dt>
                     <dd>
-                        <a href="/category/news/">
+                        <a href="http://yokohama.localgood.jp.il3c.com/lgnews/">
                             ニュース
                         </a>
                     </dd>
                     <dd>
-                        <a href="/data/">
+                        <a href="http://yokohama.localgood.jp.il3c.com/data/">
                             データ
                         </a>
                     </dd>
                     <dd>
-                        <a href="/lgplayer/">
+                        <a href="http://yokohama.localgood.jp.il3c.com/lgplayer/">
                             人/団体
+                        </a>
+                    </dd>
+                    <dt>
+                        みんなの声
+                    </dt>
+                    <dd>
+                        <a href="http://yokohama.localgood.jp.il3c.com/subject/">
+                            投稿一覧
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="http://yokohama.localgood.jp.il3c.com/submit_subject/">
+                            あなたの声を投稿する
                         </a>
                     </dd>
                 </dl>
@@ -64,17 +77,15 @@ use Goteo\Library\Text,
                     応援する
                 </div>
                 <dl class="list02">
-                    <dt>
-                        みんなの声
-                    </dt>
+                    <dt></dt>
                     <dd>
-                        <a href="/subject/">
-                            投稿一覧
+                        <a href="https://cf.yokohama.localgood.jp/discover/">
+                            プロジェクト一覧
                         </a>
                     </dd>
                     <dd>
-                        <a href="/submit_subject/">
-                            あなたの声を投稿する
+                        <a href="https://cf.yokohama.localgood.jp/challenge/">
+                            プロジェクトを立てる
                         </a>
                     </dd>
                 </dl>
@@ -91,7 +102,8 @@ use Goteo\Library\Text,
             </li>
         </ul>
     </nav>
-</nav>
+
+
 
 <script >
     var linkList = $('.main_nav__link-list');
