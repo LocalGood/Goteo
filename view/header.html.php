@@ -37,84 +37,61 @@ use Goteo\Library\Text,
 
     })
 </script>
+<header id="header" class="normal_header header clearfix">
 
-<div id="header" class="header">
-    <h1 style="display: none;"><?php echo Text::get('regular-main-header'); ?></h1>
-    <div class="head_bar_wrapper">
-        <div class="head_bar_inner">
-            <span>横浜の地域課題プラットフォーム</span>
-<?
-            if($_SERVER['REQUEST_URI']=="/"):
-?>
-            <div id="social_bookmark">
-                <div id="twitter">
-                    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
-                    <script>
-                        !function(d,s,id){
-                            var js,fjs=d.getElementsByTagName(s)[0];
-                            if(!d.getElementById(id)){
-                                js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";
-                                fjs.parentNode.insertBefore(js,fjs);
-                            }
-                        }(document,"script","twitter-wjs");
-                    </script>
-                </div>
-                <div id="facebook">
-                    <?/*<div class="fb-like" data-href="<?= SITE_URL; ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>*/?>
-                    <div class="fb-like" data-href="<?= $ogmeta['url']; ?>" data-layout="button_count" data-action="recommend" data-show-faces="false" data-share="true"></div>
-                </div>
+    <h1 class="header__logo">
+        <a href=""><img src="/view/css/header_logo.png" alt=""/></a>
+    </h1>
 
-                <div class="g-plusone" data-size="medium" data-width="60"></div>
-                <script type="text/javascript">
-                    window.___gcfg = {lang: 'ja'};
-
-                    (function() {
-                        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                        po.src = 'https://apis.google.com/js/platform.js';
-                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-                    })();
-                </script>
-
-                <div style="clear:both"></div>
-            </div><!-- #social_bookmark -->
-            <?
-            endif;
-            ?>
-        </div><!--.head_bar_inner-->
-    </div>
-    <div class="logo_wrapper">
-        <div class="inner">
-            <h1><a href="<?= LOCALGOOD_WP_BASE_URL ?>"><img src="/view/css/header/logo.png" alt="LOCAL GOOD YOKOHAMA"/></a></h1>
-            <div class="catchcopy">
-                このまち、わたしから未来を創る
-            </div>
-            <p class="to_integration_site"><a href="<?= LG_INTEGRATION_URL ?>">LOCAL GOOD全国版トップページ</a></p>
+    <div class="header__right">
+        <div class="header__right__search_box">
+            <form role="search" id="search_form" method="get" action="/">
+                <input type="text" id="s" name="s" placeholder="キーワード">
+                <input type="image" src="/view/css/search.png" alt="検索"
+                       id="searchBtn" name="searchBtn">
+            </form>
         </div>
-        <a class="earth_view" href="<? if(defined('LG_EARTHVIEW')){echo LG_EARTHVIEW;} ?>" target="_blank"><img src="/view/css/header/earth_view_icon.png" alt="Earth View" /></a>
-    </div>
-    <div class="nav_wrapper">
-        <div class="nav_inner">
-            <ul>
-                <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>">ホーム</a></li>
-                <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/earth_view/">課題を知る</a>
-                    <ul class="sub">
-                        <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/submit_subject/">課題を投稿する</a></li>
-                        <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/subject/">課題を見る</a></li>
-                    </ul>
+        <nav class="header__right__nav">
+            <ul id="gnav" class="header__right__nav__gnav">
+                <? $a = 'class="active"'; ?>
+                <li>
+                    <a href="">地域を知る</a>
+                    <div class="snav header__right__snav">
+                        <div class="header__right__snav__inner">
+                            <span class="header__right__snav__second_title">記事</span>
+                            <ul>
+                                <li><span><a href="">ニュース</a></span></li>
+                                <li><span><a href="">データ</a></span></li>
+                                <li><span><a href="">人/団体</a></span></li>
+                            </ul>
+                            <span class="header__right__snav__second_title">みんなの声</span>
+                            <ul>
+                                <li><span><a href="">投稿一覧</a></span></li>
+                                <li><span><a href="">あなたの声を投稿する</a></span></li>
+                            </ul>
+                        </div>
+                    </div>
                 </li>
-                <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/data/">データを見る</a></li>
-                <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/posts_archive/">活動を知る</a></li>
-
-                <li><a href="/user/login/">支援する</a>
-                    <ul class="sub">
-                        <li><a href="/">プロジェクト</a></li>
-                        <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/skills/">スキルを活かす</a></li>
-                    </ul>
+                <li>
+                    <a href="/discover/">応援する</a>
+                    <div class="header__right__snav">
+                        <div class="header__right__snav__inner">
+                            <ul>
+                                <li><span><a href="">プロジェクト一覧</a></span></li>
+                                <li><span><a href="">プロジェクトを立ち上げる</a></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="">3Dマップ</a>
+                </li>
+                <li class="gnav_goteo">
+                    <a href="/user/login">新規登録/ログイン</a>
                 </li>
             </ul>
-        </div>
+        </nav>
     </div>
 
-    <?php include 'view/header/menu.html.php' ?>
+</header>
+<!--.header-->
 
-</div>
