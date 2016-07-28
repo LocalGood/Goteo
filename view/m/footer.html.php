@@ -183,25 +183,44 @@ jQuery(document).ready(function($) {
     <div class="sp_footer_logo-area">
         <ul class="clearfix">
             <li class="left">
-                <img src="/view/css/s-footer-logo01.png" alt="">
+                <a href="http://yokohamalab.jp/" target="_blank">
+                    <img src="/view/css/logo_f_labo.jpg" alt="NPO法人 横浜コミュニティデザイン・ラボ">
+                </a>
             </li>
             <li class="left">
-                <img src="/view/css/s-footer-logo02.png" alt="">
+                <a href="http://www.city.yokohama.lg.jp/seisaku/" target="_blank">
+                    <img src="/view/css/s-footer-logo03.png" alt="画像：OPEN YOKOHAMA">
+                </a>
             </li>
             <li class="left">
-                <img src="/view/css/s-footer-logo03.png" alt="">
+                <a href="http://goteo.org/" target="_blank">
+                    <img src="/view/css/s-footer-logo04.png" alt="画像：Fundacion Goteo">
+                </a>
             </li>
             <li class="left">
-                <img src="/view/css/s-footer-logo04.png" alt="">
+                <a href="http://www.ycu-coc.jp/" target="_blank">
+                    <img src="/view/css/s-footer-logo05.png" alt="画像：横浜市立大学影山摩子弥研究室">
+                </a>
             </li>
             <li class="left">
-                <img src="/view/css/s-footer-logo05.png" alt="">
+                <a href="http://labo.wtnv.jp/" target="_blank">
+                    <img src="/view/css/s-footer-logo06.png" alt="画像：首都大学東京渡邉英徳研究室">
+                </a>
             </li>
             <li class="left">
-                <img src="/view/css/s-footer-logo06.png" alt="">
+                <a href="http://designcat.co/" target="_blank">
+                    <img src="/view/css/s-footer-logo07.png" alt="画像：Design Cat">
+                </a>
             </li>
             <li class="left">
-                <img src="/view/css/s-footer-logo07.png" alt="">
+                <a href="http://info-lounge.jp/" target="_blank">
+                    <img src="/view/css/s-footer-logo08.jpg" alt="画像：インフォ・ラウンジ合同会社">
+                </a>
+            </li>
+            <li class="left">
+                <a href="http://www.accenture.com/jp-ja/Pages/index.aspx" target="_blank">
+                    <img src="/view/css/s-footer-logo02.png" alt="画像：アクセンチュア株式会社">
+                </a>
             </li>
         </ul>
         <div class="cw">
