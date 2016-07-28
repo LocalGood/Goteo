@@ -1201,7 +1201,7 @@ a.up:hover{background:url('/view/css/arrow-up.png') no-repeat left;
 }
 .footer__under ul a img {
 	width: auto;
-	max-height: 70px;
+	max-height: 40px;
 	vertical-align: middle;
 }
 .footer__under .footer__copyright {
