@@ -20,6 +20,7 @@
 
 use Goteo\Library\Text,
     Goteo\Library\i18n\Lang;
+
 //@NODESYS
 ?>
 
@@ -104,30 +105,36 @@ use Goteo\Library\Text,
     </nav>
 
 
-
-<script >
-    var linkList = $('.main_nav__link-list');
-    $(linkList).slideUp();
-    $('.nav_menu-button').click(function(){
-        if($(linkList).hasClass('on')){
-            $(linkList).slideUp();
-            $(linkList).removeClass('on');
-            $('.main_nav').css({"display":"none","position":"none"});
-        }else{
-            $(linkList).slideDown();
-            $(linkList).addClass('on');
-            $(linkList).css({'position':'fixed','top':'60px','left':'0'});
-            $('.main_nav').css({"display":"block","position":"fixed","top":"0","left":"0","z-index":"99999"});
-        }
-    });
-    $('.list_open dl').slideUp();
-    $('.list_open').click(function(){
-        if($(this).hasClass('on')){
-            $(this).children('dl').slideUp();
-            $(this).removeClass('on');
-        }else{
-            $(this).children('dl').slideDown();
-            $(this).addClass('on');
-        }
-    });
-</script>
+    <script>
+        var linkList = $('.main_nav__link-list');
+        $(linkList).slideUp();
+        $('.nav_menu-button').click(function () {
+            if ($(linkList).hasClass('on')) {
+                $(linkList).slideUp();
+                $(linkList).removeClass('on');
+                $('.main_nav').css({"display": "none", "position": "none"});
+            } else {
+                $(linkList).slideDown();
+                $(linkList).addClass('on');
+                $(linkList).css({'position': 'fixed', 'top': '60px', 'left': '0'});
+                $('.main_nav').css({
+                    "display": "block",
+                    "position": "fixed",
+                    "top": "0",
+                    "left": "0",
+                    "z-index": "99999"
+                });
+            }
+        });
+        $('.list_open dl').slideUp();
+        $('.list_open').click(function () {
+            if ($(this).hasClass('on')) {
+                $(this).children('dl').slideUp();
+                $(this).removeClass('on');
+            } else {
+                $(this).children('dl').slideDown();
+                $(this).addClass('on');
+            }
+        });
+    </script>
+    </nav>
