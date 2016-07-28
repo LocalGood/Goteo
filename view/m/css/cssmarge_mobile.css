@@ -2279,6 +2279,9 @@ body.page .static_page .content {
 .main_nav02 .nav_logo {
     float: left;
 }
+.main_nav02 .nav_logo img{
+    width:35%;
+}
 .main_nav02 .nav_menu-button {
     background: #fff;
     width: 21px;
@@ -8931,6 +8934,9 @@ footer a {
 footer .footer_bottom .footer_logo {
     margin-left: -10px;
 }
+footer .footer_bottom .footer_logo img{
+    width:70%;
+}
 footer .footer_bottom .sns-area {
     display: table;
     width: 50%;
@@ -8956,16 +8962,12 @@ footer .footer_bottom .link span {
     text-align: center;
     font-weight: bold;
 }
-footer .cw {
-    font-size: 8px !important;
-    text-align: center;
-}
 .sp_footer_logo-area {
     padding: 25px 25px 10px 25px;
     background: #fff;
 }
 .sp_footer_logo-area .cw {
-    font-size: 10px !important;
+    font-size: 50% !important;
     text-align: center;
 }
 .sp_footer_logo-area ul {
