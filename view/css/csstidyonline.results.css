@@ -1544,9 +1544,10 @@ div .inner
 	position: relative;
 }
 
-/*#wrapper {
-	position: relative;
-}*/
+#wrapper {
+	/*position: relative;*/
+	margin-top:60px;
+}
 
 .header .head_bar_wrapper
 {
