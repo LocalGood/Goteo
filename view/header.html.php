@@ -19,8 +19,10 @@
  */
 
 use Goteo\Library\Text,
+    Goteo\Core\ACL,
     Goteo\Library\i18n\Lang;
 //@NODESYS
+
 ?>
 
 <script>
@@ -96,9 +98,9 @@ use Goteo\Library\Text,
                                             <li><a href="/dashboard/profile"><span>プロフィール</span></a></li>
                                             <li><a href="/dashboard/projects"><span>マイプロジェクト</span></a></li>
                                             <li><a href="/community/sharemates"><span>みんなの興味</span></a></li>
-                                            <li><a href="/translate"><span>翻訳メインパネル</span></a></li>
-                                            <li><a href="/review"><span>レビュー管理</span></a></li>
-                                            <li><a href="/admin"><span>管理者パネル</span></a></li>
+                                            <?php if (ACL::check('/admin')) : ?>
+                                                <li><a href="/admin"><span>管理者パネル</span></a></li>
+                                            <?php endif; ?>
                                             <li class="logout"><a href="/user/logout"><span>ログアウト</span></a></li>
                                         </ul>
                                     </div>

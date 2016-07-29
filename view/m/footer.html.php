@@ -173,7 +173,7 @@ jQuery(document).ready(function($) {
             <span>
                 >
             </span>
-            <a href="">
+            <a href="http://localgood.jp/">
                 LOCAL GOOD 地域課題プラットフォーム
             </a>
         </div>
