@@ -93,7 +93,7 @@ jQuery(document).ready(function($) {
         </span>
         <ul>
             <li>
-                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/category/news/">
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/lgnews/">
                     ニュース
                 </a>
             </li>

@@ -2221,6 +2221,7 @@ body.page .static_page .content {
     margin-bottom: 3px;
 }
 .main_nav__link-list {
+    display:none;
     z-index: 88888;
     width: 100%;
     -webkit-box-sizing: border-box;
@@ -2234,6 +2235,9 @@ body.page .static_page .content {
 }
 .main_nav__link-list .list_open .list01__text {
     background: url("../images/sm/s-main_nav-open.png") no-repeat right;
+}
+.main_nav__link-list .list_open .dl{
+    display: none;
 }
 .main_nav__link-list .list_open.on .list01__text {
     background: url("../images/sm/s-main_nav-open-on.png") no-repeat right;
