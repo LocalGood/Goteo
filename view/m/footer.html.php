@@ -37,46 +37,193 @@ jQuery(document).ready(function($) {
 });
 </script>
 
-    <!-- <div id="footer"> -->
-    <div class="footer">
-
-        <div class="footer_link_wrapper">
-            <div id="to_page_top" style="bottom:0; margin-left: 880px;">
-                <a href="#page_top"><img src="/view/css/page_topBtn.png" alt="ページの上部へ" /></a>
-            </div><!--#to_page_top-->
-            <div class="inner cf">
-                <ul>
-                    <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/about/">LOCAL GOODについて</a></li>
-                    <li><a href="<?= LG_INTEGRATION_URL ?>/riyou_kiyaku_menu/">利用規約</a></li>
-                    <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/syoutorihikihou/">特定商取引法に基づく表記</a></li>
-                    <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/user_guide/">ユーザーガイド</a></li>
-                    <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/privacypolicy/">プライバシーポリシー</a></li>
-                    <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/mailnews/">メルマガ登録</a></li>
-                    <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/contact/">お問い合わせ</a></li>
-                    <li class="integration"><a href="<?= LG_INTEGRATION_URL ?>/">LOCAL GOOD全国版トップページ</a></li>
-                </ul>
-            </div>
+<footer>
+    <section class="footer_menu_links">
+        <div class="footer__link-title">
+            ご利用にあたって
         </div>
-        <div class="foot_bar_wrapper">
-            <div class="foot_bar_inner cf">
-                <a class="three_left" href="http://yokohamalab.jp/" target="_blank"><img src="/view/css/ycdl_logo.png" alt="Yokohama Community Design Lab." /></a>
-                <a class="three_center" href="http://www.accenture.com/jp-ja/Pages/index.aspx" target="_blank"><img src="/view/css/accenture_logo.png" alt="accenture" /></a>
-                <img class="three_right" src="/view/css/open_yokohama_logo.png" alt="Open Yokohama" />
-            </div>
-            <p class="copyright">
-                <span>&copy; LOCAL GOOD YOKOHAMA. Some rights reserved.</span>
-            </p>
-            <div class="platoniq">
-                <?php // You are not allowed to remove this links. If so, you'll make a legal fault regarding the release license. You can read it at https://github.com/Goteo/Goteo/blob/master/GNU-AGPL-3.0 ?>
-                <span class="text"><a href="http://goteo.org" target="_blank" class="poweredby">Powered by Goteo.org</a></span>
-                <?php // You are not allowed to remove this links. If so, you'll make a legal fault regarding the release license. You can read it at https://github.com/Goteo/Goteo/blob/master/GNU-AGPL-3.0 ?>
-                <span class="logo"><a href="http://fuentesabiertas.org" target="_blank" class="foundation">FFA</a></span>
-                <?php // You are not allowed to remove this links. If so, you'll make a legal fault regarding the release license. You can read it at https://github.com/Goteo/Goteo/blob/master/GNU-AGPL-3.0 ?>
-                <span class="logo"><a href="https://github.com/Goteo/Goteo" target="_blank" class="growby">GNU-AGPL-3</a></span>
-                <?php // You are not allowed to remove this links. If so, you'll make a legal fault regarding the release license. You can read it at https://github.com/Goteo/Goteo/blob/master/GNU-AGPL-3.0 ?>
-            </div>
+        <ul>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/about/">
+                    LOCAL GOOD YOKOHAMAについて
+                </a>
+            </li>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/mailnews/">
+                    メルマガ登録
+                </a>
+            </li>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/syoutorihikihou/">
+                    特定商取引法について
+                </a>
+            </li>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/privacypolicy/">
+                    プライバシーポリシー
+                </a>
+            </li>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/user_guide/">
+                    ユーザーガイド
+                </a>
+            </li>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/riyou_kiyaku_menu/">
+                    利用規約
+                </a>
+            </li>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/contact/">
+                    お問い合わせ
+                </a>
+            </li>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/authors/">
+                    記者一覧
+                </a>
+            </li>
+        </ul>
 
+        <div class="footer__link-title">
+            地域を知る
+        </div>
+        <span>
+            記事
+        </span>
+        <ul>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/category/news/">
+                    ニュース
+                </a>
+            </li>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/lgplayer/">
+                    人/団体
+                </a>
+            </li>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/data/">
+                    データ
+                </a>
+            </li>
+        </ul>
+        <span>
+            みんなの声
+        </span>
+        <ul>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/subject/">
+                    投稿一覧
+                </a>
+            </li>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/submit_subject/">
+                    あなたの声を投稿する
+                </a>
+            </li>
+        </ul>
+
+        <div class="footer__link-title">
+            応援する
+        </div>
+        <ul>
+            <li>
+                <a href="https://cf.yokohama.localgood.jp/discover">
+                    プロジェクト一覧
+                </a>
+            </li>
+            <li>
+                <a href="https://cf.yokohama.localgood.jp/challenge/">
+                    プロジェクトを立てる
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <section class="footer_bottom">
+        <div class="footer_logo">
+            <a href="<?= LOCALGOOD_WP_BASE_URL; ?>">
+                <img src="/view/css/s-footer-logo.png" alt="LOCAL GOOD">
+            </a>
+        </div>
+        <ul class="sns-area">
+            <li>
+                <a href="http://yokohama.localgood.jp/feed/" target="_blank">
+                    <img src="/view/css/s-footer-sns-icon01.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="https://plus.google.com/112981975493826894716/posts" target="_blank">
+                    <img src="/view/css/s-footer-sns-icon02.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/LogooYOKOHAMA" target="_blank">
+                    <img src="/view/css/s-footer-sns-icon03.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/LOCALGOODYOKOHAMA" target="_blank">
+                    <img src="/view/css/s-footer-sns-icon04.png" alt="">
+                </a>
+            </li>
+        </ul>
+        <div class="link">
+            <span>
+                >
+            </span>
+            <a href="">
+                LOCAL GOOD 地域課題プラットフォーム
+            </a>
+        </div>
+    </section>
+</footer>
+
+    <div class="sp_footer_logo-area">
+        <ul class="clearfix">
+            <li class="left">
+                <a href="http://yokohamalab.jp/" target="_blank">
+                    <img src="/view/css/logo_f_labo.jpg" alt="NPO法人 横浜コミュニティデザイン・ラボ">
+                </a>
+            </li>
+            <li class="left">
+                <a href="http://www.city.yokohama.lg.jp/seisaku/" target="_blank">
+                    <img src="/view/css/s-footer-logo03.png" alt="画像：OPEN YOKOHAMA">
+                </a>
+            </li>
+            <li class="left">
+                <a href="http://goteo.org/" target="_blank">
+                    <img src="/view/css/s-footer-logo04.png" alt="画像：Fundacion Goteo">
+                </a>
+            </li>
+            <li class="left">
+                <a href="http://www.ycu-coc.jp/" target="_blank">
+                    <img src="/view/css/s-footer-logo05.png" alt="画像：横浜市立大学影山摩子弥研究室">
+                </a>
+            </li>
+            <li class="left">
+                <a href="http://labo.wtnv.jp/" target="_blank">
+                    <img src="/view/css/s-footer-logo06.png" alt="画像：首都大学東京渡邉英徳研究室">
+                </a>
+            </li>
+            <li class="left">
+                <a href="http://designcat.co/" target="_blank">
+                    <img src="/view/css/s-footer-logo07.png" alt="画像：Design Cat">
+                </a>
+            </li>
+            <li class="left">
+                <a href="http://info-lounge.jp/" target="_blank">
+                    <img src="/view/css/s-footer-logo08.jpg" alt="画像：インフォ・ラウンジ合同会社">
+                </a>
+            </li>
+            <li class="left">
+                <a href="http://www.accenture.com/jp-ja/Pages/index.aspx" target="_blank">
+                    <img src="/view/css/s-footer-logo02.png" alt="画像：アクセンチュア株式会社">
+                </a>
+            </li>
+        </ul>
+        <div class="cw">
+            COPYRIGHT© LOCAL GOOD YOKOHAMA. Some rights reserved.
         </div>
     </div>
-
-
