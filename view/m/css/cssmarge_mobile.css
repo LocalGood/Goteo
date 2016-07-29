@@ -1778,6 +1778,13 @@ header
     line-height: 30px;
     float:left;
 }
+.nav_menu-button .close_button {
+    color: #255b80;
+    font-size: 200%;
+    font-weight: bold;
+    display: none;
+    margin-top:-20px;
+}
 
 .header .nav_wrapper {
     background-color: #0098c4;

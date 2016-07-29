@@ -44,42 +44,42 @@ jQuery(document).ready(function($) {
         </div>
         <ul>
             <li>
-                <a href="http://yokohama.localgood.jp.il3c.com/about/">
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/about/">
                     LOCAL GOOD YOKOHAMAについて
                 </a>
             </li>
             <li>
-                <a href="http://yokohama.localgood.jp.il3c.com/mailnews/">
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/mailnews/">
                     メルマガ登録
                 </a>
             </li>
             <li>
-                <a href="http://yokohama.localgood.jp.il3c.com/syoutorihikihou/">
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/syoutorihikihou/">
                     特定商取引法について
                 </a>
             </li>
             <li>
-                <a href="http://yokohama.localgood.jp.il3c.com/privacypolicy/">
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/privacypolicy/">
                     プライバシーポリシー
                 </a>
             </li>
             <li>
-                <a href="http://yokohama.localgood.jp.il3c.com/user_guide/">
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/user_guide/">
                     ユーザーガイド
                 </a>
             </li>
             <li>
-                <a href="http://yokohama.localgood.jp.il3c.com/riyou_kiyaku_menu/">
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/riyou_kiyaku_menu/">
                     利用規約
                 </a>
             </li>
             <li>
-                <a href="http://yokohama.localgood.jp.il3c.com/contact/">
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/contact/">
                     お問い合わせ
                 </a>
             </li>
             <li>
-                <a href="http://yokohama.localgood.jp.il3c.com/authors/">
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/authors/">
                     記者一覧
                 </a>
             </li>
@@ -93,17 +93,17 @@ jQuery(document).ready(function($) {
         </span>
         <ul>
             <li>
-                <a href="http://yokohama.localgood.jp.il3c.com/category/news/">
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/category/news/">
                     ニュース
                 </a>
             </li>
             <li>
-                <a href="http://yokohama.localgood.jp.il3c.com/lgplayer/">
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/lgplayer/">
                     人/団体
                 </a>
             </li>
             <li>
-                <a href="http://yokohama.localgood.jp.il3c.com/data/">
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/data/">
                     データ
                 </a>
             </li>
@@ -113,12 +113,12 @@ jQuery(document).ready(function($) {
         </span>
         <ul>
             <li>
-                <a href="http://yokohama.localgood.jp.il3c.com/subject/">
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/subject/">
                     投稿一覧
                 </a>
             </li>
             <li>
-                <a href="http://yokohama.localgood.jp.il3c.com/submit_subject/">
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/submit_subject/">
                     あなたの声を投稿する
                 </a>
             </li>
@@ -143,7 +143,7 @@ jQuery(document).ready(function($) {
 
     <section class="footer_bottom">
         <div class="footer_logo">
-            <a href="http://yokohama.localgood.jp.il3c.com">
+            <a href="<?= LOCALGOOD_WP_BASE_URL; ?>">
                 <img src="/view/css/s-footer-logo.png" alt="LOCAL GOOD">
             </a>
         </div>

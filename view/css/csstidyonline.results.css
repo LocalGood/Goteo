@@ -515,6 +515,7 @@ a.up:hover{background:url('/view/css/arrow-up.png') no-repeat left;
 	margin-top: 14px;
 	padding: 12px 8px;
 	background-color: #fff;
+	box-shadow: 0 1px 0 0 #d9d9d9;
 }
 .header__right__nav__gnav > li:hover .header__right__snav .header__right__snav__inner:before, .header__right__nav__gnav > li.active .header__right__snav .header__right__snav__inner:before {
 	content: '';
@@ -522,7 +523,7 @@ a.up:hover{background:url('/view/css/arrow-up.png') no-repeat left;
 	top: -6px;
 	left: 50%;
 	margin-left: -8px;
-	background: url(../images/snav_bk_arrow.png) no-repeat 50% top;
+	background: url(snav_bk_arrow.png) no-repeat 50% top;
 	width: 16px;
 	height: 12px;
 }
@@ -539,7 +540,7 @@ a.up:hover{background:url('/view/css/arrow-up.png') no-repeat left;
 .header__right__nav__gnav > li:hover .header__right__snav .header__right__snav__inner ul > li span, .header__right__nav__gnav > li.active .header__right__snav .header__right__snav__inner ul > li span {
 	display: block;
 	padding-left: 12px;
-	background: url(../images/snav_text_arrow.png) no-repeat left 50%;
+	background: url(snav_text_arrow.png) no-repeat left 50%;
 }
 .header__right__nav__gnav > li:hover .header__right__snav .header__right__snav__inner ul > li a, .header__right__nav__gnav > li.active .header__right__snav .header__right__snav__inner ul > li a {
 	display: inline-block;
@@ -575,13 +576,20 @@ a.up:hover{background:url('/view/css/arrow-up.png') no-repeat left;
 	-webkit-appearance: none;
 	margin-top: 6px;
 }
-/*---------- .normal_header ----------*/.normal_header {
-											position: fixed;
-											z-index: 5;
-											width: 100%;
-											height: 60px;
-											background-color: #fff;
-										}
+/*---------- .normal_header ----------*/
+.normal_header.header {
+	position: fixed;
+	z-index: 5;
+	top: 0;
+}
+.normal_header {
+	position: fixed;
+	z-index: 5;
+	width: 100%;
+	height: 60px;
+	background-color: #fff;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
 .normal_header .header__logo a {
 	height: 60px;
 	line-height: 60px;
@@ -608,6 +616,255 @@ a.up:hover{background:url('/view/css/arrow-up.png') no-repeat left;
 	margin: 20px 25px 15px 0;
 }
 
+/*---------- .goteo_menu ----------*/
+.goteo_menu {
+	/*left: 50%;*/
+	/*margin-left: 182px;*/
+	overflow: visible;
+	/*position: absolute;*/
+	/*top: 60px;*/
+	/*width:288px;*/
+	/*z-index: 2;*/
+}
+
+.goteo_menu > ul {
+	list-style: none;
+	margin: 0 auto;
+	overflow: visible;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	position: relative;
+	text-align: right;
+}
+
+.goteo_menu > ul > li {
+	float: left;
+	text-align: left;
+}
+
+.goteo_menu > ul > li.explore,
+.goteo_menu > ul > li.create {
+	margin-right: 4px;
+}
+
+.goteo_menu > ul > li.home {
+	height: 48px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 90px;
+}
+
+.goteo_menu > ul > li.home > a {
+	background: url(header/main-logo.png) no-repeat left center;
+	display: block;
+	height: 36px;
+	left: 50%;
+	line-height: 2000px;
+	margin-left: -45px;
+	margin-top: -18px;
+	overflow: hidden;
+	position: absolute;
+	text-indent: 2000px;
+	top: 50%;
+	width: 105px;
+}
+
+.goteo_menu > ul > li.home > a:hover {
+	background: url(header/main-logo.png) no-repeat right center;
+}
+
+.goteo_menu > ul > li.login {
+	float: right;
+}
+
+.goteo_menu > ul > li.explore > a.button.red,.goteo_menu > ul > li.create > a.button.aqua {
+	color: #FFF;
+	display: inline-block;
+	font-size: 11px;
+	line-height: 13px;
+	margin: 0;
+	padding: 4px 6px!important;
+	text-align: center;
+	width: 78px;
+}
+
+.goteo_menu > ul > li.search {
+	margin-right: .5em;
+	margin-top: 1em;
+}
+
+.goteo_menu > ul > li.search fieldset {
+	border: 1px solid #808184;
+	font-size: 12px;
+	margin: 0;
+	padding: 0 1.5em 0 0;
+	position: relative;
+}
+
+.goteo_menu > ul > li.search fieldset legend {
+	display: none;
+}
+
+.goteo_menu > ul > li.search fieldset input[type="text"] {
+	background-color: transparent;
+	border: none;
+	font-size: 12px;
+	height: 11px;
+	padding: .2em;
+	width: 12em;
+}
+
+.goteo_menu > ul > li.search fieldset input[type="text"]:focus {
+	background-color: #E3F0F0!important;
+}
+
+.goteo_menu > ul > li.search fieldset input[type="submit"] {
+	background: transparent url(header/search.png) no-repeat center center;
+	display: block;
+	height: 15px;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	right: 0;
+	text-indent: 2000px;
+	top: 0;
+	width: 1.6em;
+}
+
+.goteo_menu > ul > li.search fieldset input[type="submit"]:hover {
+	background-color: #8ed9d8;
+}
+
+.goteo_menu > ul > li.community,.goteo_menu > ul > li.login,.goteo_menu > ul > li.dashboard {
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	background-color: #666;
+	border-radius: 3px;
+	height: 34px;
+	position: relative;
+}
+
+.goteo_menu > ul > li.community,.goteo_menu > ul > li.dashboard {
+	background: transparent url(header/down-black.png) no-repeat right 30px;
+}
+
+.goteo_menu > ul > li.login fieldset > * {
+	display: none;
+}
+
+.goteo_menu > ul > li.login form,.goteo_menu > ul > li.login fieldset,.goteo_menu > ul > li.login fieldset > legend {
+	border: none;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+.goteo_menu > ul > li.community > a,.goteo_menu > ul > li.login > a,.goteo_menu > ul > li.dashboard > a {
+	background-color: #39c;
+	color: #f5f5f5;
+	display: inline-block;
+	font-size: 11px;
+	height: 30px;
+	line-height: 30px;
+	padding: 2px 6px;
+}
+
+.goteo_menu > ul > li.dashboard > a:hover {
+	background-color: #39c;
+}
+
+.goteo_menu > ul > li.login > a {
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	text-align: center;
+	width: 88px;
+}
+
+.goteo_menu > ul > li.community > a,.goteo_menu > ul > li.dashboard > a {
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	padding-right: 10px;
+	position: relative;
+	top: 0;
+	width: 84px;
+}
+
+.goteo_menu > ul > li.dashboard > a > img {
+	position: absolute;
+	right: 3px;
+	top: 3px;
+	vertical-align: middle;
+}
+
+.goteo_menu > h2,div#header ul.lang {
+	display: none;
+}
+
+.goteo_menu > ul > li.community:hover,.goteo_menu > ul > li.login:hover,.goteo_menu > ul > li.dashboard:hover {
+	background-color: #808285;
+}
+
+.goteo_menu > ul > li.community:hover,.goteo_menu > ul > li.dashboard:hover {
+	background-image: url(header/down-white.png);
+}
+
+.goteo_menu > ul > li.community:hover *,.goteo_menu > ul > li.login:hover *,.goteo_menu > ul > li.dashboard:hover * {
+	color: #FFF;
+}
+
+.goteo_menu > ul > li.dashboard > a > span > em {
+	display: none;
+}
+
+.goteo_menu > ul > li.community > div,.goteo_menu > ul > li.dashboard > div {
+	display: none;
+}
+
+.goteo_menu > ul > li.community:hover > div,.goteo_menu > ul > li.dashboard:hover > div {
+	display: block;
+	min-width: 100%;
+	position: absolute;
+	right: 0;
+	top: 100%;
+}
+
+.goteo_menu > ul > li.community > div > ul,.goteo_menu > ul > li.dashboard > div > ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.goteo_menu > ul > li.community > div > ul > li,.goteo_menu > ul > li.dashboard > div > ul > li {
+	background-color: #58595b;
+}
+
+.goteo_menu > ul > li.community > div > ul > li.active,.goteo_menu > ul > li.dashboard > div > ul > li.active {
+	background-color: #781d1d;
+}
+
+.goteo_menu > ul > li.community > div > ul > li *,.goteo_menu > ul > li.dashboard > div > ul > li * {
+	color: #FFF;
+	text-transform: none;
+}
+
+.goteo_menu > ul > li.community > div > ul > li > a,.goteo_menu > ul > li.dashboard > div > ul > li > a {
+	display: block;
+	font-size: 11px;
+	padding: 6px 3px;
+}
+
+.goteo_menu > ul > li.dashboard > div > ul > li.logout > a > span {
+	color: red!important;
+}
+
+.goteo_menu > ul > li.community > div > ul > li > a:hover,.goteo_menu > ul > li.dashboard > div > ul > li > a:hover {
+	background-color: #39c;
+}
 
 /*----------------------------------------------------------------------
  footer.css
@@ -1148,6 +1405,9 @@ a.up:hover{background:url('/view/css/arrow-up.png') no-repeat left;
 	line-height: 18px;
 	background: url(integration_link.png) no-repeat left 50%;
 }
+.footer__upper_left .footer__integration_site:hover {
+	text-decoration: underline;
+}
 .footer__upper_right {
 	float: left;
 	letter-spacing: -0.4em;
@@ -1182,6 +1442,10 @@ a.up:hover{background:url('/view/css/arrow-up.png') no-repeat left;
 .footer__upper_right > li ul a {
 	font-size: 13px;
 	line-height: 20px;
+}
+.footer__upper_right > li ul a:hover {
+	text-decoration: underline;
+}
 }
 .footer__upper_right > li:last-child {
 	margin-right: 0;
@@ -1275,6 +1539,14 @@ div .inner
 	background-color:#fff;
 	position:relative;
 }
+
+.header_wrapper {
+	position: relative;
+}
+
+/*#wrapper {
+	position: relative;
+}*/
 
 .header .head_bar_wrapper
 {
