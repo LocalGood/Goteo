@@ -69,7 +69,7 @@ jQuery(document).ready(function($) {
                 </a>
             </li>
             <li>
-                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/riyou_kiyaku_menu/">
+                <a href="http://localgood.jp/riyou_kiyaku_menu/">
                     利用規約
                 </a>
             </li>
@@ -134,7 +134,7 @@ jQuery(document).ready(function($) {
                 </a>
             </li>
             <li>
-                <a href="https://cf.yokohama.localgood.jp/challenge/">
+                <a href="/challenge/">
                     プロジェクトを立てる
                 </a>
             </li>
