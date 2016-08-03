@@ -797,7 +797,12 @@ a.up:hover{background:url('/view/css/arrow-up.png') no-repeat left;
 	padding-right: 10px;
 	position: relative;
 	top: 0;
-	width: 84px;
+	/*width: 84px;*/
+	width:130px;
+	height:38px;
+	box-sizing:border-box;
+	background: #105d7f;
+	text-decoration: none;
 }
 
 .goteo_menu > ul > li.dashboard > a > img {
