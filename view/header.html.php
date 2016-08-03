@@ -43,7 +43,7 @@ use Goteo\Library\Text,
 <header id="header" class="normal_header header clearfix">
 
     <h1 class="header__logo">
-        <a href="<?= LOCALGOOD_WP_BASE_URL; ?>"><img src="/view/css/header_logo.png" alt=""/></a>
+        <a href="<?= LOCALGOOD_WP_BASE_URL; ?>"><img src="http://yokohama.localgood.jp.il3c.com/wp-content/themes/localgood/images/header_logo.png" alt=""/></a>
     </h1>
 
     <div class="header__right">
