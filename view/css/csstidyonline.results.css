@@ -451,6 +451,10 @@ a.up:hover{background:url('/view/css/arrow-up.png') no-repeat left;
 	margin: 0;
 	color: #565352;
 }
+.header__right__nav__gnav a {
+	text-decoration: none;
+}
+
 .header__right__nav__gnav > * {
 	display: inline-block;
 	letter-spacing: normal;
@@ -479,7 +483,7 @@ a.up:hover{background:url('/view/css/arrow-up.png') no-repeat left;
 	color: #075d79;
 	border-bottom: 3px solid #255b7f;
 }
-.header__right__nav__gnav > li.active .header__right__snav, .header__right__nav__gnav > li:hover .header__right__snav {
+.header__right__nav__gnav > li:hover .header__right__snav {
 	display: block;
 }
 .header__right__nav__gnav > li.gnav_goteo {
@@ -489,6 +493,7 @@ a.up:hover{background:url('/view/css/arrow-up.png') no-repeat left;
 	padding: 0;
 	font-size: 12px;
 	text-align: center;
+	text-decoration: none;
 }
 .header__right__nav__gnav > li .header.common_header {
 	position: fixed;
@@ -800,6 +805,7 @@ a.up:hover{background:url('/view/css/arrow-up.png') no-repeat left;
 	/*width: 84px;*/
 	width:130px;
 	height:38px;
+	line-height:34px;
 	box-sizing:border-box;
 	background: #105d7f;
 	text-decoration: none;
@@ -807,8 +813,8 @@ a.up:hover{background:url('/view/css/arrow-up.png') no-repeat left;
 
 .goteo_menu > ul > li.dashboard > a > img {
 	position: absolute;
-	right: 3px;
-	top: 3px;
+	right: 5px;
+	top: 5px;
 	vertical-align: middle;
 }
 
