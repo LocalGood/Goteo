@@ -301,6 +301,73 @@ namespace Goteo\Controller {
         }
 
         /**
+         * get pickup projects
+         *
+         * @return bool|string
+         * @throws \Goteo\Core\Exception
+         */
+        function get_goteo_datum(){
+            $_result = Promote::getAll(true);
+            if (count($_result) > 3) {
+                for ($i = 0; $i < 3; $i++) {
+                    $this->result[] = $_result[$i];
+                }
+            } else {
+                $this->result = $_result;
+            }
+//            $this->result = Promote::getAll(true);
+//            var_dump($this->result);exit;
+            return $this->output();
+        }
+
+        /**
+         * get goteo investors
+         *
+         * @return bool|string
+         * @throws \Goteo\Core\Exception
+         *
+         */
+        function _get_investors_all(){
+            $query = \Goteo\Core\Model::query('select count(distinct user) from invest inner join project on project.id = invest.project where (invest.status = 1 OR invest.status = 3 ) AND project.status >= 3 AND project.created >= \'2014-10-01\'');
+            $matched = $query->fetch(\PDO::FETCH_ASSOC);
+            return $matched;
+        }
+
+        /**
+         * get goteo status
+         *
+         * @return bool|string
+         * @throws \Goteo\Core\Exception
+         *
+         */
+        function get_goteo_status(){
+            $query = \Goteo\Core\Model::query('select amount, id, status from project where status >= 3 and created >= \'2014-10-01\'');
+            $matched = $query->fetchAll();
+            $result = [];
+            foreach ($matched as $pj) {
+                if ($pj['status'] == 4){
+                    $result['total'] += $pj['amount'];
+                    $result['succeed'] += 1;
+                } elseif ($pj['status'] == 3) {
+                    $result['progress'] += 1;
+                }
+            }
+
+            if (!empty($result['total'])){
+                $result['total'] = number_format($result['total'], 0, '', ',');
+            }
+
+            $investall = "";
+            $investall = self::_get_investors_all();
+            if (!empty($investall['count(distinct user)'])){
+                $result['investors'] = $investall['count(distinct user)'];
+            }
+
+            $this->result = $result;
+            return $this->output();
+        }
+
+        /**
          * return server domain for LocalGood App.
          *
          * @return bool|string
