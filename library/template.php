@@ -69,7 +69,8 @@ namespace Goteo\Library {
 
             try {
 
-                $values = array(':lang' => \LANG);
+//                $values = array(':lang' => \LANG);
+                $values = array();
                 $sqlFilter = '';
                 $and = "WHERE";
                 if (!empty($filters['group'])) {
