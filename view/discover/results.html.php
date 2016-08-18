@@ -40,11 +40,16 @@ include 'view/header.html.php' ?>
             <div class="widget projects">
                 <?php if (!empty($this['results'])) :
                     foreach ($this['results'] as $result) :
-                        echo new View('view/project/widget/project.html.php', array(
-                            'project' => $result
-                        )); 
+                        if ( get_class($result) == 'Goteo\Model\Skillmatching'){
+                            echo new View('view/skillmatching/widget/skillmatchings.html.php', array(
+                                'skillmatching' => $result
+                            ));
+                        } else {
+                            echo new View('view/project/widget/project.html.php', array(
+                                'project' => $result
+                            ));
+                        }
                     endforeach;
-                //var_dump($this['results']);
                 else :
                     echo Text::get('discover-results-empty');
                 endif; ?>

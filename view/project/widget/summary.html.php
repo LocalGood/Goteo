@@ -31,15 +31,14 @@ $project->goal        = nl2br(Text::urlink($project->goal));
 $project->related     = nl2br(Text::urlink($project->related));
 
 $level = (int) $this['level'] ?: 3;
-?>
-<?
+
 echo new View('view/project/widget/video.html.php', array('project' => $project));
 ?>
 <div class="widget project-summary">
 
     <h<?php echo $level ?>><?php echo htmlspecialchars($project->name) ?></h<?php echo $level ?>>
 
-    <?
+    <?php
     if ( strtotime($project->created) >= strtotime(LG_DATE_NEW_PROJ_FORMAT) && isset($project->gallery[0] )) {
         echo new View('view/project/widget/gallery.html.php', array('project' => $project, 'index' => 0));
     }
@@ -51,7 +50,7 @@ echo new View('view/project/widget/video.html.php', array('project' => $project)
     </div>
     <?php endif ?>
 
-    <?
+    <?php
     // 旧ギャラリー互換
     if ( strtotime($project->created) < strtotime(LG_DATE_NEW_PROJ_FORMAT) ){
         echo new View('view/project/widget/gallery.html.php', array('project' => $project));
