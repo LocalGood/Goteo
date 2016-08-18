@@ -25,13 +25,14 @@ use Goteo\Library\Text,
 ?>
 
 <nav class="main_nav02 clearfix">
-    <a href="http://yokohama.localgood.jp.il3c.com" class="nav_logo">
+    <a href="<?= LOCALGOOD_WP_BASE_URL; ?>" class="nav_logo">
         <img src="/view/css/header/s-header-logo.png" alt=""/>
     </a>
     <div class="nav_menu-button">
         <span></span>
         <span></span>
         <span></span>
+        <div class="close_button">×</div><!-- /.close_button -->
     </div>
     <nav class="main_nav__link-list">
         <ul class="list01">
@@ -44,17 +45,17 @@ use Goteo\Library\Text,
                         記事
                     </dt>
                     <dd>
-                        <a href="http://yokohama.localgood.jp.il3c.com/lgnews/">
+                        <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/lgnews/">
                             ニュース
                         </a>
                     </dd>
                     <dd>
-                        <a href="http://yokohama.localgood.jp.il3c.com/data/">
+                        <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/data/">
                             データ
                         </a>
                     </dd>
                     <dd>
-                        <a href="http://yokohama.localgood.jp.il3c.com/lgplayer/">
+                        <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/lgplayer/">
                             人/団体
                         </a>
                     </dd>
@@ -62,12 +63,12 @@ use Goteo\Library\Text,
                         みんなの声
                     </dt>
                     <dd>
-                        <a href="http://yokohama.localgood.jp.il3c.com/subject/">
+                        <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/subject/">
                             投稿一覧
                         </a>
                     </dd>
                     <dd>
-                        <a href="http://yokohama.localgood.jp.il3c.com/submit_subject/">
+                        <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/submit_subject/">
                             あなたの声を投稿する
                         </a>
                     </dd>
@@ -85,7 +86,7 @@ use Goteo\Library\Text,
                         </a>
                     </dd>
                     <dd>
-                        <a href="https://cf.yokohama.localgood.jp/challenge/">
+                        <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/challenge/">
                             プロジェクトを立てる
                         </a>
                     </dd>
@@ -96,45 +97,70 @@ use Goteo\Library\Text,
                     3Dマップ
                 </a>
             </li>
+            <?php if (empty($_SESSION['user'])) {
+                //ログインしていない
+                ?>
             <li>
                 <a href="https://cf.yokohama.localgood.jp/user/login" class="list01__text">
                     新規登録/ログイン
                 </a>
             </li>
+            <?php } elseif (!empty($_SESSION['user'])) {
+            //ログインしてる
+            ?>
+            <li class="list_open">
+                <div class="list01__text">
+                    マイページ
+                </div>
+                <dl class="list02">
+                    <dt></dt>
+                    <dd>
+                        <a href="/dashboard/activity">アクティビティ</a>
+                    </dd>
+                    <dd>
+                        <a href="/dashboard/profile">プロフィール</a>
+                    </dd>
+                    <dd>
+                        <a href="/community/sharemates">みんなの興味</a>
+                    </dd>
+                    <dd class="logout mean-last">
+                        <a href="/user/logout">ログアウト</a>
+                    </dd>
+                </dl>
+            </li>
+            <?php } ?>
         </ul>
     </nav>
 
 
     <script>
-        var linkList = $('.main_nav__link-list');
-        $(linkList).slideUp();
-        $('.nav_menu-button').click(function () {
-            if ($(linkList).hasClass('on')) {
-                $(linkList).slideUp();
-                $(linkList).removeClass('on');
-                $('.main_nav').css({"display": "none", "position": "none"});
-            } else {
-                $(linkList).slideDown();
-                $(linkList).addClass('on');
-                $(linkList).css({'position': 'fixed', 'top': '60px', 'left': '0'});
-                $('.main_nav').css({
-                    "display": "block",
-                    "position": "fixed",
-                    "top": "0",
-                    "left": "0",
-                    "z-index": "99999"
-                });
-            }
-        });
-        $('.list_open dl').slideUp();
-        $('.list_open').click(function () {
-            if ($(this).hasClass('on')) {
-                $(this).children('dl').slideUp();
-                $(this).removeClass('on');
-            } else {
-                $(this).children('dl').slideDown();
-                $(this).addClass('on');
-            }
+        $(function(){
+            var linkList = $('.main_nav__link-list');
+            $(linkList).slideUp();
+            $('.nav_menu-button').click(function(){
+                if($(linkList).hasClass('on')){
+                    $(linkList).slideUp();
+                    $(linkList).removeClass('on');
+                    $('.main_nav').css({"display":"none","position":"none"});
+                }else{
+                    $(linkList).slideDown();
+                    $(linkList).addClass('on');
+                    $(linkList).css({'position':'fixed','top':'60px','left':'0'});
+                    $('.main_nav').css({"display":"block","position":"fixed","top":"0","left":"0","z-index":"99999"});
+                }
+            });
+
+            $('.list_open dl').slideUp();
+            $('.list_open').click(function(){
+                if($(this).hasClass('on')){
+                    $(this).children('dl').slideUp();
+                    $(this).removeClass('on');
+                }else{
+                    $(this).children('dl').slideDown();
+                    $(this).addClass('on');
+                }
+            });
+
         });
     </script>
     </nav>
