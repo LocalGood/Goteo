@@ -331,7 +331,7 @@ echo new SuperForm(array(
     'level'         => $this['level'],
     'method'        => 'post',
     'title'         => Text::get('rewards-main-header'),
-    'hint'          => Text::get('guide-project-rewards'),
+    'hint'          => Text::get('guide-project-rewards-sm'),
     'class'         => 'aqua',    
     'elements'      => array(
         'process_rewards' => array (

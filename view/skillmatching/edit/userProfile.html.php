@@ -125,7 +125,7 @@ echo new SuperForm(array(
     'level'         => $this['level'],
     'method'        => 'post',
     'title'         => Text::get('profile-main-header'),
-    'hint'          => Text::get('guide-project-user-information'),
+    'hint'          => Text::get('guide-project-user-information-sm'),
     'elements'      => array(
         'process_userProfile' => array (
             'type' => 'hidden',

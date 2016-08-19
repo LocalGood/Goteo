@@ -146,7 +146,7 @@ echo new SuperForm(array(
     'level'         => $this['level'],
     'method'        => 'post',
     'title'         => Text::get('supports-main-header'),
-    'hint'          => Text::get('guide-project-supports'),
+    'hint'          => Text::get('guide-project-supports-sm'),
     'class'         => 'aqua',
     'elements'      => array(        
         'process_supports' => array (
