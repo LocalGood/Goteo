@@ -48,27 +48,21 @@ $errors = $this['errors'] ?>
                             <button type="submit" name="view-step-overview" value="<?php echo Text::get('step-3'); ?>"><?php echo Text::get('step-3'); ?>
                             <strong class="number">3</strong></button>                            
                         </span>
-
-                        <span class="step on-on<?php if ($this['step'] === 'costs') echo ' active'; else echo ' activable'; ?>">
-                            <button type="submit" name="view-step-costs" value="<?php echo Text::get('step-4'); ?>"><?php echo Text::get('step-4'); ?>
-                            <strong class="number">4</strong></button>                            
-                        </span>
-
                         <span class="step on-on<?php if ($this['step'] === 'rewards') echo ' active'; else echo ' activable'; ?>">
                             <button type="submit" name="view-step-rewards" value="<?php echo Text::get('step-5'); ?>"><?php echo Text::get('step-5'); ?>
-                            <strong class="number">5</strong></button>                            
+                            <strong class="number">4</strong></button>
                         </span>
 
                         <span class="step on-off<?php if ($this['step'] === 'supports') echo ' active'; else echo ' activable'; ?>">
                             <button type="submit" name="view-step-supports" value="<?php echo Text::get('step-6'); ?>"><?php echo Text::get('step-6'); ?>
-                            <strong class="number">6</strong></button>                            
+                            <strong class="number">5</strong></button>
                         </span>
                         
                     </fieldset>
                     
                     <span class="step off-last off<?php if ($this['step'] === 'preview') echo ' active'; else echo ' activable'; ?>">
                         <button type="submit" name="view-step-preview" value="<?php echo Text::get('step-7'); ?>"><?php echo Text::get('step-7'); ?>
-                        <strong class="number">7</strong></button>                        
+                        <strong class="number">6</strong></button>
                     </span>
 
                 </div>
