@@ -709,6 +709,11 @@ namespace Goteo\Model {
                 $values = array();
 
                 foreach ($fields as $field) {
+                    if ($field == 'image'){
+                        if (!is_numeric($this->$field)){
+                            continue;
+                        }
+                    }
                     if ($set != '') $set .= ', ';
                     $set .= "$field = :$field";
                     $values[":$field"] = $this->$field;
