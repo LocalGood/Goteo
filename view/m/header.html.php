@@ -20,46 +20,147 @@
 
 use Goteo\Library\Text,
     Goteo\Library\i18n\Lang;
+
 //@NODESYS
 ?>
 
-<div id="header" class="header">
-    <h1><?php echo Text::get('regular-main-header'); ?></h1>
-    <div class="nav_wrapper">
-        <h1><a href="<?= LOCALGOOD_WP_BASE_URL ?>"><img src="/view/css/header/logo.png" alt=""/></a></h1>
-        <div class="nav_inner viewport">
-            <ul class="nav<?/*flipsnap*/?>">
-
-                <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/earth_view/">課題を知る</a>
-                    <ul class="sub">
-                        <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/submit_subject/">課題を投稿する</a></li>
-                        <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/subject/">課題を見る</a></li>
-                    </ul>
-                </li>
-                <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/data/">データを見る</a></li>
-                <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/posts_archive/">活動を知る</a></li>
-                <li>
-                    <a href="/user/login/">支援する</a>
-                    <ul class="sub">
-                        <li><a href="/">プロジェクト</a></li>
-                        <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/skills/">スキルを活かす</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a class="earth_view" href="<? if(defined('LG_EARTHVIEW')){echo LG_EARTHVIEW;} ?>" target="_blank"><?/*<img src="<?= LOCALGOOD_WP_BASE_URL ?>/images/earth_view_icon.png" alt="Earth View" />*/?>Earth View</a>
-                </li>
-                <li><a href="<?= LG_INTEGRATION_URL ?>">LOCAL GOOD全国版トップページ</a></li>
-                <?php include 'view/m/header/menu.html.php' ?>
-            </ul>
-        </div>
+<nav class="main_nav02 clearfix">
+    <a href="<?= LOCALGOOD_WP_BASE_URL; ?>" class="nav_logo">
+        <img src="/view/css/header/s-header-logo.png" alt=""/>
+    </a>
+    <div class="nav_menu-button">
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="close_button">×</div><!-- /.close_button -->
     </div>
-    <?/*
-    $_current = '';
-    foreach ($this['menu'] as $section=>$item) :
-        if(($section == 'projects') || ($section == 'activity') || ($section == 'profile')):
-            $_current = 'current';
-        endif;
-        echo $_current;
-    endforeach;
-    */?>
-</div>
+    <nav class="main_nav__link-list">
+        <ul class="list01">
+            <li class="list_open">
+                <div class="list01__text">
+                    地域を知る
+                </div>
+                <dl class="list02">
+                    <dt>
+                        記事
+                    </dt>
+                    <dd>
+                        <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/lgnews/">
+                            ニュース
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/data/">
+                            データ
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/lgplayer/">
+                            人/団体
+                        </a>
+                    </dd>
+                    <dt>
+                        みんなの声
+                    </dt>
+                    <dd>
+                        <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/subject/">
+                            投稿一覧
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/submit_subject/">
+                            あなたの声を投稿する
+                        </a>
+                    </dd>
+                </dl>
+            </li>
+            <li class="list_open">
+                <div class="list01__text">
+                    応援する
+                </div>
+                <dl class="list02">
+                    <dt></dt>
+                    <dd>
+                        <a href="https://cf.yokohama.localgood.jp/discover/">
+                            プロジェクト一覧
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/challenge/">
+                            プロジェクトを立てる
+                        </a>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <a href="http://map.yokohama.localgood.jp/" target="_blank" class="list01__text">
+                    3Dマップ
+                </a>
+            </li>
+            <?php if (empty($_SESSION['user'])) {
+                //ログインしていない
+                ?>
+                <li>
+                    <a href="https://cf.yokohama.localgood.jp/user/login" class="list01__text">
+                        新規登録/ログイン
+                    </a>
+                </li>
+            <?php } elseif (!empty($_SESSION['user'])) {
+                //ログインしてる
+                ?>
+                <li class="list_open">
+                    <div class="list01__text">
+                        マイページ
+                    </div>
+                    <dl class="list02">
+                        <dt></dt>
+                        <dd>
+                            <a href="/dashboard/activity">アクティビティ</a>
+                        </dd>
+                        <dd>
+                            <a href="/dashboard/profile">プロフィール</a>
+                        </dd>
+                        <dd>
+                            <a href="/community/sharemates">みんなの興味</a>
+                        </dd>
+                        <dd class="logout mean-last">
+                            <a href="/user/logout">ログアウト</a>
+                        </dd>
+                    </dl>
+                </li>
+            <?php } ?>
+        </ul>
+    </nav>
+
+
+    <script>
+        $(function(){
+            var linkList = $('.main_nav__link-list');
+            $(linkList).slideUp();
+            $('.nav_menu-button').click(function(){
+                if($(linkList).hasClass('on')){
+                    $(linkList).slideUp();
+                    $(linkList).removeClass('on');
+                    $('.main_nav').css({"display":"none","position":"none"});
+                }else{
+                    $(linkList).slideDown();
+                    $(linkList).addClass('on');
+                    $(linkList).css({'position':'fixed','top':'60px','left':'0'});
+                    $('.main_nav').css({"display":"block","position":"fixed","top":"0","left":"0","z-index":"99999"});
+                }
+            });
+
+            $('.list_open dl').slideUp();
+            $('.list_open').click(function(){
+                if($(this).hasClass('on')){
+                    $(this).children('dl').slideUp();
+                    $(this).removeClass('on');
+                }else{
+                    $(this).children('dl').slideDown();
+                    $(this).addClass('on');
+                }
+            });
+
+        });
+    </script>
+</nav>

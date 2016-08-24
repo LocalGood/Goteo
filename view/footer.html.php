@@ -26,45 +26,70 @@
     });
 </script>
 
-<div class="footer">
-    <div class="footer_link_wrapper">
-        <div id="to_page_top" style="bottom:0; margin-left: 880px;">
-            <a href="#page_top"><img src="/view/css/page_topBtn.png" alt="ページの上部へ" /></a>
-        </div><!--#to_page_top-->
-        <div class="inner cf">
-            <ul class="footer_link">
-                <li class="about"><a href="<?= LOCALGOOD_WP_BASE_URL ?>/about/"><?= LG_NAME; ?>について</a></li>
-                <li><a href="<?= LG_INTEGRATION_URL ?>/riyou_kiyaku_menu/">利用規約</a></li>
-                <li class="syoutorihikihou"><a href="<?= LOCALGOOD_WP_BASE_URL ?>/syoutorihikihou/">特定商取引法に基づく表記</a></li>
-                <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/user_guide/">ユーザーガイド</a></li>
-                <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/privacypolicy/">プライバシーポリシー</a></li>
-                <li><a href="https://docs.google.com/a/npo-aip.or.jp/forms/d/1PagFycTi5Hh_t06ngOoIahl_SXM5mRZMgvrb8tikqM8/viewform?formkey=dHNJS19qdWlWRkF3MVNNMWVycDU4U3c6MQ" target="_blank">メルマガ登録</a></li>
-                <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/contact/">お問い合わせ</a></li>
-                <li class="integration"><a href="<?= LG_INTEGRATION_URL ?>/">LOCAL GOOD全国版トップページ</a></li>
-            </ul>
-            <ul class="sns_link">
-                <li class="fb_btn"><a href="https://www.facebook.com/LOCALGOODFUKUOKA?fref=ts" target="_blank"><img src="/view/css/fb_btn.png" alt="facebook" /></a></li>
-                <li class="tw_btn"><a href="https://twitter.com/LogooFUKUOKA" target="_blank"><img src="/view/css/tw_btn.png" alt="twitter" /></a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="foot_bar_wrapper">
-        <div class="foot_bar_inner cf">
-            <a class="logo_1" href="http://npo-aip.or.jp/" target="_blank"><img src="/view/css/logo_aip.png" alt="AIP" /></a>
-            <a class="logo_2" href="http://www.city.fukuoka.lg.jp/" target="_blank"><img src="/view/css/logo_fukuoka_city.png" alt="福岡市" /></a>
-            <a class="logo_4" href="https://goteo.org/" target="_blank"><img src="/view/css/logo-goteo-H-100.png" alt="Goteo" /></a>
-            <p class="copyright">
-                <span>COPYRIGHT&copy; LOCAL GOOD FUKUOKA. Some rights reserved.</span>
-            </p>
-            <div class="platoniq">
-                <?php // You are not allowed to remove this links. If so, you'll make a legal fault regarding the release license. You can read it at https://github.com/Goteo/Goteo/blob/master/GNU-AGPL-3.0 ?>
-                <span class="text"><a href="http://goteo.org" target="_blank" class="poweredby">Powered by Goteo.org</a></span>
-                <?php // You are not allowed to remove this links. If so, you'll make a legal fault regarding the release license. You can read it at https://github.com/Goteo/Goteo/blob/master/GNU-AGPL-3.0 ?>
-                <span class="logo"><a href="http://fuentesabiertas.org" target="_blank" class="foundation">FFA</a></span>
-                <?php // You are not allowed to remove this links. If so, you'll make a legal fault regarding the release license. You can read it at https://github.com/Goteo/Goteo/blob/master/GNU-AGPL-3.0 ?>
-                <span class="logo"><a href="https://github.com/Goteo/Goteo" target="_blank" class="growby">GNU-AGPL-3</a></span>
-                <?php // You are not allowed to remove this links. If so, you'll make a legal fault regarding the release license. You can read it at https://github.com/Goteo/Goteo/blob/master/GNU-AGPL-3.0 ?>
+
+<footer class="footer">
+
+    <div class="footer__upper">
+        <div class="c-clearfix c-w1200">
+            <div class="footer__upper_left">
+                <div class="footer__logo">
+                    <img src="<?= LOCALGOOD_WP_BASE_URL; ?>/wp-content/themes/localgood/images/footer_logo.png" alt="LOCAL GOOD FUKUOKAロゴ">
+                </div>
+                <ul class="footer__sns_link">
+                    <li class="rss"><a href="<?= LOCALGOOD_WP_BASE_URL . '/feed/'; ?>" target="_blank"><img src="/view/css/rss_btn.png" alt="rss" /></a></li>
+                    <li class="tw_btn"><a href="<?= LG_TWITTER; ?>" target="_blank"><img src="/view/css/tw_btn.png" alt="twitter" /></a></li>
+                    <li class="fb_btn"><a href="<?= LG_FACEBOOK_PAGE; ?>" target="_blank"><img src="/view/css/fb_btn.png" alt="facebook" /></a></li>
+                </ul>
+                <a class="footer__integration_site" href="http://localgood.jp/">LOCAL GOOD 地域課題プラットフォーム</a>
             </div>
+            <ul class="footer__upper_right">
+                <li>
+                    <span class="footer__upper_second_title">ご利用にあたって</span>
+                    <ul>
+                        <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/about/">LOCAL GOOD FUKUOKAについて</a></li>
+                        <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/mailnews/">メルマガ登録</a></li>
+                        <li class="syoutorihikihou"><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/syoutorihikihou/">特定商取引法に基づく表記</a></li>
+                        <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/privacypolicy/">プライバシーポリシー</a></li>
+                        <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/user_guide/">ユーザーガイド</a></li>
+                        <li><a href="http://localgood.jp/riyou_kiyaku_menu/">利用規約</a></li>
+                        <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/contact/">お問い合わせ</a></li>
+                        <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/authors/">記者一覧</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="footer__upper_second_title">地域を知る</span>
+                    <span class="footer__upper__third_title">記事</span>
+                    <ul>
+                        <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/lgnews/">ニュース</a></li>
+                        <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/lgplayer/">人/団体</a></li>
+                        <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/data/">データ</a></li>
+                    </ul>
+                    <span class="footer__upper__third_title">みんなの声</span>
+                    <ul>
+                        <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/subject/">投稿一覧</a></li>
+                        <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/submit_subject/">あなたの声を投稿する</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="footer__upper_second_title">応援する</span>
+                    <ul>
+                        <li><a href="/discover/">プロジェクト一覧</a></li>
+                        <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/challenge/">プロジェクトを立てる</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
-</div>
+    <div class="footer__under">
+        <div class="c-w1096">
+            <ul>
+                <li><a class="logo_1" href="http://npo-aip.or.jp/" target="_blank"><img src="/view/css/logo_aip.png" alt="AIP" /></a></li>
+                <li><a class="logo_2" href="http://www.city.fukuoka.lg.jp/" target="_blank"><img src="/view/css/logo_fukuoka_city.png" alt="福岡市" /></a></li>
+                <li><a href="http://goteo.org/" target="_blank"><img src="/view/css/logo_f_goteo.png" alt="画像：Fundacion Goteo"></a></li>
+            </ul>
+        </div>
+        <p class="footer__copyright">
+            <span>COPYRIGHT&copy; LOCAL GOOD FUKUOKA. Some rights reserved.</span>
+        </p>
+    </div>
+</footer>
