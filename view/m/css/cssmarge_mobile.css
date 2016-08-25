@@ -2041,7 +2041,7 @@ footer
 
 body.project-show div#sub-header > div {
     position: fixed;
-    top: 49px;
+    /*top: 49px;*/
 }
 
 /* project-navigation */
@@ -2050,7 +2050,7 @@ body.project-show div#sub-header div.project-menu.viewport_projectnav {
 }
 
 body.project-show div#sub-header div.project-menu.viewport_projectnav .flipsnap_projectnav {
-    width: 650px!important;
+    width: 680px!important;
 }
 
 body.project-show div#sub-header div.project-menu.viewport_projectnav .flipsnap_projectnav .item {
@@ -2078,7 +2078,7 @@ body.dashboard div#main {
     height: 36px;
 }*/
 body.dashboard.project-edit div#dashboard-menu div.viewport_dashboard .flipsnap_dashboard {
-    width: 345px;/* 117px(item width) * 4(item count) + 116px */
+    width: 425px;/* 117px(item width) * 4(item count) + 116px */
     background-color: #3399cc;
 }
 body.dashboard.project-edit div#dashboard-menu div.viewport_dashboard .flipsnap_dashboard li.option {
@@ -5187,6 +5187,20 @@ body.project-show div#main div.center div.widget.project-summary.h_ttl .categori
 
 body.project-show div#main div.center div.widget.project-summary.h_ttl .categories a:hover {
     color: #20B3B2;
+}
+
+body.project-show .project-summary #social_bookmark {
+    letter-spacing: -0.4em;
+}
+
+body.project-show .project-summary #social_bookmark > div {
+    display: inline-block;
+    margin-right: 2%;
+    letter-spacing: normal;
+}
+
+body.project-show .project-summary #social_bookmark > div:last-child {
+    margin-right: 0;
 }
 
 div.widget.project-summary > div {
@@ -12081,8 +12095,12 @@ body.project-show div.widget.project-support .invest-notice {
 /*----------------------------------------------------------------------
   goteo.css
 ----------------------------------------------------------------------*/
+div#wrapper {
+    margin-top: 60px;
+}
 
 div#sub-header {
+    margin-top: 60px;
     margin-bottom: 1px;
 }
 

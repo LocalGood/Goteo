@@ -81,7 +81,7 @@ use Goteo\Library\Text,
                 <dl class="list02">
                     <dt></dt>
                     <dd>
-                        <a href="https://cf.yokohama.localgood.jp/discover/">
+                        <a href="<?= SITE_URL; ?>/discover/">
                             プロジェクト一覧
                         </a>
                     </dd>
@@ -101,7 +101,7 @@ use Goteo\Library\Text,
                 //ログインしていない
                 ?>
             <li>
-                <a href="https://cf.yokohama.localgood.jp/user/login" class="list01__text">
+                <a href="<?= SITE_URL; ?>/user/login" class="list01__text">
                     新規登録/ログイン
                 </a>
             </li>
