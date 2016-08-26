@@ -73,7 +73,7 @@ use Goteo\Library\Text,
                     <div class="header__right__snav">
                         <div class="header__right__snav__inner">
                             <ul>
-                                <li><span><a href="<?= SITE_URL . '/discover/'; ?>">プロジェクト一覧</a></span></li>
+                                <li><span><a href="<?= SITE_URL; ?>/discover/">プロジェクト一覧</a></span></li>
                                 <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/challenge/'; ?>">プロジェクトを立ち上げる</a></span></li>
                             </ul>
                         </div>
@@ -91,7 +91,7 @@ use Goteo\Library\Text,
                     ?>
                         <div id="goteo_menu" class="goteo_menu">
                             <ul>
-                                <li class="dashboard active"><a href="/dashboard"><span>マイページ</span><img src="https://static.localgood.jp/data/cache/28x28c/130502-l_1.jpg"></a>
+                                <li class="dashboard active"><a href="/dashboard"><span>マイページ</span><img src="<?php echo $_SESSION['user']->avatar->getLink(28,28, true)?>" alt="<?php echo $_SESSION['user']->name?>"></a>
                                     <div>
                                         <ul>
                                             <li><a href="/dashboard/activity"><span>アクティビティ</span></a></li>
