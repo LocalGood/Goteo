@@ -2314,6 +2314,26 @@ div.widget.project div.image div.tagmark.twolines
 	padding-top:4px!important;
 }
 
+div.widget.project div.image span.cf-icon {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	width: 40px;
+	height: 40px;
+	background-image: url('lg-project-cf.png');
+	background-size:40px 40px;
+}
+
+div.widget.skillmatching div.image span.sm-icon {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	width: 40px;
+	height: 40px;
+	background-image: url('lg-project-sm.png');
+	background-size:40px 40px;
+}
+
 div.widget.project div.image div.investor
 {
 	background-color:#f3f3f3;
