@@ -2018,7 +2018,7 @@ footer
 /*.viewport,*/
 .viewport_projectnav,
 .viewport_dashboard{
-    width: 320px;
+    width: 100vw;
     margin: 0 auto;
     margin-left: 0;
     overflow: hidden;
@@ -2078,7 +2078,8 @@ body.dashboard div#main {
     height: 36px;
 }*/
 body.dashboard.project-edit div#dashboard-menu div.viewport_dashboard .flipsnap_dashboard {
-    width: 425px;/* 117px(item width) * 4(item count) + 116px */
+    /*width: 425px;*//* 117px(item width) * 4(item count) + 116px */
+    width: 132.8125%;
     background-color: #3399cc;
 }
 body.dashboard.project-edit div#dashboard-menu div.viewport_dashboard .flipsnap_dashboard li.option {
@@ -2472,7 +2473,7 @@ div.widget.project div.image {
 
 div.widget.project div.image a img {
     display: block;
-    max-width: 320px;
+    width: 100vw;
     height: auto;
 }
 
@@ -5237,8 +5238,8 @@ div.widget.project-summary div.related h4 {
 div.widget.project-summary div.prjct-gallery-container div.gallery-image,
 div.center div.prjct-gallery-container div.gallery-image {
     text-align: center;
-    width:320px;
-    height:240px;
+    width:100vw;
+    height:auto;
     display:block;
 }
 
@@ -11330,7 +11331,7 @@ div.searcher form {
 
 .searcher .filter{
     position:relative;
-    width: 260px;
+    width: 81.25vw;
     margin: 0 auto 8px;
     padding: 4px 8px;
 }
@@ -11891,7 +11892,8 @@ div.widget.project div.meter.activable {
     z-index: 999;
     padding-left: 16px!important;
     padding-right: 16px!important;
-    max-width: 288px;
+    /*max-width: 288px;*/
+    width: 90vw;
 }
 div.widget.project div.meter {
     padding: 4px 0 148px !important;
@@ -11902,7 +11904,7 @@ div.widget.project div.meter {
 .meter dl dt,
 .meter dl dd {
     position: absolute;
-    width: 96px!important;
+    width: 33%!important;
     height: 30px!important;
     text-align: center;
 }
@@ -11919,7 +11921,7 @@ div.widget.project div.meter {
 }
 .meter dl dt.optimum {
     top: 0;
-    left: 96px;
+    left: 33%;
     color: #6699cc;
 }
 .meter dl dt.days {
@@ -11932,7 +11934,7 @@ div.widget.project div.meter {
 }
 .meter dl dt.supporters {
     top: 56px;
-    left:96px;
+    left: 33%;
 }
 .meter dl dt.percent {
     top: 56px;
@@ -11959,7 +11961,7 @@ div.widget.project div.meter {
 }
 .meter dl dd.optimum {
     top: -16px;
-    left: 96px;
+    left: 33%;
     color: #6699cc;
     border-right: 1px solid #eee;
 }
@@ -11975,7 +11977,7 @@ div.widget.project div.meter {
 }
 .meter dl dd.supporters {
     top: 40px;
-    left: 96px;
+    left: 33%;
     font-weight: normal;
     border-right: 1px solid #eee;
 }
