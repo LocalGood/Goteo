@@ -22,6 +22,7 @@ use Goteo\Library\Text,
     Goteo\Core\ACL,
     Goteo\Library\i18n\Lang;
 //@NODESYS
+
 ?>
 
 <script>
@@ -38,81 +39,80 @@ use Goteo\Library\Text,
 
     })
 </script>
-
 <div class="header_wrapper">
-    <header id="header" class="normal_header header clearfix">
+<header id="header" class="normal_header header clearfix">
 
-        <h1 class="header__logo">
-            <a href="<?= LOCALGOOD_WP_BASE_URL; ?>"><img src="<?= LOCALGOOD_WP_BASE_URL; ?>/wp-content/themes/localgood/images/header_logo.png" alt="LOCAL GOOD FUKUOKAロゴ"/></a>
-        </h1>
+    <h1 class="header__logo">
+        <a href="<?= LOCALGOOD_WP_BASE_URL; ?>"><img src="<?= LOCALGOOD_WP_BASE_URL; ?>/wp-content/themes/localgood/images/header_logo.png" alt="LOCAL GOOD FUKUOKAロゴ"/></a>
+    </h1>
 
-        <div class="header__right">
-            <nav class="header__right__nav">
-                <ul id="gnav" class="header__right__nav__gnav">
-                    <? $a = 'class="active"'; ?>
-                    <li>
-                        <a href="<?= LOCALGOOD_WP_BASE_URL . '/lgnews/' ?>">地域を知る</a>
-                        <div class="snav header__right__snav">
-                            <div class="header__right__snav__inner">
-                                <span class="header__right__snav__second_title">記事</span>
-                                <ul>
-                                    <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/lgnews/' ?>">ニュース</a></span></li>
-                                    <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/data/' ?>">データ</a></span></li>
-                                    <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/lgplayer/' ?>">人/団体</a></span></li>
-                                </ul>
-                                <span class="header__right__snav__second_title">みんなの声</span>
-                                <ul>
-                                    <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/subject/' ?>">投稿一覧</a></span></li>
-                                    <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/submit_subject/' ?>">あなたの声を投稿する</a></span></li>
-                                </ul>
-                            </div>
+    <div class="header__right">
+        <nav class="header__right__nav">
+            <ul id="gnav" class="header__right__nav__gnav">
+                <? $a = 'class="active"'; ?>
+                <li>
+                    <a href="<?= LOCALGOOD_WP_BASE_URL . '/lgnews/' ?>">地域を知る</a>
+                    <div class="snav header__right__snav">
+                        <div class="header__right__snav__inner">
+                            <span class="header__right__snav__second_title">記事</span>
+                            <ul>
+                                <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/lgnews/' ?>">ニュース</a></span></li>
+                                <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/data/' ?>">データ</a></span></li>
+                                <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/lgplayer/' ?>">人/団体</a></span></li>
+                            </ul>
+                            <span class="header__right__snav__second_title">みんなの声</span>
+                            <ul>
+                                <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/subject/' ?>">投稿一覧</a></span></li>
+                                <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/submit_subject/' ?>">あなたの声を投稿する</a></span></li>
+                            </ul>
                         </div>
-                    </li>
-                    <li>
-                        <a href="<?= SITE_URL; ?>">応援する</a>
-                        <div class="header__right__snav">
-                            <div class="header__right__snav__inner">
-                                <ul>
-                                    <li><span><a href="<?= SITE_URL . '/discover/'; ?>">プロジェクト一覧</a></span></li>
-                                    <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/challenge/'; ?>">プロジェクトを立ち上げる</a></span></li>
-                                </ul>
-                            </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="<?= SITE_URL; ?>">応援する</a>
+                    <div class="header__right__snav">
+                        <div class="header__right__snav__inner">
+                            <ul>
+                                <li><span><a href="<?= SITE_URL . '/discover/'; ?>">プロジェクト一覧</a></span></li>
+                                <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/challenge/'; ?>">プロジェクトを立ち上げる</a></span></li>
+                            </ul>
                         </div>
-                    </li>
-                    <li><a href="http://map.yokohama.localgood.jp/" target="_blank">3Dマップ</a>
-                    </li>
-                    <li class="gnav_goteo">
-                        <?php if (empty($_SESSION['user'])) {
-                            //ログインしていない
-                            ?>
-                            <a href="/user/login">新規登録/ログイン</a>
-                        <?php } elseif (!empty($_SESSION['user'])) {
-                            //ログインしてる
-                            ?>
-                            <div id="goteo_menu" class="goteo_menu">
-                                <ul>
-                                    <li class="dashboard active"><a href="/dashboard"><span>マイページ</span><img src="https://static.localgood.jp/data/cache/28x28c/130502-l_1.jpg"></a>
-                                        <div>
-                                            <ul>
-                                                <li><a href="/dashboard/activity"><span>アクティビティ</span></a></li>
-                                                <li><a href="/dashboard/profile"><span>プロフィール</span></a></li>
-                                                <li><a href="/dashboard/projects"><span>マイプロジェクト</span></a></li>
-                                                <li><a href="/community/sharemates"><span>みんなの興味</span></a></li>
-                                                <?php if (ACL::check('/admin')) : ?>
-                                                    <li><a href="/admin"><span>管理者パネル</span></a></li>
-                                                <?php endif; ?>
-                                                <li class="logout"><a href="/user/logout"><span>ログアウト</span></a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        <? } ?>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+                    </div>
+                </li>
+                <li><a href="http://map.yokohama.localgood.jp/" target="_blank">3Dマップ</a>
+                </li>
+                <li class="gnav_goteo">
+                    <?php if (empty($_SESSION['user'])) {
+                        //ログインしていない
+                        ?>
+                        <a href="/user/login">新規登録/ログイン</a>
+                    <?php } elseif (!empty($_SESSION['user'])) {
+                        //ログインしてる
+                        ?>
+                        <div id="goteo_menu" class="goteo_menu">
+                            <ul>
+                                <li class="dashboard active"><a href="/dashboard"><span>マイページ</span><img src="https://static.localgood.jp/data/cache/28x28c/130502-l_1.jpg"></a>
+                                    <div>
+                                        <ul>
+                                            <li><a href="/dashboard/activity"><span>アクティビティ</span></a></li>
+                                            <li><a href="/dashboard/profile"><span>プロフィール</span></a></li>
+                                            <li><a href="/dashboard/projects"><span>マイプロジェクト</span></a></li>
+                                            <li><a href="/community/sharemates"><span>みんなの興味</span></a></li>
+                                            <?php if (ACL::check('/admin')) : ?>
+                                                <li><a href="/admin"><span>管理者パネル</span></a></li>
+                                            <?php endif; ?>
+                                            <li class="logout"><a href="/user/logout"><span>ログアウト</span></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    <? } ?>
+                </li>
+            </ul>
+        </nav>
+    </div>
 
-    </header>
-    <!--.header-->
+</header>
+<!--.header-->
 </div>

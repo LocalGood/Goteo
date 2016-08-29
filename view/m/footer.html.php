@@ -32,45 +32,173 @@ $sponsors   = Sponsor::getList();
 ?>
 
 <script type="text/javascript">
-jQuery(document).ready(function($) {
-	$('.scroll-pane').jScrollPane({showArrows: true});
-});
+    jQuery(document).ready(function($) {
+        $('.scroll-pane').jScrollPane({showArrows: true});
+    });
 </script>
 
-    <!-- <div id="footer"> -->
-    <div class="footer">
-        <div class="footer_link_wrapper">
-            <div id="to_page_top" style="bottom:0; margin-left: 880px;">
-                <a href="#page_top"><img src="/view/css/page_topBtn.png" alt="ページの上部へ" /></a>
-            </div><!--#to_page_top-->
-            <div class="inner cf">
-                <ul>
-                    <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/about/">LOCAL GOODについて</a></li>
-                    <li><a href="<?= LG_INTEGRATION_URL ?>/riyou_kiyaku_menu/">利用規約</a></li>
-                    <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/syoutorihikihou/">特定商取引法に基づく表記</a></li>
-                    <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/user_guide/">ユーザーガイド</a></li>
-                    <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/privacypolicy/">プライバシーポリシー</a></li>
-                    <li><a href="<?= LOCALGOOD_WP_BASE_URL ?>/contact/">お問い合わせ</a></li>
-                </ul>
-            </div>
+<footer>
+    <section class="footer_menu_links">
+        <div class="footer__link-title">
+            ご利用にあたって
         </div>
-        <div class="foot_bar_wrapper">
-            <div class="foot_bar_inner cf">
-                <a class="three_left" href="https://www.facebook.com/sociofund/timeline" target="_blank"><img src="/view/css/logo_socio_fund.png" alt="ソシオファンド北九州" /></a>
-            </div>
-            <p class="copyright">
-                <span>&copy; LOCAL GOOD KITAQ. Some rights reserved.</span>
-            </p>
-            <div class="platoniq">
-                <?php // You are not allowed to remove this links. If so, you'll make a legal fault regarding the release license. You can read it at https://github.com/Goteo/Goteo/blob/master/GNU-AGPL-3.0 ?>
-                <span class="text"><a href="http://goteo.org" target="_blank" class="poweredby">Powered by Goteo.org</a></span>
-                <?php // You are not allowed to remove this links. If so, you'll make a legal fault regarding the release license. You can read it at https://github.com/Goteo/Goteo/blob/master/GNU-AGPL-3.0 ?>
-                <span class="logo"><a href="http://fuentesabiertas.org" target="_blank" class="foundation">FFA</a></span>
-                <?php // You are not allowed to remove this links. If so, you'll make a legal fault regarding the release license. You can read it at https://github.com/Goteo/Goteo/blob/master/GNU-AGPL-3.0 ?>
-                <span class="logo"><a href="https://github.com/Goteo/Goteo" target="_blank" class="growby">GNU-AGPL-3</a></span>
-                <?php // You are not allowed to remove this links. If so, you'll make a legal fault regarding the release license. You can read it at https://github.com/Goteo/Goteo/blob/master/GNU-AGPL-3.0 ?>
-            </div>
+        <ul>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/about/">
+                    LOCAL GOOD FUKUOKAについて
+                </a>
+            </li>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/mailnews/">
+                    メルマガ登録
+                </a>
+            </li>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/syoutorihikihou/">
+                    特定商取引法について
+                </a>
+            </li>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/privacypolicy/">
+                    プライバシーポリシー
+                </a>
+            </li>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/user_guide/">
+                    ユーザーガイド
+                </a>
+            </li>
+            <li>
+                <a href="<?= LG_INTEGRATION_URL; ?>/riyou_kiyaku_menu/">
+                    利用規約
+                </a>
+            </li>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/contact/">
+                    お問い合わせ
+                </a>
+            </li>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/authors/">
+                    記者一覧
+                </a>
+            </li>
+        </ul>
+
+        <div class="footer__link-title">
+            地域を知る
         </div>
+        <span>
+            記事
+        </span>
+        <ul>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/lgnews/">
+                    ニュース
+                </a>
+            </li>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/lgplayer/">
+                    人/団体
+                </a>
+            </li>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/data/">
+                    データ
+                </a>
+            </li>
+        </ul>
+        <span>
+            みんなの声
+        </span>
+        <ul>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/subject/">
+                    投稿一覧
+                </a>
+            </li>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/submit_subject/">
+                    あなたの声を投稿する
+                </a>
+            </li>
+        </ul>
+
+        <div class="footer__link-title">
+            応援する
+        </div>
+        <ul>
+            <li>
+                <a href="<?= SITE_URL; ?>/discover">
+                    プロジェクト一覧
+                </a>
+            </li>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/challenge/">
+                    プロジェクトを立てる
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <section class="footer_bottom">
+        <div class="footer_logo">
+            <a href="<?= LOCALGOOD_WP_BASE_URL; ?>">
+                <img src="/view/css/s-footer-logo.png" alt="LOCAL GOOD">
+            </a>
+        </div>
+        <ul class="sns-area">
+            <li>
+                <a href="http://yokohama.localgood.jp/feed/" target="_blank">
+                    <img src="/view/css/s-footer-sns-icon01.png" alt="rss">
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/LogooYOKOHAMA" target="_blank">
+                    <img src="/view/css/s-footer-sns-icon03.png" alt="Twitter">
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/LOCALGOODYOKOHAMA" target="_blank">
+                    <img src="/view/css/s-footer-sns-icon04.png" alt="facebook">
+                </a>
+            </li>
+        </ul>
+        <div class="link">
+            <span>
+                >
+            </span>
+            <a href="<?= LG_INTEGRATION_URL; ?>">
+                LOCAL GOOD 地域課題プラットフォーム
+            </a>
+        </div>
+    </section>
+</footer>
+
+<div class="sp_footer_logo-area">
+    <ul class="clearfix">
+        <li>
+            <a class="logo_1" href="http://sociofund.org/" target="_blank">
+                <img src="/view/css/logo_socio_fund.png" alt="ソシオファンド北九州">
+            </a>
+        </li>
+        <li>
+            <a class="logo_2" href="https://kyushu.socialvalue.jp/" target="_blank">
+                <img src="/view/css/logo_kses.jpg" alt="社会起業大学・九州校">
+            </a>
+        </li>
+        <li>
+            <a class="logo_3" href="https://www.facebook.com/kokuraprpurojekuto/" target="_blank">
+                <img src="/view/css/logo_kokulike.png" alt="Kokulike">
+            </a>
+        </li>
+        <li class="left">
+            <a href="http://goteo.org/" target="_blank">
+                <img src="/view/css/logo_f_goteo.png" alt="画像：Fundacion Goteo">
+            </a>
+        </li>
+    </ul>
+    <div class="cw">
+        COPYRIGHT© <?= LG_NAME; ?>. Some rights reserved.
     </div>
-
-
+</div>

@@ -84,11 +84,13 @@
         <div class="c-w1096">
             <ul>
                 <li><a class="logo_1" href="http://sociofund.org/" target="_blank"><img src="/view/css/logo_socio_fund.png" alt="ソシオファンド北九州"></a></li>
+                <li><a class="logo_2" href="https://kyushu.socialvalue.jp/" target="_blank"><img src="/view/css/logo_kses.jpg" alt="社会起業大学・九州校"></a></li>
+                <li><a class="logo_3" href="https://www.facebook.com/kokuraprpurojekuto/" target="_blank"><img src="/view/css/logo_kokulike.png" alt="Kokulike"></a></li>
                 <li><a href="http://goteo.org/" target="_blank"><img src="/view/css/logo_f_goteo.png" alt="画像：Fundacion Goteo"></a></li>
             </ul>
         </div>
         <p class="footer__copyright">
-            <span>COPYRIGHT&copy; LOCAL GOOD KITAQ. Some rights reserved.</span>
+            <span>COPYRIGHT&copy; <?= LG_NAME; ?>. Some rights reserved.</span>
         </p>
     </div>
 </footer>
