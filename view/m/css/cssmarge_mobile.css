@@ -9017,8 +9017,12 @@ footer .footer_bottom .link span {
     float: left;
     text-align: center;
     vertical-align: middle;
-    display: inline;
+    display: table;
     height: 67px;
+}
+.sp_footer_logo-area ul li a {
+    display: table-cell;
+    vertical-align: middle;
 }
 .sp_footer_logo-area ul li img {
     width: auto;
@@ -11875,7 +11879,7 @@ div.widget.project div.meter {
 .meter dl dt,
 .meter dl dd {
     position: absolute;
-    width: 33%!important;
+    width: 33.3%!important;
     height: 30px!important;
     text-align: center;
 }
@@ -11892,7 +11896,7 @@ div.widget.project div.meter {
 }
 .meter dl dt.optimum {
     top: 0;
-    left: 33%;
+    left: 33.3%;
     color: #6699cc;
 }
 .meter dl dt.days {
@@ -11905,7 +11909,7 @@ div.widget.project div.meter {
 }
 .meter dl dt.supporters {
     top: 56px;
-    left: 33%;
+    left: 33.3%;
 }
 .meter dl dt.percent {
     top: 56px;
@@ -11932,7 +11936,7 @@ div.widget.project div.meter {
 }
 .meter dl dd.optimum {
     top: -16px;
-    left: 33%;
+    left: 33.3%;
     color: #6699cc;
     border-right: 1px solid #eee;
 }
@@ -11948,7 +11952,7 @@ div.widget.project div.meter {
 }
 .meter dl dd.supporters {
     top: 40px;
-    left: 33%;
+    left: 33.3%;
     font-weight: normal;
     border-right: 1px solid #eee;
 }

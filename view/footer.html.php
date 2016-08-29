@@ -40,7 +40,7 @@
                     <li class="tw_btn"><a href="<?= LG_TWITTER; ?>" target="_blank"><img src="/view/css/tw_btn.png" alt="twitter" /></a></li>
                     <li class="fb_btn"><a href="<?= LG_FACEBOOK_PAGE; ?>" target="_blank"><img src="/view/css/fb_btn.png" alt="facebook" /></a></li>
                 </ul>
-                <a class="footer__integration_site" href="http://localgood.jp/">LOCAL GOOD 地域課題プラットフォーム</a>
+                <a class="footer__integration_site" href="<?= LG_INTEGRATION_URL; ?>">LOCAL GOOD 地域課題プラットフォーム</a>
             </div>
             <ul class="footer__upper_right">
                 <li>
@@ -51,7 +51,7 @@
                         <li class="syoutorihikihou"><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/syoutorihikihou/">特定商取引法に基づく表記</a></li>
                         <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/privacypolicy/">プライバシーポリシー</a></li>
                         <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/user_guide/">ユーザーガイド</a></li>
-                        <li><a href="http://localgood.jp/riyou_kiyaku_menu/">利用規約</a></li>
+                        <li><a href="<?= LG_INTEGRATION_URL; ?>/riyou_kiyaku_menu/">利用規約</a></li>
                         <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/contact/">お問い合わせ</a></li>
                         <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/authors/">記者一覧</a></li>
                     </ul>

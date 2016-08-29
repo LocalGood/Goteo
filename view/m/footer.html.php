@@ -69,7 +69,7 @@ jQuery(document).ready(function($) {
                 </a>
             </li>
             <li>
-                <a href="http://localgood.jp/riyou_kiyaku_menu/">
+                <a href="<?= LG_INTEGRATION_URL; ?>/riyou_kiyaku_menu/">
                     利用規約
                 </a>
             </li>
@@ -129,7 +129,7 @@ jQuery(document).ready(function($) {
         </div>
         <ul>
             <li>
-                <a href="https://cf.yokohama.localgood.jp/discover">
+                <a href="<?= SITE_URL; ?>/discover">
                     プロジェクト一覧
                 </a>
             </li>
@@ -173,7 +173,7 @@ jQuery(document).ready(function($) {
             <span>
                 >
             </span>
-            <a href="http://localgood.jp/">
+            <a href="<?= LG_INTEGRATION_URL; ?>">
                 LOCAL GOOD 地域課題プラットフォーム
             </a>
         </div>
