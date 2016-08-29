@@ -40,18 +40,18 @@
                     <li class="tw_btn"><a href="<?= LG_TWITTER; ?>" target="_blank"><img src="/view/css/tw_btn.png" alt="twitter" /></a></li>
                     <li class="fb_btn"><a href="<?= LG_FACEBOOK_PAGE; ?>" target="_blank"><img src="/view/css/fb_btn.png" alt="facebook" /></a></li>
                 </ul>
-                <a class="footer__integration_site" href="http://localgood.jp/">LOCAL GOOD 地域課題プラットフォーム</a>
+                <a class="footer__integration_site" href="<?= LG_INTEGRATION_URL; ?>">LOCAL GOOD 地域課題プラットフォーム</a>
             </div>
             <ul class="footer__upper_right">
                 <li>
                     <span class="footer__upper_second_title">ご利用にあたって</span>
                     <ul>
                         <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/about/">LOCAL GOOD FUKUOKAについて</a></li>
-                        <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/mailnews/">メルマガ登録</a></li>
+                        <li><a href="<?php echo MAILNEWS;?>" target="_blank">メルマガ登録</a></li>
                         <li class="syoutorihikihou"><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/syoutorihikihou/">特定商取引法に基づく表記</a></li>
                         <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/privacypolicy/">プライバシーポリシー</a></li>
                         <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/user_guide/">ユーザーガイド</a></li>
-                        <li><a href="http://localgood.jp/riyou_kiyaku_menu/">利用規約</a></li>
+                        <li><a href="<?php echo LG_INTEGRATION_URL;?>/riyou_kiyaku_menu/">利用規約</a></li>
                         <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/contact/">お問い合わせ</a></li>
                         <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/authors/">記者一覧</a></li>
                     </ul>
@@ -73,8 +73,8 @@
                 <li>
                     <span class="footer__upper_second_title">応援する</span>
                     <ul>
-                        <li><a href="/discover/">プロジェクト一覧</a></li>
-                        <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/challenge/">プロジェクトを立てる</a></li>
+                        <li><a href="<?= SITE_URL; ?>/discover/">プロジェクト一覧</a></li>
+                        <li><a href="<?= SITE_URL; ?>/challenge/">プロジェクトを立てる</a></li>
                     </ul>
                 </li>
             </ul>
@@ -89,7 +89,7 @@
             </ul>
         </div>
         <p class="footer__copyright">
-            <span>COPYRIGHT&copy; LOCAL GOOD FUKUOKA. Some rights reserved.</span>
+            <span>COPYRIGHT&copy; <?php echo LG_NAME;?>. Some rights reserved.</span>
         </p>
     </div>
 </footer>

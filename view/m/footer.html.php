@@ -168,7 +168,7 @@ $sponsors   = Sponsor::getList();
             <span>
                 >
             </span>
-            <a href="http://localgood.jp/">
+            <a href="<?= LG_INTEGRATION_URL; ?>!">
                 LOCAL GOOD 地域課題プラットフォーム
             </a>
         </div>
