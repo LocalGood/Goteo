@@ -2018,7 +2018,7 @@ footer
 /*.viewport,*/
 .viewport_projectnav,
 .viewport_dashboard{
-    width: 320px;
+    width: 100vw;
     margin: 0 auto;
     margin-left: 0;
     overflow: hidden;
@@ -2041,7 +2041,8 @@ footer
 
 body.project-show div#sub-header > div {
     position: fixed;
-    top: 49px;
+    /*top: 49px;*/
+    z-index: 1;
 }
 
 /* project-navigation */
@@ -2050,7 +2051,7 @@ body.project-show div#sub-header div.project-menu.viewport_projectnav {
 }
 
 body.project-show div#sub-header div.project-menu.viewport_projectnav .flipsnap_projectnav {
-    width: 650px!important;
+    width: 700px!important;
 }
 
 body.project-show div#sub-header div.project-menu.viewport_projectnav .flipsnap_projectnav .item {
@@ -2078,7 +2079,8 @@ body.dashboard div#main {
     height: 36px;
 }*/
 body.dashboard.project-edit div#dashboard-menu div.viewport_dashboard .flipsnap_dashboard {
-    width: 345px;/* 117px(item width) * 4(item count) + 116px */
+    /*width: 425px;*//* 117px(item width) * 4(item count) + 116px */
+    width: 132.8125%;
     background-color: #3399cc;
 }
 body.dashboard.project-edit div#dashboard-menu div.viewport_dashboard .flipsnap_dashboard li.option {
@@ -2472,7 +2474,7 @@ div.widget.project div.image {
 
 div.widget.project div.image a img {
     display: block;
-    max-width: 320px;
+    max-width: 100vw;
     height: auto;
 }
 
@@ -5187,6 +5189,20 @@ body.project-show div#main div.center div.widget.project-summary.h_ttl .categori
 
 body.project-show div#main div.center div.widget.project-summary.h_ttl .categories a:hover {
     color: #20B3B2;
+}
+
+body.project-show .project-summary #social_bookmark {
+    letter-spacing: -0.4em;
+}
+
+body.project-show .project-summary #social_bookmark > div {
+    display: inline-block;
+    margin-right: 2%;
+    letter-spacing: normal;
+}
+
+body.project-show .project-summary #social_bookmark > div:last-child {
+    margin-right: 0;
 }
 
 div.widget.project-summary > div {
@@ -8955,9 +8971,16 @@ footer .footer_bottom .sns-area {
 footer .footer_bottom .sns-area li {
     display: table-cell;
     width: 25%;
+    vertical-align: middle;
 }
-footer .footer_bottom .sns-area li img{
-    height:18px;
+footer .footer_bottom .sns-area li a {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+footer .footer_bottom .sns-area li a img {
+    width: auto;
+    height: 20px;
 }
 footer .footer_bottom .link {
     margin-bottom: 30px;
@@ -9009,46 +9032,6 @@ footer .footer_bottom .link span {
 .platoniq{
     display: none;
 }
-/*body.project-edit div.superform li.element#footer {*/
-/*background-color: #e7e7e7;*/
-/*border-top: 3px solid #0a0a0a;*/
-/*padding: 20px;*/
-/*position: relative;*/
-/*z-index: 900;*/
-/*margin: 46px -5px 0 0;*/
-/*overflow: hidden;*/
-/*}*/
-
-/*body.project-edit div.superform li.element#footer div,*/
-/*body.project-edit div.superform li.element#footer ol,*/
-/*body.project-edit div.superform li.element#footer li,*/
-/*body.project-edit div.superform li.element#footer ul {*/
-/*border: none;*/
-/*padding: 0;*/
-/*margin: 0;*/
-/*}*/
-
-/*body.project-edit div.superform li.element#footer li#errors {*/
-/*width: 70%;*/
-/*float: left;*/
-/*}*/
-
-/*body.project-edit div.superform li.element#footer li#buttons {*/
-/*width: 30%;*/
-/*float: left;*/
-/*clear: none;*/
-/*text-align: right;*/
-/*}*/
-
-/*body.project-edit div.superform li.element#footer li#buttons input,*/
-/*body.project-edit div.superform li.element#footer li#buttons button {*/
-/*padding-left: 4em;*/
-/*padding-right: 4em;*/
-/*box-shadow: 2px 2px 0 rgba(0,0,0,.2);*/
-/*-moz-box-shadow: 2px 2px 0 rgba(0,0,0,.2);*/
-/*-webkit-box-shadow: 2px 2px 0 rgba(0,0,0,.2);*/
-/*}*/
-
 
 /* = lista de errores
 ************************************************/
@@ -9396,8 +9379,7 @@ body.user-login .sign-in-with {
 
 body.user-login div#main .login {
     background-color: #fff;
-    margin: 60px 0 20px;
-    /*padding-bottom: 20px;*/
+    margin-bottom:20px;
 }
 
 body.user-login div#main .login p a {
@@ -11891,7 +11873,8 @@ div.widget.project div.meter {
 .meter dl dt,
 .meter dl dd {
     position: absolute;
-    width: 96px!important;
+    /*width: 96px!important;*/
+    width: 33%!important;
     height: 30px!important;
     text-align: center;
 }
@@ -11908,7 +11891,7 @@ div.widget.project div.meter {
 }
 .meter dl dt.optimum {
     top: 0;
-    left: 96px;
+    left: 33%;
     color: #6699cc;
 }
 .meter dl dt.days {
@@ -11921,7 +11904,7 @@ div.widget.project div.meter {
 }
 .meter dl dt.supporters {
     top: 56px;
-    left:96px;
+    left: 33%;
 }
 .meter dl dt.percent {
     top: 56px;
@@ -11948,12 +11931,12 @@ div.widget.project div.meter {
 }
 .meter dl dd.optimum {
     top: -16px;
-    left: 96px;
+    left: 33%;
     color: #6699cc;
     border-right: 1px solid #eee;
 }
+top: -16px;
 .meter dl dd.days {
-    top: -16px;
     right: 0;
 }
 .meter dl dd.reached {
@@ -11964,7 +11947,7 @@ div.widget.project div.meter {
 }
 .meter dl dd.supporters {
     top: 40px;
-    left: 96px;
+    left: 33%;
     font-weight: normal;
     border-right: 1px solid #eee;
 }
@@ -12084,8 +12067,12 @@ body.project-show div.widget.project-support .invest-notice {
 /*----------------------------------------------------------------------
   goteo.css
 ----------------------------------------------------------------------*/
+div#wrapper {
+    margin-top: 60px;
+}
 
 div#sub-header {
+    margin-top: 60px;
     margin-bottom: 1px;
 }
 

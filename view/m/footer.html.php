@@ -45,11 +45,11 @@ $sponsors   = Sponsor::getList();
         <ul>
             <li>
                 <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/about/">
-                    LOCAL GOOD FUKUOKAについて
+                    <?php echo LG_NAME;?>について
                 </a>
             </li>
             <li>
-                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/mailnews/">
+                <a href="<?php echo MAILNEWS;?>" target="_blank">
                     メルマガ登録
                 </a>
             </li>
@@ -69,7 +69,7 @@ $sponsors   = Sponsor::getList();
                 </a>
             </li>
             <li>
-                <a href="http://localgood.jp/riyou_kiyaku_menu/">
+                <a href="<?php echo LG_INTEGRATION_URL;?>/riyou_kiyaku_menu/">
                     利用規約
                 </a>
             </li>
@@ -129,12 +129,12 @@ $sponsors   = Sponsor::getList();
         </div>
         <ul>
             <li>
-                <a href="https://cf.yokohama.localgood.jp/discover">
+                <a href="<?php echo SITE_URL;?>/discover">
                     プロジェクト一覧
                 </a>
             </li>
             <li>
-                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/challenge/">
+                <a href="<?= SITE_URL; ?>/challenge/">
                     プロジェクトを立てる
                 </a>
             </li>
@@ -149,17 +149,17 @@ $sponsors   = Sponsor::getList();
         </div>
         <ul class="sns-area">
             <li>
-                <a href="http://yokohama.localgood.jp/feed/" target="_blank">
+                <a href="<?= LOCALGOOD_WP_BASE_URL . '/feed/'; ?>" target="_blank">
                     <img src="/view/css/s-footer-sns-icon01.png" alt="rss">
                 </a>
             </li>
             <li>
-                <a href="https://twitter.com/LogooYOKOHAMA" target="_blank">
+                <a href="<?= LG_TWITTER; ?>" target="_blank">
                     <img src="/view/css/s-footer-sns-icon03.png" alt="Twitter">
                 </a>
             </li>
             <li>
-                <a href="https://www.facebook.com/LOCALGOODYOKOHAMA" target="_blank">
+                <a href="<?= LG_FACEBOOK_PAGE; ?>" target="_blank">
                     <img src="/view/css/s-footer-sns-icon04.png" alt="facebook">
                 </a>
             </li>
@@ -194,6 +194,6 @@ $sponsors   = Sponsor::getList();
         </li>
     </ul>
     <div class="cw">
-        COPYRIGHT© LOCAL GOOD FUKUOKA. Some rights reserved.
+        COPYRIGHT&copy; <?php echo LG_NAME;?>. Some rights reserved.
     </div>
 </div>

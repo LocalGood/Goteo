@@ -26,7 +26,7 @@ use Goteo\Library\Text,
 
 <nav class="main_nav02 clearfix">
     <a href="<?= LOCALGOOD_WP_BASE_URL; ?>" class="nav_logo">
-        <img src="/view/css/header/s-header-logo.png" alt=""/>
+        <img src="/view/css/header/s-header-logo.png" alt="localgood FUKUOKA"/>
     </a>
     <div class="nav_menu-button">
         <span></span>
@@ -81,12 +81,12 @@ use Goteo\Library\Text,
                 <dl class="list02">
                     <dt></dt>
                     <dd>
-                        <a href="https://cf.yokohama.localgood.jp/discover/">
+                        <a href="<?= SITE_URL . '/discover/'; ?>">
                             プロジェクト一覧
                         </a>
                     </dd>
                     <dd>
-                        <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/challenge/">
+                        <a href="<?= SITE_URL; ?>/challenge/">
                             プロジェクトを立てる
                         </a>
                     </dd>
@@ -101,7 +101,7 @@ use Goteo\Library\Text,
                 //ログインしていない
                 ?>
                 <li>
-                    <a href="https://cf.yokohama.localgood.jp/user/login" class="list01__text">
+                    <a href="<?= SITE_URL; ?>/user/login" class="list01__text">
                         新規登録/ログイン
                     </a>
                 </li>
@@ -115,16 +115,16 @@ use Goteo\Library\Text,
                     <dl class="list02">
                         <dt></dt>
                         <dd>
-                            <a href="/dashboard/activity">アクティビティ</a>
+                            <a href="<?= SITE_URL; ?>/dashboard/activity">アクティビティ</a>
                         </dd>
                         <dd>
-                            <a href="/dashboard/profile">プロフィール</a>
+                            <a href="<?= SITE_URL; ?>/dashboard/profile">プロフィール</a>
                         </dd>
                         <dd>
-                            <a href="/community/sharemates">みんなの興味</a>
+                            <a href="<?= SITE_URL; ?>/community/sharemates">みんなの興味</a>
                         </dd>
                         <dd class="logout mean-last">
-                            <a href="/user/logout">ログアウト</a>
+                            <a href="<?= SITE_URL; ?>/user/logout">ログアウト</a>
                         </dd>
                     </dl>
                 </li>
