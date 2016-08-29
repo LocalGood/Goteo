@@ -5621,7 +5621,7 @@ body.dashboard div#dashboard-menu > ul
 {
 	left:50%;
 	margin-left:-480px;
-	top:-50px;
+	top:-53px;
 	width:960px;
 }
 
@@ -5654,6 +5654,7 @@ body.dashboard div#dashboard-menu ul li.section.current ul
 	bottom:0;
 	display:block;
 	height:2.6em;
+	top: 53px;
 	left:0;
 	position:absolute;
 	right:0;
@@ -5662,14 +5663,14 @@ body.dashboard div#dashboard-menu ul li.section.current ul
 
 body.dashboard div#dashboard-menu ul li.section.active,body.dashboard div#dashboard-menu ul li.section.current
 {
-	margin-bottom:2.6em;
+	margin-bottom: 40px;
 }
 
 body.dashboard div#dashboard-menu ul li.section.active ul
 {
 	bottom:0;
 	display:block;
-	height:2.6em;
+	height: 40px;
 	left:0;
 	position:absolute;
 	right:0;
@@ -5713,7 +5714,6 @@ body.dashboard div#dashboard-menu ul li.section.current a.section,body.dashboard
 	color:#f5f5f5;
 	filter:none;
 	font-weight:bolder;
-	height:40px;
 }
 
 body.dashboard div#dashboard-menu ul li.section.forbidden a.section
@@ -9615,7 +9615,7 @@ body.project-edit div#main #project-steps span.step > button
 	font-weight:400;
 	height:100%;
 	margin:10px 15px 0;
-	max-width:10em;
+	max-width:15em;
 	min-width:46px;
 	padding:0 0 50px;
 }
