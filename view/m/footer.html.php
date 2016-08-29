@@ -150,22 +150,22 @@ jQuery(document).ready(function($) {
         <ul class="sns-area">
             <li>
                 <a href="http://yokohama.localgood.jp/feed/" target="_blank">
-                    <img src="/view/css/s-footer-sns-icon01.jpg" alt="">
+                    <img src="/view/css/s-footer-sns-icon01.png" alt="rss">
                 </a>
             </li>
             <li>
                 <a href="https://plus.google.com/112981975493826894716/posts" target="_blank">
-                    <img src="/view/css/s-footer-sns-icon02.jpg" alt="">
+                    <img src="/view/css/s-footer-sns-icon02.png" alt="google+">
                 </a>
             </li>
             <li>
                 <a href="https://twitter.com/LogooYOKOHAMA" target="_blank">
-                    <img src="/view/css/s-footer-sns-icon03.jpg" alt="">
+                    <img src="/view/css/s-footer-sns-icon03.png" alt="Twitter">
                 </a>
             </li>
             <li>
                 <a href="https://www.facebook.com/LOCALGOODYOKOHAMA" target="_blank">
-                    <img src="/view/css/s-footer-sns-icon04.png" alt="">
+                    <img src="/view/css/s-footer-sns-icon04.png" alt="facebook">
                 </a>
             </li>
         </ul>
