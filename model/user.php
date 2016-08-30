@@ -1329,6 +1329,9 @@ namespace Goteo\Model {
             $set = '';
 
             foreach ($data as $key=>$value) {
+                if (strpos($value,'___DUMMY') !== false){
+                    continue;
+                }
                 if (in_array($key, $fields)) {
                     $values[":$key"] = $value;
                     if ($set != '') $set .= ', ';
@@ -1499,7 +1502,15 @@ namespace Goteo\Model {
             return $projects;
         }
 
-        public static function calcWorth($userId) {
+        public static function isInvestedSM($userId, $prefixed_id)
+        {
+            $sql = "SELECT count(user) as cnt FROM invest WHERE user = :userid AND project = :prefixedid";
+            $query = self::query($sql, array(':userid'=>$userId,':prefixedid'=>$prefixed_id));
+            $res = $query->fetch(\PDO::FETCH_ASSOC);
+            return (intval($res['cnt']) > 0);
+        }
+
+            public static function calcWorth($userId) {
             $query = self::query("SELECT id FROM worthcracy WHERE amount <= (SELECT SUM(amount) FROM invest WHERE user = ? AND status IN ('0', '1', '3')) ORDER BY amount DESC LIMIT 1", array($userId));
             $worth = $query->fetchColumn();
             self::query('UPDATE user SET worth = :worth WHERE id = :id', array(':id' => $userId, ':worth' => $worth));

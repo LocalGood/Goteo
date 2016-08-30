@@ -45,7 +45,8 @@ namespace Goteo\Model {
                         promote.id as id,
                         promote.node as node,
                         promote.project as project,
-                        project.name as name,
+                        pjsm.name as name,
+                        pjsm.projectType as projectType,
                         IFNULL(promote_lang.title, promote.title) as title,
                         IFNULL(promote_lang.description, promote.description) as description,
                         promote.order as `order`,
@@ -54,8 +55,12 @@ namespace Goteo\Model {
                     LEFT JOIN promote_lang
                         ON promote_lang.id = promote.id
                         AND promote_lang.lang = :lang
-                    INNER JOIN project
-                        ON project.id = promote.project
+                    INNER JOIN
+                        (
+                        SELECT id, name, status,'project' as projectType FROM project
+                        UNION
+                        SELECT id, name, status,'skillmatching' as projectType FROM skillmatching
+                        ) AS pjsm ON pjsm.id = promote.project
                     WHERE promote.id = :id
                     ", array(':id'=>$id, ':lang'=>\LANG));
                 $promote = $query->fetchObject(__CLASS__);
@@ -79,8 +84,9 @@ namespace Goteo\Model {
                 SELECT
                     promote.id as id,
                     promote.project as project,
-                    project.name as name,
-                    project.status as status,
+                    pjsm.name as name,
+                    pjsm.status as status,
+                    pjsm.projectType as projectType,
                     IFNULL(promote_lang.title, promote.title) as title,
                     IFNULL(promote_lang.description, promote.description) as description,
                     promote.order as `order`,
@@ -89,13 +95,17 @@ namespace Goteo\Model {
                 LEFT JOIN promote_lang
                     ON promote_lang.id = promote.id
                     AND promote_lang.lang = :lang
-                INNER JOIN project
-                    ON project.id = promote.project
+                INNER JOIN
+                    (
+                    SELECT id, name, status,'project' as projectType FROM project
+                    UNION
+                    SELECT id, name, status,'skillmatching' as projectType FROM skillmatching
+                    ) AS pjsm ON pjsm.id = promote.project
                 WHERE promote.node = :node
                 $sqlFilter
                 ORDER BY `order` ASC, title ASC
                 ", array(':node' => $node, ':lang'=>\LANG));
-            
+
             foreach($query->fetchAll(\PDO::FETCH_CLASS, __CLASS__) as $promo) {
                 $promo->description =Text::recorta($promo->description, 100, false);
                 $promo->status = $status[$promo->status];
@@ -118,12 +128,16 @@ namespace Goteo\Model {
 
             $query = static::query("
                 SELECT
-                    project.id as id,
-                    project.name as name,
-                    project.status as status
-                FROM    project
-                WHERE status >= 3
-                AND project.id NOT IN (SELECT project FROM promote WHERE promote.node = :node{$sqlCurr} )
+                    id,name,status
+                    FROM project
+                    WHERE status >= 3
+                    AND id NOT IN (SELECT project FROM promote WHERE promote.node = :node{$sqlCurr} )
+                UNION
+                SELECT
+                    id,name,status
+                    FROM skillmatching
+                    WHERE status >= 3
+                    AND id NOT IN (SELECT project FROM promote WHERE promote.node = :node{$sqlCurr} )
                 ORDER BY name ASC
                 ", array(':node' => $node));
 
