@@ -95,7 +95,9 @@ namespace Goteo\Model {
                 // skillmatching or project
                 if ((strpos($invest->project,LG_SM_DB_PREFIX) == 0) && ($invest->amount == 0)){
                     $invest->project_type = 'skillmatching';
-                    $invest->project = ltrim($invest->project,LG_SM_DB_PREFIX);
+                    $sm_prefix_def = LG_SM_DB_PREFIX;
+                    $invest->project = preg_replace("/^$sm_prefix_def/","",$invest->project);
+
                 } else {
                     $invest->project_type = 'project';
                 }
@@ -222,7 +224,7 @@ namespace Goteo\Model {
          * Los datos que sacamos: usuario, proyecto, cantidad, estado de proyecto, estado de aporte, fecha de aporte, tipo de aporte, campaña
          * .... anonimo, resign, etc...
          */
-        public static function getList ($filters = array(), $node = null, $limited = false) {
+        public static function getList ($filters = array(), $node = null, $limited = false, $projectType = 'project') {
 
             $list = array();
             $values = array();
@@ -315,13 +317,18 @@ namespace Goteo\Model {
                 $values[':date_until'] = $filters['date_until'];
             }
 
+            $joinedField = "invest.project = $projectType.id";
+            if ($projectType == 'skillmatching'){
+                $joinedField = "invest.project = CONCAT('skillmatching_',$projectType.id)";
+            }
+
             $sql = "SELECT
                         invest.id as id,
                         invest.user as user,
                         invest.project as project,
                         invest.method as method,
                         invest.status as investStatus,
-                        project.status as status,
+                        $projectType.status as status,
                         invest.campaign as campaign,
                         invest.amount as amount,
                         invest.anonymous as anonymous,
@@ -332,8 +339,8 @@ namespace Goteo\Model {
                         user.name as admin,
                         invest.issue as issue
                     FROM invest
-                    INNER JOIN project
-                        ON invest.project = project.id
+                    INNER JOIN $projectType
+                        ON $joinedField
                     LEFT JOIN user
                         ON invest.admin = user.id
                     WHERE invest.project IS NOT NULL
@@ -536,33 +543,38 @@ namespace Goteo\Model {
          *
          * @param bool success solo los prroyectos en campaña, financiados o exitosos
          */
-        public static function projects ($success = false, $node = \GOTEO_NODE) {
+        public static function projects ($success = false, $node = \GOTEO_NODE, $projectType = 'project') {
 
             $list = array();
             $values = array();
 
             $and = " WHERE";
 
+            $joinedfield = "$projectType.id";
+            if ($projectType == 'skillmatching'){
+                $joinedfield = "CONCAT('skillmatching_', $projectType.id)";
+            }
+
             $sql = "
                 SELECT
-                    project.id as id,
-                    project.name as name
-                FROM    project
+                    $projectType.id as id,
+                    $projectType.name as name
+                FROM    $projectType
                 INNER JOIN invest
-                    ON project.id = invest.project
+                    ON $joinedfield = invest.project
                     ";
 
             if ($success) {
-                $sql .= "$and project.status >= 3 AND project.status <= 5 ";
+                $sql .= "$and $projectType.status >= 3 AND $projectType.status <= 5 ";
                 $and = " AND";
             }
             if ($node != \GOTEO_NODE) {
-                $sql .= "$and project.node = :node";
+                $sql .= "$and $projectType.node = :node";
                 $and = " AND";
                 $values[':node'] = $node;
             }
-            $sql .= " ORDER BY project.name ASC";
-
+            $sql .= " ORDER BY $projectType.name ASC";
+//var_dump($sql);exit;
             $query = static::query($sql, $values);
 
             foreach ($query->fetchAll(\PDO::FETCH_CLASS) as $item) {
