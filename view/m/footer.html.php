@@ -147,19 +147,24 @@ $sponsors   = Sponsor::getList();
                 <img src="/view/css/s-footer-logo.png" alt="LOCAL GOOD">
             </a>
         </div>
+        <div class="footer_logo">
+            <a href="<?= LOCALGOOD_WP_BASE_URL; ?>">
+                <img src="/view/css/s-footer-logo.png" alt="LOCAL GOOD">
+            </a>
+        </div>
         <ul class="sns-area">
             <li>
-                <a href="http://yokohama.localgood.jp/feed/" target="_blank">
+                <a href="<?= LOCALGOOD_WP_BASE_URL . '/feed/'; ?>" target="_blank">
                     <img src="/view/css/s-footer-sns-icon01.png" alt="rss">
                 </a>
             </li>
             <li>
-                <a href="https://twitter.com/LogooYOKOHAMA" target="_blank">
+                <a href="<?= LG_TWITTER; ?>" target="_blank">
                     <img src="/view/css/s-footer-sns-icon03.png" alt="Twitter">
                 </a>
             </li>
             <li>
-                <a href="https://www.facebook.com/LOCALGOODYOKOHAMA" target="_blank">
+                <a href="<?= LG_FACEBOOK_PAGE; ?>" target="_blank">
                     <img src="/view/css/s-footer-sns-icon04.png" alt="facebook">
                 </a>
             </li>

@@ -93,7 +93,7 @@ use Goteo\Library\Text,
                 </dl>
             </li>
             <li>
-                <a href="http://map.yokohama.localgood.jp/" target="_blank" class="list01__text">
+                <a href="http://map.kitaq.localgood.jp/" target="_blank" class="list01__text">
                     3Dマップ
                 </a>
             </li>
@@ -101,7 +101,7 @@ use Goteo\Library\Text,
                 //ログインしていない
                 ?>
                 <li>
-                    <a href="https://cf.yokohama.localgood.jp/user/login" class="list01__text">
+                    <a href="https://cf.kitaq.localgood.jp/user/login" class="list01__text">
                         新規登録/ログイン
                     </a>
                 </li>
