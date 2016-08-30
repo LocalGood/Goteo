@@ -79,7 +79,7 @@ use Goteo\Library\Text,
                             </div>
                         </div>
                     </li>
-                    <li><a href="http://map.yokohama.localgood.jp/" target="_blank">3Dマップ</a>
+                    <li><a href="http://map.fukuoka.localgood.jp/" target="_blank">3Dマップ</a>
                     </li>
                     <li class="gnav_goteo">
                         <?php if (empty($_SESSION['user'])) {

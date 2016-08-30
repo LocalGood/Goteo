@@ -93,7 +93,7 @@ use Goteo\Library\Text,
                 </dl>
             </li>
             <li>
-                <a href="http://map.yokohama.localgood.jp/" target="_blank" class="list01__text">
+                <a href="http://map.fukuoka.localgood.jp/" target="_blank" class="list01__text">
                     3Dマップ
                 </a>
             </li>
