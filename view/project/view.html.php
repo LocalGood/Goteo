@@ -225,6 +225,7 @@ $bodyClass = 'project-show'; include 'view/prologue.html.php' ?>
                                         if(get_spOS() === 'iOS'){
                                             echo new View('view/project/widget/iosMsg.html.php',array('project' => $project));
                                         }
+                                    echo
                                         new View('view/project/widget/spread.html.php',array('project' => $project));
                                         //sacarlo de div#center
                                         $printSendMsg=true;

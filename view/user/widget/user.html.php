@@ -22,6 +22,7 @@
 use Goteo\Library\Text;
 
 $user = $this['user'];
+$projectType = !empty($this['projectType']) ? $this['projectType'] : 'project';
 $level = (int) $this['level'] ?: 3;
 
 // @todo Esto ya debería venirme en $user
@@ -33,9 +34,7 @@ $user->about = nl2br(Text::urlink($user->about));
 ?>
 
 <div class="widget user collapsable">
-
-    <h<?php echo $level ?> class="supertitle"><?php echo Text::get('profile-widget-user-header'); ?></h<?php echo $level ?>>
-
+    <h<?php echo $level ?> class="supertitle"><?php echo ($projectType == 'project') ? Text::get('profile-widget-user-header') : Text::get('profile-widget-user-header-sm'); ?></h<?php echo $level ?>>
     <div class="project-widget-box">
 
         <h<?php echo $level + 1 ?> class="title">
