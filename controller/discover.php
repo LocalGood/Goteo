@@ -39,6 +39,50 @@ namespace Goteo\Controller {
                 );
         }
 
+        private function cmp_smpj($a, $b){
+            if (strtotime($a->published) == strtotime($b->published)){
+                return 0;
+            };
+            return (strtotime($a->published) > strtotime($b->published)) ? -1 : 1;
+        }
+
+        private function cmp_name($a, $b){
+            if ($a->name == $b->name){
+                return 0;
+            };
+            return ($a->name < $b->name) ? -1 : 1;
+        }
+
+        private function cmp_days($a, $b){
+            if ($a->days == $b->days){
+                return 0;
+            };
+            return ($a->days < $b->days) ? -1 : 1;
+        }
+
+        public function sortByType($pj, $type){
+            $_pj = $pj;
+
+            switch ($type){
+                case 'popular':
+//                            ORDER BY followers DESC";
+                case 'outdate':
+                    usort($_pj,'self::cmp_days');
+                    break;
+                case 'others':
+                case 'success':
+                case 'recent':
+                    usort($_pj,'self::cmp_smpj');
+                    break;
+                case 'archive':
+// ORDER BY closed DESC";
+                default:
+// ORDER BY name ASC";
+                    usort($_pj,'self::cmp_name');
+            }
+            return $_pj;
+        }
+
         /*
          * Descubre proyectos, página general
          */
@@ -50,7 +94,6 @@ namespace Goteo\Controller {
                 'lists' => array()
             );
 
-
             // cada tipo tiene sus grupos
             foreach ($types as $type) {
                 $projects = Model\Project::published($type);
@@ -58,7 +101,9 @@ namespace Goteo\Controller {
                 $skillmatchings = Model\Skillmatching::published($type);
                 if (!empty($skillmatchings)){
                     $projects = array_merge($projects, $skillmatchings);
+                    $projects = self::sortByType($projects,$type);
                 }
+
                 $viewData['lists'][$type] = Listing::get($projects);
                 $viewData['title'][$type] = Text::get('discover-group-'.$type.'-header');
             }
@@ -136,13 +181,23 @@ namespace Goteo\Controller {
             }
 
             $viewData = array();
+            $skillmatchings = null;
 
             // segun el tipo cargamos el título de la página
             $viewData['title'] = Text::get('discover-group-'.$type.'-header');
 
             // segun el tipo cargamos la lista
             if (isset($_GET['list'])) {
-                $viewData['list']  = Model\Project::published($type, null, true);
+//                $viewData['list']  = Model\Project::published($type, null, true);
+
+                $projects = Model\Project::published($type,null, true);
+                $skillmatchings = Model\Skillmatching::published($type,null, true);
+                if (!empty($skillmatchings)){
+                    $projects = array_merge($projects, $skillmatchings);
+                    $projects = self::sortByType($projects,$type);
+                }
+
+                $viewData['list'] = $projects;
 
                 return new View(
                     VIEW_PATH . '/discover/list.html.php',
@@ -151,6 +206,12 @@ namespace Goteo\Controller {
             } else {
 
                 $projects = Model\Project::published($type);
+                $skillmatchings = Model\Skillmatching::published($type);
+                if (!empty($skillmatchings)){
+                    $projects = array_merge($projects, $skillmatchings);
+                    $projects = self::sortByType($projects,$type);
+                }
+
                 $viewData['list'] = $projects;
 
                 return new View(

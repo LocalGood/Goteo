@@ -117,17 +117,17 @@ namespace Goteo\Controller {
                 // entrando, por defecto, en el paso especificado en url
                 $steps = array(
                     'userProfile' => array(
-                        'name' => Text::get('step-1'),
+                        'name' => Text::get('step-1-sm'),
                         'title' => Text::get('step-userProfile'),
                         'offtopic' => true
                     ),
                     'userPersonal' => array(
-                        'name' => Text::get('step-2'),
+                        'name' => Text::get('step-2-sm'),
                         'title' => Text::get('step-userPersonal'),
                         'offtopic' => true
                     ),
                     'overview' => array(
-                        'name' => Text::get('step-3'),
+                        'name' => Text::get('step-3-sm'),
                         'title' => Text::get('step-overview')
                     ),
 //                    'costs'=> array(
@@ -135,15 +135,15 @@ namespace Goteo\Controller {
 //                        'title' => Text::get('step-costs')
 //                    ),
                     'rewards' => array(
-                        'name' => Text::get('step-5'),
+                        'name' => Text::get('step-4-sm'),
                         'title' => Text::get('step-rewards')
                     ),
                     'supports' => array(
-                        'name' => Text::get('step-6'),
+                        'name' => Text::get('step-5-sm'),
                         'title' => Text::get('step-supports')
                     ),
                     'preview' => array(
-                        'name' => Text::get('step-7'),
+                        'name' => Text::get('step-6-sm'),
                         'title' => Text::get('step-preview'),
                         'offtopic' => true
                     )
@@ -396,7 +396,6 @@ namespace Goteo\Controller {
                     $viewData['types'] = Model\Skillmatching\Cost::types();
                     break;
             }
-
 
             $view = new View (
                 "view/skillmatching/edit.html.php",
@@ -958,6 +957,7 @@ namespace Goteo\Controller {
                 return false;
             }
             // tratar colaboraciones existentes
+             /*
             foreach ($skillmatching->supports as $key => $support) {
                 
                 // quitar las colaboraciones marcadas para quitar
@@ -994,6 +994,7 @@ namespace Goteo\Controller {
                     }
                 }
             }
+             */
 
             //skills
             // añadir las que vienen y no tiene
@@ -1018,6 +1019,7 @@ namespace Goteo\Controller {
             $quedan = $skillmatching->skills; // truki para xdebug
             
             // añadir nueva colaboracion
+/*
             if (!empty($_POST['support-add'])) {
                 $skillmatching->supports[] = new Model\Skillmatching\Support(array(
                     'project'       => $skillmatching->id,
@@ -1026,7 +1028,7 @@ namespace Goteo\Controller {
                     'description'   => ''
                 ));
             }
-
+*/
             return true;
         }
 

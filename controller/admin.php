@@ -73,6 +73,21 @@ namespace Goteo\Controller {
                     ),
                     'filters' => array('id' => '', 'methods' => '', 'investStatus' => 'all', 'projects' => '', 'name' => '', 'calls' => '', 'review' => '', 'types' => '', 'date_from' => '', 'date_until' => '', 'issue' => 'all', 'procStatus' => 'all', 'amount' => '')
                 ),
+                'skillmatching_accounts' => array(
+                    'label' => Text::_('Skillmatching Accounts'),
+                    'actions' => array(
+                        'list' => array('label' => Text::_('Listando'), 'item' => false),
+                        'details' => array('label' => Text::_('Detalles del aporte'), 'item' => true),
+                        'update' => array('label' => Text::_('Cambiando el estado al aporte'), 'item' => true),
+                        'add' => array('label' => Text::_('Aporte manual'), 'item' => false),
+                        'move' => array('label' => Text::_('Reubicando el aporte'), 'item' => true),
+                        'execute' => array('label' => Text::_('Ejecución del cargo'), 'item' => true),
+                        'cancel' => array('label' => Text::_('Cancelando aporte'), 'item' => true),
+                        'report' => array('label' => Text::_('Informe de proyecto'), 'item' => true),
+                        'viewer' => array('label' => Text::_('Viendo logs'), 'item' => false)
+                    ),
+                    'filters' => array('id' => '', 'methods' => '', 'investStatus' => 'all', 'projects' => '', 'name' => '', 'calls' => '', 'review' => '', 'types' => '', 'date_from' => '', 'date_until' => '', 'issue' => 'all', 'procStatus' => 'all', 'amount' => '')
+                ),
                 'banners' => array(
                     'label' => Text::_('Banners'),
                     'actions' => array(
@@ -541,6 +556,12 @@ namespace Goteo\Controller {
                                 $filtered = true;
                             }
                             break;
+                        case 'skillmatching_accounts':
+                            if ($field == 'name' && !empty($_SESSION['admin_filters']['main']['user_name'])) {
+                                $filters['name'] = $_SESSION['admin_filters']['main']['user_name'];
+                                $filtered = true;
+                            }
+                            break;
                         case 'rewards':
                             if ($field == 'name' && !empty($_SESSION['admin_filters']['main']['user_name'])) {
                                 $filters['name'] = $_SESSION['admin_filters']['main']['user_name'];
@@ -680,7 +701,7 @@ namespace Goteo\Controller {
                             'label' => $labels['skillmatchings'],
                             'options' => array(
                                 'skillmatchings' => $options['skillmatchings'],
-                                'accounts' => $options['accounts'],
+                                'skillmatching_accounts' => $options['skillmatching_accounts'],
                                 'reviews' => $options['reviews'],
                                 'translates' => $options['translates'],
                                 'rewards' => $options['rewards'],
