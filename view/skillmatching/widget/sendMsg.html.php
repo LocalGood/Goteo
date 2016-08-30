@@ -43,7 +43,7 @@ $level = (int) $this['level'] ?: 3;
 <?php if (!empty($_SESSION['user']->id) && $project->status >= 3) : ?>
 <div class="widget project-message">
     
-    <h<?php echo $level ?> class="title"><?php echo Text::get('project-messages-send_direct-header'); ?></h<?php echo $level ?>>
+    <h<?php echo $level ?> class="title"><?php echo Text::get('skillmatching-messages-send_direct-header'); ?></h<?php echo $level ?>>
         
     <form method="post" action="/message/direct/<?php echo $project->id; ?>">
     	<div id="bocadillo"></div>

@@ -45,28 +45,29 @@ uasort($project->individual_rewards,
 ?>
 <div class="widget project-rewards-summary" id="rewards-summary">
 
-    <h<?php echo $level ?> class="supertitle"><?php echo Text::get('project-rewards-supertitle'); ?></h<?php echo $level ?>>
+    <h<?php echo $level ?> class="supertitle"><?php echo Text::get('skillmatching-rewards-supertitle'); ?></h<?php echo $level ?>>
 
     <?php if (!empty($project->individual_rewards)) :
         $count = 1;
     ?>
     <div class="individual">
-        <h<?php echo $level+1 ?> id="individual_ttl" class="title"><?php echo Text::get('project-rewards-individual_reward-title'); ?></h<?php echo $level+1 ?>>
+        <h<?php echo $level+1 ?> id="individual_ttl" class="title"><?php echo Text::get('skillmatching-rewards-individual_reward-title'); ?></h<?php echo $level+1 ?>>
         <ul>
         <?php foreach ($project->individual_rewards as $individual) : ?>
         <li class="<?php echo $individual->icon ?>">
-
+<?php /*
             <div class="amount"><?php echo Text::get('regular-investing'); ?> <span class="euro"><?php echo \amount_format($individual->amount); ?>円</span></div>
+*/ ?>
             <h<?php echo $level + 2 ?> id="<? echo 'individual_num' . $count; ?>" class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>>
             <?php if (!empty($individual->units)):
                 $units = ($individual->units - $individual->taken);
                 ?>
-                <p class="remain"><strong><?php echo Text::get('project-rewards-individual_reward-limited'); ?> <?php echo $units; ?></strong></p>
+                <p class="remain"><strong><?php echo Text::get('skillmatching-rewards-individual_reward-limited'); ?> <?php echo $units; ?></strong></p>
             <?php endif; ?>
             <p><?php echo htmlspecialchars($individual->description)?></p>
 
             <div class="buttons">
-                <a class="button violet supportit" href="/skillmatching/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it'); ?></a>
+                <a class="button violet supportit" href="/skillmatching/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it-sm'); ?></a>
             </div>
 
         </li>
@@ -80,7 +81,7 @@ uasort($project->individual_rewards,
         $count = 1;
     ?>
         <div class="social">
-            <h<?php echo $level + 1 ?> id="social_ttl" class="title"><?php echo Text::get('project-rewards-social_reward-title'); ?></h<?php echo $level + 1 ?>>
+            <h<?php echo $level + 1 ?> id="social_ttl" class="title"><?php echo Text::get('skillmatching-rewards-social_reward-title'); ?></h<?php echo $level + 1 ?>>
             <ul>
                 <?php foreach ($project->social_rewards as $social) : ?>
                     <li class="<?php echo $social->icon ?>">

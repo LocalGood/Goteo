@@ -52,20 +52,6 @@ $week = array('日','月','火','水','木','金','土');
             echo '<div class="tagmark grey">' . Text::get('regular-fail_mark') . '</div>';
             break;
     } ?>
-<?php /*
-    <div class="project-widget-box<?php echo $status = $project->round ? '' : ' end'; ?>">
-    <?php echo new View('view/skillmatching/meter.html.php', array('skillmatching' => $project, 'level' => $level) ) ?>
-
-        <div class="buttons">
-            <a class="button violet supportit" href="/skillmatching/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it'); ?></a>
-            <?/*php if ($project->status == 3) : // boton apoyar solo si esta en campaña ?>
-            <a class="button violet supportit" href="/skillmatching/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it'); ?></a>
-            <?php else : ?>
-            <a class="button view" href="/skillmatching/<?php echo $project->id ?>/updates"><?php echo Text::get('regular-see_blog'); ?></a>
-            <?php endif; ?>
-        </div>
-    </div>
-*/ ?>
     <?php
     if ($project->status == 3) {
 
@@ -84,11 +70,14 @@ $week = array('日','月','火','水','木','金','土');
 
         ?>
         <div class="invest-notice">
-            このプロジェクトの挑戦期間は <?php echo $published; ?>〜<?php echo $willclose; ?>23:59 の <?php echo ( $project->period_1r + $project->period_2r); ?>日間 です。
+            このスキルマッチングの募集期間は <?php echo $published; ?>〜<?php echo $willclose; ?>23:59 の <?php echo ( $project->period_1r + $project->period_2r); ?>日間 です。
         </div>
         <?php
     } // if ($project->status == 3) {
     ?>
+    <div class="buttons-sm clearfix">
+        <a class="button violet supportit" href="/skillmatching/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it-sm'); ?></a>
+    </div>
 <?php /*
     <a class="more" href="/skillmatching/<?php echo $project->id; ?>/needs"><?php echo Text::get('regular-see_more'); ?></a>
 */ ?>

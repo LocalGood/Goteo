@@ -45,7 +45,7 @@ $twitter_url = 'http://twitter.com/home?status=' . urlencode($share_title . ': '
 </script>			
 <div class="widget project-share">    
 	<div class="left">
-        <h<?php echo $level+1 ?>><?php echo Text::get('project-share-header'); ?></h<?php echo $level+1 ?>>
+        <h<?php echo $level+1 ?>><?php echo Text::get('skillmatching-share-header'); ?></h<?php echo $level+1 ?>>
         <ul>
             <li class="twitter"><a target="_blank" href="<?php echo htmlentities($twitter_url) ?>"><?php echo Text::get('regular-twitter'); ?></a></li>
             <li class="facebook"><a target="_blank" href="<?php echo htmlentities($facebook_url) ?>"><?php echo Text::get('regular-facebook'); ?></a></li>
@@ -54,7 +54,7 @@ $twitter_url = 'http://twitter.com/home?status=' . urlencode($share_title . ': '
     </div>
 	
     <div class="right">
-        <h<?php echo $level+1 ?>><?php echo Text::get('project-spread-header'); ?></h<?php echo $level+1 ?>>
+        <h<?php echo $level+1 ?>><?php echo Text::get('skillmatching-spread-header'); ?></h<?php echo $level+1 ?>>
         <ul>
         	<li class="proyecto">
             <a target="_blank" id="a-proyecto" href="#proyecto" title=""><?php echo Text::get('project-spread-widget'); ?></a>
