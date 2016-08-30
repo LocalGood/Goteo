@@ -511,6 +511,7 @@ namespace Goteo\Controller {
                         }
 
                         // si hay que ejecutar
+                        var_dump($invest->payment);
                         if ($execute && empty($invest->payment)) {
                             if ($debug) echo 'Ejecutando aporte '.$invest->id.' ['.$invest->method.']';
 
@@ -633,8 +634,586 @@ namespace Goteo\Controller {
                 }
 
                 if ($debug) echo 'Fin tratamiento Proyecto '.$project->name.'<hr />';
-            }
+            } // project
+            
+            //
+            // Skillmatching
+            //
+            $skillmatchings = Model\Skillmatching::getActive();
 
+            if ($debug) echo 'Comenzamos con los proyectos en campaña (esto está en '.\LANG.')<br /><br />';
+
+            foreach ($skillmatchings as $skillmatching) {
+
+                // プロジェクト期間取得
+                // $days1r = 1r (passed - published)
+                // $days2r = 2r (success - passed)
+
+                if ($debug) echo 'Proyecto '.$skillmatching->name.'<br />';
+
+                // a ver si tiene cuenta paypal
+//                $skillmatchingAccount = Model\Skillmatching\Account::get($skillmatching->id);
+                /*
+                                if (empty($skillmatchingAccount->paypal)) {
+                
+                                    if ($debug) echo 'No tiene cuenta PayPal<br />';
+                
+                                    // Evento Feed solamente si automático
+                                    if (\defined('CRON_EXEC')) {
+                                        $log = new Feed();
+                                        $log->setTarget($skillmatching->id);
+                                        $log->populate('proyecto sin cuenta paypal (cron)', '/admin/skillmatchings',
+                                            \vsprintf('El proyecto %s aun no ha puesto su %s !!!', array(
+                                                Feed::item('skillmatching', $skillmatching->name, $skillmatching->id),
+                                                Feed::item('relevant', 'cuenta PayPal')
+                                        )));
+                                        $log->doAdmin('skillmatching');
+                                        unset($log);
+                
+                                        // mail de aviso
+                                        $mailHandler = new Mail();
+                                        $mailHandler->to = \GOTEO_CONTACT_MAIL;
+                                        $mailHandler->toName = 'Goteo.org';
+                                        $mailHandler->subject = 'El proyecto '.$skillmatching->name.' no tiene cuenta PayPal';
+                                        $mailHandler->content = 'Hola Goteo, el proyecto '.$skillmatching->name.' no tiene cuenta PayPal y el proceso automatico no podrá tratar los preaprovals al final de ronda.';
+                                        $mailHandler->html = false;
+                                        $mailHandler->template = null;
+                                        $mailHandler->send();
+                                        unset($mailHandler);
+                
+                                        $task = new Model\Task();
+                                        $task->node = \GOTEO_NODE;
+                                        $task->text = "Poner la cuenta PayPal al proyecto <strong>{$skillmatching->name}</strong> urgentemente!";
+                                        $task->url = "/admin/skillmatchings/accounts/{$skillmatching->id}";
+                                        $task->done = null;
+                                        $task->saveUnique();
+                
+                                    }
+                
+                                }
+                */
+
+                $log_text = null;
+
+                if ($debug) echo 'Minimo: '.$skillmatching->mincost.' &yen; <br />';
+
+                $execute = false;
+                $cancelAll = false;
+
+                if ($debug) echo 'Obtenido: '.$skillmatching->amount.' &yen;<br />';
+
+                // porcentaje alcanzado
+                if ($skillmatching->mincost > 0) {
+                    $per_amount = \floor(($skillmatching->amount / $skillmatching->mincost) * 100);
+                } else {
+                    $per_amount = 0;
+                }
+                if ($debug) echo 'Ha alcanzado el '.$per_amount.' &#37; del minimo<br />';
+
+                // los dias que lleva el proyecto  (ojo que los financiados llevaran mas de 80 dias)
+                $days = $skillmatching->daysActive();
+
+                // デフォルト値は1R、2Rともに40日
+                $period_1r = !empty($skillmatching->period_1r) ? $skillmatching->period_1r : 40;
+                $period_2r = !empty($skillmatching->period_2r) ? $skillmatching->period_2r : 40;
+                $period_total = $period_1r + $period_2r;
+
+                if ($debug) echo 'Lleva '.$days.'  dias desde la publicacion<br />';
+
+                /* Verificar si enviamos aviso */
+                $rest = $skillmatching->days;
+                $round = $skillmatching->round;
+                if ($debug) echo 'Quedan '.$rest.' dias para el final de la '.$round.'a ronda<br />';
+
+
+                // a los 5, 3, 2, y 1 dia para finalizar ronda
+                // 残り5日〜1日でFeedに何か出力？
+                if ($round > 0 && in_array((int) $rest, array(5, 3, 2, 1))) {
+                    if ($debug) echo 'Feed publico cuando quedan 5, 3, 2, 1 dias<br />';
+
+                    // Evento Feed solo si ejecucion automática
+                    if (\defined('CRON_EXEC')) {
+                        $log = new Feed();
+                        $log->setTarget($skillmatching->id);
+                        $log->populate('proyecto próximo a finalizar ronda (cron)', '/admin/skillmatchings',
+                            Text::html('feed-skillmatching_runout',
+                                Feed::item('skillmatching', $skillmatching->name, $skillmatching->id),
+                                $rest,
+                                $round
+                            ));
+                        $log->doAdmin('skillmatching');
+
+                        // evento público
+                        $log->title = $skillmatching->name;
+                        $log->url = null;
+                        $log->doPublic('skillmatchings');
+
+                        unset($log);
+                    }
+                }
+
+                //  (financiado a los 80 o cancelado si a los 40 no llega al minimo)
+                // si ha llegado a los 40 dias: mínimo-> ejecutar ; no minimo proyecto y todos los preapprovals cancelados
+                // (Funded at 80 or canceled if the 40 does not reach the minimum) 
+                // If it has reached 40 days: minimum-> execute; no minimum skillmatching and canceled all preapprovals
+
+                // 1r終了後 = passできるか否かのチェック
+                if ($days >= $period_1r) {
+                    // si no ha alcanzado el mínimo, pasa a estado caducado
+                    // If you have not reached the minimum, goes into Expired
+
+                    // 寄付額が最小到達値より少ない = 失敗 = passできず
+                    /*
+                    if ($skillmatching->amount < $skillmatching->mincost) {
+                        if ($debug) echo 'Ha llegado a los 40 dias de campaña sin conseguir el minimo, no pasa a segunda ronda<br />';
+
+                        echo $skillmatching->name . ': ha recaudado ' . $skillmatching->amount . ', '.$per_amount.'% de ' . $skillmatching->mincost . '/' . $skillmatching->maxcost . '<br />';
+                        echo 'No ha conseguido el minimo, cancelamos todos los aportes y lo caducamos:';
+                        // キャンセルフラグ？
+                        $cancelAll = true;
+                        $errors = array();
+                        if ($skillmatching->fail($errors)) {
+                            $log_text = Text::_('El proyecto %s ha %s obteniendo %s');
+                        } else {
+                            @mail(\GOTEO_FAIL_MAIL,
+                                'Fallo al archivar ' . SITE_URL,
+                                'Fallo al marcar el proyecto '.$skillmatching->name.' como archivado ' . implode(',', $errors));
+                            echo 'ERROR::' . implode(',', $errors);
+                            $log_text = Text::_('El proyecto %s ha fallado al, %s obteniendo %s');
+                        }
+                        echo '<br />';
+
+                        // Evento Feed solo si ejecucion automatica
+                        if (\defined('CRON_EXEC')) {
+                            $log = new Feed();
+                            $log->setTarget($skillmatching->id);
+                            $log->populate('proyecto archivado (cron)', '/admin/skillmatchings',
+                                \vsprintf($log_text, array(
+                                    Feed::item('skillmatching', $skillmatching->name, $skillmatching->id),
+                                    Feed::item('relevant', 'caducado sin éxito'),
+                                    Feed::item('money', $skillmatching->amount.' &yen; ('.$per_amount.'&#37;) de aportes sobre minimo')
+                                )));
+                            $log->doAdmin('skillmatching');
+
+                            // evento público
+                            $log->populate($skillmatching->name, null,
+                                Text::html('feed-skillmatching_fail',
+                                    Feed::item('skillmatching', $skillmatching->name, $skillmatching->id),
+                                    $skillmatching->amount,
+                                    $per_amount
+                                ));
+                            $log->doPublic('skillmatchings');
+
+                            unset($log);
+
+                            //Email de proyecto fallido al autor
+                            Cron\Send::toOwner('fail', $skillmatching);
+                            //Email de proyecto fallido a los inversores
+                            Cron\Send::toInvestors('fail', $skillmatching);
+                        }
+
+                        echo '<br />';
+                    } else {
+                    */
+                    // passした場合
+
+                        // tiene hasta 80 días para conseguir el óptimo (o más)
+                        // Has up to 80 days for optimum (or more)
+
+                        // 全期間終了後していたらプロジェクト終了 = 成功
+                        if ($days >= $period_total) {
+                            if ($debug) echo 'Ha llegado a los 80 dias de campaña (final de segunda ronda)<br />';
+
+                            echo $skillmatching->name . ': ha recaudado ' . $skillmatching->amount . ', '.$per_amount.'% de ' . $skillmatching->mincost . '/' . $skillmatching->maxcost . '<br />';
+                            echo 'Ha llegado a los 80 días: financiado. ';
+
+                            // executeフラグ
+                            $execute = true; // ejecutar los cargos de la segunda ronda
+
+                            $errors = array();
+                            // プロジェクト成功 => 終了
+                            if ($skillmatching->succeed($errors)) {
+                                $log_text = Text::_('El proyecto %s ha sido %s obteniendo %s');
+                            } else {
+                                @mail(\GOTEO_FAIL_MAIL,
+                                    'Fallo al marcar financiado ' . SITE_URL,
+                                    'Fallo al marcar el proyecto '.$skillmatching->name.' como financiado ' . implode(',', $errors));
+                                echo 'ERROR::' . implode(',', $errors);
+                                $log_text = Text::_('El proyecto %s ha fallado al ser, %s obteniendo %s');
+                            }
+
+                            // Evento Feed y mails solo si ejecucion automatica
+                            if (\defined('CRON_EXEC')) {
+                                $log = new Feed();
+                                $log->setTarget($skillmatching->id);
+                                $log->populate('proyecto supera segunda ronda (cron)', '/admin/skillmatchings',
+                                    \vsprintf($log_text, array(
+                                        Feed::item('skillmatching', $skillmatching->name, $skillmatching->id),
+                                        Feed::item('relevant', 'financiado'),
+                                        Feed::item('money', $skillmatching->amount.' &yen; ('.\round($per_amount).'%) de aportes sobre minimo')
+                                    )));
+                                $log->doAdmin('skillmatching');
+
+                                // evento público
+                                $log->populate($skillmatching->name, null, Text::html('feed-skillmatching_finish',
+                                    Feed::item('skillmatching', $skillmatching->name, $skillmatching->id),
+                                    $skillmatching->amount,
+                                    \round($per_amount)
+                                ));
+                                $log->doPublic('skillmatchings');
+                                unset($log);
+
+                                //Email de proyecto final segunda ronda al autor
+                                Cron\Send::toOwner('r2_pass', $skillmatching);
+                                //Email de proyecto final segunda ronda a los inversores
+                                Cron\Send::toInvestors('r2_pass', $skillmatching);
+
+                                // Tareas para gestionar
+                                // calculamos fecha de passed+90 días
+                                $passtime = strtotime($skillmatching->passed);
+                                $limsec = date('d/m/Y', \mktime(0, 0, 0, date('m', $passtime), date('d', $passtime)+89, date('Y', $passtime)));
+
+                                /*
+                                 * Ya no hacemos pagos secundarios mediante sistema
+                                $task = new Model\Task();
+                                $task->node = \GOTEO_NODE;
+                                $task->text = "Hacer los pagos secundarios al proyecto <strong>{$skillmatching->name}</strong> antes del día <strong>{$limsec}</strong>";
+                                $task->url = "/admin/accounts/?skillmatchings={$skillmatching->id}";
+                                $task->done = null;
+                                $task->save();
+                                 */
+
+                                // y preparar contrato
+//                                $task = new Model\Task();
+//                                $task->node = \GOTEO_NODE;
+//                                $task->text = date('d/m/Y').": Enviar datos contrato <strong>{$skillmatching->name}</strong>, {$skillmatching->user->name}";
+//                                //@TODO enlace a gestión de contrato
+//                                $task->url = "/admin/skillmatchings?proj_name={$skillmatching->name}";
+//                                $task->done = null;
+//                                $task->saveUnique();
+//
+//                                // + mail a mercè
+//                                @mail(\GOTEO_CONTACT_MAIL,
+//                                    'Preparar contrato ' . $skillmatching->name,
+//                                    'El proyecto '.$skillmatching->name.' ha pasado la primera ronda, enviarle los datos de contrato. Se ha creado una tarea para esto.');
+                            }
+
+                            echo '<br />';
+                        } elseif (empty($skillmatching->passed)) {
+                        // passしていなかったら = 2rに進んでいなかったら
+                            var_dump('1r pass route');
+
+                            if ($debug) echo 'Ha llegado a los 40 dias de campaña, pasa a segunda ronda<br />';
+
+                            echo $skillmatching->name . ': ha recaudado ' . $skillmatching->amount . ', '.$per_amount.'% de ' . $skillmatching->mincost . '/' . $skillmatching->maxcost . '<br />';
+                            echo 'El proyecto supera la primera ronda: marcamos fecha';
+
+                            // executeフラグ
+                            $execute = true; // ejecutar los cargos de la primera ronda
+
+                            $errors = array();
+
+                            // passして2rへ
+                            if ($skillmatching->passed($errors)) {
+                                // se crea el registro de contrato
+                                // Recording contract is created
+                                /*
+                                                                if (Model\Contract::create($skillmatching->id, $errors)) {
+                                                                    echo ' -> Ok:: se ha creado el registro de contrato';
+                                                                } else {
+                                                                    @mail(\GOTEO_FAIL_MAIL,
+                                                                        'Fallo al crear registro de contrato ' . SITE_URL,
+                                                                        'Fallo al crear registro de contrato para el proyecto '.$skillmatching->name.': ' . implode(',', $errors));
+                                                                    echo ' -> semi-Ok: se ha actualiuzado el estado del proyecto pero ha fallado al crear el registro de contrato. ERROR: ' . implode(',', $errors);
+                                                                }
+                                */
+                            } else {
+                                @mail(\GOTEO_FAIL_MAIL,
+                                    'Fallo al marcar fecha de paso a segunda ronda ' . SITE_URL,
+                                    'Fallo al marcar la fecha de paso a segunda ronda para el proyecto '.$skillmatching->name.': ' . implode(',', $errors));
+                                echo ' -> ERROR::' . implode(',', $errors);
+                            }
+
+                            echo '<br />';
+
+                            // Evento Feed solo si ejecucion automatica
+                            if (\defined('CRON_EXEC')) {
+                                $log = new Feed();
+                                $log->setTarget($skillmatching->id);
+                                $log->populate('proyecto supera primera ronda (cron)', '/admin/skillmatchings', \vsprintf('El proyecto %s %s en segunda ronda obteniendo %s', array(
+                                    Feed::item('skillmatching', $skillmatching->name, $skillmatching->id),
+                                    Feed::item('relevant', 'continua en campaña'),
+                                    Feed::item('money', $skillmatching->amount.' &yen; ('.\number_format($per_amount, 2).'%) de aportes sobre minimo')
+                                )));
+                                $log->doAdmin('skillmatching');
+
+                                // evento público
+                                $log->populate($skillmatching->name, null,
+                                    Text::html('feed-skillmatching_goon',
+                                        Feed::item('skillmatching', $skillmatching->name, $skillmatching->id),
+                                        $skillmatching->amount,
+                                        \round($per_amount)
+                                    ));
+                                $log->doPublic('skillmatchings');
+                                unset($log);
+
+                                if ($debug) echo 'Email al autor y a los cofinanciadores<br />';
+                                // Email de proyecto pasa a segunda ronda al autor
+                                Cron\Send::toOwner('r1_pass', $skillmatching);
+
+                                //Email de proyecto pasa a segunda ronda a los inversores
+                                Cron\Send::toInvestors('r1_pass', $skillmatching);
+
+                                // Tarea para hacer los pagos
+//                                $task = new Model\Task();
+//                                $task->node = \GOTEO_NODE;
+//                                $task->text = date('d/m/Y').": Pagar a <strong>{$skillmatching->name}</strong>, {$skillmatching->user->name}";
+//                                $task->url = "/admin/skillmatchings/report/{$skillmatching->id}";
+//                                $task->done = null;
+//                                $task->saveUnique();
+
+                                // + mail a susana
+                                @mail('susana@goteo.org',
+                                    'Pagar al proyecto ' . $skillmatching->name,
+                                    'El proyecto '.$skillmatching->name.' ha terminado la segunda ronda, hacer los pagos. Se ha creado una tarea para esto.');
+                            }
+
+                        } else {
+                            if ($debug) echo 'Lleva más de 40 dias de campaña, debe estar en segunda ronda con fecha marcada<br />';
+                            if ($debug) echo $skillmatching->name . ': lleva recaudado ' . $skillmatching->amount . ', '.$per_amount.'% de ' . $skillmatching->mincost . '/' . $skillmatching->maxcost . ' y paso a segunda ronda el '.$skillmatching->passed.'<br />';
+                        }
+                    //}
+                } // 1r終了後
+
+                // si hay que ejecutar o cancelar
+                if ($cancelAll || $execute) {
+                    if ($debug) echo '::::::Comienza tratamiento de aportes:::::::<br />';
+                    if ($debug) echo 'Execute=' . (string) $execute . '  CancelAll=' . (string) $cancelAll . '<br />';
+                    // tratamiento de aportes penddientes
+                    $query = \Goteo\Core\Model::query("
+                        SELECT  *
+                        FROM  invest
+                        WHERE   invest.project = ?
+                        AND     (invest.status = 0
+                            OR (invest.method = 'tpv'
+                                AND invest.status = 1
+                            )
+                            OR (invest.method = 'cash'
+                                AND invest.status = 1
+                            )
+                        )
+                        AND (invest.campaign IS NULL OR invest.campaign = 0)
+                        ", array($skillmatching->prefixed_id));
+                    $skillmatching->invests = $query->fetchAll(\PDO::FETCH_CLASS, '\Goteo\Model\Invest');
+
+                    // 個別の支援の取得
+                    foreach ($skillmatching->invests as $key=>$invest) {
+                        $errors = array();
+                        $log_text = null;
+
+                        $userData = Model\User::getMini($invest->user);
+
+                        if ($invest->invested == date('Y-m-d')) {
+                            if ($debug) echo 'Aporte ' . $invest->id . ' es de hoy.<br />';
+                        } elseif ($invest->method != 'cash' && empty($invest->preapproval)) {
+                            //si no tiene preaproval, cancelar
+                            //echo 'Aporte ' . $invest->id . ' cancelado por no tener preapproval.<br />';
+                            //$invest->cancel();
+                            //Model\Invest::setDetail($invest->id, 'no-preapproval', 'Aporte cancelado porque no tiene preapproval. Proceso cron/execute');
+                            //continue;
+                        }
+                        // キャンセル時
+                        if ($cancelAll) {
+                            if ($debug) echo 'Cancelar todo<br />';
+
+                            switch ($invest->method) {
+                                /*
+                                case 'paypal':
+                                    $err = array();
+                                    if (Paypal::cancelPreapproval($invest, $err, true)) {
+                                        $log_text = Text::_("Se ha cancelado aporte y preapproval de %s de %s mediante PayPal (id: %s) al proyecto %s del dia %s");
+                                    } else {
+                                        $txt_errors = implode('; ', $err);
+                                        $log_text = Text::_("Ha fallado al cancelar el aporte de %s de %s mediante PayPal (id: %s) al proyecto %s del dia %s. <br />Se han dado los siguientes errores:") . $txt_errors;
+                                    }
+                                    break;
+                                case 'axes':
+                                    if ($invest->cancel(true)) {
+                                        $log_text = Text::_("Contribution is canceled");
+                                    } else{
+                                        $log_text = Text::_("Failed to cancel");
+                                    }
+                                    break;
+                                case 'tpv':
+                                    // se habre la operación en optra ventana
+                                    $err = array();
+                                    if (Tpv::cancelPreapproval($invest, $err, true)) {
+                                        $log_text = Text::_("Se ha anulado el cargo tpv de %s de %s mediante TPV (id: %s) al proyecto %s del dia %s");
+                                    } else {
+                                        $txt_errors = implode('; ', $err);
+                                        $log_text = Text::_("Ha fallado al anular el cargo tpv de %s de %s mediante TPV (id: %s) al proyecto %s del dia %s. <br />Se han dado los siguientes errores: ") . $txt_errors;
+                                    }
+                                    break;
+                                */
+                                case 'cash':
+                                    // 支援キャンセル
+                                    if ($invest->cancel(true)) {
+                                        $log_text = Text::_("Se ha cancelado aporte manual de %s de %s (id: %s) al proyecto %s del dia %s");
+                                    } else{
+                                        $log_text = Text::_("Ha fallado al cancelar el aporte manual de %s de %s (id: %s) al proyecto %s del dia %s. ");
+                                    }
+                                    break;
+                            }
+
+                            // Evento Feed admin
+                            $log = new Feed();
+                            $log->setTarget($skillmatching->id);
+                            $log->populate('Preapproval cancelado por proyecto archivado (cron)', '/admin/invests', \vsprintf($log_text, array(
+                                Feed::item('user', $userData->name, $userData->id),
+                                Feed::item('money', $invest->amount.' &yen;'),
+                                Feed::item('system', $invest->id),
+                                Feed::item('skillmatching', $skillmatching->name, $skillmatching->id),
+                                Feed::item('system', date('d/m/Y', strtotime($invest->invested)))
+                            )));
+                            $log->doAdmin();
+                            unset($log);
+
+                            echo 'Aporte '.$invest->id.' cancelado por proyecto caducado.<br />';
+                            // プロジェクト不成立にセット
+                            $invest->setStatus('4');
+                            Model\Invest::setDetail($invest->id, 'skillmatching-expired', 'Aporte marcado como caducado porque el proyecto no ha tenido exito. Proceso cron/execute');
+
+                            continue;
+                        }
+
+                        // si hay que ejecutar
+                        // 実行時 かつ 支払い方法が未設定？
+                        var_dump($invest->payment);
+                        if ($execute && empty($invest->payment)) {
+                            if ($debug) echo 'Ejecutando aporte '.$invest->id.' ['.$invest->method.']';
+
+                            switch ($invest->method) {
+                                /* cronではなく管理画面から手動で(admin/invests/dopay)
+                                case 'axes':
+                                    $err = array();
+                                    if ($invest->setPayment(date("YmdHis"))) {
+                                        $invest->setStatus(1);
+                                        $log_text = Text::_("Has been executed under its %s %s contribution via Axes (id:%s) to the skillmatching %s %s of the day");
+                                        if ($debug) echo ' -> Ok';
+                                        Model\Invest::setDetail($invest->id, 'executed', 'Preapproval has been executed, has initiated the chained payment. Process cron / execute');
+                                        // si era incidencia la desmarcamos
+                                        if ($invest->issue) {
+                                            Model\Invest::unsetIssue($invest->id);
+                                            Model\Invest::setDetail($invest->id, 'issue-solved', 'The incidence has been resolved upon success by the automatic process');
+                                        }
+                                    }
+                                    break;*/
+                                /* paypal使わず
+                                case 'paypal':
+                                    if (empty($skillmatchingAccount->paypal)) {
+                                        if ($debug) echo '<br />El proyecto '.$skillmatching->name.' no tiene cuenta paypal.<br />';
+                                        Model\Invest::setDetail($invest->id, 'no-paypal-account', 'El proyecto no tiene cuenta paypal en el momento de ejecutar el preapproval. Proceso cron/execute');
+                                        break;
+                                    }
+
+                                    $invest->account = $skillmatchingAccount->paypal;
+                                    $err = array();
+                                    if (Paypal::pay($invest, $err)) {
+                                        $log_text = Text::_("Se ha ejecutado el cargo a %s por su aporte de %s mediante PayPal (id: %s) al proyecto %s del dia %s");
+                                        if ($debug) echo ' -> Ok';
+                                        Model\Invest::setDetail($invest->id, 'executed', 'Se ha ejecutado el preapproval, ha iniciado el pago encadenado. Proceso cron/execute');
+                                        // si era incidencia la desmarcamos
+                                        if ($invest->issue) {
+                                            Model\Invest::unsetIssue($invest->id);
+                                            Model\Invest::setDetail($invest->id, 'issue-solved', 'La incidencia se ha dado por resuelta al ejecutarse correctamente en el proceso automático');
+                                        }
+                                    } else {
+                                        $txt_errors = implode('; ', $err);
+                                        echo 'Aporte ' . $invest->id . ': Fallo al ejecutar cargo paypal: ' . $txt_errors . '<br />';
+                                        @mail(\GOTEO_FAIL_MAIL,
+                                            'Fallo al ejecutar cargo Paypal ' . SITE_URL,
+                                            'Aporte ' . $invest->id . ': Fallo al ejecutar cargo paypal: ' . $txt_errors);
+                                        if ($debug) echo ' -> ERROR!!';
+                                        Model\Invest::setDetail($invest->id, 'execution-failed', 'Fallo al ejecutar el preapproval, no ha iniciado el pago encadenado: ' . $txt_errors . '. Proceso cron/execute');
+
+                                        // Notifiacion de incidencia al usuario
+                                        // Obtenemos la plantilla para asunto y contenido
+                                        $template = Template::get(37);
+                                        // Sustituimos los datos
+                                        $subject = str_replace('%PROJECTNAME%', $skillmatching->name, $template->title);
+                                        $search  = array('%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%', '%AMOUNT%', '%DETAILS%');
+                                        $replace = array($userData->name, $skillmatching->name, SITE_URL . '/skillmatching/' . $skillmatching->id, $invest->amount, '');
+                                        $content = \str_replace($search, $replace, $template->text);
+                                        // iniciamos mail
+                                        $mailHandler = new Mail();
+                                        $mailHandler->from = GOTEO_CONTACT_MAIL;
+                                        $mailHandler->to = $userData->email;
+                                        $mailHandler->toName = $userData->name;
+                                        $mailHandler->subject = $subject;
+                                        $mailHandler->content = $content;
+                                        $mailHandler->html = true;
+                                        $mailHandler->template = $template->id;
+                                        if ($mailHandler->send()) {
+                                            Model\Invest::setDetail($invest->id, 'issue-notified', "Se ha notificado la incidencia al usuario");
+                                        } else {
+                                            Model\Invest::setDetail($invest->id, 'issue-notify-failed', "Ha fallado al enviar el mail de notificacion de la incidencia al usuario");
+                                            @mail(\GOTEO_FAIL_MAIL,
+                                                'Fallo al enviar email de notificacion de incidencia PayPal' . SITE_URL,
+                                                'Fallo al enviar email de notificacion de incidencia PayPal: <pre>' . print_r($mailHandler, 1). '</pre>');
+                                        }
+
+                                    }
+                                    break;
+                                */
+//                                case 'tpv':
+//                                    // los cargos con este tpv vienen ejecutados de base
+//                                    if ($debug) echo ' -> Ok';
+//                                    /*
+//                                        $err = array();
+//                                        if (Tpv::pay($invest, $err)) {
+//                                            echo 'Cargo sermepa correcto';
+//                                            $log_text = "Se ha ejecutado el cargo a %s por su aporte de %s mediante TPV (id: %s) al proyecto %s del dia %s";
+//                                        } else {
+//                                            $txt_errors = implode('; ', $err);
+//                                            echo 'Fallo al ejecutar cargo sermepa: ' . $txt_errors;
+//                                            $log_text = "Ha fallado al ejecutar el cargo a %s por su aporte de %s mediante TPV (id: %s) al proyecto %s del dia %s <br />Se han dado los siguientes errores: $txt_errors";
+//                                        }
+//                                     *
+//                                     */
+//                                    break;
+                                case 'cash':
+                                    // los cargos manuales no los modificamos
+                                    if ($debug) echo ' Cash, nada que hacer -> Ok';
+                                    break;
+                            }
+                            if ($debug) echo '<br />';
+
+                            if (!empty($log_text)) {
+                                // Evento Feed
+                                $log = new Feed();
+                                $log->setTarget($skillmatching->id);
+                                $log->populate('Cargo ejecutado (cron)', '/admin/invests', \vsprintf($log_text, array(
+                                    Feed::item('user', $userData->name, $userData->id),
+                                    Feed::item('money', $invest->amount.' &yen;'),
+                                    Feed::item('system', $invest->id),
+                                    Feed::item('skillmatching', $skillmatching->name, $skillmatching->id),
+                                    Feed::item('system', date('d/m/Y', strtotime($invest->invested)))
+                                )));
+                                $log->doAdmin();
+                                if ($debug) echo $log->html . '<br />';
+                                unset($log);
+                            }
+
+                            if ($debug) echo 'Aporte '.$invest->id.' tratado<br />';
+                        }
+
+                    }
+
+                    if ($debug) echo '::Fin tratamiento aportes<br />';
+                }  // if ($cancelAll || $execute) {
+
+                if ($debug) echo 'Fin tratamiento Proyecto '.$skillmatching->name.'<hr />';
+            } // skillmatching
 
             // checkeamos campañas activas
             //$campaigns = Model\Call::getActive(4);
