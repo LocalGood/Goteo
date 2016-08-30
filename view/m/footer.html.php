@@ -147,11 +147,6 @@ $sponsors   = Sponsor::getList();
                 <img src="/view/css/s-footer-logo.png" alt="LOCAL GOOD">
             </a>
         </div>
-        <div class="footer_logo">
-            <a href="<?= LOCALGOOD_WP_BASE_URL; ?>">
-                <img src="/view/css/s-footer-logo.png" alt="LOCAL GOOD">
-            </a>
-        </div>
         <ul class="sns-area">
             <li>
                 <a href="<?= LOCALGOOD_WP_BASE_URL . '/feed/'; ?>" target="_blank">
