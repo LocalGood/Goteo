@@ -754,7 +754,7 @@ a.up:hover{background:url('/view/css/arrow-up.png') no-repeat left;
 	-webkit-border-radius: 3px;
 	background-color: #666;
 	border-radius: 3px;
-	height: 34px;
+	/*height: 34px;*/
 	position: relative;
 }
 
@@ -796,6 +796,7 @@ a.up:hover{background:url('/view/css/arrow-up.png') no-repeat left;
 }
 
 .goteo_menu > ul > li.community > a,.goteo_menu > ul > li.dashboard > a {
+	display: block;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
@@ -1509,6 +1510,145 @@ a.up:hover{background:url('/view/css/arrow-up.png') no-repeat left;
 }
 
 
+
+
+.footer ul {
+	margin: 0;
+	padding-left: 0;
+	list-style-type: none;
+}
+.footer a {
+	color: #fff;
+	text-decoration: none;
+}
+.footer__upper {
+	padding: 45px 0 52px;
+	background-color: #2f6f92;
+}
+.footer__upper_left {
+	float: left;
+	width: 25%;
+	margin-right: 60px;
+	padding-right: 53px;
+	border-right: 1px solid #fff;
+}
+.footer__upper_left .footer__logo {
+	margin-bottom: 20px;
+}
+.footer__upper_left .footer__logo img {
+	vertical-align: middle;
+}
+.footer__upper_left .footer__sns_link {
+	letter-spacing: -0.4em;
+	margin-bottom: 30px;
+}
+.footer__upper_left .footer__sns_link > * {
+	display: inline-block;
+	letter-spacing: normal;
+	vertical-align: top;
+}
+.footer__upper_left .footer__sns_link li {
+	width: 30px;
+	margin-right: 20px;
+	text-align: center;
+}
+.footer__upper_left .footer__sns_link li:last-child {
+	margin-right: 0;
+}
+.footer__upper_left .footer__sns_link li a {
+	display: block;
+}
+.footer__upper_left .footer__sns_link li a img {
+	vertical-align: bottom;
+}
+.footer__upper_left .footer__integration_site {
+	display: block;
+	height: 18px;
+	padding-left: 16px;
+	font-size: 12px;
+	line-height: 18px;
+	background: url(integration_link.png) no-repeat left 50%;
+}
+.footer__upper_right {
+	float: left;
+	letter-spacing: -0.4em;
+}
+.footer__upper_right > * {
+	display: inline-block;
+	letter-spacing: normal;
+	vertical-align: top;
+}
+.footer__upper_right > li {
+	margin-right: 60px;
+}
+.footer__upper_right > li span {
+	display: block;
+	color: #fff;
+}
+.footer__upper_right > li .footer__upper_second_title {
+	margin-bottom: 16px;
+	font-size: 16px;
+	font-weight: bolder;
+	line-height: 24px;
+}
+.footer__upper_right > li .footer__upper__third_title {
+	opacity: 0.5;
+	margin-bottom: 5px;
+	font-size: 11px;
+	line-height: 17px;
+}
+.footer__upper_right > li ul {
+	margin-bottom: 20px;
+}
+.footer__upper_right > li ul a {
+	font-size: 13px;
+	line-height: 20px;
+}
+.footer__upper_right > li:last-child {
+	margin-right: 0;
+}
+.footer__under {
+	padding: 45px 0 13px;
+	background-color: #fff;
+}
+.footer__under ul {
+	display: table;
+	margin-bottom: 30px;
+}
+.footer__under ul li {
+	display: table-cell;
+	padding-right: 26px;
+	vertical-align: middle;
+}
+.footer__under ul a img {
+	width: auto;
+	max-height: 40px;
+	vertical-align: middle;
+}
+.footer__under .footer__copyright {
+	margin: 0;
+	font-size: 12px;
+	text-align: center;
+	color: #454545;
+}
+.footer .c-w1200 {
+	width: 1200px;
+	margin: 0 auto;
+}
+.c-clearfix {
+	zoom: 1;
+}
+.c-clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+.footer .c-w1096 {
+	width: 1096px;
+	margin: 0 auto;
+}
+
+
 /*----------------------------------------------------------------------
  base.css
 ----------------------------------------------------------------------*/
@@ -2173,6 +2313,26 @@ div.widget.project div.image div.tagmark.twolines
 	font-style:normal;
 	font-weight:400;
 	padding-top:4px!important;
+}
+
+div.widget.project div.image span.cf-icon {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	width: 40px;
+	height: 40px;
+	background-image: url('lg-project-cf.png');
+	background-size:40px 40px;
+}
+
+div.widget.skillmatching div.image span.sm-icon {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	width: 40px;
+	height: 40px;
+	background-image: url('lg-project-sm.png');
+	background-size:40px 40px;
 }
 
 div.widget.project div.image div.investor
@@ -3812,7 +3972,8 @@ div.superform li#individual_rewards
 	border-bottom:none;
 }
 
-div#main.overview div.superform.aqua #image_upload input[type="submit"],div#main.overview div.superform.aqua #video-upload input.media-upload[type="submit"],div.superform.aqua input.ok[type="submit"]
+div#main.overview div.superform.aqua #image_upload input[type="submit"],div#main.overview div.superform.aqua #video-upload input.media-upload[type="submit"],div.superform.aqua input.ok[type="submit"],
+div#main.overview div.superform.aqua #image_upload_1 input[type="submit"],div#main.overview div.superform.aqua #image_upload_2 input[type="submit"]
 {
 	padding:.3em 1.2em;
 }
@@ -5480,7 +5641,7 @@ body.dashboard div#dashboard-menu > ul
 {
 	left:50%;
 	margin-left:-480px;
-	top:-50px;
+	top:-53px;
 	width:960px;
 }
 
@@ -5513,6 +5674,7 @@ body.dashboard div#dashboard-menu ul li.section.current ul
 	bottom:0;
 	display:block;
 	height:2.6em;
+	top: 53px;
 	left:0;
 	position:absolute;
 	right:0;
@@ -5521,14 +5683,14 @@ body.dashboard div#dashboard-menu ul li.section.current ul
 
 body.dashboard div#dashboard-menu ul li.section.active,body.dashboard div#dashboard-menu ul li.section.current
 {
-	margin-bottom:2.6em;
+	margin-bottom: 40px;
 }
 
 body.dashboard div#dashboard-menu ul li.section.active ul
 {
 	bottom:0;
 	display:block;
-	height:2.6em;
+	height: 40px;
 	left:0;
 	position:absolute;
 	right:0;
@@ -5572,7 +5734,6 @@ body.dashboard div#dashboard-menu ul li.section.current a.section,body.dashboard
 	color:#f5f5f5;
 	filter:none;
 	font-weight:bolder;
-	height:40px;
 }
 
 body.dashboard div#dashboard-menu ul li.section.forbidden a.section
@@ -9347,6 +9508,11 @@ div.widget.project-support div.buttons {
 	margin:0 0 0 -97px;
 }
 
+div.widget.project-support div.buttons-sm {
+	padding: 16px 0;
+	clear: both;
+}
+
 div.widget.project-support a.button,
 div.widget.project-rewards a.button,
 div.widget.project-rewards-summary a.button,
@@ -9469,7 +9635,7 @@ body.project-edit div#main #project-steps span.step > button
 	font-weight:400;
 	height:100%;
 	margin:10px 15px 0;
-	max-width:10em;
+	max-width:15em;
 	min-width:46px;
 	padding:0 0 50px;
 }
@@ -13284,7 +13450,7 @@ div.searcher form
 	float:left;
 	margin-right:2px;
 	position:relative;
-	width:238px;
+	width:190px;
 }
 
 .searcher .filter:last-child
@@ -14439,6 +14605,10 @@ div.widget.project div.meter dl .days
 	padding:.8em 0;
 	position:absolute;
 	top:90px;
+}
+
+div.widget.project.skillmatching div.meter dl .days{
+	top:160px;
 }
 
 div.widget.project div.meter.hor.active dl .days

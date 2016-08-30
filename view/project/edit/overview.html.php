@@ -27,6 +27,7 @@ $errors = $project->errors[$this['step']] ?: array();
 $okeys  = $project->okeys[$this['step']] ?: array();
 
 $images = array();
+/*
 foreach ($project->gallery as $image) {
     $images[] = array(
         'type'  => 'html',
@@ -35,10 +36,8 @@ foreach ($project->gallery as $image) {
                    $image . '<img src="'.SRC_URL.'/image/'.$image->id.'/128/128" alt="Imagen" /><button class="image-remove weak" type="submit" name="gallery-'.$image->id.'-remove" title="Quitar imagen" value="remove"></button>' :
                    ''
     );
-
 }
-
-
+*/
 $categories = array();
 
 foreach ($this['categories'] as $value => $label) {
@@ -154,8 +153,7 @@ $superform = array(
             'errors'    => !empty($errors['subtitle']) ? array($errors['subtitle']) : array(),
             'ok'        => !empty($okeys['subtitle']) ? array($okeys['subtitle']) : array()
         ),
-
-        'images' => array(        
+        'image_0' => array(
             'title'     => Text::get('overview-fields-images-title'),
             'type'      => 'group',
             'required'  => true,
@@ -169,22 +167,94 @@ $superform = array(
                     'label' => Text::get('form-image_upload-button'),
                     'class' => 'inline image_upload',
                     //'hint'  => Text::get('tooltip-project-image')
+                ),
+                'project-image_0' => array(
+                    'type'  => 'html',
+                    'class' => 'inline project-image',
+                    'html'  => is_object($project->gallery[0]) ?
+                        $project->gallery[0] . '<input type="hidden" name="image_order" value="1"><img src="'.SRC_URL.'/image/'.$project->gallery[0]->id.'/128/128" alt="Imagen" /><button class="image-remove weak" type="submit" name="gallery-'.$project->gallery[0]->id.'-remove" title="Quitar imagen" value="remove"></button>' :
+                        ''
                 )
             )
-        ),        
-        'gallery' => array(
-            'type'  => 'group',
-            'title' => Text::get('overview-field-image_gallery'),
-            'class' => 'inline',
-            'children'  => $images
         ),
-
-        'description' => array(            
+        'description' => array(
             'type'      => 'textarea',
             'title'     => Text::get('overview-field-description'),
             'required'  => true,
             //'hint'      => Text::get('tooltip-project-description'),
-            'value'     => $project->description,            
+            'value'     => $project->description,
+            'errors'    => !empty($errors['description']) ? array($errors['description']) : array(),
+            'ok'        => !empty($okeys['description']) ? array($okeys['description']) : array()
+        ),
+        'image_1' => array(
+            'title'     => Text::get('overview-fields-images-title') . ' 2',
+            'type'      => 'group',
+            'required'  => false,
+            //'hint'      => Text::get('tooltip-project-image'),
+//            'errors'    => !empty($errors['image']) ? array($errors['image']) : array(),
+//            'ok'        => !empty($okeys['image']) ? array($okeys['image']) : array(),
+            'class'     => 'images',
+            'children'  => array(
+                'image_upload_1'    => array(
+                    'type'  => 'file',
+                    'label' => Text::get('form-image_upload-button'),
+                    'class' => 'inline image_upload',
+                    //'hint'  => Text::get('tooltip-project-image')
+                ),
+                'project-image_1' => array(
+                    'type'  => 'html',
+                    'class' => 'inline project-image',
+                    'html'  => is_object($project->gallery[1]) ?
+                        $project->gallery[1] . '<input type="hidden" name="image_order" value="2"><img src="'.SRC_URL.'/image/'.$project->gallery[1]->id.'/128/128" alt="Imagen" /><button class="image-remove weak" type="submit" name="gallery-'.$project->gallery[1]->id.'-remove" title="Quitar imagen" value="remove"></button>' :
+                        ''
+                )
+            )
+        ),
+        'description_1' => array(
+            'type'      => 'textarea',
+            'title'     => Text::get('overview-field-description') . ' 2',
+            'required'  => false,
+            //'hint'      => Text::get('tooltip-project-description'),
+            'value'     => $project->description_1,
+            'errors'    => !empty($errors['description']) ? array($errors['description']) : array(),
+            'ok'        => !empty($okeys['description']) ? array($okeys['description']) : array()
+        ),
+        'image_2' => array(
+            'title'     => Text::get('overview-fields-images-title') . ' 3',
+            'type'      => 'group',
+            'required'  => false,
+            //'hint'      => Text::get('tooltip-project-image'),
+//            'errors'    => !empty($errors['image']) ? array($errors['image']) : array(),
+//            'ok'        => !empty($okeys['image']) ? array($okeys['image']) : array(),
+            'class'     => 'images',
+            'children'  => array(
+                'image_upload_2'    => array(
+                    'type'  => 'file',
+                    'label' => Text::get('form-image_upload-button'),
+                    'class' => 'inline image_upload',
+                    //'hint'  => Text::get('tooltip-project-image')
+                ),
+                'project-image_2' => array(
+                    'type'  => 'html',
+                    'class' => 'inline project-image',
+                    'html'  => is_object($project->gallery[2]) ?
+                        $project->gallery[2] . '<input type="hidden" name="image_order" value="3"><img src="'.SRC_URL.'/image/'.$project->gallery[2]->id.'/128/128" alt="Imagen" /><button class="image-remove weak" type="submit" name="gallery-'.$project->gallery[2]->id.'-remove" title="Quitar imagen" value="remove"></button>' :
+                        ''
+                )
+            )
+        ),
+//        'gallery' => array(
+//            'type'  => 'group',
+//            'title' => Text::get('overview-field-image_gallery'),
+//            'class' => 'inline',
+//            'children'  => $images
+//        ),
+        'description_2' => array(
+            'type'      => 'textarea',
+            'title'     => Text::get('overview-field-description') . ' 3',
+            'required'  => false,
+            //'hint'      => Text::get('tooltip-project-description'),
+            'value'     => $project->description_2,
             'errors'    => !empty($errors['description']) ? array($errors['description']) : array(),
             'ok'        => !empty($okeys['description']) ? array($okeys['description']) : array()
         ),
@@ -429,7 +499,16 @@ $superform['elements']['footer'] = array(
         )
     )
 );
-
+//echo '<pre>';
+//echo "\$_FILES['image_upload']\n";
+//var_dump($_FILES['image_upload']);
+//echo "\n\$project->image\n";
+//var_dump($project->image);
+//echo "\n\$images\n";
+//var_dump($images);
+//echo "\n\$project->gallery\n";
+//var_dump($project->gallery);
+//echo '</pre>';
 foreach ($superform['elements'] as $id => &$element) {
     
     if (!empty($this['errors'][$this['step']][$id])) {

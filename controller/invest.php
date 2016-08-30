@@ -56,12 +56,24 @@ namespace Goteo\Controller {
 
             $message = '';
 
-            $projectData = Model\Project::get($project);
+            try{
+                $projectData = Model\Project::get($project);
+                $projType = 'project';
+            } catch(\Goteo\Core\Error $e){
+                if ( $e->getCode() === 404){
+                    $projectData = Model\Skillmatching::get($project);
+                    if ($projectData){
+                        $projType = 'skillmatching';
+                    }
+                } else {
+                    throw $e;
+                }
+            }
             $methods = static::_methods();
 
             // si no está en campaña no pueden esta qui ni de coña
             if ($projectData->status != 3) {
-                throw new Redirection('/project/'.$project, Redirection::TEMPORARY);
+                throw new Redirection("/$projType/".$project, Redirection::TEMPORARY);
             }
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -72,12 +84,12 @@ namespace Goteo\Controller {
 
                 if (!isset($methods[$method])) {
                     Message::Error(Text::get('invest-method-error'));
-                    throw new Redirection(SEC_URL."/project/$project/invest/?confirm=fail", Redirection::TEMPORARY);
+                    throw new Redirection(SEC_URL."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
                 }
 
-                if (empty($_POST['amount'])) {
+                if (empty($_POST['amount']) && ($projType === 'project')) {
                     Message::Error(Text::get('invest-amount-error'));
-                    throw new Redirection(SEC_URL."/project/$project/invest/?confirm=fail", Redirection::TEMPORARY);
+                    throw new Redirection(SEC_URL."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
                 }
 
                 // dirección de envio para las recompensas
@@ -93,7 +105,7 @@ namespace Goteo\Controller {
 
                 if ($projectData->owner == $_SESSION['user']->id) {
                     Message::Error(Text::get('invest-owner-error'));
-                    throw new Redirection(SEC_URL."/project/$project/invest/?confirm=fail", Redirection::TEMPORARY);
+                    throw new Redirection(SEC_URL."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
                 }
 
                 // añadir recompensas que ha elegido
@@ -110,17 +122,25 @@ namespace Goteo\Controller {
 
                 if ( $reward && (empty($_POST['fullname'])||empty($_POST['address']))){
                     Message::Error(Text::get('invest-required-error'));
-                    throw new Redirection(SEC_URL."/project/$project/invest/?confirm=fail", Redirection::TEMPORARY);
+                    throw new Redirection(SEC_URL."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
                 }
 
                 // insertamos los datos personales del usuario si no tiene registro aun
                 Model\User::setPersonal($_SESSION['user']->id, $address, false);
 
+                if (!empty($projType) && ($projType === 'skillmatching')){
+                    $_project = LG_SM_DB_PREFIX . $project;
+                    $_amount = 0;
+                } else {
+                    $_project = $project;
+                    $_amount = $_POST['amount'];
+                }
+
                 $invest = new Model\Invest(
                     array(
-                        'amount' => $_POST['amount'],
+                        'amount' => $_amount,
                         'user' => $_SESSION['user']->id,
-                        'project' => $project,
+                        'project' => $_project,
                         'method' => $method,
                         'status' => '-1',               // aporte en proceso
                         'invested' => date('Y-m-d'),
@@ -151,6 +171,41 @@ namespace Goteo\Controller {
                             break;
                         case 'cash':
                             $invest->setStatus('1');
+                            if ($projType == 'skillmatching'){
+                                // スキルマッチング時は寄付->メール通知
+                                // setDetail = confirm
+                                $user = Model\User::get($invest->user);
+
+                                // Notificación al autor
+                                $template = Template::get(39);
+                                // Sustituimos los datos
+                                $subject = str_replace('%PROJECTNAME%', $projectData->name, $template->title);
+
+                                $invested_reward = Model\Skillmatching\Reward::get($invest->rewards[0]);
+//                                var_dump($invested_reward->reward);exit;
+//                                var_dump($invest);exit;
+                                //var_dump($user);exit;
+
+                                // En el contenido:
+                                $search  = array('%OWNERNAME%', '%USERNAME%', '%PROJECTNAME%', '%SITEURL%', '%REWARD%', '%USEREMAIL%','%MESSAGEURL%');
+                                $replace = array($projectData->user->name, $user->name, $projectData->name, SITE_URL, $invested_reward->reward, $user->email, SITE_URL.'/user/profile/'.$user->id.'/message');
+                                $content = \str_replace($search, $replace, $template->text);
+
+                                $mailHandler = new Mail();
+
+                                $mailHandler->to = $projectData->user->email;
+                                $mailHandler->toName = $projectData->user->name;
+                                $mailHandler->subject = $subject;
+                                $mailHandler->content = $content;
+                                $mailHandler->html = true;
+                                $mailHandler->template = $template->id;
+                                $mailHandler->send();
+
+                                unset($mailHandler);
+
+                                // log
+                                Model\Invest::setDetail($invest->id, 'confirmed', 'Skillmatching entry');
+                            }
                             throw new Redirection($invest->urlOK);
                             break;
                     }
@@ -161,7 +216,7 @@ namespace Goteo\Controller {
                 Message::Error(Text::get('invest-data-error'));
             }
 
-            throw new Redirection("/project/$project/invest/?confirm=fail");
+            throw new Redirection("/$projType/$project/invest/?confirm=fail");
         }
 
         public function paid ($id = null) {
@@ -321,8 +376,9 @@ namespace Goteo\Controller {
             }
             $invest = Model\Invest::get($id);
             $project = $invest->project;
+            $projType = $invest->project_type;
 
-            throw new Redirection("/project/$project/invest/?confirm=ok", Redirection::TEMPORARY);
+            throw new Redirection("/$projType/$project/invest/?confirm=ok", Redirection::TEMPORARY);
         }
 
         /*
@@ -338,9 +394,10 @@ namespace Goteo\Controller {
             $invest = Model\Invest::get($id);
             $invest->cancel();
             $project = $invest->project;
+            $projType = $invest->project_type;
 
             // mandarlo a la pagina de aportar para que lo intente de nuevo
-            throw new Redirection("/project/$project/invest/?confirm=fail", Redirection::TEMPORARY);
+            throw new Redirection("/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
         }
 
         // resultado del cargo

@@ -93,7 +93,8 @@ namespace Goteo\Model\Project {
         public static function getFirst ($id) {
 
             try {
-                $sql = "SELECT image FROM project_image WHERE project = ? AND (section = '' OR section IS NULL) ORDER BY `order` ASC, image DESC LIMIT 1";
+//                $sql = "SELECT image FROM project_image WHERE project = ? AND (section = '' OR section IS NULL) ORDER BY `order` ASC, image DESC LIMIT 1";
+                $sql = "SELECT image FROM project_image WHERE project = ? AND (section = '' OR section IS NULL) AND `order` = 0 ORDER BY `order` ASC, image DESC LIMIT 1";
                 $query = self::query($sql, array($id));
                 $first = $query->fetchColumn(0);
                 return Model\Image::get($first);
@@ -112,20 +113,21 @@ namespace Goteo\Model\Project {
             $gallery = array();
 
             try {
-                $sql = "SELECT image FROM project_image WHERE project = ? AND (section = '' OR section IS NULL) ORDER BY `order` ASC, image DESC";
+                $sql = "SELECT * FROM project_image WHERE project = ? AND (section = '' OR section IS NULL) ORDER BY `order` ASC, image DESC";
                 $query = self::query($sql, array($id));
                 foreach ($query->fetchAll(\PDO::FETCH_ASSOC) as $image) {
-                    $gallery[] = Model\Image::get($image['image']);
+                    if (isset($image['order'])){
+                        $gallery[$image['order']] = Model\Image::get($image['image']);
+                    } else {
+                        $gallery[] = Model\Image::get($image['image']);
+                    }
                 }
-
                 return $gallery;
             } catch(\PDOException $e) {
                 return false;
             }
-
         }
-        
-        
+
         /*
          * Para aplicar una seccion o un enlace
          */

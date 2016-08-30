@@ -30,6 +30,11 @@ $rewards = Icon::getList(); // iconos que se usan en proyectos
 
 $skills = Skill::getList(); // スキル取得
 
+$types = array(
+    'project' => 'プロジェクト',
+    'skillmatching' => 'スキルマッチング'
+);
+
 $params = $this['params'];
 
 //var_dump($locations);
@@ -42,6 +47,16 @@ $params = $this['params'];
             <label for="text-query"><?php echo Text::get('discover-searcher-bycontent-header'); ?></label>
             <input type="text" id="text-query" name="query" size="48" value="<?php echo \htmlspecialchars($params['query']); ?>" />
             <br clear="all" />
+        </div>
+
+        <div class="filter">
+            <label for="types"><?php echo Text::get('discover-searcher-byskill-header'); ?></label>
+            <select id="types" name="types[]" multiple size="10">
+                <option class="all" value="all"<?php if (empty($params['types'])) echo ' selected="selected"'; ?>><?php echo Text::get('discover-searcher-bycategory-all'); ?></option>
+                <?php foreach ($types as $id=>$name) : ?>
+                    <option value="<?php echo $id; ?>"<?php if (in_array("{$id}", $params['types'])) echo ' selected="selected"'; ?>><?php echo $name; ?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
 
         <div class="filter">

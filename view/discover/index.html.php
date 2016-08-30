@@ -72,7 +72,8 @@ include 'view/header.html.php' ?>
                                 'categories' => $categories,
                                 'locations'  => $locations,
                                 'rewards'    => $rewards,
-                                'skills' => $skills
+                                'skills' => $skills,
+                                'types' => $types
                             )
             ); ?>
 
@@ -92,7 +93,11 @@ include 'view/header.html.php' ?>
                     </div>
 
                     <?php foreach ($projects['items'] as $project) :
-                        echo new View('view/project/widget/project.html.php', array('project' => $project));
+                        if (get_class($project) == 'Goteo\Model\Skillmatching'){
+                            echo new View('view/skillmatching/widget/skillmatchings.html.php', array('skillmatching' => $project));
+                        } else {
+                            echo new View('view/project/widget/project.html.php', array('project' => $project));
+                        }
                     endforeach; ?>
 
                     <div class="discover-arrow-right">

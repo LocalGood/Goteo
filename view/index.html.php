@@ -28,6 +28,7 @@ $bodyClass = 'home';
 // para que el prologue ponga el código js para botón facebook en el bannerside
 include 'view/prologue.html.php';
 include 'view/header.html.php';
+
 ?>
 <div class="contents_wrapper">
 

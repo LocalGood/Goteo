@@ -34,6 +34,15 @@ jQuery(document).ready(function($) {
             $("#create_continue").attr('disabled', 'disabled');
         }
     });
+    $("#create_accept2").click(function (event) {
+        if (this.checked) {
+            $("#create_continue2").removeClass('disabled').addClass('weak');
+            $("#create_continue2").removeAttr('disabled');
+        } else {
+            $("#create_continue2").removeClass('weak').addClass('disabled');
+            $("#create_continue2").attr('disabled', 'disabled');
+        }
+    });
 });
 </script>
 

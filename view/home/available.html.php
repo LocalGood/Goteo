@@ -21,10 +21,33 @@
 use Goteo\Core\View,
     Goteo\Model\Project,
     Goteo\Library\Text;
-$projects = Goteo\Model\Project::published("available");
+//$projects = Goteo\Model\Project::published("available");
+//$skillmatchings = Goteo\Model\Skillmatching::published("available");
 // random y que solo pinte seis si hubiera más
-
+if ($_GET['type'] == 'p'){
+    $allpjsm = Goteo\Model\Project::published("available");
+} else if ($_GET['type'] == 's'){
+    $allpjsm = Goteo\Model\Skillmatching::published("available");
+} else {
+    $allpjsm = Goteo\Model\Skillmatching::published("available_pj_sm");
+}
 ?>
+<div class="widget projects">
+
+    <?php /*
+    <h2 class="title">プロジェクト<?php //echo Text::get('home-projects-header'); ?></h2>
+    */ ?>
+
+    <?php foreach ($allpjsm as $pj) :
+        if (get_class($pj) == 'Goteo\Model\Skillmatching'){
+            echo new View('view/skillmatching/widget/skillmatchings.html.php', array('skillmatching' => $pj));
+        } else {
+            echo new View('view/project/widget/project.html.php', array('project' => $pj));
+        };
+    endforeach ?>
+
+</div>
+<?php /*
 <div class="widget projects">
 
     <h2 class="title">プロジェクト<?php //echo Text::get('home-projects-header'); ?></h2>
@@ -40,3 +63,20 @@ $projects = Goteo\Model\Project::published("available");
     <?php endforeach ?>
 
 </div>
+
+<div class="widget projects">
+
+    <h2 class="title">スキルマッチング<?php //echo Text::get('home-projects-header'); ?></h2>
+
+    <?php foreach ($skillmatchings as $skillmatching) :
+
+        ?>
+
+        <?php echo new View('view/skillmatching/widget/skillmatchings.html.php', array(
+        'skillmatching' => $skillmatching
+    )) ?>
+
+    <?php endforeach ?>
+
+</div>
+ */ ?>

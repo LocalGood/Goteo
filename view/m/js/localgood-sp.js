@@ -1,26 +1,6 @@
 $ = jQuery;
 
 $(function () {
-    // android対策 強制width:320px
-    var portraitWidth,landscapeWidth;
-    $(window).bind("resize", function(){
-        if(Math.abs(window.orientation) === 0){
-            if(/Android/.test(window.navigator.userAgent)){
-                if(!portraitWidth)portraitWidth=$(window).width();
-            }else{
-                portraitWidth=$(window).width();
-            }
-            $("html").css("zoom" , portraitWidth/320 );
-        }else{
-            if(/Android/.test(window.navigator.userAgent)){
-                if(!landscapeWidth)landscapeWidth=$(window).width();
-            }else{
-                landscapeWidth=$(window).width();
-            }
-            $("html").css("zoom" , landscapeWidth/320 );
-        }
-    }).trigger("resize");
-
     // グロナビ, プルダウン
     $('.nav_inner ul li').hover(
         function(){
@@ -30,6 +10,7 @@ $(function () {
             $(this).children('ul.sub:visible').slideToggle();
         }
     );
+
 
     // smooth scroll
     $('a[href^=#]').click(function(e){
@@ -42,44 +23,49 @@ $(function () {
         return false;
     });
 
-        if($('.flipsnap_projectnav').length > 0){
-            // sp project-nav
-            Flipsnap('.flipsnap_projectnav');
-            var pj_flipsnap = Flipsnap('.flipsnap_projectnav', {
-                distance: 82
-            });
-            var $next = $('.pj_next').click(function() {
-                pj_flipsnap.toNext();
-            });
-            var $prev = $('.pj_prev').click(function() {
-                pj_flipsnap.toPrev();
-            });
-            pj_flipsnap.element.addEventListener('fspointmove', function() {
-                $next.attr('disabled', !pj_flipsnap.hasNext());
-                $prev.attr('disabled', !pj_flipsnap.hasPrev());
-            }, false);
-        }
-        if($('.flipsnap_dashboard').length > 0){
-            // sp dashboard-nav
-            Flipsnap('.flipsnap_dashboard');
-            var db_flipsnap = Flipsnap('.flipsnap_dashboard', {
-                distance: 18
-            });
-            var $next = $('.db_next').click(function() {
-                db_flipsnap.toNext();
-            });
-            var $prev = $('.db_prev').click(function() {
-                db_flipsnap.toPrev();
-            });
-            db_flipsnap.element.addEventListener('fspointmove', function() {
-                $next.attr('disabled', !db_flipsnap.hasNext());
-                $prev.attr('disabled', !db_flipsnap.hasPrev());
-            }, false);
-        }
 
+    // flipsnap
+    if($('.flipsnap_projectnav').length > 0){
+        // sp project-nav
+        Flipsnap('.flipsnap_projectnav');
+        var pj_flipsnap = Flipsnap('.flipsnap_projectnav', {
+            distance: 76
+        });
+        var $next = $('.pj_next').click(function() {
+            pj_flipsnap.toNext();
+        });
+        var $prev = $('.pj_prev').click(function() {
+            pj_flipsnap.toPrev();
+        });
+        pj_flipsnap.element.addEventListener('fspointmove', function() {
+            $next.attr('disabled', !pj_flipsnap.hasNext());
+            $prev.attr('disabled', !pj_flipsnap.hasPrev());
+        }, false);
+    }
+    if($('.flipsnap_dashboard').length > 0){
+        // sp dashboard-nav
+        Flipsnap('.flipsnap_dashboard');
+        var db_flipsnap = Flipsnap('.flipsnap_dashboard', {
+            distance: 40
+        });
+        var $next = $('.db_next').click(function() {
+            db_flipsnap.toNext();
+        });
+        var $prev = $('.db_prev').click(function() {
+            db_flipsnap.toPrev();
+        });
+        db_flipsnap.element.addEventListener('fspointmove', function() {
+            $next.attr('disabled', !db_flipsnap.hasNext());
+            $prev.attr('disabled', !db_flipsnap.hasPrev());
+        }, false);
+    }
+
+
+    //meanmenu
     $('.nav_inner').meanmenu({
         meanScreenWidth: '960'
     });
+
 
     // 投稿画像etcを画面幅に収める
     var post_width = $('.post_body').width();

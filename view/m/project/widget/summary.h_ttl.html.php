@@ -78,8 +78,6 @@ $level = (int) $this['level'] ?: 3;
                     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
                 })();
             </script>
-
-            <div style="clear:both"></div>
         </div><!-- #social_bookmark -->
     <?
     endif;

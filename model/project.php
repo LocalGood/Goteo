@@ -79,6 +79,8 @@ namespace Goteo\Model {
             $gallery = array(), // array de instancias image de project_image
             $secGallery = array(), // array de instancias image de project_image (secundarias)
             $description,
+            $description_1,
+            $description_2,
              $motivation,
               $video,   // video de motivacion
                $video_usubs,   // universal subtitles para el video de motivacion
@@ -263,6 +265,8 @@ namespace Goteo\Model {
                     $sql = "
                         SELECT
                             IFNULL(project_lang.description, project.description) as description,
+                            IFNULL(project.description_1,'') as description_1,
+                            IFNULL(project.description_2,'') as description_2,
                             IFNULL(project_lang.motivation, project.motivation) as motivation,
                             IFNULL(project_lang.video, project.video) as video,
                             IFNULL(project_lang.about, project.about) as about,
@@ -623,16 +627,37 @@ namespace Goteo\Model {
 
                 // Image
                 if (is_array($this->image) && !empty($this->image['name'])) {
+                    // Imageオブジェクト生成
                     $image = new Image($this->image);
-                    if ($image->save($errors)) {
-                        $this->gallery[] = $image;
-                        $this->image = $image->id;
 
+                    $_order = $this->image['order'];
+
+                    // image テーブルに保存 & アップロード
+                    if ($image->save($errors)) {
+
+                        // ギャラリーの同一インデクスに格納されていた画像は（削除して）上書き
+                        if (is_numeric($_order) && isset($this->gallery[$_order])) {
+                            $_image = $this->gallery[$_order];
+                            $_image->remove('project');
+                            unset($this->gallery[$_order]);
+                        }
+
+                        $image->order = $this->image['order'];
+                        //
+                        if (is_numeric($image->order)) {
+                            $this->gallery[$image->order] = $image;
+                        } else {
+                            $this->gallery[] = $image;
+                        }
+                        $this->image = $image->id;
                         /**
                          * Guarda la relación NM en la tabla 'project_image'.
                          */
                         if(!empty($image->id)) {
                             self::query("REPLACE project_image (project, image) VALUES (:project, :image)", array(':project' => $this->id, ':image' => $image->id));
+                            if (is_numeric($image->order)){
+                                self::query("UPDATE project_image SET `order` = :order WHERE project = :project AND image = :image", array(':project' => $this->id, ':image' => $image->id, ':order' => $image->order));
+                            }
                         }
                     }
                 }
@@ -660,6 +685,8 @@ namespace Goteo\Model {
                     'subtitle',
                     'image',
                     'description',
+                    'description_1',
+                    'description_2',
                     'motivation',
                     'video',
                     'video_usubs',
@@ -682,6 +709,11 @@ namespace Goteo\Model {
                 $values = array();
 
                 foreach ($fields as $field) {
+                    if ($field == 'image'){
+                        if (!is_numeric($this->$field)){
+                            continue;
+                        }
+                    }
                     if ($set != '') $set .= ', ';
                     $set .= "$field = :$field";
                     $values[":$field"] = $this->$field;
