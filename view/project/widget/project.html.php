@@ -72,6 +72,8 @@ if (isset($this['investor']) && is_object($this['investor'])) {
                 break;
         } ?>
 
+        <span class="cf-icon"></span>
+
         <?/*php if (isset($this['investor'])) : ?>
             <div class="investor"><img src="<?php echo $investor->avatar->getLink(43, 43, 1) ?>" alt="<?php echo $investor->name ?>" /><div class="invest">あなたの支援額<br /><span class="amount"><?php echo $invest->total ?>円</span></div></div>
         <?php endif; */?>

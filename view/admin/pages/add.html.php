@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*
  *  Copyright (C) 2012 Platoniq y Fundación Fuentes Abiertas (see README for details)
  *	This file is part of Goteo.
@@ -18,30 +18,12 @@
  *
  */
 
-use Goteo\Core\View,
-    Goteo\Model\Image,
-    Goteo\Library\Text;
-
-//@NODESYS
-//@CALLSYS
-$bodyClass = 'home';
-// para que el prologue ponga el código js para botón facebook en el bannerside
-include 'view/prologue.html.php';
-include 'view/header.html.php';
 
 ?>
-<div class="contents_wrapper">
 
-    <div id="main">
-
-        <?php
-        echo new View("view/home/available.html.php", $this);
-//        foreach ($this['order'] as $item=>$itemData) {
-//            if (!empty($this[$item])) echo new View("view/home/{$item}.html.php", $this);
-//        }
-        ?>
-
-    </div>
-</div><!--.contents_wrapper-->
-<?php include 'view/footer.html.php'; ?>
-<?php include 'view/epilogue.html.php'; ?>
+<div class="widget board">
+    <form method="post" action="/admin/pages/add">
+        <label for="page-name">ページ名:</label><br />
+        <input type="text" name="name" id="page-name" value="" />
+    </form>
+</div>
