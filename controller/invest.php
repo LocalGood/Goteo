@@ -171,6 +171,41 @@ namespace Goteo\Controller {
                             break;
                         case 'cash':
                             $invest->setStatus('1');
+                            if ($projType == 'skillmatching'){
+                                // スキルマッチング時は寄付->メール通知
+                                // setDetail = confirm
+                                $user = Model\User::get($invest->user);
+
+                                // Notificación al autor
+                                $template = Template::get(39);
+                                // Sustituimos los datos
+                                $subject = str_replace('%PROJECTNAME%', $projectData->name, $template->title);
+
+                                $invested_reward = Model\Skillmatching\Reward::get($invest->rewards[0]);
+//                                var_dump($invested_reward->reward);exit;
+//                                var_dump($invest);exit;
+                                //var_dump($user);exit;
+
+                                // En el contenido:
+                                $search  = array('%OWNERNAME%', '%USERNAME%', '%PROJECTNAME%', '%SITEURL%', '%REWARD%', '%USEREMAIL%','%MESSAGEURL%');
+                                $replace = array($projectData->user->name, $user->name, $projectData->name, SITE_URL, $invested_reward->reward, $user->email, SITE_URL.'/user/profile/'.$user->id.'/message');
+                                $content = \str_replace($search, $replace, $template->text);
+
+                                $mailHandler = new Mail();
+
+                                $mailHandler->to = $projectData->user->email;
+                                $mailHandler->toName = $projectData->user->name;
+                                $mailHandler->subject = $subject;
+                                $mailHandler->content = $content;
+                                $mailHandler->html = true;
+                                $mailHandler->template = $template->id;
+                                $mailHandler->send();
+
+                                unset($mailHandler);
+
+                                // log
+                                Model\Invest::setDetail($invest->id, 'confirmed', 'Skillmatching entry');
+                            }
                             throw new Redirection($invest->urlOK);
                             break;
                     }

@@ -32,7 +32,8 @@ namespace Goteo\Controller {
         Goteo\Model\Category,
         Goteo\Library\Text,
         Goteo\Library\Feed,
-        Goteo\Library\Page; // para sacar el contenido de about
+        Goteo\Library\Page;
+    use Goteo\Model\Skillmatching; // para sacar el contenido de about
 
     class Index extends \Goteo\Core\Controller {
         
@@ -62,7 +63,11 @@ namespace Goteo\Controller {
 
                 foreach ($promotes as $key => &$promo) {
                     try {
-                        $promo->projectData = Project::getMedium($promo->project, LANG);
+                        if ($promo->projectType == 'skillmatching'){
+                            $promo->projectData = Skillmatching::getMedium($promo->project, LANG);
+                        } else {
+                            $promo->projectData = Project::getMedium($promo->project, LANG);
+                        }
                     } catch (\Goteo\Core\Error $e) {
                         unset($promotes[$key]);
                     }
