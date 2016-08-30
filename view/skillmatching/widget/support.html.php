@@ -70,13 +70,13 @@ $week = array('日','月','火','水','木','金','土');
 
         ?>
         <div class="invest-notice">
-            このプロジェクトの挑戦期間は <?php echo $published; ?>〜<?php echo $willclose; ?>23:59 の <?php echo ( $project->period_1r + $project->period_2r); ?>日間 です。
+            このスキルマッチングの募集期間は <?php echo $published; ?>〜<?php echo $willclose; ?>23:59 の <?php echo ( $project->period_1r + $project->period_2r); ?>日間 です。
         </div>
         <?php
     } // if ($project->status == 3) {
     ?>
     <div class="buttons-sm clearfix">
-        <a class="button violet supportit" href="/skillmatching/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it'); ?></a>
+        <a class="button violet supportit" href="/skillmatching/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it-sm'); ?></a>
     </div>
 <?php /*
     <a class="more" href="/skillmatching/<?php echo $project->id; ?>/needs"><?php echo Text::get('regular-see_more'); ?></a>

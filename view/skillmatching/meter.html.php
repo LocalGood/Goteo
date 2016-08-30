@@ -24,8 +24,8 @@ $level = (int) $this['level'] ?: 3;
 
 $horizontal = !empty($this['horizontal']);
 $big = !empty($this['big']);
-$activable = !empty($this['activable']);
-
+//$activable = !empty($this['activable']);
+$activable = false;
 $project = $this['skillmatching'];
 
 $minimum    = $project->mincost;
@@ -89,7 +89,7 @@ var_dump($over);
 */
 
 ?>    <div class="meter <?php echo $horizontal ? 'hor' : 'ver'; echo $big ? ' big' : ''; echo $activable ? ' activable' : ''; ?>">
-
+<?php /*
         <? if ($big): ?>
             <h<?php echo $level ?> class="title investment"><?php echo Text::get('project-view-metter-investment'); ?></h<?php echo $level ?>>
         <? endif; ?>
@@ -107,8 +107,9 @@ var_dump($over);
                 <div class="done" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_done) ?>%"><strong><?php echo number_format($minimum_done_per) ?>%</strong></div>
             </div>
         </div>
-
+*/ ?>
         <dl>
+            <?php /*
             <dt class="optimum"><?php echo Text::get('project-view-metter-optimum'); ?></dt>
             <dd class="optimum"><strong><?php echo \amount_format($optimum) ?></strong><span>円</span></dd>
 
@@ -117,7 +118,7 @@ var_dump($over);
 
             <dt class="reached"><span><?php echo Text::get('project-view-metter-got'); ?></span></dt>
             <dd class="reached"><strong><?php echo \amount_format($reached) ?></strong><span>円</span></dd>
-
+*/ ?>
             <dt class="days"><span><?php echo Text::get('project-view-metter-days'); ?></span></dt>
             <dd class="days"><strong><?php echo number_format($days) ?></strong><span><?php echo Text::get('regular-days'); ?></span></dd>
 

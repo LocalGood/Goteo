@@ -126,7 +126,7 @@ $superform = array(
     'level'         => $this['level'],
     'action'        => '',
     'method'        => 'post',
-    'title'         => Text::get('overview-main-header'),
+    'title'         => Text::get('overview-main-header-sm'),
     'hint'          => Text::get('guide-project-description-sm'),
     'class'         => 'aqua',        
     'elements'      => array(
@@ -202,7 +202,7 @@ $superform = array(
                 ),*/
                 'motivation' => array(
                     'type'      => 'textarea',       
-                    'title'     => Text::get('overview-field-motivation'),
+                    'title'     => Text::get('overview-field-motivation-sm'),
                     'required'  => true,
                     //'hint'      => Text::get('tooltip-project-motivation'),
                     'errors'    => !empty($errors['motivation']) ? array($errors['motivation']) : array(),

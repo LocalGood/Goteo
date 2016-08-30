@@ -33,21 +33,21 @@ $widget_code_investor = Text::widget($url.'/invested/'.$user->id.'/'.$lsuf);
 ?>
 <div class="widget project-spread">
     
-    <h<?php echo $level ?> class="title"><?php echo Text::get('project-spread-header'); ?></h<?php echo $level ?>>
+    <h<?php echo $level ?> class="title"><?php echo Text::get('skillmatching-spread-header'); ?></h<?php echo $level ?>>
     
     <div class="widget projects">
    		 
           <div class="left">
               <div class="subtitle" id="s1">
-                <span class="primero"><?php echo Text::get('project-spread-pre_widget')?></span>
-                <span class="segundo"><?php echo Text::get('project-spread-widget')?></span>        
+                <span class="primero"><?php echo Text::get('skillmatching-spread-pre_widget')?></span>
+                <span class="segundo"><?php echo Text::get('skillmatching-spread-widget')?></span>
               </div>
          	             
               <div>
 			  <?php
         
                     // el proyecto de trabajo
-                    echo new View('view/skillmatching/widget/project.html.php', array(
+                    echo new View('view/skillmatching/widget/skillmatchings.html.php', array(
                     'skillmatching'   => $project));
                 ?>
               </div>

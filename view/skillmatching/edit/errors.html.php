@@ -28,8 +28,6 @@ echo "<!--";print_r($project->errors);echo "-->";
 foreach ($project->errors as $st => $errors) {
     $total_errors += count($errors);
 }
-var_dump($step = $this['step']);
-var_dump($project->errors);
 // Para que salte al campo
 /*<!-- <a href="#<?php echo $id ?>" onclick="document.getElementById('<?php echo $id ?>').focus(); return false;"> -->*/
 ?>

@@ -81,8 +81,8 @@ $elements      = array(
                        . new View('view/skillmatching/widget/rewards.html.php', array('skillmatching' => $project))
                        . new View('view/user/widget/user.html.php', array('user' => $project->user))
                        . new View('view/skillmatching/widget/summary.html.php', array('skillmatching' => $project))
-                       . new View('view/skillmatching/widget/needs.html.php', array('skillmatching' => $project, 'types' => $types))
-                       . new View('view/skillmatching/widget/schedule.html.php', array('skillmatching' => $project))
+//                       . new View('view/skillmatching/widget/needs.html.php', array('skillmatching' => $project, 'types' => $types))
+//                       . new View('view/skillmatching/widget/schedule.html.php', array('skillmatching' => $project))
                        . '</div>'
                        . '</div></div>'
     )
@@ -124,7 +124,7 @@ echo new SuperForm(array(
     'action'        => '',
     'level'         => $this['level'],
     'method'        => 'post',
-    'title'         => Text::get('preview-main-header'),
+    'title'         => Text::get('preview-main-header-sm'),
     'hint'          => Text::get('guide-project-preview-sm'),
     'elements'      => $elements
 ));

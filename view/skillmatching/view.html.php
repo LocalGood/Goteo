@@ -39,7 +39,7 @@ $evaluation = \Goteo\Library\Evaluation::get($skillmatching->id);
 $user    = $_SESSION['user'];
 $personalData = ($user instanceof User) ? User::getPersonal($user->id) : new stdClass();
 
-$categories = Category::getNames($skillmatching->id);
+$categories = Category::getNames($skillmatching->prefixed_id);
 
 $skills = Skill::getNames($skillmatching->id);
 
@@ -88,7 +88,7 @@ $bodyClass = 'project-show skillmatching-show'; include 'view/prologue.html.php'
                 </div>
                 */?>
 
-                <div class="project-by"><a href="/user/<?php echo $skillmatching->owner; ?>"><?php echo Text::get('regular-by') ?> <?php echo $skillmatching->user->name; ?></a></div>
+                <div class="project-by"><a href="/user/<?php echo $skillmatching->owner; ?>"><?php echo Text::get('regular-by-sm') ?> <?php echo $skillmatching->user->name; ?></a></div>
                 <?
                 $_value = '/skillmatching/' . $skillmatching->id;
                 $_url = urldecode($_SERVER['REQUEST_URI']);
@@ -129,7 +129,7 @@ $bodyClass = 'project-show skillmatching-show'; include 'view/prologue.html.php'
                 ?>
                 <br clear="both" />
 
-                <div class="categories"><h3><?php echo Text::get('project-view-categories-title'); ?></h3>
+                <div class="categories"><h3><?php echo Text::get('skillmatching-view-categories-title'); ?></h3>
                     <?php $sep = ''; foreach ($categories as $key=>$value) :
                         echo $sep.'<a href="/discover/results/'.$key.'">'.htmlspecialchars($value).'</a>';
                     $sep = ', '; endforeach; ?>
@@ -162,7 +162,7 @@ $bodyClass = 'project-show skillmatching-show'; include 'view/prologue.html.php'
             // el lateral es diferente segun el show (y el invest)
             echo
                 new View('view/skillmatching/widget/support.html.php', array('skillmatching' => $skillmatching));
-
+/*
             if ((!empty($skillmatching->investors) &&
                 !empty($step) &&
                 in_array($step, array('start', 'login', 'confirm', 'continue', 'ok', 'fail')) )
@@ -173,12 +173,12 @@ $bodyClass = 'project-show skillmatching-show'; include 'view/prologue.html.php'
             if (!empty($skillmatching->supports) && $show !='messages') {
                 echo new View('view/skillmatching/widget/collaborations.html.php', array('skillmatching' => $skillmatching));
             }
+*/
+            if ($show != 'rewards') {
+                echo new View('view/skillmatching/widget/rewards.html.php', array('skillmatching' => $skillmatching));
+            }
 
-//            if ($show != 'rewards') {
-//                echo new View('view/skillmatching/widget/rewards.html.php', array('skillmatching' => $skillmatching));
-//            }
-
-            echo new View('view/user/widget/user.html.php', array('user' => $skillmatching->user));
+            echo new View('view/user/widget/user.html.php', array('user' => $skillmatching->user,'projectType' => 'skillmatching'));
 
             ?>
             </div>
@@ -219,6 +219,7 @@ $bodyClass = 'project-show skillmatching-show'; include 'view/prologue.html.php'
                                         if(get_spOS() === 'iOS'){
                                             echo new View('view/skillmatching/widget/iosMsg.html.php',array('skillmatching' => $skillmatching));
                                         }
+                                    echo
                                         new View('view/skillmatching/widget/spread.html.php',array('skillmatching' => $skillmatching));
                                         //sacarlo de div#center
                                         $printSendMsg=true;
@@ -274,7 +275,7 @@ $bodyClass = 'project-show skillmatching-show'; include 'view/prologue.html.php'
              </div>
 
 			<?php
-            var_dump($printSendMsg);
+//            var_dump($printSendMsg);
 				if($printSendMsg){
 					 echo new View('view/skillmatching/widget/sendMsg.html.php',array('skillmatching' => $skillmatching));
 				}
