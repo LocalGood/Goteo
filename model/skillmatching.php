@@ -293,7 +293,8 @@ namespace Goteo\Model {
                 }
 
                 // prefixed id
-                $skillmatching->prefixed_id = LG_SM_DB_PREFIX.$id;
+//                $skillmatching->prefixed_id = LG_SM_DB_PREFIX.$id;
+                $skillmatching->prefixed_id = self::getPrefixedId($id);
 
                 // owner
                 $skillmatching->user = User::get($skillmatching->owner, $lang);
@@ -389,7 +390,8 @@ namespace Goteo\Model {
 				$skillmatching = $query->fetchObject(); // stdClass para qno grabar accidentalmente y machacar todo
 
                 // prefixed id
-                $skillmatching->prefixed_id = LG_SM_DB_PREFIX.$id;
+//                $skillmatching->prefixed_id = LG_SM_DB_PREFIX.$id;
+                $skillmatching->prefixed_id = self::getPrefixedId($id);
 
                 // owner
                 $skillmatching->user = User::getMini($skillmatching->owner);
@@ -412,7 +414,8 @@ namespace Goteo\Model {
 				$skillmatching = $query->fetchObject(__CLASS__);
 
                 // prefixed id
-                $skillmatching->prefixed_id = LG_SM_DB_PREFIX.$id;
+//                $skillmatching->prefixed_id = LG_SM_DB_PREFIX.$id;
+                $skillmatching->prefixed_id = self::getPrefixedId($id);
 
                 // primero, que no lo grabe
                 $skillmatching->dontsave = true;
@@ -444,22 +447,23 @@ namespace Goteo\Model {
                 $skillmatching->image = Skillmatching\Image::getFirst($skillmatching->id);
 
                 // categorias
-                $skillmatching->categories = Skillmatching\Category::getNames($id, 2);
+                $skillmatching->categories = Skillmatching\Category::getNames($skillmatching->prefixed_id, 2);
 
                 // skills
-                $skillmatching->skills = Skillmatching\Skill::getNames($id, 2);
+                $skillmatching->skills = Skillmatching\Skill::getNames($skillmatching->prefixed_id, 2);
 
 				// retornos colectivos
-				$skillmatching->social_rewards = Skillmatching\Reward::getAll($id, 'social', $lang);
+				$skillmatching->social_rewards = Skillmatching\Reward::getAll($skillmatching->prefixed_id, 'social', $lang);
 				// retornos individuales
-				$skillmatching->individual_rewards = Skillmatching\Reward::getAll($id, 'individual', $lang);
-                $prefixed_id = LG_SM_DB_PREFIX . $id;
-                $amount = Invest::invested($prefixed_id);
+				$skillmatching->individual_rewards = Skillmatching\Reward::getAll($skillmatching->prefixed_id, 'individual', $lang);
+//                $prefixed_id = LG_SM_DB_PREFIX . $id;
+//                $amount = Invest::invested($prefixed_id);
+                $amount = Invest::invested($skillmatching->prefixed_id);
                 $skillmatching->invested = $amount;
                 $skillmatching->amount   = $amount;
 
 //                $skillmatching->investors = Invest::Investors($id);
-                $skillmatching->num_investors = Invest::numInvestors($prefixed_id);
+                $skillmatching->num_investors = Invest::numInvestors($skillmatching->prefixed_id);
                 $skillmatching->num_messegers = Message::numMessegers($id);
 
                 // sacamos rapidamente el presupuesto mínimo y óptimo
@@ -580,6 +584,10 @@ namespace Goteo\Model {
             elseif ($this->status == 6) :
                 $this->tagmark = 'fail';
             endif;
+        }
+
+        private function getPrefixedId($id){
+            return preg_match('/^[A-Fa-f0-9]{32}$/',$id) ? $id : LG_SM_DB_PREFIX . $id;
         }
 
         /*
@@ -1223,6 +1231,7 @@ namespace Goteo\Model {
 //            }
 
             $anyerror = false;
+/*
             foreach($this->costs as $cost) {
                 if (empty($cost->cost)) {
                     $errors['costs']['cost-'.$cost->id.'-cost'] = Text::get('mandatory-cost-field-name');
@@ -1263,7 +1272,7 @@ namespace Goteo\Model {
                     $scoreDate = 1;
                 }
             }
-
+*/
             if ($anyerror) {
                 unset($okeys['costs']['costs']);
                 $errors['costs']['costs'] = Text::get('validate-project-costs-any_error');
@@ -1399,6 +1408,7 @@ namespace Goteo\Model {
             $scoreName = $scoreDesc = 0;
             $support_type_task = false;
             $anyerror = false;
+            /*
             foreach ($this->supports as $support) {
                 if (empty($support->support)) {
                     $errors['supports']['support-'.$support->id.'-support'] = Text::get('スキル/物品名の入力は必須です');;
@@ -1420,6 +1430,7 @@ namespace Goteo\Model {
                     $support_type_task = true;
                 }
             }
+            */
             if($support_type_task){
 
                 if ($anyerror){
