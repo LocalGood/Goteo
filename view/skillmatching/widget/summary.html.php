@@ -58,20 +58,20 @@ echo new View('view/skillmatching/widget/video.html.php', array('skillmatching' 
 
     <?php if (!empty($skillmatching->motivation)): ?>
     <div class="motivation">
-        <h<?php echo $level + 1?>><?php echo Text::get('overview-field-motivation'); ?></h<?php echo $level + 1?>>
+        <h<?php echo $level + 1?>><?php echo Text::get('overview-field-motivation-sm'); ?></h<?php echo $level + 1?>>
         <?php echo $skillmatching->motivation; ?>
     </div>
     <?php endif ?>
     <?php if (!empty($skillmatching->goal)): ?>
     <div class="goal">
-        <h<?php echo $level + 1?>><?php echo Text::get('overview-field-goal'); ?></h<?php echo $level + 1?>>
+        <h<?php echo $level + 1?>><?php echo Text::get('overview-field-goal-sm'); ?></h<?php echo $level + 1?>>
         <?php echo $skillmatching->goal; ?>
     </div>    
     <?php endif ?>
     
     <?php if (!empty($skillmatching->related)): ?>
     <div class="related">
-        <h<?php echo $level + 1?>><?php echo Text::get('overview-field-related'); ?></h<?php echo $level + 1?>>
+        <h<?php echo $level + 1?>><?php echo Text::get('overview-field-related-sm'); ?></h<?php echo $level + 1?>>
         <?php echo $skillmatching->related ?>
     </div>
     <?php endif ?>

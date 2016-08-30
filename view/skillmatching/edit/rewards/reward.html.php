@@ -31,10 +31,10 @@ $types = $this['data']['types'];
     <div class="description">
         <p><?php echo htmlspecialchars($reward->description) ?></p>
         <?php if (!empty($reward->units)) : ?>
-                <?php echo "{$reward->units} ユニット x {$reward->amount} 円 = " . ($reward->units * $reward->amount) ." 円<br />"; ?>
-                <strong><?php echo Text::get('project-rewards-individual_reward-limited'); ?></strong>
+                <?php // echo "{$reward->units} ユニット x {$reward->amount} 円 = " . ($reward->units * $reward->amount) ." 円<br />"; ?>
+                <strong><?php echo Text::get('skillmatching-rewards-individual_reward-limited'); ?></strong>
                 <?php $units = $reward->units;
-                echo Text::html('project-rewards-individual_reward-units_left', $units); ?><br />
+                echo Text::html('skillmatching-rewards-individual_reward-units_left', $units); ?><br />
             <?php endif; ?>
         <div class="license license_<?php echo $reward->license ?>"><?php echo htmlspecialchars($this['data']['licenses'][$reward->license]) ?></div>
     </div>

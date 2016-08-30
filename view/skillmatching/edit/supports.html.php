@@ -145,7 +145,7 @@ echo new SuperForm(array(
     'action'        => '',
     'level'         => $this['level'],
     'method'        => 'post',
-    'title'         => Text::get('supports-main-header'),
+    'title'         => Text::get('supports-main-header-sm'),
     'hint'          => Text::get('guide-project-supports-sm'),
     'class'         => 'aqua',
     'elements'      => array(        
@@ -153,6 +153,7 @@ echo new SuperForm(array(
             'type' => 'hidden',
             'value' => 'supports'
         ),
+/*
         'supports' => array(
             'type'      => 'group',
             'title'     => Text::get('supports-fields-support-title'),
@@ -168,6 +169,7 @@ echo new SuperForm(array(
                 )
             )
         ),
+*/
         'skills' => array(
             'type'      => 'checkboxescustom',
             'name'      => 'skills[]',
@@ -207,7 +209,8 @@ echo new SuperForm(array(
 ));
 ?>
 <script type="text/javascript">
-$(function () {
+/*
+    $(function () {
 
     var supports = $('div#<?php echo $sfid ?> li.element#supports');
 
@@ -241,4 +244,5 @@ $(function () {
     });
 
 });
+*/
 </script>

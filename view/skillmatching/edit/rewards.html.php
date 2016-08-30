@@ -47,7 +47,7 @@ foreach ($project->individual_rewards as $individual_reward) {
                         "individual_reward-{$individual_reward->id}-other" => array(
                             'type'      => 'textbox',
                             'class'     => 'inline other',
-                            'title'     => Text::get('rewards-field-individual_reward-other'),
+                            'title'     => Text::get('rewards-field-individual_reward-other-sm'),
                             'value'     => $individual_reward->other,
                             'name'      => "individual_reward-{$individual_reward->id}-{$type->id}",
                            // 'hint'     => Text::get('tooltip-project-individual_reward-icon-other')
@@ -86,7 +86,7 @@ foreach ($project->individual_rewards as $individual_reward) {
                         'value'     => '1'
                     ),
                     "individual_reward-{$individual_reward->id}-reward" => array(
-                        'title'     => Text::get('rewards-field-individual_reward-reward'),
+                        'title'     => Text::get('rewards-field-individual_reward-reward-sm'),
                         'required'  => true,
                         'type'      => 'textbox',
                         'size'      => 100,
@@ -99,7 +99,7 @@ foreach ($project->individual_rewards as $individual_reward) {
                     "individual_reward-{$individual_reward->id}-description" => array(
                         'type'      => 'textarea',
                         'required'  => true,
-                        'title'     => Text::get('rewards-field-individual_reward-description'),
+                        'title'     => Text::get('rewards-field-individual_reward-description-sm'),
                         'cols'      => 100,
                         'rows'      => 4,
                         'class'     => 'inline reward-description',
@@ -109,7 +109,7 @@ foreach ($project->individual_rewards as $individual_reward) {
                        // 'hint'      => Text::get('tooltip-project-individual_reward-description')
                     ),
                     "individual_reward-{$individual_reward->id}-icon" => array(
-                        'title'     => Text::get('rewards-field-individual_reward-type'),
+                        'title'     => Text::get('rewards-field-individual_reward-type-sm'),
                         'required'  => true,
                         'class'     => 'inline',
                         'type'      => 'group',
@@ -132,7 +132,7 @@ foreach ($project->individual_rewards as $individual_reward) {
                        // 'hint'      => Text::get('tooltip-project-individual_reward-amount')
                     ),
                     "individual_reward-{$individual_reward->id}-units" => array(
-                        'title'     => Text::get('rewards-field-individual_reward-units'),
+                        'title'     => Text::get('rewards-field-individual_reward-units-sm'),
                         'type'      => 'textbox',
                         'size'      => 5,
                         'class'     => 'inline reward-units',
@@ -330,7 +330,7 @@ echo new SuperForm(array(
     'action'        => '',
     'level'         => $this['level'],
     'method'        => 'post',
-    'title'         => Text::get('rewards-main-header'),
+    'title'         => Text::get('rewards-main-header-sm'),
     'hint'          => Text::get('guide-project-rewards-sm'),
     'class'         => 'aqua',    
     'elements'      => array(
@@ -342,7 +342,7 @@ echo new SuperForm(array(
         'individual_rewards' => array(
             'type'      => 'group',
             'required'  => true,
-            'title'     => Text::get('rewards-fields-individual_reward-title'),
+            'title'     => Text::get('rewards-fields-individual_reward-title-sm'),
            // 'hint'      => Text::get('tooltip-project-individual_rewards'),
             'class'     => 'rewards',
             'errors'    => !empty($errors["individual_rewards"]) ? array($errors["individual_rewards"]) : array(),
@@ -460,6 +460,7 @@ $(function () {
     });
 
     individuals.delegate('li.element.editindividual_reward input.remove, li.element.individual_reward input.remove', 'click', function (event) {
+        console.log('remove');
         var data = {};
         data[this.name] = '1';
         Superform.update(individuals, data);
