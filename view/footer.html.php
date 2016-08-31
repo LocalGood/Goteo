@@ -47,7 +47,6 @@
                     <span class="footer__upper_second_title">ご利用にあたって</span>
                     <ul>
                         <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/about/">LOCAL GOOD KITAQについて</a></li>
-                        <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/mailnews/">メルマガ登録</a></li>
                         <li class="syoutorihikihou"><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/syoutorihikihou/">特定商取引法に基づく表記</a></li>
                         <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/privacypolicy/">プライバシーポリシー</a></li>
                         <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/user_guide/">ユーザーガイド</a></li>
