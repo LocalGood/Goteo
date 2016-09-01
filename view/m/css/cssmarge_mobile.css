@@ -2512,6 +2512,27 @@ div.widget.project div.image div.tagmark.grey {
     background:url('/view/css/project/tagmark_grey.png') 0 0 no-repeat;
 }
 
+div.widget.project div.image span.cf-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 60px;
+    height: 60px;
+    background-image: url('../../css/lg-project-cf.png');
+    background-size:60px 60px;
+}
+
+div.widget.skillmatching div.image span.sm-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 60px;
+    height: 60px;
+    background-image: url('../../css/lg-project-sm.png');
+    background-size: 60px 60px;
+}
+
+
 /* tipografia peque�a para que quepa todo */
 div.widget.project div.image div.tagmark span.small {
     font-size: 0.8em !important;
@@ -6278,7 +6299,8 @@ div.widget.project-supporters .supporters ul {
 div.widget.project-supporters .supporters > ul > li {
     background-color:  white;
     float: left;
-    width: 106px;
+    /*width: 106px;*/
+    width: 33.3%;
     height: 4.5em;
     position: relative;
     border-bottom: 1px dashed #c0c0c0;
@@ -8490,7 +8512,9 @@ body.project-show div#main div.center .widget.project-summary .description{
     margin: 0 0 20px 0 !important;
 }
 
-body.project-show div#main > div.center > div.widget {
+body.project-show div#main > div.center > div.widget,
+body.project-show div#main > div.center form div.widget
+{
     margin: 0 auto;
     /*padding: 0;*/
     clear: left;
@@ -11874,6 +11898,10 @@ div.widget.project div.meter {
     height: 20px;
 }
 
+div.widget.project div.meter.skillmatching {
+    padding: 4px 0 78px !important;
+}
+
 .meter dl dt,
 .meter dl dd {
     position: absolute;
@@ -11881,6 +11909,12 @@ div.widget.project div.meter {
     width: 33.3%!important;
     height: 30px!important;
     text-align: center;
+}
+
+.meter.skillmatching dl dt,
+.meter.skillmatching dl dd {
+    width: 50%!important;
+    height: 30px!important;
 }
 
 .meter dl dt {
@@ -11902,6 +11936,11 @@ div.widget.project div.meter {
     top: 0;
     right: 0;
 }
+.meter.skillmatching dl dt.days {
+    top: 0;
+    right: 0;
+    padding-top: 5px;
+}
 .meter dl dt.reached {
     top: 56px;
     left: 0;
@@ -11910,6 +11949,12 @@ div.widget.project div.meter {
     top: 56px;
     left: 33.3%;
 }
+.meter.skillmatching dl dt.supporters {
+    top: 0;
+    left: 0;
+    padding-top: 5px;
+}
+
 .meter dl dt.percent {
     top: 56px;
     right: 0;
@@ -11943,6 +11988,10 @@ div.widget.project div.meter {
     top: -16px;
     right: 0;
 }
+.meter.skillmatching dl dd.days {
+    top: 0;
+    border-top: 1px solid #eee;
+}
 .meter dl dd.reached {
     top: 40px;
     left: 0;
@@ -11955,6 +12004,12 @@ div.widget.project div.meter {
     font-weight: normal;
     border-right: 1px solid #eee;
 }
+.meter.skillmatching dl dd.supporters {
+    top: 0;
+    left: 0;
+    border-top: 1px solid #eee;
+}
+
 .meter dl dd.percent {
     top: 40px;
     right: 0;
@@ -12004,6 +12059,10 @@ body.project-show div.widget.project-support div.meter {
     padding-bottom: 134px!important;
     padding-left: 16px!important;
     padding-right: 16px!important;
+}
+body.project-show div.widget.project-support div.meter.skillmatching {
+    padding-bottom: 78px!important;
+    padding-top: 10px!important;
 }
 div.widget.project-support div.meter > h3.title {
     color:#999900;

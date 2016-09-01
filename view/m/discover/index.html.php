@@ -63,7 +63,8 @@ include 'view/m/header.html.php' ?>
                                 'categories' => $categories,
                                 'locations'  => $locations,
                                 'rewards'    => $rewards,
-                                'skills' => $skills
+                                'skills' => $skills,
+                                'types' => $types
                             )
             ); ?>
 
@@ -78,11 +79,13 @@ include 'view/m/header.html.php' ?>
 
                 <div class="discover-group discover-group-<?php echo $type ?>" id="discover-group-<?php echo $type ?>-<?php echo $group ?>">
 
-                <?
-                    foreach ($projects['items'] as $project) :
+                <?php foreach ($projects['items'] as $project) :
+                    if (get_class($project) == 'Goteo\Model\Skillmatching'){
+                        echo new View('view/m/skillmatching/widget/skillmatchings.html.php', array('skillmatching' => $project));
+                    } else {
                         echo new View('view/m/project/widget/project.html.php', array('project' => $project));
-                    endforeach;
-                ?>
+                    }
+                endforeach; ?>
 
                 </div>
             <? endif; ?>
