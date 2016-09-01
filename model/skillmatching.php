@@ -736,7 +736,7 @@ namespace Goteo\Model {
                         $fail = true;
                 }
                 foreach ($guarda as $key=>$item) {
-                    if (!$item->save($errors))
+                    if (!method_exists($item, 'save') || !$item->save($errors))
                         $fail = true;
                 }
                 // recuperamos las que le quedan si ha cambiado alguna
@@ -758,7 +758,7 @@ namespace Goteo\Model {
                         $fail = true;
                 }
                 foreach ($guarda as $key=>$item) {
-                    if (!$item->save($errors))
+                    if (!method_exists($item, 'save') || !$item->save($errors))
                         $fail = true;
                 }
                 // recuperamos las que le quedan si ha cambiado alguna
@@ -778,7 +778,7 @@ namespace Goteo\Model {
                     }
                 }
                 foreach ($guarda as $key=>$item) {
-                    if (!$item->save($errors))
+                    if (!method_exists($item, 'save') || !$item->save($errors))
                         $fail = true;
                 }
                 /* Ahora, los que tiene y vienen. Si el contenido es diferente, hay que guardarlo*/
@@ -809,7 +809,7 @@ namespace Goteo\Model {
                     }
                 }
                 foreach ($guarda as $key=>$item) {
-                    if (!$item->save($errors))
+                    if (!method_exists($item, 'save') || !$item->save($errors))
                         $fail = true;
                 }
                 /* Ahora, los que tiene y vienen. Si el contenido es diferente, hay que guardarlo*/
@@ -830,14 +830,14 @@ namespace Goteo\Model {
                 $quita = array_diff_key($tiene, $viene);
                 $guarda = array_diff_key($viene, $tiene);
                 foreach ($quita as $key=>$item) {
-                    if (!$item->remove($errors)) {
+                    if (!method_exists($item, 'remove') || !$item->remove($errors)){
                         $fail = true;
                     } else {
                         unset($tiene[$key]);
                     }
                 }
                 foreach ($guarda as $key=>$item) {
-                    if (!$item->save($errors))
+                    if (!method_exists($item, 'save') || !$item->save($errors))
                         $fail = true;
                 }
                 /* Ahora, los que tiene y vienen. Si el contenido es diferente, hay que guardarlo*/
@@ -865,7 +865,7 @@ namespace Goteo\Model {
                     }
                 }
                 foreach ($guarda as $key=>$item) {
-                    if (!$item->save($errors))
+                    if (!method_exists($item, 'save') || !$item->save($errors))
                         $fail = true;
                 }
                 /* Ahora, los que tiene y vienen. Si el contenido es diferente, hay que guardarlo*/
