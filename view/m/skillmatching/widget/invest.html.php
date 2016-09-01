@@ -22,6 +22,7 @@ use Goteo\Core\View,
     Goteo\Core\ACL,
     Goteo\Library\Worth,
     Goteo\Model\User,
+    Goteo\Model\Invest,
     Goteo\Library\Text,
     Goteo\Model\License;
 
@@ -52,6 +53,7 @@ $licenses = array();
 foreach (License::getAll() as $l) {
     $licenses[$l->id] = $l;
 }
+
 $action = ($step == 'start') ? '/user/login' : '/invest/' . $project->id;
 ?>
 <?php /*
@@ -63,137 +65,137 @@ $action = ($step == 'start') ? '/user/login' : '/invest/' . $project->id;
 </div>
 */ ?>
 <form method="post" action="<?php echo $action; ?>">
-
     <div class="widget project-invest project-invest-individual_rewards">
         <h<?php echo $level ?> class="beak"><?php echo Text::get('invest-individual-headers-sm') ?></h<?php echo $level ?>>
 
-        <div class="project-widget-box">
-            <div class="individual">
-                <h<?php echo $level+1 ?> class="title"><?php echo Text::get('skillmatching-rewards-individual_reward-title'); ?></h<?php echo $level+1 ?>>
-                <ul>
-                    <?php /*
-                    <li><label class="resign"><input class="individual_reward" type="radio" id="resign_reward" name="selected_reward" value="0" amount="0"/><?php echo Text::get('invest-resign') ?></label></li>
-                    */ ?>
-                    <?php foreach ($project->individual_rewards as $individual) : ?>
-                        <li class="<?php echo $individual->icon ?><?php if ($individual->none) echo ' disabled' ?>">
+    <div class="project-widget-box">
+        <div class="individual">
+            <h<?php echo $level+1 ?> class="title"><?php echo Text::get('skillmatching-rewards-individual_reward-title'); ?></h<?php echo $level+1 ?>>
+            <ul>
+                <?php /*
+                <li><label class="resign"><input class="individual_reward" type="radio" id="resign_reward" name="selected_reward" value="0" amount="0"/><?php echo Text::get('invest-resign') ?></label></li>
+ */ ?>
+                <!-- <span class="chkbox"></span> -->
+            <?php foreach ($project->individual_rewards as $individual) : ?>
+            <li class="<?php echo $individual->icon ?><?php if ($individual->none) echo ' disabled' ?>">
 
-                            <label class="amount" for="reward_<?php echo $individual->id; ?>">
-                                <input type="radio" name="selected_reward" id="reward_<?php echo $individual->id; ?>" value="<?php echo $individual->id; ?>" amount="<?php echo $individual->amount; ?>" class="individual_reward" title="<?php echo htmlspecialchars($individual->reward) ?>" <?php if ($individual->none) echo 'disabled="disabled"' ?>/>
-                                <?php /*
-                                <span class="amount"><?php echo $individual->amount; ?> 円</span>
-                                */ ?>
-                                <h<?php echo $level + 2 ?> class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>>
-                                <p><?php echo htmlspecialchars($individual->description)?></p>
-                                <?php if ($individual->none) : // no quedan ?>
-                                    <span class="left"><?php echo Text::get('invest-reward-none') ?></span>
-                                <?php elseif (!empty($individual->units)) : // unidades limitadas ?>
-                                    <?/*<strong><?php echo Text::get('skillmatching-rewards-individual_reward-limited'); ?></strong><br />
+                <label class="amount" for="reward_<?php echo $individual->id; ?>">
+                    <input type="radio" name="selected_reward" id="reward_<?php echo $individual->id; ?>" value="<?php echo $individual->id; ?>" amount="<?php echo $individual->amount; ?>" class="individual_reward" title="<?php echo htmlspecialchars($individual->reward) ?>" <?php if ($individual->none) echo 'disabled="disabled"' ?>/>
+<!--                    <span class="amount">--><?php //echo $individual->amount; ?><!-- 円</span>-->
+                <!-- <span class="chkbox"></span> -->
+            	<h<?php echo $level + 2 ?> class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>>
+                <p><?php echo htmlspecialchars($individual->description)?></p>
+                    <?php /* if ($individual->none) : // no quedan ?>
+                    <span class="left"><?php echo Text::get('invest-reward-none') ?></span>
+                    <?php elseif (!empty($individual->units)) : // unidades limitadas ?>
+                    <strong><?php echo Text::get('project-rewards-individual_reward-limited'); ?></strong><br />
                     <?php $units = ($individual->units - $individual->taken); // resto
-                    echo Text::html('skillmatching-rewards-individual_reward-units_left', $units); ?><br />*/?>
-                                <?php endif; ?>
-                            </label>
+                    echo Text::html('project-rewards-individual_reward-units_left', $units); ?><br />
+                <?php endif; */ ?>
+                </label>
 
-                        </li>
-                    <?php endforeach ?>
-                </ul>
-            </div>
+            </li>
+            <?php endforeach ?>
+            </ul>
         </div>
     </div>
+</div>
 
-    <?php
-    // si es el primer paso, mostramos el botÃ³n para ir a login
-    if ($step == 'start') : ?>
-        <div class="widget project-invest method">
-            <h<?php echo $level ?> class="beak"><?php echo Text::get('user-login-required-to_invest-sm') ?></h<?php echo $level ?>>
+<?php
+// si es el primer paso, mostramos el botÃ³n para ir a login
+if ($step == 'start') : ?>
+<div class="widget project-invest method">
+    <h<?php echo $level ?> class="beak"><?php echo Text::get('user-login-required-to_invest-sm') ?></h<?php echo $level ?>>
 
-            <div class="buttons">
-                <button type="submit" class="button red" name="go-login" value=""><?php echo Text::get('imperative-register'); ?></button>
-            </div>
+    <div class="buttons">
+        <button type="submit" class="button red" name="go-login" value=""><?php echo Text::get('imperative-register'); ?></button>
+    </div>
 <?php /*
-            <div class="reminder"><span id="amount-reminder"><?php echo $amount ?></span> <?php echo Text::get('invest-alert-investing') ?></div>
+    <div class="reminder"><?php echo Text::get('invest-alert-investing') ?> <span id="amount-reminder"><?php echo $amount ?></span></div>
 */ ?>
-        </div>
-    <?php else : ?>
-        <a name="continue"></a>
-        <input type="hidden" id="fullname" name="fullname" value="<?php echo !empty($personal->contract_name)?$personal->contract_name:'___DUMMY_FOR_SM___'; ?>" />
-        <input type="hidden" id="address" name="address" value="<?php echo !empty($personal->address)?$personal->address:'___DUMMY_FOR_SM___'; ?>" />
-        <input type="hidden" id="zipcode" name="zipcode" value="<?php echo !empty($personal->zipcode)?$personal->zipcode:'___DUMMY_FOR_SM___'; ?>" />
-        <?php /*
-        <div class="widget project-invest address">
-            <h<?php echo $level ?> class="beak" id="address-header"><?php echo Text::get('invest-address-header'); ?></h<?php echo $level ?>>
-            <table>
-                <tr>
-                    <td>
-                        <label for="fullname"><?php echo Text::get('invest-address-name-field') ?></label><br />
-                        <input type="text" id="fullname" name="fullname" value="<?php echo $personal->contract_name; ?>" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="address"><?php echo Text::get('invest-address-address-field') ?></label><br />
-                        <input type="text" id="address" name="address" value="<?php echo $personal->address; ?>" />
-                    </td>
-                    <td>
-                        <label for="zipcode"><?php echo Text::get('invest-address-zipcode-field') ?></label><br />
-                        <input type="text" id="zipcode" name="zipcode" value="<?php echo $personal->zipcode; ?>" />
-                    </td>
-                </tr>
-            </table>
+</div>
+<?php else : ?>
+<a name="continue"></a>
+    <input type="hidden" id="fullname" name="fullname" value="<?php echo !empty($personal->contract_name)?$personal->contract_name:'___DUMMY_FOR_SM___'; ?>" />
+    <input type="hidden" id="address" name="address" value="<?php echo !empty($personal->address)?$personal->address:'___DUMMY_FOR_SM___'; ?>" />
+    <input type="hidden" id="zipcode" name="zipcode" value="<?php echo !empty($personal->zipcode)?$personal->zipcode:'___DUMMY_FOR_SM___'; ?>" />
+<?php /*
+    <div class="widget project-invest address">
+    <h<?php echo $level ?> class="beak" id="address-header"><?php echo Text::get('invest-address-header') ?></h<?php echo $level ?>>
+    <table>
+        <tr>
+            <td>
+                <label for="fullname"><?php echo Text::get('invest-address-name-field') ?></label><br />
+                <input type="text" id="fullname" name="fullname" value="<?php echo $personal->contract_name; ?>" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="address"><?php echo Text::get('invest-address-address-field') ?></label><br />
+                <input type="text" id="address" name="address" value="<?php echo $personal->address; ?>" />
+            </td>
+            <td>
+                <label for="zipcode"><?php echo Text::get('invest-address-zipcode-field') ?></label><br />
+                <input type="text" id="zipcode" name="zipcode" value="<?php echo $personal->zipcode; ?>" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="location"><?php echo Text::get('invest-address-location-field') ?></label><br />
+                <input type="text" id="location" name="location" value="<?php echo $personal->location; ?>" />
+            </td>
+            <td>
+                <label for="country"><?php echo Text::get('invest-address-country-field') ?></label><br />
+                <input type="text" id="country" name="country" value="<?php echo $personal->country; ?>" />
+            </td>
+        </tr>
+    </table>
 
-            <p>
-                <label><input type="checkbox" name="anonymous" value="1" /><span class="chkbox"></span><?php echo Text::get('invest-anonymous') ?></label>
-            </p>
-        </div>
-        */ ?>
+    <p>
+        <label><input type="checkbox" name="anonymous" value="1" /><span class="chkbox"></span><?php echo Text::get('invest-anonymous') ?></label>
+    </p>
+</div>
+*/ ?>
 
-        <div class="widget project-invest method">
-            <?php /*
-            <h<?php echo $level ?> class="beak"><?php echo Text::get('invest-individual-confirm-sm') ?></h<?php echo $level ?>>
-            */ ?>
-            <?php /*
-    <h<?php echo $level ?> class="beak"><?php echo Text::get('project-invest-continue') ?>
-    <p style="color:#ff3300;margin-bottom: 0;">*注意<br />クレジットカードの決済システム上、次ページからの決済申込フォームでは料金が「￥0」と表示されますが、そのまま決済を進めていただくと正常に処理されますのでご安心ください。</p></h<?php echo $level ?>>
-    */ ?>
-            <input type="hidden" id="paymethod"  />
-            <p><button type="submit" class="process pay-cash<?php echo $isInvested ? ' disabled': '' ?>" name="method" value="cash"<?php echo $isInvested ? ' disabled': '' ?>><?php echo $isInvested ? '応募済み': '応募する' ?></button></p>
-<!-- $isInvested -->
+<div class="widget project-invest method">
+    <h<?php echo $level ?> class="beak"><?php echo Text::get('skillmatching-invest-continue') ?></h<?php echo $level ?>>
+    <input type="hidden" id="paymethod"  />
+    <p><button type="submit" class="process pay-cash<?php echo $isInvested ? ' disabled': '' ?>" name="method" value="cash"<?php echo $isInvested ? ' disabled': '' ?>><?php echo $isInvested ? '応募済み': '応募する' ?></button></p>
+<!--    <p><button type="submit" class="process pay-cash" name="method" value="cash">現金</button></p>-->
+    <!--<p><button type="submit" class="process pay-paypal" name="method"  value="paypal">PAYPAL</button></p>-->
+    <!--<p><button type="submit" class="process pay-axes" name="method"  value="axes">クレジットカード</button></p>-->
 
-            <!--<p><button type="submit" class="process pay-paypal" name="method"  value="paypal">PAYPAL</button></p>-->
-            <!--<p><button type="submit" class="process pay-axes" name="method"  value="axes">クレジットカード</button></p>-->
-
-
-        </div>
-    <?php endif; ?>
+</div>
+<?php endif; ?>
 </form>
 
-<?php // echo new View('view/skillmatching/widget/worth.html.php', array('worthcracy' => $worthcracy, 'level' => $_SESSION['user']->worth)) ?>
-
-<a name="commons"></a>
+<?php // echo new View('view/m/skillmatching/widget/worth.html.php', array('worthcracy' => $worthcracy, 'level' => $_SESSION['user']->worth)) ?>
 <?php /*
+<a name="commons"></a>
 <div class="widget project-invest">
     <h<?php echo $level ?> class="beak"><?php echo Text::get('invest-social-header') ?></h<?php echo $level ?>>
 
     <div class="social">
-        <h<?php echo $level + 1 ?> class="title"><?php echo Text::get('skillmatching-rewards-social_reward-title'); ?></h<?php echo $level + 1 ?>>
+        <h<?php echo $level + 1 ?> class="title"><?php echo Text::get('project-rewards-social_reward-title'); ?></h<?php echo $level + 1 ?>>
         <ul>
-            <?php foreach ($project->social_rewards as $social) : ?>
-                <li class="<?php echo $social->icon ?>">
-                    <h<?php echo $level + 2 ?> class="name"><?php echo htmlspecialchars($social->reward) ?></h<?php echo $level + 2 ?>
-                    <p><?php echo htmlspecialchars($social->description)?></p>
-                    <?php if (!empty($social->license) && array_key_exists($social->license, $licenses)): ?>
-                        <div class="license <?php echo htmlspecialchars($social->license) ?>">
-                            <h<?php echo $level + 3 ?>><?php echo Text::get('regular-license'); ?></h<?php echo $level + 3 ?>>
-                            <a href="<?php echo htmlspecialchars($licenses[$social->license]->url) ?>" target="_blank">
-                                <strong><?php echo htmlspecialchars($licenses[$social->license]->name) ?></strong>
+        <?php foreach ($project->social_rewards as $social) : ?>
+            <li class="<?php echo $social->icon ?>">
+                <h<?php echo $level + 2 ?> class="name"><?php echo htmlspecialchars($social->reward) ?></h<?php echo $level + 2 ?>
+                <p><?php echo htmlspecialchars($social->description)?></p>
+                <?php if (!empty($social->license) && array_key_exists($social->license, $licenses)): ?>
+                <div class="license <?php echo htmlspecialchars($social->license) ?>">
+                    <h<?php echo $level + 3 ?>><?php echo Text::get('regular-license'); ?></h<?php echo $level + 3 ?>>
+                    <a href="<?php echo htmlspecialchars($licenses[$social->license]->url) ?>" target="_blank">
+                        <strong><?php echo htmlspecialchars($licenses[$social->license]->name) ?></strong>
 
-                                <?php if (!empty($licenses[$social->license]->description)): ?>
-                                    <p><?php echo htmlspecialchars($licenses[$social->license]->description) ?></p>
-                                <?php endif ?>
-                            </a>
-                        </div>
+                    <?php if (!empty($licenses[$social->license]->description)): ?>
+                    <p><?php echo htmlspecialchars($licenses[$social->license]->description) ?></p>
                     <?php endif ?>
-                </li>
-            <?php endforeach; ?>
+                    </a>
+                </div>
+                <?php endif ?>
+            </li>
+        <?php endforeach; ?>
         </ul>
     </div>
 </div>
