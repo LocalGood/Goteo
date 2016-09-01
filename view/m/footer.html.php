@@ -129,7 +129,7 @@ $sponsors   = Sponsor::getList();
                 </a>
             </li>
             <li>
-                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/challenge/">
+                <a href="<?= SITE_URL; ?>">
                     プロジェクトを立てる
                 </a>
             </li>

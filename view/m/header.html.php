@@ -86,7 +86,7 @@ use Goteo\Library\Text,
                         </a>
                     </dd>
                     <dd>
-                        <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/challenge/">
+                        <a href="<?= SITE_URL; ?>">
                             プロジェクトを立てる
                         </a>
                     </dd>
