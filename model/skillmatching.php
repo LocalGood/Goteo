@@ -2593,8 +2593,9 @@ namespace Goteo\Model {
             );
         }
         public static function getTotalInvestors($id){
+            $prefixed_id = self::getPrefixedId($id);
             $sql = "SELECT COUNT(id) FROM invest WHERE project = ? AND status IN ('0', '1', '3', '4')";
-            $query = self::query($sql, array($id));
+            $query = self::query($sql, array($prefixed_id));
             return ($query->fetchColumn());
         }
     }
