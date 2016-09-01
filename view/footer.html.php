@@ -47,7 +47,6 @@
                     <span class="footer__upper_second_title">ご利用にあたって</span>
                     <ul>
                         <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/about/">LOCAL GOOD YOKOHAMAについて</a></li>
-                        <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/mailnews/">メルマガ登録</a></li>
                         <li class="syoutorihikihou"><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/syoutorihikihou/">特定商取引法に基づく表記</a></li>
                         <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/privacypolicy/">プライバシーポリシー</a></li>
                         <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/user_guide/">ユーザーガイド</a></li>
@@ -61,6 +60,7 @@
                     <span class="footer__upper__third_title">記事</span>
                     <ul>
                         <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/lgnews/">ニュース</a></li>
+                        <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/event/">イベント</a></li>
                         <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/lgplayer/">人/団体</a></li>
                         <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/data/">データ</a></li>
                     </ul>
