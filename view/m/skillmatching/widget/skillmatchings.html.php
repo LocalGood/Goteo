@@ -20,12 +20,12 @@
 
 use Goteo\Core\View,
     Goteo\Library\Text,
-    Goteo\Model\Project\Category,
-    Goteo\Model\Project\Skill,
+    Goteo\Model\Skillmatching\Category,
+    Goteo\Model\Skillmatching\Skill,
     Goteo\Model\Invest,
     Goteo\Model\Image;
 
-$project = $this['project'];
+$project = $this['skillmatching'];
 $level = $this['level'] ?: 3;
 
 if ($this['global'] === true) {
@@ -34,7 +34,8 @@ if ($this['global'] === true) {
     $blank = '';
 }
 
-$categories = Category::getNames($project->id, 2);
+//$categories = Category::getNames($project->id, 2);
+$categories = Category::getNames($project->prefixed_id, 2);
 
 //si llega $this['investor'] sacamos el total aportado para poner en "mi aporte"
 if (isset($this['investor']) && is_object($this['investor'])) {
@@ -42,8 +43,8 @@ if (isset($this['investor']) && is_object($this['investor'])) {
     $invest = Invest::supported($investor->id, $project->id);
 }
 ?>
-<div class="widget project activable<?php if (isset($this['balloon'])) echo ' balloon' ?>">
-	<a href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>" class="expand"></a>
+<div class="widget project skillmatching activable<?php if (isset($this['balloon'])) echo ' balloon' ?>">
+	<a href="<?php echo SITE_URL ?>/skillmatching/<?php echo $project->id ?>" class="expand"></a>
     <?php if (isset($this['balloon'])): ?>
     <div class="balloon"><?php echo $this['balloon'] ?></div>
     <?php endif ?>
@@ -51,13 +52,13 @@ if (isset($this['investor']) && is_object($this['investor'])) {
     <div class="image">
         <?php switch ($project->tagmark) {
             case 'onrun': // "en marcha"
-                echo '<div class="tagmark green">' . Text::get('regular-onrun_mark') . '</div>';
+                echo '<div class="tagmark green">' . Text::get('regular-onrun_mark-sm') . '</div>';
                 break;
             case 'keepiton': // "aun puedes"
                 echo '<div class="tagmark green">' . Text::get('regular-keepiton_mark') . '</div>';
                 break;
             case 'onrun-keepiton': // "en marcha" y "aun puedes"
-                  echo '<div class="tagmark green twolines"><span class="small"><strong>' . Text::get('regular-onrun_mark') . '</strong><br />' . Text::get('regular-keepiton_mark') . '</span></div>';
+                  echo '<div class="tagmark green twolines"><span class="small"><strong>' . Text::get('regular-onrun_mark-sm') . '</strong><br />' . Text::get('regular-keepiton_mark') . '</span></div>';
                 break;
             case 'gotit': // "financiado"
                 echo '<div class="tagmark violet">' . Text::get('regular-gotit_mark') . '</div>';
@@ -69,18 +70,18 @@ if (isset($this['investor']) && is_object($this['investor'])) {
                 echo '<div class="tagmark grey">' . Text::get('regular-fail_mark') . '</div>';
                 break;
         } ?>
-        <span class="cf-icon"></span>
+        <span class="sm-icon"></span>
         <?
-        $project->gallery = Goteo\Model\Project\Image::getGallery($project->id);
+        $project->gallery = Goteo\Model\Skillmatching\Image::getGallery($project->id);
         ?>
 
         <?php if (!empty($project->gallery) && (current($project->gallery) instanceof Image)): ?>
-        <a href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>" target="_parent"><img alt="<?php echo $project->name ?>" src="<?php echo current($project->gallery)->getLink(500, 285, true) ?>" /></a>
+        <a href="<?php echo SITE_URL ?>/skillmatching/<?php echo $project->id ?>" target="_parent"><img alt="<?php echo $project->name ?>" src="<?php echo current($project->gallery)->getLink(500, 285, true) ?>" /></a>
         <?php endif ?>
     </div>
 
-    <h<?php echo $level ?> class="title"><a href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>" target="_parent"><?php echo htmlspecialchars(Text::shorten($project->name,50)) ?></a></h<?php echo $level ?>>
+    <h<?php echo $level ?> class="title"><a href="<?php echo SITE_URL ?>/skillmatching/<?php echo $project->id ?>" target="_parent"><?php echo htmlspecialchars(Text::shorten($project->name,50)) ?></a></h<?php echo $level ?>>
 
-    <?php echo new View('view/m/project/meter_hor.html.php', array('project' => $project)) ?>
+    <?php echo new View('view/m/skillmatching/meter_hor.html.php', array('skillmatching' => $project)) ?>
 
 </div>

@@ -21,20 +21,23 @@
 use Goteo\Core\View,
     Goteo\Model\Project,
     Goteo\Library\Text;
-$projects = Goteo\Model\Project::published("available");
+if ($_GET['type'] == 'p'){
+    $allpjsm = Goteo\Model\Project::published("available");
+} else if ($_GET['type'] == 's'){
+    $allpjsm = Goteo\Model\Skillmatching::published("available");
+} else {
+    $allpjsm = Goteo\Model\Skillmatching::published("available_pj_sm");
+}
 ?>
 <div class="widget projects">
 
     <h2 class="title">支援募集中のプロジェクト<?php //echo Text::get('home-projects-header'); ?></h2>
-
-    <?php foreach ($projects as $project) :
-
-        ?>
-
-        <?php echo new View(VIEW_PATH . '/project/widget/project.html.php', array(
-        'project' => $project
-    )) ?>
-
-    <?php endforeach ?>
+    <?php foreach ($allpjsm as $pj) :
+        if (get_class($pj) == 'Goteo\Model\Skillmatching'){
+            echo new View(VIEW_PATH . '/skillmatching/widget/skillmatchings.html.php', array('skillmatching' => $pj));
+        } else {
+            echo new View(VIEW_PATH . '/project/widget/project.html.php', array('project' => $pj));
+        };
+    endforeach ?>
 
 </div>
