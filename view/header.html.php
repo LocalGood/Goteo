@@ -57,6 +57,7 @@ use Goteo\Library\Text,
                             <span class="header__right__snav__second_title">記事</span>
                             <ul>
                                 <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/lgnews/' ?>">ニュース</a></span></li>
+                                <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/event/' ?>">イベント</a></span></li>
                                 <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/data/' ?>">データ</a></span></li>
                                 <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/lgplayer/' ?>">人/団体</a></span></li>
                             </ul>

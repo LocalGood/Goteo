@@ -49,11 +49,6 @@ jQuery(document).ready(function($) {
                 </a>
             </li>
             <li>
-                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/mailnews/">
-                    メルマガ登録
-                </a>
-            </li>
-            <li>
                 <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/syoutorihikihou/">
                     特定商取引法について
                 </a>
@@ -95,6 +90,11 @@ jQuery(document).ready(function($) {
             <li>
                 <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/lgnews/">
                     ニュース
+                </a>
+            </li>
+            <li>
+                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/event/">
+                    イベント
                 </a>
             </li>
             <li>

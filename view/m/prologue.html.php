@@ -81,6 +81,10 @@
             <link href="<?php echo SRC_URL ?>/view/m/css/jquery-ui-1.10.3.autocomplete.min.css" rel="stylesheet" />
             <script src="<?php echo SRC_URL ?>/view/m/js/jquery-ui-1.10.3.autocomplete.min.js"></script>
         <?php endif; ?>
+        <?php if(defined('GOTEO_ANALYTICS_TRACKER')){
+            echo GOTEO_ANALYTICS_TRACKER;
+        }  ?>
+
         <?/*<link rel="stylesheet" type="text/css" href="<?php echo SRC_URL ?>/view/m/css/goteo.css" />*/?>
         <link rel="stylesheet" type="text/css" href="<?php echo SRC_URL ?>/view/m/css/cssmarge_mobile.css" />
         <!--[if IE]>
