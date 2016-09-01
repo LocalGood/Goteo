@@ -45,9 +45,16 @@ include 'view/m/header.html.php' ?>
         <div id="main">
             <div class="widget projects">
                 <?php while ($project = $pagedResults->fetchPagedRow()) :
+                    if (get_class($project) == 'Goteo\Model\Skillmatching'){
+                        echo new View('view/m/skillmatching/widget/skillmatchings.html.php', array('skillmatching' => $project));
+                    } else {
+                        echo new View('view/m/project/widget/project.html.php', array('project' => $project));
+                    }
+/*
                         echo new View('view/m/project/widget/project.html.php', array(
                             'project' => $project
                             ));
+*/
                 endwhile; ?>
             </div>
 
