@@ -74,7 +74,7 @@ use Goteo\Library\Text,
                             <div class="header__right__snav__inner">
                                 <ul>
                                     <li><span><a href="<?= SITE_URL; ?>/discover/">プロジェクト一覧</a></span></li>
-                                    <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/challenge/'; ?>">プロジェクトを立ち上げる</a></span></li>
+                                    <li><span><a href="<?= SITE_URL; ?>">プロジェクトを立ち上げる</a></span></li>
                                 </ul>
                             </div>
                         </div>

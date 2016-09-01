@@ -47,7 +47,6 @@
                     <span class="footer__upper_second_title">ご利用にあたって</span>
                     <ul>
                         <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/about/">LOCAL GOOD FUKUOKAについて</a></li>
-                        <li><a href="<?php echo MAILNEWS;?>" target="_blank">メルマガ登録</a></li>
                         <li class="syoutorihikihou"><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/syoutorihikihou/">特定商取引法に基づく表記</a></li>
                         <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/privacypolicy/">プライバシーポリシー</a></li>
                         <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/user_guide/">ユーザーガイド</a></li>
@@ -74,7 +73,7 @@
                     <span class="footer__upper_second_title">応援する</span>
                     <ul>
                         <li><a href="<?= SITE_URL; ?>/discover/">プロジェクト一覧</a></li>
-                        <li><a href="<?= SITE_URL; ?>/challenge/">プロジェクトを立てる</a></li>
+                        <li><a href="<?= SITE_URL; ?>">プロジェクトを立てる</a></li>
                     </ul>
                 </li>
             </ul>

@@ -49,11 +49,6 @@ $sponsors   = Sponsor::getList();
                 </a>
             </li>
             <li>
-                <a href="<?php echo MAILNEWS;?>" target="_blank">
-                    メルマガ登録
-                </a>
-            </li>
-            <li>
                 <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/syoutorihikihou/">
                     特定商取引法について
                 </a>
@@ -134,7 +129,7 @@ $sponsors   = Sponsor::getList();
                 </a>
             </li>
             <li>
-                <a href="<?= SITE_URL; ?>/challenge/">
+                <a href="<?= SITE_URL; ?>">
                     プロジェクトを立てる
                 </a>
             </li>
