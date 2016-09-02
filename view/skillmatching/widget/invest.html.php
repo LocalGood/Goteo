@@ -87,9 +87,8 @@ $action = ($step == 'start') ? '/user/login' : '/invest/' . $project->id;
                                 <?php if ($individual->none) : // no quedan ?>
                                     <span class="left"><?php echo Text::get('invest-reward-none') ?></span>
                                 <?php elseif (!empty($individual->units)) : // unidades limitadas ?>
-                                    <?/*<strong><?php echo Text::get('skillmatching-rewards-individual_reward-limited'); ?></strong><br />
-                    <?php $units = ($individual->units - $individual->taken); // resto
-                    echo Text::html('skillmatching-rewards-individual_reward-units_left', $units); ?><br />*/?>
+                                    <?php $units = ($individual->units - $individual->taken); // resto ?>
+                                    <span class="left"><strong><?php echo Text::get('skillmatching-rewards-individual_reward-limited'); ?> <?php echo $units; ?></strong></span>
                                 <?php endif; ?>
                             </label>
 
