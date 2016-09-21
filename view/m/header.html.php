@@ -50,6 +50,11 @@ use Goteo\Library\Text,
                         </a>
                     </dd>
                     <dd>
+                        <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/event/">
+                            イベント
+                        </a>
+                    </dd>
+                    <dd>
                         <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/data/">
                             データ
                         </a>
@@ -86,7 +91,7 @@ use Goteo\Library\Text,
                         </a>
                     </dd>
                     <dd>
-                        <a href="<?= SITE_URL; ?>">
+                        <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/challenge/">
                             プロジェクトを立てる
                         </a>
                     </dd>
@@ -101,7 +106,7 @@ use Goteo\Library\Text,
                 //ログインしていない
                 ?>
                 <li>
-                    <a href="https://cf.kitaq.localgood.jp/user/login" class="list01__text">
+                    <a href="<?= SITE_URL; ?>/user/login" class="list01__text">
                         新規登録/ログイン
                     </a>
                 </li>
@@ -115,16 +120,16 @@ use Goteo\Library\Text,
                     <dl class="list02">
                         <dt></dt>
                         <dd>
-                            <a href="/dashboard/activity">アクティビティ</a>
+                            <a href="<?= SITE_URL; ?>/dashboard/activity">アクティビティ</a>
                         </dd>
                         <dd>
-                            <a href="/dashboard/profile">プロフィール</a>
+                            <a href="<?= SITE_URL; ?>/dashboard/profile">プロフィール</a>
                         </dd>
                         <dd>
-                            <a href="/community/sharemates">みんなの興味</a>
+                            <a href="<?= SITE_URL; ?>/community/sharemates">みんなの興味</a>
                         </dd>
                         <dd class="logout mean-last">
-                            <a href="/user/logout">ログアウト</a>
+                            <a href="<?= SITE_URL; ?>/user/logout">ログアウト</a>
                         </dd>
                     </dl>
                 </li>
