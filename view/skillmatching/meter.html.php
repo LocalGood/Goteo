@@ -32,7 +32,7 @@ $minimum    = $project->mincost;
 $optimum    = $project->maxcost;
 $reached    = $project->invested;
 $supporters = count($project->investors);
-$days       = $project->days;
+$days       = $project->total_days;
 
 // PHP la pifia (y mucho) con los cálculos en coma flotante
 if ($reached >= $minimum) {
