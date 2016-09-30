@@ -124,6 +124,8 @@ namespace Goteo\Model {
             $investors = array(), // aportes individuales a este proyecto
             $num_investors = 0, // numero de usuarios que han aportado
 
+            $total_days = 0, // total acceptale days
+
             $round = 0, // para ver si ya está en la fase de los 40 a los 80
             $passed = null, // para ver si hemos hecho los eventos de paso a segunda ronda
             $willpass = null, // fecha final de primera ronda
@@ -544,6 +546,9 @@ namespace Goteo\Model {
             if ($this->days != $days) {
                 self::query("UPDATE skillmatching SET days = '{$days}' WHERE id = ?", array($this->id));
             }
+
+            $totaldays = ($this->period_1r + $this->period_2r) - $this->daysActive();
+            $this->total_days = ($totaldays >= 0) ? $totaldays : 0;
             $this->days = $days;
         }
 
