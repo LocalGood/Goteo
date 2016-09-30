@@ -120,16 +120,16 @@ use Goteo\Library\Text,
                 <dl class="list02">
                     <dt></dt>
                     <dd>
-                        <a href="/dashboard/activity">アクティビティ</a>
+                        <a href="<?= SITE_URL; ?>/dashboard/activity">アクティビティ</a>
                     </dd>
                     <dd>
-                        <a href="/dashboard/profile">プロフィール</a>
+                        <a href="<?= SITE_URL; ?>/dashboard/profile">プロフィール</a>
                     </dd>
                     <dd>
-                        <a href="/community/sharemates">みんなの興味</a>
+                        <a href="<?= SITE_URL; ?>/community/sharemates">みんなの興味</a>
                     </dd>
                     <dd class="logout mean-last">
-                        <a href="/user/logout">ログアウト</a>
+                        <a href="<?= SITE_URL; ?>/user/logout">ログアウト</a>
                     </dd>
                 </dl>
             </li>
