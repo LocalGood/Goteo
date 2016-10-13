@@ -882,7 +882,11 @@ namespace Goteo\Controller {
                 ));
                 
             }
-           
+
+            if (!empty($_POST['resource'])) {
+                $project->resource = $_POST['resource'];
+            }
+
             return true;
         }
 
