@@ -33,7 +33,6 @@ namespace Goteo\Controller\Admin {
     class Skillmatching_accounts {
 
         public static function process ($action = 'list', $id = null, $filters = array()) {
-
             $filters['projectType'] = 'skillmatching';
             $node = isset($_SESSION['admin_node']) ? $_SESSION['admin_node'] : \GOTEO_NODE;
 
@@ -555,7 +554,6 @@ namespace Goteo\Controller\Admin {
             $investStatus = Model\Invest::status();
             // listado de proyectos
             $projects = Model\Invest::projects(false,$node,'skillmatching');
-//            $projects = Model\Invest::projects();
             // usuarios cofinanciadores
             $users = Model\Invest::users(true);
             // campañas que tienen aportes
@@ -586,10 +584,6 @@ namespace Goteo\Controller\Admin {
             /// detalles de una transaccion
             if ($action == 'details') {
                 $invest = Model\Invest::get($id);
-                error_log(var_export($invest->project,true));
-//                if (strpos(LG_SM_DB_PREFIX,$invest->project) == 0 ){
-//                    $pid =
-//                }
                 $project = Model\Skillmatching::get($invest->project);
                 $userData = Model\User::get($invest->user);
                 return new View(
@@ -635,7 +629,6 @@ namespace Goteo\Controller\Admin {
                     'issue'         => $issue,
                     'investStatus'  => $investStatus
                 );
-//error_log(print_r($viewData['filters'],true));
             return new View(
                 'view/admin/index.html.php',
                 $viewData

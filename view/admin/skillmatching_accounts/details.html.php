@@ -19,8 +19,7 @@
  */
 
 use Goteo\Library\Text,
-    Goteo\Library\Paypal,
-    Goteo\Library\Tpv;
+    Goteo\Library\Paypal;
 
 $invest = $this['invest'];
 $project = $this['project'];
@@ -42,45 +41,23 @@ array_walk($rewards, function (&$reward) { $reward = $reward->reward; });
 <?php endif; ?>
 <div class="widget">
     <p>
-        <strong><?php echo Text::_("Proyecto"); ?>:</strong> <?php echo $project->name ?> (<?php echo $this['status'][$project->status] ?>)
+        <strong><?php echo Text::_("Proyecto"); ?>:</strong> <?php echo $project->name ?> (<?php echo $this['status'][$project->status] ?>)<br/>
         <strong><?php echo Text::_("Usuario"); ?>: </strong><?php echo $user->name ?> [<?php echo $user->email ?>]
     </p>
     <p>
-        <?php if ($invest->status < 1 || ($invest->method == 'tpv' && $invest->status < 2) ||($invest->method == 'cash' && $invest->status < 2)) : ?>
-        <a href="/admin/accounts/cancel/<?php echo $invest->id ?>"
+        <?php if ($invest->status < 1 || ($invest->method == 'cash' && $invest->status < 2)) : ?>
+        <a href="/admin/skillmatching_accounts/cancel/<?php echo $invest->id ?>"
             onclick="return confirm('<?php echo Text::_("¿Estás seguro de querer cancelar este aporte y su preapproval?"); ?>');"
             class="button"><?php echo Text::_("Cancelar este aporte"); ?></a>&nbsp;&nbsp;&nbsp;
         <?php endif; ?>
 
-        <?php if ($invest->status == 1 && $invest->method == 'axes') : ?>
-            <a href="/admin/accounts/pay_failed/<?php echo $invest->id ?>"
-               onclick="return confirm('<?php echo "決済失敗に変更しますか？"; ?>');"
-               class="button"><?php echo "決済失敗に変更する"; ?></a>&nbsp;&nbsp;&nbsp;
-        <?php endif; ?>
-
-        <?php if (($invest->method == 'axes' && $invest->status == 0) || ($invest->method == 'axes' && $invest->status == 5)): ?>
-            <a href="/admin/accounts/execute/<?php echo $invest->id ?>"
-               onclick="return confirm('<?php echo Text::_("¿Seguro que quieres ejecutar ahora el cargo del preapproval?"); ?>');"
-               class="button"><?php echo Text::_("Ejecutar cargo ahora"); ?></a>
-        <?php endif; ?>
-
-        <?php /*
-        <?php if ($invest->method == 'paypal' && $invest->status == 0) : ?>
-        <a href="/admin/accounts/execute/<?php echo $invest->id ?>"
-            onclick="return confirm('<?php echo Text::_("¿Seguro que quieres ejecutar ahora el cargo del preapproval?"); ?>');"
-            class="button"><?php echo Text::_("Ejecutar cargo ahora"); ?></a>
-        <?php endif; ?>
-
-        <?php if ($invest->method != 'paypal' && $invest->status == 1) : ?>
-        <a href="/admin/accounts/move/<?php echo $invest->id ?>" class="button"><?php echo Text::_("Reubicar este aporte"); ?></a>
-        <?php endif; ?>
-        */ ?>
         <?php if (!$invest->resign && $invest->status == 1 && $invest->status == 3) : ?>
-        <a href="/admin/accounts/resign/<?php echo $invest->id ?>/?token=<?php echo md5('resign'); ?>" class="button"><?php echo Text::_("Es donativo"); ?></a>
+        <a href="/admin/skillmatching_accounts/resign/<?php echo $invest->id ?>/?token=<?php echo md5('resign'); ?>" class="button"><?php echo Text::_("Es donativo"); ?></a>
         <?php endif; ?>
     </p>
     
     <h3><?php echo Text::_("Detalles de la transaccion"); ?></h3>
+    <?php /*
     <dl>
         <dt><?php echo Text::_("Cantidad aportada"); ?>:</dt>
         <dd><?php echo $invest->amount . Text::_("yen"); ?>
@@ -90,6 +67,7 @@ array_walk($rewards, function (&$reward) { $reward = $reward->reward; });
             ?>
         </dd>
     </dl>
+ */ ?>
 
     <dl>
         <dt><?php echo Text::_("Estado"); ?>:</dt>
@@ -134,7 +112,7 @@ array_walk($rewards, function (&$reward) { $reward = $reward->reward; });
             ?>
         </dd>
     </dl>
-
+<?php /*
     <dl>
         <dt><?php echo Text::_("Códigos de seguimiento"); ?>: <a href="/admin/invests/details/<?php echo $invest->id ?>"><?php echo Text::_("Ir al aporte"); ?></a></dt>
         <dd><?php
@@ -148,15 +126,22 @@ array_walk($rewards, function (&$reward) { $reward = $reward->reward; });
             ?>
         </dd>
     </dl>
-
+*/ ?>
     <?php if (!empty($invest->rewards)) : ?>
     <dl>
-        <dt><?php echo Text::_("Recompensas elegidas"); ?>:</dt>
+        <dt><?php echo '応募した募集項目'; //echo Text::_("Recompensas elegidas"); ?>:</dt>
         <dd>
             <?php echo implode(', ', $rewards); ?>
         </dd>
     </dl>
     <?php endif; ?>
+
+    <dl>
+        <dt><?php echo Text::_("Email address"); ?>:</dt>
+        <dd>
+            <?php echo $user->email; ?>
+        </dd>
+    </dl>
 
     <dl>
         <dt><?php echo Text::_("Dirección"); ?>:</dt>
@@ -168,7 +153,7 @@ array_walk($rewards, function (&$reward) { $reward = $reward->reward; });
         </dd>
     </dl>
 
-    <?php if ($invest->method == 'paypal') : ?>
+    <?php /* if ($invest->method == 'paypal') : ?>
         <?php if (!isset($_GET['full'])) : ?>
         <p>
             <a href="/admin/accounts/details/<?php echo $invest->id; ?>/?full=show"><?php echo Text::_("Mostrar detalles técnicos"); ?></a>
@@ -185,7 +170,7 @@ array_walk($rewards, function (&$reward) { $reward = $reward->reward; });
         <p><?php echo Text::_("Hay que ir al panel del banco para ver los detalles de los aportes mediante TPV."); ?></p>
     <?php else : ?>
         <p><?php echo Text::_("No hay nada que hacer con los aportes manuales."); ?></p>
-    <?php endif ?>
+    <?php endif */ ?>
 
     <?php if (!empty($droped)) : ?>
     <h3><?php echo Text::_("Capital riego asociado"); ?></h3>
