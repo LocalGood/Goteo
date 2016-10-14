@@ -21,7 +21,6 @@
 use Goteo\Library\Text;
 
 $filters = $this['filters'];
-
 ?>
 <!-- filtros -->
 <?php $the_filters = array(
@@ -46,11 +45,22 @@ $filters = $this['filters'];
 ); ?>
 <a href="/admin/skillmatching_accounts/viewer" class="button"><?php echo Text::_("Visor de logs"); ?></a>&nbsp;&nbsp;&nbsp;
 <div class="widget board">
-    <h3 class="title"><?php echo Text::_("Support information"); ?></h3>
+    <h3 class="title"><?php echo Text::_("Account information"); ?></h3>
     <form id="filter-form" action="/admin/skillmatching_accounts" method="get">
         <input type="hidden" name="filtered" value="yes" />
         <input type="hidden" name="status" value="all" />
-        <?php foreach ($the_filters as $filter=>$data) : ?>
+        <?php foreach ($the_filters as $filter=>$data) :
+            // レビュースキップ
+            if ($filter == 'review') {
+                continue;
+            }
+            // 支払い方法=現金固定
+            if ($filter == 'methods'){ ?>
+                <input type="hidden" name="methods" value="cash" />
+            <?php
+                continue;
+            }
+            ?>
             <?php if ($data['first'] !== 'New campaign') { ?>
             <div style="float:left;margin:5px;">
                 <label for="<?php echo $filter ?>-filter"><?php echo $data['label'] ?></label>
@@ -82,10 +92,10 @@ $filters = $this['filters'];
 <div class="widget board">
 <?php if ($filters['filtered'] != 'yes') : ?>
     <p><?php echo Text::_("Es necesario poner algun filtro, hay demasiados registros!"); ?></p>
-<?php elseif (!empty($this['list'])) : ?>
+<?php elseif (!empty($this['list'])) : /* ?>
 <?php $Total = 0; foreach ($this['list'] as $invest) { $Total += $invest->amount; } ?>
     <p><strong><?php echo Text::_("TOTAL"); ?>:</strong>  <?php echo number_format($Total, 0, '', '.') ?> 円</p>
-    
+<?php */ ?>
     <table width="100%">
         <thead>
             <tr>
@@ -95,9 +105,9 @@ $filters = $this['filters'];
                 <th><?php echo Text::_("Cofinanciador"); ?></th>
                 <th><?php echo Text::_("Proyecto"); ?></th>
                 <th><?php echo Text::_("Estado"); ?></th>
-                <th><?php echo Text::_("Metodo"); ?></th>
+<!--                <th>--><?php //echo Text::_("Metodo"); ?><!--</th>-->
                 <th><?php echo Text::_("Estado aporte"); ?></th>
-                <th><?php echo Text::_("Importe"); ?></th>
+<!--                <th>--><?php //echo Text::_("Importe"); ?><!--</th>-->
                 <th><?php echo Text::_("Extra"); ?></th>
                 <th></th>
                 <th></th>
@@ -107,16 +117,25 @@ $filters = $this['filters'];
         <tbody>
             <?php foreach ($this['list'] as $invest) : ?>
             <tr>
-                <td><a href="/admin/accounts/details/<?php echo $invest->id ?>">[<?php echo Text::_("Detalles"); ?>]</a></td>
+                <td><a href="/admin/skillmatching_accounts/details/<?php echo $invest->id ?>">[<?php echo Text::_("Detalles"); ?>]</a></td>
                 <td><?php echo $invest->id ?></td>
 
-                <td><?php echo $invest->invested ?></td>
+                <td><?php /* 支援をした日時 */ echo $invest->invested ?></td>
                 <td><?php echo $this['users'][$invest->user] ?></td>
-                <td><?php echo $this['projects'][$invest->project]; if (!empty($invest->campaign)) echo '<br />('.$this['campaigns'][$invest->campaign].')'; ?></td>
+<?php
+/*
+                <td><a href="/admin/users/manage/<?php echo $this['users'][$invest->user] ?>" target="_blank" title="<?php echo $this['users'][$invest->user]; ?>"><?php echo $reward->email; ?></a></td>
+*/?>
+                <td><?php
+                    $inv_pj = preg_replace('/^'.LG_SM_DB_PREFIX.'/','',$invest->project);
+                    echo $this['projects'][$inv_pj];
+                    if (!empty($invest->campaign)) echo '<br />('.$this['campaigns'][$invest->campaign].')';
+                    ?>
+                </td>
                 <td><?php echo $this['status'][$invest->status] ?></td>
-                <td><?php echo $this['methods'][$invest->method] ?></td>
+<!--                <td>--><?php //echo $this['methods'][$invest->method] ?><!--</td>-->
                 <td><?php echo $this['investStatus'][$invest->investStatus] ?></td>
-                <td><?php echo $invest->amount ?></td>
+<!--                <td>--><?php //echo $invest->amount ?><!--</td>-->
                 <td><?php echo $invest->charged ?></td>
                 <td><?php echo $invest->returned ?></td>
                 <td>
