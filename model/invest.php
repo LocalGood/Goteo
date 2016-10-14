@@ -247,8 +247,12 @@ namespace Goteo\Model {
                 $values[':investStatus'] = $filters['investStatus'];
             }
             if (!empty($filters['projects'])) {
+                if ($projectType == 'skillmatching'){
+                    $values[':projects'] = ( LG_SM_DB_PREFIX . $filters['projects'] );
+                } else {
+                    $values[':projects'] = $filters['projects'];
+                }
                 $sqlFilter .= " AND invest.project = :projects";
-                $values[':projects'] = $filters['projects'];
             }
             if (!empty($filters['amount'])) {
                 $sqlFilter .= " AND invest.amount >= :amount";
@@ -333,9 +337,9 @@ namespace Goteo\Model {
                         invest.amount as amount,
                         invest.anonymous as anonymous,
                         invest.resign as resign,
-                        DATE_FORMAT(invest.invested, '%d/%m/%Y') as invested,
-                        DATE_FORMAT(invest.charged , '%d/%m/%Y') as charged,
-                        DATE_FORMAT(invest.returned, '%d/%m/%Y') as returned,
+                        DATE_FORMAT(invest.invested, '%y/%m/%d') as invested,
+                        DATE_FORMAT(invest.charged , '%y/%m/%d') as charged,
+                        DATE_FORMAT(invest.returned, '%y/%m/%d') as returned,
                         user.name as admin,
                         invest.issue as issue
                     FROM invest
