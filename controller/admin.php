@@ -641,8 +641,8 @@ namespace Goteo\Controller {
                             'label' => $labels['skillmatchings'],
                             'options' => array(
                                 'skillmatchings' => $options['skillmatchings'], // proyectos del nodo
-                                'reviews' => $options['reviews'], // revisiones de proyectos del nodo
-                                'translates' => $options['translates'], // traducciones de proyectos del nodo
+//                                'reviews' => $options['reviews'], // revisiones de proyectos del nodo
+//                                'translates' => $options['translates'], // traducciones de proyectos del nodo
                                 'invests' => $options['invests'], // gestión de aportes avanzada
                             )
                         ),
@@ -702,8 +702,8 @@ namespace Goteo\Controller {
                             'options' => array(
                                 'skillmatchings' => $options['skillmatchings'],
                                 'skillmatching_accounts' => $options['skillmatching_accounts'],
-                                'reviews' => $options['reviews'],
-                                'translates' => $options['translates'],
+//                                'reviews' => $options['reviews'],
+//                                'translates' => $options['translates'],
                                 'rewards' => $options['rewards'],
                             )
                         ),

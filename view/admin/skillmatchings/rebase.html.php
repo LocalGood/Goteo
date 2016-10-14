@@ -26,7 +26,7 @@ use Goteo\Core\View,
 
 $project = $this['skillmatching'];
 
-if (!$project instanceof Model\Project) {
+if (!$project instanceof Model\Skillmatching) {
     Message::Error(Text::get('admin-rebase-error-corruptproject'));
     throw new Redirection('/admin/skillmatchings');
 }
