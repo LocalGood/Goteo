@@ -154,7 +154,7 @@ $pagedResults = new \Paginated($this['skillmatchings'], 10, isset($_GET['page'])
                         elseif($project->round == 2):
                             $round = 'nd';
                         endif;
-                        echo "{$project->round}".$round.Text::_('ronda')."/".Text::_('Le quedan')."{$project->days}".Text::_('días') . "&nbsp;&nbsp;&nbsp;<strong>" . Text::_('Achieved') . ":</strong> ".\amount_format($project->invested). Text::_('yen') . "&nbsp;&nbsp;&nbsp;<strong>" . Text::_('Cofin') . ":</strong> {$project->num_investors}&nbsp;&nbsp;&nbsp;<strong>" . Text::_('Colab') . ":</strong> {$project->num_messegers}";
+                        echo "{$project->round}".$round.Text::_('ronda')."/".Text::_('Le quedan')."{$project->days}".Text::_('días') . /*"&nbsp;&nbsp;&nbsp;<strong>" . Text::_('Achieved') . ":</strong> ".\amount_format($project->invested). Text::_('yen') . */ "&nbsp;&nbsp;&nbsp;<strong>" . Text::_('Cofin') . ":</strong> {$project->num_investors}" /* "&nbsp;&nbsp;&nbsp;<strong>" . Text::_('Colab') . ":</strong> {$project->num_messegers}"*/;
                     endif;
                 ?></td>
             </tr>
@@ -166,7 +166,7 @@ $pagedResults = new \Paginated($this['skillmatchings'], 10, isset($_GET['page'])
                     <?php if (!isset($_SESSION['admin_node']) 
                             || (isset($_SESSION['admin_node']) && $_SESSION['admin_node'] == \GOTEO_NODE)
                             || (isset($_SESSION['admin_node']) && $user->node == $_SESSION['admin_node'])) : ?>
-                    <a href="/admin/accounts/?projects=<?php echo $project->id; ?>" title="Ver sus aportes">[<?php echo Text::_("Support situation"); ?>]</a>
+                    <a href="/admin/skillmatching_accounts/?projects=<?php echo $project->id; ?>" title="Ver sus aportes">[<?php echo Text::_("Support situation"); ?>]</a>
                         <?php if($project->status >= 4): ?>
                     <a href="/admin/skillmatchings/evaluation/<?php echo $project->id; ?>" title="Project Evaluation">[<?php echo Text::get("project-menu-evaluation"); ?>]</a>
                         <?php endif; ?>
@@ -202,11 +202,10 @@ $pagedResults = new \Paginated($this['skillmatchings'], 10, isset($_GET['page'])
                     <?php if ($project->status < 3) : ?><a href="<?php echo "/admin/skillmatchings/reject/{$project->id}"; ?>" onclick="return confirm('<?php echo Text::_("Se va a enviar un mail automáticamente pero no cambiará el estado, ok?"); ?>');">[<?php echo Text::_("Rechazo express"); ?>]</a><?php endif; ?>
                 </td>
             </tr>
+            <?php
+            /*
             <tr>
                 <td colspan="7">
-                    <?php
-//                    var_dump($project);
-                    ?>
                     <?php if (in_array($project->status,array(3,4))) : ?><a href="<?php echo "/admin/invests/csv/{$project->id}"; ?>">[AXES用の決済CSVをダウンロード(すべて)]</a><?php endif; ?>
                     <?php if (in_array($project->status,array(3,4)) && !empty($project->passed)) : ?><a href="<?php echo "/admin/invests/csv/{$project->id}?round=willpass"; ?>">[AXES用の決済CSVをダウンロード(1st Round)]</a><?php endif; ?>
                     <?php if (in_array($project->status,array(3,4)) && !empty($project->passed) && !empty($project->success)) : ?><a href="<?php echo "/admin/invests/csv/{$project->id}?round=succeed"; ?>">[AXES用の決済CSVをダウンロード(2nd Round)]</a><?php endif; ?><br>
@@ -215,6 +214,7 @@ $pagedResults = new \Paginated($this['skillmatchings'], 10, isset($_GET['page'])
                     <?php if (in_array($project->status,array(3,4)) && !empty($project->passed) && !empty($project->success)) : ?><a href="<?php echo "/admin/invests/dopay/{$project->id}?round=succeed"; ?>" onclick="return confirm('AXES用の決済CSVの処理後に実行してください。実行してよろしいですか？');">[AXES用の決済CSVの処理後に実行(2nd Round)]</a><?php endif; ?>
                 </td>
             </tr>
+            */ ?>
         </tbody>
     </table>
 </div>
