@@ -71,7 +71,7 @@ namespace Goteo\Controller {
                         'report' => array('label' => Text::_('Informe de proyecto'), 'item' => true),
                         'viewer' => array('label' => Text::_('Viendo logs'), 'item' => false)
                     ),
-                    'filters' => array('id' => '', 'methods' => '', 'investStatus' => 'all', 'projects' => '', 'name' => '', 'calls' => '', 'review' => '', 'types' => '', 'date_from' => '', 'date_until' => '', 'issue' => 'all', 'procStatus' => 'all', 'amount' => '')
+                    'filters' => array('id' => '', 'methods' => '', 'investStatus' => 'all', 'projects' => '', 'name' => '', 'calls' => '', 'review' => '', 'types' => '', 'date_from' => '', 'date_until' => '', 'issue' => 'all', 'procStatus' => 'all', 'amount' => '', 'users' => '')
                 ),
                 'skillmatching_accounts' => array(
                     'label' => Text::_('Skillmatching Accounts'),
@@ -86,7 +86,7 @@ namespace Goteo\Controller {
                         'report' => array('label' => Text::_('Informe de proyecto'), 'item' => true),
                         'viewer' => array('label' => Text::_('Viendo logs'), 'item' => false)
                     ),
-                    'filters' => array('id' => '', 'methods' => '', 'investStatus' => 'all', 'projects' => '', 'name' => '', 'calls' => '', 'review' => '', 'types' => '', 'date_from' => '', 'date_until' => '', 'issue' => 'all', 'procStatus' => 'all', 'amount' => '')
+                    'filters' => array('id' => '', 'methods' => '', 'investStatus' => 'all', 'projects' => '', 'name' => '', 'calls' => '', 'review' => '', 'types' => '', 'date_from' => '', 'date_until' => '', 'issue' => 'all', 'procStatus' => 'all', 'amount' => '', 'users' => '')
                 ),
                 'banners' => array(
                     'label' => Text::_('Banners'),

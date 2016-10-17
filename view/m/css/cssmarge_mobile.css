@@ -117,7 +117,8 @@ div.side div.widget.project-support a.button,
 div.side div.widget.project-collaborations a.button,
 div.side div.widget.user a.button,
 div.project-preview div.widget a.button,
-div.center div.widget.project-support a.button {
+div.center div.widget.project-support a.button,
+div.widget.project-rewards-summary a.button {
     width: 160px;
     height: 30px;
     line-height: 30px;
@@ -5609,7 +5610,8 @@ div.widget.project-support div.buttons {
     text-align: center;
 }
 
-div.widget.project-support a.button {
+div.widget.project-support a.button
+{
     margin: 0;
     padding: 0;
     background: none;
@@ -6940,7 +6942,8 @@ div.widget.project-invest ul li,
 div.widget.project-rewards ul li,
 #rewards-summary ul li,
 #rewards-summary ul li.file .name {
-    background: none no-repeat left 40px;
+    /*background: none no-repeat left 40px;*/
+    background: none no-repeat 5px 5px;
     min-height: 33px;
 }
 
@@ -7332,7 +7335,9 @@ div.widget.project-rewards div.individual ul li div.buttons .violet {
 .side div.widget.project-rewards div.individual ul li div.buttons {
     width: 100%;
 }
-.side div.widget.project-rewards a.button {
+.side div.widget.project-rewards a.button,
+div.widget.project-rewards-summary a.button
+{
     background: linear-gradient(to bottom, #f2bb67 0%,#ff9900 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2bb67', endColorstr='#ff9900',GradientType=0 );
     font-size: 14px;
