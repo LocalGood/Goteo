@@ -715,7 +715,8 @@ namespace Goteo\Controller {
 
                 // デフォルト値は1R、2Rともに40日
                 $period_1r = !empty($skillmatching->period_1r) ? $skillmatching->period_1r : 40;
-                $period_2r = !empty($skillmatching->period_2r) ? $skillmatching->period_2r : 40;
+                // skillmatchingの場合は2r=0日でも通す
+                $period_2r = ($skillmatching->period_2r >= 0 || $skillmatching->period_2r != null) ? $skillmatching->period_2r : 40;
                 $period_total = $period_1r + $period_2r;
 
                 if ($debug) echo 'Lleva '.$days.'  dias desde la publicacion<br />';
