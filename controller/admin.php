@@ -704,7 +704,7 @@ namespace Goteo\Controller {
                                 'skillmatching_accounts' => $options['skillmatching_accounts'],
 //                                'reviews' => $options['reviews'],
 //                                'translates' => $options['translates'],
-                                'rewards' => $options['rewards'],
+//                                'rewards' => $options['rewards'],
                             )
                         ),
                         'invests' => array(
