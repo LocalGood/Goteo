@@ -2314,16 +2314,18 @@ namespace Goteo\Model {
                 $values[':name'] = "%{$filters['proj_name']}%";
             }
             if (!empty($filters['category'])) {
-                $sqlFilter .= " AND id IN (
-                    SELECT skillmatching
+                $prefix = LG_SM_DB_PREFIX;
+                $sqlFilter .= " AND CONCAT('$prefix',id) IN (
+                    SELECT project
                     FROM project_category
                     WHERE category = :category
                     )";
                 $values[':category'] = $filters['category'];
             }
             if (!empty($filters['skill'])) {
-                $sqlFilter .= " AND id IN (
-                    SELECT skillmatching
+                $prefix = LG_SM_DB_PREFIX;
+                $sqlFilter .= " AND CONCAT('$prefix',id) IN (
+                    SELECT project
                     FROM project_skill
                     WHERE skill = :skill
                     )";
