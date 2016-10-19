@@ -33,9 +33,6 @@ $filters = $this['filters'];
     'methods' => array (
         'label' => Text::_("Método de pago"),
         'first' => Text::_("Todos los tipos")),
-    'investStatus' => array (
-        'label' => Text::_("Estado del aporte"),
-        'first' => Text::_("Todos los estados")),
     'campaigns' => array (
         'label' => Text::_("Campaña"),
         'first' => Text::_("Todas las campañas")),
@@ -81,7 +78,7 @@ $filters = $this['filters'];
             <label for="date-filter-until"><?php echo Text::_('Fecha hasta'); ?></label>
             <input type="text" id ="date-filter-until" name="date_until" value ="<?php echo date('Y-m-d') ?>" />
         </div>
-        <div style="float:left;margin:5px;">
+        <div style="clear:both;">
             <input type="submit" value="<?php echo Text::_("Buscar"); ?>" />
         </div>
     </form>
