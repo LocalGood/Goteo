@@ -32,6 +32,26 @@ namespace Goteo\Controller\Admin {
 
     class Users {
 
+        private function _getEnableRoles(){
+            $enableRoles = array(
+                'root',
+                'project_owner',
+                'skillmatching_owner',
+                'user'
+            );
+
+            $ret = array();
+            $_roles = Model\User::getRolesList();
+            if (count($_roles) > 0){
+                foreach($_roles as $k => $v){
+                    if (array_search($k, $enableRoles) !== false){
+                        $ret[$k] = $v;
+                    }
+                }
+            }
+            return $ret;
+        }
+
         public static function _manageSubAct() {
             return array(
                 "ban" => array (
@@ -317,7 +337,8 @@ namespace Goteo\Controller\Admin {
                             'nodes'=>$nodes
                         );
 
-                    $viewData['roles'] = Model\User::getRolesList();
+                    //$viewData['roles'] = Model\User::getRolesList();
+                    $viewData['roles'] = static::_getEnableRoles();
                     $viewData['langs'] = Lang::getAll();
                     // quitamos el español
                     unset($viewData['langs']['es']);
@@ -444,7 +465,8 @@ namespace Goteo\Controller\Admin {
                     $interests = Model\User\Interest::getAll();
                     $skills = Model\Skill::getAll();
 
-                    $roles = Model\User::getRolesList();
+                    //$roles = Model\User::getRolesList();
+                    $roles = self::_getEnableRoles();
                     $roles['user'] = Text::_('Solo usuario');
                     $types = array(
                         'creators' => Text::_('Impulsores'), // que tienen algun proyecto 
