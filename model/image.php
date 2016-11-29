@@ -414,7 +414,7 @@ die("test");
             if (\file_exists($cache)) {
                 $ret = $src_url . "/data/cache/{$width}x{$height}{$tc}/{$this->name}";
             } else {
-                $ret = SRC_URL . "/image/{$this->id}/{$width}/{$height}/" . $crop;
+                $ret = $src_url . "/image/{$this->id}/{$width}/{$height}/" . $crop;
             }
 
             return $ret;
