@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Goteo\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-14 14:04+0900\n"
-"PO-Revision-Date: 2016-10-14 17:00+0900\n"
+"PO-Revision-Date: 2016-11-29 16:55+0900\n"
 "Last-Translator: Masaki Ike <ike@info-lounge.jp>\n"
 "Language-Team: Goteo translations\n"
 "Language: ja_JP\n"
@@ -1153,7 +1153,7 @@ msgstr "非アクティブ"
 
 #: controller/admin/users.php:448
 msgid "Solo usuario"
-msgstr "単一ユーザー"
+msgstr "ユーザー"
 
 #: controller/admin/users.php:450
 msgid "Impulsores"
