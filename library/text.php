@@ -440,7 +440,7 @@ namespace Goteo\Library {
                     break;
                 case 'project':
                 default:
-                    $code = '<iframe frameborder="0" min-height="480px" src="'.$url.'" width="290px" scrolling="no"></iframe>';
+                    $code = '<iframe frameborder="0" height="560px" src="'.$url.'" width="318px" scrolling="no"></iframe>';
                     break;
             }
 
