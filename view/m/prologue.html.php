@@ -18,13 +18,62 @@
  *
  */
 //@NODESYS
+if($_SERVER['REQUEST_URI']=="/"):
+    $ogmeta = array(
+        'title' => GOTEO_META_TITLE,
+        'description' => GOTEO_META_DESCRIPTION,
+        'url' => SITE_URL,
+        'image' => array(SITE_URL . '/view/css/ogimg.png')
+    );
+elseif(strstr($_SERVER['REQUEST_URI'],'project')):
+    if(!empty($this['project']->subtitle)) {
+        $description = $this['project']->subtitle;
+    } else {
+        $description = $this['project']->description;
+    }
+    foreach ($this['project']->gallery as $image) :
+        if(method_exists($image, 'getLink')){
+            $gallery = $image->getLink(580, 580);
+        }
+    endforeach;
+    $ogmeta = array(
+        'title' => $this['project']->name,
+        'description' => $description,
+        'url' => SITE_URL.$_SERVER['REQUEST_URI'],
+        'image' => array($gallery)
+    );
+endif;
+if (!empty($this['posts'])) {
+    foreach ($this['posts'] as $post) {
+        if (count($post->gallery) > 1) {
+            foreach ($post->gallery as $pbimg) {
+                if ($pbimg instanceof Image) {
+                    $ogmeta['image'][] = $pbimg->getLink(500, 285);
+                }
+            }
+        } elseif (!empty($post->image)) {
+            $ogmeta['image'][] = $post->image->getLink(500, 285);
+        }
+    }
+}
+$blog_post = strpos($ogmeta['url'], '/updates');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title><?php echo htmlspecialchars(GOTEO_META_TITLE, ENT_QUOTES, 'UTF-8'); ?></title>
+        <?php
+        $lg_title = GOTEO_META_TITLE;
+        if ($blog_post){
+            $_blog_post = $this['blog'];
+            $_blog_key = key($this['blog']->posts);
+            $lg_title .= ' - ' . htmlspecialchars($_blog_post->posts[$_blog_key]->title);
+        } elseif (!empty($project->name)){
+            $lg_title .= ' - ' . $project->name;
+        }
+        ?>
+        <title><?php echo htmlspecialchars($lg_title, ENT_QUOTES, 'UTF-8'); ?></title>
         <link rel="icon" type="image/png" href="/favicon.ico" />
         <meta name="description" content="<?php echo htmlspecialchars(GOTEO_META_DESCRIPTION, ENT_QUOTES, 'UTF-8'); ?>" />
         <meta name="keywords" content="<?php echo htmlspecialchars(GOTEO_META_KEYWORDS, ENT_QUOTES, 'UTF-8'); ?>" />
