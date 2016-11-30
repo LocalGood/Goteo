@@ -170,8 +170,8 @@ namespace Goteo\Model {
          * @param array $data
          * @return boolean
          */
-        public function create ($node = \GOTEO_NODE, &$errors = array()) {
-
+        public function create ($node = \GOTEO_NODE, $id) {
+            $errors = array();
             $user = $_SESSION['user']->id;
 
             if (empty($user)) {
@@ -191,9 +191,9 @@ namespace Goteo\Model {
             $userPersonal = User::getPersonal($user);
 
             $values = array(
-                ':id'   => md5($user.'-'.$num),
-                ':name' => Text::_("El nuevo proyecto de ").$userProfile->name,
-                ':lang' => 'es',
+                ':id'   => $id,
+                ':name' => $userProfile->name,
+                ':lang' => \LANG,
                 ':status'   => 1,
                 ':progress' => 0,
                 ':owner' => $user,
@@ -1516,7 +1516,7 @@ namespace Goteo\Model {
          */
         public function ready(&$errors = array()) {
 			try {
-				$this->rebase();
+				//$this->rebase();
 
                 $sql = "UPDATE project SET status = :status, updated = :updated WHERE id = :id";
                 self::query($sql, array(':status'=>2, ':updated'=>date('Y-m-d'), ':id'=>$this->id));
@@ -1806,7 +1806,7 @@ namespace Goteo\Model {
                             self::query("UPDATE project_account SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
                             self::query("UPDATE invest SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
                             self::query("UPDATE promote SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
-                            self::query("UPDATE patron SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
+                            //self::query("UPDATE patron SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
                             self::query("UPDATE invest SET project = :newid WHERE project = :id", array(':newid'=>$newid, ':id'=>$this->id));
                             self::query("UPDATE project SET id = :newid WHERE id = :id", array(':newid'=>$newid, ':id'=>$this->id));
 
