@@ -181,7 +181,7 @@ $pagedResults = new \Paginated($this['projects'], 10, isset($_GET['page']) ? $_G
                     :&nbsp;
                     <a href="<?php echo "/admin/projects/dates/{$project->id}"; ?>">[<?php echo Text::_("Fechas"); ?>]</a>
                     <?/*<a href="<?php echo "/admin/projects/accounts/{$project->id}"; ?>">[<?php echo Text::_("Cuentas"); ?>]</a>*/?>
-                    <?php if ($project->status < 4) : ?><a href="<?php echo "/admin/projects/rebase/{$project->id}"; ?>" onclick="return confirm('<?php echo Text::_("Esto es MUY DELICADO, seguimos?"); ?>');">[<?php echo Text::_("Id"); ?>]</a><?php endif; ?>
+                    <?php if ($project->status < 4) : ?><a href="<?php echo "/admin/projects/rebase/{$project->id}"; ?>" onclick="return confirm('<?php echo Text::_("Esto es MUY DELICADO, seguimos?"); ?>');">['プロジェクトIDの変更（非推奨）]</a><?php endif; ?>
                     &nbsp;|&nbsp;
                     <?php if ($project->status < 2) : ?><a href="<?php echo "/admin/projects/review/{$project->id}"; ?>" onclick="return confirm('<?php echo Text::_("El creador no podrá editarlo más, ok?"); ?>');">[<?php echo Text::_("A revisión"); ?>]</a><?php endif; ?>
                     <?php if ($project->status < 3 && $project->status > 0) : ?><a href="<?php echo "/admin/projects/publish/{$project->id}"; ?>" onclick="return confirm('<?php echo Text::_("El proyecto va a comenzar los 40 dias de la primera ronda de campaña, ¿comenzamos?"); ?>');">[<?php echo Text::_("Publicar"); ?>]</a><?php endif; ?>

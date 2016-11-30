@@ -128,7 +128,7 @@ namespace Goteo\Controller\Admin {
                     
                     $todook = true;
                     
-                    if ($_POST['proceed'] == 'rebase' && !empty($_POST['newid'])) {
+                    if (!empty($_POST['newid'])) {
 
                         $newid = $_POST['newid'];
 
@@ -145,7 +145,7 @@ namespace Goteo\Controller\Admin {
                         }
 
                         if ($projData->rebase($newid)) {
-                            Message::Info(Text::get('admin-projects-info-selectproject').' -> <a href="'.SITE_URL.'/project/'.$newid.'" target="_blank">'.$projData->name.'</a>');
+                            Message::Info('IDの変更を完了しました。');
                             throw new Redirection('/admin/projects');
                         } else {
                             Message::Info(Text::_('Ha fallado algo en el rebase, verificar el proyecto').' -> <a href="'.SITE_URL.'/project/'.$projData->id.'" target="_blank">'.$projData->name.' ('.$id.')</a>');
