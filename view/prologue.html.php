@@ -83,7 +83,6 @@ $blog_post = strpos($ogmeta['url'], '/updates');
     } elseif (!empty($project->name)){
         $lg_title .= ' - ' . $project->name;
     }
-
     ?>
     <title><?php echo htmlspecialchars($lg_title, ENT_QUOTES, 'UTF-8'); ?></title>
     <link rel="icon" type="image/png" href="/favicon.ico" />
