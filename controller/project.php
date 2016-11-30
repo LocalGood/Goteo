@@ -421,31 +421,48 @@ namespace Goteo\Controller {
             if ($_POST['action'] != 'continue' || $_POST['confirm'] != 'true') {
                 throw new Redirection("/about/howto");
             }
+            $valid = false;
+            $viewData = array('error_message' => '');
+            if(isset($_POST) && isset($_POST['project_id'])){
 
-            $project = new Model\Project;
-            if ($project->create(\GOTEO_NODE)) {
-                $_SESSION['stepped'] = array();
-                
-                // permisos para editarlo y borrarlo
-                ACL::allow('/project/edit/'.$project->id.'/', '*', 'user', $_SESSION['user']->id);
-                ACL::allow('/project/delete/'.$project->id.'/', '*', 'user', $_SESSION['user']->id);
-
-                // Evento Feed
-                $log = new Feed();
-                $log->setTarget($_SESSION['user']->id, 'user');
-                $log->populate('usuario crea nuevo proyecto', 'admin/projects',
-                    \vsprintf('%s ha creado un nuevo proyecto, %s', array(
-                        Feed::item('user', $_SESSION['user']->name, $_SESSION['user']->id),
-                        Feed::item('project', $project->name, $project->id))
-                    ));
-                $log->doAdmin('project');
-                unset($log);
-
-
-                throw new Redirection("/project/edit/{$project->id}");
+                if(!preg_match('/[a-zA-Z\-_]{10,32}/', $_POST['project_id'])){
+                    $viewData['error_message'] = '※半角のアルファベット、ハイフン、アンダーバーのみ使用可能です。10文字以内32文字以下で入力してください。';
+                }else{
+                    $query = Model\Project::query("SELECT id FROM project WHERE id = :id", array(':id'=>$_POST['project_id']));
+                    $exist = $query->fetchObject();
+                    if($exist){
+                        $viewData['error_message'] = '同じURLのプロジェクトが存在します。';
+                    }else{
+                        $valid = true;
+                    }
+                }
             }
 
-            throw new \Goteo\Core\Exception('Fallo al crear un nuevo proyecto');
+            if ($valid){
+                $project = new Model\Project;
+                if ($project->create(\GOTEO_NODE, $_POST['project_id'])) {
+                    $_SESSION['stepped'] = array();
+
+                    // permisos para editarlo y borrarlo
+                    ACL::allow('/project/edit/'.$project->id.'/', '*', 'user', $_SESSION['user']->id);
+                    ACL::allow('/project/delete/'.$project->id.'/', '*', 'user', $_SESSION['user']->id);
+
+                    // Evento Feed
+                    $log = new Feed();
+                    $log->setTarget($_SESSION['user']->id, 'user');
+                    $log->populate('usuario crea nuevo proyecto', 'admin/projects',
+                        \vsprintf('%s ha creado un nuevo proyecto, %s', array(
+                                Feed::item('user', $_SESSION['user']->name, $_SESSION['user']->id),
+                                Feed::item('project', $project->name, $project->id))
+                        ));
+                    $log->doAdmin('project');
+                    unset($log);
+                    throw new Redirection("/project/edit/{$project->id}");
+                }
+
+            } else {
+                return new View(VIEW_PATH . '/project/start.html.php', $viewData);
+            }
         }
 
         private function view ($id, $show, $post = null) {
