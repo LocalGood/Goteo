@@ -15138,7 +15138,7 @@ div.side div.widget.project-collaborations ul li p {
 body.project-embed{min-width:250px !important;max-width:320px !important;margin:0;padding:0;background-color:#fff!important;}
 body.project-embed > div#wrapper{width:250px;margin:0;padding:0;}
 body.project-embed > div#wrapper > div.alone-project{width:318px;height:560px;margin:0;padding:0;}
-body.project-embed > div#wrapper > div.alone-project > div.widget.project{width:260px;margin:0 auto;padding:10px 0 0 0; position:relative;background-color:#fff;}
+body.project-embed > div#wrapper > div.alone-project > div.widget.project{width:260px;margin:0 auto;padding:0; position:relative;background-color:#fff;}
 body.project-embed > div#wrapper > div.alone-project > div.widget.project a.expand{position:absolute;top:0;bottom:0;width:260px;height:460px;z-index:100}
 /*body.project-embed > div#wrapper > div.alone-project > div.widget.project.active{background-color:#F8F8F8 !important;}*/
 div.alone-project > div.widget.project > div.buttons > a.button{padding: 0.6em 1em}
