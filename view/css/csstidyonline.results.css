@@ -12,6 +12,10 @@ html, body {
 	background-color: #e7e7e7;
 }
 
+iframe body {
+	position: absolute;
+}
+
 body {
 	min-width: 780px;
 	min-height: 100%;
@@ -15135,7 +15139,7 @@ div.side div.widget.project-collaborations ul li p {
 	word-wrap: break-word;
 }
 
-body.project-embed{min-width:250px !important;max-width:320px !important;margin:0;padding:0;background-color:#fff!important;}
+body.project-embed{max-width:320px !important;margin:0;padding:0;background-color:#fff!important;position: absolute}
 body.project-embed > div#wrapper{width:250px;margin:0;padding:0;}
 body.project-embed > div#wrapper > div.alone-project{width:318px;height:560px;margin:0;padding:0;}
 body.project-embed > div#wrapper > div.alone-project > div.widget.project{width:260px;margin:0 auto;padding:0; position:relative;background-color:#fff;}
