@@ -68,7 +68,6 @@ if (!empty($this['posts'])) {
 }
 
 $blog_post = strpos($ogmeta['url'], '/updates');
-
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
@@ -77,9 +76,14 @@ $blog_post = strpos($ogmeta['url'], '/updates');
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <?php
     $lg_title = GOTEO_META_TITLE;
-    if (!empty($project->name)){
+    if ($blog_post){
+        $_blog_post = $this['blog'];
+        $_blog_key = key($this['blog']->posts);
+        $lg_title .= ' - ' . htmlspecialchars($_blog_post->posts[$_blog_key]->title);
+    } elseif (!empty($project->name)){
         $lg_title .= ' - ' . $project->name;
     }
+
     ?>
     <title><?php echo htmlspecialchars($lg_title, ENT_QUOTES, 'UTF-8'); ?></title>
     <link rel="icon" type="image/png" href="/favicon.ico" />
