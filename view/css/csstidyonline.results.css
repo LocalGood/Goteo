@@ -15148,8 +15148,8 @@ body.project-embed > div#wrapper > div.alone-project > div.widget.project a.expa
 div.alone-project > div.widget.project > div.buttons > a.button{padding: 0.6em 1em}
 
 body.project-embed div.widget.project > .skills {
-	max-height: 54px;
-	overflow-y: scroll;
+    max-height: 54px;
+    overflow-y: auto;
 }
 body.project-embed div.widget.project > .skills {
 
