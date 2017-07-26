@@ -182,11 +182,12 @@ $lsuf = (LANG != 'es') ? '?lang='.LANG : '';
                           <div class="wc-embed" onclick="$('#widget_code').focus();$('#widget_code').select()"><?php echo Text::get('dashboard-embed_code'); ?></div>
                         <textarea id="widget_code" style="width:230px;margin:0 0 10px;" onclick="this.focus();this.select()" readonly="readonly"><?php echo htmlentities($widget_code); ?></textarea>
                       </div>
-
+<?php /*
                       <div id="widget-code" style="float:none;width:250px;margin-left:25px;">
                         <div class="wc-embed" onclick="$('#investor_code').focus();$('#investor_code').select()"><?php echo Text::get('dashboard-embed_code_investor'); ?></div>
                         <textarea id="investor_code" style="width:230px;margin:0 0 10px;" onclick="this.focus();this.select()" readonly="readonly"><?php echo htmlentities($widget_code_investor); ?></textarea>
                       </div>
+ */?>
                 <?php endif; ?>
                 </div>
                 <?php endforeach; ?>

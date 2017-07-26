@@ -12312,11 +12312,11 @@ div.side div.widget.project-collaborations ul li strong {
 }
 
 /*widget embed code for project*/
-body.project-embed{min-width:250px !important;max-width:320px !important;margin:0;padding:0;background-color:#fff!important;}
-body.project-embed > div#wrapper{width:250px;margin:0;padding:0;}
-body.project-embed > div#wrapper > div.alone-project{width:320px;margin:0;padding:0;}
-body.project-embed > div#wrapper > div.alone-project > div.widget.project{width:320px;margin:0;padding:10px 0 0 0; position:relative;background-color:#fff;height:480px;}
-body.project-embed > div#wrapper > div.alone-project > div.widget.project a.expand{position:absolute;top:0;bottom:0;width:100%;z-index:100,padding:0;}
+body.project-embed{min-width:250px !important; max-width: 400px !important; margin:0 auto;padding:0;background-color:#fff!important;}
+body.project-embed > div#wrapper{min-width:250px;margin:0;padding:0;}
+body.project-embed > div#wrapper > div.alone-project{min-width:320px;margin:0;padding:0;}
+body.project-embed > div#wrapper > div.alone-project > div.widget.project{min-width:320px;margin:0;padding:10px 0 0 0; position:relative;background-color:#fff;height:480px;}
+body.project-embed > div#wrapper > div.alone-project > div.widget.project a.expand{position:absolute;top:0;bottom:0;width:100%;z-index:100; padding:0;}
 body.project-embed > div#wrapper > div.alone-project > div.widget.project.active{background-color:#F8F8F8 !important;}
 div.alone-project > div.widget.project > div.buttons > a.button{padding: 0.6em 1em}
 body.project-embed.sp > div#wrapper > div.alone-project > div.widget.project {padding-top: 0}
@@ -12350,6 +12350,7 @@ body.project-embed.sp > div#wrapper > div.alone-project > div.widget.project {pa
 }
 /*clearfix*/
 .clearfix {zoom:1;}
-.clearfix:after{
+.clearfix:after {
     content: "";
     display: block;
+}

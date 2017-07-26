@@ -15149,7 +15149,7 @@ div.alone-project > div.widget.project > div.buttons > a.button{padding: 0.6em 1
 
 body.project-embed div.widget.project > .skills {
     max-height: 54px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 body.project-embed div.widget.project > .skills {
 
