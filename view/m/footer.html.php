@@ -144,28 +144,28 @@ jQuery(document).ready(function($) {
     <section class="footer_bottom">
         <div class="footer_logo">
             <a href="<?= LOCALGOOD_WP_BASE_URL; ?>">
-                <img src="/view/css/s-footer-logo.png" alt="LOCAL GOOD">
+                <img src="/view/images/s-footer-logo.png" alt="LOCAL GOOD">
             </a>
         </div>
         <ul class="sns-area">
             <li>
                 <a href="http://yokohama.localgood.jp/feed/" target="_blank">
-                    <img src="/view/css/s-footer-sns-icon01.png" alt="rss">
+                    <img src="/view/images/s-footer-sns-icon01.png" alt="rss">
                 </a>
             </li>
             <li>
                 <a href="https://plus.google.com/112981975493826894716/posts" target="_blank">
-                    <img src="/view/css/s-footer-sns-icon02.png" alt="google+">
+                    <img src="/view/images/s-footer-sns-icon02.png" alt="google+">
                 </a>
             </li>
             <li>
                 <a href="https://twitter.com/LogooYOKOHAMA" target="_blank">
-                    <img src="/view/css/s-footer-sns-icon03.png" alt="Twitter">
+                    <img src="/view/images/s-footer-sns-icon03.png" alt="Twitter">
                 </a>
             </li>
             <li>
                 <a href="https://www.facebook.com/LOCALGOODYOKOHAMA" target="_blank">
-                    <img src="/view/css/s-footer-sns-icon04.png" alt="facebook">
+                    <img src="/view/images/s-footer-sns-icon04.png" alt="facebook">
                 </a>
             </li>
         </ul>
@@ -184,42 +184,42 @@ jQuery(document).ready(function($) {
         <ul class="clearfix">
             <li class="left">
                 <a href="http://yokohamalab.jp/" target="_blank">
-                    <img src="/view/css/logo_f_labo.jpg" alt="NPO法人 横浜コミュニティデザイン・ラボ">
+                    <img src="/view/images/logo_f_labo.jpg" alt="NPO法人 横浜コミュニティデザイン・ラボ">
                 </a>
             </li>
             <li class="left">
                 <a href="http://www.city.yokohama.lg.jp/seisaku/" target="_blank">
-                    <img src="/view/css/s-footer-logo03.png" alt="画像：OPEN YOKOHAMA">
+                    <img src="/view/images/s-footer-logo03.png" alt="画像：OPEN YOKOHAMA">
                 </a>
             </li>
             <li class="left">
                 <a href="http://goteo.org/" target="_blank">
-                    <img src="/view/css/s-footer-logo04.png" alt="画像：Fundacion Goteo">
+                    <img src="/view/images/s-footer-logo04.png" alt="画像：Fundacion Goteo">
                 </a>
             </li>
             <li class="left">
                 <a href="http://www.ycu-coc.jp/" target="_blank">
-                    <img src="/view/css/s-footer-logo05.png" alt="画像：横浜市立大学影山摩子弥研究室">
+                    <img src="/view/images/s-footer-logo05.png" alt="画像：横浜市立大学影山摩子弥研究室">
                 </a>
             </li>
             <li class="left">
                 <a href="http://labo.wtnv.jp/" target="_blank">
-                    <img src="/view/css/s-footer-logo06.png" alt="画像：首都大学東京渡邉英徳研究室">
+                    <img src="/view/images/s-footer-logo06.png" alt="画像：首都大学東京渡邉英徳研究室">
                 </a>
             </li>
             <li class="left">
                 <a href="http://designcat.co/" target="_blank">
-                    <img src="/view/css/s-footer-logo07.png" alt="画像：Design Cat">
+                    <img src="/view/images/s-footer-logo07.png" alt="画像：Design Cat">
                 </a>
             </li>
             <li class="left">
                 <a href="http://info-lounge.jp/" target="_blank">
-                    <img src="/view/css/s-footer-logo08.jpg" alt="画像：インフォ・ラウンジ合同会社">
+                    <img src="/view/images/s-footer-logo08.jpg" alt="画像：インフォ・ラウンジ合同会社">
                 </a>
             </li>
             <li class="left">
                 <a href="http://www.accenture.com/jp-ja/Pages/index.aspx" target="_blank">
-                    <img src="/view/css/s-footer-logo02.png" alt="画像：アクセンチュア株式会社">
+                    <img src="/view/images/s-footer-logo02.png" alt="画像：アクセンチュア株式会社">
                 </a>
             </li>
         </ul>

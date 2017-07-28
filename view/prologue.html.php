@@ -152,7 +152,7 @@ $_blog_key = substr($ogmeta['url'], $blog_post+9);
     $uri = $_SERVER['REQUEST_URI'];
 ?>
 
-    <link rel="stylesheet" type="text/css" href="<?php echo SRC_URL ?>/view/css/csstidyonline.results.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo SRC_URL ?>/view/css/styles.css" />
 
 <?/*
     <link rel="stylesheet" type="text/css" href="<?php echo SRC_URL ?>/view/css/base.css" />

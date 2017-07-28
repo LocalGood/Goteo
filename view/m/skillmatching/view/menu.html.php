@@ -29,7 +29,7 @@ $menu = array(
     'evaluation'  => Text::get('project-menu-evaluation')
 );
 ?>
-<?/*<p class="prev2"><a><img src="/view/m/css/header/prev_btn.png" alt="前へ" /></a></p>*/?>
+<?/*<p class="prev2"><a><img src="/view/m/images/header/prev_btn.png" alt="前へ" /></a></p>*/?>
 <div class="project-menu viewport_projectnav">
     <ul class="flipsnap_projectnav">
         <?php
@@ -44,4 +44,4 @@ $menu = array(
         <a class="pj_next">&gt;</a>
     </p>
 </div>
-<?/*<p class="next2"><a><img src="/view/m/css/header/next_btn.png" alt="次へ" /></a></p>*/?>
+<?/*<p class="next2"><a><img src="/view/m/images/header/next_btn.png" alt="次へ" /></a></p>*/?>

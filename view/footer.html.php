@@ -32,13 +32,13 @@
         <div class="c-clearfix c-w1200">
             <div class="footer__upper_left">
                 <div class="footer__logo">
-                    <img src="/view/css/footer_logo.png" alt="LOCAL GOOD YOKOHAMAロゴ">
+                    <img src="/view/images/footer_logo.png" alt="LOCAL GOOD YOKOHAMAロゴ">
                 </div>
                 <ul class="footer__sns_link">
-                    <li class="rss"><a href="<?= LOCALGOOD_WP_BASE_URL . '/feed/'; ?>" target="_blank"><img src="/view/css/rss_btn.png" alt="rss" /></a></li>
-                    <li class="g_plus"><a href="<?= LG_GOOGLE_PLUS; ?>" target="_blank"><img src="/view/css/gplus_btn.png" alt="google plus" /></a></li>
-                    <li class="tw_btn"><a href="<?= LG_TWITTER; ?>" target="_blank"><img src="/view/css/tw_btn.png" alt="twitter" /></a></li>
-                    <li class="fb_btn"><a href="<?= LG_FACEBOOK_PAGE; ?>" target="_blank"><img src="/view/css/fb_btn.png" alt="facebook" /></a></li>
+                    <li class="rss"><a href="<?= LOCALGOOD_WP_BASE_URL . '/feed/'; ?>" target="_blank"><img src="/view/images/rss_btn.png" alt="rss" /></a></li>
+                    <li class="g_plus"><a href="<?= LG_GOOGLE_PLUS; ?>" target="_blank"><img src="/view/images/gplus_btn.png" alt="google plus" /></a></li>
+                    <li class="tw_btn"><a href="<?= LG_TWITTER; ?>" target="_blank"><img src="/view/images/tw_btn.png" alt="twitter" /></a></li>
+                    <li class="fb_btn"><a href="<?= LG_FACEBOOK_PAGE; ?>" target="_blank"><img src="/view/images/fb_btn.png" alt="facebook" /></a></li>
                 </ul>
                 <a class="footer__integration_site" href="<?= LG_INTEGRATION_URL; ?>">LOCAL GOOD 地域課題プラットフォーム</a>
             </div>
@@ -83,14 +83,14 @@
     <div class="footer__under">
         <div class="c-w1096">
             <ul>
-                <li><a href="http://yokohamalab.jp/" target="_blank"><img src="/view/css/logo_f_labo.jpg" alt="NPO法人 横浜コミュニティデザイン・ラボ"></a></li>
-                <li><a href="http://www.city.yokohama.lg.jp/seisaku/" target="_blank"><img src="/view/css/logo_f_open_yokohama.png" alt="画像：OPEN YOKOHAMA"></a></li>
-                <li><a href="http://goteo.org/" target="_blank"><img src="/view/css/logo_f_goteo.png" alt="画像：Fundacion Goteo"></a></li>
-                <li><a href="http://www.ycu-coc.jp/" target="_blank"><img src="/view/css/logo_f_YCU.png" alt="画像：横浜市立大学<br>影山摩子弥研究室"></a></li>
-                <li><a href="http://labo.wtnv.jp/" target="_blank"><img src="/view/css/logo_f_wtnv.png" alt="画像：首都大学東京<br>渡邉英徳研究室"></a></li>
-                <li><a href="http://designcat.co/" target="_blank"><img src="/view/css/logo_f_design_cat.png" alt="画像：Design Cat"></a></li>
-                <li><a href="http://info-lounge.jp/" target="_blank"><img src="/view/css/logo_f_info_lounge.png" alt="画像：インフォ・ラウンジ合同会社"></a></li>
-                <li><a href="http://www.accenture.com/jp-ja/Pages/index.aspx" target="_blank"><img src="/view/css/logo_f_accenture.png" alt="画像：アクセンチュア株式会社"></a></li>
+                <li><a href="http://yokohamalab.jp/" target="_blank"><img src="/view/images/logo_f_labo.jpg" alt="NPO法人 横浜コミュニティデザイン・ラボ"></a></li>
+                <li><a href="http://www.city.yokohama.lg.jp/seisaku/" target="_blank"><img src="/view/images/logo_f_open_yokohama.png" alt="画像：OPEN YOKOHAMA"></a></li>
+                <li><a href="http://goteo.org/" target="_blank"><img src="/view/images/logo_f_goteo.png" alt="画像：Fundacion Goteo"></a></li>
+                <li><a href="http://www.ycu-coc.jp/" target="_blank"><img src="/view/images/logo_f_YCU.png" alt="画像：横浜市立大学<br>影山摩子弥研究室"></a></li>
+                <li><a href="http://labo.wtnv.jp/" target="_blank"><img src="/view/images/logo_f_wtnv.png" alt="画像：首都大学東京<br>渡邉英徳研究室"></a></li>
+                <li><a href="http://designcat.co/" target="_blank"><img src="/view/images/logo_f_design_cat.png" alt="画像：Design Cat"></a></li>
+                <li><a href="http://info-lounge.jp/" target="_blank"><img src="/view/images/logo_f_info_lounge.png" alt="画像：インフォ・ラウンジ合同会社"></a></li>
+                <li><a href="http://www.accenture.com/jp-ja/Pages/index.aspx" target="_blank"><img src="/view/images/logo_f_accenture.png" alt="画像：アクセンチュア株式会社"></a></li>
             </ul>
         </div>
         <p class="footer__copyright">
