@@ -59,7 +59,8 @@ if (!defined('OAUTH_LIBS')) {
 }
 
 //Uploads static files
-$static_dir = preg_replace('/\/[A-Za-z0-9.]+\.localgood/','/static.localgood',dirname(__FILE__));
+define('STATIC_SVR_DOMAIN','static.staging.localgood');
+$static_dir = preg_replace('/\/[A-Za-z0-9.]+\.localgood/','/'.STATIC_SVR_DOMAIN ,dirname(__FILE__));
 define('GOTEO_DATA_PATH', $static_dir . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR);
 
 /**

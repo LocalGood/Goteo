@@ -406,7 +406,7 @@ die("test");
 
             $ret = "";
 
-            $src_url = preg_replace('/[A-Za-z0-9.]+\.localgood/','static.localgood',SRC_URL);
+            $src_url = preg_replace('/[A-Za-z0-9.]+\.localgood/',STATIC_SVR_DOMAIN,SRC_URL);
 
             $tc = $crop ? 'c' : '';
 
