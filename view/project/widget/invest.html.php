@@ -142,12 +142,24 @@ if ($step == 'start') : ?>
         </tr>
         */ ?>
     </table>
-
     <p>
         <label><input type="checkbox" name="anonymous" value="1" /><span class="chkbox"></span><?php echo Text::get('invest-anonymous') ?></label>
     </p>
 </div>
+<?php if (ACL::check('/admin')) : ?>
+<div class="widget project-invest display-name">
+    <h<?php echo $level ?> class="beak" id="address-header">現金寄付時の表示名を記入してください</h<?php echo $level ?>>
 
+    <table>
+        <tr>
+            <td>
+                <label for="disp_name">表示名：</label><br />
+                <input type="text" id="disp_name" name="disp_name" value="" />
+            </td>
+        </tr>
+    </table>
+</div>
+<?php endif; ?>
 
 <div class="widget project-invest method">
     <h<?php echo $level ?> class="beak"><?php echo Text::get('project-invest-continue') ?>

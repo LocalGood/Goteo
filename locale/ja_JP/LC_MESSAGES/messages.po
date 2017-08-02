@@ -2675,9 +2675,7 @@ msgstr "支援に進む"
 
 #: view/admin/accounts/details.html.php:154
 msgid "Recompensas elegidas"
-msgstr ""
-"Admin %s has cancelled a manual contribution of %s of %s (id: %s) to project "
-"%s on date %s"
+msgstr "選択した報酬"
 
 #: view/admin/accounts/details.html.php:162
 #: view/admin/skillmatching_accounts/details.html.php:147

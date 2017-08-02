@@ -145,6 +145,7 @@ namespace Goteo\Controller {
                         'status' => '-1',               // aporte en proceso
                         'invested' => date('Y-m-d'),
                         'anonymous' => $_POST['anonymous'],
+                        'disp_name' => $_POST['disp_name'],
                         'resign' => $resign
                     )
                 );
@@ -182,9 +183,6 @@ namespace Goteo\Controller {
                                 $subject = str_replace('%PROJECTNAME%', $projectData->name, $template->title);
 
                                 $invested_reward = Model\Skillmatching\Reward::get($invest->rewards[0]);
-//                                var_dump($invested_reward->reward);exit;
-//                                var_dump($invest);exit;
-                                //var_dump($user);exit;
 
                                 // En el contenido:
                                 $search  = array('%OWNERNAME%', '%USERNAME%', '%PROJECTNAME%', '%SITEURL%', '%REWARD%', '%USEREMAIL%','%MESSAGEURL%');
