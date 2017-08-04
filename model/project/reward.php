@@ -22,7 +22,8 @@ namespace Goteo\Model\Project {
 
     use \Goteo\Model\Icon,
         \Goteo\Library\Text,
-        \Goteo\Model\License;
+        \Goteo\Model\License,
+        \Goteo\Model\Image;
 
     class Reward extends \Goteo\Core\Model {
 
@@ -33,6 +34,7 @@ namespace Goteo\Model\Project {
                 $description,
                 $type = 'social',
                 $icon,
+                $image,
                 $other, // para el icono de otro, texto que diga el tipo
                 $license,
                 $amount,
@@ -77,6 +79,7 @@ namespace Goteo\Model\Project {
                             IFNULL(reward_lang.description, reward.description) as description,
                             reward.type as type,
                             reward.icon as icon,
+                            reward.image as image,
                             IFNULL(reward_lang.other, reward.other) as other,
                             reward.license as license,
                             reward.amount as amount,
@@ -106,6 +109,14 @@ namespace Goteo\Model\Project {
                     if ($item->icon == 'other' && !empty($item->other)) {
                         $item->icon_name = $item->other;
                     }
+
+//                    error_log('Reward get');
+//                    error_log(var_export($item->image,true));
+                    $item->image = Image::get($item->image);
+                    if (empty($item->image) || !$item->image instanceof Image) {
+                        $item->image = null;
+                    }
+//                    error_log(var_export($item->image,true));
 
                     $array[$item->id] = $item;
                 }
@@ -137,8 +148,22 @@ namespace Goteo\Model\Project {
         }
 
         public function save(&$errors = array()) {
+//            error_log('Reward save');
+
             if (!$this->validate($errors))
                 return false;
+
+            if (is_array($this->image)){
+                // Imageオブジェクト生成
+                $image = new Image($this->image);
+//                var_export(var_dump($image,true));
+                if ($image->save($errors)){
+                    $this->image = $image;
+//                    error_log('Save image');
+//                    error_log(var_export($this->image,true));
+                }
+
+            }
 
             $fields = array(
                 'id',
@@ -147,6 +172,7 @@ namespace Goteo\Model\Project {
                 'description',
                 'type',
                 'icon',
+                'image',
                 'other',
                 'license',
                 'amount',
@@ -160,7 +186,11 @@ namespace Goteo\Model\Project {
                 if ($set != '')
                     $set .= ", ";
                 $set .= "$field = :$field ";
-                $values[":$field"] = $this->$field;
+                if ($field == 'image'){
+                    $values[":$field"] = $this->image->id;
+                } else {
+                    $values[":$field"] = $this->$field;
+                }
             }
 
             try {

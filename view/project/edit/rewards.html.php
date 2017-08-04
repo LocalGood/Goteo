@@ -34,6 +34,8 @@ $txt_details = Text::get('regular-see_details');
 
 foreach ($project->individual_rewards as $individual_reward) {
 
+    // error_log(var_export($individual_reward,true));
+
     // a ver si es el que estamos editando o no
     if (!empty($this["individual_reward-{$individual_reward->id}-edit"])) {
 
@@ -119,6 +121,29 @@ foreach ($project->individual_rewards as $individual_reward) {
                         'errors'    => !empty($errors["individual_reward-{$individual_reward->id}-icon"]) ? array($errors["individual_reward-{$individual_reward->id}-icon"]) : array(),
                         'ok'        => !empty($okeys["individual_reward-{$individual_reward->id}-icon"]) ? array($okeys["individual_reward-{$individual_reward->id}-icon"]) : array(),
                        // 'hint'      => Text::get('tooltip-project-individual_reward-type')
+                    ),
+                    "individual_reward-{$individual_reward->id}-image" => array(
+                        'title'     => '画像',
+                        'required'  => true,
+                        'type'      => 'group',
+                        'errors'    => !empty($errors["individual_reward-{$individual_reward->id}-image"]) ? array($errors["individual_reward-{$individual_reward->id}-image"]) : array(),
+                        'ok'        => !empty($okeys["individual_reward-{$individual_reward->id}-image"]) ? array($okeys["individual_reward-{$individual_reward->id}-image"]) : array(),
+                        'class'     => 'images',
+                        'children'  => array(
+                            "image_upload_{$individual_reward->id}" => array(
+                                'type'  => 'file',
+                                'label' => Text::get('form-image_upload-button'),
+                                'class' => 'inline image_upload',
+                                //'hint'  => Text::get('tooltip-project-image')
+                            ),
+                            "reward-image_{$individual_reward->id}" => array(
+                                'type'  => 'html',
+                                'class' => 'inline project-image',
+                                'html'  => !empty($individual_reward->image) ?
+                                    '<img src="'.SRC_URL.'/image/'.$individual_reward->image->id.'/128/128" alt="Imagen" /><button class="image-remove weak" type="submit" name="reward-image_'.$individual_reward->id.'-remove" title="Quitar imagen" value="remove"></button>' :
+                                    ''
+                            )
+                        )
                     ),
                     "individual_reward-{$individual_reward->id}-amount" => array(
                         'title'     => Text::get('rewards-field-individual_reward-amount'),
