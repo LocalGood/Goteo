@@ -1,0 +1,117 @@
+/*----------------------------------------------------------------------
+ discover
+----------------------------------------------------------------------*/
+.discover {
+  .widget {
+    margin-bottom: 24px;
+  }
+  .searcher {
+    background-color: transparent;
+    border-bottom: 1px solid #d1d3d4;
+    padding: 0;
+    form {
+      margin:0 auto;
+      width:960px;
+    }
+    .text-filter {
+      display:block;
+      margin-bottom:20px;
+      label {
+        float:left;
+        font-size:14px;
+        font-weight:700;
+        padding-top:9px;
+        text-transform:uppercase;
+      }
+    }
+    #text-query {
+      background-color:#fff;
+      border:1px solid #808184;
+      color:#808184;
+      float:left;
+      font-size:16px;
+      margin-left:16px;
+      padding:4px 5px 4px 10px;
+      width:650px;
+    }
+
+    .filter {
+      float:left;
+      margin-right:2px;
+      position:relative;
+      width:190px;
+      &:last-child {
+        margin-right:0;
+      }
+      label {
+        border-bottom:1px solid #58595B;
+        color:#58595B;
+        display:block;
+        font-size:14px;
+        font-weight:700;
+        padding:5px 5px 6px 0;
+        text-transform:uppercase;
+      }
+      select {
+        background-color:#e7e7e7;
+        border-style:none;
+        color:#58595B;
+        font-size:.9em;
+        margin:0;
+        padding-top:10px;
+        width:100%;
+        option {
+          color:#58595B;
+        }
+        option[selected=selected] {
+          background-color:#d5d5d6;
+          color:#58595B;
+        }
+        option.all {
+          color:#58595B;
+          font-size:1em;
+          font-weight:700;
+        }
+      }
+    }
+  }
+
+  #searcher {
+    position:absolute;
+    right:40px;
+    top:20px;
+    background:url(/view/images/lupa.png) no-repeat;
+    height:33px;
+    margin-top:-1px;
+    text-indent:-9999px;
+    width:80px;
+  }
+
+  &-group {
+    display: none;
+    .widget.project {
+      margin: 0 0 0 25px;
+    }
+  }
+  &-arrow {
+    &-left {
+      float:left;
+      a.discover-arrow {
+        background:url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 0;
+        &:hover {
+          background:url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 -48px;
+        }
+      }
+    }
+    &-right {
+      float:right;
+      a.discover-arrow {
+        background:url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 -24px;
+        &:hover {
+          background:url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 -72px;
+        }
+      }
+    }
+  }
+}
+

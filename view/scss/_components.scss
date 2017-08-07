@@ -1,0 +1,162 @@
+//todo:このファイルは一時ファイルで、コンポーネントが判明したら、各scssに指定移行するようにする
+
+/*----------------------------------------------------------------------
+ .widget(in discover)
+----------------------------------------------------------------------*/
+.widget{
+
+  &.projects {
+    > .title {
+      margin-bottom: 20px;
+      padding-left: 0;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .project {
+      background-color: #fff;
+      float: left;
+      margin: 0 0 3.33% 3.33%;
+      padding: 0;
+      position: relative;
+      width: 260px;
+      z-index: 98;
+      > .title {
+        font-size: 14px!important;
+        margin: 0!important;
+        padding: 0!important;
+      }
+    }
+    .image {
+      background-color: #deddde;
+      height: 135px;
+      margin: 12px 0 10px;
+      overflow: hidden;
+      padding: 0!important;
+      position: relative;
+      text-align: center;
+    }
+    > .author {
+      overflow: hidden;
+      padding: 2px 0 0;
+    }
+    > .skills,
+    > .skills a {
+      font-size: 12px;
+    }
+    .description {
+      font-size: 12px;
+      min-height: 42px;
+      padding: 5px 0;
+    }
+  }
+
+  &.project {
+    .image {
+      .tagmark {
+        &.green {
+          background:url(/view/images/project/tagmark_green.png) 0 0 no-repeat;
+        }
+        &.red {
+          background:url(/view/images/project/tagmark_red.png) 0 0 no-repeat;
+        }
+        &.violet {
+          background:url(/view/images/project/tagmark_violet.png) 0 0 no-repeat;
+        }
+        &.grey {
+          background:url(/view/images/project/tagmark_grey.png) 0 0 no-repeat;
+        }
+        & span.small {
+          font-size:.8em!important;
+          line-height:14px;
+        }
+        &.twolines {
+          font-style:normal;
+          font-weight:400;
+          padding-top:4px!important;
+        }
+      }
+    }
+  }
+}
+
+
+//todo:project.scssで良いか検討中
+/*----------------------------------------------------------------------
+ .meter
+----------------------------------------------------------------------*/
+.meter {
+  &.activable {
+    max-width: 288px;
+    z-index: 999;
+  }
+}
+
+
+//todo:project.scssで良いか検討中
+/*----------------------------------------------------------------------
+ .sub-header
+----------------------------------------------------------------------*/
+.project-header{
+  position:relative;
+  top:10px;
+  max-width: 960px;
+  min-height: 75px;
+  margin: 0 auto;
+  img{
+    float: left;
+    margin: 0 20px 0 0;
+  }
+  h2{
+    max-width: 700px;
+    margin-top: 0;
+    font-size: 1.75rem;
+    font-weight: 300;
+    > span{
+      display: block;
+      line-height: 1em;
+    }
+  }
+  .project-subtitle {
+    font-size: 1.1428571rem;
+    font-weight: normal;
+    margin: 3px 0;
+    max-width:620px;
+    font-style: normal;
+  }
+  .project-by {
+    color: #20B3B2;
+    font-size: 12px;
+    margin: 0 0 .5em;
+    a {
+      font-weight: normal;
+      color: #cc6600;
+      font-size: 12px;
+      text-decoration: none;
+      &:hover {
+        color: #58595B;
+      }
+    }
+  }
+  .categories {
+    position: absolute;
+    right: 10px;
+    text-align: right;
+    top: 0;
+    h3 {
+      color: #20B3B2;
+      font-size: 0.8571428rem;
+      font-weight: normal;
+      margin: 0;
+    }
+    a {
+      color: #58595B;
+      font-size: 12px;
+      text-decoration: none;
+      &:hover {
+        color: #20B3B2;
+      }
+    }
+  }
+}
+
