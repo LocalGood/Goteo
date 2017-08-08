@@ -74,6 +74,14 @@ $action = ($step == 'start') ? '/user/login' : '/invest/' . $project->id;
                     <input type="radio" name="selected_reward" id="reward_<?php echo $individual->id; ?>" value="<?php echo $individual->id; ?>" amount="<?php echo $individual->amount; ?>" class="individual_reward" title="<?php echo htmlspecialchars($individual->reward) ?>" <?php if ($individual->none) echo 'disabled="disabled"' ?>/>
                     <span class="amount"><?php echo $individual->amount; ?> 円</span>
             	<h<?php echo $level + 2 ?> class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>>
+                <?php
+                    if (!empty($individual->image)):
+                        $img_src = $individual->image->getLink(300,300,false);
+                ?>
+                <img src="<?php echo $img_src ?>" alt="<?php echo htmlspecialchars($individual->reward) ?>" />
+                <?php
+                    endif;
+                ?>
                 <p><?php echo htmlspecialchars($individual->description)?></p>
                     <?php if ($individual->none) : // no quedan ?>
                     <span class="left"><?php echo Text::get('invest-reward-none') ?></span>

@@ -78,6 +78,16 @@ $action = ($step == 'start') ? '/user/login' : '/invest/' . $project->id;
                     <span class="amount"><?php echo $individual->amount; ?> 円</span>
                 <!-- <span class="chkbox"></span> -->
             	<h<?php echo $level + 2 ?> class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>>
+                <?php
+                if (!empty($individual->image)):
+                    $imgsrc = $individual->image->getLink(200,200,false);
+                    ?>
+                    <div class="image">
+                        <img src="<?php echo $imgsrc ?>" alt="<?php echo htmlspecialchars($individual->reward) ?>" />
+                    </div>
+                    <?php
+                endif;
+                ?>
                 <p><?php echo htmlspecialchars($individual->description)?></p>
                     <?php /* if ($individual->none) : // no quedan ?>
                     <span class="left"><?php echo Text::get('invest-reward-none') ?></span>

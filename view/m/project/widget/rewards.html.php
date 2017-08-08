@@ -53,16 +53,22 @@ uasort($project->individual_rewards,
             <ul>
             <?php foreach ($project->individual_rewards as $individual) : ?>
             <li class="<?php echo $individual->icon ?>">
-
                 <div class="amount"><?php echo Text::get('regular-investing'); ?> <span><?php echo \amount_format($individual->amount); ?>円</span></div>
-                <h<?php echo $level + 3 ?> class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 3 ?>
+                <h<?php echo $level + 3 ?> class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 3 ?>>
+                <?php
+                if (!empty($individual->image)):
+                    $img_src = $individual->image->getLink(200,200,false);
+                    ?>
+                    <img src="<?php echo $img_src ?>" alt="<?php echo htmlspecialchars($individual->reward) ?>" />
+                    <?php
+                endif;
+                ?>
                 <?php if (!empty($individual->units)):
                     $units = ($individual->units - $individual->taken);
                     ?>
                     <p class="remain"><strong><?php echo Text::get('project-rewards-individual_reward-limited'); ?> <?php echo $units; ?></strong></p>
                 <?php endif; ?>
                 <p><?php echo nl2br(htmlspecialchars($individual->description))?></p>
-
                 <div class="buttons">
                     <a class="button violet supportit" href="/project/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it'); ?></a>
                 </div>
