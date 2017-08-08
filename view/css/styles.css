@@ -416,7 +416,7 @@ input.edit[type="submit"] {
 
 #main {
   width: 960px;
-  margin: 0 auto;
+  margin: 10px auto;
   clear: both;
   overflow-y: hidden;
   overflow-x: hidden;
@@ -441,6 +441,40 @@ input.edit[type="submit"] {
     font-size: 16px;
     font-weight: bold;
     text-decoration: none; }
+
+#pagination {
+  list-style: none;
+  float: left;
+  margin: 0;
+  padding: 0; }
+  #pagination li {
+    display: inline;
+    float: left;
+    width: auto;
+    margin: 0 6px 0 0;
+    text-align: center;
+    background: white;
+    -moz-box-shadow: 3px 3px 0 #E2E2E2;
+    -webkit-box-shadow: 3px 3px 0 #E2E2E2;
+    box-shadow: 3px 3px 0 #E2E2E2; }
+    #pagination li.selected {
+      padding: 6px 20px;
+      font-weight: bold;
+      background: #cde4e5; }
+    #pagination li a {
+      display: block;
+      padding: 6px 20px;
+      text-decoration: none;
+      font-weight: bold; }
+
+#sub-header > div {
+  display: block;
+  max-width: 960px;
+  margin: 0 auto; }
+  #sub-header > div > h2 {
+    margin: 0;
+    padding: 0;
+    font-weight: 300; }
 
 /*----------------------------------------------------------------------
  .widget(in discover)
@@ -519,7 +553,7 @@ input.edit[type="submit"] {
   .project-header h2 {
     max-width: 700px;
     margin-top: 0;
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-weight: 300; }
     .project-header h2 > span {
       display: block;
@@ -646,6 +680,8 @@ input.edit[type="submit"] {
     .discover-arrow-right a.discover-arrow:hover {
       background: url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 -72px; }
 
+.project-show #main {
+  margin: 0 auto; }
 .project-show #social_bookmark {
   display: flex;
   position: absolute;
@@ -742,245 +778,190 @@ input.edit[type="submit"] {
   text-align: center;
   text-decoration: none;
   border-top: 1px dashed silver; }
-.project-show .project-media {
-  padding: 0; }
-  .project-show .project-media iframe {
-    width: 620px;
-    height: 380px; }
-.project-show .project-summary {
-  border-bottom: 1px dashed #c0c0c0; }
-  .project-show .project-summary > div {
-    font-size: 14px;
-    margin-bottom: 28px; }
-  .project-show .project-summary h3 {
-    margin: 0 0 1em;
-    font-size: 20px;
-    font-weight: 300; }
-  .project-show .project-summary .gallery-image {
-    text-align: center; }
-    .project-show .project-summary .gallery-image img {
-      width: 540px; }
-.project-show .project-share {
-  padding: 15px 20px 20px; }
-  .project-show .project-share .title {
-    border: none; }
-  .project-show .project-share .left, .project-show .project-share .right {
-    float: left; }
-  .project-show .project-share .left {
-    width: 68%; }
-  .project-show .project-share .right {
-    width: 32%; }
-  .project-show .project-share h4 {
-    margin: 0 0 6px;
-    font-weight: 600; }
-  .project-show .project-share ul {
-    overflow: visible;
-    position: relative;
-    height: 60px;
-    margin: 0;
-    padding: 0;
-    list-style: none outside none; }
-  .project-show .project-share li {
-    display: block;
-    float: left;
-    min-height: 2em;
-    min-width: 20%;
-    padding-left: 30px;
-    line-height: 2em;
-    background: no-repeat left center; }
-    .project-show .project-share li a {
-      text-decoration: none; }
-    .project-show .project-share li.twitter {
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-image: url(/view/images/social/twitter.png); }
-    .project-show .project-share li.facebook {
-      position: absolute;
-      top: 30px;
-      left: 0;
-      background-image: url(/view/images/social/facebook.png); }
-    .project-show .project-share li.url {
-      position: absolute;
-      top: 0;
-      left: 100px;
-      background-image: url(/view/images/social/url.png); }
-      .project-show .project-share li.url input {
-        width: 265px; }
-    .project-show .project-share li.proyecto {
-      width: 176px;
-      height: 24px;
-      margin: 2px 0 2px 5px;
-      padding-left: 26px;
-      font-size: 12px;
-      line-height: 24px;
-      text-align: left;
-      background-color: #555;
-      background-image: url(/view/images/project/widget/proyecto.jpg);
-      border-radius: 3px; }
-      .project-show .project-share li.proyecto a {
-        color: #fff; }
-        .project-show .project-share li.proyecto a#a-proyecto:link {
-          font-size: 12px; }
-    .project-show .project-share li.google {
-      background-image: url(/view/images/social/google.png); }
-    .project-show .project-share li.identica {
-      background-image: url(/view/images/social/identica.png); }
-    .project-show .project-share li.embed {
-      background-image: url(/view/images/social/embed.png); }
-    .project-show .project-share li.url span, .project-show .project-share li.embed span {
-      display: none; }
-    .project-show .project-share li.url input, .project-show .project-share li.url input:focus, .project-show .project-share li.embed input, .project-show .project-share li.embed input:focus {
-      -moz-border-radius: .2em;
-      background-color: #e6e6e6 !important;
-      border: none;
-      border-radius: .25em;
-      font-size: inherit;
-      font-weight: 300;
-      height: 24px;
-      padding: 0 .4em;
-      width: 240px; }
-.project-show .project-support {
+.project-show .side > .widget {
   margin-bottom: 10px;
   padding: 0; }
-  .project-show .project-support .supertitle {
-    background-color: #39c; }
-  .project-show .project-support .project-widget-box {
-    position: relative;
-    padding: 15px 20px; }
-  .project-show .project-support .meter .graph {
+.project-show .side .project-collaborations .project-widget-box {
+  padding: 0 20px;
+  margin: 0; }
+.project-show .side .project-collaborations .title {
+  margin-bottom: 16px; }
+.project-show .side .project-collaborations .supertitle {
+  background-color: #33cc99; }
+.project-show .side .project-collaborations ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  .project-show .side .project-collaborations ul li {
+    margin-bottom: 0; }
+    .project-show .side .project-collaborations ul li.task .name {
+      background-image: url("/view/images/icon/m/task.png"); }
+    .project-show .side .project-collaborations ul li.lend .name {
+      background-image: url("/view/images/icon/m/lend.png"); }
+    .project-show .side .project-collaborations ul li p {
+      margin: 0;
+      word-wrap: break-word; }
+.project-show .side .project-collaborations .name {
+  display: table;
+  min-height: 32px;
+  margin: 0 0 16px;
+  padding-left: 42px;
+  font-size: 14px;
+  font-weight: 600;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: left top; }
+  .project-show .side .project-collaborations .name span {
+    display: table-cell;
+    line-height: 16px;
+    vertical-align: middle; }
+.project-show .side .project-support .supertitle {
+  background-color: #39c; }
+.project-show .side .project-support .project-widget-box {
+  position: relative;
+  padding: 15px 20px; }
+.project-show .side .project-support .meter .graph {
+  overflow: visible;
+  float: left;
+  width: 20px;
+  margin-left: 14px;
+  padding-top: 22px;
+  font-size: 0;
+  background-color: #dcdcdc; }
+  .project-show .side .project-support .meter .graph .optimum {
     overflow: visible;
-    float: left;
     width: 20px;
-    margin-left: 14px;
-    padding-top: 22px;
-    font-size: 0;
-    background-color: #dcdcdc; }
-    .project-show .project-support .meter .graph .optimum {
+    height: 45px;
+    background-color: #bccdd8; }
+  .project-show .side .project-support .meter .graph .minimum {
+    overflow: visible;
+    position: relative;
+    width: 20px;
+    min-height: 145px !important;
+    background-color: #dc940f; }
+    .project-show .side .project-support .meter .graph .minimum .done {
       overflow: visible;
-      width: 20px;
-      height: 45px;
-      background-color: #bccdd8; }
-    .project-show .project-support .meter .graph .minimum {
-      overflow: visible;
-      position: relative;
-      width: 20px;
-      min-height: 145px !important;
-      background-color: #dc940f; }
-      .project-show .project-support .meter .graph .minimum .done {
-        overflow: visible;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        max-height: 212px;
-        background-color: #c5da4d; }
-        .project-show .project-support .meter .graph .minimum .done strong {
-          display: block;
-          width: 30px;
-          margin-left: -23px;
-          margin-top: -12px;
-          color: #000;
-          font-size: 12px;
-          font-weight: 300;
-          line-height: 20px;
-          text-align: center;
-          background: url(/view/images/project/widget/support/support_marker.png) no-repeat center center; }
-  .project-show .project-support .meter dl {
-    float: right;
-    width: 250px;
-    margin: 0 0 40px;
-    padding-left: 0;
-    font-size: 16px;
-    letter-spacing: -.4em; }
-    .project-show .project-support .meter dl dt, .project-show .project-support .meter dl dd {
-      display: inline-block;
-      letter-spacing: normal;
-      vertical-align: baseline; }
-    .project-show .project-support .meter dl dt {
-      width: 82px;
-      margin: 0 0 8px 30px;
-      font-size: 12px;
-      background: no-repeat left center; }
-    .project-show .project-support .meter dl dd {
-      width: 168px;
-      height: 20px;
-      margin: 0 0 8px 0;
-      padding-right: 0;
-      text-align: right;
-      line-height: 20px;
-      white-space: nowrap; }
-      .project-show .project-support .meter dl dd > * {
-        font-weight: 600;
-        word-wrap: break-word; }
-      .project-show .project-support .meter dl dd strong {
-        font-size: 18px; }
-      .project-show .project-support .meter dl dd span {
-        font-size: 16px; }
-    .project-show .project-support .meter dl dt.optimum, .project-show .project-support .meter dl dd.optimum {
-      color: #69c; }
-    .project-show .project-support .meter dl dt.minimum, .project-show .project-support .meter dl dd.minimum {
-      color: #c60; }
-    .project-show .project-support .meter dl dt.reached, .project-show .project-support .meter dl dd.reached {
-      margin-top: 16px; }
-    .project-show .project-support .meter dl dt.optimum, .project-show .project-support .meter dl dt.minimum {
-      margin-left: 10px;
-      width: 72px; }
-    .project-show .project-support .meter dl dd.optimum, .project-show .project-support .meter dl dd.minimum {
-      height: 40px;
-      line-height: 40px; }
-      .project-show .project-support .meter dl dd.optimum strong, .project-show .project-support .meter dl dd.minimum strong {
-        font-size: 30px;
-        font-weight: 400; }
-    .project-show .project-support .meter dl dd.reached {
-      width: 118px;
-      color: #903; }
-      .project-show .project-support .meter dl dd.reached strong {
-        font-weight: 700; }
-    .project-show .project-support .meter dl dd.days, .project-show .project-support .meter dl dd.supporters {
-      width: 118px; }
-      .project-show .project-support .meter dl dd.days strong, .project-show .project-support .meter dl dd.supporters strong {
-        color: #82656f; }
-  .project-show .project-support .buttons {
-    display: none; }
-.project-show .project-collaborations {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      max-height: 212px;
+      background-color: #c5da4d; }
+      .project-show .side .project-support .meter .graph .minimum .done strong {
+        display: block;
+        width: 30px;
+        margin-left: -23px;
+        margin-top: -12px;
+        color: #000;
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 20px;
+        text-align: center;
+        background: url(/view/images/project/widget/support/support_marker.png) no-repeat center center; }
+.project-show .side .project-support .meter dl {
+  float: right;
+  width: 250px;
+  margin: 0 0 40px;
+  padding-left: 0;
+  font-size: 16px;
+  letter-spacing: -.4em; }
+  .project-show .side .project-support .meter dl dt, .project-show .side .project-support .meter dl dd {
+    display: inline-block;
+    letter-spacing: normal;
+    vertical-align: baseline; }
+  .project-show .side .project-support .meter dl dt {
+    width: 82px;
+    margin: 0 0 8px 30px;
+    font-size: 12px;
+    background: no-repeat left center; }
+  .project-show .side .project-support .meter dl dd {
+    width: 168px;
+    height: 20px;
+    margin: 0 0 8px 0;
+    padding-right: 0;
+    text-align: right;
+    line-height: 20px;
+    white-space: nowrap; }
+    .project-show .side .project-support .meter dl dd > * {
+      font-weight: 600;
+      word-wrap: break-word; }
+    .project-show .side .project-support .meter dl dd strong {
+      font-size: 18px; }
+    .project-show .side .project-support .meter dl dd span {
+      font-size: 16px; }
+  .project-show .side .project-support .meter dl dt.optimum, .project-show .side .project-support .meter dl dd.optimum {
+    color: #69c; }
+  .project-show .side .project-support .meter dl dt.minimum, .project-show .side .project-support .meter dl dd.minimum {
+    color: #c60; }
+  .project-show .side .project-support .meter dl dt.reached, .project-show .side .project-support .meter dl dd.reached {
+    margin-top: 16px; }
+  .project-show .side .project-support .meter dl dt.optimum, .project-show .side .project-support .meter dl dt.minimum {
+    margin-left: 10px;
+    width: 72px; }
+  .project-show .side .project-support .meter dl dd.optimum, .project-show .side .project-support .meter dl dd.minimum {
+    height: 40px;
+    line-height: 40px; }
+    .project-show .side .project-support .meter dl dd.optimum strong, .project-show .side .project-support .meter dl dd.minimum strong {
+      font-size: 30px;
+      font-weight: 400; }
+  .project-show .side .project-support .meter dl dd.reached {
+    width: 118px;
+    color: #903; }
+    .project-show .side .project-support .meter dl dd.reached strong {
+      font-weight: 700; }
+  .project-show .side .project-support .meter dl dd.days, .project-show .side .project-support .meter dl dd.supporters {
+    width: 118px; }
+    .project-show .side .project-support .meter dl dd.days strong, .project-show .side .project-support .meter dl dd.supporters strong {
+      color: #82656f; }
+.project-show .side .project-support .buttons {
+  display: none; }
+.project-show .side .project-investors {
   margin-bottom: 10px;
-  padding: 0; }
-  .project-show .project-collaborations .project-widget-box {
-    padding: 0 20px;
-    margin: 0; }
-  .project-show .project-collaborations .supertitle {
-    background-color: #33cc99; }
-  .project-show .project-collaborations .title {
-    margin-bottom: 16px;
-    padding-left: 0;
-    background: none; }
-  .project-show .project-collaborations ul {
+  padding: 0;
+  background-color: #fff; }
+  .project-show .side .project-investors .supertitle {
+    background-color: #3c9; }
+  .project-show .side .project-investors .investors {
+    padding: 8px 20px 0; }
+  .project-show .side .project-investors ul {
     margin: 0;
     padding: 0;
     list-style: none; }
-    .project-show .project-collaborations ul li {
-      margin-bottom: 0; }
-      .project-show .project-collaborations ul li.task .name {
-        background-image: url("/view/images/icon/m/task.png"); }
-      .project-show .project-collaborations ul li.lend .name {
-        background-image: url("/view/images/icon/m/lend.png"); }
-      .project-show .project-collaborations ul li p {
-        margin: 0;
-        word-wrap: break-word; }
-  .project-show .project-collaborations .name {
-    display: table;
-    min-height: 32px;
-    margin: 0 0 16px;
-    padding-left: 42px;
-    font-size: 14px;
-    font-weight: 600;
-    vertical-align: middle;
-    background-repeat: no-repeat;
-    background-position: left top; }
-    .project-show .project-collaborations .name span {
-      display: table-cell;
-      line-height: 16px;
-      vertical-align: middle; }
+    .project-show .side .project-investors ul li {
+      border-bottom: 1px dashed #c0c0c0; }
+      .project-show .side .project-investors ul li:last-child {
+        border-bottom: none; }
+  .project-show .side .project-investors .supporterContainer {
+    position: relative;
+    height: 80px;
+    padding: 10px 10px 10px 60px; }
+  .project-show .side .project-investors a.expand {
+    display: none; }
+  .project-show .side .project-investors .supporter .avatar {
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 43px;
+    height: 43px;
+    background-color: #fff; }
+  .project-show .side .project-investors .supporter h4 {
+    overflow: hidden;
+    height: 14px;
+    margin: 0 0 .5em;
+    font-size: 12px;
+    font-weight: 300; }
+  .project-show .side .project-investors .supporter dl {
+    margin: 0;
+    font-size: 12px; }
+  .project-show .side .project-investors .supporter dt.date {
+    display: none; }
+  .project-show .side .project-investors .supporter dd.date {
+    position: absolute;
+    bottom: 4px;
+    right: 16px;
+    margin-top: 5px;
+    color: #a6a8ab;
+    font-size: 12px; }
 .project-show .project-rewards {
   margin-bottom: 10px;
   padding: 0; }
@@ -991,10 +972,11 @@ input.edit[type="submit"] {
     padding: 0;
     list-style: none; }
     .project-show .project-rewards ul li {
-      margin-bottom: 0;
-      padding: 0;
+      margin-bottom: 20px;
+      padding: 0 0 10px;
       border-bottom: 1px dashed #c0c0c0; }
       .project-show .project-rewards ul li:last-child {
+        margin-bottom: 0;
         border-bottom: none; }
       .project-show .project-rewards ul li p {
         margin: 0 0 16px; }
@@ -1227,6 +1209,492 @@ input.edit[type="submit"] {
     font-size: 12px;
     font-weight: 400;
     line-height: 30px; }
+.project-show .center.home .project-media {
+  padding: 0; }
+  .project-show .center.home .project-media iframe {
+    width: 620px;
+    height: 380px; }
+.project-show .center.home .project-summary {
+  border-bottom: 1px dashed #c0c0c0; }
+  .project-show .center.home .project-summary > div {
+    font-size: 14px;
+    margin-bottom: 28px; }
+  .project-show .center.home .project-summary h3 {
+    margin: 0 0 1em;
+    font-size: 20px;
+    font-weight: 300; }
+  .project-show .center.home .project-summary .gallery-image {
+    text-align: center; }
+    .project-show .center.home .project-summary .gallery-image img {
+      width: 540px; }
+.project-show .center.home .project-share {
+  padding: 15px 20px 20px; }
+  .project-show .center.home .project-share .title {
+    border: none; }
+  .project-show .center.home .project-share .left, .project-show .center.home .project-share .right {
+    float: left; }
+  .project-show .center.home .project-share .left {
+    width: 68%; }
+  .project-show .center.home .project-share .right {
+    width: 32%; }
+  .project-show .center.home .project-share h4 {
+    margin: 0 0 6px;
+    font-weight: 600; }
+  .project-show .center.home .project-share ul {
+    overflow: visible;
+    position: relative;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+    list-style: none outside none; }
+  .project-show .center.home .project-share li {
+    display: block;
+    float: left;
+    min-height: 2em;
+    min-width: 20%;
+    padding-left: 30px;
+    line-height: 2em;
+    background: no-repeat left center; }
+    .project-show .center.home .project-share li a {
+      text-decoration: none; }
+    .project-show .center.home .project-share li.twitter {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: url(/view/images/social/twitter.png); }
+    .project-show .center.home .project-share li.facebook {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      background-image: url(/view/images/social/facebook.png); }
+    .project-show .center.home .project-share li.url {
+      position: absolute;
+      top: 0;
+      left: 100px;
+      background-image: url(/view/images/social/url.png); }
+      .project-show .center.home .project-share li.url input {
+        width: 265px; }
+    .project-show .center.home .project-share li.proyecto {
+      width: 176px;
+      height: 24px;
+      margin: 2px 0 2px 5px;
+      padding-left: 26px;
+      font-size: 12px;
+      line-height: 24px;
+      text-align: left;
+      background-color: #555;
+      background-image: url(/view/images/project/widget/proyecto.jpg);
+      border-radius: 3px; }
+      .project-show .center.home .project-share li.proyecto a {
+        color: #fff; }
+        .project-show .center.home .project-share li.proyecto a#a-proyecto:link {
+          font-size: 12px; }
+    .project-show .center.home .project-share li.google {
+      background-image: url(/view/images/social/google.png); }
+    .project-show .center.home .project-share li.identica {
+      background-image: url(/view/images/social/identica.png); }
+    .project-show .center.home .project-share li.embed {
+      background-image: url(/view/images/social/embed.png); }
+    .project-show .center.home .project-share li.url span, .project-show .center.home .project-share li.embed span {
+      display: none; }
+    .project-show .center.home .project-share li.url input, .project-show .center.home .project-share li.url input:focus, .project-show .center.home .project-share li.embed input, .project-show .center.home .project-share li.embed input:focus {
+      -moz-border-radius: .2em;
+      background-color: #e6e6e6 !important;
+      border: none;
+      border-radius: .25em;
+      font-size: inherit;
+      font-weight: 300;
+      height: 24px;
+      padding: 0 .4em;
+      width: 240px; }
+.project-show .center.needs .project-needs #legend {
+  position: absolute;
+  top: 30px;
+  left: 320px;
+  margin-left: 26px;
+  font-size: 12px; }
+  .project-show .center.needs .project-needs #legend .min, .project-show .center.needs .project-needs #legend .max {
+    line-height: 20px; }
+    .project-show .center.needs .project-needs #legend .min span, .project-show .center.needs .project-needs #legend .max span {
+      display: block;
+      float: left;
+      width: 16px;
+      height: 16px;
+      margin-right: 5px; }
+  .project-show .center.needs .project-needs #legend .min span {
+    background: #e3eadc;
+    border: #999 1px solid; }
+  .project-show .center.needs .project-needs #legend .max {
+    line-height: 20px; }
+    .project-show .center.needs .project-needs #legend .max span {
+      background: #F2F2F2;
+      border: #C1C1C1 1px solid; }
+.project-show .center.needs .project-needs table {
+  border-collapse: collapse; }
+  .project-show .center.needs .project-needs table thead th.summary {
+    padding: 16px 8px 16px 40px; }
+  .project-show .center.needs .project-needs table thead.material th.summary {
+    background-image: url(/view/images/icon/m/material.png); }
+  .project-show .center.needs .project-needs table thead.task th.summary {
+    background-image: url(/view/images/icon/m/task.png); }
+  .project-show .center.needs .project-needs table thead th {
+    min-height: 32px;
+    padding-bottom: 16px;
+    padding-left: 40px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-repeat: no-repeat;
+    background-position: left 50%; }
+  .project-show .center.needs .project-needs table tbody {
+    background: #e3eadc;
+    border-bottom: #C1C1C1 2px solid;
+    border-top: #C1C1C1 2px solid; }
+  .project-show .center.needs .project-needs table tr.req {
+    background: #e3eadc;
+    border-bottom: 1px dashed #C1C1C1; }
+  .project-show .center.needs .project-needs table th {
+    padding: 16px .5em;
+    border-bottom: 1px dashed #C1C1C1; }
+    .project-show .center.needs .project-needs table th.summary {
+      width: 386px;
+      text-align: left; }
+      .project-show .center.needs .project-needs table th.summary .click {
+        margin-left: 5px; }
+        .project-show .center.needs .project-needs table th.summary .click span {
+          cursor: pointer;
+          display: block;
+          float: left;
+          max-width: 360px; }
+        .project-show .center.needs .project-needs table th.summary .click .icon {
+          clear: left;
+          position: relative;
+          right: 5px;
+          top: 3px;
+          width: 16px;
+          height: 15px;
+          font-size: 14px;
+          padding-bottom: 8px;
+          background: url(/view/images/project/widget/minusplus.png) 0 16px; }
+          .project-show .center.needs .project-needs table th.summary .click .icon.closed {
+            background: url(/view/images/project/widget/minusplus.png) 0 -1px; }
+    .project-show .center.needs .project-needs table th.min {
+      width: 140px;
+      padding: 16px 7px 10px;
+      color: #c60;
+      vertical-align: bottom;
+      font-size: 14px;
+      word-wrap: break-word; }
+    .project-show .center.needs .project-needs table th.max {
+      width: 110px;
+      padding: 16px 7px 10px;
+      color: #69c;
+      vertical-align: bottom;
+      font-size: 14px;
+      word-wrap: break-word; }
+  .project-show .center.needs .project-needs table td.min {
+    width: 90px;
+    color: #c90;
+    font-size: 14px;
+    word-wrap: break-word; }
+  .project-show .center.needs .project-needs table td.max {
+    width: 90px;
+    padding-right: 20px;
+    font-size: 14px;
+    word-wrap: break-word; }
+.project-show .center.needs .project-needs table thead + tbody + thead th.min, .project-show .center.needs .project-needs table thead + tbody + thead th.max {
+  font-size: 0; }
+.project-show .center.supporters .project-supporters {
+  padding: 0;
+  background: none; }
+  .project-show .center.supporters .project-supporters .title {
+    display: none; }
+  .project-show .center.supporters .project-supporters .summary {
+    overflow: hidden;
+    margin: 0 0 20px;
+    padding: 20px;
+    background-color: #fff; }
+    .project-show .center.supporters .project-supporters .summary dt {
+      float: left;
+      margin: 0;
+      font-size: 12px; }
+      .project-show .center.supporters .project-supporters .summary dt.reached {
+        color: #663;
+        margin-top: -1.5em; }
+    .project-show .center.supporters .project-supporters .summary dd {
+      float: left;
+      margin: 0;
+      font-size: 28px;
+      font-weight: 600; }
+      .project-show .center.supporters .project-supporters .summary dd.supporters {
+        clear: left; }
+      .project-show .center.supporters .project-supporters .summary dd.reached {
+        color: #903; }
+    .project-show .center.supporters .project-supporters .summary .supporters {
+      width: 50%; }
+  .project-show .center.supporters .project-supporters .supporters {
+    background-color: #fff; }
+    .project-show .center.supporters .project-supporters .supporters > ul {
+      overflow: hidden;
+      margin: -20px 0 0;
+      padding: 0;
+      border-top: 1px dashed #C1C1C1;
+      list-style: none; }
+      .project-show .center.supporters .project-supporters .supporters > ul > li {
+        float: left;
+        width: 206px;
+        height: 90px;
+        border-right: 1px dashed #C1C1C1;
+        border-bottom: 1px dashed #C1C1C1; }
+        .project-show .center.supporters .project-supporters .supporters > ul > li:nth-child(3n+3) {
+          width: 207px;
+          border-right: none; }
+        .project-show .center.supporters .project-supporters .supporters > ul > li.active {
+          background-color: #f3f3f3; }
+          .project-show .center.supporters .project-supporters .supporters > ul > li.active h4 {
+            color: #20B3B2; }
+    .project-show .center.supporters .project-supporters .supporters .supporterContainer {
+      position: relative;
+      padding: 10px 10px 10px 65px; }
+    .project-show .center.supporters .project-supporters .supporters a.expand {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 999;
+      text-decoration: none; }
+    .project-show .center.supporters .project-supporters .supporters .supporter .avatar {
+      display: block;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 43px;
+      height: 43px;
+      background-color: #fff; }
+    .project-show .center.supporters .project-supporters .supporters .supporter h4 {
+      position: relative;
+      overflow: hidden;
+      margin: 0 0 .5em;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.15; }
+    .project-show .center.supporters .project-supporters .supporters .supporter dl {
+      margin: 0;
+      font-size: 12px; }
+    .project-show .center.supporters .project-supporters .supporters .supporter dt.date {
+      display: none; }
+    .project-show .center.supporters .project-supporters .supporters .supporter dd.date {
+      position: absolute;
+      bottom: 4px;
+      right: 16px;
+      margin-top: 5px;
+      color: #a6a8ab;
+      font-size: 12px; }
+  .project-show .center.supporters .project-supporters #pagination {
+    clear: both;
+    margin: 10px 0 0; }
+    .project-show .center.supporters .project-supporters #pagination li {
+      display: inline;
+      float: left;
+      width: auto;
+      margin: 0 6px 0 0;
+      background: white;
+      text-align: center;
+      -moz-box-shadow: 3px 3px 0 #E2E2E2;
+      -webkit-box-shadow: 3px 3px 0 #E2E2E2;
+      box-shadow: 3px 3px 0 #E2E2E2; }
+      .project-show .center.supporters .project-supporters #pagination li.selected {
+        padding: 6px 20px;
+        font-weight: bold;
+        background: #cde4e5; }
+      .project-show .center.supporters .project-supporters #pagination li a {
+        display: block;
+        padding: 6px 20px;
+        text-decoration: none;
+        font-weight: bold; }
+.project-show .center.messages .project-collaborations {
+  margin-bottom: 10px;
+  padding: 0; }
+  .project-show .center.messages .project-collaborations .project-widget-box {
+    padding: 15px 20px;
+    margin: 0; }
+  .project-show .center.messages .project-collaborations .title {
+    margin-bottom: 20px; }
+  .project-show .center.messages .project-collaborations .supertitle {
+    background-color: #33cc99; }
+  .project-show .center.messages .project-collaborations ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    .project-show .center.messages .project-collaborations ul li {
+      min-height: 32px;
+      margin: 20px 0 0;
+      padding: 0 0 20px 55px;
+      line-height: 1em;
+      background-repeat: no-repeat;
+      background-position: left top; }
+      .project-show .center.messages .project-collaborations ul li.task {
+        background-image: url(/view/images/icon/m/task.png);
+        border-bottom: 1px dashed #c0c0c0; }
+        .project-show .center.messages .project-collaborations ul li.task strong {
+          display: block;
+          padding-bottom: 8px; }
+      .project-show .center.messages .project-collaborations ul li.lend {
+        background-image: url(/view/images/icon/m/lend.png); }
+      .project-show .center.messages .project-collaborations ul li p {
+        margin: 0;
+        word-wrap: break-word;
+        line-height: 20px; }
+.project-show .center.messages .project-messages {
+  padding-bottom: 20px; }
+  .project-show .center.messages .project-messages #project-messages > div:not(:first-child) {
+    margin-top: 20px; }
+  .project-show .center.messages .project-messages .message {
+    background: #e7e7e7 url(/view/images/message/beak/1.png) no-repeat left top;
+    margin-left: 60px;
+    overflow: visible;
+    padding: .8em 1em .5em 1.5em;
+    position: relative; }
+  .project-show .center.messages .project-messages .owner {
+    word-wrap: break-word;
+    background: #e9f4ea url(/view/images/message/beak/2.png) no-repeat left top; }
+  .project-show .center.messages .project-messages .child {
+    overflow: visible;
+    position: relative;
+    margin-left: 130px;
+    padding: .8em 1em .8em 1.5em;
+    word-break: normal;
+    word-wrap: break-word;
+    background: #e7e7e7 url(/view/images/message/beak/1.png) no-repeat left top; }
+  .project-show .center.messages .project-messages .avatar {
+    display: block;
+    height: 50px;
+    left: -60px;
+    position: absolute;
+    top: 0;
+    width: 50px; }
+  .project-show .center.messages .project-messages .user {
+    float: left;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 1em;
+    text-transform: none; }
+    .project-show .center.messages .project-messages .user a {
+      text-decoration: none; }
+  .project-show .center.messages .project-messages .date {
+    color: gray;
+    float: right;
+    font-size: 12px; }
+  .project-show .center.messages .project-messages blockquote {
+    clear: both;
+    margin: 0;
+    padding: 0; }
+.project-show .center.updates .project-updates .post {
+  line-height: 18px;
+  margin-bottom: 20px; }
+  .project-show .center.updates .project-updates .post h4 a {
+    margin: 0 0 5px;
+    color: #535353;
+    font-size: 16px;
+    font-weight: bolder;
+    text-decoration: none; }
+  .project-show .center.updates .project-updates .post .date {
+    display: block;
+    margin-top: 10px;
+    color: #808285;
+    font-size: 12px; }
+  .project-show .center.updates .project-updates .post .post-gallery {
+    margin-bottom: 30px; }
+    .project-show .center.updates .project-updates .post .post-gallery a.prev {
+      background: url(/view/images/small_arrowslider-sprt.png) scroll no-repeat 0 0; }
+    .project-show .center.updates .project-updates .post .post-gallery a.next {
+      background: url(/view/images/small_arrowslider-sprt.png) scroll no-repeat 0 -16px; }
+    .project-show .center.updates .project-updates .post .post-gallery .slderpag {
+      float: left;
+      height: auto;
+      margin: 8px 0 0;
+      padding: 0;
+      list-style: none; }
+      .project-show .center.updates .project-updates .post .post-gallery .slderpag li {
+        cursor: pointer;
+        overflow: hidden;
+        display: block;
+        float: left;
+        margin: 0 4px 5px; }
+        .project-show .center.updates .project-updates .post .post-gallery .slderpag li.current a {
+          color: #808184;
+          background-color: #808184; }
+        .project-show .center.updates .project-updates .post .post-gallery .slderpag li a {
+          background-color: #cdcdce;
+          color: #cdcdce;
+          display: block;
+          height: 12px;
+          margin-top: 2px;
+          width: 12px; }
+  .project-show .center.updates .project-updates .post .post-gallery-container {
+    display: none;
+    height: 300px;
+    width: 580px; }
+  .project-show .center.updates .project-updates .post .gallery-image {
+    padding: 18px 0;
+    text-align: left; }
+  .project-show .center.updates .project-updates .post blockquote {
+    margin: 8px 0 16px;
+    padding: 0 0 8px;
+    color: #58595B;
+    font-size: 12px;
+    line-height: 18px;
+    border-bottom: 1px solid #CABCBF; }
+  .project-show .center.updates .project-updates .post .read_more {
+    margin-top: 16px;
+    text-align: right; }
+    .project-show .center.updates .project-updates .post .read_more a {
+      font-size: 12px;
+      text-decoration: none; }
+  .project-show .center.updates .project-updates .post .post_nav {
+    padding: 0;
+    margin: 0; }
+    .project-show .center.updates .project-updates .post .post_nav .prev {
+      float: left; }
+    .project-show .center.updates .project-updates .post .post_nav .next {
+      float: right; }
+  .project-show .center.updates .project-updates .post .share-goteo {
+    float: right;
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    .project-show .center.updates .project-updates .post .share-goteo li {
+      display: inline;
+      float: left;
+      margin: 0 0 0 10px; }
+      .project-show .center.updates .project-updates .post .share-goteo li.twitter a {
+        background: transparent url(/view/images/twitter.png) scroll no-repeat 0 0;
+        color: #13c2ec;
+        text-decoration: none; }
+      .project-show .center.updates .project-updates .post .share-goteo li.facebook a {
+        background: transparent url(/view/images/facebook.png) scroll no-repeat 0 0;
+        color: #4a6393;
+        text-decoration: none; }
+  .project-show .center.updates .project-updates .post .comments-num {
+    float: left;
+    height: 24px;
+    margin: 0;
+    padding: 0 0 0 26px;
+    line-height: 24px;
+    background: transparent url(/view/images/ico-blogcomment.png) scroll no-repeat 0 0; }
+    .project-show .center.updates .project-updates .post .comments-num a {
+      color: #00ad4e;
+      text-decoration: none; }
+.project-show .center.evaluation .project-evaluation {
+  /*.post {
+    background-color:#fff;
+  }*/ }
+  .project-show .center.evaluation .project-evaluation h3.title {
+    margin: 0;
+    padding: 0 20px;
+    font-size: 18px;
+    font-weight: bolder; }
 
 .meter {
   padding-top: 16px; }
