@@ -37,6 +37,7 @@ namespace Goteo\Controller\Admin {
                 'root',
                 'project_owner',
                 'skillmatching_owner',
+                'localadmin',
                 'user'
             );
 
