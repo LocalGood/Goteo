@@ -39,7 +39,7 @@ echo new View('view/project/widget/video.html.php', array('project' => $project)
     <h<?php echo $level ?>><?php echo htmlspecialchars($project->name) ?></h<?php echo $level ?>>
 
     <?php
-    if ( strtotime($project->created) >= strtotime(LG_DATE_NEW_PROJ_FORMAT) && isset($project->gallery[0] )) {
+    if ( isset($project->gallery[0] )) {
         echo new View('view/project/widget/gallery.html.php', array('project' => $project, 'index' => 0));
     }
     ?>
@@ -51,13 +51,8 @@ echo new View('view/project/widget/video.html.php', array('project' => $project)
     <?php endif ?>
 
     <?php
-    // 旧ギャラリー互換
-    if ( strtotime($project->created) < strtotime(LG_DATE_NEW_PROJ_FORMAT) ){
-        echo new View('view/project/widget/gallery.html.php', array('project' => $project));
-    } else {
-        if (isset($project->gallery[1])){
-            echo new View('view/project/widget/gallery.html.php', array('project' => $project, 'index' => 1));
-        }
+    if (isset($project->gallery[1])){
+        echo new View('view/project/widget/gallery.html.php', array('project' => $project, 'index' => 1));
     }
     ?>
 
@@ -68,7 +63,7 @@ echo new View('view/project/widget/video.html.php', array('project' => $project)
     <?php endif ?>
 
     <?php
-    if (strtotime($project->created) >= strtotime(LG_DATE_NEW_PROJ_FORMAT) && isset($project->gallery[2])){
+    if (isset($project->gallery[2])){
         echo new View('view/project/widget/gallery.html.php', array('project' => $project, 'index' => 2));
     }
     ?>
