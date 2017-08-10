@@ -280,6 +280,18 @@ CREATE TABLE `criteria_lang` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `evaluation`
+--
+
+CREATE TABLE `evaluation` (
+  `project` varchar(50) NOT NULL,
+  `content` varchar(2) NOT NULL,
+  UNIQUE KEY `page` (`project`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `faq`
 --
 
@@ -376,7 +388,7 @@ CREATE TABLE `glossary_lang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
-
+/* 未使用？ */
 --
 -- Estructura de tabla para la tabla `home`
 --
@@ -599,6 +611,7 @@ CREATE TABLE `invest` (
   `amount` int(6) NOT NULL,
   `status` int(1) NOT NULL COMMENT '-1 en proceso, 0 pendiente, 1 cobrado, 2 devuelto, 3 pagado al proyecto',
   `anonymous` tinyint(1) DEFAULT NULL,
+  `disp_name` varchar(255) DEFAULT NULL,
   `resign` tinyint(1) DEFAULT NULL,
   `invested` date DEFAULT NULL,
   `charged` date DEFAULT NULL,
@@ -1023,7 +1036,7 @@ CREATE TABLE `project` (
   `id` varchar(50) NOT NULL,
   `name` tinytext,
   `subtitle` tinytext,
-  `lang` varchar(2) DEFAULT 'es',
+  `lang` varchar(2) DEFAULT 'ja',
   `status` int(1) NOT NULL,
   `translate` int(1) NOT NULL DEFAULT '0',
   `progress` int(3) NOT NULL,
@@ -1037,6 +1050,8 @@ CREATE TABLE `project` (
   `success` date DEFAULT NULL,
   `closed` date DEFAULT NULL,
   `passed` date DEFAULT NULL,
+  `period_1r` int(3) NOT NULL DEFAULT '0',
+  `period_2r` int(3) NOT NULL DEFAULT '0',
   `contract_name` varchar(255) DEFAULT NULL,
   `contract_nif` varchar(15) DEFAULT NULL COMMENT 'Guardar sin espacios ni puntos ni guiones',
   `phone` varchar(20) DEFAULT NULL COMMENT 'guardar talcual',
@@ -1047,6 +1062,8 @@ CREATE TABLE `project` (
   `country` varchar(50) DEFAULT NULL,
   `image` varchar(256) DEFAULT NULL,
   `description` text,
+  `description_1` text,
+  `description_2` text,
   `motivation` text,
   `video` varchar(256) DEFAULT NULL,
   `video_usubs` int(1) NOT NULL DEFAULT '0',
@@ -1073,6 +1090,7 @@ CREATE TABLE `project` (
   `post_zipcode` varchar(10) DEFAULT NULL,
   `post_location` varchar(255) DEFAULT NULL,
   `post_country` varchar(50) DEFAULT NULL,
+  `evaluation` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `owner` (`owner`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Proyectos de la plataforma';
@@ -1110,7 +1128,7 @@ CREATE TABLE `project_category` (
 --
 -- Estructura de tabla para la tabla `project_image`
 --
-
+/*
 CREATE TABLE `project_image` (
   `project` varchar(50) NOT NULL,
   `image` int(10) unsigned NOT NULL,
@@ -1119,7 +1137,7 @@ CREATE TABLE `project_image` (
   `order` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`project`,`image`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+*/
 -- --------------------------------------------------------
 
 --
@@ -1140,6 +1158,17 @@ CREATE TABLE `project_lang` (
   `media` varchar(255) DEFAULT NULL,
   `subtitle` tinytext,
   UNIQUE KEY `id_lang` (`id`,`lang`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `project_skill`
+--
+CREATE TABLE `project_skill` (
+  `project` varchar(50) NOT NULL,
+  `skill` int(12) NOT NULL,
+  UNIQUE KEY `project_skill` (`project`,`skill`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -1250,6 +1279,7 @@ CREATE TABLE `reward` (
   `description` text,
   `type` varchar(50) DEFAULT NULL,
   `icon` varchar(50) DEFAULT NULL,
+  `image` varchar(256) DEFAULT NULL,
   `other` tinytext COMMENT 'Otro tipo de recompensa',
   `license` varchar(50) DEFAULT NULL,
   `amount` int(5) DEFAULT NULL,
@@ -1297,6 +1327,104 @@ INSERT INTO `role` VALUES('root', 'ROOT');
 INSERT INTO `role` VALUES('superadmin', 'Super administrador');
 INSERT INTO `role` VALUES('translator', 'Traductor de contenidos');
 INSERT INTO `role` VALUES('user', 'Usuario mediocre');
+INSERT INTO `role` VALUES('localadmin', 'Local Administrator');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `skill`
+--
+
+CREATE TABLE `skill` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(50),
+  `description` text DEFAULT NULL,
+  `order` tinyint(3) UNSIGNED NOT NULL,
+  `parent_skill_id` bigint(20),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `skill`
+--
+
+CREATE TABLE `skill_lang` (
+  `id` bigint(20) NOT NULL,
+  `lang` varchar(2) NOT NULL,
+  `name` tinytext,
+  `description` text DEFAULT NULL,
+  UNIQUE KEY `id_lang` (`id`,`lang`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `skillmatching`
+--
+
+CREATE TABLE `skillmatching` (
+  `id` varchar(50) NOT NULL,
+  `name` tinytext,
+  `subtitle` tinytext,
+  `lang` varchar(2) DEFAULT 'ja',
+  `status` int(1) NOT NULL,
+  `translate` int(1) NOT NULL DEFAULT '0',
+  `progress` int(3) NOT NULL,
+  `owner` varchar(50) NOT NULL COMMENT 'usuario que lo ha creado',
+  `node` varchar(50) NOT NULL COMMENT 'nodo en el que se ha creado',
+  `amount` int(6) DEFAULT NULL COMMENT 'acumulado actualmente',
+  `days` int(3) NOT NULL DEFAULT '0' COMMENT 'Dias restantes',
+  `created` date DEFAULT NULL,
+  `updated` date DEFAULT NULL,
+  `published` date DEFAULT NULL,
+  `success` date DEFAULT NULL,
+  `closed` date DEFAULT NULL,
+  `passed` date DEFAULT NULL,
+  `period_1r` int(3) NOT NULL DEFAULT '0',
+  `period_2r` int(3) NOT NULL DEFAULT '0',
+  `contract_name` varchar(255) DEFAULT NULL,
+  `contract_nif` varchar(15) DEFAULT NULL COMMENT 'Guardar sin espacios ni puntos ni guiones',
+  `phone` varchar(20) DEFAULT NULL COMMENT 'guardar talcual',
+  `contract_email` varchar(255) DEFAULT NULL,
+  `address` tinytext,
+  `zipcode` varchar(10) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `country` varchar(50) DEFAULT NULL,
+  `image` varchar(256) DEFAULT NULL,
+  `description` text,
+  `motivation` text,
+  `video` varchar(256) DEFAULT NULL,
+  `video_usubs` int(1) NOT NULL DEFAULT '0',
+  `about` text,
+  `goal` text,
+  `related` text,
+  `reward` text,
+  `category` varchar(50) DEFAULT NULL,
+  `keywords` tinytext COMMENT 'Separadas por comas',
+  `media` varchar(256) DEFAULT NULL,
+  `media_usubs` int(1) NOT NULL DEFAULT '0',
+  `currently` int(1) DEFAULT NULL,
+  `project_location` varchar(256) DEFAULT NULL,
+  `scope` int(1) DEFAULT NULL COMMENT 'Ambito de alcance',
+  `resource` text,
+  `comment` text COMMENT 'Comentario para los admin',
+  `contract_entity` int(1) NOT NULL DEFAULT '0',
+  `contract_birthdate` date DEFAULT NULL,
+  `entity_office` varchar(255) DEFAULT NULL COMMENT 'Cargo del responsable',
+  `entity_name` varchar(255) DEFAULT NULL,
+  `entity_cif` varchar(10) DEFAULT NULL COMMENT 'Guardar sin espacios ni puntos ni guiones',
+  `post_address` tinytext,
+  `secondary_address` int(11) NOT NULL DEFAULT '0',
+  `post_zipcode` varchar(10) DEFAULT NULL,
+  `post_location` varchar(255) DEFAULT NULL,
+  `post_country` varchar(50) DEFAULT NULL,
+  `evaluation` text DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `owner` (`owner`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Proyectos de la plataforma';
 
 -- --------------------------------------------------------
 
@@ -1430,7 +1558,7 @@ CREATE TABLE `text` (
   `text` text NOT NULL,
   PRIMARY KEY (`id`,`lang`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Textos multi-idioma';
-
+/*
 -- --------------------------------------------------------
 
 --
@@ -1648,7 +1776,7 @@ CREATE TABLE `user_web` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Webs de los usuarios';
-
+*/
 -- --------------------------------------------------------
 
 --
