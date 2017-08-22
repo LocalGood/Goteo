@@ -1,0 +1,133 @@
+.community {
+
+  #main {
+    margin-top: 0;
+  }
+
+  .categorylist {
+    margin: 0 0 20px;
+    padding: 0;
+    h3.title {
+      background-color: #21b0b0;
+      border-bottom: 1px solid #21b0b0;
+      color: #f5f5f5;
+      font-size: 18px;
+      font-weight: 400;
+      margin: 0;
+      padding: .5em 2px .5em 20px;
+    }
+  }
+
+  .user-mates {
+    margin-bottom: 20px;
+    padding: 0;
+    overflow: hidden;
+    h3.title {
+      background-color: #666;
+      color: #f5f5f5;
+      font-size: 14px;
+      font-weight: 400;
+      margin: 0;
+      padding: 4px 0 4px 20px;
+    }
+    > h3.title {
+      border-bottom: 1px solid #908499;
+      border-top: 1px solid #808285;
+    }
+    a.more {
+      background-color: #fff;
+      border-top: 1px dashed silver;
+      display: block;
+      float: none;
+      font-size: 14px!important;
+      height: auto;
+      line-height: 1.5em;
+      margin: 0;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+    }
+  }
+
+  .users {
+    clear: both;
+    padding: 0;
+    ul {
+      background-color: #fff;
+      height: auto;
+      list-style: none;
+      margin: 0;
+      overflow: auto;
+      padding: 0;
+      li {
+        border: none;
+        border-right: 1px dashed silver;
+        border-top: 1px dashed silver;
+        float: left;
+        margin: -1px 0 0;
+        max-width: 319px!important;
+        overflow: hidden;
+        padding: 10px;
+        position: relative;
+        width: 319px!important;
+        &:nth-child(3n+3) {
+          border-right: none;
+        }
+        &.active {
+          background-color: #f3f3f3!important;
+          .user > h4 > a {
+            color: #19B4B2;
+          }
+        }
+        .user {
+          padding: 3px 6px 3px 57px;
+          position: relative;
+          > a.expand {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 99;
+          }
+          .avatar {
+            height: 50px;
+            left: 4px;
+            position: absolute;
+            text-align: center;
+            top: 8px;
+            width: 50px;
+          }
+          h4 {
+            margin-top: 4px;
+            a {
+              display: inline-block;
+              font-weight: 700;
+              height: 26px;
+            }
+          }
+        }
+        a {
+          font-size: 12px!important;
+          text-decoration: none;
+          text-transform: none!important;
+        }
+        .profile {
+          display: inline-block;
+          margin-right: 15px;
+          color: #20b3b2;
+        }
+        .invests {
+          color: #313b96;
+        }
+        .profile,
+        .contact {
+          display: block;
+          float: left;
+        }
+      }
+    }
+  }
+
+}
+

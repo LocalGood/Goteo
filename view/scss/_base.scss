@@ -1,14 +1,14 @@
 html {
+  font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif;
+  font-size: 14px;
   height: 100%;
   margin: 0;
   overflow: auto;
-  font-size: 14px;
-  font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif;
 }
 
 html, body {
-  padding: 0;
   background-color: #e7e7e7;
+  padding: 0;
 }
 
 iframe body {
@@ -16,9 +16,9 @@ iframe body {
 }
 
 body {
-  min-width: 780px;
-  min-height: 100%;
   margin: 0 auto;
+  min-height: 100%;
+  min-width: 780px;
   top: 0;
   position: relative;
 }
@@ -28,14 +28,14 @@ body {
 }
 
 body, td, th, a, a:link, a:visited, a:active, a:hover, input, textarea, button {
-  font-size: 14px;
   color: #58595b;
+  font-size: 14px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
-  text-transform: uppercase;
+  font-weight: 400;
   margin: 1em 0;
+  text-transform: uppercase;
 }
 
 img {
@@ -70,8 +70,8 @@ body.admin input[type="text"].readonly {
 }
 
 fieldset {
-  display: inline-block;
   background: transparent;
+  display: inline-block;
 }
 
 textarea {
@@ -88,16 +88,6 @@ input[type="submit"],
 input[type="reset"],
 button,
 a.button {
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
-  color: white;
-  display: inline-block;
-  text-decoration: none;
-  border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  margin: .8em 0 .5em;
   background: none;
   background: #66cc99;
   background: -moz-linear-gradient(top, #66cc99 0%, #339966 100%);
@@ -106,13 +96,23 @@ a.button {
   background: -o-linear-gradient(top, #66cc99 0%,#339966 100%);
   background: -ms-linear-gradient(top, #66cc99 0%,#339966 100%);
   background: linear-gradient(to bottom, #66cc99 0%,#339966 100%);
-  width: 200px;
-  height: 50px;
-  padding: 0;
-  line-height: 54px;
-  text-align: center;
+  border: none;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
   font-size: 16px;
   font-weight: bolder;
+  height: 50px;
+  line-height: 54px;
+  margin: .8em 0 .5em;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 200px;
 }
 
 input.red[type="submit"],
@@ -129,4 +129,23 @@ input.edit[type="submit"] {
   background: -ms-linear-gradient(top, #ea2f2c 0%,#b5161e 100%);
   background: linear-gradient(to bottom, #ea2f2c 0%,#b5161e 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea2f2c', endColorstr='#b5161e',GradientType=0 );
+}
+
+a.button.red,
+a.button,
+a.button.weak {
+  font-size:12px;
+  font-weight:400;
+  line-height:16px;
+  height:auto;
+  padding: .3em 1.2em;
+  width:auto;
+}
+
+input.green[type="submit"], input.green[type="reset"], button.green, a.button.green {
+  background: #00b05b url(button/green.png) repeat-x top;
+  color: white;
+  display: inline-block;
+  margin: 0 auto 10px;
+  text-align: center;
 }

@@ -1,0 +1,29 @@
+//todo:今のところプロジェクト作成(.project-edit)の#messageのつもりで書いている
+#message {
+  background: none repeat scroll 0 0 #ffa375;
+  color: #333333;
+  padding: 25px 0;
+  font-size: 14px;
+  width: 100%;
+  #message-content {
+    width: 960px;
+    margin: 0 auto;
+    position: relative;
+    input.message-close {
+      background: url(/view/images/message-close.png) no-repeat;
+      width: 11px;
+      height: 10px;
+      border: none;
+      position: absolute;
+      top: -8px;
+      right: 0;
+      z-index: 100;
+      cursor: pointer;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

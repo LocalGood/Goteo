@@ -1,0 +1,515 @@
+//todo:プロジェクト作成・編集画面に対するスタイルのみを記述する
+
+.project-edit {
+
+  #sub-header {
+    padding-bottom: 0;
+  }
+
+  .project-header {
+    position:relative;
+    top:10px;
+    max-width: 960px;
+    min-height: 75px;
+    margin: 0 auto;
+    img{
+      float: left;
+      margin: 0 20px 0 0;
+    }
+    h2{
+      max-width: 700px;
+      margin-top: 0;
+      font-size: 2rem;
+      > span{
+        display: block;
+        line-height: 1em;
+      }
+    }
+    .project-subtitle {
+      font-size: 1.1428571rem;
+      font-weight: normal;
+      margin: 3px 0;
+      max-width:620px;
+      font-style: normal;
+    }
+    .project-by {
+      color: #20B3B2;
+      font-size: 12px;
+      margin: 0 0 .5em;
+      a {
+        font-weight: normal;
+        color: #cc6600;
+        font-size: 12px;
+        text-decoration: none;
+        &:hover {
+          color: #58595B;
+        }
+      }
+    }
+    .categories {
+      position: absolute;
+      right: 10px;
+      text-align: right;
+      top: 0;
+      h3 {
+        color: #20B3B2;
+        font-size: 0.8571428rem;
+        font-weight: normal;
+        margin: 0;
+      }
+      a {
+        color: #58595B;
+        font-size: 12px;
+        text-decoration: none;
+        &:hover {
+          color: #20B3B2;
+        }
+      }
+    }
+  }
+
+  .status {
+    padding: 20px 0 30px;
+    color: #bcbdbd;
+    border-bottom: 3px solid #cfd0d2;
+    h3 {
+      margin: 0 0 .6em;
+      color: #9B9B9D;
+      font-size: 26px;
+      text-transform: uppercase;
+    }
+    #project-status {
+      display: table-cell;
+      width: 50%;
+      padding: 0 50px 0 30px;
+      ul {
+        margin: 0 0 0 6px;
+        padding: 0 0 0 16px;
+        font-size: 16px;
+        line-height: 1.5em;
+        list-style: none;
+        border-left: 1px solid #bcbcbd;
+      }
+      strong {
+        background: url(/view/images/project/statusmarker.png) no-repeat left center;
+        color: #58595b;
+        display: block;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 1.6em;
+        margin-left: -22px;
+        padding-left: 20px;
+        text-shadow: 1px 1px 0 rgba(0,0,0,.25);
+      }
+    }
+    #project-score {
+      border-left: 1px dashed #bcbdbf;
+      display: table-cell;
+      padding: 0 50px 0 30px;
+      width: 50%;
+      p {
+        color: #8A8B8C;
+        font-size: 12px;
+        margin-top: 0;
+        width: 80%;
+      }
+      .meter {
+        height: 117px;
+        margin-top: -2em;
+        position: relative;
+        width: 369px;
+        .done {
+          background: url(/view/images/project/scoremeter.png) no-repeat left top;
+          bottom: 0;
+          left: 0;
+          position: absolute;
+          top: 0;
+        }
+        .left {
+          background: url(/view/images/project/scoremeter.png) no-repeat right bottom;
+          bottom: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+    }
+  }
+  #project-steps {
+    clear:both;
+    font-size:0;
+    padding:30px 0 45px;
+    text-align:center;
+    fieldset {
+      border:0;
+      margin:0;
+      padding:0;
+      legend {
+        display:none;
+      }
+    }
+    .steps {
+      display:inline-block;
+    }
+    span.step {
+      background:#e7e7e7 no-repeat bottom center;
+      display:inline-block;
+      height:100%;
+      padding:0 1em;
+      position:relative;
+      &.first-off {
+        background-image:url(/view/images/project/edit/steps/line-first-off.png);
+      }
+      &.first-on {
+        background-image:url(/view/images/project/edit/steps/line-first-on.png);
+      }
+      &.on-on {
+        background-image:url(/view/images/project/edit/steps/line-on-on.png);
+      }
+      &.on-off {
+        background-image:url(/view/images/project/edit/steps/line-on-off.png);
+      }
+      &.on-last {
+        background-image:url(/view/images/project/edit/steps/line-on-off.png);
+      }
+      &.off-off {
+        background-image:url(/view/images/project/edit/steps/line-off-off.png);
+      }
+      &.off-on {
+        background-image:url(/view/images/project/edit/steps/line-off-on.png);
+      }
+      &.off-last {
+        background-image:url(/view/images/project/edit/steps/line-off-last.png);
+      }
+      > button {
+        background:url(/view/images/project/edit/steps/balloon-on.png) no-repeat bottom center;
+        border:none;
+        box-sizing: content-box;
+        color:#20b2b1;
+        font-size:12px;
+        font-weight:400;
+        height:100%;
+        margin:10px 15px 0;
+        max-width:150px;
+        min-width:46px;
+        padding:0 0 50px;
+        width: auto;
+      }
+      &.off > button {
+        background-image:url(/view/images/project/edit/steps/balloon-off.png);
+        color:#b2b2b2;
+      }
+      &.active > button {
+        background-image:url(/view/images/project/edit/steps/balloon-on-active.png);
+      }
+      &.off.active > button {
+        background-image:url(/view/images/project/edit/steps/balloon-off-active.png);
+      }
+      &.error > button {
+        background-image:url(/view/images/project/edit/steps/balloon-error.png);
+      }
+      &.error.active > button {
+        background-image:url(/view/images/project/edit/steps/balloon-error-active.png);
+      }
+      > button > strong.number {
+        bottom:0;
+        color:#FFF;
+        font-size:12px;
+        font-style:normal;
+        height:45px;
+        left:0;
+        line-height:45px;
+        position:absolute;
+        text-align:center;
+        width:100%;
+      }
+      &.active > button > strong.number {
+        font-size:18px;
+        font-weight:700;
+      }
+    }
+    fieldset fieldset {
+      border:1px solid #e13028;
+      border-top:none;
+      padding-bottom:8px;
+      position:relative;
+      span.step {
+        margin-left:-1px;
+      }
+      span.step + span.step {
+        margin-right:-1px;
+      }
+      > legend {
+        color:#e13028;
+        display:block;
+        font-size:12px;
+        left:0;
+        margin-top:1.4em;
+        position:absolute;
+        text-transform:uppercase;
+        top:100%;
+        width:100%;
+      }
+    }
+  }
+
+  .superform {
+    border: solid #0a0a0a;
+    border-width: 3px 0;
+    h3 {
+      font-size: 30px;
+    }
+    > .hint {
+      color: #7f8183;
+      overflow: hidden;
+      blockquote {
+        margin-bottom: 0;
+      }
+    }
+
+    ol {
+      li {
+        &.element {
+          &#footer {
+            background-color: #e7e7e7;
+            border-top: 3px solid #0a0a0a;
+            margin: 46px -5px 0 0;
+            overflow: hidden;
+            padding: 20px;
+            position: relative;
+            z-index: 900;
+            ol {
+              border: none;
+              margin: 0;
+              padding: 0;
+              li {
+                border: none;
+                margin: 0;
+                padding: 0;
+                &#errors {
+                  float: left;
+                  width: 70%;
+                }
+                &#buttons {
+                  clear:none;
+                  float:left;
+                  text-align:right;
+                  width:30%;
+                  input, button {
+                    -moz-box-shadow:2px 2px 0 rgba(0,0,0,.2);
+                    -webkit-box-shadow:2px 2px 0 rgba(0,0,0,.2);
+                    box-shadow:2px 2px 0 rgba(0,0,0,.2);
+                    padding:8px 16px;
+                  }
+                }
+              }
+            }
+          }
+          .contents input {
+            font-size: 12px;
+            font-weight: 400;
+            height: auto;
+            line-height: 16px;
+            margin-top: 0;
+            width: auto;
+            &.inline {
+              margin: 0 0 2em;
+            }
+          }
+          div.project-share li.url input {
+            width:230px;
+          }
+          li.element.group div.contents input.next {
+            height:50px;
+            width:200px;
+          }
+        }
+        &.required h4.title {
+          padding: 20px 0 0;
+        }
+        .children {
+          .elements {
+            h5.title {
+              margin: 20px 0 0;
+            }
+          }
+        }
+      }
+    }
+    .hint blockquote {
+      border-right-width: 0;
+      margin-bottom: 10px;
+      padding-left: 20px;
+    }
+  }
+
+  div.preview .superform input.confirm,
+  div.preview .superform input.retry,
+  div.preview .superform input.next,
+  div.preview .superform input.confirm,
+  div.preview .superform input.retry {
+    padding:0;
+  }
+  /*.superform .elements li {
+    padding: 24px 2em 24px 0;
+  }*/
+  .superform div.hint blockquote {
+    padding-left:20px;
+  }
+
+  div.access .superform ol li.submit.save div.contents input,
+  div.updates .superform ol li.image_upload div.contents input,
+  div.updates .superform ol li.submit.media-upload div.contents input,
+  div.supports .superform ol li.submit.ok div.contents input {
+    padding:.3em 1.2em!important;
+  }
+
+  li#video-upload,
+  li#media-upload {
+    padding-bottom:0;
+    padding-top:0;
+  }
+
+  li#video_usubs,
+  li#media_usubs {
+    border-right:0;
+    left:80px;
+    margin-top:-28px;
+    padding-top:0;
+    position:relative;
+  }
+
+  li#media {
+    padding-bottom:10px;
+  }
+
+
+  .superform div.hint blockquote {
+    border-right-width:0;
+    margin-bottom:10px;
+    padding-left:20px;
+  }
+
+  div.elements {
+    ol {
+      li {
+        &#individual_rewards h4.title,
+        &.required h4.title {
+          padding:20px 0 0;
+        }
+        &#costs h4.title {
+          margin:20px 0;
+          padding:0;
+        }
+        &#social_rewards h4.title {
+          margin:20px 20px 20px 0;
+          padding:0;
+        }
+        &#skills.element.checkboxescustom div.contents {
+          padding:0 0 30px;
+        }
+        h6.title {
+          margin:10px 0;
+          padding:0;
+        }
+      }
+    }
+  }
+
+
+  div#main.userProfile .superform div.children div.elements {
+    margin:20px 0;
+  }
+
+  div#main.userProfile .superform div.children div.elements h5.title {
+    margin:20px 0 0;
+  }
+
+  div#main.overview {
+    .superform {
+      div.children div.elements ol li div.contents {
+        margin:0;
+        padding:0;
+      }
+      div.children div.elements li#video {
+        margin:0;
+        padding:0;
+      }
+      ol {
+        margin:0;
+        padding:0;
+        li.element {
+          div.contents {
+            textarea {
+              margin:0 0 10px;
+            }
+            input#video {
+              margin:0 0 10px;
+              padding:4px;
+            }
+            input#inline.media-upload {
+              padding:.3em 1.2em;
+            }
+            input#keywords {
+              margin:0;
+              padding:.4em;
+            }
+          }
+        }
+      }
+    }
+
+    div.elements ol li#name div.contents input#name,
+    div.elements ol li#subtitle div.contents input#subtitle {
+      margin:0;
+      padding:4px;
+    }
+  }
+
+  div#main.supports {
+    .superform {
+      .elements ol li#supports.element.group {
+        border:none;
+        margin:0 251px 20px 0;
+        padding:10px 0;
+      }
+      .elements ol li#supports.element.group h4 {
+        padding:0 0 0 20px;
+      }
+    }
+  }
+
+  &.js {
+    div#main.costs {
+      .superform {
+        div.elements {
+          ol {
+            li {
+              &#schedule div.contents {
+                margin:0;
+                h3.title {
+                  padding:0;
+                }
+                .widget.project-schedule {
+                  padding:20px;
+                }
+              }
+              &#social_rewards {
+                margin:0 251px 0 0;
+                padding:0 0 20px;
+                div.elements ol li.element li.element {
+                  border-right:none;
+                  margin:0 20px 20px 0;
+                }
+                div.elements ol li.element li.individual_rewards {
+                  margin:0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

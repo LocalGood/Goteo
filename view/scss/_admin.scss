@@ -12,24 +12,23 @@
   }
 
   #main {
-    display: flex;
     margin-bottom: 0;
     margin-top: 0;
   }
 
   .admin-center {
-    //margin-left: 0;
+    float: left;
     margin-right: 10px;
     width: 160px;
   }
 
   .admin-right {
+    float: right;
     width: 790px;
   }
 
   .admin-menu {
     margin: 0 10px 0 0;
-    //width: 100%;
     fieldset {
       border: none;
       margin-bottom: 10px;

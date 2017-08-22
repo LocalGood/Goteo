@@ -1,0 +1,657 @@
+.superform {
+
+  div.element {
+    position: relative;
+  }
+
+  li.element {
+    clear:both;
+    padding:0;
+    position:relative;
+    &:last-child {
+      padding-bottom:0;
+    }
+    &.hidden {
+      display:none;
+    }
+    &.textbox,
+    &.textarea {
+      > div.contents > input[type="text"],
+      > div.contents > input[type="password"],
+      > div.contents > textarea {
+        background-color:#eee;
+        border:1px solid #ccc;
+        box-sizing: content-box;
+        display:block;
+        margin:0;
+        max-width:99%;
+        min-height:27px;
+        min-width:99%;
+        width:99%;
+      }
+    }
+    &.fullwidth {
+      background-color:#e7e7e7!important;
+      border-bottom:1px dashed #b7c2c5!important;
+      border-right:none!important;
+      margin-bottom:-1px!important;
+      margin-right:-2px!important;
+      padding-left:0!important;
+      padding-right:0!important;
+      + li.element {
+        border-top:none;
+      }
+    }
+    li.element > div.feedback {
+      background:url(/view/images/superform/tooltip/beak/cyan/n.png) no-repeat 1em 0;
+      display:inline-block;
+      font-size:14px;
+      margin-top:1em;
+      padding-top:13px;
+      z-index:999;
+    }
+
+    li.element > div.feedback > div
+    {
+      -moz-border-radius:7px;
+      -moz-box-shadow:2px 3px 0 rgba(0,0,0,.2);
+      -webkit-border-radius:7px;
+      -webkit-box-shadow:2px 3px 0 rgba(0,0,0,.2);
+      background-color:#def1f1;
+      border-radius:7px;
+      box-shadow:2px 3px 0 rgba(0,0,0,.2);
+      color:#7f8183;
+      line-height:16px!important;
+      margin:0;
+      padding:20px;
+      position:relative;
+    }
+
+    > div.feedback {
+      > div {
+        + div {
+          margin-top:-10px;
+          padding-top:.5em;
+          z-index:9999;
+        }
+        blockquote
+        {
+          font-size:13px;
+          margin:0;
+          padding:0;
+        }
+        &.error {
+          + div.hint > blockquote {
+            border-top:1px dashed #b7c2C5;
+            padding-top:1em;
+          }
+          blockquote
+          {
+            background:url(/view/images/superform/feedback/error.png) no-repeat left .2em;
+            padding-left:30px;
+          }
+        }
+      }
+    }
+
+    .contents {
+      input.addinput[type="submit"],
+      input.removeinput[type="submit"],
+      input.editinput[type="submit"],
+      input.eraseinput[type="submit"],
+      input[type="submit"] {
+        width:auto;
+        height:auto;
+        font-size:12px;
+        font-weight:400;
+        line-height:16px;
+      }
+    }
+    > h4,
+    > h5,
+    > h6 {
+      font-size:14px;
+      margin:0 0 .5em;
+    }
+    > h4 {
+      font-size:20px;
+    }
+    > h4.title {
+      font-size:16px;
+    }
+    > label {
+      display:block;
+      font-weight:700;
+      margin:1em 0;
+      text-transform:uppercase;
+    }
+    > div.contents + div.children > div.elements > ol,
+    > div.contents + div.feedback + div.children > div.elements > ol {
+      margin-top:1em;
+    }
+    > * + div.contents {
+      margin-top:6px;
+    }
+  }
+
+  > div.elements {
+    overflow: visible;
+    position: relative;
+    div.elements > ol {
+      padding-left:2em;
+    }
+    > ol > li.element {
+      padding:0 2em 2em 0;
+      &.inline {
+        border-top:none;
+        padding:0 2em 2em 0;
+      }
+    }
+    li.element li.element.inline {
+      border-top:none;
+    }
+  }
+
+  div.elements {
+    > ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      > li {
+        .element {
+          border-right: 1px dashed #b7c2c5;
+          margin-right: 251px;
+          &.checkboxes,
+          &.checkboxescustom,
+          &.radios {
+            padding-bottom:0;
+          }
+          &.checkboxes > div.contents > ul,
+          &.checkboxescustom > div.contents > ul,
+          &.radios > div.contents > ul,
+          &.slider > div.contents > ul {
+            border-left:1px dashed #B7C2C5;
+            border-top:1px dashed #bcbdbf;
+            list-style:none;
+            margin:0;
+            overflow:hidden;
+            padding:0;
+          }
+          &.checkboxes > div.contents > ul > li,
+          &.checkboxescustom > div.contents > ul > li,
+          &.radios > div.contents > ul > li,
+          &.slider > div.contents > ul > li {
+            border-bottom:1px dashed #bcbdbf;
+            border-right:1px dashed #bcbdbf;
+            padding:0;
+          }
+          &.checkboxes.inline > div.contents > ul > li,
+          &.checkboxescustom.inline > div.contents > ul > li,
+          &.radios.inline > div.contents > ul > li,
+          &.slider.inline > div.contents > ul > li {
+            margin-bottom:0;
+          }
+          &.radio > div.contents > label,
+          &.checkboxes > div.contents > ul > li > label,
+          &.checkboxescustom > div.contents > ul > li > label,
+          &.radios > div.contents > ul > li > label,
+          &.slider > div.contents > ul > li > label {
+            cursor:pointer;
+            display:block;
+            padding:.8em 1em;
+            position:relative;
+          }
+          &.checkboxescustom > div.contents > ul > li > label {
+            padding-right:23px;
+            width:181px;
+          }
+          &.checkboxes.cols_1 > div.contents > ul > li,
+          &.checkboxescustom.cols_1 > div.contents > ul > li,
+          &.radios.cols_1 > div.contents > ul > li,
+          &.slider.cols_1 > div.contents > ul > li {
+            width:100%;
+          }
+          &.checkboxes.cols_2 > div.contents > ul > li,
+          &.checkboxescustom.cols_2 > div.contents > ul > li,
+          &.radios.cols_2 > div.contents > ul > li,
+          &.slider.cols_2 > div.contents > ul > li {
+            float:left;
+            width:49.8%;
+          }
+          &.checkboxes.cols_3 > div.contents > ul > li,
+          &.checkboxescustom.cols_3 > div.contents > ul > li,
+          &.radios.cols_3 > div.contents > ul > li,
+          &.slider.cols_3 > div.contents > ul > li {
+            float:left;
+            width:33.16%;
+          }
+          &.checkboxes.cols_4 > div.contents > ul > li,
+          &.checkboxescustom.cols_4 > div.contents > ul > li,
+          &.radios.cols_4 > div.contents > ul > li,
+          &.slider.cols_4 > div.contents > ul > li {
+            float:left;
+            width:24.8%;
+          }
+          &.checkboxes.cols_5 > div.contents > ul > li,
+          &.checkboxescustom.cols_5 > div.contents > ul > li,
+          &.radios.cols_5 > div.contents > ul > li,
+          &.slider.cols_5 > div.contents > ul > li {
+            width:20%;
+          }
+          &.checkboxes.cols_6 > div.contents > ul > li,
+          &.checkboxescustom.cols_6 > div.contents > ul > li,
+          &.radios.cols_6 > div.contents > ul > li,
+          &.slider.cols_6 > div.contents > ul > li {
+            width:16.66%;
+          }
+          &.radio > div.contents > label > input[type="radio"],
+          &.checkboxes > div.contents > ul > li > label > input[type="checkbox"],
+          &.checkboxescustom > div.contents > ul > li > label > input[type="checkbox"],
+          &.radios > div.contents > ul > li > label > input[type="radio"],
+          &.slider > div.contents > ul > li > label > input[type="radio"] {
+            cursor:pointer;
+            height:1em;
+            margin-top:-.5em;
+            position:absolute;
+            right:.5em;
+            top:50%;
+          }
+          &.radio {
+            padding:0!important;
+          }
+        }
+        div.element {
+          display:inline;
+        }
+        > div.contents + div.children > div.elements {
+          margin-top:1em;
+        }
+        &.required > .title {
+          background:url(/view/images/superform/badge/required.png) no-repeat right center;
+        }
+        &.ok > .title {
+          background:url(/view/images/superform/badge/ok.png) no-repeat right 80%;
+        }
+        &.error > .title {
+          background:url(/view/images/superform/badge/error.png) no-repeat right bottom!important;
+        }
+        &.busy > .title {
+          background:url(/view/images/superform/badge/busy/cyan.gif) no-repeat right center;
+        }
+      }
+    }
+    li.element {
+      &.textbox {
+        &.facebook > div.contents,
+        &.google > div.contents,
+        &.twitter > div.contents,
+        &.identica > div.contents,
+        &.linkedin > div.contents {
+          background-position:left center;
+          background-repeat:no-repeat;
+          padding-left:39px;
+        }
+        &.facebook > div.contents {
+          background-image:url(/view/images/superform/facebook.png);
+        }
+        &.google > div.contents {
+          background-image:url(/view/images/superform/google.png);
+        }
+        &.twitter > div.contents {
+          background-image:url(/view/images/superform/twitter.png);
+        }
+        &.identica > div.contents {
+          background-image:url(/view/images/superform/identica.png);
+        }
+        &.linkedin > div.contents {
+          background-image:url(/view/images/superform/linkedin.png);
+        }
+      }
+    }
+  }
+
+  fieldset {
+    border:1px solid #99a2a5;
+    legend {
+      color:#6d7375;
+    }
+  }
+
+  h3 {
+    font-size:30px;
+  }
+
+  > div.hint,
+  > div.elements {
+    overflow:visible;
+  }
+
+  > div.hint {
+    color:#7f8183;
+    overflow:hidden;
+    h4,
+    blockquote {
+      background-color:#fff;
+      border:dashed #b7c2c5;
+      border-width:1px 0 0;
+      margin:0;
+      padding:20px;
+      vertical-align:top;
+    }
+    h4 {
+      float:left;
+      font-size:30px;
+    }
+    blockquote {
+      border-right-width:1px;
+      border-top:none;
+      font-size:14px;
+      min-height:3em;
+      padding-left:0;
+      p {
+        margin:0;
+      }
+    }
+  }
+
+  ol #interests div.contents > ul {
+    border-left:1px dashed #B7C2C5;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  textarea {
+    background-color:#eee;
+    border:1px solid #ccc;
+    min-height:27px;
+  }
+
+  textarea {
+    min-height:6em;
+  }
+
+  &.aqua {
+    li.element {
+      > div.feedback {
+        background-image:url(/view/images/superform/tooltip/beak/aqua/n.png);
+        > div {
+          background-color:#35b8b8;
+          color:#FFF;
+          &.error + div.hint > blockquote {
+            border-top-color:#FFF;
+          }
+        }
+      }
+    }
+    div.elements > ol > li.busy > .title
+    {
+      background:url(/view/images/superform/badge/busy/aqua.gif) no-repeat right top;
+    }
+  }
+
+  &.red {
+    li.element {
+      > div.feedback {
+        background-image:url(/view/images/superform/tooltip/beak/red/n.png);
+        > div {
+          background-color:#e13028;
+          color:#FFF;
+          &.error + div.hint > blockquote {
+            border-top-color:#FFF;
+          }
+        }
+      }
+    }
+    input[type="text"],
+    input[type="password"],
+    textarea {
+      background-color:#fdedec;
+      border-color:#ee4843;
+    }
+    > div.hint h4,
+    > div.hint blockquote {
+      background-color:#fdedec;
+      color:#ee4843;
+    }
+    div.elements > ol > li.busy > .title {
+      background:url(/view/images/superform/badge/busy/red.gif) no-repeat right top;
+    }
+  }
+
+  &.green {
+    li.element {
+      > div.feedback {
+        background-image:url(/view/images/superform/tooltip/beak/green/n.png);
+        > div {
+          background-color:#00b05b;
+          color:#FFF;
+        }
+      }
+    }
+    input[type="text"],
+    input[type="password"],
+    textarea {
+      background-color:#e7f3e8;
+      border-color:#00b05b;
+    }
+    > div.hint h4,
+    > div.hint blockquote {
+      background-color:#e7f3e8;
+      color:#00b05b;
+    }
+    div.elements > ol > li.busy > .title {
+      background:url(/view/images/superform/badge/busy/green.gif) no-repeat right top;
+    }
+  }
+
+  input.edit[type="submit"],
+  input.remove[type="submit"],
+  input.add[type="submit"],
+  input.add[type="submit"],
+  input.ok[type="submit"],
+  a.button.red,
+  a.button,
+  a.button.weak {
+    font-size:16px;
+    font-weight:700;
+    padding:.3em 1.2em!important;
+  }
+
+  li#user_avatar li.avatar_upload input[type="submit"] {
+    padding:.3em 1.2em!important;
+  }
+
+  button {
+    &.image-remove {
+      background:url(/view/images/button/cross.png) no-repeat center center!important;
+      height:20px;
+      margin:0 10px 0 0 !important;
+      padding:0!important;
+      position:absolute;
+      right:5px;
+      top:-10px;
+      width:20px;
+      &:hover {
+        background:url(/view/images/button/cross-active.png) no-repeat center center!important;
+      }
+    }
+
+  }
+
+  input.next,input.confirm,input.retry {
+    font-size:15px;
+    padding:.6em 1.6em;
+  }
+
+  li#social_rewards h4.title,
+  li#individual_rewards h4.title,
+  li#supports h4.title,
+  li#costs h4.title {
+    padding-left:25px;
+  }
+
+  li.editcost li.required_cost-yes {
+    background-color:#e4c9e2!important;
+  }
+
+  li.cost.required_cost-no,
+  li.editcost.required_cost-no {
+    background-color:#f3f3f3!important;
+  }
+
+  li.editcost li.required_cost-no {
+    background-color:#e2e2e2!important;
+  }
+
+  li#gallery div.elements li.gallery-image {
+    display:inline-block!important;
+    margin:5px 25px!important;
+    width:153px!important;
+  }
+
+  li#scope,
+  li#supports,
+  li#social_rewards,
+  li#individual_rewards {
+    border-bottom:1px dashed #b7c2c5;
+  }
+
+  li.element div.contents input.addinput[type="submit"],
+  li.element div.contents input.removeinput[type="submit"],
+  li.element div.contents input.editinput[type="submit"],
+  li.element div.contents input.eraseinput[type="submit"],
+  li.element.avatar_upload div.contents input[type="submit"],
+  a.button.red,
+  a.button,
+  a.button.weak {
+    font-size:12px;
+    font-weight:400;
+    height:auto;
+    line-height:16px;
+    width:auto;
+  }
+
+  input.next {
+    font-size:15px;
+    padding:0;
+  }
+
+  li#social_rewards {
+    border-bottom:none;
+  }
+
+  li#individual_rewards {
+    border-bottom:none;
+  }
+}
+
+div#main.profile > div.elements > ol > li.element {
+  padding:30px 2em 22px 0;
+}
+
+body.js {
+  .superform {
+    .jshidden {
+      display:none;
+    }
+    > div.elements {
+      > ol {
+        > li.element {
+          border-right:1px dashed #b7c2c5;
+          margin-right:251px;
+          div.contents {
+            font-size:14px;
+          }
+          li.element {
+            border-right:none;
+            margin-right:0;
+          }
+        }
+      }
+      li.element {
+        .is_public {
+          float: right;
+          margin-right:54px;
+          &.non_required {
+            margin-right:0;
+          }
+        }
+        > div.feedback {
+          background:transparent url(/view/images/superform/tooltip/beak/cyan/w.png) no-repeat 0 1em;
+          display:none;
+          padding-left:13px;
+          padding-top:0;
+          position:absolute;
+          right:-250px;
+          top:-.5em;
+          width:250px;
+        }
+      }
+    }
+
+    &.aqua li.element > div.feedback {
+      background-image:url(/view/images/superform/tooltip/beak/aqua/w.png);
+    }
+    &.red li.element > div.feedback {
+      background-image:url(/view/images/superform/tooltip/beak/red/w.png);
+    }
+    &.green li.element > div.feedback {
+      background-image:url(/view/images/superform/tooltip/beak/green/w.png);
+    }
+
+    .is_public {
+      font-size: 12px;
+      background-color: #92c450;
+      padding: 2px 8px;
+      color: #ffffff;
+    }
+
+    div.children > div.elements > ol > li.element > div.feedback
+    {
+      left:100%;
+      margin-left:1em;
+      margin-top:0;
+    }
+
+    > div.elements ol li.element {
+      &.html div.contents {
+        font-size:14px;
+        margin:0 0 0 2em;
+      }
+      div.contents p {
+        font-size:14px;
+        margin:2em 0 .6em;
+        padding:0;
+      }
+    }
+  }
+
+  div#main.preview {
+    form.project {
+      .superform {
+        > div {
+          &.hint {
+            background:none;
+          }
+          &.elements {
+            > ol > li.element {
+              padding:0;
+              &.html div.contents {
+                margin-left:0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+div#main.overview .superform.aqua #image_upload input[type="submit"],
+div#main.overview .superform.aqua #video-upload input.media-upload[type="submit"],
+div.superform.aqua input.ok[type="submit"],
+div#main.overview .superform.aqua #image_upload_1 input[type="submit"],
+div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
+  padding:.3em 1.2em;
+}

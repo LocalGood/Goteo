@@ -2,10 +2,18 @@
 
 @import "base";
 @import "mixins";
+@import "colors";
 @import "commons";
 @import "components";
-@import "discover";
-@import "project-show";
 @import "meter";
+@import "superform";
+@import "discover";
+@import "review";
+@import "project-show";
+@import "project-edit";
+@import "dashboard";
+@import "community";
+@import "admin";
+@import "message";
 
 //todo:各ファイルに、htmlに絡む変更と、どのファイルに書くか迷ったものが書いてあるので、追って対応する
