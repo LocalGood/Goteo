@@ -29,7 +29,15 @@ $week = array('日','月','火','水','木','金','土');
 ?>
 <div class="widget project-support collapsable" id="project-support">
 
-    <h<?php echo $level + 1 ?> class="supertitle"><?php echo Text::get('project-support-supertitle'); ?></h<?php echo $level + 1 ?>>
+    <h<?php echo $level + 1 ?> class="supertitle">
+        <?php if (!empty($project->round)) : ?>
+            <span class="round"><?php echo $project->round; if ($project->round == 1 ){ echo 'st '; } else { echo 'nd '; }; echo Text::get('regular-round'); ?></span>
+        <?php endif; ?>
+        <?php if (!empty($project->days) && $project->days > 0) : ?>
+            <span class="days"><?php echo Text::get('regular-round'); ?><strong><?php echo number_format($project->days) ?></strong><span><?php echo Text::get('regular-days'); ?></span></span>
+        <?php endif; ?>
+
+    </h<?php echo $level + 1 ?>>
 
     <?php //var_dump($project);
     switch ($project->tagmark) {

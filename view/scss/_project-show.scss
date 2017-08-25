@@ -5,21 +5,16 @@
     margin: 0 auto;
   }
 
-  #social_bookmark {
-    bottom: 12px;
+  .social_bookmark {
     display: flex;
-    margin: 4px 10px 0 30px;
+    margin: 0 0 0 30px;
     position: absolute;
     right: 0;
-    width: 330px;
-    #twitter {
-      width: 95px;
-    }
-    #facebook {
-      width: 155px;
-    }
-    #___plusone_0 {
-      width: 65px!important;
+    top: 0;
+    .twitter,
+    .facebook,
+    .gPlus {
+      margin-right: 10px;
     }
   }
 
@@ -31,18 +26,15 @@
 
   .project-header {
     position:relative;
-    top:10px;
     max-width: 960px;
     min-height: 75px;
-    margin: 0 auto;
-    img{
-      float: left;
-      margin: 0 20px 0 0;
-    }
+    margin: 10px auto 25px;
     h2{
-      max-width: 700px;
-      margin-top: 0;
       font-size: 2rem;
+      font-weight: 300;
+      margin: 0 0 20px;
+      max-width: 700px;
+      padding: 0;
       > span{
         display: block;
         line-height: 1em;
@@ -51,35 +43,18 @@
     .project-subtitle {
       font-size: 1.1428571rem;
       font-weight: normal;
-      margin: 3px 0;
+      margin: 0 0 12px;
       max-width:620px;
       font-style: normal;
     }
-    .project-by {
-      color: #20B3B2;
-      font-size: 12px;
-      margin: 0 0 .5em;
-      a {
-        font-weight: normal;
-        color: #cc6600;
-        font-size: 12px;
-        text-decoration: none;
-        &:hover {
-          color: #58595B;
-        }
-      }
+    .project-header-bottom {
+      min-height: 20px;
+      position: relative;
     }
+
     .categories {
-      position: absolute;
-      right: 10px;
-      text-align: right;
-      top: 0;
-      h3 {
-        color: #20B3B2;
-        font-size: 0.8571428rem;
-        font-weight: normal;
-        margin: 0;
-      }
+      line-height: 20px;
+      max-width: 620px;
       a {
         color: #58595B;
         font-size: 12px;
@@ -91,8 +66,9 @@
     }
   }
 
+  //プロジェクト詳細画面のサブナビ
   .project-menu {
-    margin:18px 0 0 0;
+    margin-bottom: 20px;
     ul {
       font-size: 0;
       list-style: none;
@@ -100,59 +76,47 @@
       padding: 0;
       li {
         display: inline-block;
-        margin-right: 1px;
-        span.digits{
-          display:inline-block;
-          text-align:center;
-        }
         a {
-          background: #ffffcc; /* Old browsers */
-          background: -moz-linear-gradient(top,  #ffffcc 0%, #e5e5b9 100%, #e8e8bb 100%); /* FF3.6+ */
-          background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffcc), color-stop(100%,#e5e5b9), color-stop(100%,#e8e8bb)); /* Chrome,Safari4+ */
-          background: -webkit-linear-gradient(top,  #ffffcc 0%,#e5e5b9 100%,#e8e8bb 100%); /* Chrome10+,Safari5.1+ */
-          background: -o-linear-gradient(top,  #ffffcc 0%,#e5e5b9 100%,#e8e8bb 100%); /* Opera 11.10+ */
-          background: -ms-linear-gradient(top,  #ffffcc 0%,#e5e5b9 100%,#e8e8bb 100%); /* IE10+ */
-          background: linear-gradient(to bottom,  #ffffcc 0%,#e5e5b9 100%,#e8e8bb 100%); /* W3C */
-          border-top: 1px solid #cccc99;
-          border-right: 1px solid #cccc99;
-          border-left: 1px solid #cccc99;
-          color: #999966;
+          background-color: #fff;
+          box-sizing: border-box;
+          color: #000;
           display: inline-block;
           font-size: 14px;
           font-weight: 600;
-          height:50px;
-          line-height: 49px;
+          line-height: 1;
+          max-height: 40px;
           min-width: 80px;
-          padding: 0 16px;
+          padding: 13px 20px;
           text-align: center;
           text-decoration: none;
+          vertical-align: middle;
         }
         &.active a {
-          background: none;
-          background-color: #dae121;
-          border: none;
-          border-left: 1px solid #e8e8bb;
-          border-right: 1px solid #e8e8bb;
-          border-top: 1px solid #e8e8bb;
-          color: #666666;
+          border-bottom: 4px solid #ff9900;
         }
         &.show a {
-          background: none;
-          background-color: #dae121;
-          border: none;
-          border-left: 1px solid #e8e8bb;
-          border-right: 1px solid #e8e8bb;
-          border-top: 1px solid #e8e8bb;
-          color: #666666;
+          border-bottom: 4px solid #ff9900;
+        }
+        span.digits{
+          background-color: #ffd89d;
+          border-radius: 5px;
+          color: #7c7c7c;
+          display:inline-block;
+          font-size: 8px;
+          line-height: 1;
+          padding: 3px 6px;
+          text-align:center;
+          vertical-align: middle;
         }
       }
     }
   }
 
+  //プロジェクト詳細画面の2カラムレイアウト
   .threecols {
     .side {
       float: right;
-      width: 330px;
+      width: 320px;
     }
     .center {
       float: left;
@@ -160,6 +124,7 @@
     }
   }
 
+  //プロジェクト詳細画面　＞　右カラム
   .side {
     .button.green {
       display: block;
@@ -172,7 +137,7 @@
       width: 160px;
     }
     .more {
-      border-top: 1px dashed silver;
+      border-top: $projectShowBorder;
       clear: both;
       display: block;
       line-height: 38px;
@@ -181,7 +146,7 @@
     }
 
     > .widget {
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       padding: 0;
     }
 
@@ -238,7 +203,9 @@
 
     .project-support {
       .supertitle {
-        background-color: #39c;
+        background-color: #58585a;
+        height: 40px;
+        line-height: 40px;
       }
       .project-widget-box {
         padding: 15px 20px;
@@ -442,6 +409,7 @@
     }
   }
 
+  //お礼ウィジェット
   .project-rewards {
     margin-bottom: 10px;
     padding: 0;
@@ -736,6 +704,7 @@
     }
   }
 
+  //オーナーウィジェット
   .user {
     padding: 0;
     .image {
@@ -806,8 +775,54 @@
     }
   }
 
+  //メッセージを送信するウィジェット
+  .project-message {
+    margin-bottom: 10px;
+    position:relative;
+    div#bocadillo {
+      background:url(/view/images/bocadillo.jpg) no-repeat;
+      height:50px;
+      margin-top:8px;
+      position:absolute;
+      width:50px;
+    }
+    button {
+      float:right;
+      font-style:normal;
+      font-weight: normal;
+      margin:25px 0 0;
+    }
+    textarea {
+      background-color:#DCEEDF;
+      border:1px solid #2EAB58;
+      clear:right;
+      display:block;
+      float:right;
+      height:50px;
+      margin:10px -1px -1px;
+      padding:.3em 0;
+      resize:none;
+      width:525px;
+    }
+    a.preview {
+      color:#2EAB58;
+      font-style:normal;
+      font-weight:400;
+      left:80px;
+      position:absolute;
+      text-decoration:none;
+      text-transform:uppercase;
+      top:210px;
+    }
+    h3.title {
+      padding-left:0;
+    }
+  }
+
+  //左カラム
   .center {
 
+    //サブナビ　＞　プロジェクト
     &.home {
       .project-media {
         padding: 0;
@@ -818,7 +833,7 @@
       }
 
       .project-summary {
-        border-bottom: 1px dashed #c0c0c0;
+        border-bottom: $projectShowBorder;
         > div {
           font-size: 14px;
           margin-bottom: 28px;
@@ -836,138 +851,73 @@
         }
       }
 
+      .project-support_btn {
+        background-color: #fff;
+        border-bottom: $projectShowBorder;
+        padding: 40px 0;
+        .button {
+          background: none;
+          background: #ff9900;
+          -moz-box-shadow: 0 3px 3px 0 #ccc;
+          -webkit-box-shadow: 0 3px 3px 0 #ccc;
+          box-shadow: 0 3px 3px 0 #ccc;
+          display: block;
+          font-size: 14px;
+          font-weight: 300;
+          height: 45px;
+          line-height: 45px;
+          margin: 10px auto;
+          padding: 0 8px;
+          text-align: center;
+          width: 280px;
+        }
+      }
+
       .project-share {
-        padding: 15px 20px 20px;
+        padding: 26px 20px 50px;
+        position: relative;
         .title {
           border:none;
+          margin: 0 0 26px;
+          text-align: center;
         }
-        .left,.right {
-          float:left;
-        }
-        .left {
-          width:68%;
-        }
-        .right {
-          width:32%;
-        }
-        h4 {
-          font-weight: 600;
-          margin: 0 0 6px;
-        }
-        ul {
-          height:60px;
-          list-style:none outside none;
-          margin:0;
-          overflow:visible;
-          padding:0;
-          position:relative;
-        }
-        li {
-          background:no-repeat left center;
-          display:block;
-          float:left;
-          line-height:2em;
-          min-height:2em;
-          min-width:20%;
-          padding-left:30px;
-          a {
-            text-decoration:none;
-          }
-          &.twitter {
-            background-image:url(/view/images/social/twitter.png);
-            left:0;
-            position:absolute;
-            top:0;
-          }
-          &.facebook {
-            background-image:url(/view/images/social/facebook.png);
-            left:0;
-            position:absolute;
-            top:30px;
-          }
-          &.url {
-            background-image:url(/view/images/social/url.png);
-            left:100px;
-            position:absolute;
-            top:0;
-            input {
-              width:265px;
-            }
-          }
-          &.proyecto {
-            background-color:#555;
-            background-image:url(/view/images/project/widget/proyecto.jpg);
-            border-radius:3px;
-            font-size:12px;
-            height:24px;
-            line-height:24px;
-            margin:2px 0 2px 5px;
-            padding-left:26px;
-            text-align:left;
-            width:176px;
-            a {
-              color:#fff;
-              &#a-proyecto:link {
-                font-size:12px;
-              }
-            }
-          }
-          &.google {
-            background-image:url(/view/images/social/google.png);
-          }
-          &.identica {
-            background-image:url(/view/images/social/identica.png);
-          }
-          &.embed {
-            background-image:url(/view/images/social/embed.png);
-          }
-          &.url span,&.embed span {
-            display:none;
-          }
-          &.url input,&.url input:focus,&.embed input,&.embed input:focus {
-            background-color:#e6e6e6!important;
-            border:none;
-            -moz-border-radius:.2em;
-            border-radius:.25em;
-            font-size:inherit;
-            font-weight: 300;
-            height:24px;
-            padding:0 .4em;
-            width:240px;
-          }
+        .social_bookmark {
+          left: 0;
+          margin: auto;
+          max-width: 500px;
+          top: 75px;
+          width: 340px;
         }
       }
     }
 
+    //サブナビ　＞　必要資金の内訳
     &.needs {
       .project-needs {
+        margin-bottom: 20px;
         #legend {
+          float: right;
           font-size: 12px;
-          left: 320px;
-          margin-left: 26px;
-          position: absolute;
-          top: 30px;
+          margin: 20px 0;
           .min, .max {
             line-height: 20px;
             span {
               display: block;
               float: left;
-              height: 16px;
-              margin-right: 5px;
-              width: 16px;
+              height: 10px;
+              margin: 5px 5px 0 0;
+              width: 10px;
             }
           }
           .min {
             span {
               background: #e3eadc;
-              border: #999 1px solid;
             }
           }
           .max {
             line-height: 20px;
             span {
               background: #F2F2F2;
-              border: #C1C1C1 1px solid;
             }
           }
         }
@@ -976,14 +926,8 @@
           thead {
             th {
               &.summary {
-                padding: 16px 8px 16px 40px;
+                padding: 3px 8px 3px 0;
               }
-            }
-            &.material th.summary {
-              background-image: url(/view/images/icon/m/material.png);
-            }
-            &.task th.summary {
-              background-image: url(/view/images/icon/m/task.png);
             }
             th {
               background-position: left 50%;
@@ -998,83 +942,137 @@
           }
           tbody {
             background: #e3eadc;
-            border-bottom: #C1C1C1 2px solid;
-            border-top: #C1C1C1 2px solid;
+            th.summary {
+              padding: 16px 20px;
+            }
           }
           tr {
+            &:not(:last-child) {
+              border-bottom: 1px solid #c0c0c0;
+            }
             &.req {
               background: #e3eadc;
-              border-bottom: 1px dashed #C1C1C1;
+            }
+            &.noreq {
+              background: #F2F2F2;
+            }
+            &.sum {
+              th {
+                padding: 12px 20px 10px 0;
+                text-align: right;
+              }
             }
           }
           th {
-            border-bottom: 1px dashed #C1C1C1;
-            padding: 16px .5em;
+            padding: 3px 20px;
             &.summary {
+              padding-right: 20px;
               text-align: left;
-              width: 386px;
               .click {
                 margin-left: 5px;
                 span {
-                  cursor: pointer;
                   display: block;
-                  float: left;
+                  margin-bottom: 12px;
                   max-width: 360px;
                 }
-                .icon {
-                  background: url(/view/images/project/widget/minusplus.png) 0 16px;
-                  clear: left;
+                blockquote {
                   font-size: 14px;
-                  height: 15px;
-                  padding-bottom: 8px;
-                  position: relative;
-                  right: 5px;
-                  top: 3px;
-                  width: 16px;
-                  &.closed {
-                    background: url(/view/images/project/widget/minusplus.png) 0 -1px;
-                  }
+                  font-weight: 400;
+                  margin: 0;
+                  padding: 0;
                 }
               }
             }
-            &.min {
-              color: #c60;
-              font-size: 14px;
-              padding: 16px 7px 10px;
-              vertical-align: bottom;
-              width: 140px;
-              word-wrap: break-word;
-            }
+            &.min,
             &.max {
-              color: #69c;
               font-size: 14px;
-              padding: 16px 7px 10px;
-              vertical-align: bottom;
-              width: 110px;
+              padding: 3px 7px;
+              vertical-align: middle;
+              width: 120px;
               word-wrap: break-word;
             }
           }
           td {
-            &.min {
-              color: #c90;
-              font-size: 14px;
-              width: 90px;
-              word-wrap: break-word;
-            }
-            &.max {
-              font-size: 14px;
-              padding-right: 20px;
-              width: 90px;
-              word-wrap: break-word;
-            }
+            font-size: 14px;
+            padding: 16px 20px 16px 0;
+            text-align: right;
+            vertical-align: top;
+            word-wrap: break-word;
           }
         }
         table thead + tbody + thead th.min, table thead + tbody + thead th.max {
           font-size: 0;
         }
       }
+      .project-schedule {
+        table {
+          border-collapse:separate;
+          width:100%;
+          th,
+          td {
+            border:none;
+            box-sizing: content-box;
+            font-size:12px;
+            width:1.5em;
+          }
+        }
+        thead.months {
+          th {
+            font-size:14px;
+            font-weight:600;
+            &:first-child span {
+              display: none;
+            }
+          }
+        }
+        tbody {
+          th,
+          td {
+            height: 32px;
+            padding: 0;
+            vertical-align:middle;
+          }
+          th {
+            font-weight: 300;
+            text-align: left;
+            width: 250px;
+          }
+          td {
+            border-right: 4px solid #fff;
+            span {
+              font-size:12px;
+              font-weight:400;
+              height:5em;
+              overflow:hidden;
+              text-align:center;
+            }
+            &.on {
+              background-color: #d1edf1;
+              text-align: left;
+              span {
+                opacity: .75;
+              }
+              &.req {
+                background-color: #c7d8b6;
+              }
+              &.noreq {
+                background-color: #e2e2e2;
+              }
+            }
+          }
+          tr:not(:last-child) {
+            td {
+              border-bottom: 14px solid #fff;
+            }
+          }
+          tr td:last-child {
+            border-right: none;
+          }
+        }
+      }
     }
 
+    //サブナビ　＞　支援者
     &.supporters {
       .project-supporters {
         background: none;
@@ -1118,26 +1116,21 @@
         .supporters {
           background-color: #fff;
           > ul {
-            border-top: 1px dashed #C1C1C1;
             list-style: none;
-            margin: -20px 0 0;
             overflow: hidden;
-            padding: 0;
+            padding: 30px 0;
             >li {
-              border-bottom: 1px dashed #C1C1C1;
-              border-right: 1px dashed #C1C1C1;
+              border-right: $projectShowBorder;
+              box-sizing: border-box;
               float: left;
               height: 90px;
-              width: 206px;
-              &:nth-child(3n+3) {
+              padding-bottom: 20px;
+              width: 310px;
+              &:nth-child(2n+2) {
                 border-right: none;
-                width: 207px;
               }
               &.active {
                 background-color: #f3f3f3;
-                h4 {
-                  color: #20B3B2;
-                }
               }
             }
           }
@@ -1165,6 +1158,7 @@
               width: 43px;
             }
             h4 {
+              color: $colLinkText01;
               font-size: 16px;
               font-weight: 600;
               line-height: 1.15;
@@ -1180,46 +1174,19 @@
               display: none;
             }
             dd.date {
-              bottom: 4px;
               color: #a6a8ab;
               font-size: 12px;
-              margin-top: 5px;
-              position: absolute;
-              right: 16px;
+              margin: 5px 0 0 0;
             }
           }
         }
         //todo:後でテスト。旧ソースから持ってきただけ
-        #pagination {
-          clear: both;
-          margin: 10px 0 0;
-          li {
-            background: white;
-            -moz-box-shadow: 3px 3px 0 #E2E2E2;
-            -webkit-box-shadow: 3px 3px 0 #E2E2E2;
-            box-shadow: 3px 3px 0 #E2E2E2;
-            display: inline;
-            float: left;
-            margin: 0 6px 0 0;
-            text-align: center;
-            width: auto;
-            &.selected {
-              background: #cde4e5;
-              font-weight: bold;
-              padding: 6px 20px;
-            }
-            a {
-              display: block;
-              font-weight: bold;
-              padding: 6px 20px;
-              text-decoration: none;
-            }
-          }
-        }
       }
     }
 
+    //サブナビ　＞　スキル・物品の募集
     &.messages {
+      //スキル・物品
       .project-collaborations {
         margin-bottom: 10px;
         padding: 0;
@@ -1243,17 +1210,17 @@
             line-height: 1em;
             min-height: 32px;
             margin: 20px 0 0;
-            padding: 0 0 20px 55px;
+            padding-bottom: 20px;
             &.task {
-              background-image: url(/view/images/icon/m/task.png);
-              border-bottom: 1px dashed #c0c0c0;
+              &:not(:last-child) {
+                border-bottom: $projectShowBorder;
+              }
               strong {
                 display: block;
-                padding-bottom: 8px;
+                margin-bottom: 16px;
               }
             }
             &.lend {
-              background-image: url(/view/images/icon/m/lend.png);
             }
             p {
               line-height: 20px;
@@ -1264,34 +1231,52 @@
         }
       }
 
+      //メッセージを表示するウィジェット
       .project-messages {
         padding-bottom: 20px;
         #project-messages > div:not(:first-child) {
           margin-top: 20px;
         }
-        .message {
-          background: #e7e7e7 url(/view/images/message/beak/1.png) no-repeat left top;
-          margin-left: 60px;
+        %message {
+          background: #e7e7e7;
+          border-radius: 8px;
+          margin-left: 70px;
           overflow: visible;
-          padding: .8em 1em .5em 1.5em;
-          position: relative;
-        }
-        .owner {
-          background: #e9f4ea url(/view/images/message/beak/2.png) no-repeat left top;
-          word-wrap: break-word;
-        }
-        .child {
-          background: #e7e7e7 url(/view/images/message/beak/1.png) no-repeat left top;
-          margin-left: 130px;
-          overflow: visible;
-          padding: .8em 1em .8em 1.5em;
+          padding: 20px;
           position: relative;
           word-break: normal;
           word-wrap: break-word;
+          &:before {
+            background: url(/view/images/message/beak/arrow_02.png) no-repeat left top;
+            content: '';
+            display: block;
+            height: 12px;
+            left: -12px;
+            position: absolute;
+            width: 12px;
+          }
         }
+        .message {
+          @extend %message;
+          &.owner {
+            background-color: #e9f4ea;
+            &:before {
+              background: url(/view/images/message/beak/arrow_01.png) no-repeat left top;
+            }
+          }
+        }
+        .child {
+          @extend %message;
+          background-color: #e7e7e7;
+          margin-left: 130px;
+          &:before {
+            background: url(/view/images/message/beak/arrow_02.png) no-repeat left top;
+          }
+        }
+
         .avatar {
           display: block;
-          left: -60px;
+          left: -70px;
           height: 50px;
           position: absolute;
           top: 0;
@@ -1307,15 +1292,24 @@
             text-decoration: none;
           }
         }
-        .date {
-          color: gray;
-          float: right;
-          font-size: 12px;
+        .user_name {
+          color: $colLinkText01;
         }
         blockquote {
           clear: both;
-          margin: 0;
+          margin: 0 0 16px;
           padding: 0;
+        }
+        .actions_date {
+          a {
+            color: $colLinkText01;
+            text-decoration: none;
+          }
+          .date {
+            display: inline-block;
+            margin-left: 30px;
+            font-size: 12px;
+          }
         }
       }
     }
@@ -1339,7 +1333,6 @@
             color: #808285;
             display: block;
             font-size: 12px;
-            margin-top: 10px;
           }
           .post-gallery {
             margin-bottom: 30px;
@@ -1385,20 +1378,37 @@
             padding: 18px 0;
             text-align: left;
           }
+          .embed iframe {
+            min-height: 420px;
+            width: 100%;
+          }
           blockquote {
-            border-bottom: 1px solid #CABCBF;
-            color: #58595B;
             font-size: 12px;
             line-height: 18px;
-            margin: 8px 0 16px;
-            padding: 0 0 8px;
+            margin: 8px 0 10px;
           }
           .read_more {
             margin-top: 16px;
-            text-align: right;
             a {
+              color: $colLinkText01;
+              display: inline-block;
               font-size: 12px;
+              line-height: 2;
+              padding-right: 10px;
+              position: relative;
               text-decoration: none;
+              &:after {
+                background: url(/view/images/arrow-updates.png) no-repeat 50%;
+                bottom: 0;
+                content: '';
+                display: block;
+                height: 8px;
+                margin: auto;
+                right: 0;
+                position: absolute;
+                top: 0;
+                width: 6px;
+              }
             }
           }
           .post_nav {
@@ -1445,12 +1455,17 @@
             }
           }
         }
+        #pagination {
+          margin-top: 10px;
+        }
         //todo:本番で使われているPJをまだ見つけていない
         .post-comments {
 
         }
       }
     }
+
+
 
     //todo:本番で使われているPJをまだ見つけていないので、旧ソースにあった.project-evaluationを移行したのみ
     &.evaluation {

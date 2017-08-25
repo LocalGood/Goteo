@@ -86,15 +86,15 @@ $level = (int) $this['level'] ?: 3;
 <div class="project-updates"> 
     <!-- una entrada -->
     <?php if ($action == 'post') : ?>
-    <div class="post widget">
-        <?php echo new View('view/blog/post.html.php', array('post' => $post->id, 'show' => 'post', 'url' => '/project/'.$project->id.'/updates/')); ?>
-        <ul class="post_nav">
-            <?php if (!empty($link_prev)){ echo $link_prev; } ?>
-            <?php if (!empty($link_next)){ echo $link_next; } ?>
-        </ul>
-    </div>
-    <?php echo new View('view/blog/comments.html.php', array('post' => $post->id, 'owner' => $project->owner)); ?>
-    <?php echo new View('view/blog/sendComment.html.php', array('post' => $post->id, 'project' => $project->id)); ?>
+        <div class="post widget">
+            <?php echo new View('view/blog/post.html.php', array('post' => $post->id, 'show' => 'post', 'url' => '/project/'.$project->id.'/updates/')); ?>
+            <ul class="post_nav">
+                <?php if (!empty($link_prev)){ echo $link_prev; } ?>
+                <?php if (!empty($link_next)){ echo $link_next; } ?>
+            </ul>
+        </div>
+        <?php echo new View('view/blog/comments.html.php', array('post' => $post->id, 'owner' => $project->owner)); ?>
+        <?php echo new View('view/blog/sendComment.html.php', array('post' => $post->id, 'project' => $project->id)); ?>
     <?php endif ?>
     <!-- Lista de entradas -->
     <?php if ($action == 'list') : ?>
@@ -108,12 +108,6 @@ $level = (int) $this['level'] ?: 3;
                 ?>
                 <div class="widget post">
                     <?php echo new View('view/blog/post.html.php', array('post' => $post->id, 'show' => 'list', 'url' => '/project/'.$project->id.'/updates/')); ?>
-					<ul class="share-goteo">
-						<?/*<li class="sharetext"><?php echo Text::get('regular-share_this'); ?></li>*/?>
-						<li class="twitter"><a href="<?php echo htmlspecialchars($twitter_url) ?>" target="_blank"><?php echo Text::get('regular-twitter'); ?></a></li>
-						<li class="facebook"><a href="<?php echo htmlspecialchars($facebook_url) ?>" target="_blank"><?php echo Text::get('regular-facebook'); ?></a></li>
-					</ul>
-					<div class="comments-num"><a href="/project/<?php echo $project->id; ?>/updates/<?php echo $post->id; ?>"><?php echo $post->num_comments > 0 ? $post->num_comments . ' ' .Text::get('blog-comments') : Text::get('blog-no_comments'); ?></a></div>
                 </div>
             <?php endwhile; ?>
             <ul id="pagination">

@@ -89,13 +89,17 @@ var_dump($over);
 */
 
 ?>    <div class="meter <?php echo $horizontal ? 'hor' : 'ver'; echo $big ? ' big' : ''; echo $activable ? ' activable' : ''; ?>">
+    <dl>
+        <dt class="reached"><span><?php echo Text::get('project-view-metter-got'); ?></span></dt>
+        <dd class="reached"><strong><?php echo \amount_format($reached) ?></strong><span>円</span></dd>
+
+        <dt class="supporters"><span><?php echo Text::get('project-view-metter-investors'); ?></span></dt>
+        <dd class="supporters"><strong><?php echo number_format($supporters) ?></strong><span>人</span></dd>
+    </dl>
 
         <? if ($big): ?>
             <h<?php echo $level ?> class="title investment"><?php echo Text::get('project-view-metter-investment'); ?></h<?php echo $level ?>>
         <? endif; ?>
-        <?php if (!empty($project->round)) : ?>
-            <h<?php echo $level ?> class="title ronda"><?php echo $project->round; if ($project->round == 1 ){ echo 'st '; } else { echo 'nd '; }; echo Text::get('regular-round'); ?></h<?php echo $level ?>>
-        <?php endif; ?>
         <?php if ($activable) : ?><h<?php echo $level ?> class="title obtained"><?php echo Text::get('project-view-metter-got'); ?></h<?php echo $level ?>><?php endif; ?>
         <div class="graph">
             <div class="optimum">
@@ -115,14 +119,8 @@ var_dump($over);
             <dt class="minimum" style="<?php echo $horizontal ? 'width' : '' ?>: <?php echo number_format($minimum_ratio) ?>%"><span><?php echo Text::get('project-view-metter-minimum'); ?></span></dt>
             <dd class="minimum" style="<?php echo $horizontal ? 'width' : '' ?>: <?php echo number_format($minimum_ratio) ?>%"><strong><?php echo \amount_format($minimum) ?></strong><span>円</span></dd>
 
-            <dt class="reached"><span><?php echo Text::get('project-view-metter-got'); ?></span></dt>
-            <dd class="reached"><strong><?php echo \amount_format($reached) ?></strong><span>円</span></dd>
-
             <dt class="days"><span><?php echo Text::get('project-view-metter-days'); ?></span></dt>
             <dd class="days"><strong><?php echo number_format($days) ?></strong><span><?php echo Text::get('regular-days'); ?></span></dd>
-
-            <dt class="supporters"><span><?php echo Text::get('project-view-metter-investors'); ?></span></dt>
-            <dd class="supporters"><strong><?php echo number_format($supporters) ?></strong><span>人</span></dd>
 
         </dl>
 

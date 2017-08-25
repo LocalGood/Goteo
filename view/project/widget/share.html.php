@@ -40,31 +40,51 @@ $twitter_url = 'http://twitter.com/home?status=' . urlencode($share_title . ': '
 					'transitionOut'		: 'none'
 				});
 			});
-</script>			
-<div class="widget project-share">    
-	<div class="left">
-        <h<?php echo $level+1 ?>><?php echo Text::get('project-share-header'); ?></h<?php echo $level+1 ?>>
-        <ul>
-            <li class="twitter"><a target="_blank" href="<?php echo htmlentities($twitter_url) ?>"><?php echo Text::get('regular-twitter'); ?></a></li>
-            <li class="facebook"><a target="_blank" href="<?php echo htmlentities($facebook_url) ?>"><?php echo Text::get('regular-facebook'); ?></a></li>
-            <li onclick="$(this).children('input').focus(); return false;" class="url"><span>URL: </span> <input type="text" onfocus="this.select();" readonly="readonly" size="35" value="<?php echo htmlspecialchars($share_url) ?>" /></li>
-        </ul>
-    </div>
-	
-    <div class="right">
-        <h<?php echo $level+1 ?>><?php echo Text::get('project-spread-header'); ?></h<?php echo $level+1 ?>>
-        <ul>
-        	<li class="proyecto">
-            <a target="_blank" id="a-proyecto" href="#proyecto" title=""><?php echo Text::get('project-spread-widget'); ?></a>
-            <div style="display: none;">               
-            <div id="proyecto" class="widget projects" style="width:600px;height:600px;overflow:auto;">
+</script>
+
+<?php
+$_value = '/project/' . $project->id;
+$_url = urldecode($_SERVER['REQUEST_URI']);
+if(strstr($_url,$_value) && preg_match('/^\/project\/(.*)$/',$_url)): ?>
+
+    <div class="social_bookmark">
+        <div id="twitter" class="twitter">
+            <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+            <script>
+              !function(d,s,id){
+                var js,fjs=d.getElementsByTagName(s)[0];
+                if(!d.getElementById(id)){
+                  js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";
+                  fjs.parentNode.insertBefore(js,fjs);
+                }
+              }(document,"script","twitter-wjs");
+            </script>
+        </div>
+        <div id="facebook" class="facebook">
+            <div class="fb-like" data-href="<?= $ogmeta['url']; ?>" data-layout="button_count" data-action="recommend" data-show-faces="false" data-share="true"></div>
+        </div>
+        <div class="gPlus">
+            <div id="g-plusone" class="g-plusone" data-size="medium" data-width="60"></div>
+            <script type="text/javascript">
+              window.___gcfg = {lang: 'ja'};
+
+              (function() {
+                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                po.src = 'https://apis.google.com/js/platform.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+              })();
+            </script>
+        </div>
+        <div id="embed">
+            <a target="_blank" id="a-proyecto" href="#proyecto" title=""><img src="/view/images/embed_btn.png" alt="埋め込み"></a>
+            <div style="display: none;">
+                <div id="proyecto" class="widget projects" style="width:600px;height:600px;overflow:auto;">
                     <h2 class="widget-title"><?php echo Text::get('project-spread-widget_title'); ?></h2>
                     <div class="widget-porject-legend"><?php echo Text::get('project-spread-widget_legend'); ?></div>
                     <?php echo new View('view/project/widget/embed.html.php', array('project'=>$project)) ?>
                 </div>
             </div>
-            </li>
-         
-        </ul>
-    </div>
-</div>
+        </div>
+    </div><!-- .social_bookmark -->
+
+<?php endif; ?>

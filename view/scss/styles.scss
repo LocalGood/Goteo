@@ -4,7 +4,7 @@
 @import "mixins";
 @import "colors";
 @import "commons";
-@import "components";
+@import "widgets";
 @import "meter";
 @import "superform";
 @import "discover";
@@ -14,6 +14,5 @@
 @import "dashboard";
 @import "community";
 @import "admin";
-@import "message";
 
-//todo:各ファイルに、htmlに絡む変更と、どのファイルに書くか迷ったものが書いてあるので、追って対応する
+//todo:各ファイルに、htmlに絡む変更と、どのファイルに書くか迷ったものをtodoで書いてあるので、追って対応する

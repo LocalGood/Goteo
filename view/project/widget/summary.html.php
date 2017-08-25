@@ -111,6 +111,15 @@ echo new View('view/project/widget/video.html.php', array('project' => $project)
     <?php endif ?>
 
 </div>
-<?
-    echo new View('view/project/widget/share.html.php', array('project' => $project));
-?>
+<div class="project-support_btn">
+    <a class="button supportit" href="/project/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it'); ?></a>
+</div>
+
+<?php if (!empty($project->id)): ?>
+    <div class="widget project-share">
+        <h<?php echo $level + 1?> class="title"><?php echo Text::get('overview-field-share-head'); ?></h<?php echo $level + 1?>>
+            <?php
+            echo new View('view/project/widget/share.html.php', array('project' => $project));
+        ?>
+    </div>
+<?php endif ?>

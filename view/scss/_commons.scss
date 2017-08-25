@@ -47,8 +47,8 @@
           &:hover,
           &.active {
             > a {
-              color: $colBlue01;
-              border-bottom: 3px solid $colBlue02;
+              color: $colMain01;
+              border-bottom: 3px solid $colMain02;
             }
             .header__right__snav {
               opacity: 1;
@@ -131,7 +131,7 @@
             > li.gnav_goteo {
               > a {
                 color: #fff;
-                background-color: $colBlue03;
+                background-color: $colMain03;
                 border-radius: 4px;
               }
               &.active,
@@ -207,7 +207,7 @@
           color: #fff;
           line-height: 36px;
           border-radius: 2px;
-          background-color: $colBlue03;
+          background-color: $colMain03;
         }
       }
     }
@@ -469,19 +469,17 @@
   padding: 15px 20px;
   overflow: hidden;
   .supertitle {
-    height: 50px;
     margin: 0;
     padding: 0 0 0 20px;
     color: #ffffff;
     font-size: 18px;
     font-weight: 300;
-    line-height: 50px;
     background-color: #21b0b0;
     border-bottom: none;
   }
   .title {
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 600;
     text-decoration: none;
   }
 }
@@ -492,37 +490,27 @@
   margin: 0;
   padding: 0;
   li {
-    display: inline;
-    float: left;
-    width: auto;
-    margin: 0 6px 0 0;
-    text-align: center;
     background: white;
     -moz-box-shadow: 3px 3px 0 #E2E2E2;
     -webkit-box-shadow: 3px 3px 0 #E2E2E2;
     box-shadow: 3px 3px 0 #E2E2E2;
+    display: inline;
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    width: 40px;
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
     &.selected {
-      padding: 6px 20px;
-      font-weight: bold;
-      background: #cde4e5;
+      background: #9b9b9b;
+      color: #fff;
     }
     a {
       display: block;
-      padding: 6px 20px;
+      text-align: center;
       text-decoration: none;
-      font-weight: bold;
-    }
-  }
-}
-
-#sub-header {
-  > div {
-    max-width: 960px;
-    margin: 0 auto;
-    > h2 {
-      margin: 0;
-      padding: 0;
-      font-weight: 300;
     }
   }
 }
