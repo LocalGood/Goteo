@@ -21,8 +21,6 @@
 use Goteo\Core\View,
     Goteo\Library\Text,
     Goteo\Model\Project\Category,
-    Goteo\Model\Project\Skill,
-    Goteo\Model\Invest,
     Goteo\Model\Image;
 
 $project = $this['project'];
@@ -36,141 +34,81 @@ if ($this['global'] === true) {
 
 $categories = Category::getNames($project->id, 2);
 
-//si llega $this['investor'] sacamos el total aportado para poner en "mi aporte"
-if (isset($this['investor']) && is_object($this['investor'])) {
-    $investor = $this['investor'];
-    $invest = Invest::supported($investor->id, $project->id);
-}
 ?>
 
 <div class="widget project activable heightLine-project<?php if (isset($this['balloon'])) echo ' balloon' ?>">
-	<?/*<a href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>" class="expand"<?php echo $blank; ?>></a>*/?>
     <?php if (isset($this['balloon'])): ?>
     <div class="balloon"><?php echo $this['balloon'] ?></div>
     <?php endif ?>
-
-    <div class="image">
-        <?php switch ($project->tagmark) {
-            case 'onrun': // "en marcha"
-                echo '<div class="tagmark green">' . Text::get('regular-onrun_mark') . '</div>';
-                break;
-            case 'keepiton': // "aun puedes"
-                echo '<div class="tagmark green">' . Text::get('regular-keepiton_mark') . '</div>';
-                break;
-            case 'onrun-keepiton': // "en marcha" y "aun puedes"
-//                echo '<div class="tagmark green">' . Text::get('regular-onrun_mark') . '</div>';
-                  echo '<div class="tagmark green twolines"><span class="small"><strong>' . Text::get('regular-onrun_mark') . '</strong><br />' . Text::get('regular-keepiton_mark') . '</span></div>';
-                break;
-            case 'gotit': // "financiado"
-                echo '<div class="tagmark violet">' . Text::get('regular-gotit_mark') . '</div>';
-                break;
-            case 'success': // "exitoso"
-                echo '<div class="tagmark red">' . Text::get('regular-success_mark') . '</div>';
-                break;
-            case 'fail': // "caducado"
-                echo '<div class="tagmark grey">' . Text::get('regular-fail_mark') . '</div>';
-                break;
-        } ?>
-
-        <span class="cf-icon"></span>
-
-        <?/*php if (isset($this['investor'])) : ?>
-            <div class="investor"><img src="<?php echo $investor->avatar->getLink(43, 43, 1) ?>" alt="<?php echo $investor->name ?>" /><div class="invest">あなたの支援額<br /><span class="amount"><?php echo $invest->total ?>円</span></div></div>
-        <?php endif; */?>
-        <?
-        $project->gallery = Goteo\Model\Project\Image::getGallery($project->id);
-        ?>
-        <?php if (!empty($project->gallery) && (current($project->gallery) instanceof Image)): ?>
-        <a href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>"<?php echo $blank; ?>><img alt="<?php echo $project->name ?>" src="<?php echo current($project->gallery)->getLink(260, 135, true) ?>" /></a>
-        <?php endif ?>
-        <?php if (!empty($categories)): ?>
-        <div class="categories">
-        <?php $sep = ''; foreach ($categories as $key=>$value) :
-            echo $sep.htmlspecialchars($value);
-        $sep = ', '; endforeach; ?>
+        <div class="image">
+            <span class="cf-icon"></span>
+            <?
+            $project->gallery = Goteo\Model\Project\Image::getGallery($project->id);
+            ?>
+            <?php if (!empty($project->gallery) && (current($project->gallery) instanceof Image)): ?>
+                <a class="link" href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>"<?php echo $blank; ?>><img alt="<?php echo $project->name ?>" src="<?php echo current($project->gallery)->getLink(260, 135, true) ?>" /></a>
+            <?php endif ?>
         </div>
-        <?php endif ?>
-    </div>
 
-    <?/*
-    if (SITE_URL == 'http://goteo.il3c.com'):
-        $title =;
-    else:
-        $title =;
-    endif;
-    */?>
-    <h<?php echo $level ?> class="title"><a href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>"<?php echo $blank; ?>><?php echo htmlspecialchars(Text::shorten($project->name,50)) ?></a></h<?php echo $level ?>>
+        <div class="project-details">
+            <h<?php echo $level ?> class="title">
+                <a class="link" href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>"<?php echo $blank; ?>><?php echo htmlspecialchars(Text::shorten($project->name,50)) ?></a>
+            </h<?php echo $level ?>>
 
-    <h<?php echo $level + 1 ?> class="author"><?php echo Text::get('regular-by')?> <a href="<?php echo SITE_URL ?>/user/profile/<?php echo htmlspecialchars($project->user->id) ?>"<?php echo $blank; ?>><?php echo htmlspecialchars(Text::shorten($project->user->name,40)) ?></a></h<?php echo $level + 1?>>
+            <div class="author">
+                <a class="link" href="<?php echo SITE_URL ?>/user/profile/<?php echo htmlspecialchars($project->user->id) ?>"<?php echo $blank; ?>>
+                    <span class="author-img">
+                        <img src="<?php echo $project->user->avatar->getLink(50, 50, true); ?>" alt="<?php echo $project->user->name; ?>">
+                    </span>
+                    <span><?php echo htmlspecialchars(Text::shorten($project->user->name,40)) ?></span>
+                </a>
+            </div>
+
+            <?php if (!empty($categories)): ?>
+                <div class="categories">
+                    <?php $sep = ''; foreach ($categories as $key=>$value) :
+                        echo $sep.htmlspecialchars($value);
+                        $sep = ', '; endforeach; ?>
+                </div>
+            <?php endif ?>
+        </div>
+
+        <?php echo new View('view/project/meter_hor.html.php', array('project' => $project)) ?>
+
+        <div class="want-support">
+            <div>
+                <h<?php echo $level + 1 ?>>必要な支援</h<?php echo $level + 1 ?>>
+                <img src="<?php echo SRC_URL ?>/view/images/icon_money.png" alt="資金">
+            </div>
+            <div>
+                <h<?php echo $level + 1 ?>>残り</h<?php echo $level + 1 ?>>
+                <div class="days"><strong><?php echo number_format($days) ?></strong><span><?php echo Text::get('regular-days'); ?></span></div>
+            </div>
+
+        </div>
 
         <?php
-        // スキル表示
-        $skills = Skill::getNames($project->id);
-        if (!empty($skills)): ?>
-        <div class="skills">
-            <?
-            foreach( $skills as $_skill_id => $_skill_name):
-                // ログイン中のユーザーのスキルとマッチすればハイライト
-                $_match_skill = '';
-                if (!empty($_SESSION['user']->skills)){
-                    foreach ($_SESSION['user']->skills as $_id){
-                        if ($_id == $_skill_id){
-                            $_match_skill = ' class="matched_skill"';
-                            break;
-                        }
-                    }
-                }
-            ?>
-                <a<?= $_match_skill; ?> id="skill_id_<?= $_skill_id; ?>" href=""><?php echo $_skill_name ?></a>
-            <? endforeach; ?>
+        /*
+         * quitamos los botones
+         *
+        if ($this['dashboard'] === true) : // si estamos en el dashboard no hay (apoyar y el ver se abre en una ventana nueva) ?>
+        <div class="buttons">
+            <?php if ($this['own'] === true) : // si es propio puede ir a editarlo ?>
+            <a class="button red suportit" href="<?php echo SITE_URL ?>/project/edit/<?php echo $project->id ?>"><?php echo Text::get('regular-edit'); ?></a>
+            <?php endif; ?>
+            <a class="button view" href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>" target="_blank"><?php echo Text::get('regular-view_project'); ?></a>
         </div>
-        <? endif; ?>
-
-    <div class="description"><?php echo Text::shorten(strip_tags($project->description), 50); ?></div>
-    <?php echo new View('view/project/meter_hor.html.php', array('project' => $project)) ?>
-
-    <div class="rewards">
-        <h<?php echo $level + 1 ?>><?php echo Text::get('project-rewards-header'); ?></h<?php echo $level + 1?>>
-
-        <ul>
-           <?php $q = 1; foreach ($project->social_rewards as $social): ?>
-            <li class="<?php echo $social->icon ?> activable">
-                <a href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>/rewards" title="<?php echo htmlspecialchars(Text::shorten("{$social->reward}",30)) ?>" class="tipsy"<?php echo $blank; ?>><?php echo htmlspecialchars($social->reward) ?></a>
-            </li>
-           <?php if ($q >= 5) break; $q++;
-               endforeach ?>
-           <?php if ($q < 5) foreach ($project->individual_rewards as $individual): ?>
-            <li class="<?php echo $individual->icon ?> activable">
-                <a href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>/rewards" title="<?php echo htmlspecialchars(Text::shorten("{$individual->reward} {$individual->amount} 円",30)) ?>" class="tipsy"<?php echo $blank; ?>><?php echo htmlspecialchars($individual->reward) ?></a>
-            </li>
-           <?php if ($q >= 5) break; $q++;
-           endforeach ?>
-        </ul>
-
-    </div>
-
-    <?php
-    /*
-     * quitamos los botones
-     *
-    if ($this['dashboard'] === true) : // si estamos en el dashboard no hay (apoyar y el ver se abre en una ventana nueva) ?>
-    <div class="buttons">
-        <?php if ($this['own'] === true) : // si es propio puede ir a editarlo ?>
-        <a class="button red suportit" href="<?php echo SITE_URL ?>/project/edit/<?php echo $project->id ?>"><?php echo Text::get('regular-edit'); ?></a>
-        <?php endif; ?>
-        <a class="button view" href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>" target="_blank"><?php echo Text::get('regular-view_project'); ?></a>
-    </div>
-    <?php else : // normal ?>
-    <div class="buttons">
-        <?php if ($project->status == 3) : // si esta en campa�a se puede aportar ?>
-        <a class="button violet supportit" href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>/invest"<?php echo $blank; ?>><?php echo Text::get('regular-invest_it'); ?></a>
-        <?php else : ?>
-        <a class="button view" href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>/updates"<?php echo $blank; ?>><?php echo Text::get('regular-see_blog'); ?></a>
-        <?php endif; ?>
-        <a class="button view" href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>"<?php echo $blank; ?>><?php echo Text::get('regular-view_project'); ?></a>
-    </div>
-    <?php endif;
-     *
-     */
-    ?>
+        <?php else : // normal ?>
+        <div class="buttons">
+            <?php if ($project->status == 3) : // si esta en campa�a se puede aportar ?>
+            <a class="button violet supportit" href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>/invest"<?php echo $blank; ?>><?php echo Text::get('regular-invest_it'); ?></a>
+            <?php else : ?>
+            <a class="button view" href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>/updates"<?php echo $blank; ?>><?php echo Text::get('regular-see_blog'); ?></a>
+            <?php endif; ?>
+            <a class="button view" href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>"<?php echo $blank; ?>><?php echo Text::get('regular-view_project'); ?></a>
+        </div>
+        <?php endif;
+         *
+         */
+        ?>
 </div>

@@ -546,71 +546,6 @@ input.green[type="submit"], input.green[type="reset"], button.green, a.button.gr
 /*----------------------------------------------------------------------
  .widget(in discover)
 ----------------------------------------------------------------------*/
-.widget {
-  /*&.project {
-    .image {
-      .tagmark {
-        &.green {
-          background:url(/view/images/project/tagmark_green.png) 0 0 no-repeat;
-        }
-        &.red {
-          background:url(/view/images/project/tagmark_red.png) 0 0 no-repeat;
-        }
-        &.violet {
-          background:url(/view/images/project/tagmark_violet.png) 0 0 no-repeat;
-        }
-        &.grey {
-          background:url(/view/images/project/tagmark_grey.png) 0 0 no-repeat;
-        }
-        & span.small {
-          font-size:.8em!important;
-          line-height:14px;
-        }
-        &.twolines {
-          font-style:normal;
-          font-weight:400;
-          padding-top:4px!important;
-        }
-      }
-    }
-  }*/ }
-  .widget.projects > .title {
-    margin-bottom: 20px;
-    padding-left: 0;
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none; }
-  .widget.projects .project {
-    background-color: #fff;
-    float: left;
-    margin: 0 0 3.33% 3.33%;
-    padding: 0;
-    position: relative;
-    width: 260px;
-    z-index: 98; }
-    .widget.projects .project > .title {
-      font-size: 14px !important;
-      margin: 0 !important;
-      padding: 0 !important; }
-  .widget.projects .image {
-    background-color: #deddde;
-    height: 135px;
-    margin: 12px 0 10px;
-    overflow: hidden;
-    padding: 0 !important;
-    position: relative;
-    text-align: center; }
-  .widget.projects > .author {
-    overflow: hidden;
-    padding: 2px 0 0; }
-  .widget.projects > .skills,
-  .widget.projects > .skills a {
-    font-size: 12px; }
-  .widget.projects .description {
-    font-size: 12px;
-    min-height: 42px;
-    padding: 5px 0; }
-
 /*----------------------------------------------------------------------
  .meter
 ----------------------------------------------------------------------*/
@@ -1029,11 +964,10 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
 /*----------------------------------------------------------------------
  discover
 ----------------------------------------------------------------------*/
-.discover .widget {
-  margin-bottom: 24px; }
 .discover .searcher {
   background-color: transparent;
   border-bottom: 1px solid #d1d3d4;
+  margin-bottom: 24px;
   padding: 0; }
   .discover .searcher form {
     margin: 0 auto;
@@ -1088,19 +1022,270 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
         color: #58595B;
         font-size: 1em;
         font-weight: 700; }
-.discover #searcher {
+  .discover .searcher #searcher {
+    position: absolute;
+    right: 40px;
+    top: 20px;
+    background: url(/view/images/lupa.png) no-repeat;
+    height: 33px;
+    margin-top: -1px;
+    text-indent: -9999px;
+    width: 80px; }
+.discover .widget.projects {
+  margin-bottom: 24px; }
+.discover .project {
+  background-color: #fff;
+  border: 1px solid #d1d3d4;
+  border-radius: 4px;
+  float: left;
+  margin: 0 0 24px 3.33%;
+  min-height: 450px;
+  padding: 0;
+  width: 260px;
+  z-index: 98;
+  overflow: visible;
+  position: relative; }
+  .discover .project.active div.image {
+    filter: alpha(opacity=85);
+    opacity: 0.85; }
+  .discover .project.active a.link {
+    color: #337ab7; }
+  .discover .project a.link {
+    text-decoration: none; }
+  .discover .project .image {
+    background-color: #deddde;
+    border-radius: 4px 4px 0 0;
+    height: 135px;
+    margin: 0;
+    overflow: hidden; }
+  .discover .project-details {
+    margin: 20px 16px 16px; }
+    .discover .project-details h3.title {
+      margin: 0 0 16px; }
+    .discover .project-details .author {
+      color: #ababab;
+      font-size: 12px;
+      margin-bottom: 10px; }
+      .discover .project-details .author-img {
+        border-radius: 50%;
+        display: inline-block;
+        height: 25px;
+        overflow: hidden;
+        width: 25px;
+        vertical-align: middle; }
+        .discover .project-details .author-img img {
+          height: auto;
+          text-align: center;
+          vertical-align: middle;
+          width: 25px; }
+      .discover .project-details .author span {
+        margin-left: 8px;
+        vertical-align: middle; }
+    .discover .project-details .categories {
+      background: url(/view/images/icon_tag.png) no-repeat left 50%;
+      color: #ababab;
+      font-size: 12px;
+      padding-left: 20px; }
+  .discover .project .meter {
+    margin: 0 16px; }
+    .discover .project .meter h2, .discover .project .meter h3, .discover .project .meter h4, .discover .project .meter h5, .discover .project .meter h6 {
+      font-size: 12px;
+      font-weight: 700;
+      margin: 0;
+      padding: 2px 0 0; }
+    .discover .project .meter h3.title.obtained {
+      display: none; }
+    .discover .project .meter div.reached {
+      color: #000;
+      margin-bottom: 12px; }
+      .discover .project .meter div.reached > * {
+        display: inline-block; }
+      .discover .project .meter div.reached h3 {
+        font-size: 14px;
+        font-weight: 300;
+        padding-top: 0; }
+    .discover .project .meter > h3.ronda {
+      color: #990;
+      position: absolute;
+      right: 5px;
+      text-transform: lowercase;
+      top: 4px; }
+    .discover .project .meter.activable {
+      max-width: 288px;
+      z-index: 999; }
+    .discover .project .meter.hor div.graph {
+      background-color: #BCCCD8;
+      border-radius: 9px;
+      height: 18px;
+      position: relative; }
+      .discover .project .meter.hor div.graph .minimum .done {
+        max-width: 215px; }
+      .discover .project .meter.hor div.graph .minimum {
+        background-color: #dc940f;
+        border-radius: 9px;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0; }
+        .discover .project .meter.hor div.graph .minimum .done {
+          background-color: #c5da4d;
+          border-radius: 9px;
+          height: 18px;
+          left: 0;
+          max-width: 288px;
+          position: absolute;
+          top: 0; }
+          .discover .project .meter.hor div.graph .minimum .done strong {
+            background: url(/view/images/project/widget/project_marker.png) no-repeat;
+            display: block;
+            height: 11px;
+            line-height: 2000px;
+            margin-right: -5px;
+            margin-top: -11px;
+            position: absolute;
+            right: 0;
+            text-indent: 2000px;
+            width: 10px; }
+        .discover .project .meter.hor div.graph .minimum .left {
+          float: right;
+          height: 18px;
+          margin-right: -2px;
+          padding-left: 16px; }
+      .discover .project .meter.hor div.graph .optimum {
+        height: 18px;
+        margin-right: -2px;
+        position: absolute;
+        right: 0; }
+    .discover .project .meter.hor .percent {
+      font-size: 12px;
+      line-height: 18px;
+      margin-left: 16px; }
+      .discover .project .meter.hor .percent dt, .discover .project .meter.hor .percent dd {
+        display: inline-block; }
+      .discover .project .meter.hor .percent span {
+        margin-left: 0; }
+    .discover .project .meter div.obtained {
+      text-align: center; }
+      .discover .project .meter div.obtained strong {
+        border-right: 1px solid #a7a9ac;
+        color: #c60;
+        font-size: 24px;
+        font-weight: 700; }
+    .discover .project .meter > h3.investment {
+      color: #363; }
+    .discover .project .meter dl {
+      margin: -18px 40px 0 0;
+      position: relative;
+      /*.optimum,
+      .minimum {
+        line-height:14px;
+        min-width:10%;
+        white-space:nowrap;
+      }
+      .optimum {
+        clear:right;
+        float:right;
+      }*/ }
+      .discover .project .meter dl .optimum,
+      .discover .project .meter dl .minimum {
+        display: none; }
+      .discover .project .meter dl .reached,
+      .discover .project .meter dl .supporters {
+        display: none; }
+      .discover .project .meter dl .days {
+        display: none;
+        /*border-top:1px solid #d1d3d4;
+        font-size:12px;
+        font-weight:700;
+        line-height:1.5em;
+        padding:.8em 0;
+        position:absolute;
+        top:90px;*/ }
+      .discover .project .meter dl dt {
+        margin: 0;
+        /*&.days {
+          width:90px;
+        }*/
+        /*&.optimum,
+        &.minimum {
+          font-size:12px;
+          text-transform:uppercase;
+        }
+        &.optimum {
+          color:#69c;
+          margin-top:18px;
+        }
+        &.minimum {
+          left:0;
+          position:absolute;
+          top:-36px;
+        }*/ }
+      .discover .project .meter dl dd {
+        margin: 0;
+        /*&.minimum {
+          left:0;
+          position:absolute;
+          top:-21px;
+        }
+        &.optimum {
+          color:#69c;
+        }*/
+        /*&.days {
+          color:#ee4843;
+          left:90px;
+          padding-left:10px;
+          right:-40px;
+        }*/ }
+  .discover .project .want-support {
+    border-top: 1px solid #d1d3d4;
+    bottom: 0;
+    letter-spacing: -.4em;
+    position: absolute;
+    text-align: center;
+    width: 100%; }
+    .discover .project .want-support > div {
+      display: inline-block;
+      letter-spacing: normal;
+      padding-bottom: 8px;
+      vertical-align: top;
+      width: 50%; }
+      .discover .project .want-support > div:first-child {
+        border-right: 1px solid #d1d3d4; }
+    .discover .project .want-support h4 {
+      font-size: 12px;
+      line-height: 1;
+      margin: 12px 0 8px; }
+    .discover .project .want-support img {
+      height: 30px; }
+    .discover .project .want-support .days {
+      height: 30px;
+      line-height: 30px; }
+      .discover .project .want-support .days strong {
+        color: #000; }
+.discover .skillmatching div.image span.sm-icon {
   position: absolute;
-  right: 40px;
-  top: 20px;
-  background: url(/view/images/lupa.png) no-repeat;
-  height: 33px;
-  margin-top: -1px;
-  text-indent: -9999px;
-  width: 80px; }
+  top: 8px;
+  right: 8px;
+  width: 40px;
+  height: 40px;
+  background-image: url("/view/images/lg-project-sm.png");
+  background-size: 40px 40px; }
+.discover .skillmatching div.meter dl .days {
+  top: 160px; }
 .discover-group {
   display: none; }
   .discover-group .widget.project {
     margin: 0 0 0 25px; }
+.discover a.discover-arrow {
+  color: #FFF;
+  display: inline-block;
+  line-height: 24px;
+  position: relative;
+  text-indent: 24px;
+  top: 200px;
+  vertical-align: middle; }
+.discover-arrow-left, .discover-arrow-right {
+  width: 24px; }
 .discover-arrow-left {
   float: left; }
   .discover-arrow-left a.discover-arrow {
@@ -1113,6 +1298,43 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
     background: url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 -24px; }
     .discover-arrow-right a.discover-arrow:hover {
       background: url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 -72px; }
+.discover .navi-bar {
+  clear: both;
+  display: block;
+  height: 30px; }
+  .discover .navi-bar ul.navi {
+    height: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    z-index: 900; }
+    .discover .navi-bar ul.navi li {
+      display: block;
+      float: left;
+      height: 1em;
+      margin-right: .5em;
+      overflow: hidden;
+      width: 1em; }
+      .discover .navi-bar ul.navi li > * {
+        display: block;
+        height: 100%;
+        line-height: 2000px;
+        text-indent: 2000px;
+        width: 100%; }
+      .discover .navi-bar ul.navi li > a {
+        background-color: #cdcdce; }
+        .discover .navi-bar ul.navi li > a:hover {
+          background-color: #20b3b2; }
+        .discover .navi-bar ul.navi li > a.active {
+          background-color: #808184; }
+  .discover .navi-bar a.all {
+    position: relative;
+    right: -825px;
+    text-decoration: none;
+    text-transform: uppercase;
+    top: -20px; }
+    .discover .navi-bar a.all:hover {
+      color: #20B3B2; }
 
 .review #main {
   overflow: visible; }

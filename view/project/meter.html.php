@@ -52,16 +52,17 @@ if ($reached >= $minimum) {
     }
 }
 
+//todo:ここのロジックおかしいかも。一覧の「いのちの木」のPJ、.meter.horがはみ出る。
 $more  = $optimum - $minimum;
 $over = $reached - $minimum;
 
 if ($over > 0) {
-    
+
     if ($over >= $more) {
         $optimum_done = 100;
     } else {
         $optimum_done = min(100, round($over / ($optimum - $minimum)));
-        
+
         if ($optimum_done >= 100) {
             $optimum_done = 99;
         }
@@ -90,7 +91,7 @@ var_dump($over);
 
 ?>    <div class="meter <?php echo $horizontal ? 'hor' : 'ver'; echo $big ? ' big' : ''; echo $activable ? ' activable' : ''; ?>">
     <dl>
-        <dt class="reached"><span><?php echo Text::get('project-view-metter-got'); ?></span></dt>
+        <dt class="reached"><span>現在</span></dt>
         <dd class="reached"><strong><?php echo \amount_format($reached) ?></strong><span>円</span></dd>
 
         <dt class="supporters"><span><?php echo Text::get('project-view-metter-investors'); ?></span></dt>
@@ -101,6 +102,14 @@ var_dump($over);
             <h<?php echo $level ?> class="title investment"><?php echo Text::get('project-view-metter-investment'); ?></h<?php echo $level ?>>
         <? endif; ?>
         <?php if ($activable) : ?><h<?php echo $level ?> class="title obtained"><?php echo Text::get('project-view-metter-got'); ?></h<?php echo $level ?>><?php endif; ?>
+
+        <?php if ($activable) : ?>
+            <div class="reached">
+                <h<?php echo $level ?>>現在</h<?php echo $level ?>>
+                <div><strong><?php echo \amount_format($reached) ?></strong>円</div>
+            </div>
+        <?php endif; ?>
+
         <div class="graph">
             <div class="optimum">
                  <div class="left" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($optimum_done) ?>%"></div>
@@ -125,10 +134,10 @@ var_dump($over);
         </dl>
 
         <?php if ($activable) : ?>
-        <div class="obtained">
-            <strong><?php echo \amount_format($reached) ?> <span>円</span></strong>
-            <span class="percent"><?php echo number_format($minimum_done_per) ?>%</span>
-        </div>
+            <dl class="percent">
+                <dt>達成率：</dt>
+                <dd><span class="percent"><?php echo number_format($minimum_done_per) ?>%</span></dd>
+            </dl>
         <?php endif; ?>
 
     <?php /*

@@ -6,79 +6,9 @@
 .widget{
 
   &.projects {
-    > .title {
-      margin-bottom: 20px;
-      padding-left: 0;
-      font-size: 16px;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    .project {
-      background-color: #fff;
-      float: left;
-      margin: 0 0 3.33% 3.33%;
-      padding: 0;
-      position: relative;
-      width: 260px;
-      z-index: 98;
-      > .title {
-        font-size: 14px!important;
-        margin: 0!important;
-        padding: 0!important;
-      }
-    }
-    .image {
-      background-color: #deddde;
-      height: 135px;
-      margin: 12px 0 10px;
-      overflow: hidden;
-      padding: 0!important;
-      position: relative;
-      text-align: center;
-    }
-    > .author {
-      overflow: hidden;
-      padding: 2px 0 0;
-    }
-    > .skills,
-    > .skills a {
-      font-size: 12px;
-    }
-    .description {
-      font-size: 12px;
-      min-height: 42px;
-      padding: 5px 0;
-    }
+
   }
 
-  //todo:確かtagmarkはなくすと言っていたので、コメントアウト、後日削除予定
-  /*&.project {
-    .image {
-      .tagmark {
-        &.green {
-          background:url(/view/images/project/tagmark_green.png) 0 0 no-repeat;
-        }
-        &.red {
-          background:url(/view/images/project/tagmark_red.png) 0 0 no-repeat;
-        }
-        &.violet {
-          background:url(/view/images/project/tagmark_violet.png) 0 0 no-repeat;
-        }
-        &.grey {
-          background:url(/view/images/project/tagmark_grey.png) 0 0 no-repeat;
-        }
-        & span.small {
-          font-size:.8em!important;
-          line-height:14px;
-        }
-        &.twolines {
-          font-style:normal;
-          font-weight:400;
-          padding-top:4px!important;
-        }
-      }
-    }
-  }*/
 }
 
 
