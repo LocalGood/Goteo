@@ -70,69 +70,25 @@ $bodyClass = 'project-show skillmatching-show'; include 'view/prologue.html.php'
 
         <div id="sub-header">
             <div class="project-header">
-                <a href="/user/<?php echo $skillmatching->owner; ?>"><img src="<?php echo $skillmatching->user->avatar->getLink(56,56, true) ?>" /></a>
                 <h2><span><?php echo htmlspecialchars($skillmatching->name) ?></span></h2>
                 <div class="project-subtitle"><?php echo htmlspecialchars($skillmatching->subtitle) ?></div>
-                <?/*
-                <div class="wants-skills">
-                    スキル: <?php
-                        // スキル表示
-                        if (!empty($skills)):
-                            foreach( $skills as $_skill_id => $_skill_name):
-                                ?>
-                                <a href=""><?php echo $_skill_name ?></a>
-                                <?
-                            endforeach;
-                        endif;
+
+                <div class="project-header-bottom">
+                    <?php
+                    $_value = '/skillmatching/' . $skillmatching->id;
+                    $_url = urldecode($_SERVER['REQUEST_URI']);
+                    if(strstr($_url,$_value) && preg_match('/^\/skillmatching\/(.*)$/',$_url)):
+                        echo new View('view/skillmatching/widget/share.html.php', array('project' => $project));
+                    endif;
                     ?>
-                </div>
-                */?>
 
-                <div class="project-by"><a href="/user/<?php echo $skillmatching->owner; ?>"><?php echo Text::get('regular-by-sm') ?> <?php echo $skillmatching->user->name; ?></a></div>
-                <?
-                $_value = '/skillmatching/' . $skillmatching->id;
-                $_url = urldecode($_SERVER['REQUEST_URI']);
-                if(strstr($_url,$_value) && preg_match('/^\/project\/((?!\/).)*$/',$_url)):
-                    ?>
-                    <div id="social_bookmark">
-                        <div id="twitter">
-                            <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
-                            <script>
-                                !function(d,s,id){
-                                    var js,fjs=d.getElementsByTagName(s)[0];
-                                    if(!d.getElementById(id)){
-                                        js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";
-                                        fjs.parentNode.insertBefore(js,fjs);
-                                    }
-                                }(document,"script","twitter-wjs");
-                            </script>
+                    <?php if (!empty($categories)): ?>
+                        <div class="categories">
+                            <?php $sep = ''; foreach ($categories as $key=>$value) :
+                                echo $sep.'<a href="/discover/results/'.$key.'">'.htmlspecialchars($value).'</a>';
+                            $sep = ', '; endforeach; ?>
                         </div>
-                        <div id="facebook">
-                            <div class="fb-like" data-href="<?= $ogmeta['url']; ?>" data-layout="button_count" data-action="recommend" data-show-faces="false" data-share="true"></div>
-                        </div>
-
-                        <div class="g-plusone" data-size="medium" data-width="60"></div>
-                        <script type="text/javascript">
-                            window.___gcfg = {lang: 'ja'};
-
-                            (function() {
-                                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                                po.src = 'https://apis.google.com/js/platform.js';
-                                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-                            })();
-                        </script>
-
-                        <div style="clear:both"></div>
-                    </div><!-- #social_bookmark -->
-                <?
-                endif;
-                ?>
-                <br clear="both" />
-
-                <div class="categories"><h3><?php echo Text::get('skillmatching-view-categories-title'); ?></h3>
-                    <?php $sep = ''; foreach ($categories as $key=>$value) :
-                        echo $sep.'<a href="/discover/results/'.$key.'">'.htmlspecialchars($value).'</a>';
-                    $sep = ', '; endforeach; ?>
+                    <?php endif; ?>
                 </div>
             </div>
 
@@ -152,7 +108,7 @@ $bodyClass = 'project-show skillmatching-show'; include 'view/prologue.html.php'
 
         </div>
 
-<?php if(isset($_SESSION['messages'])) { include 'view/header/message.html.php'; } ?>
+    <?php if(isset($_SESSION['messages'])) { include 'view/header/message.html.php'; } ?>
 
 
         <div id="main" class="threecols">

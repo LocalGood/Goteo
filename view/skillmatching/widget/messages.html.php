@@ -84,15 +84,15 @@ $level = (int) $this['level'] ?: 3;
                    </a>
                    </h<?php echo $level ?>>
                    <a name="message<?php echo $message->id; ?>"></a>
-                   <div class="date"><span><?php echo $message->timeago ?>前</span></div>
                    <blockquote><?php echo $message->message; ?></blockquote>
                 <?php if (!empty($_SESSION['user'])) : ?>
-                    <div class="actions">
+                    <div class="actions_date">
                         <a class="" href="#" onclick="answer('<?php echo $message->id; ?>')"><?php echo Text::get('project-messages-answer_it'); ?></a>
                         <?php // si puede borrar este mensaje
                         if (\Goteo\Core\ACL::check("/message/delete/{$message->id}/{$project->id}")) : ?>
                                 <a href="/message/delete/<?php echo $message->id; ?>/<?php echo $project->id; ?>"><?php echo Text::get('regular-delete'); ?></a>
                         <?php endif ?>
+                        <span class="date"><?php echo $message->timeago ?>前</span>
                     </div>
                 <?php endif; ?>
                 </div>
@@ -112,12 +112,12 @@ $level = (int) $this['level'] ?: 3;
 						   <?php echo $child->user->name; ?>
                            </a>
                            </h<?php echo $level ?>>
-                           <div class="date"><span><?php echo $child->timeago; ?>前</span></div>
                            <blockquote><?php echo $child->message; ?></blockquote>
                            <?php // si puede borrar este mensaje
                            if (\Goteo\Core\ACL::check("/message/delete/{$child->id}/{$project->id}")) : ?>
-                           <div class="actions">
+                           <div class="actions_date">
                                 <a href="/message/delete/<?php echo $child->id; ?>/<?php echo $project->id; ?>"><?php echo Text::get('regular-delete'); ?></a>
+                               <span class="date"><?php echo $child->timeago; ?>前</span>
                            </div>
                            <?php endif; ?>
                        </div>

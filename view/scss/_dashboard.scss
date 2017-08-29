@@ -491,7 +491,7 @@
     }
   }
 
-  .gestrew {
+  /*.gestrew {
     .message {
       overflow: auto;
       height: auto;
@@ -560,42 +560,7 @@
           li{
             background: none no-repeat scroll 0 0 transparent;
             min-height: 34px;
-            padding: 0 0 0 29px;
-            &.file {
-              background-image:url(/view/images/icon/s/file.png);
-            }
-
-            &.food {
-              background-image:url(/view/images/icon/s/food.png);
-            }
-
-            &.money {
-              background-image:url(/view/images/icon/s/money.png);
-            }
-
-            &.code {
-              background-image:url(/view/images/icon/s/code.png);
-            }
-
-            &.service {
-              background-image:url(/view/images/icon/s/service.png);
-            }
-
-            &.manual {
-              background-image:url(/view/images/icon/s/manual.png);
-            }
-
-            &.product {
-              background-image:url(/view/images/icon/s/product.png);
-            }
-
-            &.design {
-              background-image:url(/view/images/icon/s/design.png);
-            }
-
-            &.other {
-              background-image:url(/view/images/icon/s/other.png);
-            }
+            padding: 0;
           }
         }
         .contenedorrecompensa {
@@ -614,7 +579,7 @@
         }
       }
     }
-  }
+  }*/
 
   &.dashboard .superform {
     padding-left: 20px;

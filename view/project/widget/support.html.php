@@ -34,32 +34,12 @@ $week = array('日','月','火','水','木','金','土');
             <span class="round"><?php echo $project->round; if ($project->round == 1 ){ echo 'st '; } else { echo 'nd '; }; echo Text::get('regular-round'); ?></span>
         <?php endif; ?>
         <?php if (!empty($project->days) && $project->days > 0) : ?>
-            <span class="days"><?php echo Text::get('regular-round'); ?><strong><?php echo number_format($project->days) ?></strong><span><?php echo Text::get('regular-days'); ?></span></span>
+            <span class="days"><?php echo Text::get('regular-remaining'); ?><strong><?php echo number_format($project->days) ?></strong><span><?php echo Text::get('regular-days'); ?></span></span>
         <?php endif; ?>
 
-    </h<?php echo $level + 1 ?>>
+        <?php //todo: $project->statusが終了の値だったら「終了」とか出す。（statusが幾つ以上で終了か忘れた。。） ?>
 
-    <?php //var_dump($project);
-    switch ($project->tagmark) {
-        case 'onrun': // "en marcha"
-            echo '<div class="tagmark green">' . Text::get('regular-onrun_mark') . '</div>';
-            break;
-        case 'keepiton': // "aun puedes"
-            echo '<div class="tagmark green">' . Text::get('regular-keepiton_mark') . '</div>';
-            break;
-        case 'onrun-keepiton': // "en marcha" y "aun puedes"
-            echo '<div class="tagmark green twolines"><span class="small"><strong>' . Text::get('regular-onrun_mark') . '</strong><br />' . Text::get('regular-keepiton_mark') . '</span></div>';
-            break;
-        case 'gotit': // "financiado"
-            echo '<div class="tagmark violet">' . Text::get('regular-gotit_mark') . '</div>';
-            break;
-        case 'success': // "exitoso"
-            echo '<div class="tagmark red">' . Text::get('regular-success_mark') . '</div>';
-            break;
-        case 'fail': // "caducado"
-            echo '<div class="tagmark grey">' . Text::get('regular-fail_mark') . '</div>';
-            break;
-    } ?>
+    </h<?php echo $level + 1 ?>>
 
     <div class="project-widget-box<?php echo $status = $project->round ? '' : ' end'; ?>">
     <?php echo new View('view/project/meter.html.php', array('project' => $project, 'level' => $level) ) ?>
@@ -90,6 +70,7 @@ $week = array('日','月','火','水','木','金','土');
         $period_2r = $project->period_2r;
 
         ?>
+        <?/*php todo: 下の1行は募集中じゃないと出ない。ここの見た目をどうするか */?>
         <div class="invest-notice">
             このプロジェクトの挑戦期間は、1stラウンド <?php echo $published; ?>〜<?php echo $until; ?>23:59（<?php echo $project->period_1r; ?>日間）、2ndラウンド<?php echo $willpass; ?>〜<?php echo $willclose; ?>23:59（<?php echo $project->period_2r; ?>日間）です
         </div>
@@ -97,6 +78,7 @@ $week = array('日','月','火','水','木','金','土');
     } // if ($project->status == 3) {
     ?>
 
+    <?/*php todo: このリンク削除？削除でない場合、リンク先ページのデザイン。リンク先ページは役割として不要にも思う。 */?>
     <a class="more" href="/project/<?php echo $project->id; ?>/needs"><?php echo Text::get('regular-see_more'); ?></a>
 
 </div>

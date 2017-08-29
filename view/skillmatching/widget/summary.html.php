@@ -32,7 +32,7 @@ $skillmatching->related     = nl2br(Text::urlink($skillmatching->related));
 
 $level = (int) $this['level'] ?: 3;
 ?>
-<?
+<?php
 echo new View('view/skillmatching/widget/video.html.php', array('skillmatching' => $skillmatching));
 ?>
 <div class="widget project-summary">
@@ -52,7 +52,7 @@ echo new View('view/skillmatching/widget/video.html.php', array('skillmatching' 
     </div>    
     <?php endif */?>
 
-    <?
+    <?php
     echo new View('view/skillmatching/widget/gallery.html.php', array('skillmatching' => $skillmatching));
     ?>
 
@@ -72,11 +72,21 @@ echo new View('view/skillmatching/widget/video.html.php', array('skillmatching' 
     <?php if (!empty($skillmatching->related)): ?>
     <div class="related">
         <h<?php echo $level + 1?>><?php echo Text::get('overview-field-related-sm'); ?></h<?php echo $level + 1?>>
-        <?php echo $skillmatching->related ?>
+        <?php echo $skillmatching->related ?>text
     </div>
     <?php endif ?>
 
 </div>
-<?
-    echo new View('view/skillmatching/widget/share.html.php', array('skillmatching' => $skillmatching));
-?>
+<div class="project-support_btn">
+    <a class="button supportit" href="/project/<?php echo $skillmatching->id; ?>/invest"><?php echo Text::get('regular-invest_it'); ?></a>
+</div>
+
+<?php if (!empty($skillmatching->id)): ?>
+    <div class="widget project-share">
+        <h<?php echo $level + 1?> class="title"><?php echo Text::get('overview-field-share-head'); ?></h<?php echo $level + 1?>>
+        <?php
+            echo new View('view/skillmatching/widget/share.html.php', array('project' => $project));
+        ?>
+    </div>
+<?php endif ?>
+

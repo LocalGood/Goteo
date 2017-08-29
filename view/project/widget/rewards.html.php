@@ -51,20 +51,25 @@ uasort($project->individual_rewards,
             $count = 1;
         ?>
             <div class="individual">
-                <h<?php echo $level + 2 ?> class="title"><a href="/project/<?php echo $project->id; ?>/rewards#individual_ttl"><?php echo Text::get('project-rewards-individual_reward-title'); ?></a></h<?php echo $level + 2 ?>>
                 <ul>
                     <?php foreach ($project->individual_rewards as $individual) : ?>
 
                         <li class="<?php echo $individual->icon ?>">
-                            <?/*<div class="title">*/?>
-                            <div class="amount"><?php echo Text::get('regular-investing'); ?> <span><?php echo \amount_format($individual->amount); ?>円</span></div>
-                            <h<?php echo $level + 3 ?> class="name"><a href="/project/<?php echo $project->id; ?>/rewards#<? echo 'individual_num' . $count; ?>"><?php echo htmlspecialchars($individual->reward) ?></a></h<?php echo $level + 3 ?>>
+                            <h<?php echo $level + 3 ?> class="name">
+                                <?/*php todo:ここリンクおかしいかも。/rewards#xxx　にリンクされている。リンクなくてもいいかも */?>
+                                <a href="/project/<?php echo $project->id; ?>/rewards#<? echo 'individual_num' . $count; ?>"><?php echo htmlspecialchars($individual->reward) ?></a></h<?php echo $level + 3 ?>>
+                            <dl class="amount">
+                                <dt><?php echo Text::get('regular-support-amount'); ?></dt>
+                                <dd><?php echo \amount_format($individual->amount); ?>円</dd>
+                            </dl>
                             <?php if (!empty($individual->units)):
                                 $units = ($individual->units - $individual->taken);
                                 ?>
-                            <p class="remain"><strong><?php echo Text::get('project-rewards-individual_reward-limited'); ?> <?php echo $units; ?></strong></p>
+                            <dl class="remain">
+                                <dt><?php echo Text::get('project-rewards-individual_reward-limited'); ?></dt>
+                                <dd><?php echo $units; ?></dd>
+                            </dl>
                             <?php endif; ?>
-                            <?/*</div>*/?>
                             <p><?php echo nl2br(htmlspecialchars($individual->description))?></p>
 
                             <div class="buttons">
@@ -81,7 +86,6 @@ uasort($project->individual_rewards,
             $count = 1;
         ?>
         <div class="social">
-            <h<?php echo $level + 2 ?> class="title"><a href="/project/<?php echo $project->id; ?>/rewards#social_ttl"><?php echo Text::get('project-rewards-social_reward-title'); ?></a></h<?php echo $level + 2 ?>>
             <ul>
             <?php foreach ($project->social_rewards as $social) : ?>
                 <li class="<?php echo $social->icon ?>">
@@ -106,6 +110,7 @@ uasort($project->individual_rewards,
         </div>
         <?php endif; ?>
 
+        <?/*php リンク削除？ */?>
         <a class="more" href="/project/<?php echo $project->id; ?>/rewards"><?php echo Text::get('regular-see_more'); ?></a>
     </div>
     

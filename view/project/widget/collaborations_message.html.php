@@ -28,7 +28,6 @@ $project = $this['project'];
 <div class="widget project-collaborations">
 
     <div class="project-widget-box">
-        <h<?php echo $level ?> class="title"><?php echo Text::get('project-collaborations-title') . '・' . Text::get('cost-type-lend'); ?></h<?php echo $level ?>>
         <ul>
             <?php foreach ($project->supports as $support) : ?>
             <li class="support <?php echo htmlspecialchars($support->type) ?>">

@@ -87,12 +87,12 @@
   }
 
   //プロジェクトグループ
-  .widget.projects {
+  /*.widget.projects {
     margin-bottom: 24px;
-  }
+  }*/
 
   //プロジェクト一つ
-  .project {
+/*  .project {
     background-color: #fff;
     border: 1px solid #d1d3d4;
     border-radius: 4px;
@@ -161,188 +161,11 @@
     }
 
     .meter {
-      margin:0 16px;
-      h2, h3, h4, h5, h6 {
-        font-size:12px;
-        font-weight:700;
-        margin:0;
-        padding:2px 0 0;
+      div.graph {
+        margin-bottom: 0;
       }
-      h3.title.obtained {
+      dl.amount-bar {
         display: none;
-      }
-      div.reached {
-        color: #000;
-        margin-bottom: 12px;
-        > * {
-          display: inline-block;
-        }
-        h3 {
-          font-size: 14px;
-          font-weight: 300;
-          padding-top: 0;
-        }
-      }
-      > h3.ronda {
-        color:#990;
-        position:absolute;
-        right:5px;
-        text-transform:lowercase;
-        top:4px;
-      }
-
-      &.activable {
-        max-width:288px;
-        z-index:999;
-      }
-
-      &.hor {
-        div.graph {
-          background-color:#BCCCD8;
-          border-radius: 9px;
-          height:18px;
-          position:relative;
-          .minimum .done {
-            max-width:215px;
-          }
-          .minimum {
-            background-color:#dc940f;
-            border-radius: 9px;
-            height:100%;
-            left:0;
-            position:absolute;
-            top:0;
-            .done {
-              background-color:#c5da4d;
-              border-radius: 9px;
-              height:18px;
-              left:0;
-              max-width:288px;
-              position:absolute;
-              top:0;
-              strong {
-                background:url(/view/images/project/widget/project_marker.png) no-repeat;
-                display:block;
-                height:11px;
-                line-height:2000px;
-                margin-right:-5px;
-                margin-top:-11px;
-                position:absolute;
-                right:0;
-                text-indent:2000px;
-                width:10px;
-              }
-            }
-            .left {
-              float:right;
-              height:18px;
-              margin-right:-2px;
-              padding-left: 16px;
-            }
-          }
-          .optimum {
-            height:18px;
-            margin-right:-2px;
-            position:absolute;
-            right:0;
-          }
-        }
-        .percent {
-          font-size: 12px;
-          line-height: 18px;
-          margin-left: 16px;
-          dt,dd {
-            display: inline-block;
-          }
-          span {
-            margin-left: 0;
-          }
-        }
-      }
-
-      div.obtained {
-        text-align:center;
-        span.percent {
-        }
-        strong {
-          border-right:1px solid #a7a9ac;
-          color:#c60;
-          font-size:24px;
-          font-weight:700;
-        }
-      }
-      > h3.investment {
-        color:#363;
-      }
-
-      dl {
-        .optimum,
-        .minimum {
-          display: none;
-        }
-        margin:-18px 40px 0 0;
-        position:relative;
-        .reached,
-        .supporters {
-          display:none;
-        }
-        .days {
-          display: none;
-          /*border-top:1px solid #d1d3d4;
-          font-size:12px;
-          font-weight:700;
-          line-height:1.5em;
-          padding:.8em 0;
-          position:absolute;
-          top:90px;*/
-        }
-        /*.optimum,
-        .minimum {
-          line-height:14px;
-          min-width:10%;
-          white-space:nowrap;
-        }
-        .optimum {
-          clear:right;
-          float:right;
-        }*/
-        dt {
-          margin:0;
-          /*&.days {
-            width:90px;
-          }*/
-          /*&.optimum,
-          &.minimum {
-            font-size:12px;
-            text-transform:uppercase;
-          }
-          &.optimum {
-            color:#69c;
-            margin-top:18px;
-          }
-          &.minimum {
-            left:0;
-            position:absolute;
-            top:-36px;
-          }*/
-        }
-        dd {
-          margin:0;
-          /*&.minimum {
-            left:0;
-            position:absolute;
-            top:-21px;
-          }
-          &.optimum {
-            color:#69c;
-          }*/
-          /*&.days {
-            color:#ee4843;
-            left:90px;
-            padding-left:10px;
-            right:-40px;
-          }*/
-        }
       }
     }
 
@@ -398,6 +221,7 @@
 
   &-group {
     display: none;
+    @include cf;
     .widget.project {
       margin: 0 0 0 25px;
     }
@@ -436,9 +260,9 @@
         }
       }
     }
-  }
+  }*/
 
-  .navi-bar {
+  /*.navi-bar {
     clear:both;
     display:block;
     height:30px;
@@ -483,6 +307,6 @@
         color:#20B3B2;
       }
     }
-  }
+  }*/
 }
 

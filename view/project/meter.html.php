@@ -22,6 +22,7 @@ use Goteo\Library\Text;
 
 $level = (int) $this['level'] ?: 3;
 
+//todo: horとverのところを直す。全部horで出す。varだったものはwidthではなくheightに値が入ってしまっている（縦のレイアウトは無くなった）→JS
 $horizontal = !empty($this['horizontal']);
 $big = !empty($this['big']);
 $activable = !empty($this['activable']);
@@ -52,7 +53,7 @@ if ($reached >= $minimum) {
     }
 }
 
-//todo:ここのロジックおかしいかも。一覧の「いのちの木」のPJ、.meter.horがはみ出る。
+//todo:hor->widthとvar->heightはmax100%にしたい ex)一覧の「いのちの木」のPJ、.meter.horがはみ出る。
 $more  = $optimum - $minimum;
 $over = $reached - $minimum;
 
@@ -89,56 +90,60 @@ var_dump($more);
 var_dump($over);
 */
 
-?>    <div class="meter <?php echo $horizontal ? 'hor' : 'ver'; echo $big ? ' big' : ''; echo $activable ? ' activable' : ''; ?>">
-    <dl>
-        <dt class="reached"><span>現在</span></dt>
+?>
+<?/*php<div class="meter <?php echo $horizontal ? 'hor' : 'ver'; echo $big ? ' big' : ''; echo $activable ? ' activable' : ''; ?>">*/?>
+<div class="meter">
+
+    <dl class="reached-bar">
+        <dt class="reached"><span><?php echo Text::get('project-view-metter-got'); ?></span></dt>
         <dd class="reached"><strong><?php echo \amount_format($reached) ?></strong><span>円</span></dd>
 
         <dt class="supporters"><span><?php echo Text::get('project-view-metter-investors'); ?></span></dt>
         <dd class="supporters"><strong><?php echo number_format($supporters) ?></strong><span>人</span></dd>
     </dl>
 
-        <? if ($big): ?>
-            <h<?php echo $level ?> class="title investment"><?php echo Text::get('project-view-metter-investment'); ?></h<?php echo $level ?>>
-        <? endif; ?>
-        <?php if ($activable) : ?><h<?php echo $level ?> class="title obtained"><?php echo Text::get('project-view-metter-got'); ?></h<?php echo $level ?>><?php endif; ?>
+    <? if ($big): ?>
+        <h<?php echo $level ?> class="title investment"><?php echo Text::get('project-view-metter-investment'); ?></h<?php echo $level ?>>
+    <? endif; ?>
+    <?php if ($activable) : ?><h<?php echo $level ?> class="title obtained"><?php echo Text::get('project-view-metter-got'); ?></h<?php echo $level ?>><?php endif; ?>
 
-        <?php if ($activable) : ?>
-            <div class="reached">
-                <h<?php echo $level ?>>現在</h<?php echo $level ?>>
-                <div><strong><?php echo \amount_format($reached) ?></strong>円</div>
-            </div>
-        <?php endif; ?>
-
-        <div class="graph">
-            <div class="optimum">
-                 <div class="left" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($optimum_done) ?>%"></div>
-                 <div class="done" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($optimum_left) ?>%"></div>
-            </div>
-            <div class="minimum" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_ratio) ?>%">
-                <div class="left" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_left) ?>%"><!-- <strong><?php echo number_format($minimum_left) ?>%</strong> --></div>
-                <div class="done" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_done) ?>%"><strong><?php echo number_format($minimum_done_per) ?>%</strong></div>
-            </div>
+    <?/*php if ($activable) : ?>
+        <div class="reached">
+            <h<?php echo $level ?>>現在</h<?php echo $level ?>>
+            <div><strong><?php echo \amount_format($reached) ?></strong>円</div>
         </div>
+    <?php endif; */?>
 
-        <dl>
-            <dt class="optimum"><?php echo Text::get('project-view-metter-optimum'); ?></dt>
-            <dd class="optimum"><strong><?php echo \amount_format($optimum) ?></strong><span>円</span></dd>
+    <div class="graph">
+        <div class="optimum">
+             <div class="left" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($optimum_done) ?>%"></div>
+             <div class="done" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($optimum_left) ?>%"></div>
+        </div>
+        <div class="minimum" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_ratio) ?>%">
+            <div class="left" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_left) ?>%"><!-- <strong><?php echo number_format($minimum_left) ?>%</strong> --></div>
+            <div class="done" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_done) ?>%"><strong><?php echo number_format($minimum_done_per) ?>%</strong></div>
+        </div>
+    </div>
 
-            <dt class="minimum" style="<?php echo $horizontal ? 'width' : '' ?>: <?php echo number_format($minimum_ratio) ?>%"><span><?php echo Text::get('project-view-metter-minimum'); ?></span></dt>
-            <dd class="minimum" style="<?php echo $horizontal ? 'width' : '' ?>: <?php echo number_format($minimum_ratio) ?>%"><strong><?php echo \amount_format($minimum) ?></strong><span>円</span></dd>
+    <dl class="amount-bar">
+        <dt class="minimum" style="<?php echo $horizontal ? 'width' : '' ?>: <?php echo number_format($minimum_ratio) ?>%"><span><?php echo Text::get('project-view-metter-minimum'); ?></span></dt>
+        <dd class="minimum" style="<?php echo $horizontal ? 'width' : '' ?>: <?php echo number_format($minimum_ratio) ?>%"><strong><?php echo \amount_format($minimum) ?></strong><span>円</span></dd>
 
-            <dt class="days"><span><?php echo Text::get('project-view-metter-days'); ?></span></dt>
-            <dd class="days"><strong><?php echo number_format($days) ?></strong><span><?php echo Text::get('regular-days'); ?></span></dd>
+        <dt class="optimum"><?php echo Text::get('project-view-metter-optimum'); ?></dt>
+        <dd class="optimum"><strong><?php echo \amount_format($optimum) ?></strong><span>円</span></dd>
 
+        <!-- todo:meterとしてはdaysは不要になったが、一応残している。 -->
+        <dt class="days"><span><?php echo Text::get('project-view-metter-days'); ?></span></dt>
+        <dd class="days"><strong><?php echo number_format($days) ?></strong><span><?php echo Text::get('regular-days'); ?></span></dd>
+
+    </dl>
+
+    <?/*php if ($activable) : */?>
+        <dl class="percent">
+            <dt>達成率：</dt>
+            <dd><strong><?php echo number_format($minimum_done_per) ?></strong>%</dd>
         </dl>
-
-        <?php if ($activable) : ?>
-            <dl class="percent">
-                <dt>達成率：</dt>
-                <dd><span class="percent"><?php echo number_format($minimum_done_per) ?>%</span></dd>
-            </dl>
-        <?php endif; ?>
+    <?/*php endif; */?>
 
     <?php /*
     // si en estado 3 ha alcanzado el optimo o segunda ronda, "aun puedes seguir aportando" junto al quedan tantos días
@@ -147,4 +152,3 @@ var_dump($over);
     <?php endif; */ ?>
 
     </div>
-
