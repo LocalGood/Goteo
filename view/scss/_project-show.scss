@@ -138,6 +138,7 @@
     .button.green {
       background-color: #33cc99;
     }
+    /* todo: 多分「支援者」が入ると要るから、取っておく */
     .more {
       border-top: $projectShowBorder;
       clear: both;
@@ -175,8 +176,10 @@
         padding: 0;
         li {
           background-color: #fff;
-          margin-bottom: 20px;
           padding: 20px 20px 10px;
+          &:not(:last-child) {
+            margin-bottom: 20px;
+          }
           .name {
             font-size: 14px;
             font-weight: 600;
@@ -253,7 +256,6 @@
         position: relative;
       }
       .meter {
-        margin-top: 15px;
         dl.reached-bar {
           .supporters {
             display: inline-block;
@@ -276,9 +278,6 @@
           top: 38px;
         }
       }
-      .more {
-        display: none;
-      }
     }
 
     //プロジェクトオーナー
@@ -291,7 +290,6 @@
     //
     .project-investors {
       background-color: #fff;
-      margin-bottom: 10px;
       padding: 0;
       .supertitle {
         background-color: #3c9;
@@ -523,151 +521,6 @@
     }
   }
 
-  //オーナーウィジェット
-  .user {
-    padding: 0;
-    .project-widget-box {
-      padding: 15px 20px;
-    }
-    .user-head {
-      margin-bottom: 20px;
-      .image {
-        display: inline-block;
-        height: 65px;
-        vertical-align: middle;
-        width: 65px;
-        img {
-          max-height: 65px;
-          max-width: 65px;
-        }
-      }
-      &-right {
-        display: inline-block;
-        padding-left: 20px;
-        vertical-align: middle;
-        width: 200px;
-        .title {
-          margin: 0 0 4px;
-        }
-        .location {
-          background: url(/view/images/location/s.png) no-repeat left center;
-          padding-left: 18px;
-          a {
-            color: #9b9b9b;
-            text-decoration: none;
-          }
-        }
-      }
-    }
-    .about {
-      p {
-        line-height: 1.5;
-        margin: 0 0 20px;
-        padding: 0 2px;
-      }
-      &-link {
-        margin-bottom: 20px;
-        text-align: right;
-        a {
-          color: $colLinkText01;
-          display: inline-block;
-          font-size: 14px;
-          line-height: 20px;
-          text-decoration: none;
-          &:after {
-            background: url(/view/images/arrow_user_link.png) no-repeat right 50%;
-            content: '';
-            display: inline-block;
-            height: 8px;
-            padding: 0 0 4px 4px;
-            width: 6px;
-          }
-        }
-      }
-    }
-    .links {
-      line-height: 36px;
-      margin: 0 0 14px 0;
-      padding: 1em 0;
-      padding-bottom: 0;
-      padding-top: 0;
-      ul {
-        line-height: 18px;
-        list-style-type: none;
-        margin: 0;
-        padding-left: 0;
-        a {
-          font-size: 14px;
-          font-weight: 600;
-          text-decoration: none;
-          word-wrap: break-word;
-        }
-      }
-      &.message {
-        background: url(/view/images/bocadillo/s.png) no-repeat left center;
-        padding-left: 22px;
-        text-decoration: none;
-        text-indent: .5em;
-        a {
-          color: #28B258;
-          font-size: 14px;
-          font-weight: 600;
-          text-decoration: none;
-        }
-      }
-    }
-    .widget.user-social {
-      margin-bottom: 30px;
-      padding: 0;
-      .title {
-        display: none;
-      }
-      ul {
-        list-style:none;
-        margin:0;
-        overflow:visible;
-        padding:0;
-        li {
-          display:block;
-          float:left;
-          margin-right: 10px;
-          a {
-            background:no-repeat left center;
-            display: inline-block;
-            text-indent: -99999px;
-            width: 20px;
-            height: 20px;
-          }
-          &.facebook {
-            a {
-              background-image:url(/view/images/social/facebook.png);
-            }
-          }
-          &.google {
-            a {
-              background-image:url(/view/images/social/google.png);
-            }
-          }
-          &.twitter {
-            a {
-              background-image:url(/view/images/social/twitter.png);
-            }
-          }
-          &.identica {
-            a {
-              background-image:url(/view/images/social/identica.png);
-            }
-          }
-          &.linkedin {
-            a {
-              background-image:url(/view/images/social/linkedin.png);
-            }
-          }
-        }
-      }
-    }
-  }
-
   //メッセージを送信するウィジェット
   .project-message {
     position:relative;
@@ -713,6 +566,10 @@
 
   //左カラム
   .center {
+
+    > .widget:last-child {
+      margin-bottom: 20px;
+    }
 
     //サブナビ　＞　プロジェクト
     &.home {
@@ -829,7 +686,6 @@
               min-height: 32px;
               padding-bottom: 16px;
               padding-left: 40px;
-              text-transform: uppercase;
             }
           }
           tbody {
@@ -897,6 +753,7 @@
         }
       }
       .project-schedule {
+        margin-bottom: 20px;
         table {
           border-collapse:separate;
           width:100%;
@@ -966,115 +823,6 @@
 
     //サブナビ　＞　支援者
     &.supporters {
-      .project-supporters {
-        background: none;
-        padding: 0;
-        .title {
-          display: none;
-        }
-        //todo:float部分が難解なので、マークアップを変更して修正する
-        .summary {
-          background-color: #fff;
-          margin: 0 0 20px;
-          overflow: hidden;
-          padding: 20px;
-          dt {
-            float: left;
-            font-size: 12px;
-            margin: 0;
-            &.reached {
-              color: #663;
-              margin-top: -1.5em;
-            }
-          }
-          dd {
-            float: left;
-            font-size: 28px;
-            font-weight: 600;
-            margin: 0;
-            //todo:next要素のclass名が同じでややこしいので、class名を変える。.summary-supportersとか
-            &.supporters {
-              clear: left;
-            }
-            //todo:上記に伴いclass名を変える。.summary-reachedとか
-            &.reached {
-              color: #903;
-            }
-          }
-          .supporters {
-            width: 50%;
-          }
-        }
-        .supporters {
-          background-color: #fff;
-          > ul {
-            list-style: none;
-            margin: 0;
-            overflow: hidden;
-            padding: 30px 0;
-            >li {
-              border-right: $projectShowBorder;
-              box-sizing: border-box;
-              float: left;
-              height: 90px;
-              padding-bottom: 20px;
-              width: 310px;
-              &:nth-child(2n+2) {
-                border-right: none;
-              }
-              &.active {
-                background-color: #f3f3f3;
-              }
-            }
-          }
-          .supporterContainer {
-            padding: 10px 10px 10px 65px;
-            position: relative;
-          }
-          a.expand {
-            bottom: 0;
-            left: 0;
-            position: absolute;
-            text-decoration: none;
-            right: 0;
-            top: 0;
-            z-index: 999;
-          }
-          .supporter {
-            .avatar {
-              background-color: #fff;
-              display: block;
-              height: 43px;
-              left: 10px;
-              position: absolute;
-              top: 10px;
-              width: 43px;
-            }
-            h4 {
-              color: $colLinkText01;
-              font-size: 16px;
-              font-weight: 600;
-              line-height: 1.15;
-              margin: 0 0 .5em;
-              overflow: hidden;
-              position: relative;
-            }
-            dl {
-              margin: 0;
-              font-size: 12px;
-            }
-            dt.date {
-              display: none;
-            }
-            dd.date {
-              color: #a6a8ab;
-              font-size: 12px;
-              margin: 5px 0 0 0;
-            }
-          }
-        }
-        //todo:後でテスト。旧ソースから持ってきただけ
-      }
 
       //支援する
       .project-invest {

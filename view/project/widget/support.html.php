@@ -30,16 +30,19 @@ $week = array('日','月','火','水','木','金','土');
 <div class="widget project-support collapsable" id="project-support">
 
     <h<?php echo $level + 1 ?> class="supertitle">
-        <?php if (!empty($project->round)) : ?>
-            <span class="round"><?php echo $project->round; if ($project->round == 1 ){ echo 'st '; } else { echo 'nd '; }; echo Text::get('regular-round'); ?></span>
-        <?php endif; ?>
-        <?php if (!empty($project->days) && $project->days > 0) : ?>
-            <span class="days"><?php echo Text::get('regular-remaining'); ?><strong><?php echo number_format($project->days) ?></strong><span><?php echo Text::get('regular-days'); ?></span></span>
-        <?php endif; ?>
 
-        <?php //todo: $project->statusが終了の値だったら「終了」とか出す。（statusが幾つ以上で終了か忘れた。。） ?>
-
+        <?php if ($project->status < 3): ?>
+            <?php if (!empty($project->round)) : ?>
+                <span class="round"><?php echo $project->round; if ($project->round == 1 ){ echo 'st '; } else { echo 'nd '; }; echo Text::get('regular-round'); ?></span>
+            <?php endif; ?>
+            <?php if (!empty($project->days) && $project->days > 0) : ?>
+                <span class="days"><?php echo Text::get('regular-remaining'); ?><strong><?php echo number_format($project->days) ?></strong><span><?php echo Text::get('regular-days'); ?></span></span>
+            <?php endif; ?>
+        <?php else: ?>
+            <?php echo Text::get('regular-fail_mark'); ?>
+        <?php endif; ?>
     </h<?php echo $level + 1 ?>>
+
 
     <div class="project-widget-box<?php echo $status = $project->round ? '' : ' end'; ?>">
     <?php echo new View('view/project/meter.html.php', array('project' => $project, 'level' => $level) ) ?>
@@ -77,8 +80,5 @@ $week = array('日','月','火','水','木','金','土');
         <?php
     } // if ($project->status == 3) {
     ?>
-
-    <?/*php todo: このリンク削除？削除でない場合、リンク先ページのデザイン。リンク先ページは役割として不要にも思う。 */?>
-    <a class="more" href="/project/<?php echo $project->id; ?>/needs"><?php echo Text::get('regular-see_more'); ?></a>
 
 </div>

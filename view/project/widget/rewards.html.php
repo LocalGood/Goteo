@@ -56,7 +56,6 @@ uasort($project->individual_rewards,
 
                         <li class="<?php echo $individual->icon ?>">
                             <h<?php echo $level + 3 ?> class="name">
-                                <?/*php todo:ここリンクおかしいかも。/rewards#xxx　にリンクされている。リンクなくてもいいかも */?>
                                 <a href="/project/<?php echo $project->id; ?>/rewards#<? echo 'individual_num' . $count; ?>"><?php echo htmlspecialchars($individual->reward) ?></a></h<?php echo $level + 3 ?>>
                             <dl class="amount">
                                 <dt><?php echo Text::get('regular-support-amount'); ?></dt>
@@ -109,9 +108,6 @@ uasort($project->individual_rewards,
             </ul>
         </div>
         <?php endif; ?>
-
-        <?/*php リンク削除？ */?>
-        <a class="more" href="/project/<?php echo $project->id; ?>/rewards"><?php echo Text::get('regular-see_more'); ?></a>
     </div>
     
 </div>

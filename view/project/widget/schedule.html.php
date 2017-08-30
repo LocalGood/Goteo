@@ -151,8 +151,6 @@ $until = mktime(0, 0, 0, date('m', $until) + 1, -1, date('Y', $until));
                 $cls = 'on ' . htmlspecialchars($cost->type);
                 $cls .= $cost->required ? ' req' : ' noreq';
 
-                var_dump($cost_until);
-
                 echo '<td';
 
                 if ($span > 1) {

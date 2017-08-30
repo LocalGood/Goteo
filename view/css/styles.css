@@ -29,8 +29,7 @@ body, td, th, a, a:link, a:visited, a:active, a:hover, input, textarea, button {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
-  margin: 1em 0;
-  text-transform: uppercase; }
+  margin: 1em 0; }
 
 img {
   border: none;
@@ -581,13 +580,20 @@ a.button.weak {
           display: inline-block;
           height: 25px;
           overflow: hidden;
-          width: 25px;
-          vertical-align: middle; }
+          position: relative;
+          text-align: center;
+          vertical-align: middle;
+          width: 25px; }
           .widget.projects .project-details .author-img img {
+            bottom: 0;
             height: auto;
-            text-align: center;
+            left: 0;
+            margin: auto;
+            position: absolute;
+            right: 0;
+            top: 0;
             vertical-align: middle;
-            width: 25px; }
+            width: 100%; }
         .widget.projects .project-details .author span {
           margin-left: 8px;
           vertical-align: middle; }
@@ -704,6 +710,203 @@ a.button.weak {
       top: -20px; }
       .widget.projects .navi-bar a.all:hover {
         color: #20B3B2; }
+.widget.user {
+  padding: 0; }
+  .widget.user .project-widget-box {
+    padding: 15px 20px; }
+  .widget.user .user-head {
+    margin-bottom: 20px; }
+    .widget.user .user-head .image {
+      border-radius: 50%;
+      display: inline-block;
+      height: 65px;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+      vertical-align: middle;
+      width: 65px; }
+      .widget.user .user-head .image img {
+        bottom: 0;
+        height: auto;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+        vertical-align: middle;
+        width: 100%; }
+    .widget.user .user-head-right {
+      display: inline-block;
+      padding-left: 20px;
+      vertical-align: middle;
+      width: 200px; }
+      .widget.user .user-head-right .title {
+        margin: 0 0 4px; }
+      .widget.user .user-head-right .location {
+        background: url(/view/images/location/s.png) no-repeat left center;
+        padding-left: 18px; }
+        .widget.user .user-head-right .location a {
+          color: #9b9b9b;
+          text-decoration: none; }
+  .widget.user .about p {
+    line-height: 1.5;
+    margin: 0 0 20px;
+    padding: 0 2px; }
+  .widget.user .about-link {
+    margin-bottom: 20px;
+    text-align: right; }
+    .widget.user .about-link a {
+      color: #337ab7;
+      display: inline-block;
+      font-size: 14px;
+      line-height: 20px;
+      text-decoration: none; }
+      .widget.user .about-link a:after {
+        background: url(/view/images/arrow_user_link.png) no-repeat right 50%;
+        content: '';
+        display: inline-block;
+        height: 8px;
+        padding: 0 0 4px 4px;
+        width: 6px; }
+  .widget.user .links {
+    line-height: 36px;
+    margin: 0 0 14px 0;
+    padding: 1em 0;
+    padding-bottom: 0;
+    padding-top: 0; }
+    .widget.user .links ul {
+      line-height: 18px;
+      list-style-type: none;
+      margin: 0;
+      padding-left: 0; }
+      .widget.user .links ul a {
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        word-wrap: break-word; }
+    .widget.user .links.message {
+      background: url(/view/images/bocadillo/s.png) no-repeat left center;
+      padding-left: 22px;
+      text-decoration: none;
+      text-indent: .5em; }
+      .widget.user .links.message a {
+        color: #28B258;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none; }
+  .widget.user .widget.user-social {
+    margin-bottom: 30px;
+    padding: 0; }
+    .widget.user .widget.user-social .title {
+      display: none; }
+    .widget.user .widget.user-social ul {
+      list-style: none;
+      margin: 0;
+      overflow: visible;
+      padding: 0; }
+      .widget.user .widget.user-social ul li {
+        display: block;
+        float: left;
+        margin-right: 10px; }
+        .widget.user .widget.user-social ul li a {
+          background: no-repeat left center;
+          display: inline-block;
+          text-indent: -99999px;
+          width: 20px;
+          height: 20px; }
+        .widget.user .widget.user-social ul li.facebook a {
+          background-image: url(/view/images/social/facebook.png); }
+        .widget.user .widget.user-social ul li.google a {
+          background-image: url(/view/images/social/google.png); }
+        .widget.user .widget.user-social ul li.twitter a {
+          background-image: url(/view/images/social/twitter.png); }
+        .widget.user .widget.user-social ul li.identica a {
+          background-image: url(/view/images/social/identica.png); }
+        .widget.user .widget.user-social ul li.linkedin a {
+          background-image: url(/view/images/social/linkedin.png); }
+.widget.project-supporters {
+  background: none;
+  padding: 0; }
+  .widget.project-supporters .title {
+    display: none; }
+  .widget.project-supporters .summary {
+    background-color: #fff;
+    margin: 0 0 20px;
+    overflow: hidden;
+    padding: 20px; }
+    .widget.project-supporters .summary dt {
+      font-size: 12px;
+      margin: 0; }
+      .widget.project-supporters .summary dt.reached {
+        color: #663;
+        margin-top: -1.5em; }
+    .widget.project-supporters .summary dd {
+      font-size: 28px;
+      font-weight: 600;
+      margin: 0; }
+      .widget.project-supporters .summary dd.reached {
+        color: #903; }
+    .widget.project-supporters .summary .supporters {
+      width: 50%; }
+  .widget.project-supporters .supporters {
+    background-color: #fff; }
+    .widget.project-supporters .supporters > ul {
+      list-style: none;
+      margin: 0;
+      overflow: hidden;
+      padding: 30px 0; }
+      .widget.project-supporters .supporters > ul > li {
+        border-right: 1px solid #e0e0e0;
+        box-sizing: border-box;
+        float: left;
+        height: 90px;
+        padding-bottom: 20px;
+        width: 310px; }
+        .widget.project-supporters .supporters > ul > li:nth-child(2n+2) {
+          border-right: none; }
+        .widget.project-supporters .supporters > ul > li.active {
+          background-color: #f3f3f3; }
+    .widget.project-supporters .supporters .supporterContainer {
+      padding: 10px 10px 10px 65px;
+      position: relative; }
+    .widget.project-supporters .supporters a.expand {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      text-decoration: none;
+      right: 0;
+      top: 0;
+      z-index: 999; }
+    .widget.project-supporters .supporters .supporter .avatar {
+      background-color: #fff;
+      display: block;
+      height: 43px;
+      left: 10px;
+      position: absolute;
+      top: 10px;
+      width: 43px; }
+    .widget.project-supporters .supporters .supporter h4 {
+      color: #337ab7;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.15;
+      margin: 0 0 .5em;
+      overflow: hidden;
+      position: relative; }
+    .widget.project-supporters .supporters .supporter dl {
+      margin: 0;
+      font-size: 12px; }
+    .widget.project-supporters .supporters .supporter dt.projects {
+      display: inline-block; }
+    .widget.project-supporters .supporters .supporter dt.date {
+      display: none; }
+    .widget.project-supporters .supporters .supporter dd.projects {
+      display: inline-block;
+      margin-left: 0; }
+    .widget.project-supporters .supporters .supporter dd.date {
+      color: #a6a8ab;
+      font-size: 12px;
+      margin: 5px 0 0 0; }
 
 /*----------------------------------------------------------------------
  .meter
@@ -1734,97 +1937,98 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
 .project-show .threecols .center {
   float: left;
   width: 620px; }
-.project-show .side .button.supportit {
-  background: #ff9900; }
-.project-show .side .button.aqua {
-  background: #21b0b0; }
-.project-show .side .button.green {
-  background-color: #33cc99; }
-.project-show .side .more {
-  border-top: 1px solid #e0e0e0;
-  clear: both;
-  display: block;
-  line-height: 38px;
-  text-align: center;
-  text-decoration: none; }
-.project-show .side > .widget {
-  margin-bottom: 20px;
-  padding: 0; }
-  .project-show .side > .widget .supertitle {
-    background: none;
-    color: #000;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    padding-left: 0; }
-.project-show .side .project-collaborations {
-  background: none; }
-  .project-show .side .project-collaborations .project-widget-box {
-    margin: 0; }
-  .project-show .side .project-collaborations .title {
-    margin-bottom: 16px; }
-  .project-show .side .project-collaborations ul {
-    list-style: none;
-    margin: 0;
+.project-show .side {
+  /* todo: 多分「支援者」が入ると要るから、取っておく */ }
+  .project-show .side .button.supportit {
+    background: #ff9900; }
+  .project-show .side .button.aqua {
+    background: #21b0b0; }
+  .project-show .side .button.green {
+    background-color: #33cc99; }
+  .project-show .side .more {
+    border-top: 1px solid #e0e0e0;
+    clear: both;
+    display: block;
+    line-height: 38px;
+    text-align: center;
+    text-decoration: none; }
+  .project-show .side > .widget {
+    margin-bottom: 20px;
     padding: 0; }
-    .project-show .side .project-collaborations ul li {
-      background-color: #fff;
-      margin-bottom: 20px;
-      padding: 20px 20px 10px; }
-      .project-show .side .project-collaborations ul li .name {
-        font-size: 14px;
-        font-weight: 600;
-        line-height: 24px;
-        margin: 0 0 16px;
-        min-height: 32px;
-        text-align: center; }
-      .project-show .side .project-collaborations ul li p {
-        line-height: 24px;
-        margin: 0 0 24px;
-        word-wrap: break-word; }
-.project-show .side .project-rewards {
-  background: none; }
-  .project-show .side .project-rewards .project-widget-box {
-    margin: 0; }
-    .project-show .side .project-rewards .project-widget-box .individual,
-    .project-show .side .project-rewards .project-widget-box .social {
+    .project-show .side > .widget .supertitle {
+      background: none;
+      color: #000;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      padding-left: 0; }
+  .project-show .side .project-collaborations {
+    background: none; }
+    .project-show .side .project-collaborations .project-widget-box {
+      margin: 0; }
+    .project-show .side .project-collaborations .title {
+      margin-bottom: 16px; }
+    .project-show .side .project-collaborations ul {
+      list-style: none;
+      margin: 0;
       padding: 0; }
-  .project-show .side .project-rewards .title {
-    margin-bottom: 16px; }
-  .project-show .side .project-rewards ul {
-    list-style: none;
-    margin: 0;
-    padding: 0; }
-    .project-show .side .project-rewards ul li {
-      background-color: #fff;
-      margin-bottom: 20px;
-      padding: 20px 20px 10px; }
-      .project-show .side .project-rewards ul li .name {
-        font-size: 14px;
-        font-weight: 600;
-        line-height: 24px;
-        margin: 0 0 16px;
-        min-height: 32px;
-        text-align: center; }
-      .project-show .side .project-rewards ul li p {
-        line-height: 24px;
-        margin: 0 0 24px;
-        word-wrap: break-word; }
-.project-show .side .project-support .supertitle {
-  background-color: #58585a;
-  color: #fff;
-  font-size: 12px;
-  height: 40px;
-  line-height: 40px;
-  padding-left: 0;
-  text-align: center; }
-  .project-show .side .project-support .supertitle .days strong {
-    font-size: 14px; }
-.project-show .side .project-support .project-widget-box {
-  padding: 15px 20px;
-  position: relative; }
-.project-show .side .project-support .meter {
-  margin-top: 15px; }
+      .project-show .side .project-collaborations ul li {
+        background-color: #fff;
+        padding: 20px 20px 10px; }
+        .project-show .side .project-collaborations ul li:not(:last-child) {
+          margin-bottom: 20px; }
+        .project-show .side .project-collaborations ul li .name {
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 24px;
+          margin: 0 0 16px;
+          min-height: 32px;
+          text-align: center; }
+        .project-show .side .project-collaborations ul li p {
+          line-height: 24px;
+          margin: 0 0 24px;
+          word-wrap: break-word; }
+  .project-show .side .project-rewards {
+    background: none; }
+    .project-show .side .project-rewards .project-widget-box {
+      margin: 0; }
+      .project-show .side .project-rewards .project-widget-box .individual,
+      .project-show .side .project-rewards .project-widget-box .social {
+        padding: 0; }
+    .project-show .side .project-rewards .title {
+      margin-bottom: 16px; }
+    .project-show .side .project-rewards ul {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+      .project-show .side .project-rewards ul li {
+        background-color: #fff;
+        margin-bottom: 20px;
+        padding: 20px 20px 10px; }
+        .project-show .side .project-rewards ul li .name {
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 24px;
+          margin: 0 0 16px;
+          min-height: 32px;
+          text-align: center; }
+        .project-show .side .project-rewards ul li p {
+          line-height: 24px;
+          margin: 0 0 24px;
+          word-wrap: break-word; }
+  .project-show .side .project-support .supertitle {
+    background-color: #58585a;
+    color: #fff;
+    font-size: 12px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 0;
+    text-align: center; }
+    .project-show .side .project-support .supertitle .days strong {
+      font-size: 14px; }
+  .project-show .side .project-support .project-widget-box {
+    padding: 15px 20px;
+    position: relative; }
   .project-show .side .project-support .meter dl.reached-bar .supporters {
     display: inline-block; }
   .project-show .side .project-support .meter dl.reached-bar .reached strong,
@@ -1836,58 +2040,55 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
     display: inline-block; }
   .project-show .side .project-support .meter dl.percent {
     top: 38px; }
-.project-show .side .project-support .more {
-  display: none; }
-.project-show .side .user .supertitle {
-  display: none; }
-.project-show .side .project-investors {
-  background-color: #fff;
-  margin-bottom: 10px;
-  padding: 0; }
-  .project-show .side .project-investors .supertitle {
-    background-color: #3c9; }
-  .project-show .side .project-investors .investors {
-    padding: 8px 20px 0; }
-  .project-show .side .project-investors ul {
-    list-style: none;
-    margin: 0;
-    padding: 0; }
-    .project-show .side .project-investors ul li {
-      border-bottom: 1px dashed #c0c0c0; }
-      .project-show .side .project-investors ul li:last-child {
-        border-bottom: none; }
-  .project-show .side .project-investors .supporterContainer {
-    height: 80px;
-    padding: 10px 10px 10px 60px;
-    position: relative; }
-  .project-show .side .project-investors a.expand {
+  .project-show .side .user .supertitle {
     display: none; }
-  .project-show .side .project-investors .supporter .avatar {
+  .project-show .side .project-investors {
     background-color: #fff;
-    display: block;
-    height: 43px;
-    left: 10px;
-    position: absolute;
-    top: 10px;
-    width: 43px; }
-  .project-show .side .project-investors .supporter h4 {
-    font-size: 12px;
-    font-weight: 300;
-    height: 14px;
-    margin: 0 0 .5em;
-    overflow: hidden; }
-  .project-show .side .project-investors .supporter dl {
-    font-size: 12px;
-    margin: 0; }
-  .project-show .side .project-investors .supporter dt.date {
-    display: none; }
-  .project-show .side .project-investors .supporter dd.date {
-    bottom: 4px;
-    color: #a6a8ab;
-    font-size: 12px;
-    margin-top: 5px;
-    position: absolute;
-    right: 16px; }
+    padding: 0; }
+    .project-show .side .project-investors .supertitle {
+      background-color: #3c9; }
+    .project-show .side .project-investors .investors {
+      padding: 8px 20px 0; }
+    .project-show .side .project-investors ul {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+      .project-show .side .project-investors ul li {
+        border-bottom: 1px dashed #c0c0c0; }
+        .project-show .side .project-investors ul li:last-child {
+          border-bottom: none; }
+    .project-show .side .project-investors .supporterContainer {
+      height: 80px;
+      padding: 10px 10px 10px 60px;
+      position: relative; }
+    .project-show .side .project-investors a.expand {
+      display: none; }
+    .project-show .side .project-investors .supporter .avatar {
+      background-color: #fff;
+      display: block;
+      height: 43px;
+      left: 10px;
+      position: absolute;
+      top: 10px;
+      width: 43px; }
+    .project-show .side .project-investors .supporter h4 {
+      font-size: 12px;
+      font-weight: 300;
+      height: 14px;
+      margin: 0 0 .5em;
+      overflow: hidden; }
+    .project-show .side .project-investors .supporter dl {
+      font-size: 12px;
+      margin: 0; }
+    .project-show .side .project-investors .supporter dt.date {
+      display: none; }
+    .project-show .side .project-investors .supporter dd.date {
+      bottom: 4px;
+      color: #a6a8ab;
+      font-size: 12px;
+      margin-top: 5px;
+      position: absolute;
+      right: 16px; }
 .project-show .project-rewards {
   margin-bottom: 10px;
   padding: 0; }
@@ -2000,109 +2201,6 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
       margin: 0 0 8px 0; }
   .project-show .project-rewards .social .title a {
     color: #28b258 !important; }
-.project-show .user {
-  padding: 0; }
-  .project-show .user .project-widget-box {
-    padding: 15px 20px; }
-  .project-show .user .user-head {
-    margin-bottom: 20px; }
-    .project-show .user .user-head .image {
-      display: inline-block;
-      height: 65px;
-      vertical-align: middle;
-      width: 65px; }
-      .project-show .user .user-head .image img {
-        max-height: 65px;
-        max-width: 65px; }
-    .project-show .user .user-head-right {
-      display: inline-block;
-      padding-left: 20px;
-      vertical-align: middle;
-      width: 200px; }
-      .project-show .user .user-head-right .title {
-        margin: 0 0 4px; }
-      .project-show .user .user-head-right .location {
-        background: url(/view/images/location/s.png) no-repeat left center;
-        padding-left: 18px; }
-        .project-show .user .user-head-right .location a {
-          color: #9b9b9b;
-          text-decoration: none; }
-  .project-show .user .about p {
-    line-height: 1.5;
-    margin: 0 0 20px;
-    padding: 0 2px; }
-  .project-show .user .about-link {
-    margin-bottom: 20px;
-    text-align: right; }
-    .project-show .user .about-link a {
-      color: #337ab7;
-      display: inline-block;
-      font-size: 14px;
-      line-height: 20px;
-      text-decoration: none; }
-      .project-show .user .about-link a:after {
-        background: url(/view/images/arrow_user_link.png) no-repeat right 50%;
-        content: '';
-        display: inline-block;
-        height: 8px;
-        padding: 0 0 4px 4px;
-        width: 6px; }
-  .project-show .user .links {
-    line-height: 36px;
-    margin: 0 0 14px 0;
-    padding: 1em 0;
-    padding-bottom: 0;
-    padding-top: 0; }
-    .project-show .user .links ul {
-      line-height: 18px;
-      list-style-type: none;
-      margin: 0;
-      padding-left: 0; }
-      .project-show .user .links ul a {
-        font-size: 14px;
-        font-weight: 600;
-        text-decoration: none;
-        word-wrap: break-word; }
-    .project-show .user .links.message {
-      background: url(/view/images/bocadillo/s.png) no-repeat left center;
-      padding-left: 22px;
-      text-decoration: none;
-      text-indent: .5em; }
-      .project-show .user .links.message a {
-        color: #28B258;
-        font-size: 14px;
-        font-weight: 600;
-        text-decoration: none; }
-  .project-show .user .widget.user-social {
-    margin-bottom: 30px;
-    padding: 0; }
-    .project-show .user .widget.user-social .title {
-      display: none; }
-    .project-show .user .widget.user-social ul {
-      list-style: none;
-      margin: 0;
-      overflow: visible;
-      padding: 0; }
-      .project-show .user .widget.user-social ul li {
-        display: block;
-        float: left;
-        margin-right: 10px; }
-        .project-show .user .widget.user-social ul li a {
-          background: no-repeat left center;
-          display: inline-block;
-          text-indent: -99999px;
-          width: 20px;
-          height: 20px; }
-        .project-show .user .widget.user-social ul li.facebook a {
-          background-image: url(/view/images/social/facebook.png); }
-        .project-show .user .widget.user-social ul li.google a {
-          background-image: url(/view/images/social/google.png); }
-        .project-show .user .widget.user-social ul li.twitter a {
-          background-image: url(/view/images/social/twitter.png); }
-        .project-show .user .widget.user-social ul li.identica a {
-          background-image: url(/view/images/social/identica.png); }
-        .project-show .user .widget.user-social ul li.linkedin a {
-          background-image: url(/view/images/social/linkedin.png); }
 .project-show .project-message {
   position: relative; }
   .project-show .project-message div#bocadillo {
@@ -2138,6 +2236,8 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
     top: 210px; }
   .project-show .project-message h3.title {
     padding-left: 0; }
+.project-show .center > .widget:last-child {
+  margin-bottom: 20px; }
 .project-show .center.home .project-media {
   padding: 0; }
   .project-show .center.home .project-media iframe {
@@ -2219,8 +2319,7 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
       font-weight: 700;
       min-height: 32px;
       padding-bottom: 16px;
-      padding-left: 40px;
-      text-transform: uppercase; }
+      padding-left: 40px; }
     .project-show .center.needs .project-needs table tbody {
       background: #e3eadc; }
       .project-show .center.needs .project-needs table tbody th.summary {
@@ -2264,132 +2363,52 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
       word-wrap: break-word; }
   .project-show .center.needs .project-needs table thead + tbody + thead th.min, .project-show .center.needs .project-needs table thead + tbody + thead th.max {
     font-size: 0; }
-.project-show .center.needs .project-schedule table {
-  border-collapse: separate;
-  width: 100%; }
-  .project-show .center.needs .project-schedule table th,
-  .project-show .center.needs .project-schedule table td {
-    border: none;
-    box-sizing: content-box;
-    font-size: 12px;
-    width: 1.5em; }
-.project-show .center.needs .project-schedule thead.months th {
-  font-size: 14px;
-  font-weight: 600; }
-  .project-show .center.needs .project-schedule thead.months th:first-child span {
-    display: none; }
-.project-show .center.needs .project-schedule tbody th,
-.project-show .center.needs .project-schedule tbody td {
-  height: 32px;
-  padding: 0;
-  vertical-align: middle; }
-.project-show .center.needs .project-schedule tbody th {
-  font-weight: 300;
-  text-align: left;
-  width: 250px; }
-.project-show .center.needs .project-schedule tbody td {
-  border-right: 4px solid #fff; }
-  .project-show .center.needs .project-schedule tbody td span {
-    font-size: 12px;
-    font-weight: 400;
-    height: 5em;
-    overflow: hidden;
-    text-align: center; }
-  .project-show .center.needs .project-schedule tbody td.on {
-    background-color: #d1edf1;
-    text-align: left; }
-    .project-show .center.needs .project-schedule tbody td.on span {
-      opacity: .75; }
-    .project-show .center.needs .project-schedule tbody td.on.req {
-      background-color: #c7d8b6; }
-    .project-show .center.needs .project-schedule tbody td.on.noreq {
-      background-color: #e2e2e2; }
-.project-show .center.needs .project-schedule tbody tr:not(:last-child) td {
-  border-bottom: 14px solid #fff; }
-.project-show .center.needs .project-schedule tbody tr td:last-child {
-  border-right: none; }
-.project-show .center.supporters .project-supporters {
-  background: none;
-  padding: 0; }
-  .project-show .center.supporters .project-supporters .title {
-    display: none; }
-  .project-show .center.supporters .project-supporters .summary {
-    background-color: #fff;
-    margin: 0 0 20px;
-    overflow: hidden;
-    padding: 20px; }
-    .project-show .center.supporters .project-supporters .summary dt {
-      float: left;
+.project-show .center.needs .project-schedule {
+  margin-bottom: 20px; }
+  .project-show .center.needs .project-schedule table {
+    border-collapse: separate;
+    width: 100%; }
+    .project-show .center.needs .project-schedule table th,
+    .project-show .center.needs .project-schedule table td {
+      border: none;
+      box-sizing: content-box;
       font-size: 12px;
-      margin: 0; }
-      .project-show .center.supporters .project-supporters .summary dt.reached {
-        color: #663;
-        margin-top: -1.5em; }
-    .project-show .center.supporters .project-supporters .summary dd {
-      float: left;
-      font-size: 28px;
-      font-weight: 600;
-      margin: 0; }
-      .project-show .center.supporters .project-supporters .summary dd.supporters {
-        clear: left; }
-      .project-show .center.supporters .project-supporters .summary dd.reached {
-        color: #903; }
-    .project-show .center.supporters .project-supporters .summary .supporters {
-      width: 50%; }
-  .project-show .center.supporters .project-supporters .supporters {
-    background-color: #fff; }
-    .project-show .center.supporters .project-supporters .supporters > ul {
-      list-style: none;
-      margin: 0;
-      overflow: hidden;
-      padding: 30px 0; }
-      .project-show .center.supporters .project-supporters .supporters > ul > li {
-        border-right: 1px solid #e0e0e0;
-        box-sizing: border-box;
-        float: left;
-        height: 90px;
-        padding-bottom: 20px;
-        width: 310px; }
-        .project-show .center.supporters .project-supporters .supporters > ul > li:nth-child(2n+2) {
-          border-right: none; }
-        .project-show .center.supporters .project-supporters .supporters > ul > li.active {
-          background-color: #f3f3f3; }
-    .project-show .center.supporters .project-supporters .supporters .supporterContainer {
-      padding: 10px 10px 10px 65px;
-      position: relative; }
-    .project-show .center.supporters .project-supporters .supporters a.expand {
-      bottom: 0;
-      left: 0;
-      position: absolute;
-      text-decoration: none;
-      right: 0;
-      top: 0;
-      z-index: 999; }
-    .project-show .center.supporters .project-supporters .supporters .supporter .avatar {
-      background-color: #fff;
-      display: block;
-      height: 43px;
-      left: 10px;
-      position: absolute;
-      top: 10px;
-      width: 43px; }
-    .project-show .center.supporters .project-supporters .supporters .supporter h4 {
-      color: #337ab7;
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 1.15;
-      margin: 0 0 .5em;
-      overflow: hidden;
-      position: relative; }
-    .project-show .center.supporters .project-supporters .supporters .supporter dl {
-      margin: 0;
-      font-size: 12px; }
-    .project-show .center.supporters .project-supporters .supporters .supporter dt.date {
+      width: 1.5em; }
+  .project-show .center.needs .project-schedule thead.months th {
+    font-size: 14px;
+    font-weight: 600; }
+    .project-show .center.needs .project-schedule thead.months th:first-child span {
       display: none; }
-    .project-show .center.supporters .project-supporters .supporters .supporter dd.date {
-      color: #a6a8ab;
+  .project-show .center.needs .project-schedule tbody th,
+  .project-show .center.needs .project-schedule tbody td {
+    height: 32px;
+    padding: 0;
+    vertical-align: middle; }
+  .project-show .center.needs .project-schedule tbody th {
+    font-weight: 300;
+    text-align: left;
+    width: 250px; }
+  .project-show .center.needs .project-schedule tbody td {
+    border-right: 4px solid #fff; }
+    .project-show .center.needs .project-schedule tbody td span {
       font-size: 12px;
-      margin: 5px 0 0 0; }
+      font-weight: 400;
+      height: 5em;
+      overflow: hidden;
+      text-align: center; }
+    .project-show .center.needs .project-schedule tbody td.on {
+      background-color: #d1edf1;
+      text-align: left; }
+      .project-show .center.needs .project-schedule tbody td.on span {
+        opacity: .75; }
+      .project-show .center.needs .project-schedule tbody td.on.req {
+        background-color: #c7d8b6; }
+      .project-show .center.needs .project-schedule tbody td.on.noreq {
+        background-color: #e2e2e2; }
+  .project-show .center.needs .project-schedule tbody tr:not(:last-child) td {
+    border-bottom: 14px solid #fff; }
+  .project-show .center.needs .project-schedule tbody tr td:last-child {
+    border-right: none; }
 .project-show .center.supporters .project-invest h1, .project-show .center.supporters .project-invest h2, .project-show .center.supporters .project-invest h3, .project-show .center.supporters .project-invest h4, .project-show .center.supporters .project-invest h5, .project-show .center.supporters .project-invest h6 {
   font-weight: 700;
   margin-top: 0;
@@ -2771,8 +2790,7 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
     .project-edit .status h3 {
       margin: 0 0 .6em;
       color: #9B9B9D;
-      font-size: 26px;
-      text-transform: uppercase; }
+      font-size: 26px; }
     .project-edit .status #project-status {
       display: table-cell;
       width: 50%;
@@ -3126,7 +3144,6 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
           display: inline-block;
           font-size: 8pt;
           line-height: 22px;
-          text-transform: uppercase;
           .euro {
             background: url(/view/images/yen/violet/m.png) no-repeat;
             display: inline-block;
@@ -3335,13 +3352,11 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
     .dashboard #project-selector label {
       font-size: 16px;
       font-weight: 700;
-      margin-right: 5px;
-      text-transform: uppercase; }
+      margin-right: 5px; }
     .dashboard #project-selector #selector {
       height: 40px; }
     .dashboard #project-selector select {
       font-size: 14px;
-      text-transform: uppercase;
       width: 770px; }
   .dashboard .status {
     float: left;
@@ -3791,10 +3806,10 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
 
 .user-profile #main {
   margin: 0 auto; }
-  .user-profile #main > div.center {
+  .user-profile #main > .center {
     float: left;
     width: 620px; }
-  .user-profile #main > div.side {
+  .user-profile #main > .side {
     float: right;
     width: 330px; }
 .user-profile div#sub-header div {
@@ -3802,22 +3817,33 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
   max-width: 960px;
   margin: 0 auto; }
 .user-profile div#sub-header h2 {
-  padding-left: 72px;
   min-height: 55px;
   position: relative;
   line-height: 1.2em;
   font-size: 18px;
   font-weight: normal; }
-  .user-profile div#sub-header h2 img {
-    position: absolute;
-    width: 55px;
+  .user-profile div#sub-header h2 a {
+    border-radius: 50%;
+    display: inline-block;
     height: 55px;
-    left: 0; }
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    width: 55px; }
+    .user-profile div#sub-header h2 a img {
+      bottom: 0;
+      height: auto;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+      vertical-align: middle;
+      width: 100%; }
   .user-profile div#sub-header h2 em {
-    display: block;
     font-weight: bold;
     font-size: 24px;
-    text-transform: uppercase;
     font-style: normal; }
 .user-profile .center.profile .widget.worthcracy.user-worthcracy {
   background-color: #693;
@@ -3829,12 +3855,39 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
     font-weight: 400;
     margin: 0;
     padding: .5em 2px .5em 20px; }
+.user-profile .center .widget.user-mates a.more {
+  background-color: #fff;
+  border-top: 1px dashed silver;
+  display: block;
+  float: none;
+  font-size: 14px !important;
+  height: auto;
+  line-height: 1.5em;
+  margin: 0;
+  padding-right: 20px;
+  text-align: center;
+  text-decoration: none; }
+.user-profile .center .widget.user-mates .users ul > li {
+  max-width: 308px !important;
+  width: 308px !important; }
+.user-profile .center .widget.project-supporters .supporters > ul > li {
+  padding-bottom: 0; }
+.user-profile .side > .widget h3.supertitle {
+  color: #f5f5f5;
+  padding: 9px 2px 9px 20px; }
 .user-profile .side .widget.user-supporters {
   margin: 0 0 20px;
   padding: 0; }
   .user-profile .side .widget.user-supporters .supporters ul li h4 {
     font-size: 16px;
-    margin-bottom: 4px; }
+    margin-bottom: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%; }
+.user-profile .side .widget.user-mates {
+  margin: 0 0 20px;
+  padding: 0; }
 .user-profile .widget.user-message form label[for=message] {
   display: block; }
 .user-profile .widget.user-message form textarea#message {
@@ -3915,42 +3968,99 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
   list-style: none;
   margin: 0;
   padding: 0; }
-  .user-profile .widget.user-supporters .supporters ul li.active {
-    background-color: #f3f3f3; }
-  .user-profile .widget.user-supporters .supporters ul li .avatar {
-    display: block;
-    height: 50px;
-    left: 0;
-    position: absolute;
-    text-align: center;
-    top: 10px;
-    width: 50px; }
-    .user-profile .widget.user-supporters .supporters ul li .avatar img {
-      background-color: #FFF; }
-  .user-profile .widget.user-supporters .supporters ul li h3, .user-profile .widget.user-supporters .supporters ul li h4, .user-profile .widget.user-supporters .supporters ul li h5, .user-profile .widget.user-supporters .supporters ul li h6 {
-    font-size: 12px;
-    font-weight: 700;
-    margin: 0 0 .5em;
-    text-transform: none; }
-.user-profile .widget.user-supporters .supporters > ul > li {
-  background-color: #FFF;
-  border-right: 1px dashed silver;
+  .user-profile .widget.user-supporters .supporters ul li {
+    background-color: #FFF;
+    border-right: 1px dashed silver;
+    border-top: none;
+    float: left;
+    min-height: 120px;
+    position: relative;
+    width: 109px; }
+    .user-profile .widget.user-supporters .supporters ul li:nth-child(3n+3) {
+      border-right: none; }
+    .user-profile .widget.user-supporters .supporters ul li.active {
+      background-color: #f3f3f3; }
+    .user-profile .widget.user-supporters .supporters ul li div.supporterContainer {
+      margin: 0;
+      padding: 0; }
+      .user-profile .widget.user-supporters .supporters ul li div.supporterContainer a.expand {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        text-decoration: none;
+        top: 0;
+        z-index: 999; }
+    .user-profile .widget.user-supporters .supporters ul li .avatar {
+      border-radius: 50%;
+      display: inline-block;
+      height: 43px;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+      vertical-align: middle;
+      width: 43px;
+      display: block;
+      margin: 8px auto 4px; }
+      .user-profile .widget.user-supporters .supporters ul li .avatar img {
+        bottom: 0;
+        height: auto;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+        vertical-align: middle;
+        width: 100%; }
+      .user-profile .widget.user-supporters .supporters ul li .avatar img {
+        background-color: #FFF; }
+    .user-profile .widget.user-supporters .supporters ul li h3, .user-profile .widget.user-supporters .supporters ul li h4, .user-profile .widget.user-supporters .supporters ul li h5, .user-profile .widget.user-supporters .supporters ul li h6 {
+      font-size: 12px;
+      font-weight: 700;
+      margin: 0 0 .5em;
+      text-transform: none; }
+    .user-profile .widget.user-supporters .supporters ul li h4 {
+      font-size: 16px;
+      line-height: 18px;
+      margin-bottom: 4px;
+      text-align: center; }
+    .user-profile .widget.user-supporters .supporters ul li dl {
+      font-size: 10px;
+      margin: 0;
+      position: relative; }
+      .user-profile .widget.user-supporters .supporters ul li dl dt {
+        clear: left;
+        float: left; }
+        .user-profile .widget.user-supporters .supporters ul li dl dt.projects {
+          margin-right: 0;
+          padding-left: 4px; }
+        .user-profile .widget.user-supporters .supporters ul li dl dt.date {
+          display: none; }
+      .user-profile .widget.user-supporters .supporters ul li dl dd {
+        font-size: 10px;
+        margin: 0; }
+        .user-profile .widget.user-supporters .supporters ul li dl dd.date {
+          bottom: 0;
+          color: #a6a8ab;
+          left: 4px;
+          position: absolute;
+          top: 10px; }
+.user-profile .widget.user-supporters a.more {
+  background-color: #fff;
   border-top: 1px dashed silver;
-  float: left;
-  height: 90px;
+  clear: both;
+  color: #58595b;
+  display: block;
+  float: none;
+  font-size: 14px !important;
+  margin: 0;
+  padding: 10px;
   position: relative;
-  width: 106px; }
-  .user-profile .widget.user-supporters .supporters > ul > li div.supporterContainer {
-    height: 4em;
-    padding: 10px 10px 10px 60px; }
-    .user-profile .widget.user-supporters .supporters > ul > li div.supporterContainer a.expand {
-      bottom: 0;
-      left: 0;
-      position: absolute;
-      right: 0;
-      text-decoration: none;
-      top: 0;
-      z-index: 999; }
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase; }
+  .user-profile .widget.user-supporters a.more:hover {
+    color: #313B96; }
 .user-profile .widget.user-social {
   border-bottom: 1px dashed #c0c0c0; }
   .user-profile .widget.user-social .title {
@@ -3980,5 +4090,215 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
         background-image: url(/view/images/social/identica.png); }
       .user-profile .widget.user-social ul li.linkedin {
         background-image: url(/view/images/social/linkedin.png); }
+.user-profile .widget.user-mates {
+  padding: 0; }
+  .user-profile .widget.user-mates h3.title {
+    background-color: #666;
+    color: #f5f5f5;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+    padding: 4px 0 4px 20px; }
+  .user-profile .widget.user-mates div.users,
+  .user-profile .widget.user-mates div.categories {
+    height: auto;
+    overflow: visible; }
+  .user-profile .widget.user-mates div.users ul,
+  .user-profile .widget.user-mates div.categories ul {
+    height: auto;
+    list-style: none;
+    margin: 0;
+    overflow: auto;
+    padding: 0; }
+  .user-profile .widget.user-mates div.categories {
+    height: auto;
+    line-height: 1em;
+    overflow: hidden;
+    padding-bottom: 10px; }
+    .user-profile .widget.user-mates div.categories ul {
+      overflow: hidden; }
+      .user-profile .widget.user-mates div.categories ul li {
+        display: inline-block;
+        margin-bottom: 5px;
+        margin-right: 5px; }
+        .user-profile .widget.user-mates div.categories ul li a {
+          color: #636466;
+          font-size: 12px;
+          text-decoration: none;
+          text-transform: uppercase; }
+          .user-profile .widget.user-mates div.categories ul li a:hover {
+            color: #20B3B2; }
+  .user-profile .widget.user-mates div.users {
+    clear: both; }
+    .user-profile .widget.user-mates div.users h3.supertitle {
+      background-color: #666;
+      border: none;
+      color: #f5f5f5;
+      font-size: 14px;
+      font-weight: 400;
+      height: auto;
+      line-height: normal;
+      margin: 0;
+      padding: 4px 0 4px 20px; }
+    .user-profile .widget.user-mates div.users ul {
+      background-color: #fff;
+      height: auto;
+      list-style: none;
+      margin: 0;
+      overflow: auto;
+      padding: 0; }
+      .user-profile .widget.user-mates div.users ul > li {
+        border-right: 1px dashed silver;
+        border-top: 1px dashed silver;
+        float: left;
+        margin: -1px 0 0;
+        overflow: hidden;
+        padding: 8px 0;
+        position: relative;
+        width: 164px; }
+        .user-profile .widget.user-mates div.users ul > li:nth-child(2n+2) {
+          border-right: none; }
+        .user-profile .widget.user-mates div.users ul > li.nomarginright {
+          margin-right: 0; }
+        .user-profile .widget.user-mates div.users ul > li.active {
+          background-color: #f3f3f3 !important; }
+        .user-profile .widget.user-mates div.users ul > li:hover > div.user > h4 > a {
+          color: #19B4B2; }
+        .user-profile .widget.user-mates div.users ul > li .user {
+          padding: 3px 6px 3px 57px;
+          position: relative; }
+          .user-profile .widget.user-mates div.users ul > li .user > a.expand {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 99; }
+        .user-profile .widget.user-mates div.users ul > li .avatar {
+          height: 50px;
+          left: 4px;
+          position: absolute;
+          text-align: center;
+          top: 8px;
+          width: 50px; }
+          .user-profile .widget.user-mates div.users ul > li .avatar a {
+            border-radius: 50%;
+            display: inline-block;
+            height: 50px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            vertical-align: middle;
+            width: 50px; }
+            .user-profile .widget.user-mates div.users ul > li .avatar a img {
+              bottom: 0;
+              height: auto;
+              left: 0;
+              margin: auto;
+              position: absolute;
+              right: 0;
+              top: 0;
+              vertical-align: middle;
+              width: 100%; }
+        .user-profile .widget.user-mates div.users ul > li h3, .user-profile .widget.user-mates div.users ul > li h4, .user-profile .widget.user-mates div.users ul > li h5, .user-profile .widget.user-mates div.users ul > li h6 {
+          font-size: 12px;
+          line-height: 1em;
+          margin: 0; }
+          .user-profile .widget.user-mates div.users ul > li h3 a, .user-profile .widget.user-mates div.users ul > li h4 a, .user-profile .widget.user-mates div.users ul > li h5 a, .user-profile .widget.user-mates div.users ul > li h6 a {
+            font-size: 12px !important;
+            font-weight: 400; }
+        .user-profile .widget.user-mates div.users ul > li span {
+          font-size: 12px;
+          padding-top: 4px; }
+          .user-profile .widget.user-mates div.users ul > li span.projects {
+            color: #20b3b2; }
+          .user-profile .widget.user-mates div.users ul > li span.invests {
+            color: #313b96; }
+      .user-profile .widget.user-mates div.users ul li a {
+        font-size: 12px !important;
+        text-decoration: none;
+        text-transform: none !important; }
+        .user-profile .widget.user-mates div.users ul li a:hover {
+          color: #20B3B2; }
+      .user-profile .widget.user-mates div.users ul li div.user h4 {
+        margin-top: 4px; }
+        .user-profile .widget.user-mates div.users ul li div.user h4 a {
+          display: inline-block;
+          font-weight: 700;
+          height: 26px; }
+  .user-profile .widget.user-mates a.more {
+    background-color: #fff;
+    border-top: 1px dashed silver;
+    clear: both;
+    color: #58595b;
+    display: block;
+    font-size: 14px;
+    line-height: 1.5em;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none; }
+    .user-profile .widget.user-mates a.more:hover {
+      color: #20b3b2; }
+  .user-profile .widget.user-mates .project-widget-box {
+    background-color: #e5e5e5;
+    margin: 0;
+    padding: 0; }
+  .user-profile .widget.user-mates div.categories {
+    background-color: #efefef;
+    line-height: 27px;
+    margin: 0;
+    padding: 0 0 0 20px; }
+    .user-profile .widget.user-mates div.categories ul li {
+      display: inline-block;
+      margin-bottom: 5px;
+      margin-right: 5px; }
+.user-profile .widget.categorylist {
+  margin: 0;
+  padding: 0; }
+  .user-profile .widget.categorylist h3.title {
+    background-color: #21b0b0;
+    border-bottom: 1px solid #21b0b0;
+    color: #f5f5f5;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+    padding: .5em 2px .5em 20px; }
+  .user-profile .widget.categorylist ul {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding-left: 0; }
+    .user-profile .widget.categorylist ul li {
+      display: inline-block;
+      margin-left: 0;
+      padding-left: 0; }
+      .user-profile .widget.categorylist ul li a {
+        font-size: 12px;
+        text-decoration: none; }
+        .user-profile .widget.categorylist ul li a.active, .user-profile .widget.categorylist ul li a:hover {
+          color: #19B4B2; }
+  .user-profile .widget.categorylist > .list {
+    background-color: #efefef;
+    padding: 0 0 0 20px; }
+    .user-profile .widget.categorylist > .list > ul > li {
+      margin: .5em .5em .5em 0; }
+  .user-profile .widget.categorylist > .filters {
+    border-bottom: 1px solid #D5D5D6;
+    border-top: 1px solid #D5D5D6;
+    padding: 5px; }
+    .user-profile .widget.categorylist > .filters > span {
+      font-size: 12px; }
+    .user-profile .widget.categorylist > .filters > ul {
+      margin-left: 1em; }
+      .user-profile .widget.categorylist > .filters > ul > li {
+        margin-bottom: .5em;
+        margin-right: .5em; }
+        .user-profile .widget.categorylist > .filters > ul > li > a {
+          background: url(/view/images/user/grey-triangle-down.png) no-repeat left;
+          display: inline-block;
+          padding-left: 15px; }
+          .user-profile .widget.categorylist > .filters > ul > li > a.active {
+            background: url(/view/images/user/blue-triangle-down.png) no-repeat left; }
 
 /*# sourceMappingURL=styles.css.map */

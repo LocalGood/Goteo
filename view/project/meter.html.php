@@ -47,10 +47,11 @@ if ($reached >= $minimum) {
     $minimum_done_per = round(($reached / $minimum) * 100);
     $minimum_left = max(0, round((1 - $reached / $minimum) * 100));
     
-    if ($minimum_done >= 100) {
-        // No muestres 100 si falta aunque sea un céntimo
-        $minimum_done = 99;
-    }
+}
+
+if ($minimum_done >= 100) {
+    // No muestres 100 si falta aunque sea un céntimo
+    $minimum_done = 99;
 }
 
 //todo:hor->widthとvar->heightはmax100%にしたい ex)一覧の「いのちの木」のPJ、.meter.horがはみ出る。

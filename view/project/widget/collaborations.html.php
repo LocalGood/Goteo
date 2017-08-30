@@ -46,5 +46,4 @@ $project = $this['project'];
             <?php endforeach ?>
         </ul>
     </div>
-    <a class="more" href="/project/<?php echo $project->id; ?>/messages"><?php echo Text::get('regular-see_all_needs'); ?></a>
 </div>

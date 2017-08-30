@@ -39,6 +39,28 @@ $fz15px: 1.0714285rem;
   }
 }
 
+@mixin circleAvatar($size) {
+  border-radius: 50%;
+  display: inline-block;
+  height: $size;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: $size;
+  img {
+    bottom: 0;
+    height: auto;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    vertical-align: middle;
+    width: 100%;
+  }
+}
+
 
 /*----------------------------------------------------------------------
  .project-show commons

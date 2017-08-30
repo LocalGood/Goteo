@@ -75,10 +75,6 @@ $user->about = nl2br(Text::urlink($user->about));
             <?php endif ?>
         </div>
 
-        <?php
-        //todo: snsアイコンも変えてるようだが、見えてる以外にもあるので、作成/切り出しいただきたい
-        //todo: この部分はユーザープロフィールにも絡むがどうするか。
-        ?>
         <?php echo new View('view/user/widget/social.html.php', array('user' => $user)) ?>
 
         <a class="button aqua profile" href="/user/profile/<?php echo htmlspecialchars($user->id) ?>/message"><?php echo Text::get('regular-send_message')?></a>
