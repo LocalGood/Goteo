@@ -1,9 +1,15 @@
-//todo:このファイルは一時ファイルで、コンポーネントが判明したら、各scssに指定移行するようにする
-
 /*----------------------------------------------------------------------
- .widget(in discover)
+ .widget
 ----------------------------------------------------------------------*/
 .widget{
+  background-color: white;
+  padding: 15px 20px;
+  overflow: hidden;
+  .title {
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+  }
 
   //プロジェクトウィジェット
   &.projects {
@@ -12,11 +18,11 @@
     .project {
       background-color: #fff;
       border: 1px solid #d1d3d4;
+      box-sizing: content-box;
       border-radius: 4px;
       float: left;
       margin: 0 0 24px 3.33%;
-      min-height: 450px;
-      padding: 0;
+      padding: 0 0 70px;
       width: 260px;
       z-index: 98;
       overflow:visible;
@@ -112,6 +118,25 @@
           }
         }
       }
+
+      .balloon {
+        background:#cae4e6 url(/view/images/balloonbeak.png) no-repeat bottom left;
+        border-bottom:15px solid #FFF;
+        > blockquote {
+          font-size:12px;
+          height:4em;
+          margin:0;
+          overflow:hidden;
+          padding:3px 5px;
+        }
+        > h4 {
+          font-size:14px;
+          font-weight:700;
+          margin:0 0 .5em;
+          padding:3px 5px 0;
+        }
+      }
+
     }
 
     .skillmatching {
@@ -222,7 +247,8 @@
 
   //オーナーウィジェット
   &.user {
-    padding: 0;
+    margin-bottom: 20px;
+      padding: 0;
     .project-widget-box {
       padding: 15px 20px;
     }
@@ -361,6 +387,9 @@
   &.project-supporters {
     background: none;
     padding: 0;
+    .supertitle {
+      margin: 0;
+    }
     .title {
       display: none;
     }

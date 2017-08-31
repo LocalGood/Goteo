@@ -124,241 +124,10 @@
     }
   }
 
-  //プロジェクト詳細画面　＞　右カラム
-  .side {
-    //オレンジ色のボタン
-    .button.supportit {
-      background: #ff9900;
-    }
-    //青緑色のボタン
-    .button.aqua {
-      background: #21b0b0;
-    }
-    //緑色のボタン
-    .button.green {
-      background-color: #33cc99;
-    }
-    /* todo: 多分「支援者」が入ると要るから、取っておく */
-    .more {
-      border-top: $projectShowBorder;
-      clear: both;
-      display: block;
-      line-height: 38px;
-      text-align: center;
-      text-decoration: none;
-    }
-
-    > .widget {
-      margin-bottom: 20px;
-      padding: 0;
-      .supertitle {
-        background: none;
-        color: #000;
-        font-size: 14px;
-        font-weight: 600;
-        margin-bottom: 12px;
-        padding-left: 0;
-      }
-    }
-
-    //スキルと物品の募集
-    .project-collaborations {
-      background: none;
-      .project-widget-box {
-        margin: 0;
-      }
-      .title {
-        margin-bottom: 16px;
-      }
-      ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        li {
-          background-color: #fff;
-          padding: 20px 20px 10px;
-          &:not(:last-child) {
-            margin-bottom: 20px;
-          }
-          .name {
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 24px;
-            margin: 0 0 16px;
-            min-height: 32px;
-            text-align: center;
-          }
-          p {
-            line-height: 24px;
-            margin: 0 0 24px;
-            word-wrap: break-word;
-          }
-        }
-      }
-    }
-
-    //お礼・公共リターン
-    .project-rewards {
-      background: none;
-      .project-widget-box {
-        margin: 0;
-        .individual,
-        .social {
-          padding: 0;
-        }
-      }
-      .title {
-        margin-bottom: 16px;
-      }
-      ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        li {
-          background-color: #fff;
-          margin-bottom: 20px;
-          padding: 20px 20px 10px;
-          .name {
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 24px;
-            margin: 0 0 16px;
-            min-height: 32px;
-            text-align: center;
-          }
-          p {
-            line-height: 24px;
-            margin: 0 0 24px;
-            word-wrap: break-word;
-          }
-        }
-      }
-    }
-
-    //
-    .project-support {
-      .supertitle {
-        background-color: #58585a;
-        color: #fff;
-        font-size: 12px;
-        height: 40px;
-        line-height: 40px;
-        padding-left: 0;
-        text-align: center;
-        .days {
-          strong {
-            font-size: 14px;
-          }
-        }
-      }
-      .project-widget-box {
-        padding: 15px 20px;
-        position: relative;
-      }
-      .meter {
-        dl.reached-bar {
-          .supporters {
-            display: inline-block;
-          }
-          .reached,
-          .supporters {
-            strong {
-              color: #000;
-              font-size: 16px;
-            }
-          }
-          dt.supporters {
-            &:before {
-              content: '/';
-              display: inline-block;
-            }
-          }
-        }
-        dl.percent {
-          top: 38px;
-        }
-      }
-    }
-
-    //プロジェクトオーナー
-    .user {
-      .supertitle {
-        display: none;
-      }
-    }
-
-    //
-    .project-investors {
-      background-color: #fff;
-      padding: 0;
-      .supertitle {
-        background-color: #3c9;
-      }
-      .investors {
-        padding: 8px 20px 0;
-      }
-      ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        li {
-          border-bottom: 1px dashed #c0c0c0;
-          &:last-child {
-            border-bottom: none;
-          }
-        }
-      }
-      .supporterContainer {
-        height: 80px;
-        padding: 10px 10px 10px 60px;
-        position: relative;
-      }
-      a.expand {
-        display: none;
-      }
-      .supporter {
-        .avatar {
-          background-color: #fff;
-          display: block;
-          height: 43px;
-          left: 10px;
-          position: absolute;
-          top: 10px;
-          width: 43px;
-        }
-        h4 {
-          font-size: 12px;
-          font-weight: 300;
-          height: 14px;
-          margin: 0 0 .5em;
-          overflow: hidden;
-        }
-        dl {
-          font-size: 12px;
-          margin: 0;
-        }
-        dt.date {
-          display: none;
-        }
-        dd.date {
-          bottom: 4px;
-          color: #a6a8ab;
-          font-size: 12px;
-          margin-top: 5px;
-          position: absolute;
-          right: 16px;
-        }
-      }
-    }
-  }
-
   //お礼ウィジェット
   .project-rewards {
     margin-bottom: 10px;
     padding: 0;
-    .supertitle {
-      background-color: #ff9933;
-    }
     ul {
       list-style: none;
       margin: 16px 0 0;
@@ -378,6 +147,9 @@
     .license {
       h5 {
         border-bottom: none;
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0;
       }
       > a {
         text-decoration: none;
@@ -493,12 +265,14 @@
             dt {
               float: left;
               font-size: 14px;
+              line-height: 24px;
               width: 70px;
             }
             dd {
               float: left;
               font-size: 16px;
               font-weight: 600;
+              line-height: 24px;
               margin-left: 0;
             }
             &.remain {
@@ -537,7 +311,8 @@
       font-weight: normal;
       margin:25px 0 0;
     }
-    textarea {
+    textarea#message,
+    textarea#message-text {
       background-color:#DCEEDF;
       border:1px solid #2EAB58;
       clear:right;
@@ -561,6 +336,401 @@
     }
     h3.title {
       padding-left:0;
+    }
+  }
+
+  //お礼・公共リターンウィジェット
+  .project-rewards-summary {
+    background: none;
+    padding: 0;
+    > div {
+      background-color: #fff;
+      padding: 20px;
+      .title {
+        margin-bottom: 30px;
+      }
+      ul {
+        background-color: #e7e7e7;
+        list-style-type: none;
+        padding: 20px;
+        li {
+          @include cf;
+          .left {
+            float: left;
+            width: 60%;
+          }
+          .right {
+            float: right;
+            width: 40%;
+            img {
+              width: 100%;
+              height: auto;
+            }
+          }
+        }
+      }
+    }
+    .individual {
+      margin-bottom: 20px;
+      dl {
+        @include cf;
+        margin: 0;
+        dt {
+          float: left;
+          font-size: 13px;
+          line-height: 24px;
+          width: 70px;
+        }
+        dd {
+          color: #383838;
+          float: left;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 24px;
+          margin-left: 0;
+          strong {
+            font-size: 16px;
+          }
+        }
+        &.remain {
+          margin-bottom: 20px;
+          dd {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    .license {
+      h6 {
+        border-bottom: none;
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0;
+      }
+      > a {
+        text-decoration: none;
+        strong {
+          background-repeat: no-repeat;
+          display: block;
+          padding-top: 40px;
+        }
+        p {
+          margin: 3px 0;
+        }
+      }
+      &.agpl > a strong {
+        background-image: url(/view/images/license/agpl.png);
+      }
+      &.apache > a strong {
+        background-image: url(/view/images/license/apache.png);
+      }
+      &.balloon > a strong {
+        background-image: url(/view/images/license/balloon.png);
+      }
+      &.bsd > a strong {
+        background-image: url(/view/images/license/bsd.png);
+      }
+      &.cc0 > a strong {
+        background-image: url(/view/images/license/cc0.png);
+      }
+      &.ccby > a strong {
+        background-image: url(/view/images/license/ccby.png);
+      }
+      &.ccbync > a strong {
+        background-image: url(/view/images/license/ccbync.png);
+      }
+      &.ccbyncnd > a strong {
+        background-image: url(/view/images/license/ccbyncnd.png);
+      }
+      &.ccbyncsa > a strong {
+        background-image: url(/view/images/license/ccbyncsa.png);
+      }
+      &.fal > a strong {
+        background-image: url(/view/images/license/fal.png);
+      }
+      &.fdl > a strong {
+        background-image: url(/view/images/license/fdl.png);
+      }
+      &.freebsd > a strong {
+        background-image: url(/view/images/license/freebsd.png);
+      }
+      &.gpl > a strong {
+        background-image: url(/view/images/license/gpl.png);
+      }
+      &.gpl2 > a strong {
+        background-image: url(/view/images/license/gpl2.png);
+      }
+      &.lgpl > a strong {
+        background-image: url(/view/images/license/lgpl.png);
+      }
+      &.mit > a strong {
+        background-image: url(/view/images/license/mit.png);
+      }
+      &.mpl > a strong {
+        background-image: url(/view/images/license/mpl.png);
+      }
+      &.odbl > a strong {
+        background-image: url(/view/images/license/odbl.png);
+      }
+      &.odcby > a strong {
+        background-image: url(/view/images/license/odcby.png);
+      }
+      &.license.oshw > a strong {
+        background-image: url(/view/images/license/oshw.png);
+      }
+      &.pd > a strong {
+        background-image: url(/view/images/license/pd.png);
+      }
+      &.php > a strong {
+        background-image: url(/view/images/license/php.png);
+      }
+      &.tapr > a strong {
+        background-image: url(/view/images/license/tapr.png);
+      }
+      &.xoln > a strong {
+        background-image: url(/view/images/license/xoln.png);
+      }
+    }
+    .name {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 24px;
+      margin: 0 0 12px;
+    }
+    .button.supportit {
+      background: #ff9900;
+    }
+  }
+
+  //プロジェクト詳細画面　＞　右カラム
+  .side {
+    //オレンジ色のボタン
+    .button.supportit {
+      background: #ff9900;
+    }
+    //青緑色のボタン
+    .button.aqua {
+      background: #21b0b0;
+    }
+    //緑色のボタン
+    .button.green {
+      background-color: #33cc99;
+    }
+    /* todo: 多分「支援者」が入ると要るから、取っておく */
+    .more {
+      border-top: $projectShowBorder;
+      clear: both;
+      display: block;
+      line-height: 38px;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    > .widget {
+      margin-bottom: 20px;
+      padding: 0;
+      .supertitle {
+        color: #000;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0 0 8px;
+      }
+    }
+
+    //スキルと物品の募集
+    .project-collaborations {
+      background: none;
+      .project-widget-box {
+        margin: 0;
+      }
+      .title {
+        margin-bottom: 16px;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+          background-color: #fff;
+          padding: 20px 20px 10px;
+          &:not(:last-child) {
+            margin-bottom: 20px;
+          }
+          .name {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 24px;
+            margin: 0 0 16px;
+            min-height: 32px;
+            text-align: center;
+          }
+          p {
+            line-height: 24px;
+            margin: 0 0 24px;
+            word-wrap: break-word;
+          }
+        }
+      }
+    }
+
+    //お礼・公共リターン
+    .project-rewards {
+      background: none;
+      .project-widget-box {
+        margin: 0;
+        .individual,
+        .social {
+          padding: 0;
+        }
+      }
+      .title {
+        color: #000;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0 0 8px;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+          background-color: #fff;
+          margin-bottom: 20px;
+          padding: 20px 20px 10px;
+          .name {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 24px;
+            margin: 0 0 16px;
+            text-align: center;
+          }
+          p {
+            line-height: 24px;
+            margin: 0 0 24px;
+            word-wrap: break-word;
+          }
+        }
+      }
+    }
+
+    //
+    .project-support {
+      .supertitle {
+        background-color: #58585a;
+        color: #fff;
+        font-size: 12px;
+        height: 40px;
+        line-height: 40px;
+        margin: 0;
+        text-align: center;
+        .days {
+          strong {
+            font-size: 14px;
+          }
+        }
+      }
+      .project-widget-box {
+        padding: 15px 20px;
+        position: relative;
+      }
+      .meter {
+        dl.reached-bar {
+          .supporters {
+            display: inline-block;
+          }
+          .reached,
+          .supporters {
+            strong {
+              color: #000;
+              font-size: 16px;
+            }
+          }
+          dt.supporters {
+            &:before {
+              content: '/';
+              display: inline-block;
+            }
+          }
+        }
+        dl.percent {
+          top: 38px;
+        }
+      }
+      .invest-notice {
+        font-size:13px;
+        padding:0 20px 20px;
+      }
+
+    }
+
+    //プロジェクトオーナー
+    .user {
+      .supertitle {
+        display: none;
+      }
+    }
+
+    //
+    .project-investors {
+      background: none;
+      padding: 0;
+      .project-widget-box {
+        background-color: #fff;
+      }
+      .investors {
+        padding: 8px 20px 0;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+          border-bottom: 1px dashed #c0c0c0;
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+      .supporterContainer {
+        height: 80px;
+        padding: 10px 10px 10px 60px;
+        position: relative;
+      }
+      a.expand {
+        display: none;
+      }
+      .supporter {
+        .avatar {
+          @include circleAvatar(43px);
+          background-color: #fff;
+          display: block;
+          left: 10px;
+          position: absolute;
+          top: 10px;
+        }
+        h4 {
+          font-size: 12px;
+          font-weight: 300;
+          height: 14px;
+          margin: 0 0 .5em;
+          overflow: hidden;
+        }
+        dl {
+          font-size: 12px;
+          margin: 0;
+        }
+        dt.date {
+          display: none;
+        }
+        dd.date {
+          bottom: 4px;
+          color: #a6a8ab;
+          font-size: 12px;
+          margin-top: 5px;
+          position: absolute;
+          right: 16px;
+        }
+      }
     }
   }
 
@@ -823,6 +993,33 @@
 
     //サブナビ　＞　支援者
     &.supporters {
+      margin-bottom: 20px;
+      //todo: .project-show .center > .widge　が効かず、追加。閉じdivがずれているとか？
+
+      .invest-message {
+        background:url(/view/images/project/view/invest/message_beak.png) no-repeat left bottom;
+        background-color:#cce7e8!important;
+        min-height:70px;
+        padding: 20px 15px 40px;
+        h2 {
+          margin:0!important;
+          span {
+            color:#232020;
+            &.message {
+              color:#57595b!important;
+              font-size:.9em!important;
+              font-weight:400!important;
+              padding:0;
+              text-transform:none!important;
+            }
+          }
+          .avatar {
+            @include circleAvatar(30px);
+            float:left;
+            margin-right:20px;
+          }
+        }
+      }
 
       //支援する
       .project-invest {
@@ -842,6 +1039,11 @@
         }
         > div {
           margin-bottom:2em;
+        }
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
         }
         div.invest-message {
           background:url(/view/images/project/view/invest/message_beak.png) no-repeat left bottom;
@@ -909,57 +1111,42 @@
           width:350px;
         }
         div.individual {
-          ul li {
-            padding:0;
-            label {
-              &.amount {
-                color:#930;
-                cursor:pointer;
-                display:block;
-                font-weight:700;
-                padding:10px 10px 10px 65px;
-                h1, h2, h3, h4, h5, h6 {
-                  color:#000;
-                  font-size:13px;
-                  font-weight:400;
+          ul {
+            li {
+              padding:0;
+              label {
+                &.amount {
+                  color:#930;
+                  cursor:pointer;
+                  display:block;
+                  font-weight:700;
+                  padding:10px 10px 10px 65px;
+                  h1, h2, h3, h4, h5, h6 {
+                    color:#000;
+                    font-size:13px;
+                    font-weight:400;
+                  }
+                  h5 {
+                    color:#58595B;
+                  }
+                  p {
+                    color:#58595B;
+                    font-size:13px;
+                    font-weight:400;
+                  }
                 }
-                h5 {
-                  color:#58595B;
-                }
-                p {
-                  color:#58595B;
-                  font-size:13px;
-                  font-weight:400;
+                &.resign {
+                  cursor:pointer;
+                  display:block;
+                  padding:10px 10px 10px 65px;
                 }
               }
-              &.resign {
-                cursor:pointer;
-                display:block;
-                padding:10px 10px 10px 65px;
+              &.disabled {
+                background-color:#e8e7e7;
+                label.amount {
+                  color:#58595b;
+                }
               }
-              input[type="checkbox"] + span.chkbox {
-                background:url(/view/images/project/widget/checkbox.png) no-repeat scroll 0 0 transparent;
-                display:block;
-                height:12px;
-                margin-top:-15px;
-                position:absolute;
-                width:12px;
-              }
-              input[type="checkbox"]:checked + span.chkbox {
-                background-position:0 -13px;
-              }
-            }
-            &.disabled {
-              background-color:#e8e7e7;
-              label.amount {
-                color:#58595b;
-              }
-              label input[type="checkbox"] + span.chkbox {
-                background:url(/view/images/project/widget/checkbox_disabled.png) no-repeat scroll 0 0 transparent;
-              }
-            }
-            input[type="checkbox"] {
-              opacity:0;
             }
           }
         }
@@ -1093,12 +1280,12 @@
         }
 
         .avatar {
-          display: block;
           left: -70px;
-          height: 50px;
           position: absolute;
           top: 0;
-          width: 50px;
+          a {
+            @include circleAvatar(50px);
+          }
         }
         .user {
           float: left;
@@ -1132,168 +1319,264 @@
       }
     }
 
+    //サブナビ　＞　活動報告
     &.updates {
+      > .widget {
+        margin-bottom: 20px;
+      }
+    ;
 
-      .project-updates {
-        .post {
-          line-height: 18px;
-          margin-bottom: 20px;
-          h4 {
-            a {
-              color: #535353;
-              font-size: 16px;
-              font-weight: bolder;
-              margin: 0 0 5px;
-              text-decoration: none;
-            }
+      .post {
+        line-height: 18px;
+        h4 {
+          a {
+            color: #535353;
+            font-size: 16px;
+            font-weight: bolder;
+            margin: 0 0 5px;
+            text-decoration: none;
           }
-          .date {
-            color: #808285;
-            display: block;
-            font-size: 12px;
+        }
+        .date {
+          color: #808285;
+          display: block;
+          font-size: 12px;
+        }
+        .post-gallery {
+          margin-bottom: 30px;
+          a.prev {
+            background: url(/view/images/small_arrowslider-sprt.png) scroll no-repeat 0 0;
           }
-          .post-gallery {
-            margin-bottom: 30px;
-            a.prev {
-              background: url(/view/images/small_arrowslider-sprt.png) scroll no-repeat 0 0;
-            }
-            a.next {
-              background: url(/view/images/small_arrowslider-sprt.png) scroll no-repeat 0 -16px;
-            }
-            .slderpag {
-              float: left;
-              height: auto;
-              list-style: none;
-              margin: 8px 0 0;
-              padding: 0;
-              li {
-                display: block;
-                cursor: pointer;
-                float: left;
-                margin: 0 4px 5px;
-                overflow: hidden;
-                &.current a {
-                  background-color: #808184;
-                  color: #808184;
-                }
-                a {
-                  background-color: #cdcdce;
-                  color: #cdcdce;
-                  display: block;
-                  height: 12px;
-                  margin-top: 2px;
-                  width: 12px;
-                }
-              }
-            }
+          a.next {
+            background: url(/view/images/small_arrowslider-sprt.png) scroll no-repeat 0 -16px;
           }
-          .post-gallery-container {
-            display: none;
-            height: 300px;
-            width: 580px;
-          }
-          .gallery-image {
-            padding: 18px 0;
-            text-align: left;
-          }
-          .embed iframe {
-            min-height: 420px;
-            width: 100%;
-          }
-          blockquote {
-            font-size: 12px;
-            line-height: 18px;
-            margin: 8px 0 10px;
-          }
-          .read_more {
-            margin-top: 16px;
-            a {
-              color: $colLinkText01;
-              display: inline-block;
-              font-size: 12px;
-              line-height: 2;
-              padding-right: 10px;
-              position: relative;
-              text-decoration: none;
-              &:after {
-                background: url(/view/images/arrow-updates.png) no-repeat 50%;
-                bottom: 0;
-                content: '';
-                display: block;
-                height: 8px;
-                margin: auto;
-                right: 0;
-                position: absolute;
-                top: 0;
-                width: 6px;
-              }
-            }
-          }
-          .post_nav {
-            margin: 0;
-            padding: 0;
-            .prev {
-              float: left;
-            }
-            .next {
-              float: right;
-            }
-          }
-          .share-goteo {
-            float: right;
+          .slderpag {
+            float: left;
+            height: auto;
             list-style: none;
-            margin: 0;
+            margin: 8px 0 0;
             padding: 0;
             li {
-              display: inline;
+              display: block;
+              cursor: pointer;
               float: left;
-              margin: 0 0 0 10px;
-              &.twitter a {
-                background: transparent url(/view/images/twitter.png) scroll no-repeat 0 0;
-                color: #13c2ec;
-                text-decoration: none;
+              margin: 0 4px 5px;
+              overflow: hidden;
+              &.current a {
+                background-color: #808184;
+                color: #808184;
               }
-              &.facebook a {
-                background: transparent url(/view/images/facebook.png) scroll no-repeat 0 0;
-                color: #4a6393;
-                text-decoration: none;
+              a {
+                background-color: #cdcdce;
+                color: #cdcdce;
+                display: block;
+                height: 12px;
+                margin-top: 2px;
+                width: 12px;
               }
             }
           }
-          .comments-num {
-            background: transparent url(/view/images/ico-blogcomment.png) scroll no-repeat 0 0;
+        }
+        .post-gallery-container {
+          display: none;
+          height: 300px;
+          width: 580px;
+        }
+        .gallery-image {
+          padding: 18px 0;
+          text-align: left;
+        }
+        .embed iframe {
+          min-height: 420px;
+          width: 100%;
+        }
+        blockquote {
+          font-size: 12px;
+          line-height: 18px;
+          margin: 8px 0 10px;
+        }
+        .read_more {
+          margin-top: 16px;
+          a {
+            color: $colLinkText01;
+            display: inline-block;
+            font-size: 12px;
+            line-height: 2;
+            padding-right: 10px;
+            position: relative;
+            text-decoration: none;
+            &:after {
+              background: url(/view/images/arrow-updates.png) no-repeat 50%;
+              bottom: 0;
+              content: '';
+              display: block;
+              height: 8px;
+              margin: auto;
+              right: 0;
+              position: absolute;
+              top: 0;
+              width: 6px;
+            }
+          }
+        }
+        .post_nav {
+          margin: 0;
+          padding: 0;
+          .prev {
             float: left;
-            height: 24px;
-            line-height: 24px;
-            margin: 0;
-            padding: 0 0 0 26px;
-            a {
-              color: #00ad4e;
+          }
+          .next {
+            float: right;
+          }
+        }
+        .share-goteo {
+          float: right;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          li {
+            display: inline;
+            float: left;
+            margin: 0 0 0 10px;
+            &.twitter a {
+              background: transparent url(/view/images/twitter.png) scroll no-repeat 0 0;
+              color: #13c2ec;
+              text-decoration: none;
+            }
+            &.facebook a {
+              background: transparent url(/view/images/facebook.png) scroll no-repeat 0 0;
+              color: #4a6393;
               text-decoration: none;
             }
           }
         }
-        #pagination {
-          margin-top: 10px;
+        .comments-num {
+          background: transparent url(/view/images/ico-blogcomment.png) scroll no-repeat 0 0;
+          float: left;
+          height: 24px;
+          line-height: 24px;
+          margin: 0;
+          padding: 0 0 0 26px;
+          a {
+            color: #00ad4e;
+            text-decoration: none;
+          }
         }
-        //todo:本番で使われているPJをまだ見つけていない
-        .post-comments {
+      }
+      #pagination {
+        margin-top: 10px;
+      }
+      .post-comments {
+        div.message {
+          background:#e7e7e7 url(/view/images/message/beak/1.png) no-repeat left top;
+          margin-left:60px;
+          overflow:visible;
+          padding:.5em 1em .5em 1.5em;
+          position:relative;
+          &+ div.message {
+            margin-top:20px;
+          }
+          .avatar {
+            display:block;
+            height:50px;
+            left:-60px;
+            position:absolute;
+            top:0;
+            width:50px;
+          }
+          .user {
+            float:left;
+            font-size:14px;
+            font-weight:700;
+            margin:0 0 1em;
+            text-transform:none;
+          }
+          .date {
+            color:gray;
+            float:right;
+            font-size:12px;
+          }
+          blockquote {
+            clear:both;
+            margin:0;
+            padding:0;
+          }
+          h3.user a {
+            text-decoration:none;
+            &:hover {
+              color:#20B3B2;
+            }
+          }
+        }
+        div.owner {
+          background:#e9f4ea url(/view/images/message/beak/2.png) no-repeat left top!important;
+        }
+      }
+      .blog-comment {
+        position:relative;
 
+        h5 {
+          margin:0 0 5px;
+        }
+        form {
+          overflow:hidden;
+        }
+        #bocadillo{
+          background:url('/view/images/bocadillo.jpg') no-repeat;
+          position:absolute;
+          width: 50px;
+          height: 50px;
+          margin-top: 8px;
+        }
+        textarea {
+          background-color:#DCEEDF;
+          border:1px solid #2EAB58;
+          clear:right;
+          display:block;
+          float:left;
+          height:50px;
+          margin:10px -1px -1px 52px;
+          padding:.3em 0;
+          resize:none;
+          width:525px;
+        }
+        a.preview {
+          color:#2EAB58;
+          font-style:normal;
+          font-weight:400;
+          left:52px;
+          position:relative;
+          text-decoration:none;
+          text-transform:uppercase;
+          top:-42px;
+        }
+        button.green{
+          float:right;
+          margin-top: 25px;
+          margin-bottom: 5px;
+        }
+      }
+      .blog-share {
+        margin-bottom: 20px;
+        .social_bookmark {
+          margin-left: 0;
+          position: relative;
+        }
+        .fb-comments {
+          margin-top: 8px;
         }
       }
     }
 
-
-
-    //todo:本番で使われているPJをまだ見つけていないので、旧ソースにあった.project-evaluationを移行したのみ
+    //サブナビ　＞　達成レポート
     &.evaluation {
       .project-evaluation {
-        h3.title {
+        /*h3.title {
           font-size:18px;
-          font-weight:bolder;
+          font-weight:600;
           margin:0;
           padding:0 20px;
-        }
+        }*/
       }
     }
   }

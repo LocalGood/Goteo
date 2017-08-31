@@ -3,6 +3,14 @@
 ----------------------------------------------------------------------*/
 .discover {
 
+  #sub-header {
+    > div {
+      display: block;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+  }
+
   //検索ウィジェット
   .searcher {
     background-color: transparent;
@@ -27,6 +35,7 @@
     #text-query {
       background-color:#fff;
       border:1px solid #808184;
+      box-sizing: content-box;
       color:#808184;
       float:left;
       font-size:16px;
@@ -75,238 +84,22 @@
       }
     }
     #searcher {
-      position:absolute;
-      right:40px;
-      top:20px;
       background:url(/view/images/lupa.png) no-repeat;
       height:33px;
-      margin-top:-1px;
+      margin: 2px 0 0;
+      position:absolute;
+      right:40px;
       text-indent:-9999px;
+      top:0;
       width:80px;
     }
   }
 
-  //プロジェクトグループ
-  /*.widget.projects {
-    margin-bottom: 24px;
-  }*/
-
-  //プロジェクト一つ
-/*  .project {
-    background-color: #fff;
-    border: 1px solid #d1d3d4;
-    border-radius: 4px;
-    float: left;
-    margin: 0 0 24px 3.33%;
-    min-height: 450px;
-    padding: 0;
-    width: 260px;
-    z-index: 98;
-    overflow:visible;
-    position:relative;
-    &.active {
-      div.image {
-        filter:alpha(opacity=85);
-        opacity:0.85;
-      }
-      a.link {
-        color: $colLinkText01;
-      }
-    }
-    a.link {
-      text-decoration:none;
-    }
-    .image {
-      background-color:#deddde;
-      border-radius: 4px 4px 0 0;
-      height:135px;
-      margin:0;
-      overflow:hidden;
-    }
-
-    &-details {
-      margin: 20px 16px 16px;
-      h3.title {
-        margin: 0 0 16px;
-      }
-      .author {
-        color: #ababab;
-        font-size:12px;
-        margin-bottom: 10px;
-        &-img {
-          border-radius: 50%;
-          display: inline-block;
-          height: 25px;
-          overflow: hidden;
-          width: 25px;
-          vertical-align: middle;
-          img {
-            height: auto;
-            text-align: center;
-            vertical-align: middle;
-            width: 25px;
-          }
-        }
-        span {
-          margin-left: 8px;
-          vertical-align: middle;
-        }
-      }
-      .categories {
-        background: url(/view/images/icon_tag.png) no-repeat left 50%;
-        color: #ababab;
-        font-size:12px;
-        padding-left: 20px;
-      }
-    }
-
-    .meter {
-      div.graph {
-        margin-bottom: 0;
-      }
-      dl.amount-bar {
-        display: none;
-      }
-    }
-
-    .want-support {
-      border-top: 1px solid #d1d3d4;
-      bottom: 0;
-      letter-spacing: -.4em;
-      position: absolute;
-      text-align: center;
-      width: 100%;
-      > div {
-        display: inline-block;
-        letter-spacing: normal;
-        padding-bottom: 8px;
-        vertical-align: top;
-        width: 50%;
-        &:first-child {
-          border-right: 1px solid #d1d3d4;
-        }
-      }
-      h4 {
-        font-size: 12px;
-        line-height: 1;
-        margin: 12px 0 8px;
-      }
-      img {
-        height: 30px;
-      }
-      .days {
-        height: 30px;
-        line-height: 30px;
-        strong {
-          color: #000;
-        }
-      }
+  .widget.projects {
+    .project {
+      min-height: 400px;
     }
   }
 
-  .skillmatching {
-    div.image span.sm-icon {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      width: 40px;
-      height: 40px;
-      background-image: url('/view/images/lg-project-sm.png');
-      background-size:40px 40px;
-    }
-    div.meter dl .days{
-      top:160px;
-    }
-  }
-
-  &-group {
-    display: none;
-    @include cf;
-    .widget.project {
-      margin: 0 0 0 25px;
-    }
-  }
-
-  a.discover-arrow {
-    color:#FFF;
-    display:inline-block;
-    line-height:24px;
-    position:relative;
-    text-indent:24px;
-    top:200px;
-    vertical-align:middle;
-  }
-
-  &-arrow {
-    &-left,
-    &-right {
-      width:24px;
-    }
-    &-left {
-      float:left;
-      a.discover-arrow {
-        background:url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 0;
-        &:hover {
-          background:url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 -48px;
-        }
-      }
-    }
-    &-right {
-      float:right;
-      a.discover-arrow {
-        background:url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 -24px;
-        &:hover {
-          background:url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 -72px;
-        }
-      }
-    }
-  }*/
-
-  /*.navi-bar {
-    clear:both;
-    display:block;
-    height:30px;
-    ul.navi {
-      height:10px;
-      list-style:none;
-      margin:0;
-      padding:10px;
-      z-index:900;
-      li {
-        display:block;
-        float:left;
-        height:1em;
-        margin-right:.5em;
-        overflow:hidden;
-        width:1em;
-        > * {
-          display:block;
-          height:100%;
-          line-height:2000px;
-          text-indent:2000px;
-          width:100%;
-        }
-        > a {
-          background-color:#cdcdce;
-          &:hover {
-            background-color:#20b3b2;
-          }
-          &.active {
-            background-color:#808184;
-          }
-        }
-      }
-    }
-    a.all {
-      position:relative;
-      right:-825px;
-      text-decoration:none;
-      text-transform:uppercase;
-      top:-20px;
-      &:hover {
-        color:#20B3B2;
-      }
-    }
-  }*/
 }
 

@@ -45,8 +45,6 @@ uasort($project->individual_rewards,
 ?>
 <div class="widget project-rewards-summary" id="rewards-summary">
 
-    <h<?php echo $level ?> class="supertitle"><?php echo Text::get('project-rewards-supertitle'); ?></h<?php echo $level ?>>
-
     <?php if (!empty($project->individual_rewards)) :
         $count = 1;
     ?>
@@ -55,18 +53,27 @@ uasort($project->individual_rewards,
         <ul>
         <?php foreach ($project->individual_rewards as $individual) : ?>
         <li class="<?php echo $individual->icon ?>">
-
-            <div class="amount"><?php echo Text::get('regular-investing'); ?> <span class="euro"><?php echo \amount_format($individual->amount); ?>円</span></div>
-            <h<?php echo $level + 2 ?> id="<? echo 'individual_num' . $count; ?>" class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>>
+            <dl class="amount">
+                <dt><?php echo Text::get('regular-support-amount'); ?></dt>
+                <dd><strong><?php echo \amount_format($individual->amount); ?></strong>円</dd>
+            </dl>
             <?php if (!empty($individual->units)):
                 $units = ($individual->units - $individual->taken);
                 ?>
-                <p class="remain"><strong><?php echo Text::get('project-rewards-individual_reward-limited'); ?> <?php echo $units; ?></strong></p>
+                <dl class="remain">
+                    <dt><?php echo Text::get('project-rewards-individual_reward-limited'); ?></dt>
+                    <dd><?php echo $units; ?></dd>
+                </dl>
             <?php endif; ?>
-            <p><?php echo htmlspecialchars($individual->description)?></p>
-
-            <div class="buttons">
-                <a class="button violet supportit" href="/project/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it'); ?></a>
+            <div class="left">
+                <h<?php echo $level + 2 ?> id="<? echo 'individual_num' . $count; ?>" class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>>
+                <p><?php echo htmlspecialchars($individual->description)?></p>
+                <div class="buttons">
+                    <a class="button violet supportit" href="/project/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest'); ?></a>
+                </div>
+            </div>
+            <div class="right">
+                <img src="<?php echo SRC_URL ?>/view/images/" alt="<?/*php todo: $project->新しく追加されるお礼画像のキャプション　を出す */?>">
             </div>
 
         </li>

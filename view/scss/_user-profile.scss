@@ -55,7 +55,6 @@
     .widget.user-mates {
       a.more {
         background-color:#fff;
-        border-top:1px dashed silver;
         display:block;
         float:none;
         font-size:14px!important;
@@ -367,6 +366,15 @@
 
   .widget.user-mates {
     padding: 0;
+    h3.supertitle {
+      background-color: #21b0b0;
+      border-bottom: 1px solid #21b0b0;
+      color: #f5f5f5;
+      font-size: 18px;
+      font-weight: 400;
+      margin: 0;
+      padding: .5em 2px .5em 20px;
+    }
     h3.title {
       background-color: #666;
       color: #f5f5f5;
@@ -433,13 +441,14 @@
         padding:0;
         > li {
           border-right:1px dashed silver;
-          border-top:1px dashed silver;
           float:left;
           margin:-1px 0 0;
           overflow:hidden;
           padding:8px 0;
           position:relative;
           width:164px;
+          border-bottom:1px dashed silver;
+
           &:nth-child(2n+2) {
             border-right:none;
           }
@@ -546,6 +555,19 @@
         margin-bottom:5px;
         margin-right:5px;
       }
+    }
+  }
+
+  .widget.user {
+    h3.supertitle {
+      font-weight: normal;
+      margin: 0;
+      padding: .5em 2px;
+      border-bottom: 1px solid #21b0b0;
+      font-size: 18px;
+      background-color: #21b0b0;
+      color: #f5f5f5;
+      padding-left: 8px;
     }
   }
 

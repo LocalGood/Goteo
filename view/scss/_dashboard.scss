@@ -187,8 +187,15 @@
   }
 
   //.widgetがつくboxは以下で、.widgetがつかないboxはそれぞれのクラスにmb20付与
-  .summary > .widget {
-    margin-bottom: 20px;
+  .summary {
+    > .widget {
+      margin-bottom: 20px;
+    }
+    .widget.projects {
+      .project {
+        min-height: 450px;
+      }
+    }
   }
 
   .user-worthcracy {
@@ -233,6 +240,7 @@
     float: left;
     margin-right: 20px;
   }
+
   #project-status {
     display: table-cell;
     width: 50%;
@@ -265,6 +273,7 @@
       text-shadow: 1px 1px 0 rgba(0,0,0,.25);
     }
   }
+
   #meter-big {
     position: relative;
     min-height: 200px;
@@ -483,100 +492,9 @@
           margin-right: -40px;
           color: #BB70B6;
         }
-        .minimum {
-        }
       }
     }
   }
-
-  /*.gestrew {
-    .message {
-      overflow: auto;
-      height: auto;
-      padding: 20px 20px 30px;
-      color: #58595B;
-      background: url(/view/images/project/view/invest/header_beak.png) #CCE5E6 no-repeat left bottom;
-    }
-    .rewards {
-      overflow: auto;
-      margin-top: 10px;
-      height: auto;
-      .reward {
-        background: #E4C9E2;
-        float: left;
-        height: 300px;
-        margin-right: 10px;
-        min-height: 175px;
-        padding: 10px;
-        position: relative;
-        width: 217px;
-        .orden {
-          background-color: #e7e7e7;
-          border: 2px solid #a7a9ac;
-          color: #a7a9ac;
-          display: inline-block;
-          font-size: 13pt;
-          font-weight: 700;
-          text-align: center;
-          width: 20px;
-        }
-        .aporte {
-          color: #96238F;
-          display: inline-block;
-          font-size: 8pt;
-          line-height: 22px;
-          .euro {
-            background: url(/view/images/yen/violet/m.png) no-repeat;
-            display: inline-block;
-            height: 20px;
-            width: 20px;
-          }
-        }
-        .num {
-          font-size: 12pt;
-        }
-        .cofinanciadores {
-          color: #40509F;
-          display: block;
-          font-size: 8pt;
-          line-height: 20px;
-          margin-left: 29px;
-          text-transform: uppercase;
-        }
-        .tiporec {
-          border-bottom: #8D878E 1px solid;
-          display: block;
-          margin-bottom: 5px;
-        }
-        ul {
-          float: none;
-          font-size: 12px;
-          list-style: none outside none;
-          margin: 0 0 3px;
-          padding: 0;
-          li{
-            background: none no-repeat scroll 0 0 transparent;
-            min-height: 34px;
-            padding: 0;
-          }
-        }
-        .contenedorrecompensa {
-          height: 67px;
-        }
-        .recompensa {
-          color: #8D878E;
-          font-size: 12px;
-        }
-        a.green {
-          bottom: 0;
-          left: 13px;
-          padding: .3em 1.3em;
-          position: absolute;
-          width: 188px;
-        }
-      }
-    }
-  }*/
 
   &.dashboard .superform {
     padding-left: 20px;

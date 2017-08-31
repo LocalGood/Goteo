@@ -1,10 +1,35 @@
 .admin {
 
+  input[type="text"],
+  input[type="password"],
+  textarea,
+  fieldset {
+    min-height: inherit;
+    padding: 0;
+  }
+
+  input[type="text"].readonly {
+    color:#ccc;
+  }
+
+  input[type="submit"],
+  input[type="reset"],
+  button,
+  a.button {
+    margin: 20px 0;
+  }
+
   #sub-header {
     padding-bottom: 10px;
     .breadcrumbs {
       color: #58595B;
+      display: block;
       font-size: 18px;
+      margin: 0 auto;
+      max-width: 960px;
+      a:hover {
+        color:#20B2B3;
+      }
       strong {
         color: #20B2B3;
       }
@@ -14,17 +39,6 @@
   #main {
     margin-bottom: 0;
     margin-top: 0;
-  }
-
-  .admin-center {
-    float: left;
-    margin-right: 10px;
-    width: 160px;
-  }
-
-  .admin-right {
-    float: right;
-    width: 790px;
   }
 
   .admin-menu {
@@ -67,12 +81,32 @@
     }
   }
 
-  .widget {
-    margin-bottom: 10px;
+  //左カラム
+  .admin-center {
+    float: left;
+    margin-right: 10px;
+    width: 160px;
   }
 
-  .board {
-    padding: 15px 20px;
+  //右カラム
+  .admin-right {
+    float: right;
+    width: 790px;
+
+    //管理者画面 -> ホーム（左カラム）
+    .admin-home {
+      margin-left:0;
+      width:440px;
+    }
+    //管理者画面 -> ホーム（右カラム）
+    .admin-side {
+      margin-left:10px;
+      width:300px;
+    }
+
+    .shortcut {
+      padding:15px 20px;
+    }
     ul {
       font-size: 0;
       list-style: none;
@@ -91,20 +125,83 @@
           display: inline-block;
           padding: .6em 2em .2em .6em;
           text-decoration: none;
+          &:hover {
+            background-color:#c8babc;
+          }
         }
       }
     }
+    .board {
+      padding: 15px 20px;
+      padding:0;
+      table {
+        border-spacing:0;
+        box-sizing: content-box;
+        width: 100%;
+        &.t_border {
+          tr:nth-child(even) td {
+            background-color: #f5f5f5;
+          }
+        }
+        th {
+          background-color:#666;
+          box-sizing: content-box;
+          color:#f5f5f5;
+        }
+        td {
+          border-bottom:1px dotted #ccc;
+          box-sizing: content-box;
+          padding:8px 4px;
+          &.w70 {width: 70px;}
+          &.w100 {width: 100px;}
+          &.w200 {width: 200px;}
+          &.w300 {width: 300px;}
+          &.pl4 {padding-left: 4px;}
+          &.pr4 {padding-right: 4px;}
+        }
+      }
+      > h3.title {
+        padding-left:20px;
+      }
+      a {
+        color: grey;
+        text-decoration: none;
+      }
+      form,
+      > a,
+      > p {
+        padding:15px 20px;
+      }
+      textarea {
+        width: 500px;
+      }
+      #cke_richtext_content {
+        box-sizing: content-box;
+        float: none!important;
+      }
+    }
+
+    &.projects {
+      div.widget p {
+        margin:0 0 8px;
+      }
+      a {
+        padding: .3em .2em .2em .3em;
+      }
+      table {
+        td {
+          border-bottom: none;
+        }
+      }
+
+    }
+
+
+
   }
 
-  .admin-home {
-    float: left;
-    width: 480px;
-  }
-
-  .admin-side {
-    float: right;
-    margin-left: 10px;
-    width: 300px;
+  .widget {
+    margin-bottom: 10px;
   }
 
   .feed {

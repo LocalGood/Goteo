@@ -47,17 +47,14 @@ $week = array('日','月','火','水','木','金','土');
     <div class="project-widget-box<?php echo $status = $project->round ? '' : ' end'; ?>">
     <?php echo new View('view/project/meter.html.php', array('project' => $project, 'level' => $level) ) ?>
 
+    <?php if ($project->status <= 3): ?>
         <div class="buttons">
             <a class="button violet supportit" href="/project/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it'); ?></a>
-            <?/*php if ($project->status == 3) : // boton apoyar solo si esta en campaña ?>
-            <a class="button violet supportit" href="/project/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it'); ?></a>
-            <?php else : ?>
-            <a class="button view" href="/project/<?php echo $project->id ?>/updates"><?php echo Text::get('regular-see_blog'); ?></a>
-            <?php endif; */?>
         </div>
+    <?php endif; ?>
     </div>
     <?php
-    if ($project->status == 3) {
+    if ($project->status == 3):
 
         $published = date('Y年n月j日', strtotime($project->published));
         $willclose = date('Y年n月j日', strtotime("-1 minute",strtotime($project->willclose)));
@@ -78,7 +75,7 @@ $week = array('日','月','火','水','木','金','土');
             このプロジェクトの挑戦期間は、1stラウンド <?php echo $published; ?>〜<?php echo $until; ?>23:59（<?php echo $project->period_1r; ?>日間）、2ndラウンド<?php echo $willpass; ?>〜<?php echo $willclose; ?>23:59（<?php echo $project->period_2r; ?>日間）です
         </div>
         <?php
-    } // if ($project->status == 3) {
+    endif;
     ?>
 
 </div>

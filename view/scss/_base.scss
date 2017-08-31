@@ -56,18 +56,6 @@ fieldset {
   padding: .3em;
 }
 
-body.admin input[type="text"],
-body.admin input[type="password"],
-body.admin textarea,
-body.admin fieldset {
-  min-height: inherit;
-  padding: 0;
-}
-
-body.admin input[type="text"].readonly {
-  color:#ccc;
-}
-
 fieldset {
   background: transparent;
   display: inline-block;

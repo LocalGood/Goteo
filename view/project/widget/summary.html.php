@@ -111,9 +111,12 @@ echo new View('view/project/widget/video.html.php', array('project' => $project)
     <?php endif ?>
 
 </div>
+
+<?php if ($project->status <= 3): ?>
 <div class="project-support_btn">
     <a class="button supportit" href="/project/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it'); ?></a>
 </div>
+<?php endif; ?>
 
 <?php if (!empty($project->id)): ?>
     <div class="widget project-share">
