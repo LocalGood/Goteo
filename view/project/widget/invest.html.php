@@ -159,7 +159,12 @@ if ($step == 'start') : ?>
 <p><button type="submit" class="process pay-cash" name="method" value="cash">現金</button></p>
 <?php endif; ?>
 <!--<p><button type="submit" class="process pay-paypal" name="method"  value="paypal">PAYPAL</button></p>-->
+
 <p><button type="submit" class="process pay-axes" name="method"  value="axes">クレジットカード</button></p>
+
+<p><button type="submit" class="process pay-axes" name="method"  value="epsilon">イプシロン　クレジット</button></p>
+
+<p><button type="submit" class="process pay-axes" name="method"  value="conveni">コンビニ決済</button></p>
 
 
 </div>

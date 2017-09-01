@@ -31,6 +31,7 @@ define('GOTEO_NODE', 'goteo');
 define('PEAR', GOTEO_PATH . 'library' . '/' . 'pear' . '/');
 if (function_exists('ini_set')) {
     ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . PEAR);
+    ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . '/usr/local/lib/php/');
 } else {
     throw new Exception("No puedo a�adir las librer�as PEAR al include_path.");
 }

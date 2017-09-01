@@ -10,7 +10,7 @@ $invest = $this['invest'];
 #	AXES では、外部CGI 直リンクだったが、イプシロンは違うので、フローを変更。
 #	epsilongo で、処理する。
 #
-$redirect = '/invest/' . $invest->project;
+$redirect = '/invest/convenigo/' . $invest->id . '/';
 $item_price = $invest->amount;
 
 
