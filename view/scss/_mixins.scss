@@ -61,6 +61,29 @@ $fz15px: 1.0714285rem;
   }
 }
 
+//管理画面のdl用
+@mixin adminList($leftWidth) {
+  letter-spacing: -.4em;
+  dt {
+    display: inline-block;
+    letter-spacing: normal;
+    vertical-align: top;
+    width: $leftWidth;
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+  dd {
+    display: inline-block;
+    letter-spacing: normal;
+    margin-left: 20px;
+    vertical-align: top;
+    width: 750px - 20px - $leftWidth;
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+}
 
 /*----------------------------------------------------------------------
  .project-show commons

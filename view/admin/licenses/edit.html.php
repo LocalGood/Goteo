@@ -28,30 +28,31 @@ use Goteo\Library\Text;
         <input type="hidden" name="id" value="<?php echo $this['license']->id; ?>" />
         <input type="hidden" name="order" value="<?php echo $this['license']->order; ?>" />
 
-        <label for="license-group"><?php echo Text::_("Grupo:"); ?></label><br />
-        <select id="license-group" name="group">
-            <option value=""><?php echo Text::_("Ninguno"); ?></option>
-            <?php foreach ($this['groups'] as $id=>$name) : ?>
-            <option value="<?php echo $id; ?>"<?php if ($id == $this['license']->group) echo ' selected="selected"'; ?>><?php echo $name; ?></option>
-            <?php endforeach; ?>
-        </select>
-<br />
-        <label for="license-name"><?php echo Text::_('Nombre'); ?>:</label><br />
-        <input type="text" name="name" id="license-name" value="<?php echo $this['license']->name; ?>" />
-<br />
-        <label for="license-description"><?php echo Text::_('Texto tooltip'); ?>:</label><br />
-        <textarea name="description" id="license-description" cols="60" rows="10"><?php echo $this['license']->description; ?></textarea>
-<br />
-        <label for="license-url"><?php echo Text::_('Url'); ?>:</label><br />
-        <input type="text" name="url" id="license-url" value="<?php echo $this['license']->url; ?>" />
-<br />
-        <label for="license-icons"><?php echo Text::_('Tipos'); ?>:</label><br />
-        <select id="license-icons" name="icons[]" multiple size="6">
-            <?php foreach ($this['icons'] as $icon) : ?>
-            <option value="<?php echo $icon->id; ?>"<?php if (in_array($icon->id, $this['license']->icons)) echo ' selected="selected"'; ?>><?php echo $icon->name; ?></option>
-            <?php endforeach; ?>
-        </select>
-
+        <dl>
+            <dt><label for="license-group"><?php echo Text::_("Grupo:"); ?></label></dt>
+            <dd>
+                <select id="license-group" name="group">
+                    <option value=""><?php echo Text::_("Ninguno"); ?></option>
+                    <?php foreach ($this['groups'] as $id=>$name) : ?>
+                        <option value="<?php echo $id; ?>"<?php if ($id == $this['license']->group) echo ' selected="selected"'; ?>><?php echo $name; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </dd>
+            <dt><label for="license-name"><?php echo Text::_('Nombre'); ?>:</label></dt>
+            <dd><input type="text" name="name" id="license-name" value="<?php echo $this['license']->name; ?>" /></dd>
+            <dt><label for="license-description"><?php echo Text::_('Texto tooltip'); ?>:</label></dt>
+            <dd><textarea name="description" id="license-description" cols="60" rows="10"><?php echo $this['license']->description; ?></textarea></dd>
+            <dt><label for="license-url"><?php echo Text::_('Url'); ?>:</label></dt>
+            <dd><input type="text" name="url" id="license-url" value="<?php echo $this['license']->url; ?>" /></dd>
+            <dt><label for="license-icons"><?php echo Text::_('Tipos'); ?>:</label></dt>
+            <dd>
+                <select id="license-icons" name="icons[]" multiple size="6">
+                    <?php foreach ($this['icons'] as $icon) : ?>
+                        <option value="<?php echo $icon->id; ?>"<?php if (in_array($icon->id, $this['license']->icons)) echo ' selected="selected"'; ?>><?php echo $icon->name; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </dd>
+        </dl>
 
         <input type="submit" name="save" value="<?php echo Text::_("Guardar"); ?>" />
     </form>

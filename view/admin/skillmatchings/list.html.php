@@ -162,7 +162,7 @@ $pagedResults = new \Paginated($this['skillmatchings'], 10, isset($_GET['page'])
                 <td colspan="7">
                     <?php echo Text::_("IR A"); ?>:&nbsp;
                     <a href="/skillmatching/edit/<?php echo $project->id; ?>" target="_blank">[<?php echo Text::_("Edit project"); ?>]</a>
-                    <a href="/admin/users/?id=<?php echo $project->owner; ?>" target="_blank">[<?php echo Text::_("Impulsor"); ?>]</a>
+                    <a href="/admin/users/?id=<?php echo $project->owner; ?>">[<?php echo Text::_("Impulsor"); ?>]</a>
                     <?php if (!isset($_SESSION['admin_node']) 
                             || (isset($_SESSION['admin_node']) && $_SESSION['admin_node'] == \GOTEO_NODE)
                             || (isset($_SESSION['admin_node']) && $user->node == $_SESSION['admin_node'])) : ?>

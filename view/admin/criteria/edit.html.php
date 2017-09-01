@@ -41,42 +41,39 @@ jQuery(document).ready(function ($) {
         <input type="hidden" name="action" value="<?php echo $this['action']; ?>" />
         <input type="hidden" name="id" value="<?php echo $this['criteria']->id; ?>" />
 
-        <p>
         <?php if ($this['action'] == 'add') : ?>
-            <label for="criteria-section"><?php echo Text::_('Sección:'); ?></label><br />
-            <select id="criteria-section" name="section">
-                <option value="" disabled><?php echo Text::_('Elige la sección'); ?></option>
-                <?php foreach ($this['sections'] as $id=>$name) : ?>
-                <option value="<?php echo $id; ?>"<?php if ($id == $this['criteria']->section) echo ' selected="selected"'; ?>><?php echo $name; ?></option>
-                <?php endforeach; ?>
-            </select>
+            <p>
+                <label for="criteria-section"><?php echo Text::_('Sección:'); ?></label>
+                <select id="criteria-section" name="section">
+                    <option value="" disabled><?php echo Text::_('Elige la sección'); ?></option>
+                    <?php foreach ($this['sections'] as $id=>$name) : ?>
+                        <option value="<?php echo $id; ?>"<?php if ($id == $this['criteria']->section) echo ' selected="selected"'; ?>><?php echo $name; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </p>
         <?php else : ?>
-            <label for="criteria-section"><?php echo Text::_('Sección:'); ?>: <?php echo $this['sections'][$this['criteria']->section]; ?></label><br />
-            <input type="hidden" name="section" value="<?php echo $this['criteria']->section; ?>" />
+            <p>
+                <label for="criteria-section"><?php echo Text::_('Sección:'); ?>: <?php echo $this['sections'][$this['criteria']->section]; ?></label>
+                <input type="hidden" name="section" value="<?php echo $this['criteria']->section; ?>" />
+            </p>
         <?php endif; ?>
-        </p>
 
-        <p>
-            <label for="criteria-title"><?php echo Text::_('Título:'); ?></label><br />
-            <input type="text" name="title" id="criteria-title" value="<?php echo $this['criteria']->title; ?>" />
-        </p>
-
-        <p>
-            <label for="criteria-description"><?php echo Text::_('Descripción:'); ?></label><br />
-            <textarea name="description" id="criteria-description" cols="60" rows="10"><?php echo $this['criteria']->description; ?></textarea>
-        </p>
-
-        <p>
-            <label for="criteria-order"><?php echo Text::_('Posición:'); ?></label><br />
-            <select name="move">
-                <option value="same" selected="selected" disabled><?php echo Text::_('Tal cual'); ?></option>
-                <option value="up"><?php echo Text::_('Antes de '); ?></option>
-                <option value="down"><?php echo Text::_('Después de '); ?></option>
-            </select>&nbsp;
-            <input type="text" name="order" id="criteria-order" value="<?php echo $this['criteria']->order; ?>" size="4" />
-            &nbsp;<?php echo Text::_('number'); ?>&nbsp;<span id="criteria-num"><?php echo $this['criteria']->cuantos; ?></span>
-        </p>
-
+        <dl>
+            <dt><label for="criteria-title"><?php echo Text::_('Título:'); ?></label></dt>
+            <dd><input type="text" name="title" id="criteria-title" value="<?php echo $this['criteria']->title; ?>" /></dd>
+            <dt><label for="criteria-description"><?php echo Text::_('Descripción:'); ?></label></dt>
+            <dd><textarea name="description" id="criteria-description" cols="60" rows="10"><?php echo $this['criteria']->description; ?></textarea></dd>
+            <dt><label for="criteria-order"><?php echo Text::_('Posición:'); ?></label></dt>
+            <dd>
+                <select name="move">
+                    <option value="same" selected="selected" disabled><?php echo Text::_('Tal cual'); ?></option>
+                    <option value="up"><?php echo Text::_('Antes de '); ?></option>
+                    <option value="down"><?php echo Text::_('Después de '); ?></option>
+                </select>&nbsp;
+                <input type="text" name="order" id="criteria-order" value="<?php echo $this['criteria']->order; ?>" size="4" />
+                &nbsp;<?php echo Text::_('number'); ?>&nbsp;<span id="criteria-num"><?php echo $this['criteria']->cuantos; ?></span>
+            </dd>
+        </dl>
 
         <input type="submit" name="save" value="<?php echo Text::_("Guardar"); ?>" />
     </form>

@@ -472,13 +472,21 @@ a.button.weak {
   margin-top: 60px;
   padding-top: 20px; }
 
+#sub-header > div,
+#sub-header-secondary > div {
+  display: block;
+  max-width: 960px;
+  margin: 0 auto; }
+
+#sub-header > div > h2 {
+  margin: 0;
+  padding: 0; }
+
 #main {
   zoom: 1;
   width: 960px;
   margin: 10px auto;
   clear: both;
-  /*overflow-y: hidden;
-  overflow-x: hidden;*/
   position: relative;
   z-index: 0; }
   #main:after {
@@ -492,25 +500,29 @@ a.button.weak {
   margin: 0;
   padding: 0; }
   #pagination li {
-    background: white;
-    -moz-box-shadow: 3px 3px 0 #E2E2E2;
-    -webkit-box-shadow: 3px 3px 0 #E2E2E2;
+    background: #fff;
+    box-sizing: content-box;
     box-shadow: 3px 3px 0 #E2E2E2;
     display: inline;
     float: left;
-    height: 40px;
-    line-height: 40px;
+    margin: 0 6px 0 0;
     text-align: center;
-    width: 40px; }
+    width: auto; }
     #pagination li:not(:last-child) {
       margin-right: 10px; }
     #pagination li.selected {
-      background: #9b9b9b;
-      color: #fff; }
+      background: #cde4e5;
+      font-weight: bold;
+      padding: 6px 20px; }
+    #pagination li.hellip {
+      padding: 6px 20px; }
     #pagination li a {
       display: block;
-      text-align: center;
+      font-weight: bold;
+      padding: 6px 20px;
       text-decoration: none; }
+      #pagination li a:hover {
+        background: #F3F3F3; }
 
 div#message {
   background: none repeat scroll 0 0 #ffa375;
@@ -3699,11 +3711,18 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
   padding: 0; }
 .admin input[type="text"].readonly {
   color: #ccc; }
-.admin input[type="submit"],
 .admin input[type="reset"],
 .admin button,
 .admin a.button {
-  margin: 20px 0; }
+  height: 24px;
+  line-height: 24px;
+  margin: 20px 0;
+  width: 80px; }
+.admin input[type="submit"] {
+  height: 50px;
+  line-height: 50px;
+  margin: 20px 0;
+  width: 200px; }
 .admin #sub-header {
   padding-bottom: 10px; }
   .admin #sub-header .breadcrumbs {
@@ -3712,8 +3731,11 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
     font-size: 18px;
     margin: 0 auto;
     max-width: 960px; }
-    .admin #sub-header .breadcrumbs a:hover {
-      color: #20B2B3; }
+    .admin #sub-header .breadcrumbs a {
+      color: #58595B;
+      font-size: 18px; }
+      .admin #sub-header .breadcrumbs a:hover {
+        color: #20B2B3; }
     .admin #sub-header .breadcrumbs strong {
       color: #20B2B3; }
 .admin #main {
@@ -3749,6 +3771,10 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
         display: block;
         padding: 4px 8px;
         text-decoration: none; }
+.admin #pagination {
+  margin: 10px 0 20px; }
+.admin .board h3 {
+  text-transform: uppercase; }
 .admin .admin-center {
   float: left;
   margin-right: 10px;
@@ -3757,15 +3783,15 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
   float: right;
   width: 790px; }
   .admin .admin-right .admin-home {
+    box-sizing: content-box;
+    float: left;
     margin-left: 0;
     width: 440px; }
   .admin .admin-right .admin-side {
+    float: left;
     margin-left: 10px;
     width: 300px; }
-  .admin .admin-right .shortcut {
-    padding: 15px 20px; }
   .admin .admin-right ul {
-    font-size: 0;
     list-style: none;
     margin: 0;
     padding: 0; }
@@ -3782,8 +3808,11 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
         .admin .admin-right ul li a:hover {
           background-color: #c8babc; }
   .admin .admin-right .board {
-    padding: 15px 20px;
     padding: 0; }
+    .admin .admin-right .board.shortcut {
+      padding: 15px 20px; }
+      .admin .admin-right .board.shortcut a {
+        color: #000; }
     .admin .admin-right .board table {
       border-spacing: 0;
       box-sizing: content-box;
@@ -3815,6 +3844,10 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
     .admin .admin-right .board a {
       color: grey;
       text-decoration: none; }
+    .admin .admin-right .board form table td {
+      border-bottom: none; }
+    .admin .admin-right .board form input[type="submit"] {
+      margin-bottom: 10px; }
     .admin .admin-right .board form,
     .admin .admin-right .board > a,
     .admin .admin-right .board > p {
@@ -3824,12 +3857,193 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
     .admin .admin-right .board #cke_richtext_content {
       box-sizing: content-box;
       float: none !important; }
+  .admin .admin-right a.button {
+    display: inline-block;
+    margin: 10px 0 6px;
+    min-width: 80px;
+    padding: 0 8px;
+    width: auto; }
+  .admin .admin-right.categories.edit dl {
+    letter-spacing: -.4em; }
+    .admin .admin-right.categories.edit dl dt {
+      display: inline-block;
+      letter-spacing: normal;
+      vertical-align: top;
+      width: 100px; }
+      .admin .admin-right.categories.edit dl dt:not(:last-child) {
+        margin-bottom: 20px; }
+    .admin .admin-right.categories.edit dl dd {
+      display: inline-block;
+      letter-spacing: normal;
+      margin-left: 20px;
+      vertical-align: top;
+      width: 630px; }
+      .admin .admin-right.categories.edit dl dd:not(:last-child) {
+        margin-bottom: 20px; }
+  .admin .admin-right.skills dl {
+    letter-spacing: -.4em; }
+    .admin .admin-right.skills dl dt {
+      display: inline-block;
+      letter-spacing: normal;
+      vertical-align: top;
+      width: 80px; }
+      .admin .admin-right.skills dl dt:not(:last-child) {
+        margin-bottom: 20px; }
+    .admin .admin-right.skills dl dd {
+      display: inline-block;
+      letter-spacing: normal;
+      margin-left: 20px;
+      vertical-align: top;
+      width: 650px; }
+      .admin .admin-right.skills dl dd:not(:last-child) {
+        margin-bottom: 20px; }
+  .admin .admin-right.licenses .board table th.license_name {
+    width: 150px; }
+  .admin .admin-right.licenses .board table th.tooltip {
+    width: 230px; }
+  .admin .admin-right.licenses .board table th.type {
+    width: 70px; }
+  .admin .admin-right.licenses dl {
+    letter-spacing: -.4em; }
+    .admin .admin-right.licenses dl dt {
+      display: inline-block;
+      letter-spacing: normal;
+      vertical-align: top;
+      width: 150px; }
+      .admin .admin-right.licenses dl dt:not(:last-child) {
+        margin-bottom: 20px; }
+    .admin .admin-right.licenses dl dd {
+      display: inline-block;
+      letter-spacing: normal;
+      margin-left: 20px;
+      vertical-align: top;
+      width: 580px; }
+      .admin .admin-right.licenses dl dd:not(:last-child) {
+        margin-bottom: 20px; }
+  .admin .admin-right.icons .board table th.tooltip {
+    width: 400px; }
+  .admin .admin-right.icons dl {
+    letter-spacing: -.4em; }
+    .admin .admin-right.icons dl dt {
+      display: inline-block;
+      letter-spacing: normal;
+      vertical-align: top;
+      width: 150px; }
+      .admin .admin-right.icons dl dt:not(:last-child) {
+        margin-bottom: 20px; }
+    .admin .admin-right.icons dl dd {
+      display: inline-block;
+      letter-spacing: normal;
+      margin-left: 20px;
+      vertical-align: top;
+      width: 580px; }
+      .admin .admin-right.icons dl dd:not(:last-child) {
+        margin-bottom: 20px; }
+  .admin .admin-right.criteria dl {
+    letter-spacing: -.4em; }
+    .admin .admin-right.criteria dl dt {
+      display: inline-block;
+      letter-spacing: normal;
+      vertical-align: top;
+      width: 150px; }
+      .admin .admin-right.criteria dl dt:not(:last-child) {
+        margin-bottom: 20px; }
+    .admin .admin-right.criteria dl dd {
+      display: inline-block;
+      letter-spacing: normal;
+      margin-left: 20px;
+      vertical-align: top;
+      width: 580px; }
+      .admin .admin-right.criteria dl dd:not(:last-child) {
+        margin-bottom: 20px; }
+  .admin .admin-right.templates .board table th.template {
+    width: 240px; }
+  .admin .admin-right.templates .board table th.description {
+    width: 400px; }
+  .admin .admin-right.templates .board table th td p {
+    width: 400px; }
+  .admin .admin-right.templates .board input#tpltitle,
+  .admin .admin-right.templates .board textarea#tpltext {
+    width: 740px; }
   .admin .admin-right.projects div.widget p {
     margin: 0 0 8px; }
   .admin .admin-right.projects a {
     padding: .3em .2em .2em .3em; }
+  .admin .admin-right.projects a.filter-release {
+    margin-left: 20px;
+    padding-left: 0; }
   .admin .admin-right.projects table td {
     border-bottom: none; }
+  .admin .admin-right.reviews .reviews-search-line:first-child {
+    margin-bottom: 10px; }
+  .admin .admin-right.reviews table td a {
+    padding: 0; }
+  .admin .admin-right.rewards .rewards-search-line:not(:last-child) {
+    margin-bottom: 20px; }
+  .admin .admin-right.rewards .board table th.change_btn {
+    width: 50px; }
+  .admin .admin-right.rewards .board table th.support_status {
+    width: 60px; }
+  .admin .admin-right.rewards .board table th.implementation_status {
+    width: 120px; }
+  .admin .admin-right.invests .board table td a {
+    padding: 0; }
+  .admin .admin-right.users .board form dl {
+    letter-spacing: -.4em; }
+    .admin .admin-right.users .board form dl dt {
+      display: inline-block;
+      letter-spacing: normal;
+      vertical-align: top;
+      width: 180px; }
+      .admin .admin-right.users .board form dl dt:not(:last-child) {
+        margin-bottom: 20px; }
+    .admin .admin-right.users .board form dl dd {
+      display: inline-block;
+      letter-spacing: normal;
+      margin-left: 20px;
+      vertical-align: top;
+      width: 550px; }
+      .admin .admin-right.users .board form dl dd:not(:last-child) {
+        margin-bottom: 20px; }
+    .admin .admin-right.users .board form dl dd.name input[type="submit"] {
+      display: inline-block;
+      font-size: 14px;
+      height: 24px;
+      line-height: 24px;
+      margin: 0;
+      width: 80px; }
+    .admin .admin-right.users .board form dl dd select#role-filter,
+    .admin .admin-right.users .board form dl dd select#interest-filter,
+    .admin .admin-right.users .board form dl dd select#skill-filter {
+      width: 289px; }
+    .admin .admin-right.users .board form dl dd input#name-filter {
+      margin: 0;
+      padding: 0;
+      width: 285px; }
+  .admin .admin-right.users .board table tr.record1 td {
+    border-bottom: none;
+    padding-bottom: 0; }
+    .admin .admin-right.users .board table tr.record1 td.pj_count {
+      text-align: center; }
+    .admin .admin-right.users .board table tr.record1 td.admin_amount {
+      text-align: right; }
+  .admin .admin-right.users .board table tr.record2 td {
+    padding-top: 0; }
+  .admin .admin-right.mailing form dd {
+    margin-left: 0; }
+  .admin .admin-right.mailing form #mail_content {
+    width: 740px;
+    padding: 4px; }
+  .admin .admin-right.promete .board table {
+    width: 100%; }
+    .admin .admin-right.promete .board table th.view_btn {
+      width: 60px; }
+    .admin .admin-right.promete .board table th.support_status {
+      width: 80px; }
+    .admin .admin-right.promete .board table td.pj_name {
+      width: 340px; }
+    .admin .admin-right.promete .board table td a {
+      padding: 0; }
 .admin .widget {
   margin-bottom: 10px; }
 .admin .feed > h3 {

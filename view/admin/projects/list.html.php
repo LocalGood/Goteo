@@ -103,7 +103,7 @@ $pagedResults = new \Paginated($this['projects'], 10, isset($_GET['page']) ? $_G
             </tr>
         </table>
     </form>
-    <a href="/admin/projects/?reset=filters"><?php echo Text::_("Quitar filtros"); ?></a>
+    <a class="filter-release" href="/admin/projects/?reset=filters"><?php echo Text::_("Quitar filtros"); ?></a>
 <?php if ($filters['filtered'] != 'yes') : ?>
     <p><?php echo Text::_("Es necesario poner algun filtro, hay demasiados registros!"); ?></p>
 <?php elseif (empty($this['projects'])) : ?>
@@ -162,7 +162,7 @@ $pagedResults = new \Paginated($this['projects'], 10, isset($_GET['page']) ? $_G
                 <td colspan="7">
                     <?php echo Text::_("IR A"); ?>:&nbsp;
                     <a href="/project/edit/<?php echo $project->id; ?>" target="_blank">[<?php echo Text::_("Edit project"); ?>]</a>
-                    <a href="/admin/users/?id=<?php echo $project->owner; ?>" target="_blank">[<?php echo Text::_("Impulsor"); ?>]</a>
+                    <a href="/admin/users/?id=<?php echo $project->owner; ?>">[<?php echo Text::_("Impulsor"); ?>]</a>
                     <?php if (!isset($_SESSION['admin_node']) 
                             || (isset($_SESSION['admin_node']) && $_SESSION['admin_node'] == \GOTEO_NODE)
                             || (isset($_SESSION['admin_node']) && $user->node == $_SESSION['admin_node'])) : ?>

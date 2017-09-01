@@ -39,7 +39,7 @@ list($mreach, $mof, $mrest) = explode('-', $metter_txt);
         </ul>
         <div class="license"><?php foreach ($banner->project->social_rewards as $id=>$reward) :
             if (empty($reward->license)) continue; ?>
-            <img src="<?php echo SRC_URL ?>/view/css/license/<?php echo $reward->license ?>.png" alt="<?php echo $reward->license ?>" /></div>
+            <img src="<?php echo SRC_URL ?>/view/images/license/<?php echo $reward->license ?>.png" alt="<?php echo $reward->license ?>" /></div>
             <?php break; endforeach; ?>
 
     </div>

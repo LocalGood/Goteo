@@ -25,32 +25,35 @@ $filters = $this['filters'];
 ?>
 <div class="widget board">
 <form id="filter-form" action="/admin/reviews" method="get">
-   
-    <label for="project-filter"><?php echo Text::_('Del proyecto'); ?>:</label>
-    <select id="project-filter" name="project" onchange="document.getElementById('filter-form').submit();">
-        <option value="">--</option>
-        <?php foreach ($this['projects'] as $projId=>$projName) : ?>
-            <option value="<?php echo $projId; ?>"<?php if ($filters['project'] == $projId) echo ' selected="selected"';?>><?php echo substr($projName, 0, 100); ?></option>
-        <?php endforeach; ?>
-    </select>
 
-    <br />
+    <div class="reviews-search-line">
+        <label for="project-filter"><?php echo Text::_('Del proyecto'); ?>:</label>
+        <select id="project-filter" name="project" onchange="document.getElementById('filter-form').submit();">
+            <option value="">--</option>
+            <?php foreach ($this['projects'] as $projId=>$projName) : ?>
+                <option value="<?php echo $projId; ?>"<?php if ($filters['project'] == $projId) echo ' selected="selected"';?>><?php echo substr($projName, 0, 100); ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
 
-    <label for="status-filter"><?php echo Text::_('Mostrar por estado'); ?>:</label>
-    <select id="status-filter" name="status" onchange="document.getElementById('filter-form').submit();">
-        <option value=""><?php echo Text::_('Todas'); ?></option>
-    <?php foreach ($this['status'] as $statusId=>$statusName) : ?>
-        <option value="<?php echo $statusId; ?>"<?php if ($filters['status'] == $statusId) echo ' selected="selected"';?>><?php echo $statusName; ?></option>
-    <?php endforeach; ?>
-    </select>
+    <div class="reviews-search-line">
+        <label for="status-filter"><?php echo Text::_('Mostrar por estado'); ?>:</label>
+        <select id="status-filter" name="status" onchange="document.getElementById('filter-form').submit();">
+            <option value=""><?php echo Text::_('Todas'); ?></option>
+            <?php foreach ($this['status'] as $statusId=>$statusName) : ?>
+                <option value="<?php echo $statusId; ?>"<?php if ($filters['status'] == $statusId) echo ' selected="selected"';?>><?php echo $statusName; ?></option>
+            <?php endforeach; ?>
+        </select>
 
-    <label for="checker-filter"><?php echo Text::_('Asignados a'); ?>:</label>
-    <select id="checker-filter" name="checker" onchange="document.getElementById('filter-form').submit();">
-        <option value=""><?php echo Text::_('De todos'); ?></option>
-    <?php foreach ($this['checkers'] as $checker) : ?>
-        <option value="<?php echo $checker->id; ?>"<?php if ($filters['checker'] == $checker->id) echo ' selected="selected"';?>><?php echo $checker->name; ?></option>
-    <?php endforeach; ?>
-    </select>
+        <label for="checker-filter"><?php echo Text::_('Asignados a'); ?>:</label>
+        <select id="checker-filter" name="checker" onchange="document.getElementById('filter-form').submit();">
+            <option value=""><?php echo Text::_('De todos'); ?></option>
+            <?php foreach ($this['checkers'] as $checker) : ?>
+                <option value="<?php echo $checker->id; ?>"<?php if ($filters['checker'] == $checker->id) echo ' selected="selected"';?>><?php echo $checker->name; ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+
 </form>
 </div>
 
@@ -82,7 +85,7 @@ $filters = $this['filters'];
                         <td><?php echo $project->score . ' / ' . $project->max; ?></td>
                         <?php if (!empty($project->review)) : ?>
                         <td><a href="/admin/reviews/edit/<?php echo $project->project; ?>">[<?php echo Text::_("Editar"); ?>]</a></td>
-                        <td><a href="/admin/reviews/report/<?php echo $project->project; ?>" target="_blank">[<?php echo Text::_("Ver informe"); ?>]</a></td>
+                        <td><a href="/admin/reviews/report/<?php echo $project->project; ?>">[<?php echo Text::_("Ver informe"); ?>]</a></td>
                             <?php if ( $project->status > 0 ) : ?>
                         <td><a href="/admin/reviews/close/<?php echo $project->review; ?>">[<?php echo Text::_("Cerrar"); ?>]</a></td>
                             <?php else : ?>

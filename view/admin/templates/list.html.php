@@ -30,7 +30,7 @@ $filters = $this['filters'];
         <table>
             <tr>
                 <td>
-                    <label for="group-filter"><?php echo Text::_('Filtrar agrupaci&oacute;n'); ?>:</label><br />
+                    <label for="group-filter"><?php echo Text::_('Filtrar agrupaci&oacute;n'); ?>:</label>
                     <select id="group-filter" name="group">
                         <option value=""><?php echo Text::_('Todas las agrupaciones'); ?></option>
                     <?php foreach ($this['groups'] as $groupId=>$groupName) : ?>
@@ -38,8 +38,10 @@ $filters = $this['filters'];
                     <?php endforeach; ?>
                     </select>
                 </td>
+            </tr>
+            <tr>
                 <td>
-                    <label for="name-filter"><?php echo Text::_('Filtrar por nombre o asunto'); ?>:</label><br />
+                    <label for="name-filter"><?php echo Text::_('Filtrar por nombre o asunto'); ?>:</label>
                     <input type="text" id ="name-filter" name="name" value ="<?php echo $filters['name']?>" />
                 </td>
             </tr>

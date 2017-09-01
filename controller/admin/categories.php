@@ -31,6 +31,7 @@ namespace Goteo\Controller\Admin {
 
             $model = 'Goteo\Model\Category';
             $url = '/admin/categories';
+            $wrapperClass = 'categories';
 
             $errors = array();
 
@@ -74,7 +75,8 @@ namespace Goteo\Controller\Admin {
                                     )
                                 )
 
-                            )
+                            ),
+                            'isCategories' => $wrapperClass . ' add'
                         )
                     );
 
@@ -133,7 +135,8 @@ namespace Goteo\Controller\Admin {
                                     )
                                 )
 
-                            )
+                            ),
+                            'isCategories' => $wrapperClass . ' edit'
                         )
                     );
 
@@ -157,7 +160,8 @@ namespace Goteo\Controller\Admin {
                             'folder' => 'keywords',
                             'file' => 'list',
                             'categories' => $model::getList(),
-                            'words' => $model::getKeyWords()
+                            'words' => $model::getKeyWords(),
+                            'isCategories' => $wrapperClass . ' add'
                         )
                     );
                     
@@ -185,7 +189,8 @@ namespace Goteo\Controller\Admin {
                         'down' => '',
                         'remove' => ''
                     ),
-                    'url' => "$url"
+                    'url' => "$url",
+                    'isCategories' => $wrapperClass
                 )
             );
             
