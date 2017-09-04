@@ -205,9 +205,6 @@ namespace Goteo\Controller\Admin {
                 $query = \Goteo\Core\Model::query($sql, array($id));
                 $invests = $query->fetchAll(\PDO::FETCH_CLASS, '\Goteo\Model\Invest');
 
-//print_r($invests);
-//exit;
-
 
 				// httpリクエスト用のオプションを指定
 				$http_option = array(
@@ -232,24 +229,16 @@ namespace Goteo\Controller\Admin {
 					// 注文番号
 					$order_number = $invest->id;
 
-print "<br><br>ordernum= $order_number<br><br>";
-
 					$request->addPostParameter('contract_code', $contract_code );
 					$request->addPostParameter('order_number', $order_number );
 
 					// HTTPリクエスト実行
 					$response = $request->send();
 
-var_dump($response);
-
-
 					// 応答内容(XML)の解析
 					if (!PEAR::isError($response)) {
 						$res_code = $response->getStatus();
 						$res_content = $response->getBody();
-
-var_dump($res_content);
-#exit;
 
 						$resultno = $err_code = $err_detail = "";
 
@@ -276,8 +265,8 @@ var_dump($res_content);
 									break;
 
 							case 9: // 失敗
-print "shippai";
-exit;
+									$invest->setStatus('2');
+
 									// エラー出力
 									Message::Error( "Epsilon Return Error  $err_code: $err_detail");
 									throw new Redirection(SEC_URL."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
@@ -286,8 +275,6 @@ exit;
 					} else {
 #						Message::Error( "Epsilon Sales Error ");
 #						throw new Redirection(SEC_URL."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
-print "shippai2";
-exit;
 					}
 
 
@@ -302,11 +289,9 @@ exit;
                         }
                     }
 
-					sleep( 2 );
+					sleep( 1 );
 
                 }	// end foreach
-
-exit;
 
 
                 Message::Info("処理しました");

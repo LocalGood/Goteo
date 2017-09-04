@@ -10,7 +10,7 @@ $invest = $this['invest'];
 #	AXES では、外部CGI 直リンクだったが、イプシロンは違うので、フローを変更。
 #	epsilongo で、処理する。
 #
-$redirect = '/invest/epsilongo/' . $invest->id . '/1/';
+$redirect = '/invest/epsilongo/' . $invest->id . '/2/';
 $item_price = $invest->amount;
 
 
@@ -26,6 +26,7 @@ $item_price = $invest->amount;
             <div class="widget">
                 <p><span class="project_name"><?php echo $invest->project_name ?></span>に<span class="amount"><?php echo $invest->amount;?></span>円寄付します。</p>
 
+
 <?php print<<<FORM1
                 <form method="post" action="$redirect">
                 <input type="hidden" name="amount" value="$item_price">
@@ -34,12 +35,17 @@ $item_price = $invest->amount;
                 <input type="hidden" name="failure_str" value="back">
                 <input type="button" value="戻る" class="back" onClick='history.back();'>
 
-				<button type="submit" class="process pay-axes" name="method" value="epsilongo">決済ページへ</button>
+				<button type="submit" class="process pay-axes" name="method" value="epsilongo">前回のカードで決済を実行</button>
 
                 <!-- input type="submit" value="決済ページへ" -->
 
                 </form>
                 <div class="caution">
+                    <br />
+                	<p style="color:#ff3300;margin-bottom: 0;">前回ご利用のクレジットカードにて決済いたします。</p>
+                	<p style="color:#ff3300;margin-bottom: 0;">初回のご利用の場合は、クレジットカード番号の入力が必要です。</p>
+                    <br />
+                    <br />
                     <br />
                     実際の決済はプロジェクト成立後に行われます。
                     <br />

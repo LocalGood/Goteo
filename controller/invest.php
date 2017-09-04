@@ -54,6 +54,7 @@ namespace Goteo\Controller {
                     //'paypal' => 'paypal'
                     'axes' => 'axes',
                     'epsilon' => 'epsilon',
+                    'epsilonrepeat' => 'epsilonrepeat',
                     'conveni' => 'conveni'
                 );
         }
@@ -191,6 +192,17 @@ namespace Goteo\Controller {
                             // todo: Mobile対応
                             $view = new View (
                                 VIEW_PATH . "/invest/epsilon.html.php",
+                                $viewData
+                            );
+                            return $view;
+                            break;
+
+                        case 'epsilonrepeat':
+                            $viewData = array('invest'=>$invest);
+
+                            // todo: Mobile対応
+                            $view = new View (
+                                VIEW_PATH . "/invest/epsilonrepeat.html.php",
                                 $viewData
                             );
                             return $view;
@@ -710,15 +722,20 @@ namespace Goteo\Controller {
 		//		イプシロンの決済ページへ遷移する処理
 		//
 		//
-        public function epsilongo($id=null) {
+        public function epsilongo($id=null, $processcode) {
 
             if (empty($id)) {
+                Message::Error(Text::get('invest-data-error'));
+                throw new Redirection('/', Redirection::TEMPORARY);
+            }
+            if (empty($processcode)) {
                 Message::Error(Text::get('invest-data-error'));
                 throw new Redirection('/', Redirection::TEMPORARY);
             }
             $invest = Model\Invest::get($id);
             $project = $invest->project;
             $projType = $invest->project_type;
+
 
             $projectData = Model\Project::getMedium($invest->project);
 
@@ -771,7 +788,7 @@ namespace Goteo\Controller {
 			$mission_code  = 1;
 
 			// 処理区分
-			$process_code = 1;
+			$process_code = $processcode;
 
 
 			// ユーザー固有情報
@@ -863,6 +880,68 @@ namespace Goteo\Controller {
 			exit;
 
         }
+
+
+
+
+
+		//
+		//		イプシロンにカード番号登録をする処理
+		//
+		//
+        public function cardregist($id=null) {
+
+            if (empty($id)) {
+                Message::Error(Text::get('invest-data-error'));
+                throw new Redirection('/', Redirection::TEMPORARY);
+            }
+            $invest = Model\Invest::get($id);
+            $project = $invest->project;
+            $projType = $invest->project_type;
+
+            $projectData = Model\Project::getMedium($invest->project);
+
+
+			// イプシロンに決済処理を飛ばす　事前処理
+			//   1. 決済cgi にデータを送る
+			//	 2. xml でステータスと、決済URL が返るので取得
+			//	 3. 決済URLに、header() でロケーション。
+
+
+			// httpリクエスト用のオプションを指定
+			$http_option = array(
+			  "timeout" => "20", // タイムアウトの秒数指定
+			  //    "allowRedirects" => true, // リダイレクトの許可設定(true/false)
+			  //    "maxRedirects" => 3, // リダイレクトの最大回数
+			);
+
+
+			$request = new HTTP_Request2(EPSILON_ORDER_URL, HTTP_Request2::METHOD_POST, $http_option);
+			$request->setConfig(array(
+				'ssl_verify_peer' => false,
+			));
+
+
+			// 契約番号(8桁)
+			$contract_code = EPSILON_CONTRACT_CODE;
+
+			// 途中やめ
+			exit;
+
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
