@@ -11,7 +11,7 @@
     text-decoration: none;
   }
 
-  //プロジェクトウィジェット
+  //プロジェクトウィジェット（一覧などのコンパクトにまとまったウィジェット）
   &.projects {
     margin-bottom: 24px;
 
@@ -245,10 +245,62 @@
     }
   }
 
+  //支援（グラフ）
+  &.project-support {
+    .supertitle {
+      background-color: #58585a;
+      color: #fff;
+      font-size: 12px;
+      height: 40px;
+      line-height: 40px;
+      margin: 0;
+      text-align: center;
+      .days {
+        strong {
+          font-size: 14px;
+        }
+      }
+    }
+    .project-widget-box {
+      padding: 15px 20px;
+      position: relative;
+    }
+    .meter {
+      dl.reached-bar {
+        .supporters {
+          display: inline-block;
+        }
+        .reached,
+        .supporters {
+          strong {
+            color: #000;
+            font-size: 16px;
+          }
+        }
+        dt.supporters {
+          &:before {
+            content: '/';
+            display: inline-block;
+          }
+        }
+      }
+      dl.percent {
+        top: 38px;
+      }
+    }
+    .invest-notice {
+      font-size:13px;
+      padding:0 20px 20px;
+    }
+  }
+
   //オーナーウィジェット
   &.user {
     margin-bottom: 20px;
-      padding: 0;
+    padding: 0;
+    .supertitle {
+      display: none;
+    }
     .project-widget-box {
       padding: 15px 20px;
     }
@@ -384,6 +436,406 @@
     }
   }
 
+  //お礼・公共リターン
+  &.project-rewards {
+    background: none;
+    margin-bottom: 10px;
+    padding: 0;
+    .project-widget-box {
+      margin: 0;
+      .individual,
+      .social {
+        padding: 0;
+      }
+    }
+    .title {
+      color: #000;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0 0 8px;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        background-color: #fff;
+        margin-bottom: 20px;
+        padding: 20px 20px 10px;
+        &:last-child {
+          border-bottom: none;
+          margin-bottom: 0;
+        }
+        .name {
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 24px;
+          margin: 0 0 16px;
+          text-align: center;
+        }
+        p {
+          line-height: 24px;
+          margin: 0 0 24px;
+          word-wrap: break-word;
+        }
+      }
+    }
+    .license {
+      h5 {
+       border-bottom: none;
+       font-size: 14px;
+       font-weight: 600;
+       margin: 0;
+      }
+      > a {
+       text-decoration: none;
+       strong {
+         background-repeat: no-repeat;
+         display: block;
+         padding-top: 40px;
+       }
+       p {
+         margin: 3px 0;
+       }
+      }
+      /*&.agpl > a strong {
+       background-image: url(/view/images/license/agpl.png);
+      }
+      &.apache > a strong {
+       background-image: url(/view/images/license/apache.png);
+      }
+      &.balloon > a strong {
+       background-image: url(/view/images/license/balloon.png);
+      }
+      &.bsd > a strong {
+       background-image: url(/view/images/license/bsd.png);
+      }
+      &.cc0 > a strong {
+       background-image: url(/view/images/license/cc0.png);
+      }
+      &.ccby > a strong {
+       background-image: url(/view/images/license/ccby.png);
+      }
+      &.ccbync > a strong {
+       background-image: url(/view/images/license/ccbync.png);
+      }
+      &.ccbyncnd > a strong {
+       background-image: url(/view/images/license/ccbyncnd.png);
+      }
+      &.ccbyncsa > a strong {
+       background-image: url(/view/images/license/ccbyncsa.png);
+      }
+      &.fal > a strong {
+       background-image: url(/view/images/license/fal.png);
+      }
+      &.fdl > a strong {
+       background-image: url(/view/images/license/fdl.png);
+      }
+      &.freebsd > a strong {
+       background-image: url(/view/images/license/freebsd.png);
+      }
+      &.gpl > a strong {
+       background-image: url(/view/images/license/gpl.png);
+      }
+      &.gpl2 > a strong {
+       background-image: url(/view/images/license/gpl2.png);
+      }
+      &.lgpl > a strong {
+       background-image: url(/view/images/license/lgpl.png);
+      }
+      &.mit > a strong {
+       background-image: url(/view/images/license/mit.png);
+      }
+      &.mpl > a strong {
+       background-image: url(/view/images/license/mpl.png);
+      }
+      &.odbl > a strong {
+       background-image: url(/view/images/license/odbl.png);
+      }
+      &.odcby > a strong {
+       background-image: url(/view/images/license/odcby.png);
+      }
+      &.license.oshw > a strong {
+       background-image: url(/view/images/license/oshw.png);
+      }
+      &.pd > a strong {
+       background-image: url(/view/images/license/pd.png);
+      }
+      &.php > a strong {
+       background-image: url(/view/images/license/php.png);
+      }
+      &.tapr > a strong {
+       background-image: url(/view/images/license/tapr.png);
+      }
+      &.xoln > a strong {
+       background-image: url(/view/images/license/xoln.png);
+      }*/
+    }
+    .individual,
+    .social {
+      padding: 15px 20px;
+      .title {
+        a {
+          font-size: 16px;
+          text-decoration: none;
+        }
+      }
+      h6.name {
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+    .individual {
+      margin-bottom: 20px;
+      .title {
+        a {
+          color: #96238F !important;
+        }
+      }
+      ul {
+        li {
+          dl {
+            @include cf;
+            margin: 0;
+            dt {
+              float: left;
+              font-size: 14px;
+              line-height: 24px;
+              width: 70px;
+            }
+            dd {
+              float: left;
+              font-size: 16px;
+              font-weight: 600;
+              line-height: 24px;
+              margin-left: 0;
+            }
+            &.remain {
+              margin-bottom: 12px;
+            }
+          }
+          .name {
+            font-size: 13px;
+            margin: 0 0 8px 0;
+          }
+        }
+      }
+    }
+    .social {
+      .title {
+        a {
+          color: #28b258 !important;
+        }
+      }
+    }
+  }
+
+  //スキルと物品の募集
+  &.project-collaborations {
+    background: none;
+    .project-widget-box {
+      margin: 0;
+    }
+    .title {
+      margin-bottom: 16px;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        background-color: #fff;
+        padding: 20px 20px 10px;
+        &:not(:last-child) {
+          margin-bottom: 20px;
+        }
+        .name {
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 24px;
+          margin: 0 0 16px;
+          min-height: 32px;
+          text-align: center;
+        }
+        p {
+          line-height: 24px;
+          margin: 0 0 24px;
+          word-wrap: break-word;
+        }
+      }
+    }
+  }
+
+  //プロジェクト概要ウィジェット
+  &.project-summary {
+    h3 {
+      font-size: 20px;
+      font-weight: 300;
+      margin: 0 0 1em;
+    }
+    .gallery-image {
+      text-align: center;
+      img {
+        width: 540px;
+      }
+    }
+  }
+
+  //支援するボタンウィジェット
+  &.project-support_btn {
+    background-color: #fff;
+    border-bottom: $projectShowBorder;
+    padding: 40px 0;
+    a.button {
+      background: none;
+      background: #ff9900;
+      -moz-box-shadow: 0 3px 3px 0 #ccc;
+      -webkit-box-shadow: 0 3px 3px 0 #ccc;
+      box-shadow: 0 3px 3px 0 #ccc;
+      display: block;
+      font-size: 14px;
+      font-weight: 300;
+      height: 45px;
+      line-height: 45px;
+      margin: 10px auto;
+      padding: 0 8px;
+      text-align: center;
+      width: 280px;
+    }
+  }
+
+  //シェアウィジェット
+  &.project-share {
+    padding: 26px 20px 50px;
+    position: relative;
+    .title {
+      border:none;
+      margin: 0 0 26px;
+      text-align: center;
+    }
+    .social_bookmark {
+      left: 0;
+      margin: auto;
+      max-width: 500px;
+      top: 75px;
+      width: 340px;
+    }
+  }
+
+  //資金の内訳ウィジェット
+  &.project-needs {
+    margin-bottom: 20px;
+    #legend {
+      float: right;
+      font-size: 12px;
+      margin: 20px 0;
+      .min, .max {
+        line-height: 20px;
+        span {
+          display: block;
+          float: left;
+          height: 10px;
+          margin: 5px 5px 0 0;
+          width: 10px;
+        }
+      }
+      .min {
+        span {
+          background: #e3eadc;
+        }
+      }
+      .max {
+        line-height: 20px;
+        span {
+          background: #F2F2F2;
+        }
+      }
+    }
+    table {
+      border-collapse: collapse;
+      thead {
+        th {
+          &.summary {
+            padding: 3px 8px 3px 0;
+          }
+        }
+        th {
+          background-position: left 50%;
+          background-repeat: no-repeat;
+          font-size: 16px;
+          font-weight: 700;
+          min-height: 32px;
+          padding-bottom: 16px;
+          padding-left: 40px;
+        }
+      }
+      tbody {
+        background: #e3eadc;
+        th.summary {
+          padding: 16px 20px;
+        }
+      }
+      tr {
+        &:not(:last-child) {
+          border-bottom: 1px solid #c0c0c0;
+        }
+        &.req {
+          background: #e3eadc;
+        }
+        &.noreq {
+          background: #F2F2F2;
+        }
+        &.sum {
+          th {
+            padding: 12px 20px 10px 0;
+            text-align: right;
+          }
+        }
+      }
+      th {
+        padding: 3px 20px;
+        &.summary {
+          padding-right: 20px;
+          text-align: left;
+          .click {
+            margin-left: 5px;
+            span {
+              display: block;
+              margin-bottom: 12px;
+              max-width: 360px;
+            }
+            blockquote {
+              font-size: 14px;
+              font-weight: 400;
+              margin: 0;
+              padding: 0;
+            }
+          }
+        }
+        &.min,
+        &.max {
+          font-size: 14px;
+          padding: 3px 7px;
+          vertical-align: middle;
+          width: 120px;
+          word-wrap: break-word;
+        }
+      }
+      td {
+        font-size: 14px;
+        padding: 16px 20px 16px 0;
+        text-align: right;
+        vertical-align: top;
+        word-wrap: break-word;
+      }
+    }
+    table thead + tbody + thead th.min, table thead + tbody + thead th.max {
+      font-size: 0;
+    }
+  }
+
+  //支援者ウィジェット
   &.project-supporters {
     background: none;
     padding: 0;
@@ -502,6 +954,76 @@
     }
     //todo:後でテスト。旧ソースから持ってきただけ
   }
+
+  //スケジュール
+  &.project-schedule {
+    margin-bottom: 20px;
+    table {
+      border-collapse:separate;
+      width:100%;
+      th,
+      td {
+        border:none;
+        box-sizing: content-box;
+        font-size:12px;
+        width:1.5em;
+      }
+    }
+    thead.months {
+      th {
+        font-size:14px;
+        font-weight:600;
+        &:first-child span {
+          display: none;
+        }
+      }
+    }
+    tbody {
+      th,
+      td {
+        height: 32px;
+        padding: 0;
+        vertical-align:middle;
+      }
+      th {
+        font-weight: 300;
+        text-align: left;
+        width: 250px;
+      }
+      td {
+        border-right: 4px solid #fff;
+        span {
+          font-size:12px;
+          font-weight:400;
+          height:5em;
+          overflow:hidden;
+          text-align:center;
+        }
+        &.on {
+          background-color: #d1edf1;
+          text-align: left;
+          span {
+            opacity: .75;
+          }
+          &.req {
+            background-color: #c7d8b6;
+          }
+          &.noreq {
+            background-color: #e2e2e2;
+          }
+        }
+      }
+      tr:not(:last-child) {
+        td {
+          border-bottom: 14px solid #fff;
+        }
+      }
+      tr td:last-child {
+        border-right: none;
+      }
+    }
+  }
+
 
 }
 

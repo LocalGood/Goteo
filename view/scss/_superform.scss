@@ -42,29 +42,29 @@
         border-top:none;
       }
     }
-    li.element > div.feedback {
-      background:url(/view/images/superform/tooltip/beak/cyan/n.png) no-repeat 1em 0;
-      display:inline-block;
-      font-size:14px;
-      margin-top:1em;
-      padding-top:13px;
-      z-index:999;
-    }
-
-    li.element > div.feedback > div
-    {
-      -moz-border-radius:7px;
-      -moz-box-shadow:2px 3px 0 rgba(0,0,0,.2);
-      -webkit-border-radius:7px;
-      -webkit-box-shadow:2px 3px 0 rgba(0,0,0,.2);
-      background-color:#def1f1;
-      border-radius:7px;
-      box-shadow:2px 3px 0 rgba(0,0,0,.2);
-      color:#7f8183;
-      line-height:16px!important;
-      margin:0;
-      padding:20px;
-      position:relative;
+    li.element {
+      > div.feedback {
+        background:url(/view/images/superform/tooltip/beak/cyan/n.png) no-repeat 1em 0;
+        display:inline-block;
+        font-size:14px;
+        margin-top:1em;
+        padding-top:13px;
+        z-index:999;
+        > div {
+          -moz-border-radius:7px;
+          -moz-box-shadow:2px 3px 0 rgba(0,0,0,.2);
+          -webkit-border-radius:7px;
+          -webkit-box-shadow:2px 3px 0 rgba(0,0,0,.2);
+          background-color:#def1f1;
+          border-radius:7px;
+          box-shadow:2px 3px 0 rgba(0,0,0,.2);
+          color:#7f8183;
+          line-height:16px!important;
+          margin:0;
+          padding:20px;
+          position:relative;
+        }
+      }
     }
 
     > div.feedback {
@@ -158,7 +158,7 @@
       margin: 0;
       padding: 0;
       > li {
-        .element {
+        &.element {
           border-right: 1px dashed #b7c2c5;
           margin-right: 251px;
           &.checkboxes,
@@ -201,10 +201,10 @@
             padding:.8em 1em;
             position:relative;
           }
-          &.checkboxescustom > div.contents > ul > li > label {
+          /*&.checkboxescustom > div.contents > ul > li > label {
             padding-right:23px;
             width:181px;
-          }
+          }*/
           &.checkboxes.cols_1 > div.contents > ul > li,
           &.checkboxescustom.cols_1 > div.contents > ul > li,
           &.radios.cols_1 > div.contents > ul > li,
@@ -464,6 +464,7 @@
   button {
     &.image-remove {
       background:url(/view/images/button/cross.png) no-repeat center center!important;
+      box-shadow: none;
       height:20px;
       margin:0 10px 0 0 !important;
       padding:0!important;
@@ -625,33 +626,4 @@ body.js {
       }
     }
   }
-
-  div#main.preview {
-    form.project {
-      .superform {
-        > div {
-          &.hint {
-            background:none;
-          }
-          &.elements {
-            > ol > li.element {
-              padding:0;
-              &.html div.contents {
-                margin-left:0;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-
-div#main.overview .superform.aqua #image_upload input[type="submit"],
-div#main.overview .superform.aqua #video-upload input.media-upload[type="submit"],
-div.superform.aqua input.ok[type="submit"],
-div#main.overview .superform.aqua #image_upload_1 input[type="submit"],
-div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
-  padding:.3em 1.2em;
 }

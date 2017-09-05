@@ -1,4 +1,21 @@
 @charset "UTF-8";
+/*
+base          :リセット、タグに対するベース設定
+mixins        :mixin設定
+colors        :カラーコードの変数
+commons       :header,footerなどの共通要素に対する設定
+widgets       :主にプロジェクトウィジェットに対する設定。.widgetが付くものに対する設定も少々
+meter         :メーターの設定
+superform     :.sperformに対する設定。（form要素）
+discover      :
+review        :
+project-show  :
+project-edit  :
+dashboard     :
+community     :
+admin         :
+user-profile  :
+*/
 html {
   font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -93,23 +110,37 @@ a.button.red,
 input.edit[type="submit"] {
   background: none;
   background: #b5161e;
-  background: -moz-linear-gradient(top, #ea2f2c 0%, #b5161e 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ea2f2c), color-stop(100%, #b5161e));
-  background: -webkit-linear-gradient(top, #ea2f2c 0%, #b5161e 100%);
-  background: -o-linear-gradient(top, #ea2f2c 0%, #b5161e 100%);
-  background: -ms-linear-gradient(top, #ea2f2c 0%, #b5161e 100%);
-  background: linear-gradient(to bottom, #ea2f2c 0%, #b5161e 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea2f2c', endColorstr='#b5161e',GradientType=0 ); }
+  box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 14px;
+  font-weight: 300;
+  height: 45px;
+  line-height: 45px;
+  margin: 10px auto;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  width: 200px; }
+  input.red[type="submit"]:hover,
+  input.red[type="reset"]:hover,
+  button.red:hover,
+  a.button.red:hover,
+  input.edit[type="submit"]:hover {
+    opacity: 0.75; }
 
-a.button.red,
+/*a.button.red,
 a.button.weak {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 16px;
-  height: auto;
+  font-size:12px;
+  font-weight:400;
+  line-height:16px;
+  height:auto;
   padding: .3em 1.2em;
-  width: auto; }
-
+  width:auto;
+}*/
 /*----------------------------------------------------------------------
  colors
 ----------------------------------------------------------------------*/
@@ -267,7 +298,13 @@ a.button.weak {
   width: 100%;
   height: 60px;
   background-color: #fff;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1); }
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+  /*.header__right__search_box {
+    padding-top: 16px;
+  }*/
+  /*.c-social_bookmark {
+    margin: 20px 25px 15px 0;
+  }*/ }
   .normal_header.header {
     position: fixed;
     z-index: 5;
@@ -288,10 +325,6 @@ a.button.weak {
       line-height: 36px;
       border-radius: 2px;
       background-color: #105d7f; }
-  .normal_header .header__right__search_box {
-    padding-top: 16px; }
-  .normal_header .c-social_bookmark {
-    margin: 20px 25px 15px 0; }
 
 /*----------------------------------------------------------------------
  footer.css
@@ -304,8 +337,13 @@ a.button.weak {
   color: #fff;
   text-decoration: none; }
 .footer__upper {
+  zoom: 1;
   padding: 45px 0 52px;
   background-color: #2f6f92; }
+  .footer__upper:after {
+    content: '';
+    display: block;
+    clear: both; }
   .footer__upper_left {
     float: left;
     width: 25%;
@@ -399,14 +437,14 @@ a.button.weak {
   width: 1096px;
   margin: 0 auto; }
 
-.c-clearfix {
-  zoom: 1; }
-
+/*.c-clearfix {
+  zoom: 1;
+}
 .c-clearfix:after {
   content: '';
   display: block;
-  clear: both; }
-
+  clear: both;
+}*/
 /*----------------------------------------------------------------------
  contents
 ----------------------------------------------------------------------*/
@@ -747,9 +785,38 @@ div#message {
         top: -20px; }
         .widget.projects .navi-bar a.all:hover {
           color: #20B3B2; }
+  .widget.project-support .supertitle {
+    background-color: #58585a;
+    color: #fff;
+    font-size: 12px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0;
+    text-align: center; }
+    .widget.project-support .supertitle .days strong {
+      font-size: 14px; }
+  .widget.project-support .project-widget-box {
+    padding: 15px 20px;
+    position: relative; }
+  .widget.project-support .meter dl.reached-bar .supporters {
+    display: inline-block; }
+  .widget.project-support .meter dl.reached-bar .reached strong,
+  .widget.project-support .meter dl.reached-bar .supporters strong {
+    color: #000;
+    font-size: 16px; }
+  .widget.project-support .meter dl.reached-bar dt.supporters:before {
+    content: '/';
+    display: inline-block; }
+  .widget.project-support .meter dl.percent {
+    top: 38px; }
+  .widget.project-support .invest-notice {
+    font-size: 13px;
+    padding: 0 20px 20px; }
   .widget.user {
     margin-bottom: 20px;
     padding: 0; }
+    .widget.user .supertitle {
+      display: none; }
     .widget.user .project-widget-box {
       padding: 15px 20px; }
     .widget.user .user-head {
@@ -862,6 +929,307 @@ div#message {
             background-image: url(/view/images/social/identica.png); }
           .widget.user .widget.user-social ul li.linkedin a {
             background-image: url(/view/images/social/linkedin.png); }
+  .widget.project-rewards {
+    background: none;
+    margin-bottom: 10px;
+    padding: 0; }
+    .widget.project-rewards .project-widget-box {
+      margin: 0; }
+      .widget.project-rewards .project-widget-box .individual,
+      .widget.project-rewards .project-widget-box .social {
+        padding: 0; }
+    .widget.project-rewards .title {
+      color: #000;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0 0 8px; }
+    .widget.project-rewards ul {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+      .widget.project-rewards ul li {
+        background-color: #fff;
+        margin-bottom: 20px;
+        padding: 20px 20px 10px; }
+        .widget.project-rewards ul li:last-child {
+          border-bottom: none;
+          margin-bottom: 0; }
+        .widget.project-rewards ul li .name {
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 24px;
+          margin: 0 0 16px;
+          text-align: center; }
+        .widget.project-rewards ul li p {
+          line-height: 24px;
+          margin: 0 0 24px;
+          word-wrap: break-word; }
+    .widget.project-rewards .license {
+      /*&.agpl > a strong {
+       background-image: url(/view/images/license/agpl.png);
+      }
+      &.apache > a strong {
+       background-image: url(/view/images/license/apache.png);
+      }
+      &.balloon > a strong {
+       background-image: url(/view/images/license/balloon.png);
+      }
+      &.bsd > a strong {
+       background-image: url(/view/images/license/bsd.png);
+      }
+      &.cc0 > a strong {
+       background-image: url(/view/images/license/cc0.png);
+      }
+      &.ccby > a strong {
+       background-image: url(/view/images/license/ccby.png);
+      }
+      &.ccbync > a strong {
+       background-image: url(/view/images/license/ccbync.png);
+      }
+      &.ccbyncnd > a strong {
+       background-image: url(/view/images/license/ccbyncnd.png);
+      }
+      &.ccbyncsa > a strong {
+       background-image: url(/view/images/license/ccbyncsa.png);
+      }
+      &.fal > a strong {
+       background-image: url(/view/images/license/fal.png);
+      }
+      &.fdl > a strong {
+       background-image: url(/view/images/license/fdl.png);
+      }
+      &.freebsd > a strong {
+       background-image: url(/view/images/license/freebsd.png);
+      }
+      &.gpl > a strong {
+       background-image: url(/view/images/license/gpl.png);
+      }
+      &.gpl2 > a strong {
+       background-image: url(/view/images/license/gpl2.png);
+      }
+      &.lgpl > a strong {
+       background-image: url(/view/images/license/lgpl.png);
+      }
+      &.mit > a strong {
+       background-image: url(/view/images/license/mit.png);
+      }
+      &.mpl > a strong {
+       background-image: url(/view/images/license/mpl.png);
+      }
+      &.odbl > a strong {
+       background-image: url(/view/images/license/odbl.png);
+      }
+      &.odcby > a strong {
+       background-image: url(/view/images/license/odcby.png);
+      }
+      &.license.oshw > a strong {
+       background-image: url(/view/images/license/oshw.png);
+      }
+      &.pd > a strong {
+       background-image: url(/view/images/license/pd.png);
+      }
+      &.php > a strong {
+       background-image: url(/view/images/license/php.png);
+      }
+      &.tapr > a strong {
+       background-image: url(/view/images/license/tapr.png);
+      }
+      &.xoln > a strong {
+       background-image: url(/view/images/license/xoln.png);
+      }*/ }
+      .widget.project-rewards .license h5 {
+        border-bottom: none;
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0; }
+      .widget.project-rewards .license > a {
+        text-decoration: none; }
+        .widget.project-rewards .license > a strong {
+          background-repeat: no-repeat;
+          display: block;
+          padding-top: 40px; }
+        .widget.project-rewards .license > a p {
+          margin: 3px 0; }
+    .widget.project-rewards .individual,
+    .widget.project-rewards .social {
+      padding: 15px 20px; }
+      .widget.project-rewards .individual .title a,
+      .widget.project-rewards .social .title a {
+        font-size: 16px;
+        text-decoration: none; }
+      .widget.project-rewards .individual h6.name a,
+      .widget.project-rewards .social h6.name a {
+        text-decoration: none; }
+    .widget.project-rewards .individual {
+      margin-bottom: 20px; }
+      .widget.project-rewards .individual .title a {
+        color: #96238F !important; }
+      .widget.project-rewards .individual ul li dl {
+        zoom: 1;
+        margin: 0; }
+        .widget.project-rewards .individual ul li dl:after {
+          content: '';
+          display: block;
+          clear: both; }
+        .widget.project-rewards .individual ul li dl dt {
+          float: left;
+          font-size: 14px;
+          line-height: 24px;
+          width: 70px; }
+        .widget.project-rewards .individual ul li dl dd {
+          float: left;
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 24px;
+          margin-left: 0; }
+        .widget.project-rewards .individual ul li dl.remain {
+          margin-bottom: 12px; }
+      .widget.project-rewards .individual ul li .name {
+        font-size: 13px;
+        margin: 0 0 8px 0; }
+    .widget.project-rewards .social .title a {
+      color: #28b258 !important; }
+  .widget.project-collaborations {
+    background: none; }
+    .widget.project-collaborations .project-widget-box {
+      margin: 0; }
+    .widget.project-collaborations .title {
+      margin-bottom: 16px; }
+    .widget.project-collaborations ul {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+      .widget.project-collaborations ul li {
+        background-color: #fff;
+        padding: 20px 20px 10px; }
+        .widget.project-collaborations ul li:not(:last-child) {
+          margin-bottom: 20px; }
+        .widget.project-collaborations ul li .name {
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 24px;
+          margin: 0 0 16px;
+          min-height: 32px;
+          text-align: center; }
+        .widget.project-collaborations ul li p {
+          line-height: 24px;
+          margin: 0 0 24px;
+          word-wrap: break-word; }
+  .widget.project-summary h3 {
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0 0 1em; }
+  .widget.project-summary .gallery-image {
+    text-align: center; }
+    .widget.project-summary .gallery-image img {
+      width: 540px; }
+  .widget.project-support_btn {
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 40px 0; }
+    .widget.project-support_btn a.button {
+      background: none;
+      background: #ff9900;
+      -moz-box-shadow: 0 3px 3px 0 #ccc;
+      -webkit-box-shadow: 0 3px 3px 0 #ccc;
+      box-shadow: 0 3px 3px 0 #ccc;
+      display: block;
+      font-size: 14px;
+      font-weight: 300;
+      height: 45px;
+      line-height: 45px;
+      margin: 10px auto;
+      padding: 0 8px;
+      text-align: center;
+      width: 280px; }
+  .widget.project-share {
+    padding: 26px 20px 50px;
+    position: relative; }
+    .widget.project-share .title {
+      border: none;
+      margin: 0 0 26px;
+      text-align: center; }
+    .widget.project-share .social_bookmark {
+      left: 0;
+      margin: auto;
+      max-width: 500px;
+      top: 75px;
+      width: 340px; }
+  .widget.project-needs {
+    margin-bottom: 20px; }
+    .widget.project-needs #legend {
+      float: right;
+      font-size: 12px;
+      margin: 20px 0; }
+      .widget.project-needs #legend .min, .widget.project-needs #legend .max {
+        line-height: 20px; }
+        .widget.project-needs #legend .min span, .widget.project-needs #legend .max span {
+          display: block;
+          float: left;
+          height: 10px;
+          margin: 5px 5px 0 0;
+          width: 10px; }
+      .widget.project-needs #legend .min span {
+        background: #e3eadc; }
+      .widget.project-needs #legend .max {
+        line-height: 20px; }
+        .widget.project-needs #legend .max span {
+          background: #F2F2F2; }
+    .widget.project-needs table {
+      border-collapse: collapse; }
+      .widget.project-needs table thead th.summary {
+        padding: 3px 8px 3px 0; }
+      .widget.project-needs table thead th {
+        background-position: left 50%;
+        background-repeat: no-repeat;
+        font-size: 16px;
+        font-weight: 700;
+        min-height: 32px;
+        padding-bottom: 16px;
+        padding-left: 40px; }
+      .widget.project-needs table tbody {
+        background: #e3eadc; }
+        .widget.project-needs table tbody th.summary {
+          padding: 16px 20px; }
+      .widget.project-needs table tr:not(:last-child) {
+        border-bottom: 1px solid #c0c0c0; }
+      .widget.project-needs table tr.req {
+        background: #e3eadc; }
+      .widget.project-needs table tr.noreq {
+        background: #F2F2F2; }
+      .widget.project-needs table tr.sum th {
+        padding: 12px 20px 10px 0;
+        text-align: right; }
+      .widget.project-needs table th {
+        padding: 3px 20px; }
+        .widget.project-needs table th.summary {
+          padding-right: 20px;
+          text-align: left; }
+          .widget.project-needs table th.summary .click {
+            margin-left: 5px; }
+            .widget.project-needs table th.summary .click span {
+              display: block;
+              margin-bottom: 12px;
+              max-width: 360px; }
+            .widget.project-needs table th.summary .click blockquote {
+              font-size: 14px;
+              font-weight: 400;
+              margin: 0;
+              padding: 0; }
+        .widget.project-needs table th.min, .widget.project-needs table th.max {
+          font-size: 14px;
+          padding: 3px 7px;
+          vertical-align: middle;
+          width: 120px;
+          word-wrap: break-word; }
+      .widget.project-needs table td {
+        font-size: 14px;
+        padding: 16px 20px 16px 0;
+        text-align: right;
+        vertical-align: top;
+        word-wrap: break-word; }
+    .widget.project-needs table thead + tbody + thead th.min, .widget.project-needs table thead + tbody + thead th.max {
+      font-size: 0; }
   .widget.project-supporters {
     background: none;
     padding: 0; }
@@ -947,6 +1315,52 @@ div#message {
         color: #a6a8ab;
         font-size: 12px;
         margin: 5px 0 0 0; }
+  .widget.project-schedule {
+    margin-bottom: 20px; }
+    .widget.project-schedule table {
+      border-collapse: separate;
+      width: 100%; }
+      .widget.project-schedule table th,
+      .widget.project-schedule table td {
+        border: none;
+        box-sizing: content-box;
+        font-size: 12px;
+        width: 1.5em; }
+    .widget.project-schedule thead.months th {
+      font-size: 14px;
+      font-weight: 600; }
+      .widget.project-schedule thead.months th:first-child span {
+        display: none; }
+    .widget.project-schedule tbody th,
+    .widget.project-schedule tbody td {
+      height: 32px;
+      padding: 0;
+      vertical-align: middle; }
+    .widget.project-schedule tbody th {
+      font-weight: 300;
+      text-align: left;
+      width: 250px; }
+    .widget.project-schedule tbody td {
+      border-right: 4px solid #fff; }
+      .widget.project-schedule tbody td span {
+        font-size: 12px;
+        font-weight: 400;
+        height: 5em;
+        overflow: hidden;
+        text-align: center; }
+      .widget.project-schedule tbody td.on {
+        background-color: #d1edf1;
+        text-align: left; }
+        .widget.project-schedule tbody td.on span {
+          opacity: .75; }
+        .widget.project-schedule tbody td.on.req {
+          background-color: #c7d8b6; }
+        .widget.project-schedule tbody td.on.noreq {
+          background-color: #e2e2e2; }
+    .widget.project-schedule tbody tr:not(:last-child) td {
+      border-bottom: 14px solid #fff; }
+    .widget.project-schedule tbody tr td:last-child {
+      border-right: none; }
 
 /*----------------------------------------------------------------------
  .meter
@@ -1175,19 +1589,19 @@ div#message {
     margin-top: 1em;
     padding-top: 13px;
     z-index: 999; }
-  .superform li.element li.element > div.feedback > div {
-    -moz-border-radius: 7px;
-    -moz-box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
-    -webkit-border-radius: 7px;
-    -webkit-box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
-    background-color: #def1f1;
-    border-radius: 7px;
-    box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
-    color: #7f8183;
-    line-height: 16px !important;
-    margin: 0;
-    padding: 20px;
-    position: relative; }
+    .superform li.element li.element > div.feedback > div {
+      -moz-border-radius: 7px;
+      -moz-box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
+      -webkit-border-radius: 7px;
+      -webkit-box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
+      background-color: #def1f1;
+      border-radius: 7px;
+      box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
+      color: #7f8183;
+      line-height: 16px !important;
+      margin: 0;
+      padding: 20px;
+      position: relative; }
   .superform li.element > div.feedback > div + div {
     margin-top: -10px;
     padding-top: .5em;
@@ -1247,55 +1661,56 @@ div#message {
   list-style: none;
   margin: 0;
   padding: 0; }
-  .superform div.elements > ol > li .element {
+  .superform div.elements > ol > li.element {
     border-right: 1px dashed #b7c2c5;
-    margin-right: 251px; }
-    .superform div.elements > ol > li .element.checkboxes, .superform div.elements > ol > li .element.checkboxescustom, .superform div.elements > ol > li .element.radios {
+    margin-right: 251px;
+    /*&.checkboxescustom > div.contents > ul > li > label {
+      padding-right:23px;
+      width:181px;
+    }*/ }
+    .superform div.elements > ol > li.element.checkboxes, .superform div.elements > ol > li.element.checkboxescustom, .superform div.elements > ol > li.element.radios {
       padding-bottom: 0; }
-    .superform div.elements > ol > li .element.checkboxes > div.contents > ul, .superform div.elements > ol > li .element.checkboxescustom > div.contents > ul, .superform div.elements > ol > li .element.radios > div.contents > ul, .superform div.elements > ol > li .element.slider > div.contents > ul {
+    .superform div.elements > ol > li.element.checkboxes > div.contents > ul, .superform div.elements > ol > li.element.checkboxescustom > div.contents > ul, .superform div.elements > ol > li.element.radios > div.contents > ul, .superform div.elements > ol > li.element.slider > div.contents > ul {
       border-left: 1px dashed #B7C2C5;
       border-top: 1px dashed #bcbdbf;
       list-style: none;
       margin: 0;
       overflow: hidden;
       padding: 0; }
-    .superform div.elements > ol > li .element.checkboxes > div.contents > ul > li, .superform div.elements > ol > li .element.checkboxescustom > div.contents > ul > li, .superform div.elements > ol > li .element.radios > div.contents > ul > li, .superform div.elements > ol > li .element.slider > div.contents > ul > li {
+    .superform div.elements > ol > li.element.checkboxes > div.contents > ul > li, .superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li, .superform div.elements > ol > li.element.radios > div.contents > ul > li, .superform div.elements > ol > li.element.slider > div.contents > ul > li {
       border-bottom: 1px dashed #bcbdbf;
       border-right: 1px dashed #bcbdbf;
       padding: 0; }
-    .superform div.elements > ol > li .element.checkboxes.inline > div.contents > ul > li, .superform div.elements > ol > li .element.checkboxescustom.inline > div.contents > ul > li, .superform div.elements > ol > li .element.radios.inline > div.contents > ul > li, .superform div.elements > ol > li .element.slider.inline > div.contents > ul > li {
+    .superform div.elements > ol > li.element.checkboxes.inline > div.contents > ul > li, .superform div.elements > ol > li.element.checkboxescustom.inline > div.contents > ul > li, .superform div.elements > ol > li.element.radios.inline > div.contents > ul > li, .superform div.elements > ol > li.element.slider.inline > div.contents > ul > li {
       margin-bottom: 0; }
-    .superform div.elements > ol > li .element.radio > div.contents > label, .superform div.elements > ol > li .element.checkboxes > div.contents > ul > li > label, .superform div.elements > ol > li .element.checkboxescustom > div.contents > ul > li > label, .superform div.elements > ol > li .element.radios > div.contents > ul > li > label, .superform div.elements > ol > li .element.slider > div.contents > ul > li > label {
+    .superform div.elements > ol > li.element.radio > div.contents > label, .superform div.elements > ol > li.element.checkboxes > div.contents > ul > li > label, .superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li > label, .superform div.elements > ol > li.element.radios > div.contents > ul > li > label, .superform div.elements > ol > li.element.slider > div.contents > ul > li > label {
       cursor: pointer;
       display: block;
       padding: .8em 1em;
       position: relative; }
-    .superform div.elements > ol > li .element.checkboxescustom > div.contents > ul > li > label {
-      padding-right: 23px;
-      width: 181px; }
-    .superform div.elements > ol > li .element.checkboxes.cols_1 > div.contents > ul > li, .superform div.elements > ol > li .element.checkboxescustom.cols_1 > div.contents > ul > li, .superform div.elements > ol > li .element.radios.cols_1 > div.contents > ul > li, .superform div.elements > ol > li .element.slider.cols_1 > div.contents > ul > li {
+    .superform div.elements > ol > li.element.checkboxes.cols_1 > div.contents > ul > li, .superform div.elements > ol > li.element.checkboxescustom.cols_1 > div.contents > ul > li, .superform div.elements > ol > li.element.radios.cols_1 > div.contents > ul > li, .superform div.elements > ol > li.element.slider.cols_1 > div.contents > ul > li {
       width: 100%; }
-    .superform div.elements > ol > li .element.checkboxes.cols_2 > div.contents > ul > li, .superform div.elements > ol > li .element.checkboxescustom.cols_2 > div.contents > ul > li, .superform div.elements > ol > li .element.radios.cols_2 > div.contents > ul > li, .superform div.elements > ol > li .element.slider.cols_2 > div.contents > ul > li {
+    .superform div.elements > ol > li.element.checkboxes.cols_2 > div.contents > ul > li, .superform div.elements > ol > li.element.checkboxescustom.cols_2 > div.contents > ul > li, .superform div.elements > ol > li.element.radios.cols_2 > div.contents > ul > li, .superform div.elements > ol > li.element.slider.cols_2 > div.contents > ul > li {
       float: left;
       width: 49.8%; }
-    .superform div.elements > ol > li .element.checkboxes.cols_3 > div.contents > ul > li, .superform div.elements > ol > li .element.checkboxescustom.cols_3 > div.contents > ul > li, .superform div.elements > ol > li .element.radios.cols_3 > div.contents > ul > li, .superform div.elements > ol > li .element.slider.cols_3 > div.contents > ul > li {
+    .superform div.elements > ol > li.element.checkboxes.cols_3 > div.contents > ul > li, .superform div.elements > ol > li.element.checkboxescustom.cols_3 > div.contents > ul > li, .superform div.elements > ol > li.element.radios.cols_3 > div.contents > ul > li, .superform div.elements > ol > li.element.slider.cols_3 > div.contents > ul > li {
       float: left;
       width: 33.16%; }
-    .superform div.elements > ol > li .element.checkboxes.cols_4 > div.contents > ul > li, .superform div.elements > ol > li .element.checkboxescustom.cols_4 > div.contents > ul > li, .superform div.elements > ol > li .element.radios.cols_4 > div.contents > ul > li, .superform div.elements > ol > li .element.slider.cols_4 > div.contents > ul > li {
+    .superform div.elements > ol > li.element.checkboxes.cols_4 > div.contents > ul > li, .superform div.elements > ol > li.element.checkboxescustom.cols_4 > div.contents > ul > li, .superform div.elements > ol > li.element.radios.cols_4 > div.contents > ul > li, .superform div.elements > ol > li.element.slider.cols_4 > div.contents > ul > li {
       float: left;
       width: 24.8%; }
-    .superform div.elements > ol > li .element.checkboxes.cols_5 > div.contents > ul > li, .superform div.elements > ol > li .element.checkboxescustom.cols_5 > div.contents > ul > li, .superform div.elements > ol > li .element.radios.cols_5 > div.contents > ul > li, .superform div.elements > ol > li .element.slider.cols_5 > div.contents > ul > li {
+    .superform div.elements > ol > li.element.checkboxes.cols_5 > div.contents > ul > li, .superform div.elements > ol > li.element.checkboxescustom.cols_5 > div.contents > ul > li, .superform div.elements > ol > li.element.radios.cols_5 > div.contents > ul > li, .superform div.elements > ol > li.element.slider.cols_5 > div.contents > ul > li {
       width: 20%; }
-    .superform div.elements > ol > li .element.checkboxes.cols_6 > div.contents > ul > li, .superform div.elements > ol > li .element.checkboxescustom.cols_6 > div.contents > ul > li, .superform div.elements > ol > li .element.radios.cols_6 > div.contents > ul > li, .superform div.elements > ol > li .element.slider.cols_6 > div.contents > ul > li {
+    .superform div.elements > ol > li.element.checkboxes.cols_6 > div.contents > ul > li, .superform div.elements > ol > li.element.checkboxescustom.cols_6 > div.contents > ul > li, .superform div.elements > ol > li.element.radios.cols_6 > div.contents > ul > li, .superform div.elements > ol > li.element.slider.cols_6 > div.contents > ul > li {
       width: 16.66%; }
-    .superform div.elements > ol > li .element.radio > div.contents > label > input[type="radio"], .superform div.elements > ol > li .element.checkboxes > div.contents > ul > li > label > input[type="checkbox"], .superform div.elements > ol > li .element.checkboxescustom > div.contents > ul > li > label > input[type="checkbox"], .superform div.elements > ol > li .element.radios > div.contents > ul > li > label > input[type="radio"], .superform div.elements > ol > li .element.slider > div.contents > ul > li > label > input[type="radio"] {
+    .superform div.elements > ol > li.element.radio > div.contents > label > input[type="radio"], .superform div.elements > ol > li.element.checkboxes > div.contents > ul > li > label > input[type="checkbox"], .superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li > label > input[type="checkbox"], .superform div.elements > ol > li.element.radios > div.contents > ul > li > label > input[type="radio"], .superform div.elements > ol > li.element.slider > div.contents > ul > li > label > input[type="radio"] {
       cursor: pointer;
       height: 1em;
       margin-top: -.5em;
       position: absolute;
       right: .5em;
       top: 50%; }
-    .superform div.elements > ol > li .element.radio {
+    .superform div.elements > ol > li.element.radio {
       padding: 0 !important; }
   .superform div.elements > ol > li div.element {
     display: inline; }
@@ -1422,6 +1837,7 @@ div#message {
   padding: 0.3em 1.2em !important; }
 .superform button.image-remove {
   background: url(/view/images/button/cross.png) no-repeat center center !important;
+  box-shadow: none;
   height: 20px;
   margin: 0 10px 0 0 !important;
   padding: 0 !important;
@@ -1525,19 +1941,6 @@ body.js .superform > div.elements ol li.element div.contents p {
   font-size: 14px;
   margin: 2em 0 .6em;
   padding: 0; }
-body.js div#main.preview form.project .superform > div.hint {
-  background: none; }
-body.js div#main.preview form.project .superform > div.elements > ol > li.element {
-  padding: 0; }
-  body.js div#main.preview form.project .superform > div.elements > ol > li.element.html div.contents {
-    margin-left: 0; }
-
-div#main.overview .superform.aqua #image_upload input[type="submit"],
-div#main.overview .superform.aqua #video-upload input.media-upload[type="submit"],
-div.superform.aqua input.ok[type="submit"],
-div#main.overview .superform.aqua #image_upload_1 input[type="submit"],
-div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
-  padding: .3em 1.2em; }
 
 /*----------------------------------------------------------------------
  discover
@@ -1630,6 +2033,8 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
   font-size: 13px;
   margin: -2.6em auto 0;
   max-width: 940px; }
+  .review #review-menu * {
+    box-sizing: content-box; }
   .review #review-menu ul {
     list-style: none;
     margin: 0;
@@ -1765,121 +2170,6 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
 .project-show .threecols .center {
   float: left;
   width: 620px; }
-.project-show .project-rewards {
-  margin-bottom: 10px;
-  padding: 0; }
-  .project-show .project-rewards ul {
-    list-style: none;
-    margin: 16px 0 0;
-    padding: 0; }
-    .project-show .project-rewards ul li {
-      margin-bottom: 20px;
-      padding: 0 0 10px; }
-      .project-show .project-rewards ul li:last-child {
-        border-bottom: none;
-        margin-bottom: 0; }
-      .project-show .project-rewards ul li p {
-        margin: 0 0 16px; }
-  .project-show .project-rewards .license h5 {
-    border-bottom: none;
-    font-size: 14px;
-    font-weight: 600;
-    margin: 0; }
-  .project-show .project-rewards .license > a {
-    text-decoration: none; }
-    .project-show .project-rewards .license > a strong {
-      background-repeat: no-repeat;
-      display: block;
-      padding-top: 40px; }
-    .project-show .project-rewards .license > a p {
-      margin: 3px 0; }
-  .project-show .project-rewards .license.agpl > a strong {
-    background-image: url(/view/images/license/agpl.png); }
-  .project-show .project-rewards .license.apache > a strong {
-    background-image: url(/view/images/license/apache.png); }
-  .project-show .project-rewards .license.balloon > a strong {
-    background-image: url(/view/images/license/balloon.png); }
-  .project-show .project-rewards .license.bsd > a strong {
-    background-image: url(/view/images/license/bsd.png); }
-  .project-show .project-rewards .license.cc0 > a strong {
-    background-image: url(/view/images/license/cc0.png); }
-  .project-show .project-rewards .license.ccby > a strong {
-    background-image: url(/view/images/license/ccby.png); }
-  .project-show .project-rewards .license.ccbync > a strong {
-    background-image: url(/view/images/license/ccbync.png); }
-  .project-show .project-rewards .license.ccbyncnd > a strong {
-    background-image: url(/view/images/license/ccbyncnd.png); }
-  .project-show .project-rewards .license.ccbyncsa > a strong {
-    background-image: url(/view/images/license/ccbyncsa.png); }
-  .project-show .project-rewards .license.fal > a strong {
-    background-image: url(/view/images/license/fal.png); }
-  .project-show .project-rewards .license.fdl > a strong {
-    background-image: url(/view/images/license/fdl.png); }
-  .project-show .project-rewards .license.freebsd > a strong {
-    background-image: url(/view/images/license/freebsd.png); }
-  .project-show .project-rewards .license.gpl > a strong {
-    background-image: url(/view/images/license/gpl.png); }
-  .project-show .project-rewards .license.gpl2 > a strong {
-    background-image: url(/view/images/license/gpl2.png); }
-  .project-show .project-rewards .license.lgpl > a strong {
-    background-image: url(/view/images/license/lgpl.png); }
-  .project-show .project-rewards .license.mit > a strong {
-    background-image: url(/view/images/license/mit.png); }
-  .project-show .project-rewards .license.mpl > a strong {
-    background-image: url(/view/images/license/mpl.png); }
-  .project-show .project-rewards .license.odbl > a strong {
-    background-image: url(/view/images/license/odbl.png); }
-  .project-show .project-rewards .license.odcby > a strong {
-    background-image: url(/view/images/license/odcby.png); }
-  .project-show .project-rewards .license.license.oshw > a strong {
-    background-image: url(/view/images/license/oshw.png); }
-  .project-show .project-rewards .license.pd > a strong {
-    background-image: url(/view/images/license/pd.png); }
-  .project-show .project-rewards .license.php > a strong {
-    background-image: url(/view/images/license/php.png); }
-  .project-show .project-rewards .license.tapr > a strong {
-    background-image: url(/view/images/license/tapr.png); }
-  .project-show .project-rewards .license.xoln > a strong {
-    background-image: url(/view/images/license/xoln.png); }
-  .project-show .project-rewards .individual,
-  .project-show .project-rewards .social {
-    padding: 15px 20px; }
-    .project-show .project-rewards .individual .title a,
-    .project-show .project-rewards .social .title a {
-      font-size: 16px;
-      text-decoration: none; }
-    .project-show .project-rewards .individual h6.name a,
-    .project-show .project-rewards .social h6.name a {
-      text-decoration: none; }
-  .project-show .project-rewards .individual {
-    margin-bottom: 20px; }
-    .project-show .project-rewards .individual .title a {
-      color: #96238F !important; }
-    .project-show .project-rewards .individual ul li dl {
-      zoom: 1;
-      margin: 0; }
-      .project-show .project-rewards .individual ul li dl:after {
-        content: '';
-        display: block;
-        clear: both; }
-      .project-show .project-rewards .individual ul li dl dt {
-        float: left;
-        font-size: 14px;
-        line-height: 24px;
-        width: 70px; }
-      .project-show .project-rewards .individual ul li dl dd {
-        float: left;
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 24px;
-        margin-left: 0; }
-      .project-show .project-rewards .individual ul li dl.remain {
-        margin-bottom: 12px; }
-    .project-show .project-rewards .individual ul li .name {
-      font-size: 13px;
-      margin: 0 0 8px 0; }
-  .project-show .project-rewards .social .title a {
-    color: #28b258 !important; }
 .project-show .project-message {
   position: relative; }
   .project-show .project-message div#bocadillo {
@@ -2061,91 +2351,16 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
       font-size: 16px;
       font-weight: 600;
       margin: 0 0 8px; }
-  .project-show .side .project-collaborations {
-    background: none; }
-    .project-show .side .project-collaborations .project-widget-box {
-      margin: 0; }
-    .project-show .side .project-collaborations .title {
-      margin-bottom: 16px; }
-    .project-show .side .project-collaborations ul {
-      list-style: none;
+    .project-show .side > .widget.project-support .supertitle {
+      background-color: #58585a;
+      color: #fff;
+      font-size: 12px;
+      height: 40px;
+      line-height: 40px;
       margin: 0;
-      padding: 0; }
-      .project-show .side .project-collaborations ul li {
-        background-color: #fff;
-        padding: 20px 20px 10px; }
-        .project-show .side .project-collaborations ul li:not(:last-child) {
-          margin-bottom: 20px; }
-        .project-show .side .project-collaborations ul li .name {
-          font-size: 14px;
-          font-weight: 600;
-          line-height: 24px;
-          margin: 0 0 16px;
-          min-height: 32px;
-          text-align: center; }
-        .project-show .side .project-collaborations ul li p {
-          line-height: 24px;
-          margin: 0 0 24px;
-          word-wrap: break-word; }
-  .project-show .side .project-rewards {
-    background: none; }
-    .project-show .side .project-rewards .project-widget-box {
-      margin: 0; }
-      .project-show .side .project-rewards .project-widget-box .individual,
-      .project-show .side .project-rewards .project-widget-box .social {
-        padding: 0; }
-    .project-show .side .project-rewards .title {
-      color: #000;
-      font-size: 16px;
-      font-weight: 600;
-      margin: 0 0 8px; }
-    .project-show .side .project-rewards ul {
-      list-style: none;
-      margin: 0;
-      padding: 0; }
-      .project-show .side .project-rewards ul li {
-        background-color: #fff;
-        margin-bottom: 20px;
-        padding: 20px 20px 10px; }
-        .project-show .side .project-rewards ul li .name {
-          font-size: 14px;
-          font-weight: 600;
-          line-height: 24px;
-          margin: 0 0 16px;
-          text-align: center; }
-        .project-show .side .project-rewards ul li p {
-          line-height: 24px;
-          margin: 0 0 24px;
-          word-wrap: break-word; }
-  .project-show .side .project-support .supertitle {
-    background-color: #58585a;
-    color: #fff;
-    font-size: 12px;
-    height: 40px;
-    line-height: 40px;
-    margin: 0;
-    text-align: center; }
-    .project-show .side .project-support .supertitle .days strong {
-      font-size: 14px; }
-  .project-show .side .project-support .project-widget-box {
-    padding: 15px 20px;
-    position: relative; }
-  .project-show .side .project-support .meter dl.reached-bar .supporters {
-    display: inline-block; }
-  .project-show .side .project-support .meter dl.reached-bar .reached strong,
-  .project-show .side .project-support .meter dl.reached-bar .supporters strong {
-    color: #000;
-    font-size: 16px; }
-  .project-show .side .project-support .meter dl.reached-bar dt.supporters:before {
-    content: '/';
-    display: inline-block; }
-  .project-show .side .project-support .meter dl.percent {
-    top: 38px; }
-  .project-show .side .project-support .invest-notice {
-    font-size: 13px;
-    padding: 0 20px 20px; }
-  .project-show .side .user .supertitle {
-    display: none; }
+      text-align: center; }
+      .project-show .side > .widget.project-support .supertitle .days strong {
+        font-size: 14px; }
   .project-show .side .project-investors {
     background: none;
     padding: 0; }
@@ -2221,167 +2436,6 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
   .project-show .center.home .project-summary > div {
     font-size: 14px;
     margin-bottom: 28px; }
-  .project-show .center.home .project-summary h3 {
-    font-size: 20px;
-    font-weight: 300;
-    margin: 0 0 1em; }
-  .project-show .center.home .project-summary .gallery-image {
-    text-align: center; }
-    .project-show .center.home .project-summary .gallery-image img {
-      width: 540px; }
-.project-show .center.home .project-support_btn {
-  background-color: #fff;
-  border-bottom: 1px solid #e0e0e0;
-  padding: 40px 0; }
-  .project-show .center.home .project-support_btn .button {
-    background: none;
-    background: #ff9900;
-    -moz-box-shadow: 0 3px 3px 0 #ccc;
-    -webkit-box-shadow: 0 3px 3px 0 #ccc;
-    box-shadow: 0 3px 3px 0 #ccc;
-    display: block;
-    font-size: 14px;
-    font-weight: 300;
-    height: 45px;
-    line-height: 45px;
-    margin: 10px auto;
-    padding: 0 8px;
-    text-align: center;
-    width: 280px; }
-.project-show .center.home .project-share {
-  padding: 26px 20px 50px;
-  position: relative; }
-  .project-show .center.home .project-share .title {
-    border: none;
-    margin: 0 0 26px;
-    text-align: center; }
-  .project-show .center.home .project-share .social_bookmark {
-    left: 0;
-    margin: auto;
-    max-width: 500px;
-    top: 75px;
-    width: 340px; }
-.project-show .center.needs .project-needs {
-  margin-bottom: 20px; }
-  .project-show .center.needs .project-needs #legend {
-    float: right;
-    font-size: 12px;
-    margin: 20px 0; }
-    .project-show .center.needs .project-needs #legend .min, .project-show .center.needs .project-needs #legend .max {
-      line-height: 20px; }
-      .project-show .center.needs .project-needs #legend .min span, .project-show .center.needs .project-needs #legend .max span {
-        display: block;
-        float: left;
-        height: 10px;
-        margin: 5px 5px 0 0;
-        width: 10px; }
-    .project-show .center.needs .project-needs #legend .min span {
-      background: #e3eadc; }
-    .project-show .center.needs .project-needs #legend .max {
-      line-height: 20px; }
-      .project-show .center.needs .project-needs #legend .max span {
-        background: #F2F2F2; }
-  .project-show .center.needs .project-needs table {
-    border-collapse: collapse; }
-    .project-show .center.needs .project-needs table thead th.summary {
-      padding: 3px 8px 3px 0; }
-    .project-show .center.needs .project-needs table thead th {
-      background-position: left 50%;
-      background-repeat: no-repeat;
-      font-size: 16px;
-      font-weight: 700;
-      min-height: 32px;
-      padding-bottom: 16px;
-      padding-left: 40px; }
-    .project-show .center.needs .project-needs table tbody {
-      background: #e3eadc; }
-      .project-show .center.needs .project-needs table tbody th.summary {
-        padding: 16px 20px; }
-    .project-show .center.needs .project-needs table tr:not(:last-child) {
-      border-bottom: 1px solid #c0c0c0; }
-    .project-show .center.needs .project-needs table tr.req {
-      background: #e3eadc; }
-    .project-show .center.needs .project-needs table tr.noreq {
-      background: #F2F2F2; }
-    .project-show .center.needs .project-needs table tr.sum th {
-      padding: 12px 20px 10px 0;
-      text-align: right; }
-    .project-show .center.needs .project-needs table th {
-      padding: 3px 20px; }
-      .project-show .center.needs .project-needs table th.summary {
-        padding-right: 20px;
-        text-align: left; }
-        .project-show .center.needs .project-needs table th.summary .click {
-          margin-left: 5px; }
-          .project-show .center.needs .project-needs table th.summary .click span {
-            display: block;
-            margin-bottom: 12px;
-            max-width: 360px; }
-          .project-show .center.needs .project-needs table th.summary .click blockquote {
-            font-size: 14px;
-            font-weight: 400;
-            margin: 0;
-            padding: 0; }
-      .project-show .center.needs .project-needs table th.min, .project-show .center.needs .project-needs table th.max {
-        font-size: 14px;
-        padding: 3px 7px;
-        vertical-align: middle;
-        width: 120px;
-        word-wrap: break-word; }
-    .project-show .center.needs .project-needs table td {
-      font-size: 14px;
-      padding: 16px 20px 16px 0;
-      text-align: right;
-      vertical-align: top;
-      word-wrap: break-word; }
-  .project-show .center.needs .project-needs table thead + tbody + thead th.min, .project-show .center.needs .project-needs table thead + tbody + thead th.max {
-    font-size: 0; }
-.project-show .center.needs .project-schedule {
-  margin-bottom: 20px; }
-  .project-show .center.needs .project-schedule table {
-    border-collapse: separate;
-    width: 100%; }
-    .project-show .center.needs .project-schedule table th,
-    .project-show .center.needs .project-schedule table td {
-      border: none;
-      box-sizing: content-box;
-      font-size: 12px;
-      width: 1.5em; }
-  .project-show .center.needs .project-schedule thead.months th {
-    font-size: 14px;
-    font-weight: 600; }
-    .project-show .center.needs .project-schedule thead.months th:first-child span {
-      display: none; }
-  .project-show .center.needs .project-schedule tbody th,
-  .project-show .center.needs .project-schedule tbody td {
-    height: 32px;
-    padding: 0;
-    vertical-align: middle; }
-  .project-show .center.needs .project-schedule tbody th {
-    font-weight: 300;
-    text-align: left;
-    width: 250px; }
-  .project-show .center.needs .project-schedule tbody td {
-    border-right: 4px solid #fff; }
-    .project-show .center.needs .project-schedule tbody td span {
-      font-size: 12px;
-      font-weight: 400;
-      height: 5em;
-      overflow: hidden;
-      text-align: center; }
-    .project-show .center.needs .project-schedule tbody td.on {
-      background-color: #d1edf1;
-      text-align: left; }
-      .project-show .center.needs .project-schedule tbody td.on span {
-        opacity: .75; }
-      .project-show .center.needs .project-schedule tbody td.on.req {
-        background-color: #c7d8b6; }
-      .project-show .center.needs .project-schedule tbody td.on.noreq {
-        background-color: #e2e2e2; }
-  .project-show .center.needs .project-schedule tbody tr:not(:last-child) td {
-    border-bottom: 14px solid #fff; }
-  .project-show .center.needs .project-schedule tbody tr td:last-child {
-    border-right: none; }
 .project-show .center.supporters {
   margin-bottom: 20px; }
   .project-show .center.supporters .invest-message {
@@ -2842,381 +2896,722 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
     padding:0 20px;
   }*/ }
 
-.project-edit {
-  /*.superform .elements li {
-    padding: 24px 2em 24px 0;
-  }*/ }
-  .project-edit #sub-header {
-    padding-bottom: 0; }
-  .project-edit .project-header {
-    position: relative;
-    max-width: 960px;
-    min-height: 75px;
-    margin: 10px auto 0; }
-    .project-edit .project-header img {
-      float: left;
-      margin: 0 20px 0 0; }
-    .project-edit .project-header h2 {
-      font-size: 2rem;
-      font-weight: 300;
-      margin: 0;
-      max-width: 700px;
-      padding: 0; }
-      .project-edit .project-header h2 > span {
-        display: block;
-        line-height: 1em; }
-    .project-edit .project-header .project-subtitle {
-      font-size: 1.1428571rem;
+.project-edit #sub-header {
+  padding-bottom: 0; }
+.project-edit .project-header {
+  position: relative;
+  max-width: 960px;
+  min-height: 75px;
+  margin: 10px auto 0; }
+  .project-edit .project-header img {
+    float: left;
+    margin: 0 20px 0 0; }
+  .project-edit .project-header h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 0;
+    max-width: 700px;
+    padding: 0; }
+    .project-edit .project-header h2 > span {
+      display: block;
+      line-height: 1em; }
+  .project-edit .project-header .project-subtitle {
+    font-size: 1.1428571rem;
+    font-weight: normal;
+    margin: 3px 0;
+    max-width: 620px;
+    font-style: normal; }
+  .project-edit .project-header .project-by {
+    color: #20B3B2;
+    font-size: 12px;
+    margin: 0 0 .5em; }
+    .project-edit .project-header .project-by a {
       font-weight: normal;
-      margin: 3px 0;
-      max-width: 620px;
-      font-style: normal; }
-    .project-edit .project-header .project-by {
-      color: #20B3B2;
+      color: #cc6600;
       font-size: 12px;
-      margin: 0 0 .5em; }
-      .project-edit .project-header .project-by a {
-        font-weight: normal;
-        color: #cc6600;
-        font-size: 12px;
-        text-decoration: none; }
-        .project-edit .project-header .project-by a:hover {
-          color: #58595B; }
-  .project-edit .status {
-    padding: 20px 0 30px;
-    color: #bcbdbd;
-    border-bottom: 3px solid #cfd0d2; }
-    .project-edit .status h3 {
-      margin: 0 0 .6em;
-      color: #9B9B9D;
-      font-size: 26px; }
-    .project-edit .status #project-status {
-      display: table-cell;
-      width: 50%;
-      padding: 0 50px 0 30px; }
-      .project-edit .status #project-status ul {
-        margin: 0 0 0 6px;
-        padding: 0 0 0 16px;
-        font-size: 16px;
-        line-height: 1.5em;
-        list-style: none;
-        border-left: 1px solid #bcbcbd; }
-      .project-edit .status #project-status strong {
-        background: url(/view/images/project/statusmarker.png) no-repeat left center;
-        color: #58595b;
-        display: block;
-        font-size: 22px;
-        font-weight: 700;
-        line-height: 1.6em;
-        margin-left: -22px;
-        padding-left: 20px;
-        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25); }
-    .project-edit .status #project-score {
-      border-left: 1px dashed #bcbdbf;
-      display: table-cell;
-      padding: 0 50px 0 30px;
-      width: 50%; }
-      .project-edit .status #project-score p {
-        color: #8A8B8C;
-        font-size: 12px;
-        margin-top: 0;
-        width: 80%; }
-      .project-edit .status #project-score .meter {
-        height: 117px;
-        margin-top: -2em;
-        position: relative;
-        width: 369px; }
-        .project-edit .status #project-score .meter .done {
-          background: url(/view/images/project/scoremeter.png) no-repeat left top;
-          bottom: 0;
-          left: 0;
-          position: absolute;
-          top: 0; }
-        .project-edit .status #project-score .meter .left {
-          background: url(/view/images/project/scoremeter.png) no-repeat right bottom;
-          bottom: 0;
-          position: absolute;
-          right: 0;
-          top: 0; }
-  .project-edit #project-steps {
-    clear: both;
-    font-size: 0;
-    padding: 30px 0 45px;
-    text-align: center; }
-    .project-edit #project-steps fieldset {
-      border: 0;
-      margin: 0;
-      padding: 0; }
-      .project-edit #project-steps fieldset legend {
-        display: none; }
-    .project-edit #project-steps .steps {
-      display: inline-block; }
-    .project-edit #project-steps span.step {
-      background: #e7e7e7 no-repeat bottom center;
-      display: inline-block;
-      height: 100%;
-      padding: 0 1em;
-      position: relative; }
-      .project-edit #project-steps span.step.first-off {
-        background-image: url(/view/images/project/edit/steps/line-first-off.png); }
-      .project-edit #project-steps span.step.first-on {
-        background-image: url(/view/images/project/edit/steps/line-first-on.png); }
-      .project-edit #project-steps span.step.on-on {
-        background-image: url(/view/images/project/edit/steps/line-on-on.png); }
-      .project-edit #project-steps span.step.on-off {
-        background-image: url(/view/images/project/edit/steps/line-on-off.png); }
-      .project-edit #project-steps span.step.on-last {
-        background-image: url(/view/images/project/edit/steps/line-on-off.png); }
-      .project-edit #project-steps span.step.off-off {
-        background-image: url(/view/images/project/edit/steps/line-off-off.png); }
-      .project-edit #project-steps span.step.off-on {
-        background-image: url(/view/images/project/edit/steps/line-off-on.png); }
-      .project-edit #project-steps span.step.off-last {
-        background-image: url(/view/images/project/edit/steps/line-off-last.png); }
-      .project-edit #project-steps span.step > button {
-        background: url(/view/images/project/edit/steps/balloon-on.png) no-repeat bottom center;
-        border: none;
-        box-sizing: content-box;
-        color: #20b2b1;
-        font-size: 12px;
-        font-weight: 400;
-        height: 100%;
-        margin: 10px 15px 0;
-        max-width: 150px;
-        min-width: 46px;
-        padding: 0 0 50px;
-        width: auto; }
-      .project-edit #project-steps span.step.off > button {
-        background-image: url(/view/images/project/edit/steps/balloon-off.png);
-        color: #b2b2b2; }
-      .project-edit #project-steps span.step.active > button {
-        background-image: url(/view/images/project/edit/steps/balloon-on-active.png); }
-      .project-edit #project-steps span.step.off.active > button {
-        background-image: url(/view/images/project/edit/steps/balloon-off-active.png); }
-      .project-edit #project-steps span.step.error > button {
-        background-image: url(/view/images/project/edit/steps/balloon-error.png); }
-      .project-edit #project-steps span.step.error.active > button {
-        background-image: url(/view/images/project/edit/steps/balloon-error-active.png); }
-      .project-edit #project-steps span.step > button > strong.number {
-        bottom: 0;
-        color: #FFF;
-        font-size: 12px;
-        font-style: normal;
-        height: 45px;
-        left: 0;
-        line-height: 45px;
-        position: absolute;
-        text-align: center;
-        width: 100%; }
-      .project-edit #project-steps span.step.active > button > strong.number {
-        font-size: 18px;
-        font-weight: 700; }
-    .project-edit #project-steps fieldset fieldset {
-      border: 1px solid #e13028;
-      border-top: none;
-      padding-bottom: 8px;
-      position: relative; }
-      .project-edit #project-steps fieldset fieldset span.step {
-        margin-left: -1px; }
-      .project-edit #project-steps fieldset fieldset span.step + span.step {
-        margin-right: -1px; }
-      .project-edit #project-steps fieldset fieldset > legend {
-        color: #e13028;
-        display: block;
-        font-size: 12px;
-        left: 0;
-        margin-top: 1.4em;
-        position: absolute;
-        text-transform: uppercase;
-        top: 100%;
-        width: 100%; }
-  .project-edit #message {
-    background: none repeat scroll 0 0 #ffa375;
-    color: #333333;
-    padding: 25px 0;
-    font-size: 14px;
-    width: 100%; }
-    .project-edit #message #message-content {
-      width: 960px;
-      margin: 0 auto;
-      position: relative; }
-      .project-edit #message #message-content input.message-close {
-        background: url(/view/images/message-close.png) no-repeat;
-        width: 11px;
-        height: 10px;
-        border: none;
-        position: absolute;
-        top: -8px;
-        right: 0;
-        z-index: 100;
-        cursor: pointer; }
-      .project-edit #message #message-content ul {
-        list-style: none;
-        margin: 0;
-        padding: 0; }
-  .project-edit .superform {
-    border: solid #0a0a0a;
-    border-width: 3px 0; }
-    .project-edit .superform h3 {
-      font-size: 30px; }
-    .project-edit .superform > .hint {
-      color: #7f8183;
-      overflow: hidden; }
-      .project-edit .superform > .hint blockquote {
-        margin-bottom: 0; }
-    .project-edit .superform ol li.element#footer {
-      background-color: #e7e7e7;
-      border-top: 3px solid #0a0a0a;
-      margin: 46px -5px 0 0;
-      overflow: hidden;
-      padding: 20px;
+      text-decoration: none; }
+      .project-edit .project-header .project-by a:hover {
+        color: #58595B; }
+.project-edit .status {
+  padding: 20px 0 30px;
+  color: #bcbdbd;
+  border-bottom: 3px solid #cfd0d2; }
+  .project-edit .status h3 {
+    margin: 0 0 .6em;
+    color: #9B9B9D;
+    font-size: 26px; }
+  .project-edit .status #project-status {
+    display: table-cell;
+    width: 50%;
+    padding: 0 50px 0 30px; }
+    .project-edit .status #project-status ul {
+      margin: 0 0 0 6px;
+      padding: 0 0 0 16px;
+      font-size: 16px;
+      line-height: 1.5em;
+      list-style: none;
+      border-left: 1px solid #bcbcbd; }
+    .project-edit .status #project-status strong {
+      background: url(/view/images/project/statusmarker.png) no-repeat left center;
+      color: #58595b;
+      display: block;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.6em;
+      margin-left: -22px;
+      padding-left: 20px;
+      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25); }
+  .project-edit .status #project-score {
+    border-left: 1px dashed #bcbdbf;
+    display: table-cell;
+    padding: 0 50px 0 30px;
+    width: 50%; }
+    .project-edit .status #project-score p {
+      color: #8A8B8C;
+      font-size: 12px;
+      margin-top: 0;
+      width: 80%; }
+    .project-edit .status #project-score .meter {
+      height: 117px;
+      margin-top: -2em;
       position: relative;
-      z-index: 900; }
-      .project-edit .superform ol li.element#footer ol {
-        border: none;
-        margin: 0;
-        padding: 0; }
-        .project-edit .superform ol li.element#footer ol li {
-          border: none;
-          margin: 0;
-          padding: 0; }
-          .project-edit .superform ol li.element#footer ol li#errors {
-            float: left;
-            width: 70%; }
-          .project-edit .superform ol li.element#footer ol li#buttons {
-            clear: none;
-            float: left;
-            text-align: right;
-            width: 30%; }
-            .project-edit .superform ol li.element#footer ol li#buttons input, .project-edit .superform ol li.element#footer ol li#buttons button {
-              -moz-box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
-              -webkit-box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
-              box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
-              padding: 8px 16px; }
-    .project-edit .superform ol li.element .contents input {
+      width: 369px; }
+      .project-edit .status #project-score .meter .done {
+        background: url(/view/images/project/scoremeter.png) no-repeat left top;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        top: 0; }
+      .project-edit .status #project-score .meter .left {
+        background: url(/view/images/project/scoremeter.png) no-repeat right bottom;
+        bottom: 0;
+        position: absolute;
+        right: 0;
+        top: 0; }
+.project-edit #project-steps {
+  clear: both;
+  font-size: 0;
+  padding: 30px 0 45px;
+  text-align: center; }
+  .project-edit #project-steps fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0; }
+    .project-edit #project-steps fieldset legend {
+      display: none; }
+  .project-edit #project-steps .steps {
+    display: inline-block; }
+  .project-edit #project-steps span.step {
+    background: #e7e7e7 no-repeat bottom center;
+    display: inline-block;
+    height: 100%;
+    padding: 0 1em;
+    position: relative; }
+    .project-edit #project-steps span.step.first-off {
+      background-image: url(/view/images/project/edit/steps/line-first-off.png); }
+    .project-edit #project-steps span.step.first-on {
+      background-image: url(/view/images/project/edit/steps/line-first-on.png); }
+    .project-edit #project-steps span.step.on-on {
+      background-image: url(/view/images/project/edit/steps/line-on-on.png); }
+    .project-edit #project-steps span.step.on-off {
+      background-image: url(/view/images/project/edit/steps/line-on-off.png); }
+    .project-edit #project-steps span.step.on-last {
+      background-image: url(/view/images/project/edit/steps/line-on-off.png); }
+    .project-edit #project-steps span.step.off-off {
+      background-image: url(/view/images/project/edit/steps/line-off-off.png); }
+    .project-edit #project-steps span.step.off-on {
+      background-image: url(/view/images/project/edit/steps/line-off-on.png); }
+    .project-edit #project-steps span.step.off-last {
+      background-image: url(/view/images/project/edit/steps/line-off-last.png); }
+    .project-edit #project-steps span.step > button {
+      background: url(/view/images/project/edit/steps/balloon-on.png) no-repeat bottom center;
+      box-shadow: none;
+      box-sizing: content-box;
+      border: none;
+      color: #20b2b1;
       font-size: 12px;
       font-weight: 400;
-      height: auto;
-      line-height: 16px;
-      margin-top: 0;
+      height: 100%;
+      margin: 10px 15px 0;
+      max-width: 150px;
+      min-width: 46px;
+      padding: 0 0 50px;
       width: auto; }
-      .project-edit .superform ol li.element .contents input.inline {
-        margin: 0 0 2em; }
-    .project-edit .superform ol li.element div.project-share li.url input {
-      width: 230px; }
-    .project-edit .superform ol li.element li.element.group div.contents input.next {
-      height: 50px;
-      width: 200px; }
-    .project-edit .superform ol li.required h4.title {
-      padding: 20px 0 0; }
-    .project-edit .superform ol li .children .elements h5.title {
-      margin: 20px 0 0; }
-    .project-edit .superform .hint blockquote {
-      border-right-width: 0;
-      margin-bottom: 10px;
-      padding-left: 20px; }
-  .project-edit div.preview .superform input.confirm,
-  .project-edit div.preview .superform input.retry,
-  .project-edit div.preview .superform input.next,
-  .project-edit div.preview .superform input.confirm,
-  .project-edit div.preview .superform input.retry {
-    padding: 0; }
-  .project-edit .superform div.hint blockquote {
-    padding-left: 20px; }
-  .project-edit div.access .superform ol li.submit.save div.contents input,
-  .project-edit div.updates .superform ol li.image_upload div.contents input,
-  .project-edit div.updates .superform ol li.submit.media-upload div.contents input,
-  .project-edit div.supports .superform ol li.submit.ok div.contents input {
-    padding: 0.3em 1.2em !important; }
-  .project-edit li#video-upload,
-  .project-edit li#media-upload {
-    padding-bottom: 0;
-    padding-top: 0; }
-  .project-edit li#video_usubs,
-  .project-edit li#media_usubs {
-    border-right: 0;
-    left: 80px;
-    margin-top: -28px;
-    padding-top: 0;
+      .project-edit #project-steps span.step > button:hover {
+        opacity: 1; }
+    .project-edit #project-steps span.step.off > button {
+      background-image: url(/view/images/project/edit/steps/balloon-off.png);
+      color: #b2b2b2; }
+    .project-edit #project-steps span.step.active > button {
+      background-image: url(/view/images/project/edit/steps/balloon-on-active.png); }
+    .project-edit #project-steps span.step.off.active > button {
+      background-image: url(/view/images/project/edit/steps/balloon-off-active.png); }
+    .project-edit #project-steps span.step.error > button {
+      background-image: url(/view/images/project/edit/steps/balloon-error.png); }
+    .project-edit #project-steps span.step.error.active > button {
+      background-image: url(/view/images/project/edit/steps/balloon-error-active.png); }
+    .project-edit #project-steps span.step > button > strong.number {
+      bottom: 0;
+      color: #FFF;
+      font-size: 12px;
+      font-style: normal;
+      height: 45px;
+      left: 0;
+      line-height: 45px;
+      position: absolute;
+      text-align: center;
+      width: 100%; }
+    .project-edit #project-steps span.step.active > button > strong.number {
+      font-size: 18px;
+      font-weight: 700; }
+  .project-edit #project-steps fieldset fieldset {
+    border: 1px solid #e13028;
+    border-top: none;
+    padding-bottom: 8px;
     position: relative; }
-  .project-edit li#media {
-    padding-bottom: 10px; }
-  .project-edit .superform div.hint blockquote {
-    border-right-width: 0;
-    margin-bottom: 10px;
-    padding-left: 20px; }
-  .project-edit div.elements ol li#individual_rewards h4.title, .project-edit div.elements ol li.required h4.title {
+    .project-edit #project-steps fieldset fieldset span.step {
+      margin-left: -1px; }
+    .project-edit #project-steps fieldset fieldset span.step + span.step {
+      margin-right: -1px; }
+    .project-edit #project-steps fieldset fieldset > legend {
+      color: #e13028;
+      display: block;
+      font-size: 12px;
+      left: 0;
+      margin-top: 1.4em;
+      position: absolute;
+      text-transform: uppercase;
+      top: 100%;
+      width: 100%; }
+.project-edit #message {
+  background: none repeat scroll 0 0 #ffa375;
+  color: #333333;
+  padding: 25px 0;
+  font-size: 14px;
+  width: 100%; }
+  .project-edit #message #message-content {
+    width: 960px;
+    margin: 0 auto;
+    position: relative; }
+    .project-edit #message #message-content input.message-close {
+      background: url(/view/images/message-close.png) no-repeat;
+      width: 11px;
+      height: 10px;
+      border: none;
+      position: absolute;
+      top: -8px;
+      right: 0;
+      z-index: 100;
+      cursor: pointer; }
+    .project-edit #message #message-content ul {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+.project-edit .superform {
+  border: solid #0a0a0a;
+  border-width: 3px 0; }
+  .project-edit .superform h3 {
+    font-size: 30px; }
+  .project-edit .superform > .hint {
+    color: #7f8183;
+    overflow: hidden; }
+    .project-edit .superform > .hint blockquote {
+      margin-bottom: 0; }
+  .project-edit .superform ol li.element#footer {
+    background-color: #e7e7e7;
+    border-top: 3px solid #0a0a0a;
+    border-right: none;
+    margin: 46px -5px 0 0;
+    overflow: hidden;
+    padding: 20px;
+    position: relative;
+    z-index: 900; }
+    .project-edit .superform ol li.element#footer ol {
+      border: none;
+      margin: 0;
+      padding: 0; }
+      .project-edit .superform ol li.element#footer ol li {
+        border: none;
+        margin: 0;
+        padding: 0; }
+        .project-edit .superform ol li.element#footer ol li#errors {
+          float: left;
+          width: 70%; }
+        .project-edit .superform ol li.element#footer ol li#buttons {
+          clear: none;
+          float: left;
+          text-align: right;
+          width: 30%; }
+          .project-edit .superform ol li.element#footer ol li#buttons input, .project-edit .superform ol li.element#footer ol li#buttons button {
+            -moz-box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+            -webkit-box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+            margin-right: 0;
+            padding: 8px 16px; }
+  .project-edit .superform ol li.element .contents input {
+    font-size: 12px;
+    font-weight: 400;
+    height: auto;
+    line-height: 16px;
+    margin-top: 0;
+    width: auto; }
+    .project-edit .superform ol li.element .contents input.inline {
+      margin: 0 0 2em; }
+  .project-edit .superform ol li.element div.project-share li.url input {
+    width: 230px; }
+  .project-edit .superform ol li.element li.element.group div.contents input.next {
+    height: 50px;
+    width: 200px; }
+  .project-edit .superform ol li.required h4.title {
     padding: 20px 0 0; }
-  .project-edit div.elements ol li#costs h4.title {
-    margin: 20px 0;
-    padding: 0; }
-  .project-edit div.elements ol li#social_rewards h4.title {
-    margin: 20px 20px 20px 0;
-    padding: 0; }
-  .project-edit div.elements ol li#skills.element.checkboxescustom div.contents {
-    padding: 0 0 30px; }
-  .project-edit div.elements ol li h6.title {
-    margin: 10px 0;
-    padding: 0; }
-  .project-edit div#main.userProfile .superform div.children div.elements {
-    margin: 20px 0; }
+.project-edit div.preview .superform input.confirm,
+.project-edit div.preview .superform input.retry,
+.project-edit div.preview .superform input.next,
+.project-edit div.preview .superform input.confirm,
+.project-edit div.preview .superform input.retry {
+  padding: 0; }
+.project-edit .superform div.hint blockquote {
+  padding-left: 20px; }
+.project-edit div.access .superform ol li.submit.save div.contents input,
+.project-edit div.updates .superform ol li.image_upload div.contents input,
+.project-edit div.updates .superform ol li.submit.media-upload div.contents input,
+.project-edit div.supports .superform ol li.submit.ok div.contents input {
+  padding: 0.3em 1.2em !important; }
+.project-edit li#video-upload,
+.project-edit li#media-upload {
+  padding-bottom: 0;
+  padding-top: 0; }
+.project-edit li#video_usubs,
+.project-edit li#media_usubs {
+  border-right: 0;
+  left: 80px;
+  margin-top: -28px;
+  padding-top: 0;
+  position: relative; }
+.project-edit li#media {
+  padding-bottom: 10px; }
+.project-edit .superform div.hint blockquote {
+  border-right-width: 0;
+  margin-bottom: 10px;
+  padding-left: 20px; }
+.project-edit div.elements ol li#individual_rewards h4.title, .project-edit div.elements ol li.required h4.title {
+  padding: 20px 0 0; }
+.project-edit div.elements ol li#costs h4.title {
+  margin: 20px 0;
+  padding: 0; }
+.project-edit div.elements ol li#social_rewards h4.title {
+  margin: 20px 20px 20px 0;
+  padding: 0; }
+.project-edit div.elements ol li#skills.element.checkboxescustom div.contents {
+  padding: 0 0 30px; }
+.project-edit div.elements ol li h6.title {
+  margin: 10px 0;
+  padding: 0; }
+.project-edit div#main.userProfile .superform div.children div.elements {
+  margin: 20px 0; }
   .project-edit div#main.userProfile .superform div.children div.elements h5.title {
     margin: 20px 0 0; }
-  .project-edit div#main.overview .superform div.children div.elements ol li div.contents {
-    margin: 0;
-    padding: 0; }
-  .project-edit div#main.overview .superform div.children div.elements li#video {
-    margin: 0;
-    padding: 0; }
-  .project-edit div#main.overview .superform ol {
-    margin: 0;
-    padding: 0; }
-    .project-edit div#main.overview .superform ol li.element div.contents textarea {
-      margin: 0 0 10px; }
-    .project-edit div#main.overview .superform ol li.element div.contents input#video {
-      margin: 0 0 10px;
-      padding: 4px; }
-    .project-edit div#main.overview .superform ol li.element div.contents input#inline.media-upload {
-      padding: .3em 1.2em; }
-    .project-edit div#main.overview .superform ol li.element div.contents input#keywords {
-      margin: 0;
-      padding: .4em; }
-  .project-edit div#main.overview div.elements ol li#name div.contents input#name,
-  .project-edit div#main.overview div.elements ol li#subtitle div.contents input#subtitle {
-    margin: 0;
+.project-edit div#main.overview .superform.aqua #image_upload input[type="submit"],
+.project-edit div#main.overview .superform.aqua #video-upload input.media-upload[type="submit"],
+.project-edit div#main.overview .superform.aqua #image_upload_1 input[type="submit"],
+.project-edit div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
+  padding: .3em 1.2em; }
+.project-edit div#main.overview .superform.aqua input.ok[type="submit"] {
+  padding: .3em 1.2em; }
+.project-edit div#main.overview .superform div.children div.elements ol li div.contents {
+  margin: 0;
+  padding: 0; }
+.project-edit div#main.overview .superform div.children div.elements li#video {
+  margin: 0;
+  padding: 0; }
+.project-edit div#main.overview .superform ol {
+  margin: 0;
+  padding: 0; }
+  .project-edit div#main.overview .superform ol li.element div.contents textarea {
+    margin: 0 0 10px; }
+  .project-edit div#main.overview .superform ol li.element div.contents input#video {
+    margin: 0 0 10px;
     padding: 4px; }
-  .project-edit div#main.supports .superform .elements ol li#supports.element.group {
-    border: none;
-    margin: 0 251px 20px 0;
-    padding: 10px 0; }
+  .project-edit div#main.overview .superform ol li.element div.contents input#inline.media-upload {
+    padding: .3em 1.2em; }
+  .project-edit div#main.overview .superform ol li.element div.contents input#keywords {
+    margin: 0;
+    padding: .4em; }
+.project-edit div#main.overview div.elements ol li#name div.contents input#name,
+.project-edit div#main.overview div.elements ol li#subtitle div.contents input#subtitle {
+  margin: 0;
+  padding: 4px; }
+.project-edit div#main.costs .superform h3 {
+  font-size: 1.17em; }
+.project-edit div#main.costs .superform > div.elements div.elements > ol {
+  padding-left: 0; }
+.project-edit div#main.costs .superform li.element.cost {
+  padding: 16px 8px; }
+  .project-edit div#main.costs .superform li.element.cost.required_cost-no {
+    background-color: #f3f3f3 !important; }
+  .project-edit div#main.costs .superform li.element.cost input[type="text"],
+  .project-edit div#main.costs .superform li.element.cost textarea {
+    box-sizing: border-box;
+    min-height: 36px; }
+  .project-edit div#main.costs .superform li.element.cost .contents {
+    padding-left: 0; }
+  .project-edit div#main.costs .superform li.element.cost div.title {
+    float: left;
+    font-size: 14px;
+    width: 70%; }
+  .project-edit div#main.costs .superform li.element.cost input.edit {
+    float: left;
+    margin-right: 8px; }
+  .project-edit div#main.costs .superform li.element.cost input.remove.weak {
+    float: left; }
+  .project-edit div#main.costs .superform li.element.cost .description {
+    clear: both; }
+    .project-edit div#main.costs .superform li.element.cost .description p {
+      margin: .5em 0; }
+  .project-edit div#main.costs .superform li.element.cost .cost-amount input {
+    background-image: url(/view/images/yen/m.png);
+    background-position: 4px 50%;
+    background-repeat: no-repeat;
+    float: left;
+    font-size: 16px;
+    font-weight: 700;
+    min-width: 6em;
+    padding-left: 20px;
+    text-align: right;
+    width: 100px; }
+  .project-edit div#main.costs .superform li.element.cost .cost-dates h7 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 .5em; }
+  .project-edit div#main.costs .superform li.element.cost .cost-dates .cost-from,
+  .project-edit div#main.costs .superform li.element.cost .cost-dates .cost-until {
+    clear: none;
+    float: left;
+    margin-right: 1em;
+    position: static; }
+    .project-edit div#main.costs .superform li.element.cost .cost-dates .cost-from input,
+    .project-edit div#main.costs .superform li.element.cost .cost-dates .cost-until input {
+      margin-bottom: 10px;
+      max-width: 8em;
+      min-width: 8em;
+      width: 8em; }
+  .project-edit div#main.costs .superform li.element.cost li.buttons {
+    text-align: right; }
+    .project-edit div#main.costs .superform li.element.cost li.buttons li.submit {
+      display: inline-block;
+      margin: 0 0 16px 0;
+      padding: 0;
+      vertical-align: top; }
+      .project-edit div#main.costs .superform li.element.cost li.buttons li.submit input {
+        float: left;
+        margin: 0 10px 0 0;
+        width: auto; }
+.project-edit div#main.costs .superform li.element.add {
+  margin-top: 16px;
+  text-align: left; }
+  .project-edit div#main.costs .superform li.element.add input {
+    margin: 0; }
+.project-edit div#main.costs .superform li.element.cost-meter dl, .project-edit div#main.costs .superform li.element.cost-meter dt, .project-edit div#main.costs .superform li.element.cost-meter dd {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  text-indent: 0; }
+.project-edit div#main.costs .superform li.element.cost-meter dl {
+  font-size: 28px;
+  padding: 75px; }
+  .project-edit div#main.costs .superform li.element.cost-meter dl dt {
+    font-size: 14px;
+    text-transform: uppercase; }
+    .project-edit div#main.costs .superform li.element.cost-meter dl dt.minimum > span, .project-edit div#main.costs .superform li.element.cost-meter dl dt.optimum > span {
+      display: block;
+      left: 100%;
+      padding-bottom: 41px;
+      position: absolute;
+      text-align: center;
+      width: 10em; }
+    .project-edit div#main.costs .superform li.element.cost-meter dl dt.minimum > span {
+      bottom: 0;
+      color: #96238F;
+      margin-left: -66px; }
+    .project-edit div#main.costs .superform li.element.cost-meter dl dt.optimum {
+      border-top: 10px solid #BB70B6;
+      margin-top: -10px;
+      z-index: 0; }
+      .project-edit div#main.costs .superform li.element.cost-meter dl dt.optimum > span {
+        color: #BB70B6;
+        margin-left: -76px;
+        margin-top: 18px;
+        top: 100%; }
+  .project-edit div#main.costs .superform li.element.cost-meter dl dd.minimum {
+    border-bottom: 10px solid #96238F;
+    z-index: 900; }
+    .project-edit div#main.costs .superform li.element.cost-meter dl dd.minimum > span {
+      border-left: 10px solid #96238F;
+      bottom: -20px;
+      font-size: 28px;
+      height: 20px;
+      margin-bottom: 10px;
+      padding-left: 5px;
+      position: absolute;
+      right: -15px;
+      text-align: center;
+      width: 0; }
+      .project-edit div#main.costs .superform li.element.cost-meter dl dd.minimum > span > strong {
+        color: #96238F;
+        padding-left: 5px;
+        position: absolute;
+        right: 0;
+        text-align: right;
+        top: -36px; }
+      .project-edit div#main.costs .superform li.element.cost-meter dl dd.minimum > span > span.yen {
+        color: #96238F;
+        font-size: 20px;
+        left: 10px;
+        position: absolute;
+        top: -28px; }
+  .project-edit div#main.costs .superform li.element.cost-meter dl dd.optimum {
+    display: block;
+    left: 100%;
+    margin-left: -70px;
+    padding-top: 35px;
+    position: absolute;
+    text-align: center;
+    width: 10em; }
+    .project-edit div#main.costs .superform li.element.cost-meter dl dd.optimum > span {
+      border-left: 10px solid #BB70B6;
+      font-size: 28px;
+      height: 12px;
+      left: -15px;
+      margin-bottom: 10px;
+      padding-left: 5px;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      width: 0; }
+      .project-edit div#main.costs .superform li.element.cost-meter dl dd.optimum > span > strong {
+        color: #BB70B6;
+        position: absolute;
+        right: 0;
+        top: 34px; }
+      .project-edit div#main.costs .superform li.element.cost-meter dl dd.optimum > span > span.yen {
+        color: #BB70B6;
+        font-size: 20px;
+        left: 10px;
+        position: absolute;
+        top: 42px; }
+.project-edit div#main.costs .superform li.element#schedule div.contents {
+  margin: 0; }
+  .project-edit div#main.costs .superform li.element#schedule div.contents h3.title {
+    padding: 0; }
+  .project-edit div#main.costs .superform li.element#schedule div.contents .widget.project-schedule {
+    padding: 20px; }
+.project-edit div#main.rewards div.superform li.element.reward-new > .title {
+  display: none; }
+.project-edit div#main.rewards div.superform li.element.reward {
+  /*div.license {
+    background:none no-repeat 10px center;
+    line-height:32px;
+    min-height:32px;
+    padding-left:110px!important;
+  }*/ }
+  .project-edit div#main.rewards div.superform li.element.reward div.title {
+    float: left;
+    font-size: 14px;
+    width: 70%; }
+  .project-edit div#main.rewards div.superform li.element.reward input[type="text"],
+  .project-edit div#main.rewards div.superform li.element.reward textarea {
+    box-sizing: border-box;
+    min-height: 36px; }
+  .project-edit div#main.rewards div.superform li.element.reward input.edit {
+    float: left;
+    margin-right: 8px; }
+  .project-edit div#main.rewards div.superform li.element.reward input.remove.weak {
+    float: left; }
+  .project-edit div#main.rewards div.superform li.element.reward div.reward {
+    background: none no-repeat 10px center;
+    min-height: 32px;
+    padding-left: 0; }
+  .project-edit div#main.rewards div.superform li.element.reward div.description {
+    float: left;
+    margin: .5em 0;
+    width: 70%;
+    clear: both; }
+    .project-edit div#main.rewards div.superform li.element.reward div.description p {
+      margin: .5em 0; }
+    .project-edit div#main.rewards div.superform li.element.reward div.description span.left {
+      color: #EE4843;
+      font-weight: 700; }
+.project-edit div#main.rewards div.superform li.element .buttons ol {
+  text-align: right; }
+.project-edit div#main.rewards div.superform li.element .buttons li {
+  display: inline-block;
+  margin: 0;
+  margin-right: 10px;
+  padding: 0;
+  vertical-align: top; }
+.project-edit div#main.rewards div.superform li.element#social_rewards {
+  padding: 0 0 20px; }
+  .project-edit div#main.rewards div.superform li.element#social_rewards div.elements ol li.element div.contents {
+    line-height: 24px;
+    min-height: 24px; }
+  .project-edit div#main.rewards div.superform li.element#social_rewards div.elements ol li.element li.element {
+    border-right: none;
+    margin-right: 20px; }
+.project-edit div#main.rewards div.superform li.element.editsocial_reward > .children ol, .project-edit div#main.rewards div.superform li.element.editsocial_reward li.element.editindividual_reward > .children ol {
+  margin: 0 !important;
+  padding: 0 !important; }
+.project-edit div#main.rewards div.superform li.element.editsocial_reward li.buttons div.contents, .project-edit div#main.rewards div.superform li.element.editsocial_reward li.buttons ol, .project-edit div#main.rewards div.superform li.element.editsocial_reward li.element.editindividual_reward li.buttons div.contents, .project-edit div#main.rewards div.superform li.element.editsocial_reward li.element.editindividual_reward li.buttons ol {
+  margin: 0 !important;
+  padding: 0 !important; }
+.project-edit div#main.rewards div.superform li.element.editsocial_reward li.buttons li, .project-edit div#main.rewards div.superform li.element.editsocial_reward li.element.editindividual_reward li.buttons li {
+  display: inline-block;
+  margin: 0;
+  padding: 0; }
+.project-edit div#main.rewards div.superform li.element.editsocial_reward li.buttons ol, .project-edit div#main.rewards div.superform li.element.editsocial_reward li.element.editindividual_reward li.buttons ol {
+  text-align: right; }
+.project-edit div#main.rewards div.superform li.element.editsocial_reward li.buttons input, .project-edit div#main.rewards div.superform li.element.editsocial_reward li.element.editindividual_reward li.buttons input {
+  float: left;
+  margin: 0 10px 0 0;
+  width: auto; }
+.project-edit div#main.rewards div.superform li.element.editsocial_reward div.children li.element.reward-description textarea, .project-edit div#main.rewards div.superform li.element.editsocial_reward li.element.editindividual_reward div.children li.element.reward-description textarea {
+  height: 4em;
+  min-height: 4em; }
+.project-edit div#main.rewards div.superform li.element.editsocial_reward li.other div.contents, .project-edit div#main.rewards div.superform li.element.editsocial_reward li.element.editindividual_reward li.other div.contents {
+  background-image: none !important;
+  line-height: 32px;
+  min-height: 32px;
+  padding-left: 0 !important; }
+.project-edit div#main.rewards div.superform li.element.editsocial_reward li.reward-type div.contents, .project-edit div#main.rewards div.superform li.element.editsocial_reward li.element.editindividual_reward li.reward-type div.contents {
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  line-height: 32px;
+  min-height: 32px;
+  padding-left: 0; }
+.project-edit div#main.rewards div.superform li.element.editsocial_reward .license {
+  margin-left: 18px; }
+.project-edit div#main.rewards div.superform li.element.editsocial_reward .license div.contents {
+  background: none no-repeat 10px center;
+  line-height: 32px;
+  min-height: 32px;
+  padding-left: 110px !important; }
+.project-edit div#main.rewards div.superform li.element.editsocial_reward div.children li.element.reward-amount > div.contents > input {
+  background-image: url(/view/images/yen/s.png);
+  background-position: 7.7em center;
+  background-repeat: no-repeat;
+  float: left;
+  font-weight: 700;
+  min-width: 6em;
+  padding-right: 3em;
+  width: 6em; }
+.project-edit div#main.rewards div.superform li.element.editsocial_reward div.children li.element.reward-units > div.contents > input {
+  min-width: 7.7em;
+  width: 7.7em; }
+.project-edit div#main.rewards div.superform li.element.submit.add {
+  margin-top: 16px;
+  text-align: left; }
+  .project-edit div#main.rewards div.superform li.element.submit.add input {
+    margin: 0; }
+.project-edit div#main.supports .superform .elements ol li#supports.element.group {
+  border: none;
+  margin: 0 251px 20px 0;
+  padding: 10px 0; }
   .project-edit div#main.supports .superform .elements ol li#supports.element.group h4 {
     padding: 0 0 0 20px; }
-  .project-edit.js div#main.costs .superform div.elements ol li#schedule div.contents {
+.project-edit div#main.supports .superform li.element.submit.add {
+  margin-top: 16px;
+  text-align: left; }
+  .project-edit div#main.supports .superform li.element.submit.add input {
     margin: 0; }
-    .project-edit.js div#main.costs .superform div.elements ol li#schedule div.contents h3.title {
-      padding: 0; }
-    .project-edit.js div#main.costs .superform div.elements ol li#schedule div.contents .widget.project-schedule {
-      padding: 20px; }
-  .project-edit.js div#main.costs .superform div.elements ol li#social_rewards {
-    margin: 0 251px 0 0;
-    padding: 0 0 20px; }
-    .project-edit.js div#main.costs .superform div.elements ol li#social_rewards div.elements ol li.element li.element {
-      border-right: none;
-      margin: 0 20px 20px 0; }
-    .project-edit.js div#main.costs .superform div.elements ol li#social_rewards div.elements ol li.element li.individual_rewards {
-      margin: 0; }
+.project-edit div#main.supports .superform div.description {
+  float: left;
+  margin: .5em 0;
+  width: 70%;
+  clear: both; }
+.project-edit div#main.supports .superform input.edit {
+  float: left;
+  margin-right: 8px; }
+.project-edit div#main.supports .superform input.remove.weak {
+  float: left; }
+.project-edit div#main.preview > div > div.overlay {
+  cursor: default; }
+.project-edit div#main.preview .widget {
+  margin-bottom: 20px; }
+  .project-edit div#main.preview .widget.project-support {
+    min-height: 340px; }
+  .project-edit div#main.preview .widget.project-rewards div.amount {
+    margin-left: 0; }
+  .project-edit div#main.preview .widget.project-support, .project-edit div#main.preview .widget.project-collaborations, .project-edit div#main.preview .widget.project-rewards, .project-edit div#main.preview .widget.user {
+    clear: right;
+    float: right;
+    margin-bottom: 20px;
+    padding: 0;
+    width: 330px; }
+  .project-edit div#main.preview .widget.project-collaborations .supertitle {
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 8px; }
+  .project-edit div#main.preview .widget.project-summary h3 {
+    font-size: 20px; }
+  .project-edit div#main.preview .widget.project-support_btn a.button {
+    padding: 0 8px; }
+  .project-edit div#main.preview .widget.project-summary, .project-edit div#main.preview .widget.project-support_btn, .project-edit div#main.preview .widget.project-share {
+    max-width: 620px; }
+  .project-edit div#main.preview .widget.project-schedule .title {
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none; }
+  .project-edit div#main.preview .widget.project-needs, .project-edit div#main.preview .widget.project-schedule {
+    max-width: 620px; }
+  .project-edit div#main.preview .widget.project-media {
+    height: 380px;
+    margin-right: 20px;
+    max-width: 620px;
+    padding: 0; }
+  .project-edit div#main.preview .widget div.project-motivation-video {
+    height: 380px;
+    margin-left: -20px;
+    max-width: 620px;
+    padding: 0; }
+  .project-edit div#main.preview .widget div.superform > div.hint {
+    border-right: none;
+    padding-right: 0; }
+.project-edit div#main.preview form.project .superform > div.hint {
+  background: none; }
+.project-edit div#main.preview form.project .superform > div.elements > ol > li.element.html div.contents {
+  margin-left: 0; }
 
 .dashboard #sub-header {
   height: 145px; }
 .dashboard .dashboard-header {
-  display: flex;
   min-height: 100px; }
   .dashboard .dashboard-header a {
+    border-radius: 50%;
     display: inline-block;
-    margin-right: 20px; }
+    height: 56px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    width: 56px;
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: middle; }
+    .dashboard .dashboard-header a img {
+      bottom: 0;
+      height: auto;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+      vertical-align: middle;
+      width: 100%; }
   .dashboard .dashboard-header h2 {
+    display: inline-block;
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    vertical-align: middle; }
     .dashboard .dashboard-header h2 span {
       color: #666;
       font-size: 30px; }
@@ -3340,6 +3735,14 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
         color: #20B3B2; }
 .dashboard .summary > .widget {
   margin-bottom: 20px; }
+.dashboard .summary .select-action {
+  display: flex;
+  margin: 0 auto;
+  width: 700px; }
+  .dashboard .summary .select-action a.button.red {
+    height: 45px;
+    line-height: 45px;
+    width: 200px; }
 .dashboard .summary .widget.projects .project {
   min-height: 450px; }
 .dashboard .user-worthcracy h3.title {
@@ -3598,6 +4001,67 @@ div#main.overview .superform.aqua #image_upload_2 input[type="submit"] {
   padding-top: 1px;
   background-color: #fff;
   border: none; }
+  .dashboard.dashboard .superform .hint blockquote {
+    border-right: none;
+    margin-bottom: 10px;
+    padding-left: 20px; }
+  .dashboard.dashboard .superform > div.footer {
+    margin-top: 0;
+    padding-bottom: 20px; }
+    .dashboard.dashboard .superform > div.footer input[type="submit"], .dashboard.dashboard .superform > div.footer input[type="reset"], .dashboard.dashboard .superform > div.footer button, .dashboard.dashboard .superform > div.footer a.button {
+      margin-left: 0; }
+.dashboard div#main.profile div.superform li.element.user_avatar > div.children > div.elements > ol > li.element {
+  display: inline-block;
+  vertical-align: top; }
+.dashboard div#main.profile div.superform li.element.user_avatar ol {
+  padding: 0; }
+.dashboard div#main.profile div.superform li.element.user_avatar li.element.avatar-image {
+  margin: 0 !important;
+  padding: 0 2em; }
+.dashboard div#main.profile div.superform li.element.user_avatar li.element.avatar img {
+  height: 128px;
+  width: 128px; }
+.dashboard div#main.profile div.superform li.element.user_avatar li.element .title {
+  display: none; }
+.dashboard div#main.profile div.superform li.element.web div.title {
+  float: left;
+  font-size: 14px;
+  text-transform: uppercase;
+  width: 70%;
+  word-wrap: break-word; }
+.dashboard div#main.profile div.superform li.element.web input.edit {
+  display: inline-block;
+  margin: -1em 0 0 0; }
+.dashboard div#main.profile div.superform li.element.web input.remove {
+  display: inline-block;
+  margin: 0 0 1em 0; }
+.dashboard div#main.profile div.superform li.element.editweb li.element.web-accept input,
+.dashboard div#main.profile div.superform li.element.editweb li.element.web-remove input {
+  margin: 0 3px 0 0; }
+.dashboard div#main.profile div.superform li.element.editweb li.buttons div.contents, .dashboard div#main.profile div.superform li.element.editweb li.buttons li.buttons ol {
+  margin: 0 !important;
+  padding: 0 !important; }
+.dashboard div#main.profile div.superform li.element.editweb li.buttons ol {
+  text-align: right; }
+.dashboard div#main.profile div.superform li.element.editweb li.buttons li {
+  display: inline-block;
+  margin: 0;
+  padding: 0; }
+.dashboard div#main.profile div.superform li.element.editweb li.buttons input {
+  float: left;
+  margin: 0 10px 0 0;
+  width: auto; }
+.dashboard div#main.profile div.superform li.element.add input.add {
+  margin-left: 0; }
+.dashboard div#main.profile div.superform > div.elements > ol > li.element {
+  padding: 30px 2em 22px 0; }
+.dashboard div#main.access div.superform li.element.save input[type="submit"] {
+  height: 45px;
+  line-height: 45px;
+  margin-left: 0;
+  width: 200px; }
+.dashboard div#main.access div.superform li.element input.inline {
+  margin: 0 0 2em; }
 
 .community #main {
   margin-top: 0; }

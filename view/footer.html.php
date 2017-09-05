@@ -29,7 +29,7 @@
 <footer class="footer">
 
     <div class="footer__upper">
-        <div class="c-clearfix c-w1200">
+        <div class="c-w1200">
             <div class="footer__upper_left">
                 <div class="footer__logo">
                     <img src="/view/images/footer_logo.png" alt="LOCAL GOOD YOKOHAMAロゴ">

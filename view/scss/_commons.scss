@@ -212,12 +212,12 @@
       }
     }
   }
-  .header__right__search_box {
+  /*.header__right__search_box {
     padding-top: 16px;
-  }
-  .c-social_bookmark {
+  }*/
+  /*.c-social_bookmark {
     margin: 20px 25px 15px 0;
-  }
+  }*/
 }
 
 
@@ -236,6 +236,7 @@
   }
 
   &__upper {
+    @include cf;
     padding: 45px 0 52px;
     background-color: #2f6f92;
     &_left {
@@ -361,14 +362,14 @@
   }
 }
 
-.c-clearfix {
+/*.c-clearfix {
   zoom: 1;
 }
 .c-clearfix:after {
   content: '';
   display: block;
   clear: both;
-}
+}*/
 
 
 /*----------------------------------------------------------------------

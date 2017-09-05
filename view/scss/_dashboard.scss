@@ -7,15 +7,18 @@
   }
 
   .dashboard-header {
-    display: flex;
     min-height: 100px;
     a {
+      @include circleAvatar(56px);
       display: inline-block;
       margin-right: 20px;
+      vertical-align: middle;
     }
     h2 {
+      display: inline-block;
       margin: 0;
       padding: 0;
+      vertical-align: middle;
       span {
         color: #666;
         font-size: 30px;
@@ -183,7 +186,6 @@
         }
       }
     }
-
   }
 
   //.widgetがつくboxは以下で、.widgetがつかないboxはそれぞれのクラスにmb20付与
@@ -191,6 +193,17 @@
     > .widget {
       margin-bottom: 20px;
     }
+    .select-action {
+      display: flex;
+      margin: 0 auto;
+      width: 700px;
+      a.button.red {
+        height: 45px;
+        line-height: 45px;
+        width: 200px;
+      }
+    }
+
     .widget.projects {
       .project {
         min-height: 450px;
@@ -501,6 +514,118 @@
     padding-top: 1px;
     background-color: #fff;
     border: none;
+    .hint blockquote {
+      border-right: none;
+      margin-bottom: 10px;
+      padding-left: 20px;
+    }
+    > div.footer {
+      margin-top: 0;
+      padding-bottom: 20px;
+      input[type="submit"], input[type="reset"], button, a.button {
+        margin-left: 0;
+      }
+    }
   }
 
+  div#main {
+
+    //プロフィール
+    &.profile {
+      div.superform {
+        li.element {
+          &.user_avatar {
+            > div.children > div.elements > ol > li.element {
+              display: inline-block;
+              vertical-align: top;
+            }
+            ol {
+              padding: 0;
+            }
+            li.element {
+              &.avatar-image {
+                margin: 0 !important;
+                padding: 0 2em;
+              }
+              &.avatar img {
+                height: 128px;
+                width: 128px;
+              }
+              .title {
+                display: none;
+              }
+            }
+          }
+          &.web {
+            div.title {
+              float: left;
+              font-size: 14px;
+              text-transform: uppercase;
+              width: 70%;
+              word-wrap: break-word;
+            }
+            input.edit {
+              display: inline-block;
+              margin: -1em 0 0 0;
+            }
+            input.remove {
+              display: inline-block;
+              margin: 0 0 1em 0;
+            }
+          }
+          &.editweb {
+            li.element.web-accept input,
+            li.element.web-remove input {
+              margin: 0 3px 0 0;
+            }
+            li.buttons {
+              div.contents, li.buttons ol {
+                margin: 0 !important;
+                padding: 0 !important;
+              }
+              ol {
+                text-align: right;
+              }
+              li {
+                display: inline-block;
+                margin: 0;
+                padding: 0;
+              }
+              input {
+                float: left;
+                margin: 0 10px 0 0;
+                width: auto;
+              }
+            }
+          }
+          &.add {
+            input.add {
+              margin-left: 0;
+            }
+          }
+        }
+        > div.elements > ol > li.element {
+          padding: 30px 2em 22px 0;
+        }
+      }
+    }
+    //アカウント設定
+    &.access {
+      div.superform {
+        li.element {
+          &.save {
+            input[type="submit"] {
+              height: 45px;
+              line-height: 45px;
+              margin-left: 0;
+              width: 200px;
+            }
+          }
+          input.inline {
+            margin: 0 0 2em;
+          }
+        }
+      }
+    }
+  }
 }

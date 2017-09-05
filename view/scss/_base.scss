@@ -104,16 +104,27 @@ a.button.red,
 input.edit[type="submit"] {
   background: none;
   background: #b5161e;
-  background: -moz-linear-gradient(top, #ea2f2c 0%, #b5161e 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ea2f2c), color-stop(100%,#b5161e));
-  background: -webkit-linear-gradient(top, #ea2f2c 0%,#b5161e 100%);
-  background: -o-linear-gradient(top, #ea2f2c 0%,#b5161e 100%);
-  background: -ms-linear-gradient(top, #ea2f2c 0%,#b5161e 100%);
-  background: linear-gradient(to bottom, #ea2f2c 0%,#b5161e 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea2f2c', endColorstr='#b5161e',GradientType=0 );
+  box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 14px;
+  font-weight: 300;
+  height: 45px;
+  line-height: 45px;
+  margin: 10px auto;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  width: 200px;
+  &:hover {
+    opacity: 0.75;
+  }
 }
 
-a.button.red,
+/*a.button.red,
 a.button.weak {
   font-size:12px;
   font-weight:400;
@@ -121,4 +132,4 @@ a.button.weak {
   height:auto;
   padding: .3em 1.2em;
   width:auto;
-}
+}*/
