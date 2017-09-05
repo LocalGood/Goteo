@@ -455,19 +455,11 @@
   padding-top: 20px;
 }
 
-#sub-header,
 #sub-header-secondary {
   > div {
     display: block;
     max-width: 960px;
     margin: 0 auto;
-  }
-}
-
-#sub-header {
-  > div > h2 {
-    margin: 0;
-    padding: 0;
   }
 }
 
