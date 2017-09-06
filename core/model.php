@@ -73,7 +73,7 @@ namespace Goteo\Core {
                 if ($ret > 0){
                     $_matched = array_unique($_match[0]);
                     foreach ( $_matched as $_m ){
-                        $_query = preg_replace("/" . preg_quote($_m) ."/", "`gt_lg-common`." . $_m, $_query);
+                        $_query = preg_replace("/" . preg_quote($_m) ."/", "`" . \COMMON_AUTH_DB_SCHEMA ."`." . $_m, $_query);
                     }
                 }
 
@@ -84,7 +84,7 @@ namespace Goteo\Core {
                         $trim_m = preg_replace("/\s+/", " ", $_m);
                         $_e = explode(' ', $trim_m);
                         if (isset($_e[1])  && (strpos($_e[1], 'user') !== false)){
-                            $_e[1] = '`gt_lg-common`.' . $_e[1];
+                            $_e[1] = '`' . \COMMON_AUTH_DB_SCHEMA . '`.' . $_e[1];
                             $_s = implode(' ', $_e);
                             $_query = preg_replace("/" . preg_quote($_m) ."/", $_s, $_query);
                         }
