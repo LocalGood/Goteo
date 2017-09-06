@@ -186,7 +186,7 @@ namespace Goteo\Controller\Admin {
                     $sql = "SELECT  *
                     FROM  invest
                     WHERE   invest.project = ?
-					AND     invest.method = 'epsilon'
+					AND     (invest.method = 'epsilon' OR invest.method = 'epsilonrepeat')
                     AND     (invest.status = 0 
                         OR (invest.method = 'tpv'
                             AND invest.status = 1
