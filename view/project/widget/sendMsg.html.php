@@ -55,7 +55,7 @@ $level = (int) $this['level'] ?: 3;
         
         <a target="_blank" id="a-preview" href="#preview" class="preview"><?php echo Text::get('regular-preview'); ?></a>
         <div style="display:none">
-        	<div id="preview" style="width:400px;height:300px;overflow:auto;">
+        	<div id="preview" style="width:400px;height:300px;overflow:hidden;">
                 </div>
         </div>
         <button class="green" type="submit"><?php echo Text::get('project-messages-send_message-button'); ?></button>
