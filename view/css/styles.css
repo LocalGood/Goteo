@@ -4670,7 +4670,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   background: #FFF; }
 .user-profile .center .widget.user-message a.preview {
   display: none; }
-.user-profile .center .widget.user-mates {
+.user-profile .center .widget.user-mates .categories {
   padding: 15px 20px; }
   .user-profile .center .widget.user-mates .categories h3.title {
     height: auto;
