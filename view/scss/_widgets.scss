@@ -1,3 +1,4 @@
+@charset "utf-8";
 /*----------------------------------------------------------------------
  .widget
 ----------------------------------------------------------------------*/
@@ -685,7 +686,7 @@
   //支援するボタンウィジェット
   &.project-support_btn {
     background-color: #fff;
-    border-bottom: $projectShowBorder;
+    border-bottom: $solidBorder;
     padding: 40px 0;
     a.button {
       background: none;
@@ -845,47 +846,18 @@
     .title {
       display: none;
     }
-    //todo:float部分が難解なので、マークアップを変更して修正する
-    .summary {
-      background-color: #fff;
-      margin: 0 0 20px;
-      overflow: hidden;
-      padding: 20px;
-      dt {
-        font-size: 12px;
-        margin: 0;
-        &.reached {
-          color: #663;
-          margin-top: -1.5em;
-        }
-      }
-      dd {
-        font-size: 28px;
-        font-weight: 600;
-        margin: 0;
-        //todo:next要素のclass名が同じでややこしいので、class名を変える。.summary-supportersとか
-        //todo:上記に伴いclass名を変える。.summary-reachedとか
-        &.reached {
-          color: #903;
-        }
-      }
-      .supporters {
-        width: 50%;
-      }
-    }
     .supporters {
       background-color: #fff;
       > ul {
         list-style: none;
         margin: 0;
         overflow: hidden;
-        padding: 30px 0;
+        padding: 0;
         >li {
-          border-right: $projectShowBorder;
+          border-right: $solidBorder;
           box-sizing: border-box;
           float: left;
-          height: 90px;
-          padding-bottom: 20px;
+            padding: 0;
           width: 310px;
           &:nth-child(2n+2) {
             border-right: none;
@@ -896,7 +868,7 @@
         }
       }
       .supporterContainer {
-        padding: 10px 10px 10px 65px;
+        padding: 0;
         position: relative;
       }
       a.expand {
@@ -909,21 +881,18 @@
         z-index: 999;
       }
       .supporter {
+        padding: 10px 10px 10px 65px;
         .avatar {
-          background-color: #fff;
-          display: block;
-          height: 43px;
+          @include circleAvatar(42px);
           left: 10px;
           position: absolute;
-          top: 10px;
-          width: 43px;
         }
         h4 {
           color: $colLinkText01;
           font-size: 16px;
           font-weight: 600;
           line-height: 1.15;
-          margin: 0 0 .5em;
+          margin: 0 0 4px;
           overflow: hidden;
           position: relative;
         }
@@ -947,7 +916,7 @@
           &.date {
             color: #a6a8ab;
             font-size: 12px;
-            margin: 5px 0 0 0;
+            margin: 0;
           }
         }
       }

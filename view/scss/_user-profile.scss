@@ -1,10 +1,11 @@
+@charset "utf-8";
 .user-profile {
 
   #main {
     margin: 0 auto;
     > .center {
       float: left;
-      width: 620px;
+      width: 610px;
     }
     > .side {
       float: right;
@@ -38,43 +39,140 @@
 
   .center{
 
-    &.profile {
-      .widget.worthcracy.user-worthcracy {
-        background-color:#693;
-        padding:0;
-        h3.title {
-          border-bottom:1px solid #693;
-          color:#fff;
-          font-size:18px;
-          font-weight:400;
-          margin:0;
-          padding:.5em 2px .5em 20px;
+    .widget.user-mates {
+      &:last-child {
+        margin-bottom: 20px;
+      }
+      .users ul > li {
+        max-width:305px;
+        width:305px;
+      }
+    }
+
+    .widget.project-supporters {
+      .summary {
+        background-color: #fff;
+        border-bottom: $solidBorder;
+        font-weight: 600;
+        font-size: 18px;
+        margin: 0;
+        overflow: hidden;
+        padding: 30px 20px;
+        .supporters {
+          display: inline-block;
+          width: auto;
+        }
+        dt {
+          margin: 0;
+          &.reached {
+            color: #663;
+            margin-top: -1.5em;
+          }
+        }
+        dd {
+          margin: 0;
+          &.reached {
+            color: #903;
+          }
+        }
+      }
+      .supporters {
+        > ul > li {
+          min-height: 105px;
+          width: 305px;
+          &:first-child,
+          &:nth-child(2) {
+            padding-top: 20px;
+          }
+          &:last-child {
+            padding-bottom: 20px;
+          }
+        }
+        .supporter {
+          h4 {
+            min-height: 36px;
+          }
         }
       }
     }
 
     .widget.user-mates {
-      a.more {
-        background-color:#fff;
-        display:block;
-        float:none;
-        font-size:14px!important;
-        height:auto;
-        line-height:1.5em;
+      .categories {
         margin:0;
-        padding-right:20px;
-        text-align:center;
-        text-decoration:none;
-      }
-      .users ul > li {
-        max-width:308px!important;
-        width:308px!important;
+        padding:0;
+        h3.title {
+          background-color: #fff;
+          border-bottom:$solidBorder;
+          font-size:18px;
+          font-weight:400;
+          margin:0;
+          height: 80px;
+          line-height: 80px;
+          padding:0 2px 0 20px;
+        }
+        ul {
+          display:inline-block;
+          list-style:none;
+          margin:0;
+          padding-left:0;
+          li {
+            display:inline-block;
+            margin-left:0;
+            padding-left:0;
+            a {
+              font-size: 12px;
+              text-decoration:none;
+              &.active,
+              &:hover {
+                color:#19B4B2;
+              }
+            }
+          }
+        }
       }
     }
 
-    .widget.project-supporters {
-      .supporters > ul > li {
-        padding-bottom: 0;
+    .widget.user-message{
+      label{
+        display: block;
+      }
+      input#contact-subject{
+        margin: 0 0 10px 0;
+      }
+      textarea,
+      input{
+        width: 100%;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        background: #FFF;
+      }
+      a.preview{
+        display: none;
+      }
+    }
+
+    .widget.user-mates{
+      padding: 15px 20px;
+      .categories{
+        h3.title{
+          height: auto;
+          min-height: unset;
+          line-height: 16px;
+          margin: 0 0 20px 0;
+          padding: 0;
+          border: none;
+          background: none;
+        }
+        .list{
+          padding: 0;
+          border-bottom: $dashedBorder;
+          > ul{
+            list-style: none;
+            padding: 0;
+            background: none;
+          }
+        }
       }
     }
 
@@ -82,28 +180,160 @@
 
   .side {
     > .widget {
+      background: none;
       h3.supertitle {
-        color:#f5f5f5;
-        padding: 9px 2px 9px 20px;
+        color: #000;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0 0 8px;
+      }
+      .project-widget-box {
+        background-color: #fff;
       }
     }
 
+    //サイドバー　＞　支援者
     .widget.user-supporters {
       margin: 0 0 20px;
       padding: 0;
-      .supporters ul li h4 {
-        font-size:16px;
-        margin-bottom:4px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        width: 100%;
+      .supporters ul{
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: stretch; /* Safari */
+        align-items: stretch;
+        -webkit-flex-wrap: wrap; /* Safari */
+        flex-wrap: wrap;
+        li{
+          width: 50%;
+          min-height: 95px;
+          padding: 10px 5px;
+          border-bottom:$dashedBorder;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          &:nth-child(2n+2) {
+            border-right:none;
+          }
+          &:nth-child(3n+3) {
+            border-right:$dashedBorder;
+          }
+          .supporter{
+            zoom: 1;
+            &:after{
+              content: '';
+              display: block;
+              clear: both;
+            }
+          }
+          .avatar{
+            float: left;
+          }
+          h4 {
+            float: right;
+            width: 101px;
+            height: 3em;
+            font-size:12px;
+            margin: 0 0 4px 3px;
+            text-align: left;
+            overflow: hidden;
+            //text-overflow: ellipsis;
+            //white-space: nowrap;
+            span{
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+            }
+          }
+          dl{
+            float: right;
+            width: 101px;
+            margin: 0 0 0 3px;
+            dd.date{
+              top: auto;
+              bottom: -2em;
+              left: 0;
+            }
+          }
+        }
       }
     }
 
+    //サイドバー　＞　このユーザーの興味
     .widget.user-mates {
       margin:0 0 20px;
       padding:0;
+      div.categories {
+        height:auto;
+        min-height: 56px;
+        overflow:hidden;
+        padding: 0;
+        > .list {
+        }
+        ul {
+          overflow:hidden;
+          li {
+            display:inline-block;
+            margin-bottom:5px;
+            margin-right:5px;
+            a {
+              color:#636466;
+              font-size:12px;
+              text-decoration:none;
+              text-transform:uppercase;
+              &:hover {
+                color:#20B3B2;
+              }
+            }
+          }
+        }
+      }
+
+      .users{
+        ul{
+          display: -webkit-flex;
+          display: flex;
+          -webkit-flex-wrap: wrap; /* Safari */
+          flex-wrap: wrap;
+          -webkit-align-items: stretch; /* Safari */
+          align-items: stretch;
+          overflow:hidden;
+          li{
+            min-height: unset;
+            padding: 10px 5px;
+            zoom: 1;
+            &:after{
+              content: '';
+              display: block;
+              clear: both;
+            }
+            .user{
+              padding: 0;
+              .avatar{
+                position: static;
+                float: left;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                width: 43px;
+              }
+              h4{
+                float: right;
+                width: 101px;
+                margin: 0 0 10px 5px;
+              }
+              .invests,
+              .projects{
+                float: right;
+                width: 101px;
+                font-size: 10px;
+                margin: 0 0 0 5px;
+              }
+            }
+          }
+        }
+      }
+
     }
 
   }
@@ -119,11 +349,11 @@
   }
 
   .widget.user-about {
-    border-bottom: 1px dashed #c0c0c0;
     line-height:16px;
+    margin-bottom: 20px;
     padding-bottom:0;
     > div {
-      border-top:1px dashed silver;
+      border-top:$dashedBorder;
       clear:both;
       padding-top:20px;
       &:nth-child(1) {
@@ -201,6 +431,7 @@
   }
 
   .widget.projects {
+    margin-bottom: 20px;
     .discover-group {
       .widget.project {
         margin: 0 0 0 5px;
@@ -209,16 +440,6 @@
   }
 
   .widget.user-supporters {
-    h3.supertitle {
-      background-color:#313B96;
-      border-bottom:1px solid #313B96!important;
-      color:#f5f5f5;
-      font-size: 18px;
-      font-weight: normal;
-      margin: 0;
-      padding: .5em 2px .5em 20px;
-    }
-
     .supporters {
       ul {
         list-style:none;
@@ -226,7 +447,7 @@
         padding:0;
         li {
           background-color:#FFF;
-          border-right:1px dashed silver;
+          border-right:$dashedBorder;
           border-top:none;
           float:left;
           min-height:120px;
@@ -306,7 +527,7 @@
 
     a.more {
       background-color:#fff;
-      border-top:1px dashed silver;
+      border-top:$dashedBorder;
       clear:both;
       color:#58595b;
       display:block;
@@ -366,23 +587,26 @@
   }
 
   .widget.user-mates {
+    border-bottom: $solidBorder;
     padding: 0;
-    h3.supertitle {
-      background-color: #21b0b0;
-      border-bottom: 1px solid #21b0b0;
-      color: #f5f5f5;
-      font-size: 18px;
-      font-weight: 400;
-      margin: 0;
-      padding: .5em 2px .5em 20px;
-    }
+    position: relative;
     h3.title {
-      background-color: #666;
-      color: #f5f5f5;
+      background: url(/view/images/icon_tag_b.png) no-repeat 20px 50%;
+      border-bottom:$dashedBorder;
       font-size: 14px;
       font-weight: 400;
       margin: 0;
-      padding: 4px 0 4px 20px;
+      min-height: 58px;
+      padding:18px 0 18px 40px;
+    }
+    h4.supertitle {
+      background: url(/view/images/icon_tag_b.png) #fff no-repeat 20px 50%;
+      border-bottom:$dashedBorder;
+      font-size: 14px;
+      font-weight: 400;
+      margin: 0;
+      min-height: 58px;
+      padding:18px 0 18px 40px;
     }
     div.users,
     div.categories {
@@ -397,42 +621,9 @@
       overflow:auto;
       padding:0;
     }
-    div.categories {
-      height:auto;
-      line-height:1em;
-      overflow:hidden;
-      padding-bottom:10px;
-      ul {
-        overflow:hidden;
-        li {
-          display:inline-block;
-          margin-bottom:5px;
-          margin-right:5px;
-          a {
-            color:#636466;
-            font-size:12px;
-            text-decoration:none;
-            text-transform:uppercase;
-            &:hover {
-              color:#20B3B2;
-            }
-          }
-        }
-      }
-    }
     div.users {
       clear:both;
-      h3.supertitle {
-        background-color:#666;
-        border:none;
-        color:#f5f5f5;
-        font-size:14px;
-        font-weight:400;
-        height:auto;
-        line-height:normal;
-        margin:0;
-        padding:4px 0 4px 20px;
-      }
+      position: relative;
       ul {
         background-color:#fff;
         height:auto;
@@ -440,15 +631,20 @@
         margin:0;
         overflow:auto;
         padding:0;
+        &.is-archive-all {
+          li:nth-child(5n),
+          li:nth-child(6n) {
+            border-bottom: none;
+          }
+        }
         > li {
-          border-right:1px dashed silver;
+          border-right:$dashedBorder;
           float:left;
           margin:-1px 0 0;
           overflow:hidden;
-          padding:8px 0;
           position:relative;
           width:164px;
-          border-bottom:1px dashed silver;
+          border-bottom:$dashedBorder;
 
           &:nth-child(2n+2) {
             border-right:none;
@@ -463,7 +659,7 @@
             color:#19B4B2;
           }
           .user {
-            padding:3px 6px 3px 57px;
+            padding: 20px 20px 20px 80px;
             position:relative;
             > a.expand {
               bottom:0;
@@ -476,10 +672,10 @@
           }
           .avatar {
             height:50px;
-            left:4px;
+            left:20px;
             position:absolute;
             text-align:center;
-            top:8px;
+            top:20px;
             width:50px;
             a {
               @include circleAvatar(50px);
@@ -496,9 +692,9 @@
           }
           span {
             font-size:12px;
-            padding-top:4px;
             &.projects {
               color:#20b3b2;
+              margin-right: 8px;
             }
             &.invests {
               color:#313b96;
@@ -515,30 +711,37 @@
             }
           }
           div.user h4 {
-            margin-top:4px;
+            margin-bottom: 10px;
             a {
               display:inline-block;
               font-weight:700;
-              height:26px;
             }
           }
         }
       }
     }
     a.more {
-      background-color:#fff;
-      border-top:1px dashed silver;
-      clear:both;
-      color:#58595b;
-      display:block;
+      color: #337ab7;
+      display: inline-block;
       font-size:14px;
-      line-height:1.5em;
+      line-height: 58px;
       margin:0;
-      padding:10px;
-      text-align:center;
+      min-height: 58px;
+      padding: 0 20px 0 10px;
+      position: absolute;
+      right: 0;
       text-decoration:none;
+      top: 0;
       &:hover {
         color:#20b3b2;
+      }
+      &:after {
+        background: url(/view/images/arrow_user_link.png) no-repeat right 50%;
+        content: '';
+        display: inline-block;
+        height: 8px;
+        padding: 0 0 4px 4px;
+        width: 6px;
       }
     }
     .project-widget-box {
@@ -547,15 +750,28 @@
       padding:0;
     }
     div.categories {
-      background-color:#efefef;
-      line-height:27px;
-      margin:0;
-      padding:0 0 0 20px;
-      ul li {
-        display:inline-block;
-        margin-bottom:5px;
-        margin-right:5px;
+      background-color: #fff;
+      border-bottom:$solidBorder;
+      min-height: 58px;
+      padding:12px 0 12px 20px;
+      h3.supertitle {
+        background-color: #fff;
       }
+      .list {
+        border-bottom:$solidBorder;
+        min-height: 58px;
+        padding:12px 0 12px 20px;
+        > ul {
+          background: url(/view/images/icon_tag.png) no-repeat left 50%;
+          padding-left: 20px;
+          > li {
+            a {
+              line-height: 30px;
+            }
+          }
+        }
+      }
+
     }
   }
 
@@ -572,67 +788,5 @@
     }
   }
 
-  .widget.categorylist {
-    margin:0;
-    padding:0;
-    h3.title {
-      background-color:#21b0b0;
-      border-bottom:1px solid #21b0b0;
-      color:#f5f5f5;
-      font-size:18px;
-      font-weight:400;
-      margin:0;
-      padding:.5em 2px .5em 20px;
-    }
-    ul {
-      display:inline-block;
-      list-style:none;
-      margin:0;
-      padding-left:0;
-      li {
-        display:inline-block;
-        margin-left:0;
-        padding-left:0;
-        a {
-          font-size: 12px;
-          text-decoration:none;
-          &.active,
-          &:hover {
-            color:#19B4B2;
-          }
-        }
-      }
-    }
-    > .list {
-      background-color:#efefef;
-      padding:0 0 0 20px;
-      > ul > li {
-        margin:.5em .5em .5em 0;
-      }
-    }
-    > .filters {
-      border-bottom:1px solid #D5D5D6;
-      border-top:1px solid #D5D5D6;
-      padding:5px;
-      > span {
-        font-size:12px;
-      }
-      > ul {
-        margin-left:1em;
-        > li {
-          margin-bottom:.5em;
-          margin-right:.5em;
-          > a {
-            background:url(/view/images/user/grey-triangle-down.png) no-repeat left;
-            display:inline-block;
-            padding-left:15px;
-            &.active {
-              background:url(/view/images/user/blue-triangle-down.png) no-repeat left;
-            }
-          }
-        }
-      }
-    }
-  }
 
 }

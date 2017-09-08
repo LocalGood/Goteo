@@ -59,10 +59,12 @@ if (empty($shares)) {
 <div id="main">
 
     <div class="center">
-       
-       
+
+		<div class="widget user-mates">
+
+       <?/*php todo:widget/sharemates.html.phpにまとめる？ */?>
        <!-- lista de categorías -->
-        <div class="widget categorylist">
+        <div class="categories">
             <h3 class="title"><?php echo Text::get('profile-sharing_interests-header');?></h3>
 			<!--
             <div class="filters">
@@ -70,7 +72,7 @@ if (empty($shares)) {
                 <ul>
                     <li><a href="#" class="active">Por categorías</a></li>
                     <li class="separator">|</li>
-                    <li><a href="#">Por tags</a></li>                
+                    <li><a href="#">Por tags</a></li>
                 </ul>
             </div>
 			-->
@@ -85,13 +87,14 @@ if (empty($shares)) {
             <div class="list">
                 <ul>
                     <?php foreach ($categories as $catId=>$catName) : if (count($shares[$catId]) == 0) continue; ?>
-                    <li><a id="catlist<?php echo $catId ?>" href="/user/profile/<?php echo $this['user']->id ?>/sharemates/<?php echo $catId ?>" <?php if (!empty($this['category'])) : ?>onclick="displayCategory(<?php echo $catId ?>); return false;"<?php endif; ?> <?php if ($catId == $this['category']) echo 'class="active"'?>><?php echo $catName ?></a></li>
+                    <li><a id="catlist<?php echo $catId ?>" href="/user/profile/<?php echo $this['user']->id ?>/sharemates/<?php echo $catId ?>" <?php if (!empty($this['category'])) : ?>onclick="displayCategory(<?php echo $catId ?>); return false;"<?php endif; ?> <?php if ($catId == $this['category']) echo 'class="active"'?>><?php echo $catName ?></a>,</li>
                     <?php endforeach; ?>
                 </ul>
             </div>
         </div>
         <!-- fin lista de categorías -->
-        
+		</div>
+
         <!-- detalle de categoría (cabecera de categoría) -->
         <?php foreach ($shares as $catId => $sharemates) :
             if (count($sharemates) == 0) continue;
@@ -99,9 +102,17 @@ if (empty($shares)) {
             ?>
             <div class="widget user-mates" id="cat<?php echo $catId;?>" <?php if (!empty($this['category']) && $catId != $this['category']) echo 'style="display:none;"'?>>
                 <h3 class="title"><?php echo $categories[$catId] ?></h3>
+                <?php if (empty($this['category'])) : ?>
+                    <a class="more" href="/user/profile/<?php echo $this['user']->id ?>/sharemates/<?php echo $catId ?>"><?php echo Text::get('regular-see_more'); ?></a>
+                    <?php $isArchive = false; ?>
+                <?php else : ?>
+                    <a class="more" href="/user/profile/<?php echo $this['user']->id ?>/sharemates"><?php echo Text::get('regular-see_all'); ?></a>
+                    <?php $isArchive = true; ?>
+                <?php endif; ?>
+
                 <div class="users">
-                    <ul>
-                    <?php 
+                    <ul <?php echo ($isArchive===false)?"class='is-archive-all'":""; ?>>
+                    <?php
                     $cnt = 1;
                     foreach ($sharemates as $mate) :
                         if (empty($this['category']) && $cnt > 6) break;
@@ -114,23 +125,19 @@ if (empty($shares)) {
                                 <span class="projects"><?php echo Text::get('regular-projects'); ?> (<?php echo $mate->projects ?>)</span>
                                 <span class="invests"><?php echo Text::get('regular-investing'); ?> (<?php echo $mate->invests ?>)</span><br/>
                                 <span class="profile"><a href="/user/profile/<?php echo htmlspecialchars($mate->user) ?>"><?php echo Text::get('profile-widget-button'); ?></a> </span>
-                                <span class="contact"><a href="/user/profile/<?php echo htmlspecialchars($mate->user) ?>/message"><?php echo Text::get('regular-send_message'); ?></a></span>
+                                <?/*php<span class="contact"><a href="/user/profile/<?php echo htmlspecialchars($mate->user) ?>/message"><?php echo Text::get('regular-send_message'); ?></a></span>*/?>
                             </div>
                         </li>
-                    <?php 
+                    <?php
                     $cnt ++;
                     endforeach; ?>
                     </ul>
                 </div>
-        <?php if (empty($this['category'])) : ?>
-            <a class="more" href="/user/profile/<?php echo $this['user']->id ?>/sharemates/<?php echo $catId ?>"><?php echo Text::get('regular-see_more'); ?></a>
-        <?php else : ?>
-            <a class="more" href="/user/profile/<?php echo $this['user']->id ?>/sharemates"><?php echo Text::get('regular-see_all'); ?></a>
-        <?php endif; ?>
+
         </div>
         <?php endforeach; ?>
         <!-- fin detalle de categoría (cabecera de categoría) -->
-        
+
     </div>
     <div class="side">
         <?php if (!empty($_SESSION['user'])) echo new View('view/user/widget/investors.html.php', $this) ?>

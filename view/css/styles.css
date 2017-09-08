@@ -17,7 +17,7 @@ admin         :
 user-profile  :
 */
 html {
-  font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif;
+  font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', '繝｡繧､繝ｪ繧ｪ', Helvetica, Arial, sans-serif;
   font-size: 14px;
   height: 100%;
   margin: 0;
@@ -154,7 +154,7 @@ a.button.weak {
  commons
 ----------------------------------------------------------------------*/
 /*----------------------------------------------------------------------
- .project-show commons
+ borders
 ----------------------------------------------------------------------*/
 /*----------------------------------------------------------------------
  header.css
@@ -1232,45 +1232,25 @@ div#message {
       margin: 0; }
     .widget.project-supporters .title {
       display: none; }
-    .widget.project-supporters .summary {
-      background-color: #fff;
-      margin: 0 0 20px;
-      overflow: hidden;
-      padding: 20px; }
-      .widget.project-supporters .summary dt {
-        font-size: 12px;
-        margin: 0; }
-        .widget.project-supporters .summary dt.reached {
-          color: #663;
-          margin-top: -1.5em; }
-      .widget.project-supporters .summary dd {
-        font-size: 28px;
-        font-weight: 600;
-        margin: 0; }
-        .widget.project-supporters .summary dd.reached {
-          color: #903; }
-      .widget.project-supporters .summary .supporters {
-        width: 50%; }
     .widget.project-supporters .supporters {
       background-color: #fff; }
       .widget.project-supporters .supporters > ul {
         list-style: none;
         margin: 0;
         overflow: hidden;
-        padding: 30px 0; }
+        padding: 0; }
         .widget.project-supporters .supporters > ul > li {
           border-right: 1px solid #e0e0e0;
           box-sizing: border-box;
           float: left;
-          height: 90px;
-          padding-bottom: 20px;
+          padding: 0;
           width: 310px; }
           .widget.project-supporters .supporters > ul > li:nth-child(2n+2) {
             border-right: none; }
           .widget.project-supporters .supporters > ul > li.active {
             background-color: #f3f3f3; }
       .widget.project-supporters .supporters .supporterContainer {
-        padding: 10px 10px 10px 65px;
+        padding: 0;
         position: relative; }
       .widget.project-supporters .supporters a.expand {
         bottom: 0;
@@ -1280,36 +1260,51 @@ div#message {
         right: 0;
         top: 0;
         z-index: 999; }
-      .widget.project-supporters .supporters .supporter .avatar {
-        background-color: #fff;
-        display: block;
-        height: 43px;
-        left: 10px;
-        position: absolute;
-        top: 10px;
-        width: 43px; }
-      .widget.project-supporters .supporters .supporter h4 {
-        color: #337ab7;
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 1.15;
-        margin: 0 0 .5em;
-        overflow: hidden;
-        position: relative; }
-      .widget.project-supporters .supporters .supporter dl {
-        margin: 0;
-        font-size: 12px; }
-      .widget.project-supporters .supporters .supporter dt.projects {
-        display: inline-block; }
-      .widget.project-supporters .supporters .supporter dt.date {
-        display: none; }
-      .widget.project-supporters .supporters .supporter dd.projects {
-        display: inline-block;
-        margin-left: 0; }
-      .widget.project-supporters .supporters .supporter dd.date {
-        color: #a6a8ab;
-        font-size: 12px;
-        margin: 5px 0 0 0; }
+      .widget.project-supporters .supporters .supporter {
+        padding: 10px 10px 10px 65px; }
+        .widget.project-supporters .supporters .supporter .avatar {
+          border-radius: 50%;
+          display: inline-block;
+          height: 42px;
+          overflow: hidden;
+          position: relative;
+          text-align: center;
+          vertical-align: middle;
+          width: 42px;
+          left: 10px;
+          position: absolute; }
+          .widget.project-supporters .supporters .supporter .avatar img {
+            bottom: 0;
+            height: auto;
+            left: 0;
+            margin: auto;
+            position: absolute;
+            right: 0;
+            top: 0;
+            vertical-align: middle;
+            width: 100%; }
+        .widget.project-supporters .supporters .supporter h4 {
+          color: #337ab7;
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 1.15;
+          margin: 0 0 4px;
+          overflow: hidden;
+          position: relative; }
+        .widget.project-supporters .supporters .supporter dl {
+          margin: 0;
+          font-size: 12px; }
+        .widget.project-supporters .supporters .supporter dt.projects {
+          display: inline-block; }
+        .widget.project-supporters .supporters .supporter dt.date {
+          display: none; }
+        .widget.project-supporters .supporters .supporter dd.projects {
+          display: inline-block;
+          margin-left: 0; }
+        .widget.project-supporters .supporters .supporter dd.date {
+          color: #a6a8ab;
+          font-size: 12px;
+          margin: 0; }
   .widget.project-schedule {
     margin-bottom: 20px; }
     .widget.project-schedule table {
@@ -2208,13 +2203,17 @@ body.js .superform > div.elements ol li.element div.contents p {
     background-color: #fff;
     padding: 20px; }
     .project-show .project-rewards-summary > div .title {
+      margin-top: 10px;
       margin-bottom: 30px; }
     .project-show .project-rewards-summary > div ul {
-      background-color: #e7e7e7;
       list-style-type: none;
-      padding: 20px; }
+      margin: 0;
+      padding: 0; }
       .project-show .project-rewards-summary > div ul li {
-        zoom: 1; }
+        zoom: 1;
+        background-color: #e7e7e7;
+        margin-bottom: 20px;
+        padding: 20px; }
         .project-show .project-rewards-summary > div ul li:after {
           content: '';
           display: block;
@@ -2588,6 +2587,12 @@ body.js .superform > div.elements ol li.element div.contents p {
       width: 12px; }
     .project-show .center.supporters .project-invest p label input[type="checkbox"]:checked + span.chkbox {
       background-position: 0 -13px; }
+  .project-show .center.supporters .project-supporters ul li {
+    min-height: 70px; }
+    .project-show .center.supporters .project-supporters ul li:first-child, .project-show .center.supporters .project-supporters ul li:nth-child(2) {
+      padding-top: 20px; }
+    .project-show .center.supporters .project-supporters ul li:last-child {
+      padding-bottom: 20px; }
 .project-show .center.messages .project-collaborations {
   margin-bottom: 10px;
   padding: 0; }
@@ -4555,7 +4560,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   margin: 0 auto; }
   .user-profile #main > .center {
     float: left;
-    width: 620px; }
+    width: 610px; }
   .user-profile #main > .side {
     float: right;
     width: 330px; }
@@ -4592,58 +4597,226 @@ body.js .superform > div.elements ol li.element div.contents p {
     font-weight: bold;
     font-size: 24px;
     font-style: normal; }
-.user-profile .center.profile .widget.worthcracy.user-worthcracy {
-  background-color: #693;
+.user-profile .center .widget.user-mates:last-child {
+  margin-bottom: 20px; }
+.user-profile .center .widget.user-mates .users ul > li {
+  max-width: 305px;
+  width: 305px; }
+.user-profile .center .widget.project-supporters .summary {
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: 600;
+  font-size: 18px;
+  margin: 0;
+  overflow: hidden;
+  padding: 30px 20px; }
+  .user-profile .center .widget.project-supporters .summary .supporters {
+    display: inline-block;
+    width: auto; }
+  .user-profile .center .widget.project-supporters .summary dt {
+    margin: 0; }
+    .user-profile .center .widget.project-supporters .summary dt.reached {
+      color: #663;
+      margin-top: -1.5em; }
+  .user-profile .center .widget.project-supporters .summary dd {
+    margin: 0; }
+    .user-profile .center .widget.project-supporters .summary dd.reached {
+      color: #903; }
+.user-profile .center .widget.project-supporters .supporters > ul > li {
+  min-height: 105px;
+  width: 305px; }
+  .user-profile .center .widget.project-supporters .supporters > ul > li:first-child, .user-profile .center .widget.project-supporters .supporters > ul > li:nth-child(2) {
+    padding-top: 20px; }
+  .user-profile .center .widget.project-supporters .supporters > ul > li:last-child {
+    padding-bottom: 20px; }
+.user-profile .center .widget.project-supporters .supporters .supporter h4 {
+  min-height: 36px; }
+.user-profile .center .widget.user-mates .categories {
+  margin: 0;
   padding: 0; }
-  .user-profile .center.profile .widget.worthcracy.user-worthcracy h3.title {
-    border-bottom: 1px solid #693;
-    color: #fff;
+  .user-profile .center .widget.user-mates .categories h3.title {
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
     font-size: 18px;
     font-weight: 400;
     margin: 0;
-    padding: .5em 2px .5em 20px; }
-.user-profile .center .widget.user-mates a.more {
-  background-color: #fff;
-  display: block;
-  float: none;
-  font-size: 14px !important;
-  height: auto;
-  line-height: 1.5em;
-  margin: 0;
-  padding-right: 20px;
-  text-align: center;
-  text-decoration: none; }
-.user-profile .center .widget.user-mates .users ul > li {
-  max-width: 308px !important;
-  width: 308px !important; }
-.user-profile .center .widget.project-supporters .supporters > ul > li {
-  padding-bottom: 0; }
-.user-profile .side > .widget h3.supertitle {
-  color: #f5f5f5;
-  padding: 9px 2px 9px 20px; }
+    height: 80px;
+    line-height: 80px;
+    padding: 0 2px 0 20px; }
+  .user-profile .center .widget.user-mates .categories ul {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding-left: 0; }
+    .user-profile .center .widget.user-mates .categories ul li {
+      display: inline-block;
+      margin-left: 0;
+      padding-left: 0; }
+      .user-profile .center .widget.user-mates .categories ul li a {
+        font-size: 12px;
+        text-decoration: none; }
+        .user-profile .center .widget.user-mates .categories ul li a.active, .user-profile .center .widget.user-mates .categories ul li a:hover {
+          color: #19B4B2; }
+.user-profile .center .widget.user-message label {
+  display: block; }
+.user-profile .center .widget.user-message input#contact-subject {
+  margin: 0 0 10px 0; }
+.user-profile .center .widget.user-message textarea,
+.user-profile .center .widget.user-message input {
+  width: 100%;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background: #FFF; }
+.user-profile .center .widget.user-message a.preview {
+  display: none; }
+.user-profile .center .widget.user-mates {
+  padding: 15px 20px; }
+  .user-profile .center .widget.user-mates .categories h3.title {
+    height: auto;
+    min-height: unset;
+    line-height: 16px;
+    margin: 0 0 20px 0;
+    padding: 0;
+    border: none;
+    background: none; }
+  .user-profile .center .widget.user-mates .categories .list {
+    padding: 0;
+    border-bottom: 1px dashed #e0e0e0; }
+    .user-profile .center .widget.user-mates .categories .list > ul {
+      list-style: none;
+      padding: 0;
+      background: none; }
+.user-profile .side > .widget {
+  background: none; }
+  .user-profile .side > .widget h3.supertitle {
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 8px; }
+  .user-profile .side > .widget .project-widget-box {
+    background-color: #fff; }
 .user-profile .side .widget.user-supporters {
   margin: 0 0 20px;
   padding: 0; }
-  .user-profile .side .widget.user-supporters .supporters ul li h4 {
-    font-size: 16px;
-    margin-bottom: 4px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 100%; }
+  .user-profile .side .widget.user-supporters .supporters ul {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: stretch;
+    /* Safari */
+    align-items: stretch;
+    -webkit-flex-wrap: wrap;
+    /* Safari */
+    flex-wrap: wrap; }
+    .user-profile .side .widget.user-supporters .supporters ul li {
+      width: 50%;
+      min-height: 95px;
+      padding: 10px 5px;
+      border-bottom: 1px dashed #e0e0e0;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box; }
+      .user-profile .side .widget.user-supporters .supporters ul li:nth-child(2n+2) {
+        border-right: none; }
+      .user-profile .side .widget.user-supporters .supporters ul li:nth-child(3n+3) {
+        border-right: 1px dashed #e0e0e0; }
+      .user-profile .side .widget.user-supporters .supporters ul li .supporter {
+        zoom: 1; }
+        .user-profile .side .widget.user-supporters .supporters ul li .supporter:after {
+          content: '';
+          display: block;
+          clear: both; }
+      .user-profile .side .widget.user-supporters .supporters ul li .avatar {
+        float: left; }
+      .user-profile .side .widget.user-supporters .supporters ul li h4 {
+        float: right;
+        width: 101px;
+        height: 3em;
+        font-size: 12px;
+        margin: 0 0 4px 3px;
+        text-align: left;
+        overflow: hidden; }
+        .user-profile .side .widget.user-supporters .supporters ul li h4 span {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2; }
+      .user-profile .side .widget.user-supporters .supporters ul li dl {
+        float: right;
+        width: 101px;
+        margin: 0 0 0 3px; }
+        .user-profile .side .widget.user-supporters .supporters ul li dl dd.date {
+          top: auto;
+          bottom: -2em;
+          left: 0; }
 .user-profile .side .widget.user-mates {
   margin: 0 0 20px;
   padding: 0; }
+  .user-profile .side .widget.user-mates div.categories {
+    height: auto;
+    min-height: 56px;
+    overflow: hidden;
+    padding: 0; }
+    .user-profile .side .widget.user-mates div.categories ul {
+      overflow: hidden; }
+      .user-profile .side .widget.user-mates div.categories ul li {
+        display: inline-block;
+        margin-bottom: 5px;
+        margin-right: 5px; }
+        .user-profile .side .widget.user-mates div.categories ul li a {
+          color: #636466;
+          font-size: 12px;
+          text-decoration: none;
+          text-transform: uppercase; }
+          .user-profile .side .widget.user-mates div.categories ul li a:hover {
+            color: #20B3B2; }
+  .user-profile .side .widget.user-mates .users ul {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    /* Safari */
+    flex-wrap: wrap;
+    -webkit-align-items: stretch;
+    /* Safari */
+    align-items: stretch;
+    overflow: hidden; }
+    .user-profile .side .widget.user-mates .users ul li {
+      min-height: unset;
+      padding: 10px 5px;
+      zoom: 1; }
+      .user-profile .side .widget.user-mates .users ul li:after {
+        content: '';
+        display: block;
+        clear: both; }
+      .user-profile .side .widget.user-mates .users ul li .user {
+        padding: 0; }
+        .user-profile .side .widget.user-mates .users ul li .user .avatar {
+          position: static;
+          float: left;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          width: 43px; }
+        .user-profile .side .widget.user-mates .users ul li .user h4 {
+          float: right;
+          width: 101px;
+          margin: 0 0 10px 5px; }
+        .user-profile .side .widget.user-mates .users ul li .user .invests,
+        .user-profile .side .widget.user-mates .users ul li .user .projects {
+          float: right;
+          width: 101px;
+          font-size: 10px;
+          margin: 0 0 0 5px; }
 .user-profile .widget.user-message form label[for=message] {
   display: block; }
 .user-profile .widget.user-message form textarea#message {
   margin-bottom: 16px; }
 .user-profile .widget.user-about {
-  border-bottom: 1px dashed #c0c0c0;
   line-height: 16px;
+  margin-bottom: 20px;
   padding-bottom: 0; }
   .user-profile .widget.user-about > div {
-    border-top: 1px dashed silver;
+    border-top: 1px dashed #e0e0e0;
     clear: both;
     padding-top: 20px; }
     .user-profile .widget.user-about > div:nth-child(1) {
@@ -4700,23 +4873,17 @@ body.js .superform > div.elements ol li.element div.contents p {
     margin: 0 0 20px; }
   .user-profile .widget.user-about p {
     margin: 0 0 20px; }
-.user-profile .widget.projects .discover-group .widget.project {
-  margin: 0 0 0 5px; }
-.user-profile .widget.user-supporters h3.supertitle {
-  background-color: #313B96;
-  border-bottom: 1px solid #313B96 !important;
-  color: #f5f5f5;
-  font-size: 18px;
-  font-weight: normal;
-  margin: 0;
-  padding: .5em 2px .5em 20px; }
+.user-profile .widget.projects {
+  margin-bottom: 20px; }
+  .user-profile .widget.projects .discover-group .widget.project {
+    margin: 0 0 0 5px; }
 .user-profile .widget.user-supporters .supporters ul {
   list-style: none;
   margin: 0;
   padding: 0; }
   .user-profile .widget.user-supporters .supporters ul li {
     background-color: #FFF;
-    border-right: 1px dashed silver;
+    border-right: 1px dashed #e0e0e0;
     border-top: none;
     float: left;
     min-height: 120px;
@@ -4793,7 +4960,7 @@ body.js .superform > div.elements ol li.element div.contents p {
           top: 10px; }
 .user-profile .widget.user-supporters a.more {
   background-color: #fff;
-  border-top: 1px dashed silver;
+  border-top: 1px dashed #e0e0e0;
   clear: both;
   color: #58595b;
   display: block;
@@ -4837,22 +5004,25 @@ body.js .superform > div.elements ol li.element div.contents p {
       .user-profile .widget.user-social ul li.linkedin {
         background-image: url(/view/images/social/linkedin.png); }
 .user-profile .widget.user-mates {
-  padding: 0; }
-  .user-profile .widget.user-mates h3.supertitle {
-    background-color: #21b0b0;
-    border-bottom: 1px solid #21b0b0;
-    color: #f5f5f5;
-    font-size: 18px;
-    font-weight: 400;
-    margin: 0;
-    padding: .5em 2px .5em 20px; }
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0;
+  position: relative; }
   .user-profile .widget.user-mates h3.title {
-    background-color: #666;
-    color: #f5f5f5;
+    background: url(/view/images/icon_tag_b.png) no-repeat 20px 50%;
+    border-bottom: 1px dashed #e0e0e0;
     font-size: 14px;
     font-weight: 400;
     margin: 0;
-    padding: 4px 0 4px 20px; }
+    min-height: 58px;
+    padding: 18px 0 18px 40px; }
+  .user-profile .widget.user-mates h4.supertitle {
+    background: url(/view/images/icon_tag_b.png) #fff no-repeat 20px 50%;
+    border-bottom: 1px dashed #e0e0e0;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+    min-height: 58px;
+    padding: 18px 0 18px 40px; }
   .user-profile .widget.user-mates div.users,
   .user-profile .widget.user-mates div.categories {
     height: auto;
@@ -4864,36 +5034,9 @@ body.js .superform > div.elements ol li.element div.contents p {
     margin: 0;
     overflow: auto;
     padding: 0; }
-  .user-profile .widget.user-mates div.categories {
-    height: auto;
-    line-height: 1em;
-    overflow: hidden;
-    padding-bottom: 10px; }
-    .user-profile .widget.user-mates div.categories ul {
-      overflow: hidden; }
-      .user-profile .widget.user-mates div.categories ul li {
-        display: inline-block;
-        margin-bottom: 5px;
-        margin-right: 5px; }
-        .user-profile .widget.user-mates div.categories ul li a {
-          color: #636466;
-          font-size: 12px;
-          text-decoration: none;
-          text-transform: uppercase; }
-          .user-profile .widget.user-mates div.categories ul li a:hover {
-            color: #20B3B2; }
   .user-profile .widget.user-mates div.users {
-    clear: both; }
-    .user-profile .widget.user-mates div.users h3.supertitle {
-      background-color: #666;
-      border: none;
-      color: #f5f5f5;
-      font-size: 14px;
-      font-weight: 400;
-      height: auto;
-      line-height: normal;
-      margin: 0;
-      padding: 4px 0 4px 20px; }
+    clear: both;
+    position: relative; }
     .user-profile .widget.user-mates div.users ul {
       background-color: #fff;
       height: auto;
@@ -4901,15 +5044,17 @@ body.js .superform > div.elements ol li.element div.contents p {
       margin: 0;
       overflow: auto;
       padding: 0; }
+      .user-profile .widget.user-mates div.users ul.is-archive-all li:nth-child(5n),
+      .user-profile .widget.user-mates div.users ul.is-archive-all li:nth-child(6n) {
+        border-bottom: none; }
       .user-profile .widget.user-mates div.users ul > li {
-        border-right: 1px dashed silver;
+        border-right: 1px dashed #e0e0e0;
         float: left;
         margin: -1px 0 0;
         overflow: hidden;
-        padding: 8px 0;
         position: relative;
         width: 164px;
-        border-bottom: 1px dashed silver; }
+        border-bottom: 1px dashed #e0e0e0; }
         .user-profile .widget.user-mates div.users ul > li:nth-child(2n+2) {
           border-right: none; }
         .user-profile .widget.user-mates div.users ul > li.nomarginright {
@@ -4919,7 +5064,7 @@ body.js .superform > div.elements ol li.element div.contents p {
         .user-profile .widget.user-mates div.users ul > li:hover > div.user > h4 > a {
           color: #19B4B2; }
         .user-profile .widget.user-mates div.users ul > li .user {
-          padding: 3px 6px 3px 57px;
+          padding: 20px 20px 20px 80px;
           position: relative; }
           .user-profile .widget.user-mates div.users ul > li .user > a.expand {
             bottom: 0;
@@ -4930,10 +5075,10 @@ body.js .superform > div.elements ol li.element div.contents p {
             z-index: 99; }
         .user-profile .widget.user-mates div.users ul > li .avatar {
           height: 50px;
-          left: 4px;
+          left: 20px;
           position: absolute;
           text-align: center;
-          top: 8px;
+          top: 20px;
           width: 50px; }
           .user-profile .widget.user-mates div.users ul > li .avatar a {
             border-radius: 50%;
@@ -4962,10 +5107,10 @@ body.js .superform > div.elements ol li.element div.contents p {
             font-size: 12px !important;
             font-weight: 400; }
         .user-profile .widget.user-mates div.users ul > li span {
-          font-size: 12px;
-          padding-top: 4px; }
+          font-size: 12px; }
           .user-profile .widget.user-mates div.users ul > li span.projects {
-            color: #20b3b2; }
+            color: #20b3b2;
+            margin-right: 8px; }
           .user-profile .widget.user-mates div.users ul > li span.invests {
             color: #313b96; }
       .user-profile .widget.user-mates div.users ul li a {
@@ -4975,38 +5120,51 @@ body.js .superform > div.elements ol li.element div.contents p {
         .user-profile .widget.user-mates div.users ul li a:hover {
           color: #20B3B2; }
       .user-profile .widget.user-mates div.users ul li div.user h4 {
-        margin-top: 4px; }
+        margin-bottom: 10px; }
         .user-profile .widget.user-mates div.users ul li div.user h4 a {
           display: inline-block;
-          font-weight: 700;
-          height: 26px; }
+          font-weight: 700; }
   .user-profile .widget.user-mates a.more {
-    background-color: #fff;
-    border-top: 1px dashed silver;
-    clear: both;
-    color: #58595b;
-    display: block;
+    color: #337ab7;
+    display: inline-block;
     font-size: 14px;
-    line-height: 1.5em;
+    line-height: 58px;
     margin: 0;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none; }
+    min-height: 58px;
+    padding: 0 20px 0 10px;
+    position: absolute;
+    right: 0;
+    text-decoration: none;
+    top: 0; }
     .user-profile .widget.user-mates a.more:hover {
       color: #20b3b2; }
+    .user-profile .widget.user-mates a.more:after {
+      background: url(/view/images/arrow_user_link.png) no-repeat right 50%;
+      content: '';
+      display: inline-block;
+      height: 8px;
+      padding: 0 0 4px 4px;
+      width: 6px; }
   .user-profile .widget.user-mates .project-widget-box {
     background-color: #e5e5e5;
     margin: 0;
     padding: 0; }
   .user-profile .widget.user-mates div.categories {
-    background-color: #efefef;
-    line-height: 27px;
-    margin: 0;
-    padding: 0 0 0 20px; }
-    .user-profile .widget.user-mates div.categories ul li {
-      display: inline-block;
-      margin-bottom: 5px;
-      margin-right: 5px; }
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    min-height: 58px;
+    padding: 12px 0 12px 20px; }
+    .user-profile .widget.user-mates div.categories h3.supertitle {
+      background-color: #fff; }
+    .user-profile .widget.user-mates div.categories .list {
+      border-bottom: 1px solid #e0e0e0;
+      min-height: 58px;
+      padding: 12px 0 12px 20px; }
+      .user-profile .widget.user-mates div.categories .list > ul {
+        background: url(/view/images/icon_tag.png) no-repeat left 50%;
+        padding-left: 20px; }
+        .user-profile .widget.user-mates div.categories .list > ul > li a {
+          line-height: 30px; }
 .user-profile .widget.user h3.supertitle {
   font-weight: normal;
   margin: 0;
@@ -5016,52 +5174,5 @@ body.js .superform > div.elements ol li.element div.contents p {
   background-color: #21b0b0;
   color: #f5f5f5;
   padding-left: 8px; }
-.user-profile .widget.categorylist {
-  margin: 0;
-  padding: 0; }
-  .user-profile .widget.categorylist h3.title {
-    background-color: #21b0b0;
-    border-bottom: 1px solid #21b0b0;
-    color: #f5f5f5;
-    font-size: 18px;
-    font-weight: 400;
-    margin: 0;
-    padding: .5em 2px .5em 20px; }
-  .user-profile .widget.categorylist ul {
-    display: inline-block;
-    list-style: none;
-    margin: 0;
-    padding-left: 0; }
-    .user-profile .widget.categorylist ul li {
-      display: inline-block;
-      margin-left: 0;
-      padding-left: 0; }
-      .user-profile .widget.categorylist ul li a {
-        font-size: 12px;
-        text-decoration: none; }
-        .user-profile .widget.categorylist ul li a.active, .user-profile .widget.categorylist ul li a:hover {
-          color: #19B4B2; }
-  .user-profile .widget.categorylist > .list {
-    background-color: #efefef;
-    padding: 0 0 0 20px; }
-    .user-profile .widget.categorylist > .list > ul > li {
-      margin: .5em .5em .5em 0; }
-  .user-profile .widget.categorylist > .filters {
-    border-bottom: 1px solid #D5D5D6;
-    border-top: 1px solid #D5D5D6;
-    padding: 5px; }
-    .user-profile .widget.categorylist > .filters > span {
-      font-size: 12px; }
-    .user-profile .widget.categorylist > .filters > ul {
-      margin-left: 1em; }
-      .user-profile .widget.categorylist > .filters > ul > li {
-        margin-bottom: .5em;
-        margin-right: .5em; }
-        .user-profile .widget.categorylist > .filters > ul > li > a {
-          background: url(/view/images/user/grey-triangle-down.png) no-repeat left;
-          display: inline-block;
-          padding-left: 15px; }
-          .user-profile .widget.categorylist > .filters > ul > li > a.active {
-            background: url(/view/images/user/blue-triangle-down.png) no-repeat left; }
 
 /*# sourceMappingURL=styles.css.map */
