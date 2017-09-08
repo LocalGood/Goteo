@@ -15,6 +15,7 @@ dashboard     :
 community     :
 admin         :
 user-profile  :
+page          :スタイル調整が必要なページ
 */
 html {
   font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', '繝｡繧､繝ｪ繧ｪ', Helvetica, Arial, sans-serif;
@@ -5174,5 +5175,97 @@ body.js .superform > div.elements ol li.element div.contents p {
   background-color: #21b0b0;
   color: #f5f5f5;
   padding-left: 8px; }
+
+.user-login {
+  min-height: unset; }
+  .user-login #main {
+    margin: 0 auto; }
+  .user-login div#sub-header div {
+    display: block;
+    max-width: 960px;
+    margin: 0 auto; }
+  .user-login div#sub-header h2 {
+    min-height: 55px;
+    position: relative;
+    line-height: 1.2em;
+    font-size: 18px;
+    font-weight: normal; }
+    .user-login div#sub-header h2 a {
+      border-radius: 50%;
+      display: inline-block;
+      height: 55px;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+      vertical-align: middle;
+      width: 55px; }
+      .user-login div#sub-header h2 a img {
+        bottom: 0;
+        height: auto;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+        vertical-align: middle;
+        width: 100%; }
+    .user-login div#sub-header h2 em {
+      font-weight: bold;
+      font-size: 24px;
+      font-style: normal; }
+  .user-login .login {
+    min-height: calc(100vh - 2em - 758px);
+    padding: 15px 20px;
+    margin: 0 0 20px 0;
+    background: #FFF; }
+    .user-login .login label {
+      display: block; }
+    .user-login .login textarea,
+    .user-login .login input[type="text"] {
+      display: block;
+      width: 100%;
+      margin: 0 0 20px 0;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      background: #FFF; }
+
+.about #main {
+  margin: 0 auto; }
+  .about #main > .widget {
+    margin: 0 0 20px 0; }
+.about div#sub-header div {
+  display: block;
+  max-width: 960px;
+  margin: 0 auto; }
+.about div#sub-header h2 {
+  min-height: 55px;
+  position: relative;
+  line-height: 1.2em;
+  font-size: 18px;
+  font-weight: normal; }
+  .about div#sub-header h2 a {
+    border-radius: 50%;
+    display: inline-block;
+    height: 55px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    width: 55px; }
+    .about div#sub-header h2 a img {
+      bottom: 0;
+      height: auto;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+      vertical-align: middle;
+      width: 100%; }
+  .about div#sub-header h2 em {
+    font-weight: bold;
+    font-size: 24px;
+    font-style: normal; }
 
 /*# sourceMappingURL=styles.css.map */
