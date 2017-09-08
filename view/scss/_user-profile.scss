@@ -817,6 +817,8 @@
       }
     }
   }
+  .register,
+  .external-login,
   .login{
     min-height: calc(100vh - 2em - 758px);
     padding: 15px 20px;
@@ -824,16 +826,38 @@
     background: #FFF;
     label{
       display: block;
+      &.conditions{
+        display: inline-block;
+      }
     }
-    textarea,
-    input[type="text"]{
-      display: block;
+    textarea{
       width: 100%;
       margin: 0 0 20px 0;
+    }
+    textarea,
+    input:not([type="submit"]){
       -webkit-border-radius: 3px;
       -moz-border-radius: 3px;
       border-radius: 3px;
       background: #FFF;
+      &[type="text"]{
+        display: block;
+        width: 100%;
+        margin: 0 0 20px 0;
+      }
+      &[name="userid"],
+      &[name='username']{
+        display: block;
+        width: 50%;
+      }
+      &[type='password']{
+        display: block;
+        width: 50%;
+        margin: 0 0 20px 0;
+      }
+      &[type="checkbox"]{
+        display: inline-block;
+      }
     }
   }
 }
