@@ -29,8 +29,12 @@ $project = $this['project'];
 $personal = $this['personal'];
 
 $user = $_SESSION['user'];
-$usedepslion = $user->getUsedEpsilon ();
-$repeatf = ($usedepslion['usedcnt'] != 0) ? 1 : 0;
+if ($user != NULL) {
+	$usedepslion = $user->getUsedEpsilon ();
+	$repeatf = ($usedepslion['usedcnt'] != 0) ? 1 : 0;
+} else {
+	$repeatf = 0;
+}
 
 
 
