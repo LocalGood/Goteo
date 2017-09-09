@@ -35,7 +35,7 @@ $item_price = $invest->amount;
                 <input type="hidden" name="failure_str" value="back">
                 <input type="button" value="戻る" class="back" onClick='history.back();'>
 
-				<button type="submit" class="process pay-axes" name="method" value="epsilongo">前回のカードで決済を実行</button>
+				<button type="submit" id="submit" class="process pay-axes" name="method" value="epsilongo">前回のカードで決済を実行</button>
 
                 <!-- input type="submit" value="決済ページへ" -->
 
