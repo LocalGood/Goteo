@@ -84,15 +84,17 @@
         }
       }
     }
-    #searcher {
-      background:url(/view/images/lupa.png) no-repeat;
-      height:33px;
-      margin: 2px 0 0;
+    .searcher-btn {
       position:absolute;
       right:40px;
-      text-indent:-9999px;
       top:0;
-      width:80px;
+      #searcher {
+        background:url(/view/images/lupa.png) no-repeat;
+        height:33px;
+        margin: 2px 0 0;
+        text-indent:-9999px;
+        width:80px;
+      }
     }
   }
 
