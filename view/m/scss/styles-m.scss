@@ -8,6 +8,7 @@ commons       :header,footerなどの共通要素に対する設定
 widgets       :主にプロジェクトウィジェットに対する設定。.widgetが付くものに対する設定も少々
 meter         :メーターの設定
 superform     :.superformに対する設定。（form要素）
+home          :body.home配下に対する設定
 discover      :
 review        :
 project-show  :
@@ -25,6 +26,7 @@ user-profile  :
 @import "widgets";
 @import "meter";
 @import "superform";
+@import "home";
 @import "discover";
 @import "review";
 @import "project-show";

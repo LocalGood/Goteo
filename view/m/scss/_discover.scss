@@ -45,10 +45,20 @@
       padding: 4px 5px 4px 10px;
       width: 65%;
     }
-    form div button#searcher {
+    .searcher-btn {
+      height: 33px;
       position: absolute;
       right: 8px;
-      top: 40px;
+      top: 36px;
+      width: 25%;
+      #searcher {
+        background: url('/view/m/images/lupa.png') no-repeat;
+        height: 33px;
+        line-height: 33px;
+        margin: 0;
+        text-indent: -9999px;
+        width: 100%;
+      }
     }
     .filter {
       margin: 0 auto 8px;
@@ -90,27 +100,28 @@
     }
   }
 
-  #searcher {
-    background: url('/view/m/images/lupa.png') no-repeat;
-    height: 33px;
-    margin-top: -1px;
-    text-indent: -9999px;
-    width: 25%;
+  .widget.projects {
+    > .title {
+      background-color: #666666;
+      color: #f5f5f5;
+      margin: 0;
+      padding: 16px;
+    }
   }
-}
-.navi-bar {
-  background-color: #ffffff;
-  border-top: 1px dashed #c0c0c0;
-  //display: block;
-  text-align: center;
-  a.all {
-    display: block;
-    height: 30px;
-    line-height: 30px;
-    padding: 8px;
-    text-decoration: none;
-    &:hover {
-      color: #20B3B2;
+
+  .navi-bar {
+    background-color: #ffffff;
+    border-top: 1px dashed #c0c0c0;
+    text-align: center;
+    a.all {
+      display: block;
+      height: 30px;
+      line-height: 30px;
+      padding: 8px;
+      text-decoration: none;
+      &:hover {
+        color: #20B3B2;
+      }
     }
   }
 }

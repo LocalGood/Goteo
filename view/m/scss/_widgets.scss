@@ -1,16 +1,45 @@
 .widget{
 
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 6px;
+    text-decoration: none;
+  }
+
   //プロジェクトウィジェット（一覧などのコンパクトにまとまったウィジェット）
   &.projects{
+
     .discover-group {
-      div.widget.project {
+      .image {
+        margin-bottom: 0;
+      }
+      h3 {
+        &.title {
+          margin: 0;
+          padding: 16px 16px 0;
+          a {
+            font-size: 18px;
+            color: #0098c4;
+          }
+        }
+        &.ronda {
+          padding-top: 0;
+        }
+      }
+
+      .widget.project {
         margin: 0 auto;
       }
     }
 
     > .title {
-      margin-bottom: 16px;
+      background-color: #666666;
+      color: #f5f5f5;
+      margin: 0;
+      padding: 16px;
     }
+
     .project {
       background-color: #fff;
       margin-bottom: 20px;
@@ -29,6 +58,7 @@
         padding: 0.4em 1em !important;
       }
     }
+
     > .more {
       clear: both;
       text-align: right;
@@ -43,6 +73,7 @@
     > .widget-title {
       padding: 0 0 0 30px;
     }
+
     > .widget-porject-legend {
       margin: 0 0 20px 30px;
       text-transform:uppercase;
@@ -67,11 +98,11 @@
         text-transform:uppercase;
       }
       textarea  {
-        padding:10px;
         background:#E7E7E7;
         border:none;
         font-size:12px;
         margin: 10px 0;
+        padding:10px;
         resize:none;
         width:200px;
       }
@@ -174,7 +205,7 @@
             color: #cc6600;
             font-weight: bold;
             font-size: 16px;
-            line-height: 18px !important;
+            line-height: 18px;
             padding-right: 19px;
           }
         }
@@ -195,9 +226,9 @@
     }
 
     > .title {
-      font-size: 14px !important;
-      padding: 0 !important;
-      margin: 10px !important;
+      font-size: 14px;
+      padding: 0;
+      margin: 10px;
       a {
         font-size: 14px;
         font-weight: bold;
@@ -215,16 +246,30 @@
     }
 
     .title {
-      background: none !important;
+      background: none;
     }
 
-    &.balloon{
+    .balloon {
+      background: #cae4e6 url('/view/m/images/balloonbeak.png') no-repeat bottom left;
+      height: auto;
       > .title a {
         position:relative;
         z-index:99;
         line-height: 1.5em;
         font-size: 18px;
         color: #0098c4
+      }
+      > blockquote {
+        font-size: 12px;
+        margin: 0;
+        overflow: hidden;
+        padding-bottom: 10px;
+      }
+      > h4 {
+        font-size:  14px;
+        font-weight: bold;
+        margin: 0 0 .5em;
+        padding: 0;
       }
     }
 
@@ -341,35 +386,12 @@
         }
       }
     }
-    div.balloon {
-      background: #cae4e6 url('/view/m/images/balloonbeak.png') no-repeat bottom left;
-      height: auto;
-    }
     div.graph .optimum, &.project-support div.graph > div.optimum {
       height: 19px;
       margin-right: -2px;
       position: absolute;
       right: 0;
       margin-top: -6px;
-    }
-
-    .discover-group {
-      .image {
-        margin-bottom: 0;
-      }
-      h3 {
-        &.title {
-          margin: 0 !important;
-          padding: 16px 16px 0 !important;
-          a {
-            font-size: 18px;
-            color: #0098c4;
-          }
-        }
-        &.ronda {
-          padding-top: 0 !important;
-        }
-      }
     }
   }
 
@@ -455,15 +477,6 @@
 
 }
 
-/* meter */
-.home{
-  .meter{
-    .obtained {
-      display: none;
-    }
-  }
-}
-
 h4.author:hover a{
   color:#c5da4d;
 }
@@ -471,19 +484,6 @@ h4.author:hover a{
 /*----------------------------------------------------------------------
   project/widget/projects.css
 ----------------------------------------------------------------------*/
-
-body.home{
-  div.widget{
-    &.projects{
-      .title{
-        margin: 0;
-        padding: 16px 16px;
-        color: #f5f5f5;
-        background-color: #666666;
-      }
-    }
-  }
-}
 
 div#proyecto{
   h2.widget-title{

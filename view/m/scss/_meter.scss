@@ -28,15 +28,15 @@
     .minimum {
       background-color: #dc940f;
       height: 100%;
-      position: absolute;
       left: 0;
+      position: absolute;
       top: 0;
       .done {
         background-color: #c5da4d;
         height: 12px;
+        left: 0;
         max-width: 288px;
         position: absolute;
-        left: 0;
         top: 0;
         strong {
           background: url("/view/m/images/project/widget/project/marker_sp.png") no-repeat;
@@ -62,15 +62,15 @@
   }
 
   span.percent {
+    color: #a7a9ac;
     font-size: 26px;
     font-weight: bold;
-    color: #a7a9ac;
     padding-left: 15px;
   }
 
   dl {
-    position: relative;
     margin: 16px 0 0 0;
+    position: relative;
     * {
       margin: 0;
     }
@@ -83,39 +83,39 @@
       white-space: nowrap;
     }
     dt, dd {
-      position: absolute;
-      width: 33.3% !important;
       height: 30px !important;
+      position: absolute;
       text-align: center;
+      width: 33.3% !important;
     }
     dt {
-      top: 0;
       font-size: 11px;
+      top: 0;
       &.minimum {
-        top: 0;
-        left: 0;
         color: #cc6600;
+        left: 0;
+        top: 0;
       }
       &.optimum {
-        top: 0;
-        left: 33.3%;
         color: #6699cc;
+        left: 33.3%;
+        top: 0;
       }
       &.days {
-        top: 0;
         right: 0;
+        top: 0;
       }
       &.reached {
-        top: 56px;
         left: 0;
+        top: 56px;
       }
       &.supporters {
-        top: 56px;
         left: 33.3%;
+        top: 56px;
       }
       &.percent {
-        top: 56px;
         right: 0;
+        top: 56px;
       }
       &.days,
       &.reached,
@@ -125,24 +125,24 @@
       }
     }
     dd {
-      padding-top: 30px;
-      font-size: 12px;
       border-bottom: 1px solid #eee;
+      font-size: 12px;
+      padding-top: 30px;
       &.minimum {
-        top: -16px;
-        left: 0;
-        color: #cc6600;
         border-right: 1px solid #eee;
+        color: #cc6600;
+        left: 0;
+        top: -16px;
       }
       &.optimum {
-        top: -16px;
-        left: 33.3%;
-        color: #6699cc;
         border-right: 1px solid #eee;
+        color: #6699cc;
+        left: 33.3%;
+        top: -16px;
       }
       &.days {
-        top: -16px;
         right: 0;
+        top: -16px;
         strong {
           color: #996666;
         }
@@ -152,32 +152,32 @@
         font-weight: normal;
       }
       &.reached {
-        top: 40px;
-        left: 0;
-        font-weight: normal;
         border-right: 1px solid #eee;
+        font-weight: normal;
+        left: 0;
+        top: 40px;
       }
       &.supporters {
-        top: 40px;
-        left: 33.3%;
-        font-weight: normal;
         border-right: 1px solid #eee;
+        font-weight: normal;
+        left: 33.3%;
+        top: 40px;
         strong {
           color: #990000;
         }
       }
       &.percent {
-        top: 40px;
-        right: 0;
         font-weight: normal;
+        right: 0;
+        top: 40px;
       }
     }
   }
 
   h2, h3, h4, h5, h6 {
-    margin: 0;
     font-size: 12px;
     font-weight: bold;
+    margin: 0;
     padding: 2px 0 0;
   }
   > h3.ronda {
@@ -199,35 +199,40 @@
   }
 
   &.activable {
-    z-index: 999;
     padding-left: 16px !important;
     padding-right: 16px !important;
     width: 90vw;
+    z-index: 999;
   }
 
   &.skillmatching {
     padding: 4px 0 78px !important;
     dl {
       dt, dd {
-        width: 50% !important;
         height: 30px !important;
+        width: 50% !important;
       }
       dt {
         &.days {
-          top: 0;
-          right: 0;
           padding-top: 5px;
+          right: 0;
+          top: 0;
         }
         &.supporters {
-          top: 0;
           left: 0;
           padding-top: 5px;
+          top: 0;
         }
       }
       dd {
         &.days {
-          top: 0;
           border-top: 1px solid #eee;
+          top: 0;
+        }
+        &.supporters {
+          border-top: 1px solid #eee;
+          left: 0;
+          top: 0;
         }
       }
     }
