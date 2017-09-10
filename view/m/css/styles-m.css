@@ -763,36 +763,6 @@ ul.navi li.next.active a {
       height: 60px;
       background-image: url("/view/m/images/lg-project-sm.png");
       background-size: 60px 60px; }
-    .widget.project .image .tagmark {
-      position: absolute;
-      z-index: 899;
-      text-align: left;
-      color: #ffffff;
-      font-size: 1.0em;
-      font-weight: normal;
-      text-transform: uppercase;
-      width: 200px;
-      height: 31px;
-      font-style: normal;
-      letter-spacing: 1px;
-      margin-top: 8px;
-      line-height: 32px;
-      padding: 1px 0 0 8px; }
-      .widget.project .image .tagmark.green {
-        background: url("/view/m/images/project/tagmark_green.png") 0 0 no-repeat; }
-      .widget.project .image .tagmark.red {
-        background: url("/view/m/images/project/tagmark_red.png") 0 0 no-repeat; }
-      .widget.project .image .tagmark.violet {
-        background: url("/view/m/images/project/tagmark_violet.png") 0 0 no-repeat; }
-      .widget.project .image .tagmark.grey {
-        background: url("/view/m/images/project/tagmark_grey.png") 0 0 no-repeat; }
-      .widget.project .image .tagmark span.small {
-        font-size: 0.8em !important;
-        line-height: 14px; }
-      .widget.project .image .tagmark.twolines {
-        padding-top: 4px !important;
-        font-weight: normal;
-        font-style: normal; }
     .widget.project .image .investor {
       position: absolute;
       z-index: 899;

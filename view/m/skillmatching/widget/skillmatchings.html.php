@@ -50,26 +50,6 @@ if (isset($this['investor']) && is_object($this['investor'])) {
     <?php endif ?>
 
     <div class="image">
-        <?php switch ($project->tagmark) {
-            case 'onrun': // "en marcha"
-                echo '<div class="tagmark green">' . Text::get('regular-onrun_mark-sm') . '</div>';
-                break;
-            case 'keepiton': // "aun puedes"
-                echo '<div class="tagmark green">' . Text::get('regular-keepiton_mark') . '</div>';
-                break;
-            case 'onrun-keepiton': // "en marcha" y "aun puedes"
-                  echo '<div class="tagmark green twolines"><span class="small"><strong>' . Text::get('regular-onrun_mark-sm') . '</strong><br />' . Text::get('regular-keepiton_mark') . '</span></div>';
-                break;
-            case 'gotit': // "financiado"
-                echo '<div class="tagmark violet">' . Text::get('regular-gotit_mark') . '</div>';
-                break;
-            case 'success': // "exitoso"
-                echo '<div class="tagmark red">' . Text::get('regular-success_mark') . '</div>';
-                break;
-            case 'fail': // "caducado"
-                echo '<div class="tagmark grey">' . Text::get('regular-fail_mark') . '</div>';
-                break;
-        } ?>
         <span class="sm-icon"></span>
         <?
         $project->gallery = Goteo\Model\Skillmatching\Image::getGallery($project->id);

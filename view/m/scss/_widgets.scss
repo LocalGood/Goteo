@@ -149,46 +149,6 @@
         background-size: 60px 60px;
       }
 
-      .tagmark {
-        position: absolute;
-        z-index: 899;
-        text-align: left;
-        color: #ffffff;
-        font-size: 1.0em;
-        font-weight: normal;
-        text-transform: uppercase;
-        width: 200px;
-        height: 31px;
-        font-style: normal;
-        letter-spacing: 1px;
-        margin-top: 8px;
-        line-height: 32px;
-        padding: 1px 0 0 8px;
-        &.green {
-          background:url('/view/m/images/project/tagmark_green.png') 0 0 no-repeat;
-        }
-        &.red {
-          background:url('/view/m/images/project/tagmark_red.png') 0 0 no-repeat;
-        }
-        &.violet {
-          background:url('/view/m/images/project/tagmark_violet.png') 0 0 no-repeat;
-        }
-        &.grey {
-          background:url('/view/m/images/project/tagmark_grey.png') 0 0 no-repeat;
-        }
-
-        span.small {
-          font-size: 0.8em !important;
-          line-height: 14px;
-        }
-
-        &.twolines {
-          padding-top: 4px !important;
-          font-weight: normal;
-          font-style: normal;
-        }
-      }
-
       .investor {
         position: absolute;
         z-index: 899;
