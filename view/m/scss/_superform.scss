@@ -1,0 +1,955 @@
+div.datepicker {
+  position: absolute;
+  cursor: default;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.datepickerContainer {
+  background: white;
+  box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 99999;
+}
+
+.datepickerBorderT, .datepickerBorderB, .datepickerBorderL, .datepickerBorderR, .datepickerBorderTL, .datepickerBorderTR, .datepickerBorderBL, .datepickerBorderBR, .datepickerHidden {
+  display: none;
+}
+
+div.datepicker {
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  a {
+    outline: none;
+  }
+  table {
+    td {
+      text-align: right;
+      margin: 0;
+      font-size: 12px;
+      border: none;
+    }
+    tbody td a {
+      text-decoration: none;
+      color: #1fb0b0;
+      font-size: 12px !important;
+    }
+    td div.datepicker th {
+      text-align: center;
+      color: #999;
+      font-weight: normal;
+    }
+  }
+  tbody {
+    th {
+      text-align: left;
+    }
+    a {
+      display: block;
+    }
+  }
+}
+
+table.datepickerViewDays tr.datepickerDoW th {
+  padding: .6em .4em;
+  font-weight: normal;
+  color: #666;
+  text-align: center;
+  font-size: 12px;
+}
+
+.datepickerDays {
+  td, th {
+    padding: .1em;
+  }
+}
+
+tbody {
+  &.datepickerMonths td, &.datepickerYears td {
+    padding: .1em;
+  }
+}
+
+.datepickerDays a {
+  line-height: 1em;
+  width: 1.3em;
+  height: 1em;
+  padding: .4em;
+  background-color: #dff2f3;
+  border: 1px solid #1fb0b0;
+}
+
+tbody {
+  &.datepickerMonths td a, &.datepickerYears td a {
+    line-height: 1em;
+    width: 1.3em;
+    height: 1em;
+    padding: .4em;
+    background-color: #dff2f3;
+    border: 1px solid #1fb0b0;
+  }
+  &.datepickerMonths td a, &.datepickerYears td a {
+    width: 3.15em;
+    height: 3.9em;
+    line-height: 3.9em;
+    text-align: center;
+  }
+  &.datepickerDays td {
+    &.datepickerSelected a {
+      color: white;
+      background-color: #1FB0B0;
+    }
+    &.datepickerNotInMonth.datepickerSelected {
+      background: #17384d;
+    }
+  }
+  &.datepickerYears td.datepickerSelected, &.datepickerMonths td.datepickerSelected {
+    background: #17384d;
+  }
+}
+
+div.datepicker a:hover {
+  color: white;
+  background-color: #1FB0B0;
+}
+
+td.datepickerNotInMonth a {
+  color: #68c9c9 !important;
+}
+
+div.datepicker tbody th {
+  text-align: left;
+}
+
+.datepickerGoNext a, .datepickerGoPrev a, .datepickerMonth a {
+  text-align: center;
+  color: white !important;
+}
+
+.datepickerGoNext, .datepickerGoPrev, .datepickerMonth {
+  height: 2em;
+  padding: .2em;
+  line-height: 2em;
+  background-color: #1FB0B0;
+}
+
+.datepickerGoNext a {
+  float: right;
+  width: 2em;
+}
+
+.datepickerGoPrev a {
+  float: left;
+  width: 2em;
+}
+
+table {
+  &.datepickerViewDays tbody {
+    &.datepickerMonths, &.datepickerYears {
+      display: none;
+    }
+  }
+  &.datepickerViewMonths {
+    tbody {
+      &.datepickerDays, &.datepickerYears {
+        display: none;
+      }
+    }
+    tr.datepickerDoW {
+      display: none;
+    }
+  }
+  &.datepickerViewYears {
+    tbody {
+      &.datepickerDays, &.datepickerMonths {
+        display: none;
+      }
+    }
+    tr.datepickerDoW {
+      display: none;
+    }
+  }
+}
+
+td.datepickerDisabled {
+  a, &.datepickerNotInMonth a, a:hover {
+    color: #333;
+  }
+}
+
+/*----------------------------------------------------------------------
+  superform.css
+----------------------------------------------------------------------*/
+
+body.js div.superform .jshidden {
+  display: none;
+}
+
+div.superform {
+  fieldset {
+    border: 1px solid #99a2a5;
+    legend {
+      color: #6d7375;
+    }
+  }
+  h3 {
+    font-size: 30px;
+  }
+  li.element > {
+    h4, h5, h6, h7, h8 {
+      margin: 0 0 .6em;
+      font-size: 14px;
+    }
+    h4 {
+      font-size: 16px;
+      padding: 0;
+      line-height: 1.2em;
+      margin: 1em 0;
+    }
+    h5 {
+      font-weight: bold;
+      margin: 0 0 .4em 0;
+      color: #1DB3B2;
+    }
+    label {
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 1em 0;
+      display: block;
+    }
+  }
+  > div {
+    &.hint, &.elements {
+      overflow: visible;
+    }
+    &.hint {
+      color: #7f8183;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+  }
+}
+
+body.js div.superform > div.hint {
+  background: url('/view/m/images/superform/wizard.png') no-repeat right top;
+  border-right: 1px dashed #b7c2c5;
+}
+
+div.superform {
+  > div {
+    &.elements {
+      position: relative;
+    }
+    &.hint {
+      h4, blockquote {
+        background-color: #ffffff;
+        padding: 10px;
+        vertical-align: top;
+        border-width: 1px 0 0;
+        margin: 0;
+      }
+      h4 {
+        font-size: 30px;
+        float: left;
+      }
+      blockquote {
+        font-size: 14px;
+        border-top: none;
+        padding-left: 0;
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+  div.elements > ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  > div.elements div.elements > ol {
+    padding-left: 0;
+  }
+  ol #interests div.contents > ul {
+    border-left: 1px dashed #B7C2C5;
+  }
+  li.element {
+    > div.contents + div {
+      &.children > div.elements > ol, &.feedback + div.children > div.elements > ol {
+        margin-top: 1em;
+      }
+    }
+    position: relative;
+    padding: 1em 0;
+    clear: both;
+  }
+}
+
+body.dashboard.project-edit div#main.profile div.superform li.element.web div.title {
+  font-size: 12px;
+  text-transform: uppercase;
+  width: 100%;
+  word-wrap: break-word;
+  float: none;
+  margin: 0 0 10px 0;
+}
+
+div {
+  &.superform {
+    li.element:last-child {
+      padding-bottom: 0;
+    }
+    > div.elements > ol > li.element {
+      padding: 0;
+      overflow: hidden;
+      margin: 0 0 16px 0;
+    }
+  }
+  &#main.profile div.superform > div.elements > ol > li.element {
+    padding: 0;
+  }
+  &.superform {
+    > div.elements > ol > li.element.inline {
+      border-top: none;
+      padding: 0 2em 2em 0;
+    }
+    li.element > * + div.contents {
+      /*margin-top: 1em;*/
+      margin-top: 6px;
+      p {
+        font-weight: bold;
+        margin: 1.2em 0 .4em 0;
+        color: #1DB3B2;
+      }
+    }
+  }
+}
+
+body {
+  &.js div.superform > div.elements > ol > li.element {
+    div.contents {
+      font-size: 14px;
+    }
+    li.element {
+      margin-right: 0;
+      border-right: none;
+    }
+  }
+  div.superform {
+    > div.elements li.element li.element.inline {
+      border-top: none;
+    }
+    div.elements li {
+      &#user_avatar .children .elements {
+        border: 1px dashed #bcbdbf;
+        padding: 10px 20px;
+        margin: 20px 0 0 0;
+      }
+      &#user_webs .children .elements {
+        border: 1px dashed #bcbdbf;
+        padding: 10px 20px;
+        margin: 20px 0 0 0;
+        ol li div.elements {
+          border: none;
+          margin: 0;
+          padding: 0;
+        }
+      }
+      &#user_avatar h4, &#user_webs h4 {
+        padding: 0;
+        margin: 0;
+      }
+      &#user_avatar .children .elements {
+        ol li {
+          margin: 0 0 10px 0;
+          padding: 0;
+        }
+        input {
+          width: auto;
+          height: auto;
+          font-size: 12px;
+          line-height: 16px;
+          font-weight: normal;
+          width: 100%;
+        }
+      }
+      &.element.inline#avatar-image .contents {
+        border: 2px solid #def1f1;
+        border-radius: 6px;
+        margin: 6px;
+      }
+    }
+  }
+}
+
+div.superform {
+  div.elements > ol > li {
+    div.element {
+      display: inline;
+    }
+    > div.contents + div.children > div.elements {
+      margin-top: 1em;
+    }
+  }
+  input {
+    &[type='text'], &[type='password'] {
+      padding: .4em;
+      min-height: 27px;
+      background-color: #eeeeee;
+      border: 1px solid #cccccc;
+      font-size: 10px;
+    }
+  }
+  textarea {
+    padding: .4em;
+    min-height: 27px;
+    background-color: #eeeeee;
+    border: 1px solid #cccccc;
+    font-size: 10px;
+    min-height: 6em;
+  }
+  li.element.fullwidth {
+    border-right: none !important;
+    background-color: #e7e7e7 !important;
+    margin-right: -2px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    border-bottom: 1px dashed #b7c2c5 !important;
+    margin-bottom: -1px !important;
+    + li.element {
+      border-top: none;
+    }
+  }
+  div.elements > ol > li {
+    &.required > .title {
+      background: url('/view/m/images/superform/badge/required.png') no-repeat right center;
+    }
+    &.ok > .title {
+      background: url('/view/m/images/superform/badge/ok.png') no-repeat right center;
+    }
+    &.error > .title {
+      background: url('/view/m/images/superform/badge/error.png') no-repeat right center !important;
+    }
+    &.busy > .title {
+      background: url('/view/m/images/superform/badge/busy/cyan.gif') no-repeat right center;
+    }
+  }
+  li.element {
+    &.hidden {
+      display: none;
+    }
+    &.textbox > div.contents, &.textarea > div.contents {
+      padding-right: .6em;
+    }
+    &.textbox > div.contents > input {
+      &[type="text"], &[type="password"] {
+        display: block;
+        width: 99%;
+        min-width: 99%;
+        max-width: 99%;
+        margin: 0;
+        background-color: #eeeeee;
+        border: 1px solid #cccccc;
+        min-height: 27px;
+      }
+    }
+    &.textarea > div.contents > textarea {
+      display: block;
+      width: 99%;
+      min-width: 99%;
+      max-width: 99%;
+      margin: 0;
+      background-color: #eeeeee;
+      border: 1px solid #cccccc;
+      min-height: 27px;
+    }
+  }
+  div.elements {
+    li.element.textbox {
+      &.facebook > div.contents, &.google > div.contents, &.twitter > div.contents, &.identica > div.contents, &.linkedin > div.contents {
+        padding-left: 39px;
+        background-position: left center;
+        background-repeat: no-repeat;
+      }
+      &.facebook > div.contents {
+        background-image: url('/view/m/images/superform/facebook.png');
+      }
+      &.google > div.contents {
+        background-image: url('/view/m/images/superform/google.png');
+      }
+      &.twitter > div.contents {
+        background-image: url('/view/m/images/superform/twitter.png');
+      }
+      &.identica > div.contents {
+        background-image: url('/view/m/images/superform/identica.png');
+      }
+      &.linkedin > div.contents {
+        background-image: url('/view/m/images/superform/linkedin.png');
+      }
+    }
+    > ol > li {
+      &.element {
+        &.checkboxes, &.checkboxescustom, &.radios {
+          padding-bottom: 0;
+        }
+        &.checkboxes > div.contents > ul, &.checkboxescustom > div.contents > ul, &.radios > div.contents > ul, &.slider > div.contents > ul {
+          padding: 0;
+          border-left: 1px dashed #B7C2C5;
+          margin: 0;
+          list-style: none;
+          overflow: hidden;
+          border-top: 1px dashed #bcbdbf;
+        }
+        &.checkboxes > div.contents > ul > li, &.checkboxescustom > div.contents > ul > li, &.radios > div.contents > ul > li, &.slider > div.contents > ul > li {
+          border-bottom: 1px dashed #bcbdbf;
+          border-right: 1px dashed #bcbdbf;
+          padding: 0;
+        }
+        &.checkboxes.inline > div.contents > ul > li, &.checkboxescustom.inline > div.contents > ul > li, &.radios.inline > div.contents > ul > li, &.slider.inline > div.contents > ul > li {
+          margin-bottom: 0;
+        }
+      }
+      &.radio > div.contents > label {
+        position: relative;
+        padding: .6em .8em;
+        display: block;
+        cursor: pointer;
+      }
+      &.element {
+        &.checkboxes > div.contents > ul > li > label, &.checkboxescustom > div.contents > ul > li > label, &.radios > div.contents > ul > li > label, &.slider > div.contents > ul > li > label {
+          position: relative;
+          padding: .6em .8em;
+          display: block;
+          cursor: pointer;
+        }
+        &.checkboxescustom > div.contents > ul > li > label {
+          padding-right: 30px;
+          font-size: 13px;
+        }
+        &.checkboxes.cols_1 > div.contents > ul > li, &.checkboxescustom.cols_1 > div.contents > ul > li, &.radios.cols_1 > div.contents > ul > li, &.slider.cols_1 > div.contents > ul > li {
+          width: 100%;
+        }
+        &.checkboxes.cols_2 > div.contents > ul > li, &.checkboxescustom.cols_2 > div.contents > ul > li, &.radios.cols_2 > div.contents > ul > li, &.slider.cols_2 > div.contents > ul > li {
+          width: 49.5%;
+          float: left;
+        }
+        &.checkboxes.cols_4 > div.contents > ul > li, &.checkboxescustom.cols_4 > div.contents > ul > li, &.radios.cols_4 > div.contents > ul > li, &.slider.cols_4 > div.contents > ul > li {
+          width: 24.8%;
+          float: left;
+        }
+        &.checkboxes.cols_5 > div.contents > ul > li, &.checkboxescustom.cols_5 > div.contents > ul > li, &.radios.cols_5 > div.contents > ul > li, &.slider.cols_5 > div.contents > ul > li {
+          width: 20%;
+        }
+        &.checkboxes.cols_6 > div.contents > ul > li, &.checkboxescustom.cols_6 > div.contents > ul > li, &.radios.cols_6 > div.contents > ul > li, &.slider.cols_6 > div.contents > ul > li {
+          width: 16.66%;
+        }
+      }
+      &.radio > div.contents > label > input[type="radio"] {
+        position: absolute;
+        right: .5em;
+        top: 50%;
+        margin-top: -.5em;
+        height: 1em;
+        cursor: pointer;
+      }
+      &.element {
+        &.checkboxes > div.contents > ul > li > label > input[type="checkbox"], &.checkboxescustom > div.contents > ul > li > label > input[type="checkbox"], &.radios > div.contents > ul > li > label > input[type="radio"], &.slider > div.contents > ul > li > label > input[type="radio"] {
+          position: absolute;
+          right: .5em;
+          top: 50%;
+          margin-top: -.5em;
+          height: 1em;
+          cursor: pointer;
+        }
+        &.radio {
+          padding: 0 !important;
+        }
+      }
+    }
+  }
+  li.element > div.feedback {
+    font-size: 14px;
+    z-index: 999;
+    padding-top: 12px;
+    background: url('/view/m/images/superform/tooltip/beak/cyan/n.png') no-repeat 1em 0;
+    display: inline-block;
+  }
+}
+
+/* Full-width elements */
+
+/* Element badges. Order is imporant */
+
+/* Textboxes & Textarea */
+
+/* Custom textboxes */
+
+/* Checkboxes & radios */
+
+/* Feedback */
+
+body.js div.superform li.element > div.feedback {
+  /* Javascript-enabled */
+  display: none;
+  position: absolute;
+}
+
+div.superform {
+  li.element > div.feedback > div {
+    padding: 10px;
+    margin: 0;
+    background-color: #def1f1;
+    color: #7f8183;
+    box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    line-height: 16px !important;
+    + div {
+      margin-top: -10px;
+      z-index: 9999;
+      padding-top: .5em;
+    }
+    blockquote {
+      padding: 0;
+      margin: 0;
+      font-size: 13px;
+    }
+    &.error {
+      + div.hint > blockquote {
+        border-top: 1px dashed #b7c2C5;
+        padding-top: 1em;
+      }
+      blockquote {
+        padding-left: 30px;
+        background: url("superform/feedback/error.png") no-repeat left 0.2em;
+      }
+    }
+  }
+  &.aqua li.element > div.feedback {
+    > div {
+      background-color: #35b8b8;
+      color: white;
+    }
+    background-image: url('/view/m/images/superform/tooltip/beak/aqua/n.png');
+  }
+}
+
+/* Additional color schemes */
+
+body.js div.superform.aqua li.element > div.feedback {
+  background-image: url('/view/m/images/superform/tooltip/beak/aqua/w.png');
+}
+
+div.superform {
+  &.aqua {
+    div.elements > ol > li.busy > .title {
+      background: url('/view/m/images/superform/badge/busy/aqua.gif') no-repeat right top;
+    }
+    li.element > div.feedback > div.error + div.hint > blockquote {
+      border-top-color: white;
+    }
+  }
+  &.red li.element > div.feedback {
+    > div {
+      background-color: #e13028;
+      color: white;
+    }
+    background-image: url('/view/m/images/superform/tooltip/beak/red/n.png');
+  }
+}
+
+body.js div.superform.red li.element > div.feedback {
+  background-image: url('/view/m/images/superform/tooltip/beak/red/w.png');
+}
+
+div.superform {
+  &.red {
+    input {
+      &[type="text"], &[type="password"] {
+        background-color: #fdedec;
+        border-color: #ee4843;
+      }
+    }
+    textarea {
+      background-color: #fdedec;
+      border-color: #ee4843;
+    }
+    > div.hint {
+      h4, blockquote {
+        background-color: #fdedec;
+        color: #ee4843;
+      }
+    }
+    div.elements > ol > li.busy > .title {
+      background: url('/view/m/images/superform/badge/busy/red.gif') no-repeat right top;
+    }
+    li.element > div.feedback > div.error + div.hint > blockquote {
+      border-top-color: white;
+    }
+  }
+  &.green li.element > div.feedback {
+    > div {
+      background-color: #00b05b;
+      color: white;
+    }
+    background-image: url('/view/m/images/superform/tooltip/beak/green/n.png');
+  }
+}
+
+body.js div.superform.green li.element > div.feedback {
+  background-image: url('/view/m/images/superform/tooltip/beak/green/w.png');
+}
+
+div.superform {
+  &.green {
+    input {
+      &[type="text"], &[type="password"] {
+        background-color: #e7f3e8;
+        border-color: #00b05b;
+      }
+    }
+    textarea {
+      background-color: #e7f3e8;
+      border-color: #00b05b;
+    }
+    > div.hint {
+      h4, blockquote {
+        background-color: #e7f3e8;
+        color: #00b05b;
+      }
+    }
+    div.elements > ol > li.busy > .title {
+      background: url('/view/m/images/superform/badge/busy/green.gif') no-repeat right top;
+    }
+  }
+  input {
+    &.edit[type="submit"], &.remove[type="submit"], &.add[type="submit"] {
+      padding: 0.3em 1.2em !important;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+}
+
+/* Estilos especificos*/
+/* botones */
+
+a.button {
+  &.red, &.weak {
+    padding: 0.3em 1.2em !important;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  padding: 0.3em 1.2em !important;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+div.superform {
+  li#user_avatar li.avatar_upload input[type="submit"] {
+    padding: 10px 16px;
+  }
+  button.image-remove {
+    position: absolute;
+    right: 5px;
+    top: -10px;
+    background: url("/view/m/images/button/cross.png") no-repeat center center !important;
+    width: 20px;
+    height: 20px;
+    padding: 0 !important;
+    margin: 0 10px 0 0 !important;
+    &:hover {
+      background: url("/view/m/images/button/cross-active.png") no-repeat center center !important;
+    }
+  }
+}
+
+body.dashboard.project-edit div#main.profile div.superform .footer {
+  background-color: #fff;
+  padding: 0 20px 20px 0;
+  margin: 0;
+}
+
+div.superform input {
+  &.next, &.confirm, &.retry, &.save {
+    font-size: 15px;
+    width: 285px;
+  }
+}
+
+body.project-edit div.preview div.superform input {
+  &.confirm, &.retry {
+    padding: 0;
+  }
+}
+
+div.preview div.superform input {
+  &.next, &.confirm, &.retry {
+    padding: 0;
+  }
+}
+
+body.project-edit {
+  div.superform ol li.element {
+    div {
+      &.contents input.inline.ok {
+        padding: 0.3em 1.2em;
+      }
+      &.project-share li.url input {
+        width: 230px;
+      }
+    }
+    li.element.group div.contents input.next {
+      width: 200px;
+      height: 50px;
+    }
+  }
+  li {
+    &#video-upload, &#media-upload {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    &#video_usubs, &#media_usubs {
+      position: relative;
+      left: 80px;
+      padding-top: 0;
+      margin-top: -28px;
+      border-right: 0;
+    }
+    &#media {
+      padding-bottom: 10px;
+    }
+  }
+}
+
+/* titulos */
+
+div.superform li {
+  &#social_rewards h4.title, &#individual_rewards h4.title, &#supports h4.title, &#costs h4.title {
+    padding-left: 25px;
+  }
+  &#supports, &#social_rewards {
+    background-color: #f3f9f2 !important;
+  }
+  &#individual_rewards {
+    background-color: #f8e3e3 !important;
+  }
+  &.editcost {
+    background-color: #fdf3f4;
+  }
+  &.cost.required_cost-yes {
+    background-color: #f2e5f1 !important;
+  }
+  &.editcost {
+    &.required_cost-yes {
+      background-color: #f2e5f1 !important;
+    }
+    li.required_cost-yes {
+      background-color: #e4c9e2 !important;
+    }
+  }
+  &.cost.required_cost-no {
+    background-color: #f3f3f3 !important;
+  }
+  &.editcost {
+    &.required_cost-no {
+      background-color: #f3f3f3 !important;
+    }
+    li.required_cost-no {
+      background-color: #e2e2e2 !important;
+    }
+  }
+  &#gallery div.elements li.gallery-image {
+    margin: 5px 25px !important;
+    display: inline-block !important;
+    width: 153px !important;
+  }
+  &#scope, &#supports, &#social_rewards, &#individual_rewards {
+    border-bottom: 1px dashed #b7c2c5;
+  }
+  &.element {
+    div.contents input {
+      &.add[type="submit"], &.remove[type="submit"], &.edit[type="submit"], &.erase[type="submit"] {
+        width: auto;
+        height: auto;
+        line-height: 16px;
+        font-size: 12px;
+        font-weight: normal;
+      }
+    }
+    &.avatar_upload div.contents input[type="submit"] {
+      width: auto;
+      height: auto;
+      line-height: 16px;
+      font-size: 12px;
+      font-weight: normal;
+    }
+  }
+}
+
+/* backgrounds */
+
+/* Imagenes gallery */
+
+/* bordes */
+
+/* button size mini */
+
+a.button {
+  &.red, &.weak {
+    width: auto;
+    height: auto;
+    line-height: 16px;
+    font-size: 12px;
+    font-weight: normal;
+  }
+  width: auto;
+  height: auto;
+  line-height: 16px;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+body.js div.superform > div.hint {
+  background: url('/view/m/images/superform/wizard.png') no-repeat right top;
+  border-right: none;
+}
+
+div.superform {
+  li.element {
+    position: relative;
+    padding: 0;
+    clear: both;
+    &.textbox > div.contents > input {
+      &[type="text"], &[type="password"] {
+        margin: 0 0 10px 0;
+      }
+    }
+    &.textarea > div.contents > textarea {
+      margin: 0 0 10px 0;
+    }
+  }
+  input {
+    &[type='text'], &[type='password'] {
+      margin: 0 0 10px 0;
+    }
+  }
+  textarea {
+    margin: 0 0 10px 0;
+  }
+  > div.elements > ol > li.element {
+    margin: 0;
+  }
+}
+
+body.dashboard div#main.access div.superform {
+  margin: 0 0 10px 0;
+}

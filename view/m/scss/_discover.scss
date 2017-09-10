@@ -1,0 +1,214 @@
+.discover {
+
+  #sub-header {
+    div {
+      background-color: #dae121;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  #main {
+    div {
+      &.widget {
+        overflow: hidden;
+        padding-bottom: 20px;
+        &.projects div.navi-bar {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  .searcher {
+    background-color: #fff;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    form {
+      padding: 4px 8px;
+    }
+    .text-filter {
+      display: block;
+      margin-bottom: 20px;
+      label {
+        display: block;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 14px;
+        margin-left: 16px;
+        padding-top: 9px;
+      }
+    }
+    #text-query {
+      float: left;
+      width: 65%;
+      padding: 4px 5px 4px 10px;
+      color: #808184;
+      font-size: 16px;
+      background-color: #ffffff;
+      border: 1px solid #808184;
+    }
+    form div button#searcher {
+      position: absolute;
+      top: 40px;
+      right: 8px;
+    }
+    .filter {
+      position: relative;
+      width: 81.25vw;
+      margin: 0 auto 8px;
+      padding: 4px 8px;
+      &:last-child {
+        margin-right: 0;
+      }
+      label {
+        color: #58595B;
+        display: block;
+        font-weight: bold;
+        padding: 5px 5px 6px 0px;
+        text-transform: uppercase;
+        border-bottom: 1px solid #58595B;
+        font-size: 14px;
+      }
+      select {
+        color: #58595B;
+        width: 100%;
+        height: 35px;
+        font-size: 1.5em;
+        background-color: #e7e7e7;
+        margin: 0;
+        margin-top: 10px;
+        border: 1px solid #d1d3d4;
+        option {
+          color: #58595B;
+          &[selected="selected"] {
+            color: #58595B;
+            background-color: #d5d5d6;
+          }
+          &.all {
+            color: #58595B;
+            font-size: 1em;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+  #searcher {
+    background: url('/view/m/images/lupa.png') no-repeat;
+    height: 33px;
+    width: 25%;
+    text-indent: -9999px;
+    margin-top: -1px;
+  }
+
+}
+
+
+div {
+  &.navi-bar {
+    ul.navi {
+      list-style: none;
+      height: 10px;
+      z-index: 900;
+      margin: 0px;
+      padding: 10px;
+      li {
+        display: block;
+        float: left;
+        width: 1em;
+        height: 1em;
+        overflow: hidden;
+        margin-right: .5em;
+        > {
+          * {
+            display: block;
+            height: 100%;
+            width: 100%;
+            text-indent: 2000px;
+            line-height: 2000px;
+          }
+          a {
+            background-color: #cdcdce;
+            &:hover {
+              background-color: #20b3b2;
+            }
+            &.active {
+              background-color: #808184;
+            }
+          }
+        }
+      }
+    }
+    display: block;
+    height: 30px;
+    padding: 8px;
+    background-color: #ffffff;
+    text-align: center;
+    border-top: 1px dashed #c0c0c0;
+    border-bottom: 1px dashed #c0c0c0;
+    line-height: 30px;
+    a.all {
+      text-decoration: none;
+      text-transform: uppercase;
+      &:hover {
+        color: #20B3B2;
+      }
+    }
+  }
+}
+
+a.discover-arrow {
+  position: relative;
+  top: 200px;
+  color: white;
+  line-height: 24px;
+  text-indent: 24px;
+}
+
+div {
+  &.discover-arrow-left, &.discover-arrow-right {
+    width: 24px;
+  }
+  &.discover-arrow-left, &.discover-arrow-right {
+    display: none;
+  }
+  &.discover-arrow-left a.discover-arrow {
+    background: url('../images/arrowslider-sprt.png') scroll no-repeat 0 0;
+    &:hover {
+      background: url('../images/arrowslider-sprt.png') scroll no-repeat 0 -48px;
+    }
+  }
+  &.discover-arrow-right a.discover-arrow {
+    background: url('../images/arrowslider-sprt.png') scroll no-repeat 0 -24px;
+    &:hover {
+      background: url('../images/arrowslider-sprt.png') scroll no-repeat 0 -72px;
+    }
+  }
+}
+
+a.discover-arrow {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.widget.projects .discover-group {
+  .image {
+    margin-bottom: 0;
+  }
+  h3 {
+    &.title {
+      margin: 0 !important;
+      padding: 16px 16px 0 !important;
+      a {
+        font-size: 18px;
+        color: #0098c4;
+      }
+    }
+    &.ronda {
+      padding-top: 0 !important;
+    }
+  }
+}

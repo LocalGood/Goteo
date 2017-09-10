@@ -1,0 +1,300 @@
+* {
+  font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+  overflow: auto;
+}
+
+html,
+body {
+  background-color: #e7e7e7;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  overflow: hidden !important;
+  position: relative;
+  top: 0;
+  word-wrap: break-word;
+
+  .inner{
+    margin: 0 auto;
+    overflow: hidden;
+    zoom: 1;
+  }
+}
+
+body, td, th, a, a:link, a:visited, a:active, a:hover, input, textarea, button {
+  color: #58595b;
+  font-size: 14px;
+  word-wrap: break-word;
+}
+
+img {
+  border: none;
+}
+
+input, textarea, button {
+  font-size: 14px;
+}
+
+h1 {
+  display: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  margin: 1em 0;
+}
+
+input[type="text"],
+input[type="password"],
+textarea,
+fieldset {
+  background-color: #eeeeee;
+  border: 1px solid #cccccc;
+  min-height: 27px;
+  padding: .3em;
+}
+
+fieldset {
+  background: transparent;
+  display: inline-block;
+}
+
+textarea {
+  min-height: 8em;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  background-color: white !important;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button,
+a.button {
+  background: none;
+  background: #66cc99;
+  background: -moz-linear-gradient(top, #66cc99 0%, #339966 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#66cc99), color-stop(100%,#339966));
+  background: -webkit-linear-gradient(top, #66cc99 0%,#339966 100%);
+  background: -o-linear-gradient(top, #66cc99 0%,#339966 100%);
+  background: linear-gradient(to bottom, #66cc99 0%,#339966 100%);
+  border: none;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: bolder;
+  height: 50px;
+  line-height: 50px;
+  margin: .8em 0 .5em;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  width: 200px;
+}
+
+input.black[type="button"] {
+  background: #58595B;
+  background: -moz-linear-gradient(top, #58595B 0%, #333333 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#58595B), color-stop(100%,#333333));
+  background: -webkit-linear-gradient(top, #58595B 0%,#333333 100%);
+  background: -o-linear-gradient(top, #58595B 0%,#333333 100%);
+  background: -ms-linear-gradient(top, #58595B 0%,#333333 100%);
+  background: linear-gradient(to bottom, #58595B 0%,#333333 100%);
+}
+
+div.side div.widget.project-support a.button,
+div.side div.widget.project-collaborations a.button,
+div.side div.widget.user a.button,
+div.project-preview div.widget a.button,
+div.center div.widget.project-support a.button,
+div.widget.project-rewards-summary a.button {
+  line-height: 30px;
+  height: 30px;
+  width: 160px;
+}
+
+button.green {
+  line-height: 38px;
+  height: 38px;
+  padding: 0;
+  width: 140px;
+}
+
+body.project-edit div#main #project-steps button {
+  width: auto;
+}
+
+a.button {
+  margin: 0;
+  padding: 4px !important;
+}
+
+a.button.red {
+  font-size: 16px;
+  font-weight: bolder;
+  line-height: 50px;
+}
+
+input[type="submit"]:active,
+input[type="reset"]:active,
+button:active,
+a.button:active {
+  background: #60c1bf url('/view/m/images/button/aqua-active.png') repeat-x top;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+button:hover,
+a.button:hover {
+  background: #60c1bf url('/view/m/images/button/aqua-active.png') repeat-x top;
+}
+
+input.red[type="submit"],
+input.red[type="reset"],
+button.red,
+a.button.red,
+input.edit[type="submit"] {
+  background: #b5161e url('/view/m/images/button/red.png') repeat-x top;
+  color: white;
+}
+
+input.red[type="submit"]:active,
+input.red[type="reset"]:active,
+button.red:active,
+a.button.red:active,
+input.edit[type="submit"]:active {
+  background: #e44133 url('/view/m/images/button/red-active.png') repeat-x top;
+}
+
+input.red[type="submit"]:hover,
+input.red[type="reset"]:hover,
+button.red:hover,
+a.button.red:hover,
+input.edit[type="submit"]:hover {
+  background: #e44133 url('/view/m/images/button/red-active.png') repeat-x top;
+}
+
+/* = botones violeta
+*****************************/
+input.violet[type="submit"],
+input.violet[type="reset"],
+button.violet,
+a.button.violet {
+  background: #96238F url('/view/m/images/button/violet.png') repeat-x top;
+}
+
+input.violet[type="submit"]:hover,
+input.violet[type="reset"]:hover,
+button.violet:hover,
+a.button.violet:hover {
+  background: #96238F url('/view/m/images/button/violet-active.png') repeat-x top;
+}
+/* fin botones violeta */
+
+input.weak[type="submit"],
+input.weak[type="reset"],
+button.weak,
+a.button.weak {
+  background: #60c1bf url('/view/images/button/aqua-active.png') repeat-x top;
+  color: white;
+}
+
+input.weak[type="submit"]:active,
+input.weak[type="reset"]:active,
+button.weak:active,
+a.button.weak:active {
+  background: #b5161e url('/view/m/images/button/red.png') repeat-x top;
+}
+
+input.weak[type="submit"]:hover,
+input.weak[type="reset"]:hover,
+button.weak:hover,
+a.button.weak:hover {
+  background: #b5161e url('/view/m/images/button/red.png') repeat-x top;
+}
+
+input.disabled[type="submit"],
+input.disabled[type="reset"],
+button.disabled,
+a.button.disabled {
+  background: #CCCCCC;
+  color: white;
+  cursor: default;
+}
+
+input.disabled[type="submit"]:hover,
+input.disabled[type="reset"]:hover,
+button.disabled:hover,
+a.button.disabled:hover {
+  background: #CCCCCC;
+  cursor: default;
+}
+
+input.green[type="submit"],
+input.green[type="reset"],
+button.green,
+a.button.green {
+  background: #00b05b url('/view/m/images/button/green.png') repeat-x top;
+  color: white;
+}
+
+input.green[type="submit"]:active,
+input.green[type="reset"]:active,
+button.green:active,
+a.button.green:active {
+  background: #00b05b url('/view/m/images/button/green-active.png') repeat-x top;
+}
+
+input.green[type="submit"]:hover,
+input.green[type="reset"]:hover,
+button.green:hover,
+a.button.green:hover {
+  background: #00b05b url('/view/m/images/button/green-active.png') repeat-x top;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.clearfix { display: inline-table; }
+/* Hides from IE-mac \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* End hide from IE-mac */
+
+
+
+a.up{display:inline-block;padding-left:15px;margin-left:18px; background:url('/view/m/images/arrow-up3.png') no-repeat left; line-height: 20px;
+  font-size: 12px;
+  text-decoration: none;
+  color: #9f9f9f;
+  margin-bottom: 40px;
+  &:hover{background:url('/view/m/images/arrow-up.png') no-repeat left;
+    color: #20b3b2;
+  }
+}
+
+
+/* /user/m/leave */
+textarea#leave-message {
+  width:100%;
+}

@@ -1,0 +1,3557 @@
+@charset "UTF-8";
+/*
+base          :リセット、タグに対するベース設定
+mixins        :mixin設定
+colors        :カラーコードの変数
+commons       :header,footerなどの共通要素に対する設定
+widgets       :主にプロジェクトウィジェットに対する設定。.widgetが付くものに対する設定も少々
+meter         :メーターの設定
+superform     :.superformに対する設定。（form要素）
+discover      :
+review        :
+project-show  :
+project-edit  :
+dashboard     :
+community     :
+admin         :
+user-profile  :
+*/
+* {
+  font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif; }
+
+html {
+  height: 100%;
+  margin: 0;
+  overflow: auto; }
+
+html,
+body {
+  background-color: #e7e7e7;
+  padding: 0; }
+
+body {
+  margin: 0;
+  min-height: 100%;
+  overflow: hidden !important;
+  position: relative;
+  top: 0;
+  word-wrap: break-word; }
+  body .inner {
+    margin: 0 auto;
+    overflow: hidden;
+    zoom: 1; }
+
+body, td, th, a, a:link, a:visited, a:active, a:hover, input, textarea, button {
+  color: #58595b;
+  font-size: 14px;
+  word-wrap: break-word; }
+
+img {
+  border: none; }
+
+input, textarea, button {
+  font-size: 14px; }
+
+h1 {
+  display: none; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  margin: 1em 0; }
+
+input[type="text"],
+input[type="password"],
+textarea,
+fieldset {
+  background-color: #eeeeee;
+  border: 1px solid #cccccc;
+  min-height: 27px;
+  padding: .3em; }
+
+fieldset {
+  background: transparent;
+  display: inline-block; }
+
+textarea {
+  min-height: 8em; }
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  background-color: white !important; }
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button,
+a.button {
+  background: none;
+  background: #66cc99;
+  background: -moz-linear-gradient(top, #66cc99 0%, #339966 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #66cc99), color-stop(100%, #339966));
+  background: -webkit-linear-gradient(top, #66cc99 0%, #339966 100%);
+  background: -o-linear-gradient(top, #66cc99 0%, #339966 100%);
+  background: linear-gradient(to bottom, #66cc99 0%, #339966 100%);
+  border: none;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: bolder;
+  height: 50px;
+  line-height: 50px;
+  margin: .8em 0 .5em;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  width: 200px; }
+
+input.black[type="button"] {
+  background: #58595B;
+  background: -moz-linear-gradient(top, #58595B 0%, #333333 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #58595B), color-stop(100%, #333333));
+  background: -webkit-linear-gradient(top, #58595B 0%, #333333 100%);
+  background: -o-linear-gradient(top, #58595B 0%, #333333 100%);
+  background: -ms-linear-gradient(top, #58595B 0%, #333333 100%);
+  background: linear-gradient(to bottom, #58595B 0%, #333333 100%); }
+
+div.side div.widget.project-support a.button,
+div.side div.widget.project-collaborations a.button,
+div.side div.widget.user a.button,
+div.project-preview div.widget a.button,
+div.center div.widget.project-support a.button,
+div.widget.project-rewards-summary a.button {
+  line-height: 30px;
+  height: 30px;
+  width: 160px; }
+
+button.green {
+  line-height: 38px;
+  height: 38px;
+  padding: 0;
+  width: 140px; }
+
+body.project-edit div#main #project-steps button {
+  width: auto; }
+
+a.button {
+  margin: 0;
+  padding: 4px !important; }
+
+a.button.red {
+  font-size: 16px;
+  font-weight: bolder;
+  line-height: 50px; }
+
+input[type="submit"]:active,
+input[type="reset"]:active,
+button:active,
+a.button:active {
+  background: #60c1bf url("/view/m/images/button/aqua-active.png") repeat-x top; }
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+button:hover,
+a.button:hover {
+  background: #60c1bf url("/view/m/images/button/aqua-active.png") repeat-x top; }
+
+input.red[type="submit"],
+input.red[type="reset"],
+button.red,
+a.button.red,
+input.edit[type="submit"] {
+  background: #b5161e url("/view/m/images/button/red.png") repeat-x top;
+  color: white; }
+
+input.red[type="submit"]:active,
+input.red[type="reset"]:active,
+button.red:active,
+a.button.red:active,
+input.edit[type="submit"]:active {
+  background: #e44133 url("/view/m/images/button/red-active.png") repeat-x top; }
+
+input.red[type="submit"]:hover,
+input.red[type="reset"]:hover,
+button.red:hover,
+a.button.red:hover,
+input.edit[type="submit"]:hover {
+  background: #e44133 url("/view/m/images/button/red-active.png") repeat-x top; }
+
+/* = botones violeta
+*****************************/
+input.violet[type="submit"],
+input.violet[type="reset"],
+button.violet,
+a.button.violet {
+  background: #96238F url("/view/m/images/button/violet.png") repeat-x top; }
+
+input.violet[type="submit"]:hover,
+input.violet[type="reset"]:hover,
+button.violet:hover,
+a.button.violet:hover {
+  background: #96238F url("/view/m/images/button/violet-active.png") repeat-x top; }
+
+/* fin botones violeta */
+input.weak[type="submit"],
+input.weak[type="reset"],
+button.weak,
+a.button.weak {
+  background: #60c1bf url("/view/images/button/aqua-active.png") repeat-x top;
+  color: white; }
+
+input.weak[type="submit"]:active,
+input.weak[type="reset"]:active,
+button.weak:active,
+a.button.weak:active {
+  background: #b5161e url("/view/m/images/button/red.png") repeat-x top; }
+
+input.weak[type="submit"]:hover,
+input.weak[type="reset"]:hover,
+button.weak:hover,
+a.button.weak:hover {
+  background: #b5161e url("/view/m/images/button/red.png") repeat-x top; }
+
+input.disabled[type="submit"],
+input.disabled[type="reset"],
+button.disabled,
+a.button.disabled {
+  background: #CCCCCC;
+  color: white;
+  cursor: default; }
+
+input.disabled[type="submit"]:hover,
+input.disabled[type="reset"]:hover,
+button.disabled:hover,
+a.button.disabled:hover {
+  background: #CCCCCC;
+  cursor: default; }
+
+input.green[type="submit"],
+input.green[type="reset"],
+button.green,
+a.button.green {
+  background: #00b05b url("/view/m/images/button/green.png") repeat-x top;
+  color: white; }
+
+input.green[type="submit"]:active,
+input.green[type="reset"]:active,
+button.green:active,
+a.button.green:active {
+  background: #00b05b url("/view/m/images/button/green-active.png") repeat-x top; }
+
+input.green[type="submit"]:hover,
+input.green[type="reset"]:hover,
+button.green:hover,
+a.button.green:hover {
+  background: #00b05b url("/view/m/images/button/green-active.png") repeat-x top; }
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
+
+.clearfix {
+  display: inline-table; }
+
+/* Hides from IE-mac \*/
+* html .clearfix {
+  height: 1%; }
+
+.clearfix {
+  display: block; }
+
+/* End hide from IE-mac */
+a.up {
+  display: inline-block;
+  padding-left: 15px;
+  margin-left: 18px;
+  background: url("/view/m/images/arrow-up3.png") no-repeat left;
+  line-height: 20px;
+  font-size: 12px;
+  text-decoration: none;
+  color: #9f9f9f;
+  margin-bottom: 40px; }
+  a.up:hover {
+    background: url("/view/m/images/arrow-up.png") no-repeat left;
+    color: #20b3b2; }
+
+/* /user/m/leave */
+textarea#leave-message {
+  width: 100%; }
+
+/*--------------------------------------------------
+  header
+--------------------------------------------------*/
+.main_nav02 {
+  background: #fff;
+  box-shadow: -1px 2px 2px rgba(9, 9, 9, 0.2);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 60px;
+  left: 0;
+  padding: 16px 19px 16px 13px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99999; }
+  .main_nav02 .nav_logo {
+    float: left; }
+    .main_nav02 .nav_logo img {
+      width: 35%; }
+  .main_nav02 .nav_menu-button {
+    background: #fff;
+    float: right;
+    height: 23px;
+    padding: 7px 0 3px;
+    width: 21px; }
+    .main_nav02 .nav_menu-button span {
+      background: #255b80;
+      display: block;
+      height: 3px;
+      margin-bottom: 3px; }
+  .main_nav02 .main_nav__link-list {
+    background: #fff;
+    box-shadow: -1px 2px 2px rgba(9, 9, 9, 0.2);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: none;
+    left: 0;
+    padding: 0 20px;
+    top: 60px;
+    width: 100%;
+    z-index: 88888; }
+    .main_nav02 .main_nav__link-list .list_open .list01__text {
+      background: url("/view/m/images/header/s-main_nav-open.png") no-repeat right; }
+    .main_nav02 .main_nav__link-list .list_open.on .list01__text {
+      background: url("/view/m/images/header/s-main_nav-open-on.png") no-repeat right; }
+    .main_nav02 .main_nav__link-list .list_open .dl {
+      display: none; }
+    .main_nav02 .main_nav__link-list .list01 {
+      list-style: none;
+      padding: 0; }
+      .main_nav02 .main_nav__link-list .list01 li dt {
+        display: block;
+        margin-top: 14px; }
+      .main_nav02 .main_nav__link-list .list01 li dd {
+        background: url("/view/m/images/header/s-main_nav-icon.png") no-repeat left;
+        line-height: 2.5em;
+        margin: 0;
+        padding-left: 20px; }
+      .main_nav02 .main_nav__link-list .list01 li .list01__text {
+        border-bottom: solid 1px #ccc;
+        color: #575757;
+        display: block;
+        font-size: 14px !important;
+        font-weight: bold;
+        padding: 20px 0; }
+      .main_nav02 .main_nav__link-list .list01 li .list02 {
+        border-bottom: solid 1px #ccc;
+        padding-bottom: 20px;
+        padding-left: 20px; }
+        .main_nav02 .main_nav__link-list .list01 li .list02 a {
+          font-size: 13px; }
+      .main_nav02 .main_nav__link-list .list01 li a {
+        text-decoration: none; }
+  .main_nav02 .nav_menu-button .close_button {
+    color: #255b80;
+    font-size: 200%;
+    font-weight: bold;
+    display: none;
+    margin-top: -20px; }
+
+#sub-header,
+#sub-header-secondary {
+  clear: both;
+  margin-bottom: 32px; }
+  #sub-header > div,
+  #sub-header-secondary > div {
+    display: block; }
+
+/* Sub-header */
+#sub-header {
+  margin-bottom: 1px;
+  margin-top: 60px; }
+  #sub-header h2.title {
+    padding: 10px;
+    text-align: center; }
+  #sub-header.banners {
+    padding: 0; }
+    #sub-header.banners > div > div.mod-pojctopen {
+      margin-left: 0;
+      margin-right: 32px;
+      margin-top: 16px; }
+  #sub-header > div.clearfix {
+    min-width: 915px; }
+    #sub-header > div.clearfix > div {
+      float: left;
+      width: 680px; }
+  #sub-header > div > h2 {
+    margin: 0;
+    padding: 0; }
+  #sub-header > div > div.mod-pojctopen {
+    float: right;
+    width: 180px; }
+    #sub-header > div > div.mod-pojctopen > .modpo-open {
+      color: #ee4843;
+      font: bold 58px/72px Helvetica, Arial, Geneva, sans-serif;
+      text-align: center; }
+    #sub-header > div > div.mod-pojctopen > .modpo-percent {
+      border-bottom: 1px solid #a7a9ac;
+      color: #908499;
+      font: bold 22px Helvetica, Arial, Geneva, sans-serif;
+      margin: -10px 0 0;
+      padding: 4px 0 8px;
+      text-align: center; }
+    #sub-header > div > div.mod-pojctopen > .modpo-whyopen {
+      font: bold 14px Helvetica, Arial, Geneva, sans-serif;
+      padding: 6px 0 0 50px; }
+
+.subhead-banner h2.message .greenblue {
+  color: #908499; }
+.subhead-banner .banner-button {
+  bottom: 10px;
+  position: absolute;
+  right: 20px; }
+
+/*--------------------------------------------------
+footer
+--------------------------------------------------*/
+footer {
+  background: #255b7f;
+  color: #fff;
+  padding: 40px 20px 10px; }
+  footer .footer__link-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px; }
+  footer .footer_menu_links span {
+    display: block;
+    font-size: 10px;
+    margin-bottom: 10px; }
+  footer ul {
+    line-height: 2em;
+    list-style: none;
+    margin-bottom: 30px;
+    padding-left: 0; }
+  footer a {
+    color: #fff !important;
+    font-size: 12px !important;
+    text-decoration: none; }
+  footer .footer_bottom .footer_logo {
+    margin-left: -10px; }
+    footer .footer_bottom .footer_logo img {
+      width: 70%; }
+  footer .footer_bottom .sns-area {
+    display: table;
+    width: 50%; }
+    footer .footer_bottom .sns-area li {
+      display: table-cell;
+      width: 25%;
+      vertical-align: middle; }
+      footer .footer_bottom .sns-area li a {
+        display: block;
+        text-align: center;
+        width: 100%; }
+        footer .footer_bottom .sns-area li a img {
+          height: 20px;
+          width: auto; }
+  footer .footer_bottom .link {
+    margin-bottom: 30px; }
+    footer .footer_bottom .link span {
+      background: #fff;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      color: #255b7f;
+      display: inline-block;
+      font-size: 80%;
+      font-weight: bold;
+      height: 15px;
+      text-align: center;
+      vertical-align: middle;
+      width: 15px; }
+
+.sp_footer_logo-area {
+  background: #fff;
+  padding: 25px 25px 10px 25px; }
+  .sp_footer_logo-area .cw {
+    font-size: 50% !important;
+    text-align: center; }
+  .sp_footer_logo-area ul {
+    list-style: none;
+    padding: 0;
+    width: 100%; }
+    .sp_footer_logo-area ul li {
+      display: table;
+      float: left;
+      height: 67px;
+      text-align: center;
+      vertical-align: middle;
+      width: 50%; }
+      .sp_footer_logo-area ul li a {
+        display: table-cell;
+        vertical-align: middle; }
+      .sp_footer_logo-area ul li img {
+        height: auto;
+        max-height: 60px;
+        max-width: 80%;
+        width: auto; }
+
+/*--------------------------------------------------
+  contents
+--------------------------------------------------*/
+#wrapper {
+  margin-top: 60px; }
+
+.contents_wrapper {
+  background-color: #f5f3f0;
+  height: auto;
+  margin: 0 auto 0;
+  padding-bottom: 20px;
+  position: relative;
+  width: 100%; }
+
+#main {
+  clear: both;
+  overflow: hidden;
+  position: relative;
+  z-index: 0; }
+
+/** pagination **/
+ul#pagination {
+  float: left;
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  ul#pagination li {
+    background: white;
+    -moz-box-shadow: 3px 3px 0 #E2E2E2;
+    -webkit-box-shadow: 3px 3px 0 #E2E2E2;
+    box-shadow: 3px 3px 0 #E2E2E2;
+    display: inline;
+    float: left;
+    margin: 0 6px 0 0;
+    text-align: center;
+    width: auto; }
+    ul#pagination li.selected {
+      background: #cde4e5;
+      font-weight: bold;
+      padding: 6px 20px; }
+    ul#pagination li.hellip {
+      padding: 6px 20px; }
+    ul#pagination li a {
+      display: block;
+      font-weight: bold;
+      padding: 6px 20px;
+      text-decoration: none; }
+      ul#pagination li a:hover {
+        background: #F3F3F3; }
+
+/*ul.lang {
+  position: absolute;
+  left: 0;
+  top: 25px;
+  z-index: 1000;
+  list-style: none;
+  display: none;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  li {
+    background-color: #59595C;
+    height: 15px;
+    padding: 4px 0;
+    position: relative;
+    width: 70px;
+    text-align: center;
+    &:hover {
+      background: #808285;
+      > a {
+        color: #908499;
+      }
+    }
+    > a {
+      bottom: 0;
+      color: #FFFFFF;
+      font-size: 12px;
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+      top: 0;
+      width: 100%;
+      display: block;
+    }
+  }
+}*/
+/** navi box&arrows **/
+/*ul.navi {
+  list-style: none;
+  margin: 0;
+  height: 10px;
+  padding: 10px;
+  z-index: 900;
+}
+
+ul.navi li {
+  display: block;
+  float: left;
+  height: 1em;
+  margin-right: .5em;
+  overflow: hidden;
+  width: 1em;
+}
+
+ul.navi li > * {
+  display: block;
+  height: 100%;
+  line-height: 2000px;
+  text-indent: 2000px;
+  width: 100%;
+}
+
+ul.navi li > a {
+  background-color: #cdcdce;
+}
+
+ul.navi li.active > a,
+ul.navi li > a:hover {
+  background-color: #20b3b2;
+}
+
+ul.navi li > a.active {
+  background-color: #808184;
+}
+
+ul.navi li.prev,
+ul.navi li.next {
+  line-height: 2000px;
+  height: 1em;
+  overflow: hidden;
+  width: 1em;
+}
+
+ul.navi li.prev a {
+  background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 0;
+}
+
+ul.navi li.prev.active a {
+  background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 -32px;
+}
+
+ul.navi li.next a {
+  background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 -16px;
+}
+
+ul.navi li.next.active a {
+  background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 -48px;
+}*/
+.widget.projects .discover-group div.widget.project {
+  margin: 0 auto; }
+.widget.projects > .title {
+  margin-bottom: 16px; }
+.widget.projects .project {
+  background-color: #fff;
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  z-index: 98; }
+  .widget.projects .project a.expand {
+    padding: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 99; }
+  .widget.projects .project a.button {
+    padding: 0.4em 1em !important; }
+.widget.projects > .more {
+  clear: both;
+  text-align: right; }
+  .widget.projects > .more a {
+    text-decoration: none;
+    text-transform: uppercase; }
+    .widget.projects > .more a:hover {
+      text-decoration: underline; }
+.widget.projects > .widget-title {
+  padding: 0 0 0 30px; }
+.widget.projects > .widget-porject-legend {
+  margin: 0 0 20px 30px;
+  text-transform: uppercase; }
+.widget.projects > .project-code {
+  float: left;
+  height: auto;
+  margin-left: 45px;
+  overflow: auto;
+  width: auto; }
+.widget.projects > #widget-code {
+  float: left;
+  margin: 0 0 0 20px;
+  width: 350px; }
+  .widget.projects > #widget-code .wc-embed {
+    background: url("/view/m/images/social/embed.png") no-repeat;
+    height: 20px;
+    padding: 3px 0 0 25px;
+    text-transform: uppercase; }
+  .widget.projects > #widget-code textarea {
+    padding: 10px;
+    background: #E7E7E7;
+    border: none;
+    font-size: 12px;
+    margin: 10px 0;
+    resize: none;
+    width: 200px; }
+.widget.blog-comment {
+  position: relative; }
+  .widget.blog-comment button.green {
+    float: right;
+    margin-bottom: 5px;
+    margin-top: 25px; }
+  .widget.blog-comment div#bocadillo {
+    background: url("/view/m/images/bocadillo.jpg") no-repeat;
+    height: 50px;
+    margin-top: 8px;
+    position: absolute;
+    width: 50px; }
+.widget.project {
+  overflow: visible;
+  position: relative;
+  /* meter */ }
+  .widget.project > * {
+    margin: 0;
+    padding: 12px; }
+  .widget.project.active div.image {
+    opacity: 0.85; }
+  .widget.project.active > .title a {
+    color: #c5da4d !important; }
+  .widget.project .image {
+    background-color: #deddde;
+    margin: 0 0 10px 0;
+    min-height: 180px;
+    overflow: hidden;
+    padding: 0 !important;
+    position: relative;
+    text-align: center;
+    width: 100%; }
+    .widget.project .image a img {
+      display: block;
+      width: 100vw;
+      height: auto; }
+    .widget.project .image span.cf-icon {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 60px;
+      height: 60px;
+      background-image: url("/view/m/images/lg-project-cf.png");
+      background-size: 60px 60px; }
+    .widget.project .image span.sm-icon {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 60px;
+      height: 60px;
+      background-image: url("/view/m/images/lg-project-sm.png");
+      background-size: 60px 60px; }
+    .widget.project .image .tagmark {
+      position: absolute;
+      z-index: 899;
+      text-align: left;
+      color: #ffffff;
+      font-size: 1.0em;
+      font-weight: normal;
+      text-transform: uppercase;
+      width: 200px;
+      height: 31px;
+      font-style: normal;
+      letter-spacing: 1px;
+      margin-top: 8px;
+      line-height: 32px;
+      padding: 1px 0 0 8px; }
+      .widget.project .image .tagmark.green {
+        background: url("/view/m/images/project/tagmark_green.png") 0 0 no-repeat; }
+      .widget.project .image .tagmark.red {
+        background: url("/view/m/images/project/tagmark_red.png") 0 0 no-repeat; }
+      .widget.project .image .tagmark.violet {
+        background: url("/view/m/images/project/tagmark_violet.png") 0 0 no-repeat; }
+      .widget.project .image .tagmark.grey {
+        background: url("/view/m/images/project/tagmark_grey.png") 0 0 no-repeat; }
+      .widget.project .image .tagmark span.small {
+        font-size: 0.8em !important;
+        line-height: 14px; }
+      .widget.project .image .tagmark.twolines {
+        padding-top: 4px !important;
+        font-weight: normal;
+        font-style: normal; }
+    .widget.project .image .investor {
+      position: absolute;
+      z-index: 899;
+      background-color: #f3f3f3;
+      margin-top: 70px;
+      margin-left: 3px; }
+      .widget.project .image .investor img {
+        width: 34px !important;
+        height: 34px !important;
+        margin: 3px;
+        float: left; }
+      .widget.project .image .investor .invest {
+        text-transform: uppercase;
+        text-align: left;
+        font-size: 12px;
+        line-height: 9px;
+        color: #faf8f8;
+        float: left;
+        padding-top: 12px;
+        padding-left: 2px;
+        padding-right: 4px; }
+        .widget.project .image .investor .invest span.amount {
+          color: #cc6600;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 18px !important;
+          padding-right: 19px; }
+    .widget.project .image .categories {
+      text-align: left;
+      color: #ffffff;
+      background-color: rgba(25, 181, 179, 0.8);
+      font-size: 0.8em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      cursor: default;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0; }
+  .widget.project > .title {
+    font-size: 14px !important;
+    padding: 0 !important;
+    margin: 10px !important; }
+    .widget.project > .title a {
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
+      position: relative;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 900; }
+      .widget.project > .title a:hover {
+        color: #c5da4d; }
+  .widget.project .title {
+    background: none !important; }
+  .widget.project.balloon > .title a {
+    position: relative;
+    z-index: 99;
+    line-height: 1.5em;
+    font-size: 18px;
+    color: #0098c4; }
+  .widget.project > .author {
+    padding: 2px 0 0 12px;
+    overflow: hidden; }
+  .widget.project > .author,
+  .widget.project > .author a {
+    font-weight: bold;
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: none;
+    position: relative;
+    z-index: 100; }
+  .widget.project .skills {
+    line-height: 16px; }
+    .widget.project .skills a {
+      font-size: 11px; }
+  .widget.project-summary > .wants-skills .matched_skill {
+    font-size: 11px;
+    background-color: #f99; }
+  .widget.project .description {
+    padding: 2px 12px;
+    font-size: 12px; }
+  .widget.project-show div.center div#project-support .project-widget-box {
+    padding-left: 0;
+    padding-right: 0;
+    border-bottom: none; }
+  .widget.project div.meter h3.title.obtained {
+    display: none;
+    padding-left: 5px; }
+  .widget.project div.meter > h3.investment {
+    color: #336633; }
+  .widget.project div.meter div.obtained strong {
+    font-size: 26px;
+    font-weight: bold;
+    color: #cc6600;
+    padding-right: 20px;
+    border-right: 1px solid #a7a9ac; }
+    .widget.project div.meter div.obtained strong.euro {
+      width: 19px;
+      height: 19px;
+      line-height: 2000px;
+      overflow: hidden;
+      display: inline-block;
+      background: url("/view/m/images/euro/violet/m.png") no-repeat center;
+      margin-bottom: -1px; }
+  .widget.project div.meter span.percent {
+    font-size: 26px;
+    font-weight: bold;
+    color: #a7a9ac;
+    padding-left: 15px; }
+  .widget.project div.meter .hor div.graph .minimum .done {
+    max-width: 278px; }
+  .widget.project div.meter dl {
+    position: relative;
+    margin: 16px 0 0 0; }
+    .widget.project div.meter dl * {
+      margin: 0; }
+    .widget.project div.meter dl .minimum {
+      min-width: 10%; }
+  .widget.project div.meter h2, .widget.project div.meter h3, .widget.project div.meter h4, .widget.project div.meter h5, .widget.project div.meter h6 {
+    margin: 0;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 0 0; }
+  .widget.project div.meter div.graph {
+    background-color: #BCCCD8;
+    height: 12px;
+    margin: 24px 0 0;
+    position: relative; }
+    .widget.project div.meter div.graph * strong,
+    .widget.project div.meter div.graph * span {
+      display: none; }
+    .widget.project div.meter div.graph .minimum .done {
+      background-color: #c5da4d;
+      height: 12px;
+      max-width: 288px;
+      position: absolute;
+      left: 0;
+      top: 0; }
+      .widget.project div.meter div.graph .minimum .done strong {
+        background: url("/view/m/images/project/widget/project/marker_sp.png") no-repeat;
+        display: block;
+        height: 16px;
+        line-height: 2000px;
+        margin-right: -10px;
+        margin-top: -5px;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+        text-indent: 2000px;
+        width: 17px; }
+    .widget.project div.meter div.graph .minimum .left {
+      float: right;
+      height: 19px;
+      margin-right: -2px;
+      margin-top: -6px; }
+  .widget.project div.meter dl .optimum,
+  .widget.project div.meter dl .minimum {
+    display: block;
+    white-space: nowrap; }
+  .widget.project div.rewards h2, .widget.project div.rewards h3, .widget.project div.rewards h4, .widget.project div.rewards h5, .widget.project div.rewards h6 {
+    margin: 0;
+    line-height: 22px;
+    float: left;
+    width: 70px;
+    font-size: 12px; }
+  .widget.project div.rewards ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    z-index: 910; }
+    .widget.project div.rewards ul li {
+      display: inline-block;
+      margin-right: 3px;
+      width: 22px;
+      height: 22px;
+      line-height: 2000px;
+      text-indent: 2000px;
+      overflow: hidden;
+      background-image: url("/view/m/images/icon/s/blank.png");
+      opacity: 0.60; }
+      .widget.project div.rewards ul li.active {
+        opacity: 1 !important; }
+      .widget.project div.rewards ul li a {
+        display: block;
+        width: 21px;
+        height: 21px;
+        line-height: 2000px;
+        text-indent: 2000px;
+        position: relative;
+        z-index: 910; }
+      .widget.project div.rewards ul li.food {
+        background-image: url("/view/m/images/icon/s/food.png"); }
+      .widget.project div.rewards ul li.file {
+        background-image: url("/view/m/images/icon/s/file.png"); }
+      .widget.project div.rewards ul li.money {
+        background-image: url("/view/m/images/icon/s/money.png"); }
+      .widget.project div.rewards ul li.code {
+        background-image: url("/view/m/images/icon/s/code.png"); }
+      .widget.project div.rewards ul li.service {
+        background-image: url("/view/m/images/icon/s/service.png"); }
+      .widget.project div.rewards ul li.manual {
+        background-image: url("/view/m/images/icon/s/manual.png"); }
+      .widget.project div.rewards ul li.product {
+        background-image: url("/view/m/images/icon/s/product.png"); }
+      .widget.project div.rewards ul li.design {
+        background-image: url("/view/m/images/icon/s/design.png"); }
+      .widget.project div.rewards ul li.other {
+        background-image: url("/view/m/images/icon/s/other.png"); }
+  .widget.project div.buttons {
+    padding-top: 10px !important; }
+    .widget.project div.buttons a.button {
+      margin: 0;
+      padding-top: 0 !important;
+      position: relative;
+      z-index: 900; }
+    .widget.project div.buttons .button + .button {
+      float: right; }
+  .widget.project div.balloon {
+    background: #cae4e6 url("/view/m/images/balloonbeak.png") no-repeat bottom left;
+    height: auto; }
+  .widget.project div.graph .optimum, .widget.project.project-support div.graph > div.optimum {
+    height: 19px;
+    margin-right: -2px;
+    position: absolute;
+    right: 0;
+    margin-top: -6px; }
+.widget.project-support div.meter > h3.title {
+  color: #999900;
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  text-transform: lowercase;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #fff; }
+.widget.project-support div.meter.ver div.graph .minimum .done {
+  background-color: #c5da4d;
+  height: 12px;
+  max-width: 288px;
+  position: absolute;
+  left: 0;
+  top: 0; }
+.widget.project-support div.graph {
+  background-color: #BCCCD8;
+  height: 12px;
+  margin: 24px 0 0;
+  position: relative; }
+  .widget.project-support div.graph > div.minimum > div.done strong {
+    background: url("/view/m/images/project/widget/project/marker_sp.png") no-repeat;
+    display: block;
+    height: 16px;
+    line-height: 2000px;
+    margin-right: -10px;
+    margin-top: -5px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    text-indent: 2000px;
+    width: 17px; }
+  .widget.project-support div.graph .minimum .left {
+    float: right;
+    height: 19px;
+    margin-right: -2px;
+    margin-top: -6px; }
+.widget.project-support dl {
+  position: relative;
+  margin: 16px 0 0 0; }
+  .widget.project-support dl * {
+    margin: 0; }
+  .widget.project-support dl .optimum,
+  .widget.project-support dl .minimum {
+    display: block;
+    white-space: nowrap; }
+
+/* meter */
+body.discover div.widget.project div.meter.activable {
+  padding-left: 16px !important;
+  padding-right: 16px !important; }
+
+.meter .obtained {
+  position: relative;
+  top: 110px;
+  text-align: center; }
+
+.home .meter .obtained {
+  display: none; }
+
+h4.author:hover a {
+  color: #c5da4d; }
+
+/*----------------------------------------------------------------------
+  project/widget/projects.css
+----------------------------------------------------------------------*/
+body.home div.widget.projects .title {
+  margin: 0;
+  padding: 16px 16px;
+  color: #f5f5f5;
+  background-color: #666666; }
+
+div#proyecto h2.widget-title {
+  font-weight: normal;
+  font-size: 20px;
+  margin-bottom: 1px;
+  text-transform: uppercase; }
+div#proyecto div#project-code {
+  float: left;
+  width: auto;
+  margin: 0 0 0 30px; }
+div#proyecto div#widget-code {
+  float: left;
+  width: 220px; }
+div#proyecto d.activableiv#widget-code blockquote {
+  font-size: 12px; }
+
+.project_view .project_box iframe {
+  width: 304px; }
+
+/*----------------------------------------------------------------------
+  meter.css
+----------------------------------------------------------------------*/
+/*--------------------------------------------------
+    goteo_top(activity) , user/profile
+--------------------------------------------------*/
+div.widget.project div.meter {
+  padding: 4px 0 148px !important;
+  position: relative;
+  height: 20px; }
+  div.widget.project div.meter > h3.ronda {
+    color: #999900;
+    position: absolute;
+    top: 4px;
+    right: 16px;
+    text-transform: lowercase; }
+  div.widget.project div.meter.activable {
+    z-index: 999;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    /*max-width: 288px;*/
+    width: 90vw; }
+  div.widget.project div.meter.skillmatching {
+    padding: 4px 0 78px !important; }
+
+.meter dl dt, .meter dl dd {
+  position: absolute;
+  width: 33.3% !important;
+  height: 30px !important;
+  text-align: center; }
+.meter.skillmatching dl dt, .meter.skillmatching dl dd {
+  width: 50% !important;
+  height: 30px !important; }
+.meter dl dt {
+  top: 0;
+  font-size: 11px;
+  text-transform: uppercase; }
+  .meter dl dt.minimum {
+    top: 0;
+    left: 0;
+    color: #cc6600; }
+  .meter dl dt.optimum {
+    top: 0;
+    left: 33.3%;
+    color: #6699cc; }
+  .meter dl dt.days {
+    top: 0;
+    right: 0; }
+.meter.skillmatching dl dt.days {
+  top: 0;
+  right: 0;
+  padding-top: 5px; }
+.meter dl dt.reached {
+  top: 56px;
+  left: 0; }
+.meter dl dt.supporters {
+  top: 56px;
+  left: 33.3%; }
+.meter.skillmatching dl dt.supporters {
+  top: 0;
+  left: 0;
+  padding-top: 5px; }
+.meter dl dt.percent {
+  top: 56px;
+  right: 0; }
+.meter dl dt.days, .meter dl dt.reached, .meter dl dt.supporters, .meter dl dt.percent {
+  color: #666600; }
+.meter dl dd {
+  padding-top: 30px;
+  font-size: 12px;
+  border-bottom: 1px solid #eee; }
+  .meter dl dd.minimum {
+    top: -16px;
+    left: 0;
+    color: #cc6600;
+    border-right: 1px solid #eee; }
+  .meter dl dd.optimum {
+    top: -16px;
+    left: 33.3%;
+    color: #6699cc;
+    border-right: 1px solid #eee; }
+  .meter dl dd.days {
+    top: -16px;
+    right: 0; }
+.meter.skillmatching dl dd.days {
+  top: 0;
+  border-top: 1px solid #eee; }
+.meter dl dd.reached {
+  top: 40px;
+  left: 0;
+  font-weight: normal;
+  border-right: 1px solid #eee; }
+.meter dl dd.supporters {
+  top: 40px;
+  left: 33.3%;
+  font-weight: normal;
+  border-right: 1px solid #eee; }
+.meter.skillmatching dl dd.supporters {
+  top: 0;
+  left: 0;
+  border-top: 1px solid #eee; }
+.meter dl dd.percent {
+  top: 40px;
+  right: 0;
+  font-weight: normal; }
+
+div.widget.project div.meter dl dd.minimum span, div.widget.project div.meter dl dd.optimum span, div.widget.project div.meter dl dd.days span, div.widget.project div.meter dl dd.reached span, div.widget.project div.meter dl dd.supporters span {
+  font-size: 11px;
+  font-weight: normal; }
+
+.meter dl dd.days strong {
+  color: #996666; }
+.meter dl dd.supporters strong {
+  color: #990000; }
+
+div.widget.project div.meter div.graph .minimum, div.widget.project-support div.graph > div.minimum {
+  background-color: #dc940f;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0; }
+div.widget.project div.meter div.graph {
+  background-color: #BCCCD8;
+  height: 12px;
+  border-right: 40px solid #dcdcdc;
+  margin: 30px 5px 70px;
+  position: relative; }
+div.widget.project div.rewards {
+  display: none; }
+
+div.datepicker {
+  position: absolute;
+  cursor: default;
+  top: 0;
+  left: 0;
+  display: none; }
+
+.datepickerContainer {
+  background: white;
+  box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 99999; }
+
+.datepickerBorderT, .datepickerBorderB, .datepickerBorderL, .datepickerBorderR, .datepickerBorderTL, .datepickerBorderTR, .datepickerBorderBL, .datepickerBorderBR, .datepickerHidden {
+  display: none; }
+
+div.datepicker table {
+  border-collapse: collapse;
+  width: 100%; }
+div.datepicker a {
+  outline: none; }
+div.datepicker table td {
+  text-align: right;
+  margin: 0;
+  font-size: 12px;
+  border: none; }
+div.datepicker table tbody td a {
+  text-decoration: none;
+  color: #1fb0b0;
+  font-size: 12px !important; }
+div.datepicker table td div.datepicker th {
+  text-align: center;
+  color: #999;
+  font-weight: normal; }
+div.datepicker tbody th {
+  text-align: left; }
+div.datepicker tbody a {
+  display: block; }
+
+table.datepickerViewDays tr.datepickerDoW th {
+  padding: .6em .4em;
+  font-weight: normal;
+  color: #666;
+  text-align: center;
+  font-size: 12px; }
+
+.datepickerDays td, .datepickerDays th {
+  padding: .1em; }
+
+tbody.datepickerMonths td, tbody.datepickerYears td {
+  padding: .1em; }
+
+.datepickerDays a {
+  line-height: 1em;
+  width: 1.3em;
+  height: 1em;
+  padding: .4em;
+  background-color: #dff2f3;
+  border: 1px solid #1fb0b0; }
+
+tbody.datepickerMonths td a, tbody.datepickerYears td a {
+  line-height: 1em;
+  width: 1.3em;
+  height: 1em;
+  padding: .4em;
+  background-color: #dff2f3;
+  border: 1px solid #1fb0b0; }
+tbody.datepickerMonths td a, tbody.datepickerYears td a {
+  width: 3.15em;
+  height: 3.9em;
+  line-height: 3.9em;
+  text-align: center; }
+tbody.datepickerDays td.datepickerSelected a {
+  color: white;
+  background-color: #1FB0B0; }
+tbody.datepickerDays td.datepickerNotInMonth.datepickerSelected {
+  background: #17384d; }
+tbody.datepickerYears td.datepickerSelected, tbody.datepickerMonths td.datepickerSelected {
+  background: #17384d; }
+
+div.datepicker a:hover {
+  color: white;
+  background-color: #1FB0B0; }
+
+td.datepickerNotInMonth a {
+  color: #68c9c9 !important; }
+
+div.datepicker tbody th {
+  text-align: left; }
+
+.datepickerGoNext a, .datepickerGoPrev a, .datepickerMonth a {
+  text-align: center;
+  color: white !important; }
+
+.datepickerGoNext, .datepickerGoPrev, .datepickerMonth {
+  height: 2em;
+  padding: .2em;
+  line-height: 2em;
+  background-color: #1FB0B0; }
+
+.datepickerGoNext a {
+  float: right;
+  width: 2em; }
+
+.datepickerGoPrev a {
+  float: left;
+  width: 2em; }
+
+table.datepickerViewDays tbody.datepickerMonths, table.datepickerViewDays tbody.datepickerYears {
+  display: none; }
+table.datepickerViewMonths tbody.datepickerDays, table.datepickerViewMonths tbody.datepickerYears {
+  display: none; }
+table.datepickerViewMonths tr.datepickerDoW {
+  display: none; }
+table.datepickerViewYears tbody.datepickerDays, table.datepickerViewYears tbody.datepickerMonths {
+  display: none; }
+table.datepickerViewYears tr.datepickerDoW {
+  display: none; }
+
+td.datepickerDisabled a, td.datepickerDisabled.datepickerNotInMonth a, td.datepickerDisabled a:hover {
+  color: #333; }
+
+/*----------------------------------------------------------------------
+  superform.css
+----------------------------------------------------------------------*/
+body.js div.superform .jshidden {
+  display: none; }
+
+div.superform fieldset {
+  border: 1px solid #99a2a5; }
+  div.superform fieldset legend {
+    color: #6d7375; }
+div.superform h3 {
+  font-size: 30px; }
+div.superform li.element > h4, div.superform li.element > h5, div.superform li.element > h6, div.superform li.element > h7, div.superform li.element > h8 {
+  margin: 0 0 .6em;
+  font-size: 14px; }
+div.superform li.element > h4 {
+  font-size: 16px;
+  padding: 0;
+  line-height: 1.2em;
+  margin: 1em 0; }
+div.superform li.element > h5 {
+  font-weight: bold;
+  margin: 0 0 .4em 0;
+  color: #1DB3B2; }
+div.superform li.element > label {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 1em 0;
+  display: block; }
+div.superform > div.hint, div.superform > div.elements {
+  overflow: visible; }
+div.superform > div.hint {
+  color: #7f8183;
+  overflow: hidden;
+  margin-top: 10px; }
+
+body.js div.superform > div.hint {
+  background: url("/view/m/images/superform/wizard.png") no-repeat right top;
+  border-right: 1px dashed #b7c2c5; }
+
+div.superform > div.elements {
+  position: relative; }
+div.superform > div.hint h4, div.superform > div.hint blockquote {
+  background-color: #ffffff;
+  padding: 10px;
+  vertical-align: top;
+  border-width: 1px 0 0;
+  margin: 0; }
+div.superform > div.hint h4 {
+  font-size: 30px;
+  float: left; }
+div.superform > div.hint blockquote {
+  font-size: 14px;
+  border-top: none;
+  padding-left: 0; }
+  div.superform > div.hint blockquote p {
+    margin: 0; }
+div.superform div.elements > ol {
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+div.superform > div.elements div.elements > ol {
+  padding-left: 0; }
+div.superform ol #interests div.contents > ul {
+  border-left: 1px dashed #B7C2C5; }
+div.superform li.element {
+  position: relative;
+  padding: 1em 0;
+  clear: both; }
+  div.superform li.element > div.contents + div.children > div.elements > ol, div.superform li.element > div.contents + div.feedback + div.children > div.elements > ol {
+    margin-top: 1em; }
+
+body.dashboard.project-edit div#main.profile div.superform li.element.web div.title {
+  font-size: 12px;
+  text-transform: uppercase;
+  width: 100%;
+  word-wrap: break-word;
+  float: none;
+  margin: 0 0 10px 0; }
+
+div.superform li.element:last-child {
+  padding-bottom: 0; }
+div.superform > div.elements > ol > li.element {
+  padding: 0;
+  overflow: hidden;
+  margin: 0 0 16px 0; }
+div#main.profile div.superform > div.elements > ol > li.element {
+  padding: 0; }
+div.superform > div.elements > ol > li.element.inline {
+  border-top: none;
+  padding: 0 2em 2em 0; }
+div.superform li.element > * + div.contents {
+  /*margin-top: 1em;*/
+  margin-top: 6px; }
+  div.superform li.element > * + div.contents p {
+    font-weight: bold;
+    margin: 1.2em 0 .4em 0;
+    color: #1DB3B2; }
+
+body.js div.superform > div.elements > ol > li.element div.contents {
+  font-size: 14px; }
+body.js div.superform > div.elements > ol > li.element li.element {
+  margin-right: 0;
+  border-right: none; }
+body div.superform > div.elements li.element li.element.inline {
+  border-top: none; }
+body div.superform div.elements li#user_avatar .children .elements {
+  border: 1px dashed #bcbdbf;
+  padding: 10px 20px;
+  margin: 20px 0 0 0; }
+body div.superform div.elements li#user_webs .children .elements {
+  border: 1px dashed #bcbdbf;
+  padding: 10px 20px;
+  margin: 20px 0 0 0; }
+  body div.superform div.elements li#user_webs .children .elements ol li div.elements {
+    border: none;
+    margin: 0;
+    padding: 0; }
+body div.superform div.elements li#user_avatar h4, body div.superform div.elements li#user_webs h4 {
+  padding: 0;
+  margin: 0; }
+body div.superform div.elements li#user_avatar .children .elements ol li {
+  margin: 0 0 10px 0;
+  padding: 0; }
+body div.superform div.elements li#user_avatar .children .elements input {
+  width: auto;
+  height: auto;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: normal;
+  width: 100%; }
+body div.superform div.elements li.element.inline#avatar-image .contents {
+  border: 2px solid #def1f1;
+  border-radius: 6px;
+  margin: 6px; }
+
+div.superform div.elements > ol > li div.element {
+  display: inline; }
+div.superform div.elements > ol > li > div.contents + div.children > div.elements {
+  margin-top: 1em; }
+div.superform input[type='text'], div.superform input[type='password'] {
+  padding: .4em;
+  min-height: 27px;
+  background-color: #eeeeee;
+  border: 1px solid #cccccc;
+  font-size: 10px; }
+div.superform textarea {
+  padding: .4em;
+  min-height: 27px;
+  background-color: #eeeeee;
+  border: 1px solid #cccccc;
+  font-size: 10px;
+  min-height: 6em; }
+div.superform li.element.fullwidth {
+  border-right: none !important;
+  background-color: #e7e7e7 !important;
+  margin-right: -2px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  border-bottom: 1px dashed #b7c2c5 !important;
+  margin-bottom: -1px !important; }
+  div.superform li.element.fullwidth + li.element {
+    border-top: none; }
+div.superform div.elements > ol > li.required > .title {
+  background: url("/view/m/images/superform/badge/required.png") no-repeat right center; }
+div.superform div.elements > ol > li.ok > .title {
+  background: url("/view/m/images/superform/badge/ok.png") no-repeat right center; }
+div.superform div.elements > ol > li.error > .title {
+  background: url("/view/m/images/superform/badge/error.png") no-repeat right center !important; }
+div.superform div.elements > ol > li.busy > .title {
+  background: url("/view/m/images/superform/badge/busy/cyan.gif") no-repeat right center; }
+div.superform li.element.hidden {
+  display: none; }
+div.superform li.element.textbox > div.contents, div.superform li.element.textarea > div.contents {
+  padding-right: .6em; }
+div.superform li.element.textbox > div.contents > input[type="text"], div.superform li.element.textbox > div.contents > input[type="password"] {
+  display: block;
+  width: 99%;
+  min-width: 99%;
+  max-width: 99%;
+  margin: 0;
+  background-color: #eeeeee;
+  border: 1px solid #cccccc;
+  min-height: 27px; }
+div.superform li.element.textarea > div.contents > textarea {
+  display: block;
+  width: 99%;
+  min-width: 99%;
+  max-width: 99%;
+  margin: 0;
+  background-color: #eeeeee;
+  border: 1px solid #cccccc;
+  min-height: 27px; }
+div.superform div.elements li.element.textbox.facebook > div.contents, div.superform div.elements li.element.textbox.google > div.contents, div.superform div.elements li.element.textbox.twitter > div.contents, div.superform div.elements li.element.textbox.identica > div.contents, div.superform div.elements li.element.textbox.linkedin > div.contents {
+  padding-left: 39px;
+  background-position: left center;
+  background-repeat: no-repeat; }
+div.superform div.elements li.element.textbox.facebook > div.contents {
+  background-image: url("/view/m/images/superform/facebook.png"); }
+div.superform div.elements li.element.textbox.google > div.contents {
+  background-image: url("/view/m/images/superform/google.png"); }
+div.superform div.elements li.element.textbox.twitter > div.contents {
+  background-image: url("/view/m/images/superform/twitter.png"); }
+div.superform div.elements li.element.textbox.identica > div.contents {
+  background-image: url("/view/m/images/superform/identica.png"); }
+div.superform div.elements li.element.textbox.linkedin > div.contents {
+  background-image: url("/view/m/images/superform/linkedin.png"); }
+div.superform div.elements > ol > li.element.checkboxes, div.superform div.elements > ol > li.element.checkboxescustom, div.superform div.elements > ol > li.element.radios {
+  padding-bottom: 0; }
+div.superform div.elements > ol > li.element.checkboxes > div.contents > ul, div.superform div.elements > ol > li.element.checkboxescustom > div.contents > ul, div.superform div.elements > ol > li.element.radios > div.contents > ul, div.superform div.elements > ol > li.element.slider > div.contents > ul {
+  padding: 0;
+  border-left: 1px dashed #B7C2C5;
+  margin: 0;
+  list-style: none;
+  overflow: hidden;
+  border-top: 1px dashed #bcbdbf; }
+div.superform div.elements > ol > li.element.checkboxes > div.contents > ul > li, div.superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li, div.superform div.elements > ol > li.element.radios > div.contents > ul > li, div.superform div.elements > ol > li.element.slider > div.contents > ul > li {
+  border-bottom: 1px dashed #bcbdbf;
+  border-right: 1px dashed #bcbdbf;
+  padding: 0; }
+div.superform div.elements > ol > li.element.checkboxes.inline > div.contents > ul > li, div.superform div.elements > ol > li.element.checkboxescustom.inline > div.contents > ul > li, div.superform div.elements > ol > li.element.radios.inline > div.contents > ul > li, div.superform div.elements > ol > li.element.slider.inline > div.contents > ul > li {
+  margin-bottom: 0; }
+div.superform div.elements > ol > li.radio > div.contents > label {
+  position: relative;
+  padding: .6em .8em;
+  display: block;
+  cursor: pointer; }
+div.superform div.elements > ol > li.element.checkboxes > div.contents > ul > li > label, div.superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li > label, div.superform div.elements > ol > li.element.radios > div.contents > ul > li > label, div.superform div.elements > ol > li.element.slider > div.contents > ul > li > label {
+  position: relative;
+  padding: .6em .8em;
+  display: block;
+  cursor: pointer; }
+div.superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li > label {
+  padding-right: 30px;
+  font-size: 13px; }
+div.superform div.elements > ol > li.element.checkboxes.cols_1 > div.contents > ul > li, div.superform div.elements > ol > li.element.checkboxescustom.cols_1 > div.contents > ul > li, div.superform div.elements > ol > li.element.radios.cols_1 > div.contents > ul > li, div.superform div.elements > ol > li.element.slider.cols_1 > div.contents > ul > li {
+  width: 100%; }
+div.superform div.elements > ol > li.element.checkboxes.cols_2 > div.contents > ul > li, div.superform div.elements > ol > li.element.checkboxescustom.cols_2 > div.contents > ul > li, div.superform div.elements > ol > li.element.radios.cols_2 > div.contents > ul > li, div.superform div.elements > ol > li.element.slider.cols_2 > div.contents > ul > li {
+  width: 49.5%;
+  float: left; }
+div.superform div.elements > ol > li.element.checkboxes.cols_4 > div.contents > ul > li, div.superform div.elements > ol > li.element.checkboxescustom.cols_4 > div.contents > ul > li, div.superform div.elements > ol > li.element.radios.cols_4 > div.contents > ul > li, div.superform div.elements > ol > li.element.slider.cols_4 > div.contents > ul > li {
+  width: 24.8%;
+  float: left; }
+div.superform div.elements > ol > li.element.checkboxes.cols_5 > div.contents > ul > li, div.superform div.elements > ol > li.element.checkboxescustom.cols_5 > div.contents > ul > li, div.superform div.elements > ol > li.element.radios.cols_5 > div.contents > ul > li, div.superform div.elements > ol > li.element.slider.cols_5 > div.contents > ul > li {
+  width: 20%; }
+div.superform div.elements > ol > li.element.checkboxes.cols_6 > div.contents > ul > li, div.superform div.elements > ol > li.element.checkboxescustom.cols_6 > div.contents > ul > li, div.superform div.elements > ol > li.element.radios.cols_6 > div.contents > ul > li, div.superform div.elements > ol > li.element.slider.cols_6 > div.contents > ul > li {
+  width: 16.66%; }
+div.superform div.elements > ol > li.radio > div.contents > label > input[type="radio"] {
+  position: absolute;
+  right: .5em;
+  top: 50%;
+  margin-top: -.5em;
+  height: 1em;
+  cursor: pointer; }
+div.superform div.elements > ol > li.element.checkboxes > div.contents > ul > li > label > input[type="checkbox"], div.superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li > label > input[type="checkbox"], div.superform div.elements > ol > li.element.radios > div.contents > ul > li > label > input[type="radio"], div.superform div.elements > ol > li.element.slider > div.contents > ul > li > label > input[type="radio"] {
+  position: absolute;
+  right: .5em;
+  top: 50%;
+  margin-top: -.5em;
+  height: 1em;
+  cursor: pointer; }
+div.superform div.elements > ol > li.element.radio {
+  padding: 0 !important; }
+div.superform li.element > div.feedback {
+  font-size: 14px;
+  z-index: 999;
+  padding-top: 12px;
+  background: url("/view/m/images/superform/tooltip/beak/cyan/n.png") no-repeat 1em 0;
+  display: inline-block; }
+
+/* Full-width elements */
+/* Element badges. Order is imporant */
+/* Textboxes & Textarea */
+/* Custom textboxes */
+/* Checkboxes & radios */
+/* Feedback */
+body.js div.superform li.element > div.feedback {
+  /* Javascript-enabled */
+  display: none;
+  position: absolute; }
+
+div.superform li.element > div.feedback > div {
+  padding: 10px;
+  margin: 0;
+  background-color: #def1f1;
+  color: #7f8183;
+  box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+  line-height: 16px !important; }
+  div.superform li.element > div.feedback > div + div {
+    margin-top: -10px;
+    z-index: 9999;
+    padding-top: .5em; }
+  div.superform li.element > div.feedback > div blockquote {
+    padding: 0;
+    margin: 0;
+    font-size: 13px; }
+  div.superform li.element > div.feedback > div.error + div.hint > blockquote {
+    border-top: 1px dashed #b7c2C5;
+    padding-top: 1em; }
+  div.superform li.element > div.feedback > div.error blockquote {
+    padding-left: 30px;
+    background: url("superform/feedback/error.png") no-repeat left 0.2em; }
+div.superform.aqua li.element > div.feedback {
+  background-image: url("/view/m/images/superform/tooltip/beak/aqua/n.png"); }
+  div.superform.aqua li.element > div.feedback > div {
+    background-color: #35b8b8;
+    color: white; }
+
+/* Additional color schemes */
+body.js div.superform.aqua li.element > div.feedback {
+  background-image: url("/view/m/images/superform/tooltip/beak/aqua/w.png"); }
+
+div.superform.aqua div.elements > ol > li.busy > .title {
+  background: url("/view/m/images/superform/badge/busy/aqua.gif") no-repeat right top; }
+div.superform.aqua li.element > div.feedback > div.error + div.hint > blockquote {
+  border-top-color: white; }
+div.superform.red li.element > div.feedback {
+  background-image: url("/view/m/images/superform/tooltip/beak/red/n.png"); }
+  div.superform.red li.element > div.feedback > div {
+    background-color: #e13028;
+    color: white; }
+
+body.js div.superform.red li.element > div.feedback {
+  background-image: url("/view/m/images/superform/tooltip/beak/red/w.png"); }
+
+div.superform.red input[type="text"], div.superform.red input[type="password"] {
+  background-color: #fdedec;
+  border-color: #ee4843; }
+div.superform.red textarea {
+  background-color: #fdedec;
+  border-color: #ee4843; }
+div.superform.red > div.hint h4, div.superform.red > div.hint blockquote {
+  background-color: #fdedec;
+  color: #ee4843; }
+div.superform.red div.elements > ol > li.busy > .title {
+  background: url("/view/m/images/superform/badge/busy/red.gif") no-repeat right top; }
+div.superform.red li.element > div.feedback > div.error + div.hint > blockquote {
+  border-top-color: white; }
+div.superform.green li.element > div.feedback {
+  background-image: url("/view/m/images/superform/tooltip/beak/green/n.png"); }
+  div.superform.green li.element > div.feedback > div {
+    background-color: #00b05b;
+    color: white; }
+
+body.js div.superform.green li.element > div.feedback {
+  background-image: url("/view/m/images/superform/tooltip/beak/green/w.png"); }
+
+div.superform.green input[type="text"], div.superform.green input[type="password"] {
+  background-color: #e7f3e8;
+  border-color: #00b05b; }
+div.superform.green textarea {
+  background-color: #e7f3e8;
+  border-color: #00b05b; }
+div.superform.green > div.hint h4, div.superform.green > div.hint blockquote {
+  background-color: #e7f3e8;
+  color: #00b05b; }
+div.superform.green div.elements > ol > li.busy > .title {
+  background: url("/view/m/images/superform/badge/busy/green.gif") no-repeat right top; }
+div.superform input.edit[type="submit"], div.superform input.remove[type="submit"], div.superform input.add[type="submit"] {
+  padding: 0.3em 1.2em !important;
+  font-weight: bold;
+  font-size: 16px; }
+
+/* Estilos especificos*/
+/* botones */
+a.button {
+  padding: 0.3em 1.2em !important;
+  font-weight: bold;
+  font-size: 16px; }
+  a.button.red, a.button.weak {
+    padding: 0.3em 1.2em !important;
+    font-weight: bold;
+    font-size: 16px; }
+
+div.superform li#user_avatar li.avatar_upload input[type="submit"] {
+  padding: 10px 16px; }
+div.superform button.image-remove {
+  position: absolute;
+  right: 5px;
+  top: -10px;
+  background: url("/view/m/images/button/cross.png") no-repeat center center !important;
+  width: 20px;
+  height: 20px;
+  padding: 0 !important;
+  margin: 0 10px 0 0 !important; }
+  div.superform button.image-remove:hover {
+    background: url("/view/m/images/button/cross-active.png") no-repeat center center !important; }
+
+body.dashboard.project-edit div#main.profile div.superform .footer {
+  background-color: #fff;
+  padding: 0 20px 20px 0;
+  margin: 0; }
+
+div.superform input.next, div.superform input.confirm, div.superform input.retry, div.superform input.save {
+  font-size: 15px;
+  width: 285px; }
+
+body.project-edit div.preview div.superform input.confirm, body.project-edit div.preview div.superform input.retry {
+  padding: 0; }
+
+div.preview div.superform input.next, div.preview div.superform input.confirm, div.preview div.superform input.retry {
+  padding: 0; }
+
+body.project-edit div.superform ol li.element div.contents input.inline.ok {
+  padding: 0.3em 1.2em; }
+body.project-edit div.superform ol li.element div.project-share li.url input {
+  width: 230px; }
+body.project-edit div.superform ol li.element li.element.group div.contents input.next {
+  width: 200px;
+  height: 50px; }
+body.project-edit li#video-upload, body.project-edit li#media-upload {
+  padding-top: 0;
+  padding-bottom: 0; }
+body.project-edit li#video_usubs, body.project-edit li#media_usubs {
+  position: relative;
+  left: 80px;
+  padding-top: 0;
+  margin-top: -28px;
+  border-right: 0; }
+body.project-edit li#media {
+  padding-bottom: 10px; }
+
+/* titulos */
+div.superform li#social_rewards h4.title, div.superform li#individual_rewards h4.title, div.superform li#supports h4.title, div.superform li#costs h4.title {
+  padding-left: 25px; }
+div.superform li#supports, div.superform li#social_rewards {
+  background-color: #f3f9f2 !important; }
+div.superform li#individual_rewards {
+  background-color: #f8e3e3 !important; }
+div.superform li.editcost {
+  background-color: #fdf3f4; }
+div.superform li.cost.required_cost-yes {
+  background-color: #f2e5f1 !important; }
+div.superform li.editcost.required_cost-yes {
+  background-color: #f2e5f1 !important; }
+div.superform li.editcost li.required_cost-yes {
+  background-color: #e4c9e2 !important; }
+div.superform li.cost.required_cost-no {
+  background-color: #f3f3f3 !important; }
+div.superform li.editcost.required_cost-no {
+  background-color: #f3f3f3 !important; }
+div.superform li.editcost li.required_cost-no {
+  background-color: #e2e2e2 !important; }
+div.superform li#gallery div.elements li.gallery-image {
+  margin: 5px 25px !important;
+  display: inline-block !important;
+  width: 153px !important; }
+div.superform li#scope, div.superform li#supports, div.superform li#social_rewards, div.superform li#individual_rewards {
+  border-bottom: 1px dashed #b7c2c5; }
+div.superform li.element div.contents input.add[type="submit"], div.superform li.element div.contents input.remove[type="submit"], div.superform li.element div.contents input.edit[type="submit"], div.superform li.element div.contents input.erase[type="submit"] {
+  width: auto;
+  height: auto;
+  line-height: 16px;
+  font-size: 12px;
+  font-weight: normal; }
+div.superform li.element.avatar_upload div.contents input[type="submit"] {
+  width: auto;
+  height: auto;
+  line-height: 16px;
+  font-size: 12px;
+  font-weight: normal; }
+
+/* backgrounds */
+/* Imagenes gallery */
+/* bordes */
+/* button size mini */
+a.button {
+  width: auto;
+  height: auto;
+  line-height: 16px;
+  font-size: 12px;
+  font-weight: normal; }
+  a.button.red, a.button.weak {
+    width: auto;
+    height: auto;
+    line-height: 16px;
+    font-size: 12px;
+    font-weight: normal; }
+
+body.js div.superform > div.hint {
+  background: url("/view/m/images/superform/wizard.png") no-repeat right top;
+  border-right: none; }
+
+div.superform li.element {
+  position: relative;
+  padding: 0;
+  clear: both; }
+  div.superform li.element.textbox > div.contents > input[type="text"], div.superform li.element.textbox > div.contents > input[type="password"] {
+    margin: 0 0 10px 0; }
+  div.superform li.element.textarea > div.contents > textarea {
+    margin: 0 0 10px 0; }
+div.superform input[type='text'], div.superform input[type='password'] {
+  margin: 0 0 10px 0; }
+div.superform textarea {
+  margin: 0 0 10px 0; }
+div.superform > div.elements > ol > li.element {
+  margin: 0; }
+
+body.dashboard div#main.access div.superform {
+  margin: 0 0 10px 0; }
+
+.discover #sub-header div {
+  background-color: #dae121;
+  padding: 0;
+  margin: 0; }
+.discover #main div.widget {
+  overflow: hidden;
+  padding-bottom: 20px; }
+  .discover #main div.widget.projects div.navi-bar {
+    border-bottom: none; }
+.discover .searcher {
+  background-color: #fff;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0; }
+  .discover .searcher form {
+    padding: 4px 8px; }
+  .discover .searcher .text-filter {
+    display: block;
+    margin-bottom: 20px; }
+    .discover .searcher .text-filter label {
+      display: block;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 14px;
+      margin-left: 16px;
+      padding-top: 9px; }
+  .discover .searcher #text-query {
+    float: left;
+    width: 65%;
+    padding: 4px 5px 4px 10px;
+    color: #808184;
+    font-size: 16px;
+    background-color: #ffffff;
+    border: 1px solid #808184; }
+  .discover .searcher form div button#searcher {
+    position: absolute;
+    top: 40px;
+    right: 8px; }
+  .discover .searcher .filter {
+    position: relative;
+    width: 81.25vw;
+    margin: 0 auto 8px;
+    padding: 4px 8px; }
+    .discover .searcher .filter:last-child {
+      margin-right: 0; }
+    .discover .searcher .filter label {
+      color: #58595B;
+      display: block;
+      font-weight: bold;
+      padding: 5px 5px 6px 0px;
+      text-transform: uppercase;
+      border-bottom: 1px solid #58595B;
+      font-size: 14px; }
+    .discover .searcher .filter select {
+      color: #58595B;
+      width: 100%;
+      height: 35px;
+      font-size: 1.5em;
+      background-color: #e7e7e7;
+      margin: 0;
+      margin-top: 10px;
+      border: 1px solid #d1d3d4; }
+      .discover .searcher .filter select option {
+        color: #58595B; }
+        .discover .searcher .filter select option[selected="selected"] {
+          color: #58595B;
+          background-color: #d5d5d6; }
+        .discover .searcher .filter select option.all {
+          color: #58595B;
+          font-size: 1em;
+          font-weight: bold; }
+.discover #searcher {
+  background: url("/view/m/images/lupa.png") no-repeat;
+  height: 33px;
+  width: 25%;
+  text-indent: -9999px;
+  margin-top: -1px; }
+
+div.navi-bar {
+  display: block;
+  height: 30px;
+  padding: 8px;
+  background-color: #ffffff;
+  text-align: center;
+  border-top: 1px dashed #c0c0c0;
+  border-bottom: 1px dashed #c0c0c0;
+  line-height: 30px; }
+  div.navi-bar ul.navi {
+    list-style: none;
+    height: 10px;
+    z-index: 900;
+    margin: 0px;
+    padding: 10px; }
+    div.navi-bar ul.navi li {
+      display: block;
+      float: left;
+      width: 1em;
+      height: 1em;
+      overflow: hidden;
+      margin-right: .5em; }
+      div.navi-bar ul.navi li > * {
+        display: block;
+        height: 100%;
+        width: 100%;
+        text-indent: 2000px;
+        line-height: 2000px; }
+      div.navi-bar ul.navi li > a {
+        background-color: #cdcdce; }
+        div.navi-bar ul.navi li > a:hover {
+          background-color: #20b3b2; }
+        div.navi-bar ul.navi li > a.active {
+          background-color: #808184; }
+  div.navi-bar a.all {
+    text-decoration: none;
+    text-transform: uppercase; }
+    div.navi-bar a.all:hover {
+      color: #20B3B2; }
+
+a.discover-arrow {
+  position: relative;
+  top: 200px;
+  color: white;
+  line-height: 24px;
+  text-indent: 24px; }
+
+div.discover-arrow-left, div.discover-arrow-right {
+  width: 24px; }
+div.discover-arrow-left, div.discover-arrow-right {
+  display: none; }
+div.discover-arrow-left a.discover-arrow {
+  background: url("../images/arrowslider-sprt.png") scroll no-repeat 0 0; }
+  div.discover-arrow-left a.discover-arrow:hover {
+    background: url("../images/arrowslider-sprt.png") scroll no-repeat 0 -48px; }
+div.discover-arrow-right a.discover-arrow {
+  background: url("../images/arrowslider-sprt.png") scroll no-repeat 0 -24px; }
+  div.discover-arrow-right a.discover-arrow:hover {
+    background: url("../images/arrowslider-sprt.png") scroll no-repeat 0 -72px; }
+
+a.discover-arrow {
+  display: inline-block;
+  vertical-align: middle; }
+
+.widget.projects .discover-group .image {
+  margin-bottom: 0; }
+.widget.projects .discover-group h3.title {
+  margin: 0 !important;
+  padding: 16px 16px 0 !important; }
+  .widget.projects .discover-group h3.title a {
+    font-size: 18px;
+    color: #0098c4; }
+.widget.projects .discover-group h3.ronda {
+  padding-top: 0 !important; }
+
+body.review div#main {
+  overflow: visible; }
+body.review div#sub-header {
+  padding-bottom: 4em;
+  margin-bottom: 0; }
+body.review div#review-menu {
+  display: block;
+  max-width: 940px;
+  font-size: 13px;
+  margin: -2.6em auto 0;
+  background-color: #78d1d1; }
+  body.review div#review-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative; }
+    body.review div#review-menu ul li {
+      display: inline-block;
+      color: white;
+      text-decoration: none; }
+      body.review div#review-menu ul li a {
+        color: white;
+        text-decoration: none;
+        padding: .6em 1em;
+        height: 1.4em;
+        line-height: 1.4em;
+        text-transform: uppercase;
+        display: inline-block; }
+      body.review div#review-menu ul li.section ul {
+        display: none; }
+      body.review div#review-menu ul li.section.current ul {
+        display: block; }
+      body.review div#review-menu ul li.section.active {
+        margin-bottom: 2.6em; }
+      body.review div#review-menu ul li.section.current {
+        margin-bottom: 2.6em; }
+        body.review div#review-menu ul li.section.current ul {
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 2.6em;
+          right: 0;
+          z-index: 0; }
+      body.review div#review-menu ul li.section.active {
+        background-color: #808285; }
+        body.review div#review-menu ul li.section.active ul {
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 2.6em;
+          right: 0;
+          z-index: 9;
+          background-color: #808285; }
+      body.review div#review-menu ul li.section.current {
+        background-color: #808285; }
+        body.review div#review-menu ul li.section.current ul {
+          background-color: #808285; }
+body.review div#main div.widget {
+  margin-bottom: 20px; }
+
+.project-show .project-spread .obtained {
+  display: none; }
+.project-show div#main {
+  padding: 4px;
+  clear: both;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 0; }
+  .project-show div#main > div.center > div.widget.project-invest.method input#paymethod {
+    width: 145px;
+    margin: 0 auto;
+    padding-bottom: 25px; }
+  .project-show div#main > div.center > div.widget.project-invest form {
+    padding: 24px 0 24px 8px; }
+  .project-show div#main div.center div.widget.project-support {
+    border-bottom: none !important; }
+    .project-show div#main div.center div.widget.project-support div.widget {
+      border-bottom: none !important; }
+  .project-show div#main div.center div.widget.project-summary {
+    /*padding: 10px 0;*/
+    clear: left;
+    background-color: #fff; }
+  .project-show div#main div.center .widget.project-summary img, .project-show div#main div.center .widget.project-support img {
+    width: 100% !important;
+    height: auto; }
+  .project-show div#main div.center div.widget.project-share {
+    border-bottom: none;
+    margin-bottom: 20px !important;
+    padding-top: 8px;
+    padding-bottom: 8px; }
+  .project-show div#main > div.center.needs > div.widget.project-needs, .project-show div#main > div.center.needs > div.widget.project-message, .project-show div#main > div.center.needs > div.widget.project-schedule {
+    margin-bottom: 20px; }
+  .project-show div#main > div.side > div.widget .title {
+    background: none !important; }
+  .project-show div#main.widget {
+    margin-bottom: 20px; }
+    .project-show div#main.widget.pr.oject-support {
+      border-top: none !important;
+      background-color: #fff; }
+  .project-show div#main.side {
+    margin: 20px 0 0 0; }
+  .project-show div#main.center div.widget.project-summary h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 16px; }
+  .project-show div#main.center .widget.project-summary .description {
+    /*padding: 0 10px;*/
+    margin: 0 0 20px 0 !important; }
+  .project-show div#main > div.side > div.widget {
+    clear: right; }
+  .project-show div#main > div.center > div.widget {
+    margin: 0 auto 0;
+    clear: left;
+    background-color: #fff; }
+  .project-show div#main > div.center > div.widget, .project-show div#main > div.center form div.widget {
+    margin: 0 auto;
+    /*padding: 0;*/
+    clear: left;
+    background-color: #fff; }
+  .project-show div#main > div.center > div.widget.project-invest.address {
+    margin: 0 auto;
+    padding: 0 0 20px 0;
+    clear: left;
+    background-color: #fff; }
+.project-show div#sub-header {
+  background: #faf8f8;
+  height: 36px;
+  padding: 0;
+  position: relative; }
+  .project-show div#sub-header div.project-header {
+    min-height: 75px;
+    position: relative;
+    top: 10px; }
+    .project-show div#sub-header div.project-header img {
+      float: left;
+      margin: 2px 20px 0 0; }
+    .project-show div#sub-header div.project-header h2 {
+      font-size: 2em;
+      margin-bottom: 36px; }
+      .project-show div#sub-header div.project-header h2 > span {
+        display: block;
+        line-height: 1em;
+        font-size: 15px; }
+  .project-show div#sub-header div.project-subtitle {
+    font-size: 16px;
+    font-weight: normal;
+    margin: 3px 0;
+    max-width: 620px;
+    font-style: normal; }
+  .project-show div#sub-header div.wants-skills {
+    margin-bottom: 8px;
+    font-size: 12px; }
+    .project-show div#sub-header div.wants-skills a {
+      font-size: 12px; }
+  .project-show div#sub-header div.project-by {
+    color: #20B3B2;
+    font-size: 12px; }
+    .project-show div#sub-header div.project-by a {
+      font-weight: normal;
+      color: #cc6600;
+      font-size: 12px;
+      text-decoration: none; }
+      .project-show div#sub-header div.project-by a:hover {
+        color: #58595B; }
+  .project-show div#sub-header div.categories {
+    position: absolute;
+    text-align: right;
+    top: 90px;
+    width: 100%; }
+    .project-show div#sub-header div.categories h3 {
+      font-weight: normal;
+      color: #20B3B2;
+      margin: 0;
+      display: inline-block; }
+    .project-show div#sub-header div.categories * {
+      font-size: 12px; }
+    .project-show div#sub-header div.categories a {
+      color: #58595B;
+      text-decoration: none; }
+      .project-show div#sub-header div.categories a:hover {
+        color: #20B3B2; }
+  .project-show div#sub-header div.sub-menu p.prev2, .project-show div#sub-header div.sub-menu p.next2 {
+    position: absolute;
+    top: 0;
+    width: 7px;
+    height: 27px;
+    margin: 0;
+    padding-top: 14px;
+    padding-left: 4px;
+    padding-right: 4px;
+    line-height: 27px;
+    background-color: #e5e5e5;
+    z-index: 1; }
+  .project-show div#sub-header div.sub-menu p.prev2 {
+    left: 0;
+    border-right: 1px dashed #c0c0c0; }
+  .project-show div#sub-header div.sub-menu p.next2 {
+    right: 0;
+    border-left: 1px dashed #c0c0c0; }
+.project-show div.project-menu ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-size: 0; }
+  .project-show div.project-menu ul li span.digits {
+    display: inline-block;
+    text-align: center; }
+  .project-show div.project-menu ul li a {
+    display: inline-block;
+    height: 35px;
+    padding: 0 8px;
+    color: #666666;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    line-height: 35px;
+    background: #ffffcc;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffcc 0%, #e5e5b9 100%, #e8e8bb 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffcc), color-stop(100%, #e5e5b9), color-stop(100%, #e8e8bb));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ffffcc 0%, #e5e5b9 100%, #e8e8bb 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ffffcc 0%, #e5e5b9 100%, #e8e8bb 100%);
+    /* Opera 11.10+ */
+    background: linear-gradient(to bottom, #ffffcc 0%, #e5e5b9 100%, #e8e8bb 100%);
+    /* W3C */
+    color: #999966;
+    font-size: 12px; }
+  .project-show div.project-menu ul li.active a {
+    background: none;
+    background-color: #dae121;
+    border: none;
+    color: #666666; }
+  .project-show div.project-menu ul li.show a {
+    background: none;
+    background-color: #dae121; }
+.project-show .project-summary {
+  padding: 20px 16px; }
+.project-show .widget.user.collapsable {
+  background-color: #fff; }
+  .project-show .widget.user.collapsable h3.supertitle {
+    background-color: #669900;
+    font-weight: normal;
+    font-size: 15px;
+    height: 40px;
+    padding: 0;
+    padding-left: 20px;
+    border-bottom: none;
+    line-height: 40px;
+    color: #ffffff; }
+  .project-show .widget.user.collapsable .project-widget-box {
+    position: relative;
+    margin: 0;
+    padding: 16px; }
+    .project-show .widget.user.collapsable .project-widget-box h4.title {
+      font-size: 13px;
+      margin: 10px 0 20px 50px; }
+    .project-show .widget.user.collapsable .project-widget-box .image {
+      width: 40px;
+      height: 40px;
+      overflow: hidden;
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      margin: 0;
+      padding: 0;
+      text-align: center; }
+      .project-show .widget.user.collapsable .project-widget-box .image img {
+        width: auto;
+        height: 100%;
+        margin: 0;
+        padding: 0; }
+    .project-show .widget.user.collapsable .project-widget-box blockquote.about {
+      font-size: 12px;
+      line-height: 1.4em;
+      margin: 10px 0 0 0; }
+    .project-show .widget.user.collapsable .project-widget-box dl {
+      margin: 20px 0;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 0;
+      font-size: 13px; }
+      .project-show .widget.user.collapsable .project-widget-box dl dd {
+        border: none;
+        border-bottom: 1px solid #eee;
+        padding: 0.8em 1.5em 0.8em 50px;
+        line-height: 1.4em;
+        text-align: left; }
+        .project-show .widget.user.collapsable .project-widget-box dl dd:last-child {
+          border: none; }
+        .project-show .widget.user.collapsable .project-widget-box dl dd.location {
+          background: url("/view/m/images/location/s.png") no-repeat 1.5em center;
+          text-indent: 0; }
+          .project-show .widget.user.collapsable .project-widget-box dl dd.location a {
+            text-decoration: none; }
+        .project-show .widget.user.collapsable .project-widget-box dl dd.message {
+          background: url("/view/m/images/bocadillo/s.png") no-repeat 1.5em center;
+          text-indent: 0;
+          text-decoration: none; }
+          .project-show .widget.user.collapsable .project-widget-box dl dd.message a {
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 14px;
+            color: #666; }
+        .project-show .widget.user.collapsable .project-widget-box dl dd.links {
+          background: url("/view/m/images/social/url.png") no-repeat 1.5em center;
+          text-indent: 0;
+          text-decoration: none; }
+          .project-show .widget.user.collapsable .project-widget-box dl dd.links ul {
+            line-height: 1.2em !important; }
+            .project-show .widget.user.collapsable .project-widget-box dl dd.links ul li a {
+              font-weight: normal;
+              text-decoration: none;
+              font-size: 14px; }
+        .project-show .widget.user.collapsable .project-widget-box dl dd.profile {
+          background: url("/view/m/images/icon/m/s_task.png") no-repeat 1em center;
+          text-indent: 0; }
+          .project-show .widget.user.collapsable .project-widget-box dl dd.profile a {
+            text-decoration: none; }
+.project-show div.widget.project-support div.meter {
+  padding-bottom: 134px !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important; }
+  .project-show div.widget.project-support div.meter.skillmatching {
+    padding-bottom: 78px !important;
+    padding-top: 10px !important; }
+.project-show div.widget.project-support .invest-notice {
+  margin: 5px 16px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 4px; }
+
+/*--------------------------------------------------
+    project/home , project/supporters
+--------------------------------------------------*/
+div.center div.widget.project-support div.graph {
+  margin-top: 0; }
+
+body.discover div.widget.project div.meter dl dt, body.discover div.widget.project div.meter dl dd {
+  width: 93px;
+  text-align: center; }
+
+/*----------------------------------------------------------------------
+  project/view.css
+----------------------------------------------------------------------*/
+/**
+ * Menu
+*/
+/* ayuda a difundir este proyecto */
+div.widget.project-spread > h3.title {
+  padding-left: 46px; }
+div.widget.project-spread > div.widget.projects > div.left {
+  float: left;
+  width: 280px;
+  border-right: #000 1px solid; }
+div.widget.project-spread > div.widget.projects > div.right {
+  float: left;
+  width: 245px;
+  margin-left: 12px; }
+div.widget.project-spread div.subtitle {
+  width: 245px;
+  text-transform: uppercase;
+  margin: 0 0 10px 7px; }
+  div.widget.project-spread div.subtitle > span {
+    display: block; }
+    div.widget.project-spread div.subtitle > span.primero {
+      margin-bottom: 3px; }
+    div.widget.project-spread div.subtitle > span.segundo {
+      color: #28ACAB;
+      font-weight: bold; }
+div.widget.projects #widget-code {
+  width: 350px;
+  float: left;
+  margin: 0 0 0 20px; }
+  div.widget.projects #widget-code .wc-embed {
+    background: url("/view/m/images/social/embed.png") no-repeat;
+    min-height: 20px;
+    text-transform: uppercase;
+    padding: 3px 0 0 25px; }
+  div.widget.projects #widget-code textarea {
+    width: 200px;
+    height: 130px;
+    margin: 10px 0;
+    padding: 10px;
+    background: #E7E7E7;
+    border: none;
+    font-size: 12px;
+    resize: none; }
+div.widget h4.supertitle, div.widget h3.supertitle {
+  height: 40px;
+  padding: 0;
+  padding-left: 20px;
+  border-bottom: none;
+  line-height: 40px;
+  color: #ffffff; }
+div#project-support, div#project-investors, div#project-collaborations, div#project-rewards {
+  padding: 0; }
+div.widget.user, div.widget.project-investors, div.widget.user-mates, div.widget.user, div.widget.user-supporters {
+  padding: 0; }
+div#project-investors .project-widget-box, div#project-collaborations .project-widget-box {
+  padding: 15px 20px; }
+div.widget.user .project-widget-box, div.widget.project-investors .project-widget-box, div.widget.user-supporters .project-widget-box div.widget.project-needs .project-widget-box {
+  padding: 15px 20px; }
+div#project-collaborations .project-widget-box, div#project-support .project-widget-box, div.widget.project-investors .project-widget-box {
+  background-color: #fff;
+  border-bottom: 1px dashed #c0c0c0; }
+div#project-collaborations .project-widget-box h3.title {
+  color: #666;
+  font-weight: bold; }
+div#project-collaborations .project-widget-box ul li p {
+  font-size: 12px; }
+div.side div#project-collaborations .project-widget-box ul li p {
+  padding-bottom: 16px; }
+div.widget.project-support {
+  position: relative; }
+div.widge dl {
+  margin: 0;
+  padding: 0 0 0 20px;
+  float: left;
+  margin-left: 15px;
+  margin-bottom: 60px; }
+
+/*----------------------------------------------------------------------
+  project/edit.css
+----------------------------------------------------------------------*/
+body.project-edit div#sub-header {
+  padding-bottom: 0; }
+  body.project-edit div#sub-header div.project-header {
+    min-height: 75px; }
+  body.project-edit div#sub-header img {
+    float: left;
+    /*margin-right: 20px;
+    padding-top: 2px;
+    padding-left: 2px;*/ }
+  body.project-edit div#sub-header div.project-subtitle {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 0 .5em; }
+  body.project-edit div#sub-header div.project-by {
+    color: #20B3B2;
+    font-size: 12px;
+    margin: 0 0 .5em; }
+    body.project-edit div#sub-header div.project-by a {
+      font-weight: normal;
+      color: #20B3B2;
+      font-size: 12px;
+      text-decoration: none; }
+      body.project-edit div#sub-header div.project-by a:hover {
+        color: #58595B; }
+body.project-edit div#main div.status {
+  color: #bcbdbd;
+  padding-bottom: 30px;
+  padding-top: 20px;
+  border-bottom: 3px solid #cfd0d2; }
+body.project-edit div#main .status #project-status, body.project-edit div#main .status #project-score {
+  display: table-cell;
+  width: 50%;
+  padding: 0 30px; }
+body.project-edit div#main .status #project-status {
+  padding-right: 50px; }
+body.project-edit div#main .status #project-score {
+  border-left: 1px dashed #bcbdbf;
+  padding-left: 50px; }
+body.project-edit div#main .status h3 {
+  font-size: 26px;
+  font-weight: normal;
+  color: #9B9B9D;
+  text-transform: uppercase;
+  margin: 0 0 .6em; }
+body.project-edit div#main .status #project-status ul {
+  padding: 0 0 0 16px;
+  margin: 0 0  0 6px;
+  list-style: none;
+  font-size: 16px;
+  line-height: 1.5em;
+  border-left: 1px solid #bcbcbd; }
+  body.project-edit div#main .status #project-status ul li strong {
+    font-size: 22px;
+    color: #58595b;
+    font-weight: bold;
+    line-height: 1.6em;
+    padding-left: 20px;
+    display: block;
+    background: url("project/statusmarker.png") no-repeat left center;
+    margin-left: -22px;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25); }
+body.project-edit div#main .status #project-score p {
+  margin-top: 0;
+  width: 80%;
+  font-size: 12px;
+  color: #8A8B8C; }
+body.project-edit div#main .status #project-score .meter {
+  height: 117px;
+  width: 369px;
+  margin-top: -2em;
+  position: relative; }
+  body.project-edit div#main .status #project-score .meter .done {
+    background: url("project/scoremeter.png") no-repeat left top;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0; }
+  body.project-edit div#main .status #project-score .meter .left {
+    background: url("project/scoremeter.png") no-repeat right bottom;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0; }
+body.project-edit div.superform {
+  border: solid #0a0a0a;
+  border-width: 3px 0; }
+  body.project-edit div.superform > .elements > ol > li#errors {
+    border: none;
+    position: absolute;
+    top: 100%;
+    margin-top: 54px;
+    padding: 10px; }
+
+/* Footer  */
+footer {
+  background: #255b7f;
+  padding: 40px 20px 10px;
+  color: #fff; }
+  footer .footer__link-title {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 20px; }
+  footer .footer_menu_links span {
+    font-size: 10px;
+    margin-bottom: 10px;
+    display: block; }
+  footer ul {
+    margin-bottom: 30px;
+    line-height: 2em;
+    list-style: none;
+    padding-left: 0; }
+  footer a {
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 12px !important; }
+  footer .footer_bottom .footer_logo {
+    margin-left: -10px; }
+    footer .footer_bottom .footer_logo img {
+      width: 70%; }
+  footer .footer_bottom .sns-area {
+    display: table;
+    width: 50%; }
+    footer .footer_bottom .sns-area li {
+      display: table-cell;
+      width: 25%;
+      vertical-align: middle; }
+      footer .footer_bottom .sns-area li a {
+        display: block;
+        width: 100%;
+        text-align: center; }
+        footer .footer_bottom .sns-area li a img {
+          width: auto;
+          height: 20px; }
+  footer .footer_bottom .link {
+    margin-bottom: 30px; }
+    footer .footer_bottom .link span {
+      display: inline-block;
+      height: 15px;
+      width: 15px;
+      color: #255b7f;
+      background: #fff;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      font-size: 80%;
+      vertical-align: middle;
+      text-align: center;
+      font-weight: bold; }
+
+.sp_footer_logo-area {
+  padding: 25px 25px 10px 25px;
+  background: #fff; }
+  .sp_footer_logo-area .cw {
+    font-size: 50% !important;
+    text-align: center; }
+  .sp_footer_logo-area ul {
+    width: 100%;
+    padding: 0;
+    list-style: none; }
+    .sp_footer_logo-area ul li {
+      width: 50%;
+      float: left;
+      text-align: center;
+      vertical-align: middle;
+      display: table;
+      height: 67px; }
+      .sp_footer_logo-area ul li a {
+        display: table-cell;
+        vertical-align: middle; }
+      .sp_footer_logo-area ul li img {
+        width: auto;
+        height: auto;
+        max-height: 60px;
+        max-width: 80%; }
+
+.sp_content {
+  background: #fff; }
+
+.platoniq {
+  display: none; }
+
+/* = lista de errores
+************************************************/
+ul.sf-footer-errors li {
+  list-style-image: url("/view/m/images/project/bg-li-error.png"); }
+
+body.admin div#main {
+  margin-top: 0;
+  margin-bottom: 0; }
+body.admin div#sub-header {
+  padding-bottom: 10px; }
+  body.admin div#sub-header div.breadcrumbs {
+    color: #58595B;
+    font-size: 18px; }
+    body.admin div#sub-header div.breadcrumbs a {
+      color: #58595B;
+      font-size: 18px; }
+      body.admin div#sub-header div.breadcrumbs a:hover {
+        color: #20B2B3; }
+    body.admin div#sub-header div.breadcrumbs strong {
+      color: #20B2B3; }
+body.admin div#main div.admin-menu, body.admin div#main div.admin-home, body.admin div#main div.admin-side {
+  float: left; }
+body.admin div#main div.admin-menu {
+  width: 140px;
+  margin: 0 10px 0 0px; }
+  body.admin div#main div.admin-menu fieldset {
+    margin-bottom: 3px; }
+    body.admin div#main div.admin-menu fieldset legend {
+      font-weight: bold; }
+  body.admin div#main div.admin-menu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 0; }
+    body.admin div#main div.admin-menu ul li {
+      background-color: white;
+      padding: 0 3px;
+      margin-bottom: 1px; }
+      body.admin div#main div.admin-menu ul li a {
+        text-decoration: none; }
+        body.admin div#main div.admin-menu ul li a:hover {
+          color: #20B2B3; }
+body.admin div#main div.widget {
+  margin-bottom: 20px; }
+body.admin div#main div.admin-side {
+  width: 300px;
+  margin-left: 10px; }
+body.admin div#main div.admin-home {
+  width: 440px;
+  margin-left: 0px; }
+body.admin div#main div.board ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-size: 0; }
+  body.admin div#main div.board ul li {
+    display: inline-block;
+    margin-right: 1px; }
+    body.admin div#main div.board ul li a {
+      display: inline-block;
+      padding: .6em 2em .2em .6em;
+      color: black;
+      text-decoration: none; }
+      body.admin div#main div.board ul li a:hover {
+        background-color: #c8babc; }
+body.admin div#main div.board a {
+  padding: .3em .2em .2em .3em;
+  color: grey;
+  text-decoration: none; }
+  body.admin div#main div.board a:hover {
+    color: black; }
+body.admin div#main div.widget.report th, body.admin div#main div.widget.report td {
+  padding: 2px 10px; }
+body.admin div#main div.admin-center div.superform {
+  float: left;
+  max-width: 750px; }
+  body.admin div#main div.admin-center div.superform > div.elements {
+    border-right: none !important;
+    border-bottom: 1px dashed #B7C2C5; }
+    body.admin div#main div.admin-center div.superform > div.elements > ol > li.element {
+      margin: 0 !important; }
+  body.admin div#main div.admin-center div.superform div.elements > ol > li.required > .title, body.admin div#main div.admin-center div.superform div.elements > ol > li.busy > .title {
+    margin: 0 !important;
+    background: none !important; }
+body.admin div#main div.admin-center input[type="submit"], body.admin div#main div.admin-center a.button {
+  padding: 0.2em 0.4em !important; }
+body.admin div#main > div.admin-center > div.admin-side {
+  width: 300px; }
+  body.admin div#main > div.admin-center > div.admin-side > div.widget {
+    margin-bottom: 20px; }
+    body.admin div#main > div.admin-center > div.admin-side > div.widget.feed > div.scroll-pane {
+      height: 520px; }
+    body.admin div#main > div.admin-center > div.admin-side > div.widget.feed h3 {
+      margin-top: 0;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #E95C5C; }
+    body.admin div#main > div.admin-center > div.admin-side > div.widget.feed > p.categories > a {
+      margin-right: 15px;
+      font-size: 12px !important;
+      text-transform: uppercase; }
+    body.admin div#main > div.admin-center > div.admin-side > div.widget.feed > div.scroll-pane div.subitem {
+      width: 230px;
+      padding-left: 5px; }
+    body.admin div#main > div.admin-center > div.admin-side > div.widget.feed div.subitem span.datepub {
+      margin-bottom: 5px; }
+body.admin div#main > div.admin-center > div.widget.feed > p.categories > a {
+  margin-right: 15px;
+  font-size: 12px !important;
+  text-transform: uppercase; }
+body.admin div#main > div.admin-center > div.widget.feed > div.scroll-pane {
+  height: 800px; }
+body.admin div#main > div.admin-center > div.widget.feed div.subitem {
+  padding-left: 5px; }
+  body.admin div#main > div.admin-center > div.widget.feed div.subitem > span.datepub {
+    float: left;
+    width: 100px;
+    margin-right: 10px;
+    clear: none;
+    line-height: 1.2em; }
+  body.admin div#main > div.admin-center > div.widget.feed div.subitem > div.content-pub {
+    float: left;
+    width: 600px;
+    clear: none;
+    margin-top: 0; }
+
+/*----------------------------------------------------------------------
+  dashboard/profile/profile.css
+----------------------------------------------------------------------*/
+body.project-edit div#main.profile div.superform li.element.user_avatar > div.children > div.elements > ol > li.element {
+  display: inline-block;
+  vertical-align: top; }
+body.project-edit div#main.profile div.superform li.element.user_avatar ol {
+  padding: 0; }
+body.project-edit div#main.profile div.superform li.element.user_avatar li.element.avatar-image {
+  padding: 0 2em;
+  margin: 0 !important; }
+body.project-edit div#main.profile div.superform li.element.user_avatar li.element.avatar img {
+  width: 128px;
+  height: 128px; }
+body.project-edit div#main.profile div.superform li.element.user_avatar li.element .title {
+  display: none; }
+body.project-edit div#main.profile div.superform li.element.web div.title {
+  font-size: 14px;
+  text-transform: uppercase;
+  width: 70%;
+  float: left; }
+body.project-edit div#main.profile div.superform li.element.web input.edit {
+  margin-top: -1em; }
+body.project-edit div#main.profile div.superform li.element.web input.remove {
+  margin-bottom: 1em;
+  margin-top: 0; }
+body.project-edit div#main.profile div.superform li.element.editweb li.element.web-accept input, body.project-edit div#main.profile div.superform li.element.editweb li.element.web-remove input {
+  margin: 0;
+  margin-right: 3px; }
+body.project-edit div#main.profile div.superform li.element.editweb li.buttons div.contents {
+  margin: 0 !important;
+  padding: 0 !important; }
+body.project-edit div#main.profile div.superform li.element.editweb li.buttons ol {
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: right; }
+body.project-edit div#main.profile div.superform li.element.editweb li.buttons li {
+  display: inline-block;
+  padding: 0;
+  margin: 0; }
+body.project-edit div#main.profile div.superform li.element.editweb li.buttons input {
+  width: auto;
+  float: left;
+  margin: 0 10px 0 0; }
+
+/*----------------------------------------------------------------------
+  dashboard/projects/rewards.css
+----------------------------------------------------------------------*/
+body.dashboard div#invests-list div.investor div.left span.profile {
+  display: inline-block;
+  margin-right: 5px; }
+body.dashboard div#invests-list div.investor div.left span.contact {
+  display: block; }
+body.dashboard div#invests-list div.investor div.left span.profile a {
+  float: left;
+  background: url("/view/m/images/user/plus.png") left no-repeat;
+  padding-left: 15px;
+  color: #808285;
+  text-decoration: none; }
+  body.dashboard div#invests-list div.investor div.left span.profile a:hover {
+    background: url("/view/m/images/user/plus-hover.png") left no-repeat;
+    color: #58595B; }
+body.dashboard div#invests-list div.investor div.left span.contact a {
+  background: url("/view/m/images/user/contact.png") left no-repeat;
+  padding-left: 15px;
+  color: #808285;
+  text-decoration: none; }
+  body.dashboard div#invests-list div.investor div.left span.contact a:hover {
+    background: url("/view/m/images/user/contact-hover.png") left no-repeat;
+    color: #58595B; }
+body.dashboard div#main div.status {
+  float: left;
+  color: #bcbdbd;
+  border: none !important;
+  padding: 0 !important;
+  margin-right: 20px; }
+body.dashboard #project-status {
+  background-color: #ffffff;
+  padding: 20px 20px 30px 30px !important;
+  width: 290px; }
+body.dashboard div#main div.status #project-status h3 {
+  font-size: 20px; }
+body.dashboard div#meter-big {
+  height: 200px;
+  position: relative; }
+  body.dashboard div#meter-big h3.title.ronda {
+    color: #20B3B2;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    text-transform: lowercase;
+    background: none !important; }
+  body.dashboard div#meter-big div.meter.hor.big {
+    padding-top: 30px;
+    width: 420px; }
+    body.dashboard div#meter-big div.meter.hor.big h3 {
+      position: relative;
+      top: -40px;
+      padding-left: 0; }
+      body.dashboard div#meter-big div.meter.hor.big h3.ronda {
+        right: -20px;
+        top: -70px;
+        text-align: right; }
+  body.dashboard div#meter-big div.graph {
+    background-color: #BB70B6;
+    height: 8px;
+    border-right: 40px solid #DFBDDD;
+    margin: 40px 5px 70px;
+    position: relative;
+    top: -70px; }
+    body.dashboard div#meter-big div.graph .minimum {
+      background-color: #96238F;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0; }
+      body.dashboard div#meter-big div.graph .minimum .done {
+        background-color: #20B3B2;
+        height: 10px;
+        position: absolute;
+        left: 0;
+        top: -2px;
+        max-width: 580px; }
+        body.dashboard div#meter-big div.graph .minimum .done strong {
+          background: url("dashboard/projects/marker.png") no-repeat;
+          display: block;
+          height: 21px;
+          margin-right: -13px;
+          margin-top: -11px;
+          overflow: hidden;
+          position: absolute;
+          right: 0;
+          width: 25px;
+          color: #ffffff;
+          font-size: 12px;
+          text-align: center; }
+      body.dashboard div#meter-big div.graph .minimum .left {
+        float: right;
+        height: 19px;
+        border-right: 4px solid #96238F;
+        margin-right: -2px;
+        margin-top: -6px; }
+    body.dashboard div#meter-big div.graph .optimum {
+      border-right: 4px solid #BB70B6;
+      height: 19px;
+      margin-right: -2px;
+      position: absolute;
+      right: 0;
+      margin-top: -6px; }
+  body.dashboard div#meter-big dl {
+    margin: -78px 40px 0 0;
+    position: relative;
+    top: -70px; }
+  body.dashboard div#meter-big div.graph {
+    top: 0; }
+  body.dashboard div#meter-big dl {
+    top: 0; }
+    body.dashboard div#meter-big dl * {
+      margin: 0; }
+    body.dashboard div#meter-big dl .minimum {
+      min-width: 10%; }
+    body.dashboard div#meter-big dl .optimum {
+      color: #BB70B6;
+      line-height: 14px;
+      display: block;
+      white-space: nowrap; }
+    body.dashboard div#meter-big dl .minimum {
+      line-height: 14px;
+      display: block;
+      white-space: nowrap; }
+    body.dashboard div#meter-big dl dt.optimum, body.dashboard div#meter-big dl dt.minimum {
+      font-size: 12px;
+      text-transform: uppercase; }
+    body.dashboard div#meter-big dl dd.optimum, body.dashboard div#meter-big dl dd.minimum {
+      font-size: 16px;
+      font-weight: normal; }
+    body.dashboard div#meter-big dl dt.optimum {
+      margin-top: 18px; }
+    body.dashboard div#meter-big dl .optimum {
+      width: 70px;
+      right: 12px;
+      top: 45px;
+      float: right;
+      clear: right;
+      margin-right: -40px; }
+    body.dashboard div#meter-big dl .minimum {
+      color: #96238F;
+      width: 80px;
+      position: relative; }
+      body.dashboard div#meter-big dl .minimum span {
+        font-weight: normal; }
+      body.dashboard div#meter-big dl .minimum > * {
+        display: block;
+        width: 60px;
+        position: absolute;
+        right: 0;
+        top: 21px;
+        width: 60px;
+        margin-right: -30px; }
+body.dashboard div.widget.project div.meter dl dd.optimum span {
+  height: auto;
+  position: relative; }
+body.dashboard div#meter-big dl dt.minimum {
+  position: absolute;
+  top: -60px; }
+body.dashboard div#meter-big dl dd.minimum > * {
+  position: absolute;
+  top: -25px; }
+body.dashboard div#meter-big dl dd.minimum > span {
+  position: absolute;
+  right: -76px; }
+body.dashboard div.project div.meter.hor.activable dl dd.minimum > span {
+  right: -54px; }
+body.dashboard div#meter-big dl {
+  width: 420px;
+  height: 100px; }
+  body.dashboard div#meter-big dl dt.minimum {
+    top: -65px;
+    left: -10px; }
+    body.dashboard div#meter-big dl dt.minimum span {
+      width: auto; }
+  body.dashboard div#meter-big dl dd.minimum {
+    left: -10px; }
+    body.dashboard div#meter-big dl dd.minimum strong {
+      top: -28px; }
+  body.dashboard div#meter-big dl dt.optimum {
+    width: auto;
+    position: absolute;
+    top: 0;
+    right: 82px; }
+  body.dashboard div#meter-big dl dd.optimum {
+    width: auto;
+    position: absolute;
+    top: 32px;
+    right: 82px;
+    text-align: right; }
+  body.dashboard div#meter-big dl .reached {
+    position: absolute;
+    top: 55px;
+    padding: .8em 0;
+    font-size: 12px;
+    line-height: 1.5em;
+    font-weight: bold; }
+  body.dashboard div#meter-big dl dt.reached {
+    margin-top: 6px;
+    text-transform: uppercase; }
+  body.dashboard div#meter-big dl dd.reached {
+    left: 100px;
+    color: #96238F;
+    font-size: 16px; }
+  body.dashboard div#meter-big dl .reached span.euro {
+    background-image: url("/view/m/images/euro/violet/s.png"); }
+  body.dashboard div#meter-big dl .supporters {
+    position: absolute;
+    top: 55px;
+    padding: .8em 0;
+    font-size: 12px;
+    line-height: 1.5em;
+    font-weight: bold;
+    color: #1b5b9e;
+    left: 340px; }
+  body.dashboard div#meter-big dl dt.supporters {
+    margin-top: 6px;
+    text-transform: uppercase; }
+  body.dashboard div#meter-big dl dd.supporters {
+    font-size: 16px;
+    left: 390px; }
+  body.dashboard div#meter-big dl span.euro {
+    width: 16px;
+    height: 16px;
+    line-height: 2000px;
+    overflow: hidden;
+    display: inline-block;
+    background: url("/view/m/images/euro/light-violet/s.png") no-repeat center;
+    margin-bottom: -1px; }
+  body.dashboard div#meter-big dl .minimum span.euro {
+    background-image: url("/view/m/images/euro/violet/s.png"); }
+  body.dashboard div#meter-big dl .days {
+    position: absolute;
+    top: 55px;
+    padding: .8em 0;
+    font-size: 12px;
+    line-height: 1.5em;
+    font-weight: bold;
+    left: 200px; }
+  body.dashboard div#meter-big dl dt.days {
+    margin-top: 6px;
+    text-transform: uppercase; }
+  body.dashboard div#meter-big dl dd.days {
+    left: 240px;
+    font-size: 16px; }
+body.dashboard div#meter-big div.keepiton {
+  background-color: #19B5B3;
+  border-radius: 3px 3px 3px 3px;
+  bottom: 20px;
+  color: #FFFFFF;
+  cursor: default;
+  display: inline-block;
+  font-size: 0.8em;
+  font-weight: bold;
+  left: 0;
+  overflow: visible;
+  padding: 3px;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  width: 120px;
+  z-index: 899;
+  left: 20px; }
+body.dashboard div#main {
+  overflow: visible; }
+  body.dashboard div#main hr {
+    display: none; }
+  body.dashboard div#main div.widget {
+    margin-bottom: 20px; }
+body.dashboard div#sub-header {
+  margin-bottom: 0; }
+  body.dashboard div#sub-header div.dashboard-header h2 {
+    display: table;
+    float: left;
+    width: 77%;
+    height: 56px;
+    padding-left: 5%; }
+body div#sub-header div.dashboard-header h2 {
+  display: table;
+  float: left;
+  width: 77%;
+  height: 56px;
+  padding-left: 5%; }
+body.dashboard div#sub-header div.dashboard-header h2 span, body div#sub-header div.dashboard-header h2 span.leave {
+  display: table-cell;
+  font-size: 18px;
+  font-weight: bold;
+  color: #666666;
+  vertical-align: middle;
+  line-height: 22px; }
+body.dashboard div#sub-header img {
+  float: left;
+  /*margin-right: 20px;*/ }
+body.dashboard div#dashboard-menu {
+  display: block;
+  font-size: 13px;
+  /*background-color: #3399cc;*/ }
+  body.dashboard div#dashboard-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative; }
+    body.dashboard div#dashboard-menu ul li {
+      display: inline-block;
+      text-decoration: none; }
+      body.dashboard div#dashboard-menu ul li a {
+        text-decoration: none;
+        height: 40px;
+        line-height: 40px;
+        text-transform: uppercase;
+        display: inline-block; }
+      body.dashboard div#dashboard-menu ul li.section ul {
+        display: none; }
+      body.dashboard div#dashboard-menu ul li.section.current ul {
+        display: block; }
+      body.dashboard div#dashboard-menu ul li.section.active {
+        margin-bottom: 2.6em; }
+      body.dashboard div#dashboard-menu ul li.section.current {
+        margin-bottom: 2.6em; }
+        body.dashboard div#dashboard-menu ul li.section.current ul {
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 2.6em;
+          right: 0;
+          z-index: 0; }
+      body.dashboard div#dashboard-menu ul li.section.active ul {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2.6em;
+        right: 0;
+        z-index: 9; }
+      body.dashboard div#dashboard-menu ul li.section a.section {
+        min-width: 150px !important;
+        background: #ccf4ff;
+        /* Old browsers */
+        background: -moz-linear-gradient(top, #ccf4ff 0%, #c0e4ed 60%, #b1cfd3 100%);
+        /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ccf4ff), color-stop(60%, #c0e4ed), color-stop(100%, #b1cfd3));
+        /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #ccf4ff 0%, #c0e4ed 60%, #b1cfd3 100%);
+        /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #ccf4ff 0%, #c0e4ed 60%, #b1cfd3 100%);
+        /* Opera 11.10+ */
+        background: linear-gradient(to bottom, #ccf4ff 0%, #c0e4ed 60%, #b1cfd3 100%);
+        /* W3C */
+        height: 40px;
+        line-height: 40px;
+        border-top: 1px solid #99b8cc;
+        border-left: 1px solid #99b8cc;
+        border-right: 1px solid #99b8cc;
+        color: #669999;
+        text-align: center;
+        font-weight: normal;
+        font-size: 14px; }
+      body.dashboard div#dashboard-menu ul li.section.active a.section {
+        color: #f5f5f5;
+        background: none;
+        background-color: #3399cc; }
+      body.dashboard div#dashboard-menu ul li.section.current a.section {
+        color: #f5f5f5;
+        background: none;
+        background-color: #3399cc;
+        background-color: #3399cc;
+        color: #f5f5f5;
+        font-weight: normal; }
+      body.dashboard div#dashboard-menu ul li.section.current ul {
+        background-color: #3399cc;
+        color: #f5f5f5;
+        font-weight: normal; }
+      body.dashboard div#dashboard-menu ul li.section.active a.section, body.dashboard div#dashboard-menu ul li.section.active ul {
+        background-color: #3399cc;
+        color: #f5f5f5;
+        font-weight: normal; }
+      body.dashboard div#dashboard-menu ul li.section a:hover.section, body.dashboard div#dashboard-menu ul li.section ul:hover {
+        background-color: #3399cc; }
+  body.dashboard div#dashboard-menu > ul {
+    width: 308px;
+    margin: 0 auto;
+    top: 34px; }
+  body.dashboard div#dashboard-menu li.option a {
+    color: #ccffff;
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+    font-weight: normal; }
+  body.dashboard div#dashboard-menu li.option.current a, body.dashboard div#dashboard-menu li.option.active a {
+    height: 18px;
+    padding-bottom: 15px;
+    color: #f5f5f5;
+    border-bottom: 5px solid #ff9933;
+    line-height: 35px; }
+body.dashboard div.superform {
+  background-color: #ffffff !important;
+  padding: 10px 20px !important;
+  border: none !important; }
+body.dashboard div#project-selector {
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  padding: 20px; }
+  body.dashboard div#project-selector #selector-form #selector {
+    height: 40px; }
+body.dashboard div#main > .widget > p > strong {
+  font-size: 16px; }
+body.dashboard div#project-selector label {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 5px; }
+body.dashboard div#project-selector select {
+  width: 770px;
+  text-transform: uppercase;
+  font-size: 14px; }
+body.dashboard div#main div.post {
+  margin: 20px;
+  border-bottom: 1px dashed #B7C2C5; }
+  body.dashboard div#main div.post strong {
+    font-weight: bold;
+    font-size: 14px; }
+  body.dashboard div#main div.post span {
+    font-weight: normal;
+    font-size: 12px; }
+body.dashboard div#main div.widget.gestrew div.message {
+  background: url("/view/m/images/project/view/invest/header_beak.png") #CCE5E6 no-repeat left bottom;
+  color: #58595B;
+  padding: 20px 20px 30px 20px;
+  height: auto;
+  overflow: auto; }
+body.dashboard div#main div.widget.gestrew div.rewards {
+  height: auto;
+  overflow: auto;
+  margin-top: 10px; }
+body.dashboard div#main div.widget.gestrew div.reward {
+  background: #E4C9E2;
+  width: 197px;
+  min-height: 175px;
+  padding: 10px;
+  margin-right: 10px;
+  float: left;
+  position: relative;
+  margin-bottom: 10px;
+  height: 190px; }
+  body.dashboard div#main div.widget.gestrew div.reward.last {
+    margin-right: 0; }
+  body.dashboard div#main div.widget.gestrew div.reward div.orden {
+    color: #fff;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 13pt;
+    background-color: #e7e7e7;
+    border: 2px solid #a7a9ac;
+    color: #a7a9ac;
+    width: 20px;
+    text-align: center; }
+  body.dashboard div#main div.widget.gestrew div.reward span.aporte {
+    color: #96238F;
+    display: inline-block;
+    font-size: 8pt;
+    text-transform: uppercase;
+    line-height: 22px; }
+  body.dashboard div#main div.widget.gestrew div.reward span.num {
+    font-size: 12pt; }
+  body.dashboard div#main div.widget.gestrew div.reward span.aporte > span.euro {
+    background: url("/view/m/images/yen/violet/m.png") no-repeat;
+    height: 20px;
+    width: 20px;
+    display: inline-block; }
+  body.dashboard div#main div.widget.gestrew div.reward span.cofinanciadores {
+    color: #40509F;
+    display: block;
+    text-transform: uppercase;
+    margin-left: 29px;
+    font-size: 8pt;
+    line-height: 20px; }
+  body.dashboard div#main div.widget.gestrew div.reward div.tiporec {
+    display: block;
+    border-bottom: #8D878E 1px solid;
+    margin-bottom: 5px; }
+  body.dashboard div#main div.widget.gestrew div.reward ul {
+    list-style: none outside none;
+    padding: 0px;
+    margin: 0 0 3px 0px;
+    float: none;
+    font-size: 12px; }
+  body.dashboard div#main div.widget.gestrew div.reward div.tiporec ul li {
+    background: none no-repeat scroll 0 0 transparent;
+    padding: 0 0 0 29px;
+    min-height: 34px; }
+    body.dashboard div#main div.widget.gestrew div.reward div.tiporec ul li.file {
+      background-image: url("/view/m/images/icon/s/food.png");
+      background-image: url("/view/m/images/icon/s/file.png"); }
+    body.dashboard div#main div.widget.gestrew div.reward div.tiporec ul li.money {
+      background-image: url("/view/m/images/icon/s/money.png"); }
+    body.dashboard div#main div.widget.gestrew div.reward div.tiporec ul li.code {
+      background-image: url("/view/m/images/icon/s/code.png"); }
+    body.dashboard div#main div.widget.gestrew div.reward div.tiporec ul li.service {
+      background-image: url("/view/m/images/icon/s/service.png"); }
+    body.dashboard div#main div.widget.gestrew div.reward div.tiporec ul li.manual {
+      background-image: url("/view/m/images/icon/s/manual.png"); }
+    body.dashboard div#main div.widget.gestrew div.reward div.tiporec ul li.product {
+      background-image: url("/view/m/images/icon/s/product.png"); }
+    body.dashboard div#main div.widget.gestrew div.reward div.tiporec ul li.design {
+      background-image: url("/view/m/images/icon/s/design.png"); }
+    body.dashboard div#main div.widget.gestrew div.reward div.tiporec ul li.other {
+      background-image: url("/view/m/images/icon/s/other.png"); }
+  body.dashboard div#main div.widget.gestrew div.reward span.recompensa {
+    color: #8D878E;
+    font-size: 12px; }
+  body.dashboard div#main div.widget.gestrew div.reward a.green {
+    bottom: 5px;
+    left: 13px;
+    width: 160px;
+    padding: 0.3em 1.3em; }
+  body.dashboard div#main div.widget.gestrew div.reward div.contenedorrecompensa {
+    height: 67px;
+    overflow: hidden; }
+body.dashboard div.widget.gestrew h2.title {
+  font-size: 14pt;
+  font-weight: normal;
+  margin-bottom: 5px; }
+body.dashboard div.widget.gestrew label#invests-filter {
+  float: left; }
+body.dashboard div.widget.projects ul {
+  float: left; }
+body.dashboard div.widget.gestrew label#invests-filter {
+  font-size: 9pt; }
+body.dashboard div.widget.gestrew div.invests-list {
+  clear: both; }
+body.dashboard div.widget.gestrew div.filters {
+  height: auto;
+  overflow: auto; }
+  body.dashboard div.widget.gestrew div.filters ul {
+    list-style: none;
+    clear: right;
+    margin-top: 0;
+    margin-left: 10px;
+    padding-left: 0; }
+    body.dashboard div.widget.gestrew div.filters ul li {
+      display: inline-block; }
+      body.dashboard div.widget.gestrew div.filters ul li a {
+        text-decoration: none;
+        font-size: 9pt; }
+      body.dashboard div.widget.gestrew div.filters ul li.current a {
+        background: url("/view/m/images/arrow-down.png") no-repeat left;
+        padding-left: 15px; }
+      body.dashboard div.widget.gestrew div.filters ul li a:hover {
+        color: #20B3B2; }
+
+/*----------------------------------------------------------------------
+  dashboard/projects/summary.css
+----------------------------------------------------------------------*/
+/* Estilos especificos para
+Termometro horizontal grande  */
+/* Cambiar el marcador por uno grande con el strong del % dentro */
+/* Estilos de Obtenido, cofinanciadores, dias */
+/*ie8*/
+/* El superform con el fondo blanco */
+/* Seccion proyectos */
+/* Lista entradas */
+/* = recompensas
+***************************/
+/* = gestionar retornos
+***************************/
+.disabled {
+  color: #cccccc; }
+
+body.dashboard div#invests-list div.investor {
+  border-bottom: #C1C1C1 1px solid;
+  margin: 20px 20px 20px 20px;
+  height: auto;
+  overflow: auto;
+  padding-bottom: 10px;
+  margin-bottom: 10px; }
+  body.dashboard div#invests-list div.investor div.left {
+    float: left;
+    margin-right: 10px;
+    font-size: 8pt; }
+    body.dashboard div#invests-list div.investor div.left span {
+      display: block; }
+      body.dashboard div#invests-list div.investor div.left span.username {
+        margin-bottom: 2px; }
+        body.dashboard div#invests-list div.investor div.left span.username a {
+          color: #58595B;
+          font-size: 9pt;
+          font-weight: bold;
+          text-decoration: none; }
+      body.dashboard div#invests-list div.investor div.left span.amount {
+        display: inline-block;
+        background: url("/view/m/images/euro/violet/m.png") no-repeat scroll right center transparent;
+        clear: left;
+        color: #96238F;
+        font-size: 11pt;
+        font-weight: bold;
+        line-height: 25px;
+        padding-right: 30px;
+        width: auto; }
+    body.dashboard div#invests-list div.investor div.left label.amount {
+      display: block;
+      color: #223E98;
+      font-size: 8pt;
+      padding-left: 0;
+      width: 100%; }
+    body.dashboard div#invests-list div.investor div.left span.date {
+      display: block;
+      color: #223E98;
+      font-size: 8pt;
+      padding-left: 0;
+      width: 100%; }
+    body.dashboard div#invests-list div.investor div.left span.status {
+      text-transform: uppercase; }
+    body.dashboard div#invests-list div.investor div.left span.pendiente {
+      color: #f00; }
+  body.dashboard div#invests-list div.investor div.recompensas input[type="checkbox"] {
+    height: 16px;
+    width: 16px;
+    float: left;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    margin: 0;
+    padding: 0; }
+  body.dashboard div#invests-list div.investor div.recompensas label {
+    line-height: 16px;
+    padding: 0 0 0 20px; }
+  body.dashboard div#invests-list div.investor div.recompensas input + label {
+    background: url("/view/m/images/dashboard/gr_custom-inputs.png") 0 -1px no-repeat;
+    height: 18px; }
+  body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:checked + label {
+    background-position: 0 -81px; }
+  body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:hover:checked + label, body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:focus:checked + label, body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:checked + label:hover, body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:focus:checked + label {
+    background-position: 0 -101px; }
+  body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:hover + label, body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:focus + label, body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox] + label:hover {
+    background-position: 0 -21px; }
+  body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:active + label {
+    background-position: 0 -41px; }
+  body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:active:checked + label {
+    background-position: 0 -121px; }
+  body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox] + label:hover:active {
+    background-position: 0 -41px; }
+  body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:checked + label:hover:active {
+    background-position: 0 -121px; }
+  body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:disabled + label, body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:hover:disabled + label, body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:focus:disabled + label {
+    background-position: 0 -61px; }
+
+/* Custom checkbox in investors list*/
+input[type=checkbox]:disabled + label:hover, body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:disabled + label:hover:active {
+  background-position: 0 -61px; }
+
+input[type=checkbox]:disabled:checked + label, input[type=checkbox]:hover:disabled:checked + label, input[type=checkbox]:focus:disabled:checked + label, input[type=checkbox]:disabled:checked + label:hover {
+  background-position: 0 -141px; }
+
+body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:disabled:checked + label:hover:active {
+  background-position: 0 -141px; }
+body.dashboard div#colective-messages input[type="checkbox"] {
+  height: 16px;
+  width: 16px;
+  float: left;
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  margin: 0;
+  padding: 0; }
+body.dashboard div#colective-messages label {
+  float: left;
+  line-height: 16px;
+  padding: 0 0 0 20px;
+  margin-right: 45px; }
+body.dashboard div#colective-messages input + label {
+  background: url("/view/m/images/dashboard/gr_custom-inputs2.png") 0 -1px no-repeat;
+  height: 16px; }
+body.dashboard div#colective-messages input[type=checkbox]:checked + label {
+  background-position: 0 -81px; }
+body.dashboard div#colective-messages input[type=checkbox]:hover:checked + label, body.dashboard div#colective-messages input[type=checkbox]:focus:checked + label, body.dashboard div#colective-messages input[type=checkbox]:checked + label:hover, body.dashboard div#colective-messages input[type=checkbox]:focus:checked + label {
+  background-position: 0 -101px; }
+body.dashboard div#colective-messages input[type=checkbox]:hover + label, body.dashboard div#colective-messages input[type=checkbox]:focus + label, body.dashboard div#colective-messages input[type=checkbox] + label:hover {
+  background-position: 0 -21px; }
+body.dashboard div#colective-messages input[type=checkbox]:active + label {
+  background-position: 0 -41px; }
+body.dashboard div#colective-messages input[type=checkbox]:active:checked + label {
+  background-position: 0 -121px; }
+body.dashboard div#colective-messages input[type=checkbox] + label:hover:active {
+  background-position: 0 -41px; }
+body.dashboard div#colective-messages input[type=checkbox]:checked + label:hover:active {
+  background-position: 0 -121px; }
+body.dashboard div#colective-messages input[type=checkbox]:disabled + label, body.dashboard div#colective-messages input[type=checkbox]:hover:disabled + label, body.dashboard div#colective-messages input[type=checkbox]:focus:disabled + label {
+  background-position: 0 -61px; }
+
+/* Custom checkbox in comment box*/
+input[type=checkbox]:disabled + label:hover, body.dashboard div#colective-messages input[type=checkbox]:disabled + label:hover:active {
+  background-position: 0 -61px; }
+
+input[type=checkbox]:disabled:checked + label, input[type=checkbox]:hover:disabled:checked + label, input[type=checkbox]:focus:disabled:checked + label, input[type=checkbox]:disabled:checked + label:hover {
+  background-position: 0 -141px; }
+
+body.dashboard div#colective-messages input[type=checkbox]:disabled:checked + label:hover:active {
+  background-position: 0 -141px; }
+body.dashboard div#colective-messages div#checks {
+  height: auto;
+  overflow: auto;
+  margin: 0 0 25px 25px; }
+body.dashboard div#colective-messages div#comment {
+  width: 657px;
+  margin-left: 20px; }
+body.dashboard div#colective-messages div#checks p {
+  height: auto;
+  line-height: 20px;
+  margin-bottom: 3px;
+  overflow: auto;
+  font-size: 8pt; }
+body.dashboard div#colective-messages div#bocadillo {
+  background: url("/view/m/images/bocadillo.jpg") no-repeat scroll 0 0 transparent;
+  height: 51px;
+  position: absolute;
+  width: 56px; }
+body.dashboard div#colective-messages textarea {
+  background-color: #DCEEDF;
+  border: 1px solid #2EAB58;
+  clear: right;
+  display: block;
+  float: left;
+  margin: -1px;
+  margin-left: 55px;
+  height: 50px;
+  padding: 0.3em 0;
+  resize: none;
+  width: 600px; }
+body.dashboard div#colective-messages a.preview {
+  clear: left;
+  color: #2EAB58;
+  float: left;
+  font-weight: bold;
+  left: 52px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  top: 10px; }
+body.dashboard div#colective-messages button {
+  font-weight: bold;
+  padding: 5px 20px;
+  float: right;
+  margin-top: 20px; }
+
+/*# sourceMappingURL=styles-m.css.map */

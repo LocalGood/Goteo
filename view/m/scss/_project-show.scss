@@ -1,0 +1,522 @@
+.project-show {
+
+  .project-spread{
+    .obtained {
+      display: none;
+    }
+  }
+
+
+  div {
+    &#main {
+      padding: 4px;
+      clear: both;
+      overflow-y: hidden;
+      overflow-x: hidden;
+      position: relative;
+      z-index: 0;
+      > div.center > div.widget.project-invest {
+        &.method input#paymethod {
+          width: 145px;
+          margin: 0 auto;
+          padding-bottom: 25px;
+        }
+        form {
+          padding: 24px 0 24px 8px;
+        }
+      }
+      div.center {
+        div.widget {
+          &.project-support {
+            border-bottom: none !important;
+            div.widget {
+              border-bottom: none !important;
+            }
+          }
+          &.project-summary {
+            /*padding: 10px 0;*/
+            clear: left;
+            background-color: #fff;
+          }
+        }
+        .widget {
+          &.project-summary img, &.project-support img {
+            width: 100% !important;
+            height: auto;
+          }
+        }
+        div.widget.project-share {
+          border-bottom: none;
+          margin-bottom: 20px !important;
+          padding-top: 8px;
+          padding-bottom: 8px;
+        }
+      }
+      > div.center.needs > div.widget {
+        &.project-needs, &.project-message, &.project-schedule {
+          margin-bottom: 20px;
+        }
+      }
+      > div.side > div.widget .title {
+        background: none !important;
+      }
+      &.widget {
+        margin-bottom: 20px;
+        &.pr.oject-support {
+          border-top: none !important;
+          background-color: #fff;
+        }
+      }
+      &.side {
+        margin: 20px 0 0 0;
+      }
+      &.center {
+        div.widget.project-summary h3 {
+          font-size: 20px;
+          font-weight: bold;
+          margin: 0 16px;
+        }
+        .widget.project-summary .description {
+          /*padding: 0 10px;*/
+          margin: 0 0 20px 0 !important;
+        }
+      }
+      > div.side > div.widget {
+        clear: right;
+      }
+      > div.center > div.widget {
+        margin: 0 auto 0;
+        clear: left;
+        background-color: #fff;
+      }
+      > div.center {
+        > div.widget, form div.widget {
+          margin: 0 auto;
+          /*padding: 0;*/
+          clear: left;
+          background-color: #fff;
+        }
+        > div.widget.project-invest.address {
+          margin: 0 auto;
+          padding: 0 0 20px 0;
+          clear: left;
+          background-color: #fff;
+        }
+      }
+    }
+    &#sub-header {
+      background: #faf8f8;
+      height: 36px;
+      padding: 0;
+      position: relative;
+      div {
+        &.project-header {
+          min-height: 75px;
+          position: relative;
+          top: 10px;
+          img {
+            float: left;
+            margin: 2px 20px 0 0;
+          }
+          h2 {
+            font-size: 2em;
+            margin-bottom: 36px;
+            > span {
+              display: block;
+              line-height: 1em;
+              font-size: 15px;
+            }
+          }
+        }
+        &.project-subtitle {
+          font-size: 16px;
+          font-weight: normal;
+          margin: 3px 0;
+          max-width: 620px;
+          font-style: normal;
+        }
+        &.wants-skills {
+          margin-bottom: 8px;
+          font-size: 12px;
+          a {
+            font-size: 12px;
+          }
+        }
+        &.project-by {
+          color: #20B3B2;
+          font-size: 12px;
+          a {
+            font-weight: normal;
+            color: #cc6600;
+            font-size: 12px;
+            text-decoration: none;
+            &:hover {
+              color: #58595B;
+            }
+          }
+        }
+        &.categories {
+          position: absolute;
+          text-align: right;
+          top: 90px;
+          width: 100%;
+          h3 {
+            font-weight: normal;
+            color: #20B3B2;
+            margin: 0;
+            display: inline-block;
+          }
+          * {
+            font-size: 12px;
+          }
+          a {
+            color: #58595B;
+            text-decoration: none;
+            &:hover {
+              color: #20B3B2;
+            }
+          }
+        }
+      }
+      div.sub-menu p {
+        &.prev2, &.next2 {
+          position: absolute;
+          top: 0;
+          width: 7px;
+          height: 27px;
+          margin: 0;
+          padding-top: 14px;
+          padding-left: 4px;
+          padding-right: 4px;
+          line-height: 27px;
+          background-color: #e5e5e5;
+          z-index: 1;
+        }
+        &.prev2 {
+          left: 0;
+          border-right: 1px dashed #c0c0c0;
+        }
+        &.next2 {
+          right: 0;
+          border-left: 1px dashed #c0c0c0;
+        }
+      }
+    }
+    &.project-menu ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      font-size: 0;
+      li {
+        span.digits {
+          display: inline-block;
+          text-align: center;
+        }
+        a {
+          display: inline-block;
+          height: 35px;
+          padding: 0 8px;
+          color: #666666;
+          text-transform: uppercase;
+          text-decoration: none;
+          text-align: center;
+          line-height: 35px;
+          background: #ffffcc;
+          /* Old browsers */
+          background: -moz-linear-gradient(top, #ffffcc 0%, #e5e5b9 100%, #e8e8bb 100%);
+          /* FF3.6+ */
+          background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffcc), color-stop(100%, #e5e5b9), color-stop(100%, #e8e8bb));
+          /* Chrome,Safari4+ */
+          background: -webkit-linear-gradient(top, #ffffcc 0%, #e5e5b9 100%, #e8e8bb 100%);
+          /* Chrome10+,Safari5.1+ */
+          background: -o-linear-gradient(top, #ffffcc 0%, #e5e5b9 100%, #e8e8bb 100%);
+          /* Opera 11.10+ */
+          background: linear-gradient(to bottom, #ffffcc 0%, #e5e5b9 100%, #e8e8bb 100%);
+          /* W3C */
+          color: #999966;
+          font-size: 12px;
+        }
+        &.active a {
+          background: none;
+          background-color: #dae121;
+          border: none;
+          color: #666666;
+        }
+        &.show a {
+          background: none;
+          background-color: #dae121;
+        }
+      }
+    }
+  }
+  .project-summary {
+    padding: 20px 16px;
+  }
+  .widget.user.collapsable {
+    background-color: #fff;
+    h3.supertitle {
+      background-color: #669900;
+      font-weight: normal;
+      font-size: 15px;
+      height: 40px;
+      padding: 0;
+      padding-left: 20px;
+      border-bottom: none;
+      line-height: 40px;
+      color: #ffffff;
+    }
+    .project-widget-box {
+      position: relative;
+      margin: 0;
+      padding: 16px;
+      h4.title {
+        font-size: 13px;
+        margin: 10px 0 20px 50px;
+      }
+      .image {
+        width: 40px;
+        height: 40px;
+        overflow: hidden;
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        img {
+          width: auto;
+          height: 100%;
+          margin: 0;
+          padding: 0;
+        }
+      }
+      blockquote.about {
+        font-size: 12px;
+        line-height: 1.4em;
+        margin: 10px 0 0 0;
+      }
+      dl {
+        margin: 20px 0;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 0;
+        font-size: 13px;
+        dd {
+          border: none;
+          border-bottom: 1px solid #eee;
+          padding: 0.8em 1.5em 0.8em 50px;
+          line-height: 1.4em;
+          text-align: left;
+          &:last-child {
+            border: none;
+          }
+          &.location {
+            background: url('/view/m/images/location/s.png') no-repeat 1.5em center;
+            text-indent: 0;
+            a {
+              text-decoration: none;
+            }
+          }
+          &.message {
+            background: url('/view/m/images/bocadillo/s.png') no-repeat 1.5em center;
+            text-indent: 0;
+            text-decoration: none;
+            a {
+              font-weight: normal;
+              text-decoration: none;
+              font-size: 14px;
+              color: #666;
+            }
+          }
+          &.links {
+            background: url('/view/m/images/social/url.png') no-repeat 1.5em center;
+            text-indent: 0;
+            text-decoration: none;
+            ul {
+              line-height: 1.2em !important;
+              li a {
+                font-weight: normal;
+                text-decoration: none;
+                font-size: 14px;
+              }
+            }
+          }
+          &.profile {
+            background: url('/view/m/images/icon/m/s_task.png') no-repeat 1em center;
+            text-indent: 0;
+            a {
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //プロジェクト詳細　＞　
+  div.widget.project-support {
+    div.meter {
+      padding-bottom: 134px !important;
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+      &.skillmatching {
+        padding-bottom: 78px !important;
+        padding-top: 10px !important;
+      }
+    }
+    .invest-notice {
+      margin: 5px 16px 0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 4px;
+    }
+  }
+
+}
+
+/*--------------------------------------------------
+    project/home , project/supporters
+--------------------------------------------------*/
+
+div {
+  &.center div.widget.project-support div.graph {
+    margin-top: 0;
+  }
+  &.widget {
+  }
+}
+
+
+
+body {
+  &.discover div.widget.project div.meter dl {
+    dt, dd {
+      width: 93px;
+      text-align: center;
+    }
+  }
+}
+/*----------------------------------------------------------------------
+  project/view.css
+----------------------------------------------------------------------*/
+
+/**
+ * Menu
+*/
+
+/* ayuda a difundir este proyecto */
+
+div {
+  &.widget {
+    &.project-spread {
+      > {
+        h3.title {
+          padding-left: 46px;
+        }
+        div.widget.projects > div {
+          &.left {
+            float: left;
+            width: 280px;
+            border-right: #000 1px solid;
+          }
+          &.right {
+            float: left;
+            width: 245px;
+            margin-left: 12px;
+          }
+        }
+      }
+      div.subtitle {
+        width: 245px;
+        text-transform: uppercase;
+        margin: 0 0 10px 7px;
+        &#s1, &#s2 {}
+        > span {
+          display: block;
+          &.primero {
+            margin-bottom: 3px;
+          }
+          &.segundo {
+            color: #28ACAB;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    &.projects #widget-code {
+      width: 350px;
+      float: left;
+      margin: 0 0 0 20px;
+      .wc-embed {
+        background: url("/view/m/images/social/embed.png") no-repeat;
+        min-height: 20px;
+        text-transform: uppercase;
+        padding: 3px 0 0 25px;
+      }
+      textarea {
+        width: 200px;
+        height: 130px;
+        margin: 10px 0;
+        padding: 10px;
+        background: #E7E7E7;
+        border: none;
+        font-size: 12px;
+        resize: none;
+      }
+    }
+    h4.supertitle, h3.supertitle {
+      height: 40px;
+      padding: 0;
+      padding-left: 20px;
+      border-bottom: none;
+      line-height: 40px;
+      color: #ffffff;
+    }
+  }
+  &#project-support, &#project-investors, &#project-collaborations, &#project-rewards {
+    padding: 0;
+  }
+  &.widget {
+    &.user, &.project-investors, &.user-mates, &.user, &.user-supporters {
+      padding: 0;
+    }
+  }
+  &#project-investors .project-widget-box, &#project-collaborations .project-widget-box {
+    padding: 15px 20px;
+  }
+  &.widget {
+    &.user .project-widget-box, &.project-investors .project-widget-box, &.user-supporters .project-widget-box div.widget.project-needs .project-widget-box {
+      padding: 15px 20px;
+    }
+    &.user-mates .project-widget-box {}
+  }
+  &#project-collaborations .project-widget-box, &#project-support .project-widget-box, &.widget.project-investors .project-widget-box {
+    background-color: #fff;
+    border-bottom: 1px dashed #c0c0c0;
+  }
+  &#project-collaborations .project-widget-box {
+    h3.title {
+      color: #666;
+      font-weight: bold;
+    }
+    ul li p {
+      font-size: 12px;
+    }
+  }
+  &.side div#project-collaborations .project-widget-box ul li p {
+    padding-bottom: 16px;
+  }
+  &.widget.project-support {
+    position: relative;
+  }
+  &.widge dl {
+    margin: 0;
+    padding: 0 0 0 20px;
+    float: left;
+    margin-left: 15px;
+    margin-bottom: 60px;
+  }
+}
+
+
+

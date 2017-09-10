@@ -101,6 +101,7 @@ $_blog_key = substr($ogmeta['url'], $blog_post+9);
         <meta property="og:url" content="<?php echo SITE_URL ?>" />
 <?php endif; ?>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="<?php echo SRC_URL ?>/view/m/css/styles-m.css" />
         <?php if (!isset($useJQuery) || !empty($useJQuery)): ?>
         <?/*<script type="text/javascript" src="<?php echo SRC_URL ?>/view/m/js/jquery-1.6.4.min.js"></script>*/?>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
