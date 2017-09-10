@@ -1,94 +1,144 @@
 /*----------------------------------------------------------------------
   meter.css
 ----------------------------------------------------------------------*/
-/*--------------------------------------------------
-    goteo_top(activity) , user/profile
---------------------------------------------------*/
-
-div.widget.project div.meter {
-  > h3.ronda {
-    color: #999900;
-    position: absolute;
-    top: 4px;
-    right: 16px;
-    text-transform: lowercase;
-  }
-  &.activable {
-    z-index: 999;
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-    /*max-width: 288px;*/
-    width: 90vw;
-  }
+.meter{
   padding: 4px 0 148px !important;
   position: relative;
   height: 20px;
-  &.skillmatching {
-    padding: 4px 0 78px !important;
-  }
-}
 
-.meter {
+  h3.title.obtained {
+    display:none;
+    padding-left: 5px;
+  }
+  div.graph {
+    background-color: #BCCCD8;
+    height: 12px;
+    margin: 24px 0 0;
+    position: relative;
+    border-right: 40px solid #dcdcdc; //todo:この指定いらないかも
+
+    * strong,
+    * span {
+      display: none;
+    }
+    .minimum {
+      background-color: #dc940f;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      .done {
+        background-color: #c5da4d;
+        height: 12px;
+        max-width: 288px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        strong {
+          background: url("/view/m/images/project/widget/project/marker_sp.png") no-repeat;
+          display: block;
+          height: 16px;
+          line-height: 2000px;
+          margin-right: -10px;
+          margin-top: -5px;
+          overflow: hidden;
+          position: absolute;
+          right: 0;
+          text-indent: 2000px;
+          width: 17px;
+        }
+      }
+      .left {
+        float: right;
+        height: 19px;
+        margin-right: -2px;
+        margin-top: -6px;
+      }
+    }
+  }
+
+  > h3.investment{
+    color:#336633;
+  }
+  div.obtained{
+    strong {
+      font-size: 26px;
+      font-weight: bold;
+      color: #cc6600;
+      padding-right: 20px;
+      border-right: 1px solid #a7a9ac;
+      &.euro {
+        width: 19px;
+        height: 19px;
+        line-height: 2000px;
+        overflow: hidden;
+        display: inline-block;
+        background:  url('/view/m/images/euro/violet/m.png') no-repeat center;
+        margin-bottom: -1px;
+      }
+    }
+  }
+  span.percent {
+    font-size: 26px;
+    font-weight: bold;
+    color: #a7a9ac;
+    padding-left: 15px;
+  }
+
   dl {
+    position: relative;
+    margin: 16px 0 0 0;
+    * {
+      margin: 0;
+    }
+    .minimum {
+      min-width: 10%;
+    }
+    .optimum,
+    .minimum {
+      display: block;
+      white-space: nowrap;
+    }
     dt, dd {
       position: absolute;
       width: 33.3% !important;
       height: 30px !important;
       text-align: center;
     }
-  }
-  &.skillmatching dl {
-    dt, dd {
-      width: 50% !important;
-      height: 30px !important;
-    }
-  }
-  dl dt {
-    top: 0;
-    font-size: 11px;
-    text-transform: uppercase;
-    &.minimum {
-      top: 0;
-      left: 0;
-      color: #cc6600;
-    }
-    &.optimum {
-      top: 0;
-      left: 33.3%;
-      color: #6699cc;
-    }
-    &.days {
-      top: 0;
-      right: 0;
-    }
-  }
-  &.skillmatching dl dt.days {
-    top: 0;
-    right: 0;
-    padding-top: 5px;
-  }
-  dl dt {
-    &.reached {
-      top: 56px;
-      left: 0;
-    }
-    &.supporters {
-      top: 56px;
-      left: 33.3%;
-    }
-  }
-  &.skillmatching dl dt.supporters {
-    top: 0;
-    left: 0;
-    padding-top: 5px;
-  }
-  dl {
     dt {
+      top: 0;
+      font-size: 11px;
+      text-transform: uppercase;
+      &.minimum {
+        top: 0;
+        left: 0;
+        color: #cc6600;
+      }
+      &.optimum {
+        top: 0;
+        left: 33.3%;
+        color: #6699cc;
+      }
+      &.days {
+        top: 0;
+        right: 0;
+      }
+      &.reached {
+        top: 56px;
+        left: 0;
+      }
+      &.supporters {
+        top: 56px;
+        left: 33.3%;
+      }
       &.percent {
         top: 56px;
         right: 0;
       }
-      &.days, &.reached, &.supporters, &.percent {
+      &.days,
+      &.reached,
+      &.supporters,
+      &.percent {
         color: #666600;
       }
     }
@@ -111,73 +161,95 @@ div.widget.project div.meter {
       &.days {
         top: -16px;
         right: 0;
+        strong {
+          color: #996666;
+        }
+      }
+      &.minimum span, &.optimum span, &.days span, &.reached span, &.supporters span {
+        font-size: 11px;
+        font-weight: normal;
+      }
+      &.reached {
+        top: 40px;
+        left: 0;
+        font-weight: normal;
+        border-right: 1px solid #eee;
+      }
+      &.supporters {
+        top: 40px;
+        left: 33.3%;
+        font-weight: normal;
+        border-right: 1px solid #eee;
+        strong {
+          color: #990000;
+        }
+      }
+      &.percent {
+        top: 40px;
+        right: 0;
+        font-weight: normal;
       }
     }
   }
-  &.skillmatching dl dd.days {
-    top: 0;
-    border-top: 1px solid #eee;
-  }
-  dl dd {
-    &.reached {
-      top: 40px;
-      left: 0;
-      font-weight: normal;
-      border-right: 1px solid #eee;
-    }
-    &.supporters {
-      top: 40px;
-      left: 33.3%;
-      font-weight: normal;
-      border-right: 1px solid #eee;
-    }
-  }
-  &.skillmatching dl dd.supporters {
-    top: 0;
-    left: 0;
-    border-top: 1px solid #eee;
-  }
-  dl dd.percent {
-    top: 40px;
-    right: 0;
-    font-weight: normal;
-  }
-}
 
-div.widget.project div.meter dl dd {
-  &.minimum span, &.optimum span, &.days span, &.reached span, &.supporters span {
-    font-size: 11px;
-    font-weight: normal;
+  h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 0 0;
   }
-}
-
-.meter dl dd {
-  &.days strong {
-    color: #996666;
-  }
-  &.supporters strong {
-    color: #990000;
-  }
-}
-
-div.widget {
-  &.project div.meter div.graph .minimum, &.project-support div.graph > div.minimum {
-    background-color: #dc940f;
-    height: 100%;
+  > h3.ronda {
+    color: #999900;
     position: absolute;
-    left: 0;
-    top: 0;
+    top: 4px;
+    right: 16px;
+    text-transform: lowercase;
   }
-  &.project div {
-    &.meter div.graph {
-      background-color: #BCCCD8;
-      height: 12px;
-      border-right: 40px solid #dcdcdc;
-      margin: 30px 5px 70px;
-      position: relative;
-    }
-    &.rewards {
-      display: none;
+
+
+  &.hor{
+    div.graph{
+      .minimum{
+        .done {
+          max-width: 278px;
+        }
+      }
     }
   }
+
+  &.activable {
+    z-index: 999;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    width: 90vw;
+  }
+
+  &.skillmatching {
+    padding: 4px 0 78px !important;
+    dl {
+      dt, dd {
+        width: 50% !important;
+        height: 30px !important;
+      }
+      dt {
+        &.days {
+          top: 0;
+          right: 0;
+          padding-top: 5px;
+        }
+        &.supporters {
+          top: 0;
+          left: 0;
+          padding-top: 5px;
+        }
+      }
+      dd {
+        &.days {
+          top: 0;
+          border-top: 1px solid #eee;
+        }
+      }
+    }
+  }
+
 }
