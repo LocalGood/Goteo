@@ -584,74 +584,11 @@ ul#pagination {
       font-size: 12px;
       position: relative;
       text-decoration: none;
-      text-transform: uppercase;
       top: 0;
       width: 100%;
       display: block;
     }
   }
-}*/
-/** navi box&arrows **/
-/*ul.navi {
-  list-style: none;
-  margin: 0;
-  height: 10px;
-  padding: 10px;
-  z-index: 900;
-}
-
-ul.navi li {
-  display: block;
-  float: left;
-  height: 1em;
-  margin-right: .5em;
-  overflow: hidden;
-  width: 1em;
-}
-
-ul.navi li > * {
-  display: block;
-  height: 100%;
-  line-height: 2000px;
-  text-indent: 2000px;
-  width: 100%;
-}
-
-ul.navi li > a {
-  background-color: #cdcdce;
-}
-
-ul.navi li.active > a,
-ul.navi li > a:hover {
-  background-color: #20b3b2;
-}
-
-ul.navi li > a.active {
-  background-color: #808184;
-}
-
-ul.navi li.prev,
-ul.navi li.next {
-  line-height: 2000px;
-  height: 1em;
-  overflow: hidden;
-  width: 1em;
-}
-
-ul.navi li.prev a {
-  background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 0;
-}
-
-ul.navi li.prev.active a {
-  background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 -32px;
-}
-
-ul.navi li.next a {
-  background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 -16px;
-}
-
-ul.navi li.next.active a {
-  background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 -48px;
 }*/
 .widget.projects .discover-group div.widget.project {
   margin: 0 auto; }
@@ -679,8 +616,7 @@ ul.navi li.next.active a {
   clear: both;
   text-align: right; }
   .widget.projects > .more a {
-    text-decoration: none;
-    text-transform: uppercase; }
+    text-decoration: none; }
     .widget.projects > .more a:hover {
       text-decoration: underline; }
 .widget.projects > .widget-title {
@@ -725,8 +661,7 @@ ul.navi li.next.active a {
     width: 50px; }
 .widget.project {
   overflow: visible;
-  position: relative;
-  /* meter */ }
+  position: relative; }
   .widget.project > * {
     margin: 0;
     padding: 12px; }
@@ -775,7 +710,6 @@ ul.navi li.next.active a {
         margin: 3px;
         float: left; }
       .widget.project .image .investor .invest {
-        text-transform: uppercase;
         text-align: left;
         font-size: 12px;
         line-height: 9px;
@@ -795,7 +729,6 @@ ul.navi li.next.active a {
       color: #ffffff;
       background-color: rgba(25, 181, 179, 0.8);
       font-size: 0.8em;
-      text-transform: uppercase;
       padding: 2px 8px;
       cursor: default;
       position: absolute;
@@ -837,94 +770,16 @@ ul.navi li.next.active a {
     text-transform: none;
     position: relative;
     z-index: 100; }
+  .widget.project .description {
+    padding: 2px 12px;
+    font-size: 12px; }
   .widget.project .skills {
     line-height: 16px; }
     .widget.project .skills a {
       font-size: 11px; }
-  .widget.project-summary > .wants-skills .matched_skill {
-    font-size: 11px;
-    background-color: #f99; }
-  .widget.project .description {
-    padding: 2px 12px;
-    font-size: 12px; }
-  .widget.project-show div.center div#project-support .project-widget-box {
-    padding-left: 0;
-    padding-right: 0;
-    border-bottom: none; }
-  .widget.project div.meter h3.title.obtained {
-    display: none;
-    padding-left: 5px; }
-  .widget.project div.meter > h3.investment {
-    color: #336633; }
-  .widget.project div.meter div.obtained strong {
-    font-size: 26px;
-    font-weight: bold;
-    color: #cc6600;
-    padding-right: 20px;
-    border-right: 1px solid #a7a9ac; }
-    .widget.project div.meter div.obtained strong.euro {
-      width: 19px;
-      height: 19px;
-      line-height: 2000px;
-      overflow: hidden;
-      display: inline-block;
-      background: url("/view/m/images/euro/violet/m.png") no-repeat center;
-      margin-bottom: -1px; }
-  .widget.project div.meter span.percent {
-    font-size: 26px;
-    font-weight: bold;
-    color: #a7a9ac;
-    padding-left: 15px; }
-  .widget.project div.meter .hor div.graph .minimum .done {
-    max-width: 278px; }
-  .widget.project div.meter dl {
-    position: relative;
-    margin: 16px 0 0 0; }
-    .widget.project div.meter dl * {
-      margin: 0; }
-    .widget.project div.meter dl .minimum {
-      min-width: 10%; }
-  .widget.project div.meter h2, .widget.project div.meter h3, .widget.project div.meter h4, .widget.project div.meter h5, .widget.project div.meter h6 {
-    margin: 0;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 2px 0 0; }
-  .widget.project div.meter div.graph {
-    background-color: #BCCCD8;
-    height: 12px;
-    margin: 24px 0 0;
-    position: relative; }
-    .widget.project div.meter div.graph * strong,
-    .widget.project div.meter div.graph * span {
-      display: none; }
-    .widget.project div.meter div.graph .minimum .done {
-      background-color: #c5da4d;
-      height: 12px;
-      max-width: 288px;
-      position: absolute;
-      left: 0;
-      top: 0; }
-      .widget.project div.meter div.graph .minimum .done strong {
-        background: url("/view/m/images/project/widget/project/marker_sp.png") no-repeat;
-        display: block;
-        height: 16px;
-        line-height: 2000px;
-        margin-right: -10px;
-        margin-top: -5px;
-        overflow: hidden;
-        position: absolute;
-        right: 0;
-        text-indent: 2000px;
-        width: 17px; }
-    .widget.project div.meter div.graph .minimum .left {
-      float: right;
-      height: 19px;
-      margin-right: -2px;
-      margin-top: -6px; }
-  .widget.project div.meter dl .optimum,
-  .widget.project div.meter dl .minimum {
-    display: block;
-    white-space: nowrap; }
+  .widget.project .meter.activable {
+    padding-left: 16px !important;
+    padding-right: 16px !important; }
   .widget.project div.rewards h2, .widget.project div.rewards h3, .widget.project div.rewards h4, .widget.project div.rewards h5, .widget.project div.rewards h6 {
     margin: 0;
     line-height: 22px;
@@ -993,6 +848,23 @@ ul.navi li.next.active a {
     position: absolute;
     right: 0;
     margin-top: -6px; }
+  .widget.project .discover-group .image {
+    margin-bottom: 0; }
+  .widget.project .discover-group h3.title {
+    margin: 0 !important;
+    padding: 16px 16px 0 !important; }
+    .widget.project .discover-group h3.title a {
+      font-size: 18px;
+      color: #0098c4; }
+  .widget.project .discover-group h3.ronda {
+    padding-top: 0 !important; }
+.widget.project-summary > .wants-skills .matched_skill {
+  font-size: 11px;
+  background-color: #f99; }
+.widget.project-show div.center div#project-support .project-widget-box {
+  padding-left: 0;
+  padding-right: 0;
+  border-bottom: none; }
 .widget.project-support div.meter > h3.title {
   color: #999900;
   position: absolute;
@@ -1042,15 +914,6 @@ ul.navi li.next.active a {
     white-space: nowrap; }
 
 /* meter */
-body.discover div.widget.project div.meter.activable {
-  padding-left: 16px !important;
-  padding-right: 16px !important; }
-
-.meter .obtained {
-  position: relative;
-  top: 110px;
-  text-align: center; }
-
 .home .meter .obtained {
   display: none; }
 
@@ -1087,132 +950,172 @@ div#proyecto d.activableiv#widget-code blockquote {
 /*----------------------------------------------------------------------
   meter.css
 ----------------------------------------------------------------------*/
-/*--------------------------------------------------
-    goteo_top(activity) , user/profile
---------------------------------------------------*/
-div.widget.project div.meter {
+.meter {
   padding: 4px 0 148px !important;
   position: relative;
   height: 20px; }
-  div.widget.project div.meter > h3.ronda {
+  .meter h3.title.obtained {
+    display: none;
+    padding-left: 5px; }
+  .meter h3.title.investment {
+    color: #336633; }
+  .meter div.graph {
+    background-color: #BCCCD8;
+    height: 12px;
+    margin: 24px 0 0;
+    position: relative;
+    border-right: 40px solid #dcdcdc; }
+    .meter div.graph * strong,
+    .meter div.graph * span {
+      display: none; }
+    .meter div.graph .minimum {
+      background-color: #dc940f;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0; }
+      .meter div.graph .minimum .done {
+        background-color: #c5da4d;
+        height: 12px;
+        max-width: 288px;
+        position: absolute;
+        left: 0;
+        top: 0; }
+        .meter div.graph .minimum .done strong {
+          background: url("/view/m/images/project/widget/project/marker_sp.png") no-repeat;
+          display: block;
+          height: 16px;
+          line-height: 2000px;
+          margin-right: -10px;
+          margin-top: -5px;
+          overflow: hidden;
+          position: absolute;
+          right: 0;
+          text-indent: 2000px;
+          width: 17px; }
+      .meter div.graph .minimum .left {
+        float: right;
+        height: 19px;
+        margin-right: -2px;
+        margin-top: -6px; }
+  .meter span.percent {
+    font-size: 26px;
+    font-weight: bold;
+    color: #a7a9ac;
+    padding-left: 15px; }
+  .meter dl {
+    position: relative;
+    margin: 16px 0 0 0; }
+    .meter dl * {
+      margin: 0; }
+    .meter dl .minimum {
+      min-width: 10%; }
+    .meter dl .optimum,
+    .meter dl .minimum {
+      display: block;
+      white-space: nowrap; }
+    .meter dl dt, .meter dl dd {
+      position: absolute;
+      width: 33.3% !important;
+      height: 30px !important;
+      text-align: center; }
+    .meter dl dt {
+      top: 0;
+      font-size: 11px; }
+      .meter dl dt.minimum {
+        top: 0;
+        left: 0;
+        color: #cc6600; }
+      .meter dl dt.optimum {
+        top: 0;
+        left: 33.3%;
+        color: #6699cc; }
+      .meter dl dt.days {
+        top: 0;
+        right: 0; }
+      .meter dl dt.reached {
+        top: 56px;
+        left: 0; }
+      .meter dl dt.supporters {
+        top: 56px;
+        left: 33.3%; }
+      .meter dl dt.percent {
+        top: 56px;
+        right: 0; }
+      .meter dl dt.days, .meter dl dt.reached, .meter dl dt.supporters, .meter dl dt.percent {
+        color: #666600; }
+    .meter dl dd {
+      padding-top: 30px;
+      font-size: 12px;
+      border-bottom: 1px solid #eee; }
+      .meter dl dd.minimum {
+        top: -16px;
+        left: 0;
+        color: #cc6600;
+        border-right: 1px solid #eee; }
+      .meter dl dd.optimum {
+        top: -16px;
+        left: 33.3%;
+        color: #6699cc;
+        border-right: 1px solid #eee; }
+      .meter dl dd.days {
+        top: -16px;
+        right: 0; }
+        .meter dl dd.days strong {
+          color: #996666; }
+      .meter dl dd.minimum span, .meter dl dd.optimum span, .meter dl dd.days span, .meter dl dd.reached span, .meter dl dd.supporters span {
+        font-size: 11px;
+        font-weight: normal; }
+      .meter dl dd.reached {
+        top: 40px;
+        left: 0;
+        font-weight: normal;
+        border-right: 1px solid #eee; }
+      .meter dl dd.supporters {
+        top: 40px;
+        left: 33.3%;
+        font-weight: normal;
+        border-right: 1px solid #eee; }
+        .meter dl dd.supporters strong {
+          color: #990000; }
+      .meter dl dd.percent {
+        top: 40px;
+        right: 0;
+        font-weight: normal; }
+  .meter h2, .meter h3, .meter h4, .meter h5, .meter h6 {
+    margin: 0;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 0 0; }
+  .meter > h3.ronda {
     color: #999900;
     position: absolute;
     top: 4px;
     right: 16px;
     text-transform: lowercase; }
-  div.widget.project div.meter.activable {
+  .meter.hor div.graph .minimum .done {
+    max-width: 278px; }
+  .meter.activable {
     z-index: 999;
     padding-left: 16px !important;
     padding-right: 16px !important;
-    /*max-width: 288px;*/
     width: 90vw; }
-  div.widget.project div.meter.skillmatching {
+  .meter.skillmatching {
     padding: 4px 0 78px !important; }
-
-.meter dl dt, .meter dl dd {
-  position: absolute;
-  width: 33.3% !important;
-  height: 30px !important;
-  text-align: center; }
-.meter.skillmatching dl dt, .meter.skillmatching dl dd {
-  width: 50% !important;
-  height: 30px !important; }
-.meter dl dt {
-  top: 0;
-  font-size: 11px;
-  text-transform: uppercase; }
-  .meter dl dt.minimum {
-    top: 0;
-    left: 0;
-    color: #cc6600; }
-  .meter dl dt.optimum {
-    top: 0;
-    left: 33.3%;
-    color: #6699cc; }
-  .meter dl dt.days {
-    top: 0;
-    right: 0; }
-.meter.skillmatching dl dt.days {
-  top: 0;
-  right: 0;
-  padding-top: 5px; }
-.meter dl dt.reached {
-  top: 56px;
-  left: 0; }
-.meter dl dt.supporters {
-  top: 56px;
-  left: 33.3%; }
-.meter.skillmatching dl dt.supporters {
-  top: 0;
-  left: 0;
-  padding-top: 5px; }
-.meter dl dt.percent {
-  top: 56px;
-  right: 0; }
-.meter dl dt.days, .meter dl dt.reached, .meter dl dt.supporters, .meter dl dt.percent {
-  color: #666600; }
-.meter dl dd {
-  padding-top: 30px;
-  font-size: 12px;
-  border-bottom: 1px solid #eee; }
-  .meter dl dd.minimum {
-    top: -16px;
-    left: 0;
-    color: #cc6600;
-    border-right: 1px solid #eee; }
-  .meter dl dd.optimum {
-    top: -16px;
-    left: 33.3%;
-    color: #6699cc;
-    border-right: 1px solid #eee; }
-  .meter dl dd.days {
-    top: -16px;
-    right: 0; }
-.meter.skillmatching dl dd.days {
-  top: 0;
-  border-top: 1px solid #eee; }
-.meter dl dd.reached {
-  top: 40px;
-  left: 0;
-  font-weight: normal;
-  border-right: 1px solid #eee; }
-.meter dl dd.supporters {
-  top: 40px;
-  left: 33.3%;
-  font-weight: normal;
-  border-right: 1px solid #eee; }
-.meter.skillmatching dl dd.supporters {
-  top: 0;
-  left: 0;
-  border-top: 1px solid #eee; }
-.meter dl dd.percent {
-  top: 40px;
-  right: 0;
-  font-weight: normal; }
-
-div.widget.project div.meter dl dd.minimum span, div.widget.project div.meter dl dd.optimum span, div.widget.project div.meter dl dd.days span, div.widget.project div.meter dl dd.reached span, div.widget.project div.meter dl dd.supporters span {
-  font-size: 11px;
-  font-weight: normal; }
-
-.meter dl dd.days strong {
-  color: #996666; }
-.meter dl dd.supporters strong {
-  color: #990000; }
-
-div.widget.project div.meter div.graph .minimum, div.widget.project-support div.graph > div.minimum {
-  background-color: #dc940f;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0; }
-div.widget.project div.meter div.graph {
-  background-color: #BCCCD8;
-  height: 12px;
-  border-right: 40px solid #dcdcdc;
-  margin: 30px 5px 70px;
-  position: relative; }
-div.widget.project div.rewards {
-  display: none; }
+    .meter.skillmatching dl dt, .meter.skillmatching dl dd {
+      width: 50% !important;
+      height: 30px !important; }
+    .meter.skillmatching dl dt.days {
+      top: 0;
+      right: 0;
+      padding-top: 5px; }
+    .meter.skillmatching dl dt.supporters {
+      top: 0;
+      left: 0;
+      padding-top: 5px; }
+    .meter.skillmatching dl dd.days {
+      top: 0;
+      border-top: 1px solid #eee; }
 
 div.datepicker {
   position: absolute;
@@ -1363,7 +1266,6 @@ div.superform li.element > h5 {
   color: #1DB3B2; }
 div.superform li.element > label {
   font-weight: bold;
-  text-transform: uppercase;
   margin: 1em 0;
   display: block; }
 div.superform > div.hint, div.superform > div.elements {
@@ -1411,7 +1313,6 @@ div.superform li.element {
 
 body.dashboard.project-edit div#main.profile div.superform li.element.web div.title {
   font-size: 12px;
-  text-transform: uppercase;
   width: 100%;
   word-wrap: break-word;
   float: none;
@@ -1851,8 +1752,6 @@ body.dashboard div#main.access div.superform {
 .discover #main div.widget {
   overflow: hidden;
   padding-bottom: 20px; }
-  .discover #main div.widget.projects div.navi-bar {
-    border-bottom: none; }
 .discover .searcher {
   background-color: #fff;
   padding-bottom: 0;
@@ -1866,51 +1765,48 @@ body.dashboard div#main.access div.superform {
     .discover .searcher .text-filter label {
       display: block;
       font-weight: bold;
-      text-transform: uppercase;
       font-size: 14px;
       margin-left: 16px;
       padding-top: 9px; }
   .discover .searcher #text-query {
-    float: left;
-    width: 65%;
-    padding: 4px 5px 4px 10px;
-    color: #808184;
-    font-size: 16px;
     background-color: #ffffff;
-    border: 1px solid #808184; }
+    border: 1px solid #808184;
+    color: #808184;
+    float: left;
+    font-size: 16px;
+    padding: 4px 5px 4px 10px;
+    width: 65%; }
   .discover .searcher form div button#searcher {
     position: absolute;
-    top: 40px;
-    right: 8px; }
+    right: 8px;
+    top: 40px; }
   .discover .searcher .filter {
-    position: relative;
-    width: 81.25vw;
     margin: 0 auto 8px;
-    padding: 4px 8px; }
+    padding: 4px 8px;
+    position: relative;
+    width: 81.25vw; }
     .discover .searcher .filter:last-child {
       margin-right: 0; }
     .discover .searcher .filter label {
+      border-bottom: 1px solid #58595B;
       color: #58595B;
       display: block;
+      font-size: 14px;
       font-weight: bold;
-      padding: 5px 5px 6px 0px;
-      text-transform: uppercase;
-      border-bottom: 1px solid #58595B;
-      font-size: 14px; }
+      padding: 5px 5px 6px 0; }
     .discover .searcher .filter select {
-      color: #58595B;
-      width: 100%;
-      height: 35px;
-      font-size: 1.5em;
       background-color: #e7e7e7;
-      margin: 0;
-      margin-top: 10px;
-      border: 1px solid #d1d3d4; }
+      border: 1px solid #d1d3d4;
+      color: #58595B;
+      font-size: 1.5em;
+      height: 35px;
+      margin: 10px 0 0;
+      width: 100%; }
       .discover .searcher .filter select option {
         color: #58595B; }
         .discover .searcher .filter select option[selected="selected"] {
-          color: #58595B;
-          background-color: #d5d5d6; }
+          background-color: #d5d5d6;
+          color: #58595B; }
         .discover .searcher .filter select option.all {
           color: #58595B;
           font-size: 1em;
@@ -1918,84 +1814,22 @@ body.dashboard div#main.access div.superform {
 .discover #searcher {
   background: url("/view/m/images/lupa.png") no-repeat;
   height: 33px;
-  width: 25%;
+  margin-top: -1px;
   text-indent: -9999px;
-  margin-top: -1px; }
+  width: 25%; }
 
-div.navi-bar {
-  display: block;
-  height: 30px;
-  padding: 8px;
+.navi-bar {
   background-color: #ffffff;
-  text-align: center;
   border-top: 1px dashed #c0c0c0;
-  border-bottom: 1px dashed #c0c0c0;
-  line-height: 30px; }
-  div.navi-bar ul.navi {
-    list-style: none;
-    height: 10px;
-    z-index: 900;
-    margin: 0px;
-    padding: 10px; }
-    div.navi-bar ul.navi li {
-      display: block;
-      float: left;
-      width: 1em;
-      height: 1em;
-      overflow: hidden;
-      margin-right: .5em; }
-      div.navi-bar ul.navi li > * {
-        display: block;
-        height: 100%;
-        width: 100%;
-        text-indent: 2000px;
-        line-height: 2000px; }
-      div.navi-bar ul.navi li > a {
-        background-color: #cdcdce; }
-        div.navi-bar ul.navi li > a:hover {
-          background-color: #20b3b2; }
-        div.navi-bar ul.navi li > a.active {
-          background-color: #808184; }
-  div.navi-bar a.all {
-    text-decoration: none;
-    text-transform: uppercase; }
-    div.navi-bar a.all:hover {
+  text-align: center; }
+  .navi-bar a.all {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    padding: 8px;
+    text-decoration: none; }
+    .navi-bar a.all:hover {
       color: #20B3B2; }
-
-a.discover-arrow {
-  position: relative;
-  top: 200px;
-  color: white;
-  line-height: 24px;
-  text-indent: 24px; }
-
-div.discover-arrow-left, div.discover-arrow-right {
-  width: 24px; }
-div.discover-arrow-left, div.discover-arrow-right {
-  display: none; }
-div.discover-arrow-left a.discover-arrow {
-  background: url("../images/arrowslider-sprt.png") scroll no-repeat 0 0; }
-  div.discover-arrow-left a.discover-arrow:hover {
-    background: url("../images/arrowslider-sprt.png") scroll no-repeat 0 -48px; }
-div.discover-arrow-right a.discover-arrow {
-  background: url("../images/arrowslider-sprt.png") scroll no-repeat 0 -24px; }
-  div.discover-arrow-right a.discover-arrow:hover {
-    background: url("../images/arrowslider-sprt.png") scroll no-repeat 0 -72px; }
-
-a.discover-arrow {
-  display: inline-block;
-  vertical-align: middle; }
-
-.widget.projects .discover-group .image {
-  margin-bottom: 0; }
-.widget.projects .discover-group h3.title {
-  margin: 0 !important;
-  padding: 16px 16px 0 !important; }
-  .widget.projects .discover-group h3.title a {
-    font-size: 18px;
-    color: #0098c4; }
-.widget.projects .discover-group h3.ronda {
-  padding-top: 0 !important; }
 
 body.review div#main {
   overflow: visible; }
@@ -2023,7 +1857,6 @@ body.review div#review-menu {
         padding: .6em 1em;
         height: 1.4em;
         line-height: 1.4em;
-        text-transform: uppercase;
         display: inline-block; }
       body.review div#review-menu ul li.section ul {
         display: none; }
@@ -2212,7 +2045,6 @@ body.review div#main div.widget {
     height: 35px;
     padding: 0 8px;
     color: #666666;
-    text-transform: uppercase;
     text-decoration: none;
     text-align: center;
     line-height: 35px;
@@ -2363,7 +2195,6 @@ div.widget.project-spread > div.widget.projects > div.right {
   margin-left: 12px; }
 div.widget.project-spread div.subtitle {
   width: 245px;
-  text-transform: uppercase;
   margin: 0 0 10px 7px; }
   div.widget.project-spread div.subtitle > span {
     display: block; }
@@ -2379,7 +2210,6 @@ div.widget.projects #widget-code {
   div.widget.projects #widget-code .wc-embed {
     background: url("/view/m/images/social/embed.png") no-repeat;
     min-height: 20px;
-    text-transform: uppercase;
     padding: 3px 0 0 25px; }
   div.widget.projects #widget-code textarea {
     width: 200px;
@@ -2469,7 +2299,6 @@ body.project-edit div#main .status h3 {
   font-size: 26px;
   font-weight: normal;
   color: #9B9B9D;
-  text-transform: uppercase;
   margin: 0 0 .6em; }
 body.project-edit div#main .status #project-status ul {
   padding: 0 0 0 16px;
@@ -2706,8 +2535,7 @@ body.admin div#main > div.admin-center > div.admin-side {
       border-bottom: 1px solid #E95C5C; }
     body.admin div#main > div.admin-center > div.admin-side > div.widget.feed > p.categories > a {
       margin-right: 15px;
-      font-size: 12px !important;
-      text-transform: uppercase; }
+      font-size: 12px !important; }
     body.admin div#main > div.admin-center > div.admin-side > div.widget.feed > div.scroll-pane div.subitem {
       width: 230px;
       padding-left: 5px; }
@@ -2715,8 +2543,7 @@ body.admin div#main > div.admin-center > div.admin-side {
       margin-bottom: 5px; }
 body.admin div#main > div.admin-center > div.widget.feed > p.categories > a {
   margin-right: 15px;
-  font-size: 12px !important;
-  text-transform: uppercase; }
+  font-size: 12px !important; }
 body.admin div#main > div.admin-center > div.widget.feed > div.scroll-pane {
   height: 800px; }
 body.admin div#main > div.admin-center > div.widget.feed div.subitem {
@@ -2751,7 +2578,6 @@ body.project-edit div#main.profile div.superform li.element.user_avatar li.eleme
   display: none; }
 body.project-edit div#main.profile div.superform li.element.web div.title {
   font-size: 14px;
-  text-transform: uppercase;
   width: 70%;
   float: left; }
 body.project-edit div#main.profile div.superform li.element.web input.edit {
@@ -2904,8 +2730,7 @@ body.dashboard div#meter-big {
       display: block;
       white-space: nowrap; }
     body.dashboard div#meter-big dl dt.optimum, body.dashboard div#meter-big dl dt.minimum {
-      font-size: 12px;
-      text-transform: uppercase; }
+      font-size: 12px; }
     body.dashboard div#meter-big dl dd.optimum, body.dashboard div#meter-big dl dd.minimum {
       font-size: 16px;
       font-weight: normal; }
@@ -2977,8 +2802,7 @@ body.dashboard div#meter-big dl {
     line-height: 1.5em;
     font-weight: bold; }
   body.dashboard div#meter-big dl dt.reached {
-    margin-top: 6px;
-    text-transform: uppercase; }
+    margin-top: 6px; }
   body.dashboard div#meter-big dl dd.reached {
     left: 100px;
     color: #96238F;
@@ -2995,8 +2819,7 @@ body.dashboard div#meter-big dl {
     color: #1b5b9e;
     left: 340px; }
   body.dashboard div#meter-big dl dt.supporters {
-    margin-top: 6px;
-    text-transform: uppercase; }
+    margin-top: 6px; }
   body.dashboard div#meter-big dl dd.supporters {
     font-size: 16px;
     left: 390px; }
@@ -3019,8 +2842,7 @@ body.dashboard div#meter-big dl {
     font-weight: bold;
     left: 200px; }
   body.dashboard div#meter-big dl dt.days {
-    margin-top: 6px;
-    text-transform: uppercase; }
+    margin-top: 6px; }
   body.dashboard div#meter-big dl dd.days {
     left: 240px;
     font-size: 16px; }
@@ -3033,12 +2855,10 @@ body.dashboard div#meter-big div.keepiton {
   display: inline-block;
   font-size: 0.8em;
   font-weight: bold;
-  left: 0;
   overflow: visible;
   padding: 3px;
   position: absolute;
   text-align: center;
-  text-transform: uppercase;
   width: 120px;
   z-index: 899;
   left: 20px; }
@@ -3088,7 +2908,6 @@ body.dashboard div#dashboard-menu {
         text-decoration: none;
         height: 40px;
         line-height: 40px;
-        text-transform: uppercase;
         display: inline-block; }
       body.dashboard div#dashboard-menu ul li.section ul {
         display: none; }
@@ -3187,13 +3006,11 @@ body.dashboard div#project-selector {
 body.dashboard div#main > .widget > p > strong {
   font-size: 16px; }
 body.dashboard div#project-selector label {
-  text-transform: uppercase;
   font-weight: bold;
   font-size: 16px;
   margin-right: 5px; }
 body.dashboard div#project-selector select {
   width: 770px;
-  text-transform: uppercase;
   font-size: 14px; }
 body.dashboard div#main div.post {
   margin: 20px;
@@ -3240,7 +3057,6 @@ body.dashboard div#main div.widget.gestrew div.reward {
     color: #96238F;
     display: inline-block;
     font-size: 8pt;
-    text-transform: uppercase;
     line-height: 22px; }
   body.dashboard div#main div.widget.gestrew div.reward span.num {
     font-size: 12pt; }
@@ -3252,7 +3068,6 @@ body.dashboard div#main div.widget.gestrew div.reward {
   body.dashboard div#main div.widget.gestrew div.reward span.cofinanciadores {
     color: #40509F;
     display: block;
-    text-transform: uppercase;
     margin-left: 29px;
     font-size: 8pt;
     line-height: 20px; }
@@ -3262,8 +3077,8 @@ body.dashboard div#main div.widget.gestrew div.reward {
     margin-bottom: 5px; }
   body.dashboard div#main div.widget.gestrew div.reward ul {
     list-style: none outside none;
-    padding: 0px;
-    margin: 0 0 3px 0px;
+    padding: 0;
+    margin: 0 0 3px 0;
     float: none;
     font-size: 12px; }
   body.dashboard div#main div.widget.gestrew div.reward div.tiporec ul li {
@@ -3390,8 +3205,6 @@ body.dashboard div#invests-list div.investor {
       font-size: 8pt;
       padding-left: 0;
       width: 100%; }
-    body.dashboard div#invests-list div.investor div.left span.status {
-      text-transform: uppercase; }
     body.dashboard div#invests-list div.investor div.left span.pendiente {
       color: #f00; }
   body.dashboard div#invests-list div.investor div.recompensas input[type="checkbox"] {
@@ -3516,7 +3329,6 @@ body.dashboard div#colective-messages a.preview {
   left: 52px;
   position: relative;
   text-decoration: none;
-  text-transform: uppercase;
   top: 10px; }
 body.dashboard div#colective-messages button {
   font-weight: bold;

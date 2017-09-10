@@ -217,7 +217,6 @@
           height: 35px;
           padding: 0 8px;
           color: #666666;
-          text-transform: uppercase;
           text-decoration: none;
           text-align: center;
           line-height: 35px;
@@ -428,7 +427,6 @@ div {
       }
       div.subtitle {
         width: 245px;
-        text-transform: uppercase;
         margin: 0 0 10px 7px;
         &#s1, &#s2 {}
         > span {
@@ -450,7 +448,6 @@ div {
       .wc-embed {
         background: url("/view/m/images/social/embed.png") no-repeat;
         min-height: 20px;
-        text-transform: uppercase;
         padding: 3px 0 0 25px;
       }
       textarea {

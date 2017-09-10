@@ -138,7 +138,6 @@ body.admin div {
               p.categories > a {
                 margin-right: 15px;
                 font-size: 12px !important;
-                text-transform: uppercase;
               }
               div.scroll-pane div.subitem {
                 width: 230px;
@@ -156,7 +155,6 @@ body.admin div {
           p.categories > a {
             margin-right: 15px;
             font-size: 12px !important;
-            text-transform: uppercase;
           }
           div.scroll-pane {
             height: 800px;
@@ -214,7 +212,6 @@ body.project-edit div#main.profile div.superform li.element {
   &.web {
     div.title {
       font-size: 14px;
-      text-transform: uppercase;
       width: 70%;
       float: left;
     }
@@ -421,7 +418,6 @@ body {
           dt {
             &.optimum, &.minimum {
               font-size: 12px;
-              text-transform: uppercase;
             }
           }
           dd {
@@ -523,7 +519,6 @@ body {
           }
           dt.reached {
             margin-top: 6px;
-            text-transform: uppercase;
           }
           dd.reached {
             left: 100px;
@@ -545,7 +540,6 @@ body {
           }
           dt.supporters {
             margin-top: 6px;
-            text-transform: uppercase;
           }
           dd.supporters {
             font-size: 16px;
@@ -574,7 +568,6 @@ body {
           }
           dt.days {
             margin-top: 6px;
-            text-transform: uppercase;
           }
           dd.days {
             left: 240px;
@@ -590,12 +583,10 @@ body {
           display: inline-block;
           font-size: 0.8em;
           font-weight: bold;
-          left: 0;
           overflow: visible;
           padding: 3px;
           position: absolute;
           text-align: center;
-          text-transform: uppercase;
           width: 120px;
           z-index: 899;
           left: 20px;
@@ -658,7 +649,6 @@ body {
             text-decoration: none;
             height: 40px;
             line-height: 40px;
-            text-transform: uppercase;
             display: inline-block;
           }
           &.section {
@@ -789,14 +779,12 @@ body {
     }
     &#project-selector {
       label {
-        text-transform: uppercase;
         font-weight: bold;
         font-size: 16px;
         margin-right: 5px;
       }
       select {
         width: 770px;
-        text-transform: uppercase;
         font-size: 14px;
       }
     }
@@ -855,7 +843,6 @@ body {
               color: #96238F;
               display: inline-block;
               font-size: 8pt;
-              text-transform: uppercase;
               line-height: 22px;
             }
             &.num {
@@ -870,7 +857,6 @@ body {
             &.cofinanciadores {
               color: #40509F;
               display: block;
-              text-transform: uppercase;
               margin-left: 29px;
               font-size: 8pt;
               line-height: 20px;
@@ -883,8 +869,8 @@ body {
           }
           ul {
             list-style: none outside none;
-            padding: 0px;
-            margin: 0 0 3px 0px;
+            padding: 0;
+            margin: 0 0 3px 0;
             float: none;
             font-size: 12px;
           }
@@ -1066,9 +1052,6 @@ body.dashboard div#invests-list div.investor {
           font-size: 8pt;
           padding-left: 0;
           width: 100%;
-        }
-        &.status {
-          text-transform: uppercase;
         }
         &.cumplida {}
         &.pendiente {
@@ -1260,7 +1243,6 @@ body.dashboard div#colective-messages {
     left: 52px;
     position: relative;
     text-decoration: none;
-    text-transform: uppercase;
     top: 10px;
   }
   button {

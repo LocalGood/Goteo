@@ -10,6 +10,10 @@
     display:none;
     padding-left: 5px;
   }
+  h3.title.investment{
+    color:#336633;
+  }
+
   div.graph {
     background-color: #BCCCD8;
     height: 12px;
@@ -57,27 +61,6 @@
     }
   }
 
-  > h3.investment{
-    color:#336633;
-  }
-  div.obtained{
-    strong {
-      font-size: 26px;
-      font-weight: bold;
-      color: #cc6600;
-      padding-right: 20px;
-      border-right: 1px solid #a7a9ac;
-      &.euro {
-        width: 19px;
-        height: 19px;
-        line-height: 2000px;
-        overflow: hidden;
-        display: inline-block;
-        background:  url('/view/m/images/euro/violet/m.png') no-repeat center;
-        margin-bottom: -1px;
-      }
-    }
-  }
   span.percent {
     font-size: 26px;
     font-weight: bold;
@@ -108,7 +91,6 @@
     dt {
       top: 0;
       font-size: 11px;
-      text-transform: uppercase;
       &.minimum {
         top: 0;
         left: 0;
@@ -205,7 +187,6 @@
     right: 16px;
     text-transform: lowercase;
   }
-
 
   &.hor{
     div.graph{

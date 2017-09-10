@@ -90,12 +90,6 @@ $worthcracy = Worth::getAll();
                 <?php foreach ($list as $group=>$projects) : ?>
                     <div class="discover-group discover-group-<?php echo $type ?>" id="discover-group-<?php echo $type ?>-<?php echo $group ?>">
 
-                    <?/*
-                        <div class="discover-arrow-left">
-                            <a class="discover-arrow" href="#<?php echo $type; ?>" rev="<?php echo $type ?>" rel="<?php echo $type.'-'.$projects['prev'] ?>">&nbsp;</a>
-                        </div>
-                    */?>
-
                         <?php foreach ($projects['items'] as $project) :
                             if ($type == 'my_projects')  {
                                 echo new View('view/m/project/widget/project.html.php', array('project' => $project));
@@ -104,26 +98,8 @@ $worthcracy = Worth::getAll();
                             }
                         endforeach; ?>
 
-                    <?/*
-                        <div class="discover-arrow-right">
-                            <a class="discover-arrow" href="#<?php echo $type; ?>" rev="<?php echo $type ?>" rel="<?php echo $type.'-'.$projects['next'] ?>">&nbsp;</a>
-                        </div>
-                    */?>
-
                     </div>
                 <?php endforeach; ?>
-
-
-                <!-- carrusel de cuadritos -->
-                <?/*
-                <div class="navi-bar">
-                    <ul class="navi">
-                        <?php foreach (array_keys($list) as $group) : ?>
-                        <li><a id="navi-discover-group-<?php echo $type.'-'.$group ?>" href="#<?php echo $type; ?>" rev="<?php echo $type ?>" rel="<?php echo "{$type}-{$group}" ?>" class="navi-discover-group navi-discover-group-<?php echo $type ?>"><?php echo $group ?></a></li>
-                        <?php endforeach ?>
-                    </ul>
-                </div>
-                */?>
 
             </div>
 

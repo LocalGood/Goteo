@@ -34,7 +34,6 @@
       text-align: right;
       a {
         text-decoration: none;
-        text-transform: uppercase;
         &:hover {
           text-decoration: underline;
         }
@@ -163,7 +162,6 @@
         }
 
         .invest {
-          text-transform: uppercase;
           text-align: left;
           font-size: 12px;
           line-height: 9px;
@@ -187,7 +185,6 @@
         color: #ffffff;
         background-color: rgba(25,181,179,0.8);
         font-size: 0.8em;
-        text-transform: uppercase;
         padding: 2px 8px;
         cursor: default;
         position: absolute;
@@ -246,140 +243,24 @@
       z-index:100;
     }
 
+    .description {
+      padding: 2px 12px;
+      font-size: 12px;
+    }
+
     .skills {
       line-height: 16px;
       a {
         font-size: 11px;
       }
     }
-
-    &-summary{
-      > .wants-skills .matched_skill {
-        font-size: 11px;
-        background-color:#f99;
+    .meter{
+      &.activable {
+        padding-left: 16px!important;
+        padding-right: 16px!important;
       }
     }
 
-    .description {
-      padding: 2px 12px;
-      font-size: 12px;
-    }
-
-    &-show{
-      div.center{
-        div#project-support{
-          .project-widget-box {
-            padding-left: 0;
-            padding-right: 0;
-            border-bottom: none;
-          }
-        }
-      }
-    }
-
-    /* meter */
-    div.meter{
-      h3.title.obtained {
-        display:none;
-        padding-left: 5px;
-      }
-      > h3.investment{
-        color:#336633;
-      }
-      div.obtained{
-        strong {
-          font-size: 26px;
-          font-weight: bold;
-          color: #cc6600;
-          padding-right: 20px;
-          border-right: 1px solid #a7a9ac;
-          &.euro {
-            width: 19px;
-            height: 19px;
-            line-height: 2000px;
-            overflow: hidden;
-            display: inline-block;
-            background:  url('/view/m/images/euro/violet/m.png') no-repeat center;
-            margin-bottom: -1px;
-          }
-        }
-      }
-      span.percent {
-        font-size: 26px;
-        font-weight: bold;
-        color: #a7a9ac;
-        padding-left: 15px;
-      }
-      .hor{
-        div.graph{
-          .minimum{
-            .done {
-              max-width: 278px;
-            }
-          }
-        }
-      }
-      dl {
-        position: relative;
-        margin: 16px 0 0 0;
-        * {
-          margin: 0;
-        }
-        .minimum {
-          min-width: 10%;
-        }
-      }
-      h2, h3, h4, h5, h6 {
-        margin: 0;
-        font-size: 12px;
-        font-weight: bold;
-        padding: 2px 0 0;
-      }
-      div.graph {
-        background-color: #BCCCD8;
-        height: 12px;
-        margin: 24px 0 0;
-        position: relative;
-        * strong,
-        * span {
-          display: none;
-        }
-        .minimum {
-          .done {
-            background-color: #c5da4d;
-            height: 12px;
-            max-width: 288px;
-            position: absolute;
-            left: 0;
-            top: 0;
-            strong {
-              background: url("/view/m/images/project/widget/project/marker_sp.png") no-repeat;
-              display: block;
-              height: 16px;
-              line-height: 2000px;
-              margin-right: -10px;
-              margin-top: -5px;
-              overflow: hidden;
-              position: absolute;
-              right: 0;
-              text-indent: 2000px;
-              width: 17px;
-            }
-          }
-          .left {
-            float: right;
-            height: 19px;
-            margin-right: -2px;
-            margin-top: -6px;
-          }
-        }
-      }
-      dl .optimum,
-      dl .minimum {
-        display: block;
-        white-space: nowrap;
-      }
-    }
     div.rewards{
       h2, h3, h4, h5, h6 {
         margin: 0;
@@ -471,7 +352,46 @@
       right: 0;
       margin-top: -6px;
     }
+
+    .discover-group {
+      .image {
+        margin-bottom: 0;
+      }
+      h3 {
+        &.title {
+          margin: 0 !important;
+          padding: 16px 16px 0 !important;
+          a {
+            font-size: 18px;
+            color: #0098c4;
+          }
+        }
+        &.ronda {
+          padding-top: 0 !important;
+        }
+      }
+    }
   }
+
+  &.project-summary{
+    > .wants-skills .matched_skill {
+      font-size: 11px;
+      background-color:#f99;
+    }
+  }
+
+  &.project-show{
+    div.center{
+      div#project-support{
+        .project-widget-box {
+          padding-left: 0;
+          padding-right: 0;
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
 
   &.project-support {
     div.meter {
@@ -536,27 +456,6 @@
 }
 
 /* meter */
-body.discover{
-  div.widget{
-    &.project{
-      div.meter{
-        &.activable {
-          padding-left: 16px!important;
-          padding-right: 16px!important;
-        }
-      }
-    }
-  }
-}
-
-.meter{
-  .obtained {
-    position: relative;
-    top: 110px;
-    text-align: center;
-  }
-}
-
 .home{
   .meter{
     .obtained {
