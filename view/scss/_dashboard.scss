@@ -78,7 +78,7 @@
             font-size: 14px;
             line-height: 36px;
             text-align: center;
-            background: linear-gradient(to bottom,#ccf4ff 0%,#c0e4ed 60%,#b1cfd3 100%);
+            background: #ccf4ff;
             border-left: 1px solid #99b8cc;
             border-right: 1px solid #99b8cc;
             border-top: 1px solid #99b8cc;
@@ -297,6 +297,12 @@
   #meter-big {
     position: relative;
     min-height: 200px;
+    .graph {
+      top: 20px;
+    }
+    .percent{
+      top: 56px;
+    }
     .meter.hor.big {
       width: 420px;
       padding-top: 30px;
@@ -524,7 +530,7 @@
     .hint blockquote {
       border-right: none;
       margin-bottom: 10px;
-      padding-left: 20px;
+      //padding-left: 20px;
     }
     > div.footer {
       margin-top: 0;
@@ -602,6 +608,9 @@
                 float: left;
                 margin: 0 10px 0 0;
                 width: auto;
+                &.remove{
+                  margin: 0;
+                }
               }
             }
           }
@@ -613,6 +622,9 @@
         }
         > div.elements > ol > li.element {
           padding: 30px 2em 22px 0;
+          input[type="submit"]{
+            margin: 10px 0 0 0 !important;
+          }
         }
       }
     }
@@ -624,7 +636,6 @@
             input[type="submit"] {
               height: 45px;
               line-height: 45px;
-              margin-left: 0;
               width: 200px;
             }
           }
