@@ -223,7 +223,7 @@ $pagedResults = new \Paginated($this['projects'], 10, isset($_GET['page']) ? $_G
 
                     <?php if (in_array($project->status,array(3,4)) && !empty($project->passed)) : ?><a href="<?php echo "/admin/invests/epsilonpay/{$project->id}?round=willpass"; ?>" onclick="return confirm('イプシロン　実売上処理を行います。実行してよろしいですか？');">[イプシロン　実売上処理(1st Round)]</a><?php endif; ?>
 
-                    <?php if (in_array($project->status,array(3,4)) && !empty($project->passed) && !empty($project->success)) : ?><a href="<?php echo "/admin/invests/epsilonpay/{$project->id}?round=succeed"; ?>" onclick="return confirm('AXES用の決済CSVの処理後に実行してください。実行してよろしいですか？');">[イプシロン　実売上処理(2nd Round)]</a><?php endif; ?>
+                    <?php if (in_array($project->status,array(3,4)) && !empty($project->passed) && !empty($project->success)) : ?><a href="<?php echo "/admin/invests/epsilonpay/{$project->id}?round=succeed"; ?>" onclick="return confirm('イプシロン　実売上処理を行います。実行してよろしいですか？');">[イプシロン　実売上処理(2nd Round)]</a><?php endif; ?>
 
 					<?php endif;  // AXESON  ?>
 

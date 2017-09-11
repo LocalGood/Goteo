@@ -465,7 +465,7 @@ namespace Goteo\Controller {
             $user = Model\User::get($invest->user);
 
 
-            if ($invest->method == 'epsilon') {
+            if ($invest->method == 'epsilon' || $invest->method == 'epsilonrepeat') {
 
                 // hay que cambiarle el status a 0
                 $invest->setStatus('0');
