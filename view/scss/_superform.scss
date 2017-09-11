@@ -139,6 +139,12 @@
     position: relative;
     div.elements > ol {
       padding-left:2em;
+      .elements {
+        ol{
+          padding-left: 0;
+          margin-top: 5px;
+        }
+      }
     }
     > ol > li.element {
       padding:0 2em 2em 0;

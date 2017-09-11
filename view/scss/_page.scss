@@ -29,3 +29,22 @@
     }
   }
 }
+.review{
+  #sub-header{
+    height: 145px;
+    .dashboard-header{
+      margin: 10px auto 0;
+      max-width: 960px;
+      min-height: 100px;
+      position: relative;
+      h2{
+        display: inline-block;
+        color: #666;
+        font-size: 30px;
+        margin: 0;
+        padding: 0;
+        vertical-align: middle;
+      }
+    }
+  }
+}

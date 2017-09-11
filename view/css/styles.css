@@ -25,7 +25,7 @@ html {
   overflow: auto; }
 
 html, body {
-  background-color: #e7e7e7;
+  background-color: #f2f2f2;
   padding: 0; }
 
 iframe body {
@@ -652,7 +652,6 @@ div#message {
               vertical-align: middle;
               width: 100%; }
           .widget.projects .project-details .author span {
-            margin-left: 8px;
             vertical-align: middle; }
         .widget.projects .project-details .categories {
           background: url(/view/images/icon_tag.png) no-repeat left 50%;
@@ -694,14 +693,14 @@ div#message {
         border-bottom: 15px solid #FFF; }
         .widget.projects .project .balloon > blockquote {
           font-size: 12px;
-          height: 4em;
+          height: 4.5em;
           margin: 0;
           overflow: hidden;
           padding: 3px 5px; }
         .widget.projects .project .balloon > h4 {
           font-size: 14px;
           font-weight: 700;
-          margin: 0 0 .5em;
+          margin: 0;
           padding: 3px 5px 0; }
     .widget.projects .skillmatching div.image span.sm-icon {
       position: absolute;
@@ -1641,6 +1640,9 @@ div#message {
   position: relative; }
   .superform > div.elements div.elements > ol {
     padding-left: 2em; }
+    .superform > div.elements div.elements > ol .elements ol {
+      padding-left: 0;
+      margin-top: 5px; }
   .superform > div.elements > ol > li.element {
     padding: 0 2em 2em 0; }
     .superform > div.elements > ol > li.element.inline {
@@ -1999,15 +2001,28 @@ body.js .superform > div.elements ol li.element div.contents p {
         color: #58595B;
         font-size: 1em;
         font-weight: 700; }
-  .discover .searcher #searcher {
-    background: url(/view/images/lupa.png) no-repeat;
-    height: 33px;
-    margin: 2px 0 0;
+  .discover .searcher .searcher-btn {
     position: absolute;
     right: 40px;
-    text-indent: -9999px;
-    top: 0;
-    width: 80px; }
+    top: 0; }
+    .discover .searcher .searcher-btn #searcher {
+      background: url("/view/images/search_icon.png") no-repeat center, #DE1F27;
+      height: 33px;
+      margin: 2px 0 0;
+      text-indent: -9999px;
+      width: 80px; }
+.discover .widget.projects > .title {
+  margin-bottom: 30px; }
+.discover .widget.projects > blockquote {
+  overflow: hidden;
+  padding-bottom: 10px;
+  margin: 0;
+  font-size: 12px; }
+.discover .widget.projects > h4 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 0 .5em;
+  padding: 0; }
 .discover .widget.projects .project {
   min-height: 400px; }
 
@@ -2124,7 +2139,13 @@ body.js .superform > div.elements ol li.element div.contents p {
     font-size: 0;
     list-style: none;
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    background: #FFF;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    /* Safari */
+    justify-content: space-between; }
     .project-show .project-menu ul li {
       display: inline-block; }
       .project-show .project-menu ul li a {
@@ -2431,6 +2452,10 @@ body.js .superform > div.elements ol li.element div.contents p {
   .project-show .center.home .project-summary > div {
     font-size: 14px;
     margin-bottom: 28px; }
+  .project-show .center.home .project-summary h4 {
+    font-weight: bold; }
+  .project-show .center.home .project-summary .gallery-image img {
+    width: 100%; }
 .project-show .center.supporters {
   margin-bottom: 20px; }
   .project-show .center.supporters .invest-message {
@@ -2598,8 +2623,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   margin-bottom: 10px;
   padding: 0; }
   .project-show .center.messages .project-collaborations .project-widget-box {
-    margin: 0;
-    padding: 15px 20px; }
+    margin: 0; }
   .project-show .center.messages .project-collaborations .title {
     margin-bottom: 20px; }
   .project-show .center.messages .project-collaborations .supertitle {
@@ -2613,7 +2637,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       background-position: left top;
       line-height: 1em;
       min-height: 32px;
-      margin: 20px 0 0;
+      margin: 0 0 20px 0;
       padding-bottom: 20px; }
       .project-show .center.messages .project-collaborations ul li:not(:last-child) {
         border-bottom: 1px solid #e0e0e0; }
@@ -3656,7 +3680,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       font-size: 14px;
       line-height: 36px;
       text-align: center;
-      background: linear-gradient(to bottom, #ccf4ff 0%, #c0e4ed 60%, #b1cfd3 100%);
+      background: #ccf4ff;
       border-left: 1px solid #99b8cc;
       border-right: 1px solid #99b8cc;
       border-top: 1px solid #99b8cc;
@@ -3814,6 +3838,10 @@ body.js .superform > div.elements ol li.element div.contents p {
 .dashboard #meter-big {
   position: relative;
   min-height: 200px; }
+  .dashboard #meter-big .graph {
+    top: 20px; }
+  .dashboard #meter-big .percent {
+    top: 56px; }
   .dashboard #meter-big .meter.hor.big {
     width: 420px;
     padding-top: 30px; }
@@ -4010,8 +4038,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   border: none; }
   .dashboard.dashboard .superform .hint blockquote {
     border-right: none;
-    margin-bottom: 10px;
-    padding-left: 20px; }
+    margin-bottom: 10px; }
   .dashboard.dashboard .superform > div.footer {
     margin-top: 0;
     padding-bottom: 20px; }
@@ -4058,14 +4085,17 @@ body.js .superform > div.elements ol li.element div.contents p {
   float: left;
   margin: 0 10px 0 0;
   width: auto; }
+  .dashboard div#main.profile div.superform li.element.editweb li.buttons input.remove {
+    margin: 0; }
 .dashboard div#main.profile div.superform li.element.add input.add {
   margin-left: 0; }
 .dashboard div#main.profile div.superform > div.elements > ol > li.element {
   padding: 30px 2em 22px 0; }
+  .dashboard div#main.profile div.superform > div.elements > ol > li.element input[type="submit"] {
+    margin: 10px 0 0 0 !important; }
 .dashboard div#main.access div.superform li.element.save input[type="submit"] {
   height: 45px;
   line-height: 45px;
-  margin-left: 0;
   width: 200px; }
 .dashboard div#main.access div.superform li.element input.inline {
   margin: 0 0 2em; }
@@ -4731,10 +4761,10 @@ body.js .superform > div.elements ol li.element div.contents p {
         float: left; }
       .user-profile .side .widget.user-supporters .supporters ul li h4 {
         float: right;
-        width: 101px;
+        width: 100px;
         height: 3em;
         font-size: 12px;
-        margin: 0 0 4px 3px;
+        margin-bottom: 4px;
         text-align: left;
         overflow: hidden; }
         .user-profile .side .widget.user-supporters .supporters ul li h4 span {
@@ -4743,8 +4773,7 @@ body.js .superform > div.elements ol li.element div.contents p {
           -webkit-line-clamp: 2; }
       .user-profile .side .widget.user-supporters .supporters ul li dl {
         float: right;
-        width: 101px;
-        margin: 0 0 0 3px; }
+        width: 100px; }
         .user-profile .side .widget.user-supporters .supporters ul li dl dd.date {
           top: auto;
           bottom: -2em;
@@ -4945,9 +4974,6 @@ body.js .superform > div.elements ol li.element div.contents p {
       .user-profile .widget.user-supporters .supporters ul li dl dt {
         clear: left;
         float: left; }
-        .user-profile .widget.user-supporters .supporters ul li dl dt.projects {
-          margin-right: 0;
-          padding-left: 4px; }
         .user-profile .widget.user-supporters .supporters ul li dl dt.date {
           display: none; }
       .user-profile .widget.user-supporters .supporters ul li dl dd {
@@ -5084,12 +5110,12 @@ body.js .superform > div.elements ol li.element div.contents p {
           .user-profile .widget.user-mates div.users ul > li .avatar a {
             border-radius: 50%;
             display: inline-block;
-            height: 50px;
+            height: 43px;
             overflow: hidden;
             position: relative;
             text-align: center;
             vertical-align: middle;
-            width: 50px; }
+            width: 43px; }
             .user-profile .widget.user-mates div.users ul > li .avatar a img {
               bottom: 0;
               height: auto;
@@ -5319,5 +5345,20 @@ body.js .superform > div.elements ol li.element div.contents p {
     font-weight: bold;
     font-size: 24px;
     font-style: normal; }
+
+.review #sub-header {
+  height: 145px; }
+  .review #sub-header .dashboard-header {
+    margin: 10px auto 0;
+    max-width: 960px;
+    min-height: 100px;
+    position: relative; }
+    .review #sub-header .dashboard-header h2 {
+      display: inline-block;
+      color: #666;
+      font-size: 30px;
+      margin: 0;
+      padding: 0;
+      vertical-align: middle; }
 
 /*# sourceMappingURL=styles.css.map */
