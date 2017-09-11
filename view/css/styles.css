@@ -1639,7 +1639,7 @@ div#message {
   overflow: visible;
   position: relative; }
   .superform > div.elements div.elements > ol {
-    padding-left: 2em; }
+    padding-left: 0; }
     .superform > div.elements div.elements > ol .elements ol {
       padding-left: 0;
       margin-top: 5px; }
@@ -4036,6 +4036,9 @@ body.js .superform > div.elements ol li.element div.contents p {
   padding-top: 1px;
   background-color: #fff;
   border: none; }
+  .dashboard.dashboard .superform .contents input[name="upload"] {
+    padding: 0.3em 1.2em !important;
+    margin: 10px 0 0 0; }
   .dashboard.dashboard .superform .hint blockquote {
     border-right: none;
     margin-bottom: 10px; }

@@ -138,7 +138,8 @@
     overflow: visible;
     position: relative;
     div.elements > ol {
-      padding-left:2em;
+      padding-left: 0;
+      //padding-left:2em;
       .elements {
         ol{
           padding-left: 0;

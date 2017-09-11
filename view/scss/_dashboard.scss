@@ -527,6 +527,12 @@
     padding-top: 1px;
     background-color: #fff;
     border: none;
+    .contents{
+      input[name="upload"]{
+        padding: 0.3em 1.2em !important;
+        margin: 10px 0 0 0;
+      }
+    }
     .hint blockquote {
       border-right: none;
       margin-bottom: 10px;
