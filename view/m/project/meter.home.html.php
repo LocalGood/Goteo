@@ -101,8 +101,8 @@ $minimum_ratio =  min(100, round(($minimum / $optimum) * 100));
             <dt class="optimum"><?php echo Text::get('project-view-metter-optimum'); ?></dt>
             <dd class="optimum"><strong><?php echo \amount_format($optimum) ?></strong><span>円</span></dd>
 
-            <dt class="minimum" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_ratio) ?>%"><span><?php echo Text::get('project-view-metter-minimum'); ?></span></dt>
-            <dd class="minimum" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_ratio) ?>%"><strong><?php echo \amount_format($minimum) ?></strong><span>円</span></dd>
+            <dt class="minimum"><span><?php echo Text::get('project-view-metter-minimum'); ?></span></dt>
+            <dd class="minimum"><strong><?php echo \amount_format($minimum) ?></strong><span>円</span></dd>
 
             <dt class="reached"><span><?php echo Text::get('project-view-metter-got'); ?></span></dt>
             <dd class="reached"><strong><?php echo \amount_format($reached) ?></strong><span>円</span></dd>

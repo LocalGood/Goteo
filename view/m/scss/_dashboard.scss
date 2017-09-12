@@ -1,0 +1,12 @@
+.dashboard {
+
+  .viewport_dashboard{
+    width: 100vw;
+    margin: 0 auto;
+    margin-left: 0;
+    overflow: hidden;
+    -webkit-transform: translateZ(0); /* Optional: When heavy at iOS6+ */
+  }
+
+
+}

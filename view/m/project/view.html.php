@@ -33,6 +33,7 @@ $step    = $this['step'];
 $post    = $this['post'];
 $blog    = $this['blog'];
 $thread    = $this['thread'];
+$evaluation = \Goteo\Library\Evaluation::get($project->id);
 
 $user    = $_SESSION['user'];
 $personalData = ($user instanceof User) ? User::getPersonal($user->id) : new stdClass();
@@ -56,6 +57,11 @@ if (!empty($blog->posts)) {
     $updates = ' (' . count($blog->posts) . ')';
 } else {
     $updates = '';
+}
+if (!empty($evaluation->content)){
+    $ev_label = '評価';
+} else {
+    $ev_label = '';
 }
 
 
@@ -152,7 +158,7 @@ $bodyClass = 'project-show'; include 'view/m/prologue.html.php' ?>
                                     echo
                                         new View('view/m/project/widget/investMsg.html.php', array('message' => $step, 'user' => $user)), new View('view/project/widget/spread.html.php',array('project' => $project));
                                         //sacarlo de div#center
-                                        $printSendMsg=true;                                     
+                                        $printSendMsg=true;
                                     break;
                                     
                                 case 'fail':
@@ -191,7 +197,12 @@ $bodyClass = 'project-show'; include 'view/m/prologue.html.php' ?>
                             new View('view/m/project/widget/summary.h_ttl.html.php', array('project' => $project)),
                             new View('view/m/project/widget/updates.html.php', array('project' => $project, 'blog' => $blog, 'post' => $post));
                         break;
-                    
+
+                    case 'evaluation':
+                        echo
+                        new View('view/m/project/widget/evaluation.html.php', array('project' => $project, 'evaluation' => $evaluation));
+                        break;
+
                     case 'home':
                     
                     default:
@@ -204,6 +215,7 @@ $bodyClass = 'project-show'; include 'view/m/prologue.html.php' ?>
                         break;
                 }
                 ?>
+
              </div>
 
             <div class="side">

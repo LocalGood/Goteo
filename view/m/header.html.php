@@ -26,7 +26,7 @@ use Goteo\Library\Text,
 
 <nav class="main_nav02 clearfix">
     <a href="<?= LOCALGOOD_WP_BASE_URL; ?>" class="nav_logo">
-        <img src="/view/css/header/s-header-logo.png" alt=""/>
+        <img src="/view/m/images/header/s-header-logo.png" alt=""/>
     </a>
     <div class="nav_menu-button">
         <span></span>

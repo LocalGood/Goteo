@@ -63,16 +63,6 @@ if (empty($shares)) {
        <!-- lista de categorías -->
         <div class="widget categorylist">
             <h3 class="title"><?php echo Text::get('profile-sharing_interests-header');?></h3>
-			<!--
-            <div class="filters">
-                <span>Ver por:</span>
-                <ul>
-                    <li><a href="#" class="active">Por categorías</a></li>
-                    <li class="separator">|</li>
-                    <li><a href="#">Por tags</a></li>                
-                </ul>
-            </div>
-			-->
             <script type="text/javascript">
             function displayCategory(categoryId){
                 $(".user-mates").css("display","none");

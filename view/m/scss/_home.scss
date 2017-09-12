@@ -1,4 +1,4 @@
-.home {
+body.home {
 
   /* meter */
   .meter{
@@ -128,6 +128,9 @@
           color: #0098c4;
           font-size: 18px;
         }
+      }
+      .project {
+        margin-bottom: 20px;
       }
     }
   }

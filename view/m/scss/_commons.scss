@@ -345,6 +345,29 @@ ul#pagination {
   }
 }
 
+.project-menu {
+  position: relative;
+  .pj_prev,
+  .pj_next {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 5%;
+    height: 35px;
+    color: #dae121;
+    font-size: 12px;
+    text-align: center;
+    line-height: 35px;
+    background: #999966;
+  }
+  .pj_prev {
+    left: 0;
+  }
+  .pj_next {
+    right: 0;
+  }
+}
+
 /*ul.lang {
   position: absolute;
   left: 0;

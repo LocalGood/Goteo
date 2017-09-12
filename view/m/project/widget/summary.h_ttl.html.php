@@ -46,12 +46,12 @@ $level = (int) $this['level'] ?: 3;
     
     <h<?php echo $level ?>><?php echo htmlspecialchars($project->name) ?></h<?php echo $level ?>>
 
-    <?
+    <?php
     $_value = '/project/' . $project->id;
     $_url = urldecode($_SERVER['REQUEST_URI']);
     if(strstr($_url,$_value) && preg_match('/^\/project\/((?!\/).)*$/',$_url)):
         ?>
-        <div id="social_bookmark">
+        <div id="social_bookmark" class="social_bookmark"><!-- todo:idをclassのみに置き換えて大丈夫そうだったら置き換える。このページこのコンポーネント2回出てくる -->
             <div id="twitter">
                 <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
                 <script>
@@ -79,7 +79,7 @@ $level = (int) $this['level'] ?: 3;
                 })();
             </script>
         </div><!-- #social_bookmark -->
-    <?
+    <?php
     endif;
     ?>
 
@@ -105,7 +105,7 @@ $level = (int) $this['level'] ?: 3;
                 <a<?= $_match_skill; ?> id="skill_id_<?= $_skill_id; ?>" href=""><?php echo $_skill_name ?></a>
             <? endforeach; ?>
         </div>
-    <? endif; ?>
+    <?php endif; ?>
 
 
     <?php if(!empty($categories)): ?>

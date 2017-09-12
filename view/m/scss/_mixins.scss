@@ -1,0 +1,93 @@
+@charset "utf-8";
+/*----------------------------------------------------------------------
+ colors
+----------------------------------------------------------------------*/
+$colMain01: #075d79; //リンクテキストのメインカラー
+$colMain02: #255b7f; //ボーダーのメインカラー
+$colMain03: #105d7f; //背景のメインカラー
+
+$colLinkText01: #337ab7; //リンクテキストのバリエーションカラー
+$borderCol01: #e0e0e0; //実線のボーダーカラー
+
+/*----------------------------------------------------------------------
+ font-size (exchange rem)
+----------------------------------------------------------------------*/
+$fz12px: 0.8571428rem;
+$fz13px: 0.9285714rem;
+$fz14px: 1rem;
+$fz15px: 1.0714285rem;
+
+
+/*----------------------------------------------------------------------
+ media query
+----------------------------------------------------------------------*/
+@mixin mediaSP {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+
+/*----------------------------------------------------------------------
+ commons
+----------------------------------------------------------------------*/
+@mixin cf {
+  zoom: 1;
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin circleAvatar($size) {
+  border-radius: 50%;
+  display: inline-block;
+  height: $size;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: $size;
+  img {
+    bottom: 0;
+    height: auto;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    vertical-align: middle;
+    width: 100%;
+  }
+}
+
+//管理画面のdl用
+@mixin adminList($leftWidth) {
+  letter-spacing: -.4em;
+  dt {
+    display: inline-block;
+    letter-spacing: normal;
+    vertical-align: top;
+    width: $leftWidth;
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+  dd {
+    display: inline-block;
+    letter-spacing: normal;
+    margin-left: 20px;
+    vertical-align: top;
+    width: 750px - 20px - $leftWidth;
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+/*----------------------------------------------------------------------
+ borders
+----------------------------------------------------------------------*/
+$solidBorder: 1px solid $borderCol01;
+$dashedBorder: 1px dashed $borderCol01;

@@ -19,7 +19,6 @@
     height: 12px;
     margin: 24px 0 0;
     position: relative;
-    border-right: 40px solid #dcdcdc; //todo:この指定いらないかも
 
     * strong,
     * span {
@@ -83,10 +82,10 @@
       white-space: nowrap;
     }
     dt, dd {
-      height: 30px !important;
+      height: 30px;
       position: absolute;
       text-align: center;
-      width: 33.3% !important;
+      width: 33.3%;
     }
     dt {
       font-size: 11px;
@@ -147,9 +146,15 @@
           color: #996666;
         }
       }
-      &.minimum span, &.optimum span, &.days span, &.reached span, &.supporters span {
-        font-size: 11px;
-        font-weight: normal;
+      &.minimum,
+      &.optimum,
+      &.days,
+      &.reached,
+      &.supporters {
+        span {
+          font-size: 11px;
+          font-weight: normal;
+        }
       }
       &.reached {
         border-right: 1px solid #eee;

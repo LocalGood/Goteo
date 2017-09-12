@@ -1,184 +1,107 @@
 .project-show {
 
-  .project-spread{
-    .obtained {
-      display: none;
-    }
-  }
+  #sub-header {
+    background: #faf8f8;
+    height: 36px;
+    padding: 0;
+    position: relative;
 
-
-  div {
-    &#main {
-      padding: 4px;
-      clear: both;
-      overflow-y: hidden;
-      overflow-x: hidden;
-      position: relative;
-      z-index: 0;
-      > div.center > div.widget.project-invest {
-        &.method input#paymethod {
-          width: 145px;
-          margin: 0 auto;
-          padding-bottom: 25px;
-        }
-        form {
-          padding: 24px 0 24px 8px;
-        }
-      }
-      div.center {
-        div.widget {
-          &.project-support {
-            border-bottom: none !important;
-            div.widget {
-              border-bottom: none !important;
-            }
-          }
-          &.project-summary {
-            /*padding: 10px 0;*/
-            clear: left;
-            background-color: #fff;
-          }
-        }
-        .widget {
-          &.project-summary img, &.project-support img {
-            width: 100% !important;
-            height: auto;
-          }
-        }
-        div.widget.project-share {
-          border-bottom: none;
-          margin-bottom: 20px !important;
-          padding-top: 8px;
-          padding-bottom: 8px;
-        }
-      }
-      > div.center.needs > div.widget {
-        &.project-needs, &.project-message, &.project-schedule {
-          margin-bottom: 20px;
-        }
-      }
-      > div.side > div.widget .title {
-        background: none !important;
-      }
-      &.widget {
-        margin-bottom: 20px;
-        &.pr.oject-support {
-          border-top: none !important;
-          background-color: #fff;
-        }
-      }
-      &.side {
-        margin: 20px 0 0 0;
-      }
-      &.center {
-        div.widget.project-summary h3 {
-          font-size: 20px;
-          font-weight: bold;
-          margin: 0 16px;
-        }
-        .widget.project-summary .description {
-          /*padding: 0 10px;*/
-          margin: 0 0 20px 0 !important;
-        }
-      }
-      > div.side > div.widget {
-        clear: right;
-      }
-      > div.center > div.widget {
-        margin: 0 auto 0;
-        clear: left;
-        background-color: #fff;
-      }
-      > div.center {
-        > div.widget, form div.widget {
-          margin: 0 auto;
-          /*padding: 0;*/
-          clear: left;
-          background-color: #fff;
-        }
-        > div.widget.project-invest.address {
-          margin: 0 auto;
-          padding: 0 0 20px 0;
-          clear: left;
-          background-color: #fff;
-        }
-      }
+    > div {
+      position: fixed;
+      z-index: 1;
     }
-    &#sub-header {
-      background: #faf8f8;
-      height: 36px;
-      padding: 0;
-      position: relative;
-      div {
-        &.project-header {
-          min-height: 75px;
-          position: relative;
-          top: 10px;
-          img {
-            float: left;
-            margin: 2px 20px 0 0;
+
+    .project-menu {
+      &.viewport_projectnav {
+        background-color: #e7e7e7;
+        margin: 0 auto;
+        margin-left: 0;
+        overflow: hidden;
+        -webkit-transform: translateZ(0); /* Optional: When heavy at iOS6+ */
+        width: 100vw;
+      }
+      ul.flipsnap_projectnav {
+        margin: 0 5%;
+        background: #ffffcc;
+      }
+      /*.flipsnap:after,*/
+      .flipsnap_projectnav:after,
+      .flipsnap_dashboard:after{
+        clear: both;
+        content: '';
+        display: block;
+        height: 0;
+      }
+
+      /* navigation */
+      .flipsnap {
+        width: 1130px; /* 320px(item width) * 3(item count) */
+      }
+      .flipsnap_projectnav {
+        width: 700px!important;
+        .item {
+          border: none;
+          border-right: 1px dashed #cccccc;
+          color: #666;
+          float: left;
+          &:last-child {
+            border-right: none;
           }
-          h2 {
-            font-size: 2em;
-            margin-bottom: 36px;
-            > span {
-              display: block;
-              line-height: 1em;
-              font-size: 15px;
-            }
-          }
-        }
-        &.project-subtitle {
-          font-size: 16px;
-          font-weight: normal;
-          margin: 3px 0;
-          max-width: 620px;
-          font-style: normal;
-        }
-        &.wants-skills {
-          margin-bottom: 8px;
-          font-size: 12px;
           a {
-            font-size: 12px;
+            margin: 0 auto;
           }
         }
-        &.project-by {
-          color: #20B3B2;
-          font-size: 12px;
-          a {
-            font-weight: normal;
-            color: #cc6600;
-            font-size: 12px;
-            text-decoration: none;
-            &:hover {
-              color: #58595B;
-            }
-          }
-        }
-        &.categories {
-          position: absolute;
-          text-align: right;
-          top: 90px;
-          width: 100%;
-          h3 {
-            font-weight: normal;
-            color: #20B3B2;
-            margin: 0;
+      }
+
+      ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        font-size: 0;
+        li {
+          span.digits {
             display: inline-block;
-          }
-          * {
-            font-size: 12px;
+            text-align: center;
           }
           a {
-            color: #58595B;
+            display: inline-block;
+            height: 35px;
+            padding: 0 8px;
+            color: #666666;
             text-decoration: none;
-            &:hover {
-              color: #20B3B2;
-            }
+            text-align: center;
+            line-height: 35px;
+            background: #ffffcc;
+            /* Old browsers */
+            background: -moz-linear-gradient(top, #ffffcc 0%, #e5e5b9 100%, #e8e8bb 100%);
+            /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffcc), color-stop(100%, #e5e5b9), color-stop(100%, #e8e8bb));
+            /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top, #ffffcc 0%, #e5e5b9 100%, #e8e8bb 100%);
+            /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top, #ffffcc 0%, #e5e5b9 100%, #e8e8bb 100%);
+            /* Opera 11.10+ */
+            background: linear-gradient(to bottom, #ffffcc 0%, #e5e5b9 100%, #e8e8bb 100%);
+            /* W3C */
+            color: #999966;
+            font-size: 12px;
+          }
+          &.active a {
+            background: none;
+            background-color: #dae121;
+            border: none;
+            color: #666666;
+          }
+          &.show a {
+            background: none;
+            background-color: #dae121;
           }
         }
       }
-      div.sub-menu p {
+    }
+
+    .sub-menu {
+      p {
         &.prev2, &.next2 {
           position: absolute;
           top: 0;
@@ -202,91 +125,338 @@
         }
       }
     }
-    &.project-menu ul {
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      font-size: 0;
-      li {
-        span.digits {
-          display: inline-block;
-          text-align: center;
+
+    .project-subtitle {
+      font-size: 16px;
+      font-weight: normal;
+      margin: 3px 0;
+      max-width: 620px;
+      font-style: normal;
+    }
+    .wants-skills {
+      margin-bottom: 8px;
+      font-size: 12px;
+      a {
+        font-size: 12px;
+      }
+    }
+    .project-by {
+      color: #20B3B2;
+      font-size: 12px;
+      a {
+        font-weight: normal;
+        color: #cc6600;
+        font-size: 12px;
+        text-decoration: none;
+        &:hover {
+          color: #58595B;
         }
-        a {
-          display: inline-block;
-          height: 35px;
-          padding: 0 8px;
-          color: #666666;
-          text-decoration: none;
-          text-align: center;
-          line-height: 35px;
-          background: #ffffcc;
-          /* Old browsers */
-          background: -moz-linear-gradient(top, #ffffcc 0%, #e5e5b9 100%, #e8e8bb 100%);
-          /* FF3.6+ */
-          background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffcc), color-stop(100%, #e5e5b9), color-stop(100%, #e8e8bb));
-          /* Chrome,Safari4+ */
-          background: -webkit-linear-gradient(top, #ffffcc 0%, #e5e5b9 100%, #e8e8bb 100%);
-          /* Chrome10+,Safari5.1+ */
-          background: -o-linear-gradient(top, #ffffcc 0%, #e5e5b9 100%, #e8e8bb 100%);
-          /* Opera 11.10+ */
-          background: linear-gradient(to bottom, #ffffcc 0%, #e5e5b9 100%, #e8e8bb 100%);
-          /* W3C */
-          color: #999966;
-          font-size: 12px;
-        }
-        &.active a {
-          background: none;
-          background-color: #dae121;
-          border: none;
-          color: #666666;
-        }
-        &.show a {
-          background: none;
-          background-color: #dae121;
+      }
+    }
+    .categories {
+      position: absolute;
+      text-align: right;
+      top: 90px;
+      width: 100%;
+      h3 {
+        font-weight: normal;
+        color: #20B3B2;
+        margin: 0;
+        display: inline-block;
+      }
+      * {
+        font-size: 12px;
+      }
+      a {
+        color: #58595B;
+        text-decoration: none;
+        &:hover {
+          color: #20B3B2;
         }
       }
     }
   }
-  .project-summary {
-    padding: 20px 16px;
+
+  #social_bookmark {
+    letter-spacing: -0.4em;
+    > div {
+      display: inline-block;
+      letter-spacing: normal;
+      margin-right: 2%;
+      vertical-align: top;
+      &:last-child {
+        margin-right: 0;
+        width: 100%;
+      }
+    }
   }
-  .widget.user.collapsable {
+
+  #main {
+    clear: both;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    padding: 4px;
+    position: relative;
+    z-index: 0;
+
+    &.threecols {
+      background-color: #e7e7e7;
+      padding: 0;
+    }
+
+
+    .center {
+      > div.widget {
+        margin: 0 auto;
+        background-color: #fff;
+      }
+
+      //支援(グラフ)ウィジェット
+      .widget.project-support {
+        border-bottom: none !important;
+        border-top: none !important;
+        background-color: #fff;
+        .project-widget-box {
+          padding-left: 0;
+          padding-right: 0;
+          border-bottom: none;
+        }
+        div.widget {
+          border-bottom: none !important;
+        }
+        img {
+          height: auto;
+          width: 100% !important;
+        }
+      }
+
+      //支援者ウィジェット
+      .widget.project-supporters {
+        .widget.project-summary.h_ttl {
+          border-bottom: none;
+        }
+        dl.summary {
+          .supporters,
+          .reached {
+            clear: none;
+            width: 300px;
+          }
+          dt.reached {
+            margin-top: 0;
+          }
+        }
+      }
+
+      //シェアウィジェット
+      .widget.project-share {
+        border-bottom: none;
+        margin-bottom: 20px !important;
+        padding-bottom: 8px;
+        padding-top: 8px;
+      }
+
+      //
+      .widget.project-invest {
+        .address {
+          margin: 0 auto;
+          padding: 0 0 20px 0;
+          clear: left;
+          background-color: #fff;
+        }
+        &.method input#paymethod {
+          width: 145px;
+          margin: 0 auto;
+          padding-bottom: 25px;
+        }
+        form {
+          padding: 24px 0 24px 8px;
+        }
+      }
+
+      //スキルと物品の募集
+      .widget.project-collaborations {
+        .project-widget-box {
+          ul {
+            padding: 16px;
+            li {
+              margin-bottom: 24px;
+              list-style: none;
+              line-height: 32px;
+            }
+          }
+          h6 {
+            display: table;
+            margin: 0 0 10px;
+            min-height: 32px;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: none;
+            line-height: 20px;
+            span {
+              display: table-cell;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+
+      //資金の内訳ウィジェット
+      .widget.project-needs {
+        max-width: 620px;
+        padding-bottom: 0;
+        p.click span.text {
+          margin-left: 0;
+        }
+      }
+
+
+      //サブナビ　＞　プロジェクト
+      &.home {
+        .widget.project-share {
+          border-top: 1px dashed #c0c0c0;
+        }
+      }
+
+      //サブナビ　＞　資金の内訳
+      &.needs {
+        .widget.project-needs,
+        .widget.project-message,
+        .widget.project-schedule {
+          margin-bottom: 20px;
+        }
+        .widget.project-message {
+          a.preview {
+            top: 205px;
+          }
+        }
+      }
+
+      //サブナビ　＞　？
+      &.profile {
+        .widget:last-child {
+          margin-bottom: 0!important;
+          border-bottom: 1px dashed #c0c0c0;
+        }
+      }
+
+      //活動報告
+      &.updates {
+        margin: 0 auto;
+        clear: left;
+        padding: 0;
+        background-color: #fff;
+        .project-updates {
+          h3.title {
+            margin: 0;
+            padding: 8px 0 8px 20px;
+            background-color: #666666;
+            color: #f5f5f5;
+            font-weight: normal;
+          }
+          #social_bookmark {
+            padding: 10px;
+            > div {
+              float: left;
+            }
+          }
+        }
+      }
+
+      form div.widget {
+        margin: 0 auto;
+        clear: left;
+        background-color: #fff;
+      }
+    }
+
+    //todo: おそらく不要になる
+    /*.side {
+      margin: 20px 0 0 0;
+      .widget {
+        margin-bottom: 20px;
+        .title {
+          background: none !important;
+        }
+      }
+
+      //スキルと物品の募集
+      .widget.project-collaborations {
+        .project-widget-box {
+          padding: 20px 20px 0;
+          ul li p {
+            padding-bottom: 16px;
+          }
+          h6 {
+            padding-left: 42px;
+          }
+        }
+      }
+
+    }*/
+  }
+
+
+
+  .widget.project-spread{
+    .obtained {
+      display: none;
+    }
+  }
+
+  //スキルと物品の募集
+  .widget.project-collaborations {
+    .project-widget-box {
+      background-color: #fff;
+      border-bottom: 1px dashed #c0c0c0;
+      ul {
+        margin: 0;
+        list-style: none;
+        li p {
+          background: none no-repeat left 5px;
+          line-height: 1.7em;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+  //プロジェクトオーナー
+  .widget.user {
     background-color: #fff;
     h3.supertitle {
       background-color: #669900;
-      font-weight: normal;
+      border-bottom: none;
+      color: #ffffff;
       font-size: 15px;
+      font-weight: normal;
       height: 40px;
+      line-height: 40px;
       padding: 0;
       padding-left: 20px;
-      border-bottom: none;
-      line-height: 40px;
-      color: #ffffff;
     }
     .project-widget-box {
-      position: relative;
       margin: 0;
       padding: 16px;
+      position: relative;
       h4.title {
         font-size: 13px;
         margin: 10px 0 20px 50px;
       }
       .image {
-        width: 40px;
         height: 40px;
-        overflow: hidden;
-        position: absolute;
-        top: 16px;
         left: 16px;
         margin: 0;
         padding: 0;
+        position: absolute;
         text-align: center;
+        top: 16px;
+        overflow: hidden;
+        width: 40px;
         img {
-          width: auto;
           height: 100%;
           margin: 0;
           padding: 0;
+          width: auto;
         }
       }
       blockquote.about {
@@ -295,57 +465,51 @@
         margin: 10px 0 0 0;
       }
       dl {
-        margin: 20px 0;
         border: 1px solid #ddd;
         border-radius: 6px;
-        padding: 0;
         font-size: 13px;
+        margin: 20px 0;
+        padding: 0;
+        dt {
+          display: none;
+        }
         dd {
           border: none;
           border-bottom: 1px solid #eee;
-          padding: 0.8em 1.5em 0.8em 50px;
           line-height: 1.4em;
+          margin-left: 0;
+          padding: 0.8em 1.5em 0.8em 50px;
           text-align: left;
+          text-indent: 0;
+          a {
+            text-decoration: none;
+          }
           &:last-child {
             border: none;
           }
           &.location {
             background: url('/view/m/images/location/s.png') no-repeat 1.5em center;
-            text-indent: 0;
-            a {
-              text-decoration: none;
-            }
           }
           &.message {
             background: url('/view/m/images/bocadillo/s.png') no-repeat 1.5em center;
-            text-indent: 0;
-            text-decoration: none;
             a {
-              font-weight: normal;
-              text-decoration: none;
-              font-size: 14px;
               color: #666;
+              font-size: 14px;
+              font-weight: normal;
             }
           }
           &.links {
             background: url('/view/m/images/social/url.png') no-repeat 1.5em center;
-            text-indent: 0;
-            text-decoration: none;
             ul {
               line-height: 1.2em !important;
               li a {
-                font-weight: normal;
-                text-decoration: none;
                 font-size: 14px;
+                font-weight: normal;
               }
             }
           }
           &.profile {
-            background: url('/view/m/images/icon/m/s_task.png') no-repeat 1em center;
-            text-indent: 0;
-            a {
-              text-decoration: none;
-            }
+            background: url('/view/m/images/icon/m/s_task.png')no-repeat 1.1em center;
           }
         }
       }
@@ -353,7 +517,7 @@
   }
 
   //プロジェクト詳細　＞　
-  div.widget.project-support {
+  .widget.project-support {
     div.meter {
       padding-bottom: 134px !important;
       padding-left: 16px !important;
@@ -370,7 +534,6 @@
       padding: 4px;
     }
   }
-
 }
 
 /*--------------------------------------------------
@@ -381,19 +544,11 @@ div {
   &.center div.widget.project-support div.graph {
     margin-top: 0;
   }
-  &.widget {
-  }
 }
 
 
 
 body {
-  &.discover div.widget.project div.meter dl {
-    dt, dd {
-      width: 93px;
-      text-align: center;
-    }
-  }
 }
 /*----------------------------------------------------------------------
   project/view.css
@@ -465,12 +620,12 @@ div {
       height: 40px;
       padding: 0;
       padding-left: 20px;
-      border-bottom: none;
       line-height: 40px;
       color: #ffffff;
     }
   }
-  &#project-support, &#project-investors, &#project-collaborations, &#project-rewards {
+  &#project-support,
+  &#project-investors, &#project-collaborations, &#project-rewards {
     padding: 0;
   }
   &.widget {
@@ -499,9 +654,6 @@ div {
     ul li p {
       font-size: 12px;
     }
-  }
-  &.side div#project-collaborations .project-widget-box ul li p {
-    padding-bottom: 16px;
   }
   &.widget.project-support {
     position: relative;

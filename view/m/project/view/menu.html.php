@@ -18,16 +18,17 @@
  *
  */
 
-use Goteo\Library\Text; ?>
-<?/*<p class="prev2"><a><img src="/view/m/images/header/prev_btn.png" alt="前へ" /></a></p>*/?>
+use Goteo\Library\Text;
+?>
 <div class="project-menu viewport_projectnav">
     <ul class="flipsnap_projectnav">
         <?php
         foreach (array(
             'home'        => Text::get('project-menu-home'),
             'needs'       => Text::get('project-menu-needs'),
-            'supporters'  => Text::get('project-menu-supporters').' <span class="digits">'.'('.count($this['project']->investors).')'.'</span>',
             'messages'    => Text::get('project-menu-messages').' <span class="digits">'.$this['messages'].'</span>',
+            'rewards'     => Text::get('project-menu-rewards'),
+            'supporters'  => Text::get('project-menu-supporters').' <span class="digits">'.'('.count($this['project']->investors).')'.'</span>',
             'updates'     => Text::get('project-menu-updates').' <span class="digits">'.$this['updates'].'</span>',
             'evaluation'  => Text::get('project-menu-evaluation').' <span class="digits">'.$this['evaluation'].'</span>'
         ) as $id => $show): ?>
@@ -41,4 +42,3 @@ use Goteo\Library\Text; ?>
         <a class="pj_next">&gt;</a>
     </p>
 </div>
-<?/*<p class="next2"><a><img src="/view/m/images/header/next_btn.png" alt="次へ" /></a></p>*/?>

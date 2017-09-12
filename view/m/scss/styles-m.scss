@@ -20,7 +20,7 @@ user-profile  :
 */
 
 @import "base";
-//@import "mixins";
+@import "mixins";
 //@import "colors";
 @import "commons";
 @import "widgets";
@@ -31,7 +31,7 @@ user-profile  :
 @import "review";
 @import "project-show";
 @import "project-edit";
-//@import "dashboard";
+@import "dashboard";
 //@import "community";
 @import "admin";
 //@import "user-profile";

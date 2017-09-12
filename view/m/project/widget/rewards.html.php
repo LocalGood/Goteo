@@ -44,7 +44,7 @@ uasort($project->individual_rewards,
 <div class="widget project-rewards collapsable" id="project-rewards">
     
     <h<?php echo $level + 1 ?> class="supertitle"><span><?php echo Text::get('project-rewards-supertitle'); ?></span></h<?php echo $level + 1?>>
-       
+
     <div class="project-widget-box">
 
         <?php if (!empty($project->individual_rewards)) : ?>
