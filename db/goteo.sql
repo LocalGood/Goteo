@@ -254,7 +254,7 @@ CREATE TABLE `criteria_lang` (
 
 CREATE TABLE `evaluation` (
   `project` varchar(50) NOT NULL,
-  `content` varchar(2) NOT NULL,
+  `content` longtext NOT NULL,
   UNIQUE KEY `page` (`project`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1306,10 +1306,10 @@ INSERT INTO `role` VALUES('project_owner', 'プロジェクト作成者');
 --
 
 CREATE TABLE `skill` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50),
   `description` text DEFAULT NULL,
-  `order` tinyint(3) UNSIGNED NOT NULL,
+  `order` tinyint(3) UNSIGNED NOT NULL DEFAULT '1',
   `parent_skill_id` bigint(20),
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
@@ -1322,7 +1322,7 @@ CREATE TABLE `skill` (
 --
 
 CREATE TABLE `skill_lang` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) unsigned NOT NULL,
   `lang` varchar(2) NOT NULL,
   `name` tinytext,
   `description` text DEFAULT NULL,
@@ -1511,6 +1511,8 @@ CREATE TABLE `template` (
 CREATE TABLE `template_lang` (
   `id` bigint(20) unsigned NOT NULL,
   `lang` varchar(2) NOT NULL,
+  `name` tinytext,
+  `purpose` tinytext,
   `title` tinytext,
   `text` text,
   UNIQUE KEY `id_lang` (`id`,`lang`)
