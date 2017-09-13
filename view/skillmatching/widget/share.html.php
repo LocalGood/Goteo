@@ -21,12 +21,12 @@
 use Goteo\Library\Text,
     Goteo\Core\View;
 
-$project = $this['skillmatching'];
+$skillmatching = $this['skillmatching'];
 $level = (int) $this['level'] ?: 3;
 
-$share_title = $project->name;
+$share_title = $skillmatching->name;
 
-$share_url = SITE_URL . '/skillmatching/' . $project->id;
+$share_url = SITE_URL . '/skillmatching/' . $skillmatching->id;
 
 $facebook_url = 'http://facebook.com/sharer.php?u=' . urlencode($share_url) . '&t=' . urlencode($share_title);
 $twitter_url = 'http://twitter.com/home?status=' . urlencode($share_title . ': ' . $share_url . ' #横浜 @LogooYOKOHAMA');
@@ -81,7 +81,7 @@ if(strstr($_url,$_value) && preg_match('/^\/skillmatching\/(.*)$/',$_url)): ?>
                 <div id="proyecto" class="widget projects" style="width:600px;height:600px;overflow:hidden;">
                     <h2 class="widget-title"><?php echo Text::get('project-spread-widget_title'); ?></h2>
                     <div class="widget-porject-legend"><?php echo Text::get('project-spread-widget_legend'); ?></div>
-                    <?php echo new View('view/project/widget/embed.html.php', array('project'=>$project)) ?>
+                    <?php echo new View('view/skillmatching/widget/embed.html.php', array('skillmatching'=>$skillmatching)) ?>
                 </div>
             </div>
         </div>

@@ -77,15 +77,15 @@ echo new View('view/skillmatching/widget/video.html.php', array('skillmatching' 
     <?php endif ?>
 
 </div>
-<div class="project-support_btn">
-    <a class="button supportit" href="/project/<?php echo $skillmatching->id; ?>/invest"><?php echo Text::get('regular-invest_it'); ?></a>
+<div class="widget project-support_btn">
+    <a class="button supportit" href="/skillmatching/<?php echo $skillmatching->id; ?>/invest"><?php echo Text::get('regular-invest_it-sm'); ?></a>
 </div>
 
 <?php if (!empty($skillmatching->id)): ?>
     <div class="widget project-share">
         <h<?php echo $level + 1?> class="title"><?php echo Text::get('overview-field-share-head'); ?></h<?php echo $level + 1?>>
         <?php
-            echo new View('view/skillmatching/widget/share.html.php', array('project' => $project));
+            echo new View('view/skillmatching/widget/share.html.php', array('skillmatching' => $skillmatching));
         ?>
     </div>
 <?php endif ?>

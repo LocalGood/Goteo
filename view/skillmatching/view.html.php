@@ -78,7 +78,7 @@ $bodyClass = 'project-show skillmatching-show'; include 'view/prologue.html.php'
                     $_value = '/skillmatching/' . $skillmatching->id;
                     $_url = urldecode($_SERVER['REQUEST_URI']);
                     if(strstr($_url,$_value) && preg_match('/^\/skillmatching\/(.*)$/',$_url)):
-                        echo new View('view/skillmatching/widget/share.html.php', array('project' => $project));
+                        echo new View('view/skillmatching/widget/share.html.php', array('skillmatching' => $skillmatching));
                     endif;
                     ?>
 

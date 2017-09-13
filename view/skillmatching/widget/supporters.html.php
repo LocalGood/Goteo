@@ -47,15 +47,6 @@ $pagedResults = new \Paginated($investors, 20, isset($_GET['page']) ? $_GET['pag
     
     <h<?php echo $level ?> class="title"><?php echo Text::get('project-menu-supporters'); ?></h<?php echo $level ?>>
     
-    <dl class="summary">
-        <dt class="supporters"><?php echo Text::get('project-menu-supporters'); ?></dt>
-        <dd class="supporters"><?php echo $supporters ?>人</dd>
-<!--
-        <dt class="reached"><?php echo Text::get('project-invest-total'); ?></dt>
-        <dd class="reached"><?php echo $reached ?> <span>円</span></dd>
--->
-    </dl>   
-        
     <div class="supporters">
         <ul>
         <?php while ($investor = $pagedResults->fetchPagedRow()) : ?>

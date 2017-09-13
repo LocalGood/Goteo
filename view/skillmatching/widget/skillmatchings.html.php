@@ -59,7 +59,7 @@ if (isset($this['investor']) && is_object($this['investor'])) {
 
         <div class="project-details">
             <h<?php echo $level ?> class="title">
-                <a class="link" href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>"<?php echo $blank; ?>><?php echo htmlspecialchars(Text::shorten($project->name,50)) ?></a>
+                <a class="link" href="<?php echo SITE_URL ?>/skillmatching/<?php echo $project->id ?>"<?php echo $blank; ?>><?php echo htmlspecialchars(Text::shorten($project->name,50)) ?></a>
             </h<?php echo $level ?>>
 
             <div class="author">
