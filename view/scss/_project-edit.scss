@@ -44,7 +44,7 @@
         font-size: 12px;
         text-decoration: none;
         &:hover {
-          color: #58595B;
+          color: $grayCol03;
         }
       }
     }
@@ -52,11 +52,11 @@
 
   .status {
     padding: 20px 0 30px;
-    color: #bcbdbd;
-    border-bottom: 3px solid #cfd0d2;
+    color: $grayCol01;
+    border-bottom: 3px solid $grayCol01;
     h3 {
       margin: 0 0 .6em;
-      color: #9B9B9D;
+      color: $grayCol02;
       font-size: 26px;
     }
     #project-status {
@@ -69,11 +69,11 @@
         font-size: 16px;
         line-height: 1.5em;
         list-style: none;
-        border-left: 1px solid #bcbcbd;
+        border-left: 1px solid $grayCol01;
       }
       strong {
-        background: url(/view/images/project/statusmarker.png) no-repeat left center;
-        color: #58595b;
+        background: url('/view/images/project/statusmarker.png') no-repeat left center;
+        color: $grayCol03;
         display: block;
         font-size: 22px;
         font-weight: 700;
@@ -84,12 +84,12 @@
       }
     }
     #project-score {
-      border-left: 1px dashed #bcbdbf;
+      border-left: 1px dashed $grayCol01;
       display: table-cell;
       padding: 0 50px 0 30px;
       width: 50%;
       p {
-        color: #8A8B8C;
+        color: $grayCol02;
         font-size: 12px;
         margin-top: 0;
         width: 80%;
@@ -100,14 +100,14 @@
         position: relative;
         width: 369px;
         .done {
-          background: url(/view/images/project/scoremeter.png) no-repeat left top;
+          background: url('/view/images/project/scoremeter.png') no-repeat left top;
           bottom: 0;
           left: 0;
           position: absolute;
           top: 0;
         }
         .left {
-          background: url(/view/images/project/scoremeter.png) no-repeat right bottom;
+          background: url('/view/images/project/scoremeter.png') no-repeat right bottom;
           bottom: 0;
           position: absolute;
           right: 0;
@@ -133,37 +133,37 @@
       display:inline-block;
     }
     span.step {
-      background:#e7e7e7 no-repeat bottom center;
+      background: $baseCol no-repeat bottom center;
       display:inline-block;
       height:100%;
       padding:0 1em;
       position:relative;
       &.first-off {
-        background-image:url(/view/images/project/edit/steps/line-first-off.png);
+        background-image:url('/view/images/project/edit/steps/line-first-off.png');
       }
       &.first-on {
-        background-image:url(/view/images/project/edit/steps/line-first-on.png);
+        background-image:url('/view/images/project/edit/steps/line-first-on.png');
       }
       &.on-on {
-        background-image:url(/view/images/project/edit/steps/line-on-on.png);
+        background-image:url('/view/images/project/edit/steps/line-on-on.png');
       }
       &.on-off {
-        background-image:url(/view/images/project/edit/steps/line-on-off.png);
+        background-image:url('/view/images/project/edit/steps/line-on-off.png');
       }
       &.on-last {
-        background-image:url(/view/images/project/edit/steps/line-on-off.png);
+        background-image:url('/view/images/project/edit/steps/line-on-off.png');
       }
       &.off-off {
-        background-image:url(/view/images/project/edit/steps/line-off-off.png);
+        background-image:url('/view/images/project/edit/steps/line-off-off.png');
       }
       &.off-on {
-        background-image:url(/view/images/project/edit/steps/line-off-on.png);
+        background-image:url('/view/images/project/edit/steps/line-off-on.png');
       }
       &.off-last {
-        background-image:url(/view/images/project/edit/steps/line-off-last.png);
+        background-image:url('/view/images/project/edit/steps/line-off-last.png');
       }
       > button {
-        background:url(/view/images/project/edit/steps/balloon-on.png) no-repeat bottom center;
+        background:url('/view/images/project/edit/steps/balloon-on.png') no-repeat bottom center;
         box-shadow: none;
         box-sizing: content-box;
         border:none;
@@ -181,20 +181,20 @@
         }
       }
       &.off > button {
-        background-image:url(/view/images/project/edit/steps/balloon-off.png);
-        color:#b2b2b2;
+        background-image:url('/view/images/project/edit/steps/balloon-off.png');
+        color: $baseCol;
       }
       &.active > button {
-        background-image:url(/view/images/project/edit/steps/balloon-on-active.png);
+        background-image:url('/view/images/project/edit/steps/balloon-on-active.png');
       }
       &.off.active > button {
-        background-image:url(/view/images/project/edit/steps/balloon-off-active.png);
+        background-image:url('/view/images/project/edit/steps/balloon-off-active.png');
       }
       &.error > button {
-        background-image:url(/view/images/project/edit/steps/balloon-error.png);
+        background-image:url('/view/images/project/edit/steps/balloon-error.png');
       }
       &.error.active > button {
-        background-image:url(/view/images/project/edit/steps/balloon-error-active.png);
+        background-image:url('/view/images/project/edit/steps/balloon-error-active.png');
       }
       > button > strong.number {
         bottom:0;
@@ -239,8 +239,8 @@
   }
 
   #message {
-    background: none repeat scroll 0 0 #ffa375;
-    color: #333333;
+    background: none repeat scroll 0 0 $alertCol;
+    color: #FFF;
     padding: 25px 0;
     font-size: 14px;
     width: 100%;
@@ -249,7 +249,7 @@
       margin: 0 auto;
       position: relative;
       input.message-close {
-        background: url(/view/images/message-close.png) no-repeat;
+        background: url('/view/images/message-close.png') no-repeat;
         width: 11px;
         height: 10px;
         border: none;
@@ -268,13 +268,13 @@
   }
 
   .superform {
-    border: solid #0a0a0a;
+    border: solid #000;
     border-width: 3px 0;
     h3 {
       font-size: 30px;
     }
     > .hint {
-      color: #7f8183;
+      color: $grayCol02;
       overflow: hidden;
       blockquote {
         margin-bottom: 0;
@@ -285,8 +285,8 @@
       li {
         &.element {
           &#footer {
-            background-color: #e7e7e7;
-            border-top: 3px solid #0a0a0a;
+            background-color: $baseCol;
+            border-top: 3px solid #000;
             border-right: none;
             margin: 46px -5px 0 0;
             overflow: hidden;
@@ -493,7 +493,7 @@
           &.cost {
             padding: 16px 8px;
             &.required_cost-no {
-              background-color: #f3f3f3!important;
+              background-color: $baseCol!important;
             }
             input[type="text"],
             textarea {
@@ -522,7 +522,7 @@
               }
             }
             .cost-amount input {
-              background-image: url(/view/images/yen/m.png);
+              background-image: url('/view/images/yen/m.png');
               background-position: 4px 50%;
               background-repeat: no-repeat;
               float: left;
@@ -828,7 +828,7 @@
               padding-left:110px!important;
             }
             div.children li.element.reward-amount > div.contents > input {
-              background-image:url(/view/images/yen/s.png);
+              background-image:url('/view/images/yen/s.png');
               background-position:7.7em center;
               background-repeat:no-repeat;
               float:left;
@@ -887,7 +887,6 @@
         input.remove.weak {
           float: left;
         }
-
       }
     }
 

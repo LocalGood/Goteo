@@ -34,7 +34,7 @@
   }
   //&.hor {
   div.graph {
-    background-color:#BCCCD8;
+    background-color: $grayCol01;
     border-radius: 9px;
     height:18px;
     margin-bottom: 20px;
@@ -44,7 +44,7 @@
       max-width:215px;
     }
     .minimum {
-      background-color:#dc940f;
+      background-color: #dc940f;
       border-radius: 9px;
       height:100%;
       left:0;
@@ -59,7 +59,7 @@
         position:absolute;
         top:0;
         strong {
-          background:url(/view/images/project/widget/project_marker.png) no-repeat;
+          background:url('/view/images/project/widget/project_marker.png') no-repeat;
           display:block;
           height:11px;
           line-height:2000px;
@@ -86,7 +86,7 @@
     }
   }
   dl.percent {
-    color: #000;
+    color: #FFF;
     font-size: 12px;
     line-height: 18px;
     margin-left: 16px;

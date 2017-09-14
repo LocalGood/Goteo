@@ -15,10 +15,14 @@ dashboard     :
 community     :
 admin         :
 user-profile  :
-page          :スタイル調整が必要なページ
 */
+/* Main Color */
+/* Sub Color */
+/* Gray Color */
+/* Alert Color*/
+/* Other Color */
 html {
-  font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', '繝｡繧､繝ｪ繧ｪ', Helvetica, Arial, sans-serif;
+  font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif;
   font-size: 14px;
   height: 100%;
   margin: 0;
@@ -42,7 +46,7 @@ body {
   box-sizing: border-box; }
 
 body, td, th, a, a:link, a:visited, a:active, a:hover, input, textarea, button {
-  color: #58595b;
+  color: #454545;
   font-size: 14px; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -60,8 +64,8 @@ input[type="text"],
 input[type="password"],
 textarea,
 fieldset {
-  background-color: #eeeeee;
-  border: 1px solid #cccccc;
+  background-color: #f2f2f2;
+  border: 1px solid #d9d9d9;
   min-height: 27px;
   padding: .3em; }
 
@@ -157,6 +161,11 @@ a.button.weak {
 /*----------------------------------------------------------------------
  borders
 ----------------------------------------------------------------------*/
+/* Main Color */
+/* Sub Color */
+/* Gray Color */
+/* Alert Color*/
+/* Other Color */
 /*----------------------------------------------------------------------
  header.css
 ----------------------------------------------------------------------*/
@@ -693,14 +702,14 @@ div#message {
         border-bottom: 15px solid #FFF; }
         .widget.projects .project .balloon > blockquote {
           font-size: 12px;
-          height: 4.5em;
+          height: 4em;
           margin: 0;
           overflow: hidden;
           padding: 3px 5px; }
         .widget.projects .project .balloon > h4 {
           font-size: 14px;
           font-weight: 700;
-          margin: 0;
+          margin: 0 0 .5em;
           padding: 3px 5px 0; }
     .widget.projects .skillmatching div.image span.sm-icon {
       position: absolute;
@@ -1120,7 +1129,7 @@ div#message {
       width: 540px; }
   .widget.project-support_btn {
     background-color: #fff;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #d9d9d9;
     padding: 40px 0; }
     .widget.project-support_btn a.button {
       background: none;
@@ -1240,7 +1249,7 @@ div#message {
         overflow: hidden;
         padding: 0; }
         .widget.project-supporters .supporters > ul > li {
-          border-right: 1px solid #e0e0e0;
+          border-right: 1px solid #d9d9d9;
           box-sizing: border-box;
           float: left;
           padding: 0;
@@ -1639,10 +1648,7 @@ div#message {
   overflow: visible;
   position: relative; }
   .superform > div.elements div.elements > ol {
-    padding-left: 0; }
-    .superform > div.elements div.elements > ol .elements ol {
-      padding-left: 0;
-      margin-top: 5px; }
+    padding-left: 2em; }
   .superform > div.elements > ol > li.element {
     padding: 0 2em 2em 0; }
     .superform > div.elements > ol > li.element.inline {
@@ -2006,7 +2012,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     right: 40px;
     top: 0; }
     .discover .searcher .searcher-btn #searcher {
-      background: url("/view/images/search_icon.png") no-repeat center, #DE1F27;
+      background: url(/view/images/lupa.png) no-repeat;
       height: 33px;
       margin: 2px 0 0;
       text-indent: -9999px;
@@ -2139,13 +2145,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     font-size: 0;
     list-style: none;
     margin: 0;
-    padding: 0;
-    background: #FFF;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-justify-content: space-between;
-    /* Safari */
-    justify-content: space-between; }
+    padding: 0; }
     .project-show .project-menu ul li {
       display: inline-block; }
       .project-show .project-menu ul li a {
@@ -2353,7 +2353,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   .project-show .side .button.green {
     background-color: #33cc99; }
   .project-show .side .more {
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid #d9d9d9;
     clear: both;
     display: block;
     line-height: 38px;
@@ -2377,69 +2377,69 @@ body.js .superform > div.elements ol li.element div.contents p {
       text-align: center; }
       .project-show .side > .widget.project-support .supertitle .days strong {
         font-size: 14px; }
-  .project-show .side .project-investors {
-    background: none;
-    padding: 0; }
-    .project-show .side .project-investors .project-widget-box {
-      background-color: #fff; }
-    .project-show .side .project-investors .investors {
-      padding: 8px 20px 0; }
-    .project-show .side .project-investors ul {
-      list-style: none;
-      margin: 0;
+    .project-show .side > .widget .project-investors {
+      background: none;
       padding: 0; }
-      .project-show .side .project-investors ul li {
-        border-bottom: 1px dashed #c0c0c0; }
-        .project-show .side .project-investors ul li:last-child {
-          border-bottom: none; }
-    .project-show .side .project-investors .supporterContainer {
-      height: 80px;
-      padding: 10px 10px 10px 60px;
-      position: relative; }
-    .project-show .side .project-investors a.expand {
-      display: none; }
-    .project-show .side .project-investors .supporter .avatar {
-      border-radius: 50%;
-      display: inline-block;
-      height: 43px;
-      overflow: hidden;
-      position: relative;
-      text-align: center;
-      vertical-align: middle;
-      width: 43px;
-      background-color: #fff;
-      display: block;
-      left: 10px;
-      position: absolute;
-      top: 10px; }
-      .project-show .side .project-investors .supporter .avatar img {
-        bottom: 0;
-        height: auto;
-        left: 0;
-        margin: auto;
-        position: absolute;
-        right: 0;
-        top: 0;
+      .project-show .side > .widget .project-investors .project-widget-box {
+        background-color: #fff; }
+      .project-show .side > .widget .project-investors .investors {
+        padding: 8px 20px 0; }
+      .project-show .side > .widget .project-investors ul {
+        list-style: none;
+        margin: 0;
+        padding: 0; }
+        .project-show .side > .widget .project-investors ul li {
+          border-bottom: 1px dashed #c0c0c0; }
+          .project-show .side > .widget .project-investors ul li:last-child {
+            border-bottom: none; }
+      .project-show .side > .widget .project-investors .supporterContainer {
+        height: 80px;
+        padding: 10px 10px 10px 60px;
+        position: relative; }
+      .project-show .side > .widget .project-investors a.expand {
+        display: none; }
+      .project-show .side > .widget .project-investors .supporter .avatar {
+        border-radius: 50%;
+        display: inline-block;
+        height: 43px;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
         vertical-align: middle;
-        width: 100%; }
-    .project-show .side .project-investors .supporter h4 {
-      font-size: 12px;
-      font-weight: 300;
-      height: 14px;
-      margin: 0 0 .5em;
-      overflow: hidden; }
-    .project-show .side .project-investors .supporter dl {
-      font-size: 12px;
-      margin: 0; }
-    .project-show .side .project-investors .supporter dt.date {
-      display: none; }
-    .project-show .side .project-investors .supporter dd.date {
-      bottom: 4px;
-      color: #a6a8ab;
-      font-size: 12px;
-      margin-top: 5px;
-      position: absolute;
-      right: 16px; }
+        width: 43px;
+        background-color: #fff;
+        display: block;
+        left: 10px;
+        position: absolute;
+        top: 10px; }
+        .project-show .side > .widget .project-investors .supporter .avatar img {
+          bottom: 0;
+          height: auto;
+          left: 0;
+          margin: auto;
+          position: absolute;
+          right: 0;
+          top: 0;
+          vertical-align: middle;
+          width: 100%; }
+      .project-show .side > .widget .project-investors .supporter h4 {
+        font-size: 12px;
+        font-weight: 300;
+        height: 14px;
+        margin: 0 0 .5em;
+        overflow: hidden; }
+      .project-show .side > .widget .project-investors .supporter dl {
+        font-size: 12px;
+        margin: 0; }
+      .project-show .side > .widget .project-investors .supporter dt.date {
+        display: none; }
+      .project-show .side > .widget .project-investors .supporter dd.date {
+        bottom: 4px;
+        color: #a6a8ab;
+        font-size: 12px;
+        margin-top: 5px;
+        position: absolute;
+        right: 16px; }
 .project-show .center > .widget:last-child {
   margin-bottom: 20px; }
 .project-show .center.home .project-media {
@@ -2448,7 +2448,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     height: 380px;
     width: 620px; }
 .project-show .center.home .project-summary {
-  border-bottom: 1px solid #e0e0e0; }
+  border-bottom: 1px solid #d9d9d9; }
   .project-show .center.home .project-summary > div {
     font-size: 14px;
     margin-bottom: 28px; }
@@ -2640,7 +2640,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       margin: 0 0 20px 0;
       padding-bottom: 20px; }
       .project-show .center.messages .project-collaborations ul li:not(:last-child) {
-        border-bottom: 1px solid #e0e0e0; }
+        border-bottom: 1px solid #d9d9d9; }
       .project-show .center.messages .project-collaborations ul li strong {
         display: block;
         margin-bottom: 16px; }
@@ -3784,13 +3784,25 @@ body.js .superform > div.elements ol li.element div.contents p {
   float: left;
   top: -10px;
   left: 35px;
-  padding-right: 30px;
   color: #903;
   font-size: 30px;
   font-weight: 700;
   line-height: 33px;
-  background: url(/view/images/yen/violet/l.png) no-repeat center right;
   border-bottom: 1px solid #903; }
+  .dashboard .user-worthcracy .worth-amount:after {
+    content: '￥';
+    display: inline-block;
+    color: #FFF;
+    font-size: 15px;
+    width: 20px;
+    height: 20px;
+    margin: 0 0 0 15px;
+    text-align: center;
+    line-height: 23px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background: #903; }
 .dashboard #project-selector {
   margin-bottom: 20px;
   padding: 20px;
@@ -4638,7 +4650,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   width: 305px; }
 .user-profile .center .widget.project-supporters .summary {
   background-color: #fff;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #d9d9d9;
   font-weight: 600;
   font-size: 18px;
   margin: 0;
@@ -4670,7 +4682,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   padding: 0; }
   .user-profile .center .widget.user-mates .categories h3.title {
     background-color: #fff;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #d9d9d9;
     font-size: 18px;
     font-weight: 400;
     margin: 0;
@@ -4716,7 +4728,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     background: none; }
   .user-profile .center .widget.user-mates .categories .list {
     padding: 0;
-    border-bottom: 1px dashed #e0e0e0; }
+    border-bottom: 1px dashed #d9d9d9; }
     .user-profile .center .widget.user-mates .categories .list > ul {
       list-style: none;
       padding: 0;
@@ -4746,14 +4758,14 @@ body.js .superform > div.elements ol li.element div.contents p {
       width: 50%;
       min-height: 95px;
       padding: 10px 5px;
-      border-bottom: 1px dashed #e0e0e0;
+      border-bottom: 1px dashed #d9d9d9;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box; }
       .user-profile .side .widget.user-supporters .supporters ul li:nth-child(2n+2) {
         border-right: none; }
       .user-profile .side .widget.user-supporters .supporters ul li:nth-child(3n+3) {
-        border-right: 1px dashed #e0e0e0; }
+        border-right: 1px dashed #d9d9d9; }
       .user-profile .side .widget.user-supporters .supporters ul li .supporter {
         zoom: 1; }
         .user-profile .side .widget.user-supporters .supporters ul li .supporter:after {
@@ -4849,7 +4861,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   margin-bottom: 20px;
   padding-bottom: 0; }
   .user-profile .widget.user-about > div {
-    border-top: 1px dashed #e0e0e0;
+    border-top: 1px dashed #d9d9d9;
     clear: both;
     padding-top: 20px; }
     .user-profile .widget.user-about > div:nth-child(1) {
@@ -4916,7 +4928,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   padding: 0; }
   .user-profile .widget.user-supporters .supporters ul li {
     background-color: #FFF;
-    border-right: 1px dashed #e0e0e0;
+    border-right: 1px dashed #d9d9d9;
     border-top: none;
     float: left;
     min-height: 120px;
@@ -4990,7 +5002,7 @@ body.js .superform > div.elements ol li.element div.contents p {
           top: 10px; }
 .user-profile .widget.user-supporters a.more {
   background-color: #fff;
-  border-top: 1px dashed #e0e0e0;
+  border-top: 1px dashed #d9d9d9;
   clear: both;
   color: #58595b;
   display: block;
@@ -5034,12 +5046,12 @@ body.js .superform > div.elements ol li.element div.contents p {
       .user-profile .widget.user-social ul li.linkedin {
         background-image: url(/view/images/social/linkedin.png); }
 .user-profile .widget.user-mates {
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #d9d9d9;
   padding: 0;
   position: relative; }
   .user-profile .widget.user-mates h3.title {
     background: url(/view/images/icon_tag_b.png) no-repeat 20px 50%;
-    border-bottom: 1px dashed #e0e0e0;
+    border-bottom: 1px dashed #d9d9d9;
     font-size: 14px;
     font-weight: 400;
     margin: 0;
@@ -5047,7 +5059,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     padding: 18px 0 18px 40px; }
   .user-profile .widget.user-mates h4.supertitle {
     background: url(/view/images/icon_tag_b.png) #fff no-repeat 20px 50%;
-    border-bottom: 1px dashed #e0e0e0;
+    border-bottom: 1px dashed #d9d9d9;
     font-size: 14px;
     font-weight: 400;
     margin: 0;
@@ -5078,13 +5090,13 @@ body.js .superform > div.elements ol li.element div.contents p {
       .user-profile .widget.user-mates div.users ul.is-archive-all li:nth-child(6n) {
         border-bottom: none; }
       .user-profile .widget.user-mates div.users ul > li {
-        border-right: 1px dashed #e0e0e0;
+        border-right: 1px dashed #d9d9d9;
         float: left;
         margin: -1px 0 0;
         overflow: hidden;
         position: relative;
         width: 164px;
-        border-bottom: 1px dashed #e0e0e0; }
+        border-bottom: 1px dashed #d9d9d9; }
         .user-profile .widget.user-mates div.users ul > li:nth-child(2n+2) {
           border-right: none; }
         .user-profile .widget.user-mates div.users ul > li.nomarginright {
@@ -5181,13 +5193,13 @@ body.js .superform > div.elements ol li.element div.contents p {
     padding: 0; }
   .user-profile .widget.user-mates div.categories {
     background-color: #fff;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #d9d9d9;
     min-height: 58px;
     padding: 12px 0 12px 20px; }
     .user-profile .widget.user-mates div.categories h3.supertitle {
       background-color: #fff; }
     .user-profile .widget.user-mates div.categories .list {
-      border-bottom: 1px solid #e0e0e0;
+      border-bottom: 1px solid #d9d9d9;
       min-height: 58px;
       padding: 12px 0 12px 20px; }
       .user-profile .widget.user-mates div.categories .list > ul {
@@ -5310,58 +5322,5 @@ body.js .superform > div.elements ol li.element div.contents p {
       .user-login .login textarea[type="checkbox"],
       .user-login .login input:not([type="submit"])[type="checkbox"] {
         display: inline-block; }
-
-.about #main {
-  margin: 0 auto; }
-  .about #main > .widget {
-    margin: 0 0 20px 0; }
-.about div#sub-header div {
-  display: block;
-  max-width: 960px;
-  margin: 0 auto; }
-.about div#sub-header h2 {
-  min-height: 55px;
-  position: relative;
-  line-height: 1.2em;
-  font-size: 18px;
-  font-weight: normal; }
-  .about div#sub-header h2 a {
-    border-radius: 50%;
-    display: inline-block;
-    height: 55px;
-    overflow: hidden;
-    position: relative;
-    text-align: center;
-    vertical-align: middle;
-    width: 55px; }
-    .about div#sub-header h2 a img {
-      bottom: 0;
-      height: auto;
-      left: 0;
-      margin: auto;
-      position: absolute;
-      right: 0;
-      top: 0;
-      vertical-align: middle;
-      width: 100%; }
-  .about div#sub-header h2 em {
-    font-weight: bold;
-    font-size: 24px;
-    font-style: normal; }
-
-.review #sub-header {
-  height: 145px; }
-  .review #sub-header .dashboard-header {
-    margin: 10px auto 0;
-    max-width: 960px;
-    min-height: 100px;
-    position: relative; }
-    .review #sub-header .dashboard-header h2 {
-      display: inline-block;
-      color: #666;
-      font-size: 30px;
-      margin: 0;
-      padding: 0;
-      vertical-align: middle; }
 
 /*# sourceMappingURL=styles.css.map */

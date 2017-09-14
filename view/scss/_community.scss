@@ -23,20 +23,20 @@
     padding: 0;
     overflow: hidden;
     h3.title {
-      background-color: #666;
-      color: #f5f5f5;
+      background-color: $grayCol03;
+      color: $baseCol;
       font-size: 14px;
       font-weight: 400;
       margin: 0;
       padding: 4px 0 4px 20px;
     }
     > h3.title {
-      border-bottom: 1px solid #908499;
-      border-top: 1px solid #808285;
+      border-bottom: 1px solid $grayCol03;
+      border-top: 1px solid $grayCol03;
     }
     a.more {
       background-color: #fff;
-      border-top: 1px dashed silver;
+      border-top: 1px dashed $grayCol01;
       display: block;
       float: none;
       font-size: 14px!important;
@@ -61,8 +61,8 @@
       padding: 0;
       li {
         border: none;
-        border-right: 1px dashed silver;
-        border-top: 1px dashed silver;
+        border-right: 1px dashed $grayCol01;
+        border-top: 1px dashed $grayCol01;
         float: left;
         margin: -1px 0 0;
         max-width: 319px!important;
@@ -74,7 +74,7 @@
           border-right: none;
         }
         &.active {
-          background-color: #f3f3f3!important;
+          background-color: $baseCol!important;
           .user > h4 > a {
             color: #19B4B2;
           }
@@ -128,6 +128,4 @@
       }
     }
   }
-
 }
-

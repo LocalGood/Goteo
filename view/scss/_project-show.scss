@@ -75,11 +75,6 @@
       list-style: none;
       margin: 0;
       padding: 0;
-      background: #FFF;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-justify-content: space-between; /* Safari */
-      justify-content: space-between;
       li {
         display: inline-block;
         a {
@@ -106,7 +101,7 @@
         span.digits{
           background-color: #ffd89d;
           border-radius: 5px;
-          color: #7c7c7c;
+          color: $grayCol02;
           display:inline-block;
           font-size: 8px;
           line-height: 1;
@@ -134,7 +129,7 @@
   .project-message {
     position:relative;
     div#bocadillo {
-      background:url(/view/images/bocadillo.jpg) no-repeat;
+      background:url('/view/images/bocadillo.jpg') no-repeat;
       height:50px;
       margin-top:8px;
       position:absolute;
@@ -191,7 +186,7 @@
         padding: 0;
         li {
           @include cf;
-          background-color: #e7e7e7;
+          background-color: $baseCol;
           margin-bottom: 20px;
           padding: 20px;
           .left {
@@ -221,7 +216,7 @@
           width: 70px;
         }
         dd {
-          color: #383838;
+          color: $grayCol03;
           float: left;
           font-size: 14px;
           font-weight: 600;
@@ -258,76 +253,76 @@
         }
       }
       &.agpl > a strong {
-        background-image: url(/view/images/license/agpl.png);
+        background-image: url('/view/images/license/agpl.png');
       }
       &.apache > a strong {
-        background-image: url(/view/images/license/apache.png);
+        background-image: url('/view/images/license/apache.png');
       }
       &.balloon > a strong {
-        background-image: url(/view/images/license/balloon.png);
+        background-image: url('/view/images/license/balloon.png');
       }
       &.bsd > a strong {
-        background-image: url(/view/images/license/bsd.png);
+        background-image: url('/view/images/license/bsd.png');
       }
       &.cc0 > a strong {
-        background-image: url(/view/images/license/cc0.png);
+        background-image: url('/view/images/license/cc0.png');
       }
       &.ccby > a strong {
-        background-image: url(/view/images/license/ccby.png);
+        background-image: url('/view/images/license/ccby.png');
       }
       &.ccbync > a strong {
-        background-image: url(/view/images/license/ccbync.png);
+        background-image: url('/view/images/license/ccbync.png');
       }
       &.ccbyncnd > a strong {
-        background-image: url(/view/images/license/ccbyncnd.png);
+        background-image: url('/view/images/license/ccbyncnd.png');
       }
       &.ccbyncsa > a strong {
-        background-image: url(/view/images/license/ccbyncsa.png);
+        background-image: url('/view/images/license/ccbyncsa.png');
       }
       &.fal > a strong {
-        background-image: url(/view/images/license/fal.png);
+        background-image: url('/view/images/license/fal.png');
       }
       &.fdl > a strong {
-        background-image: url(/view/images/license/fdl.png);
+        background-image: url('/view/images/license/fdl.png');
       }
       &.freebsd > a strong {
-        background-image: url(/view/images/license/freebsd.png);
+        background-image: url('/view/images/license/freebsd.png');
       }
       &.gpl > a strong {
-        background-image: url(/view/images/license/gpl.png);
+        background-image: url('/view/images/license/gpl.png');
       }
       &.gpl2 > a strong {
-        background-image: url(/view/images/license/gpl2.png);
+        background-image: url('/view/images/license/gpl2.png');
       }
       &.lgpl > a strong {
-        background-image: url(/view/images/license/lgpl.png);
+        background-image: url('/view/images/license/lgpl.png');
       }
       &.mit > a strong {
-        background-image: url(/view/images/license/mit.png);
+        background-image: url('/view/images/license/mit.png');
       }
       &.mpl > a strong {
-        background-image: url(/view/images/license/mpl.png);
+        background-image: url('/view/images/license/mpl.png');
       }
       &.odbl > a strong {
-        background-image: url(/view/images/license/odbl.png);
+        background-image: url('/view/images/license/odbl.png');
       }
       &.odcby > a strong {
-        background-image: url(/view/images/license/odcby.png);
+        background-image: url('/view/images/license/odcby.png');
       }
       &.license.oshw > a strong {
-        background-image: url(/view/images/license/oshw.png);
+        background-image: url('/view/images/license/oshw.png');
       }
       &.pd > a strong {
-        background-image: url(/view/images/license/pd.png);
+        background-image: url('/view/images/license/pd.png');
       }
       &.php > a strong {
-        background-image: url(/view/images/license/php.png);
+        background-image: url('/view/images/license/php.png');
       }
       &.tapr > a strong {
-        background-image: url(/view/images/license/tapr.png);
+        background-image: url('/view/images/license/tapr.png');
       }
       &.xoln > a strong {
-        background-image: url(/view/images/license/xoln.png);
+        background-image: url('/view/images/license/xoln.png');
       }
     }
     .name {
@@ -337,7 +332,7 @@
       margin: 0 0 12px;
     }
     .button.supportit {
-      background: #ff9900;
+      background: $subCol02;
     }
   }
 
@@ -345,15 +340,15 @@
   .side {
     //オレンジ色のボタン
     .button.supportit {
-      background: #ff9900;
+      background: $subCol02;
     }
     //青緑色のボタン
     .button.aqua {
-      background: #21b0b0;
+      background: $subCol01;
     }
     //緑色のボタン
     .button.green {
-      background-color: #33cc99;
+      background-color: $subCol01;
     }
     /* todo: 多分「支援者」が入ると要るから、取っておく */
     .more {
@@ -376,9 +371,9 @@
       }
 
       //支援（グラフ）
-   &.project-support {
+      &.project-support {
         .supertitle {
-          background-color: #58585a;
+          background-color: $grayCol02;
           color: #fff;
           font-size: 12px;
           height: 40px;
@@ -392,67 +387,67 @@
           }
         }
       }
-    }
 
-    //サイドバー　＞　支援したユーザー
-    .project-investors {
-      background: none;
-      padding: 0;
-      .project-widget-box {
-        background-color: #fff;
-      }
-      .investors {
-        padding: 8px 20px 0;
-      }
-      ul {
-        list-style: none;
-        margin: 0;
+      //サイドバー　＞　支援したユーザー
+      .project-investors {
+        background: none;
         padding: 0;
-        li {
-          border-bottom: 1px dashed #c0c0c0;
-          &:last-child {
-            border-bottom: none;
+        .project-widget-box {
+          background-color: #fff;
+        }
+        .investors {
+          padding: 8px 20px 0;
+        }
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          li {
+            border-bottom: 1px dashed $grayCol01;
+            &:last-child {
+              border-bottom: none;
+            }
           }
         }
-      }
-      .supporterContainer {
-        height: 80px;
-        padding: 10px 10px 10px 60px;
-        position: relative;
-      }
-      a.expand {
-        display: none;
-      }
-      .supporter {
-        .avatar {
-          @include circleAvatar(43px);
-          background-color: #fff;
-          display: block;
-          left: 10px;
-          position: absolute;
-          top: 10px;
+        .supporterContainer {
+          height: 80px;
+          padding: 10px 10px 10px 60px;
+          position: relative;
         }
-        h4 {
-          font-size: 12px;
-          font-weight: 300;
-          height: 14px;
-          margin: 0 0 .5em;
-          overflow: hidden;
-        }
-        dl {
-          font-size: 12px;
-          margin: 0;
-        }
-        dt.date {
+        a.expand {
           display: none;
         }
-        dd.date {
-          bottom: 4px;
-          color: #a6a8ab;
-          font-size: 12px;
-          margin-top: 5px;
-          position: absolute;
-          right: 16px;
+        .supporter {
+          .avatar {
+            @include circleAvatar(43px);
+            background-color: #fff;
+            display: block;
+            left: 10px;
+            position: absolute;
+            top: 10px;
+          }
+          h4 {
+            font-size: 12px;
+            font-weight: 300;
+            height: 14px;
+            margin: 0 0 .5em;
+            overflow: hidden;
+          }
+          dl {
+            font-size: 12px;
+            margin: 0;
+          }
+          dt.date {
+            display: none;
+          }
+          dd.date {
+            bottom: 4px;
+            color: $grayCol02;
+            font-size: 12px;
+            margin-top: 5px;
+            position: absolute;
+            right: 16px;
+          }
         }
       }
     }
@@ -502,8 +497,8 @@
       //todo: .project-show .center > .widge　が効かず、追加。閉じdivがずれているとか？
 
       .invest-message {
-        background:url(/view/images/project/view/invest/message_beak.png) no-repeat left bottom;
-        background-color:#cce7e8!important;
+        background:url('/view/images/project/view/invest/message_beak.png') no-repeat left bottom;
+        background-color: $baseCol!important;
         min-height:70px;
         padding: 20px 15px 40px;
         h2 {

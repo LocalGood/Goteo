@@ -19,9 +19,9 @@ user-profile  :
 page          :スタイル調整が必要なページ
 */
 
-@import "base";
-@import "mixins";
 @import "colors";
+@import "mixins";
+@import "base";
 @import "commons";
 @import "widgets";
 @import "meter";

@@ -15,7 +15,7 @@
   //検索ウィジェット
   .searcher {
     background-color: transparent;
-    border-bottom: 1px solid #d1d3d4;
+    border-bottom: 1px solid $grayCol01;
     margin-bottom: 24px;
     padding: 0;
     form {
@@ -35,9 +35,9 @@
     }
     #text-query {
       background-color:#fff;
-      border:1px solid #808184;
+      border:1px solid $grayCol01;
       box-sizing: content-box;
-      color:#808184;
+      color: $grayCol02;
       float:left;
       font-size:16px;
       margin-left:16px;
@@ -54,8 +54,8 @@
         margin-right:0;
       }
       label {
-        border-bottom:1px solid #58595B;
-        color:#58595B;
+        border-bottom:1px solid $grayCol01;
+        color: $grayCol03;
         display:block;
         font-size:14px;
         font-weight:700;
@@ -63,22 +63,22 @@
         text-transform:uppercase;
       }
       select {
-        background-color:#e7e7e7;
+        background-color: $baseCol;
         border-style:none;
-        color:#58595B;
+        color: $grayCol03;
         font-size:.9em;
         margin:0;
         padding-top:10px;
         width:100%;
         option {
-          color:#58595B;
+          color: $grayCol03;
         }
         option[selected=selected] {
-          background-color:#d5d5d6;
-          color:#58595B;
+          background-color: $baseCol;
+          color: $grayCol03;
         }
         option.all {
-          color:#58595B;
+          color: $grayCol03;
           font-size:1em;
           font-weight:700;
         }
@@ -118,6 +118,5 @@
       min-height: 400px;
     }
   }
-
 }
 

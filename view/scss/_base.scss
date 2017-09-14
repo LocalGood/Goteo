@@ -1,3 +1,4 @@
+@import "colors";
 html {
   font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -7,7 +8,7 @@ html {
 }
 
 html, body {
-  background-color: #f2f2f2;
+  background-color: $baseCol;
   padding: 0;
 }
 
@@ -28,7 +29,7 @@ body {
 }
 
 body, td, th, a, a:link, a:visited, a:active, a:hover, input, textarea, button {
-  color: #58595b;
+  color: $grayCol03;
   font-size: 14px;
 }
 
@@ -50,8 +51,8 @@ input[type="text"],
 input[type="password"],
 textarea,
 fieldset {
-  background-color: #eeeeee;
-  border: 1px solid #cccccc;
+  background-color: $baseCol;
+  border: 1px solid $grayCol01;
   min-height: 27px;
   padding: .3em;
 }

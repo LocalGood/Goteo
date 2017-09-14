@@ -26,7 +26,7 @@
       &__gnav {
         margin: 0;
         padding-left: 0;
-        color: #565352;
+        color: $grayCol03;
         list-style-type: none;
         letter-spacing: -0.4em;
         > li {
@@ -37,7 +37,7 @@
           > a {
             display: block;
             padding: 0 24px;
-            color: #565352;
+            color: $grayCol03;
             font-size: 14px;
             box-sizing: border-box;
             text-decoration: none;
@@ -48,8 +48,8 @@
           &:hover,
           &.active {
             > a {
-              color: $colMain01;
-              border-bottom: 3px solid $colMain02;
+              color: $mainCol01;
+              border-bottom: 3px solid $mainCol01;
             }
             .header__right__snav {
               opacity: 1;
@@ -60,21 +60,21 @@
                 margin-top: 14px;
                 padding: 12px 8px;
                 background-color: #fff;
-                box-shadow: 0 1px 0 0 #d9d9d9;
+                box-shadow: 0 1px 0 0 $grayCol01;
                 &:before {
                   content: '';
                   position: absolute;
                   top: -6px;
                   left: 50%;
                   margin-left: -8px;
-                  background: url(/view/images/snav_bk_arrow.png) no-repeat 50% top;
+                  background: url('/view/images/snav_bk_arrow.png') no-repeat 50% top;
                   width: 16px;
                   height: 12px;
                 }
                 ul > li {
                   display: table;
                   width: 100%;
-                  border-bottom: 1px solid #f2f2f2;
+                  border-bottom: 1px solid $grayCol01;
                 }
                 ul {
                   padding-left: 0;
@@ -86,18 +86,18 @@
                   a {
                     display: inline-block;
                     padding: 6px 0;
-                    color: #575757;
+                    color: $grayCol03;
                     font-size: 14px;
                     line-height: 1.5em;
                     &:hover {
-                      color: #009acb;
+                      color: $mainCol02;
                     }
                   }
                 }
               }
               .header__right__snav__second_title {
                 opacity: 0.5;
-                color: #575757;
+                color: $grayCol03;
                 font-size: 12px;
               }
             }
@@ -132,7 +132,7 @@
             > li.gnav_goteo {
               > a {
                 color: #fff;
-                background-color: $colMain03;
+                background-color: $mainCol01;
                 border-radius: 4px;
               }
               &.active,
@@ -155,7 +155,7 @@
         height: 28px;
         padding-left: 20px;
         padding-right: 10px;
-        background-color: #e4e4e4;
+        background-color: $grayCol01;
         border-radius: 15px;
         input[type="text"] {
           -webkit-appearance: none;
@@ -208,7 +208,7 @@
           color: #fff;
           line-height: 36px;
           border-radius: 2px;
-          background-color: $colMain03;
+          background-color: $mainCol01;
         }
       }
     }
@@ -239,7 +239,7 @@
   &__upper {
     @include cf;
     padding: 45px 0 52px;
-    background-color: #2f6f92;
+    background-color: $mainCol01;
     &_left {
       float: left;
       width: 25%;
@@ -281,7 +281,7 @@
         padding-left: 16px;
         font-size: 12px;
         line-height: 18px;
-        background: url(/view/images/integration_link.png) no-repeat left 50%;
+        background: url('/view/images/integration_link.png') no-repeat left 50%;
         &:hover {
           text-decoration: underline;
         }
@@ -350,7 +350,7 @@
       margin: 0;
       font-size: 12px;
       text-align: center;
-      color: #454545;
+      color: $grayCol03;
     }
   }
   .c-w1200 {
@@ -389,7 +389,7 @@
       float: left;
       text-align: left;
       &.dashboard {
-        background: transparent url(/view/images/header/down-black.png) no-repeat right 30px;
+        background: transparent url('/view/images/header/down-black.png') no-repeat right 30px;
         > a {
           display: block;
           position: relative;
@@ -397,17 +397,17 @@
           width: 130px;
           height: 38px;
           padding: 2px 10px 2px 6px;
-          color: #f5f5f5;
+          color: $baseCol;
           font-size: 11px;
           line-height: 34px;
           box-sizing: border-box;
-          background: #105d7f;
+          background: $mainCol01;
           text-decoration: none;
           -moz-border-radius: 3px;
           -webkit-border-radius: 3px;
           border-radius: 3px;
           &:hover {
-            background-color: #39c;
+            background-color: $mainCol02;
           }
           > img {
             position: absolute;
@@ -431,13 +431,13 @@
             padding: 0;
             list-style: none;
             > li {
-              background-color: #58595b;
+              background-color: $grayCol03;
               > a {
                 display: block;
                 font-size: 11px;
                 padding: 6px 3px;
                 &:hover {
-                  background-color: #39c;
+                  background-color: $mainCol02;
                 }
               }
               * {
@@ -481,7 +481,7 @@
   li {
     background: #fff;
     box-sizing: content-box;
-    box-shadow: 3px 3px 0 #E2E2E2;
+    box-shadow: 3px 3px 0 $grayCol01;
     display: inline;
     float: left;
     margin: 0 6px 0 0;
@@ -491,7 +491,7 @@
       margin-right: 10px;
     }
     &.selected {
-      background: #cde4e5;
+      background: $baseCol;
       font-weight: bold;
       padding: 6px 20px;
     }
@@ -504,7 +504,7 @@
       padding: 6px 20px;
       text-decoration:none;
       &:hover {
-        background:#F3F3F3;
+        background: $baseCol;
       }
     }
   }
@@ -513,8 +513,8 @@
 //エラーメッセージ
 //todo: #messageは他のウィジェットでも使われていて1ページに2回出てくることがあるので、div指定を消さないように
 div#message {
-  background: none repeat scroll 0 0 #ffa375;
-  color: #333333;
+  background: none repeat scroll 0 0 $alertCol;
+  color: #FFF;
   padding: 25px 0;
   font-size: 14px;
   width: 100%;

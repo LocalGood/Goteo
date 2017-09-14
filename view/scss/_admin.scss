@@ -10,7 +10,7 @@
   }
 
   input[type="text"].readonly {
-    color:#ccc;
+    color: $grayCol01;
   }
 
   input[type="reset"],
@@ -32,20 +32,20 @@
   #sub-header {
     padding-bottom: 10px;
     .breadcrumbs {
-      color: #58595B;
+      color: $grayCol02;
       display: block;
       font-size: 18px;
       margin: 0 auto;
       max-width: 960px;
       a {
-        color:#58595B;
+        color: $grayCol03;
         font-size:18px;
         &:hover {
-          color:#20B2B3;
+          color: #20B2B3;//#20B2B3
         }
       }
       strong {
-        color: #20B2B3;
+        color: #20B2B3;//#20B2B3
       }
     }
   }
@@ -63,7 +63,7 @@
       padding: 0;
       width: 100%;
       legend {
-        background-color: #20B2B3;
+        background-color: #20B2B3;//#20B2B3
         color: #fff;
         display: block;
         font-weight: 700;
@@ -140,7 +140,7 @@
         margin-right: 1px;
         &.active {
           a {
-            background-color: #c8babc;
+            background-color: $grayCol01;
           }
         }
         a {
@@ -149,7 +149,7 @@
           padding: .6em 2em .2em .6em;
           text-decoration: none;
           &:hover {
-            background-color:#c8babc;
+            background-color: $grayCol01;
           }
         }
       }
@@ -168,16 +168,16 @@
         width: 100%;
         &.t_border {
           tr:nth-child(even) td {
-            background-color: #f5f5f5;
+            background-color: $baseCol;
           }
         }
         th {
           background-color:#666;
           box-sizing: content-box;
-          color:#f5f5f5;
+          color: $baseCol;
         }
         td {
-          border-bottom:1px dotted #ccc;
+          border-bottom:1px dotted $grayCol01;
           box-sizing: content-box;
           padding:8px 4px;
           &.w70 {width: 70px;}
@@ -192,7 +192,7 @@
         padding-left:20px;
       }
       a {
-        color: grey;
+        color: $grayCol02;
         text-decoration: none;
       }
       form {
@@ -477,7 +477,7 @@
     }
     a {
       font-size: 14px;
-      color: #58595b;
+      color: $grayCol03;
       text-decoration: none;
     }
     .light-blue {
@@ -493,22 +493,22 @@
       color:#E22727;
     }
     .grey {
-      color:#CBBCBF;
+      color: $grayCol02;
     }
     .green {
       color:#20A64B;
     }
     .subitem {
-      border-bottom: #A7A8AC 1px dashed;
+      border-bottom: $grayCol02 1px dashed;
       height: auto;
       overflow: auto;
       padding: 10px 5px 10px 0;
       &.odd {
-        background: #F7F7F7;
+        background: $baseCol;
       }
       .datepub {
         clear: right;
-        color: #A7A8AC;
+        color: $grayCol02;
         display: block;
         float: left;
         font-size: .9em;
@@ -516,7 +516,7 @@
       }
       .content-pub {
         clear: both;
-        color: #59595C;
+        color: $grayCol03;
         font-size: .9em;
         margin-top: 2px;
         a {
