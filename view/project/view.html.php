@@ -63,10 +63,6 @@ if (!empty($evaluation->content)){
     $ev_label = '';
 }
 
-
-
-
-
 $bodyClass = 'project-show'; include 'view/prologue.html.php' ?>
 
 <?php include 'view/header.html.php' ?>
