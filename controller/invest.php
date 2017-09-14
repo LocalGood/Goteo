@@ -883,70 +883,6 @@ namespace Goteo\Controller {
 
 
 
-
-
-		//
-		//		イプシロンにカード番号登録をする処理
-		//
-		//
-        public function cardregist($id=null) {
-
-            if (empty($id)) {
-                Message::Error(Text::get('invest-data-error'));
-                throw new Redirection('/', Redirection::TEMPORARY);
-            }
-            $invest = Model\Invest::get($id);
-            $project = $invest->project;
-            $projType = $invest->project_type;
-
-            $projectData = Model\Project::getMedium($invest->project);
-
-
-			// イプシロンに決済処理を飛ばす　事前処理
-			//   1. 決済cgi にデータを送る
-			//	 2. xml でステータスと、決済URL が返るので取得
-			//	 3. 決済URLに、header() でロケーション。
-
-
-			// httpリクエスト用のオプションを指定
-			$http_option = array(
-			  "timeout" => "20", // タイムアウトの秒数指定
-			  //    "allowRedirects" => true, // リダイレクトの許可設定(true/false)
-			  //    "maxRedirects" => 3, // リダイレクトの最大回数
-			);
-
-
-			$request = new HTTP_Request2(EPSILON_ORDER_URL, HTTP_Request2::METHOD_POST, $http_option);
-			$request->setConfig(array(
-				'ssl_verify_peer' => false,
-			));
-
-
-			// 契約番号(8桁)
-			$contract_code = EPSILON_CONTRACT_CODE;
-
-			// 途中やめ
-			exit;
-
-		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		//
 		//		コンビニ決済ページへ遷移する処理
 		//
@@ -1116,44 +1052,6 @@ namespace Goteo\Controller {
             $projType = $invest->project_type;
             throw new Redirection("/$projType/$project/invest/?confirm=ok", Redirection::TEMPORARY);
         }
-
-
-/*
-        public function done ($id=null) {
-			// イプシロンの場合、$id はカラで来る。
-			// GET で(ユーザＩＤ，実行結果、注文番号等)が送られてくるので、それを処理する。
-
-            #if($_GET['trans_code'] == '') die();
-
-            $trans_code = $_GET['trans_code'];
-            $user_id = $_GET['user_id'];
-            $result = $_GET['result'];
-            $order_number = $_GET['order_number'];		// order_number は、goteo の invest->id 
-
-
-
-            #if (empty($id)) {
-            #    Message::Error(Text::get('invest-data-error'));
-            #    throw new Redirection('/', Redirection::TEMPORARY);
-            #}
-
-            $invest = Model\Invest::get($order_number);
-            if ($invest->status != "-1") die();
-
-            $project = $invest->project;
-            $projType = $invest->project_type;
-
-
-			if ($result != 1) {   // 1:成功 0:失敗
-                Message::Error("return error from Epsilon" );
-                throw new Redirection(SEC_URL."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
-			}
-
-			// trans_code の保管
-			$invest->setTransaction( $trans_code );
-            throw new Redirection("/$projType/$project/invest/?confirm=ok", Redirection::TEMPORARY);
-        }
-*/
 
 
 
