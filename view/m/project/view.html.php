@@ -34,6 +34,7 @@ $post    = $this['post'];
 $blog    = $this['blog'];
 $thread    = $this['thread'];
 $evaluation = \Goteo\Library\Evaluation::get($project->id);
+$level = (int) $this['level'] ?: 3;
 
 $user    = $_SESSION['user'];
 $personalData = ($user instanceof User) ? User::getPersonal($user->id) : new stdClass();
@@ -41,7 +42,6 @@ $personalData = ($user instanceof User) ? User::getPersonal($user->id) : new std
 $categories = Category::getNames($project->id);
 
 $skills = Skill::getNames($project->id);
-
 
 if (!empty($project->investors)) {
     $supporters = ' (' . $project->num_investors . ')';
@@ -70,48 +70,18 @@ $bodyClass = 'project-show'; include 'view/m/prologue.html.php' ?>
 <?php include 'view/m/header.html.php' ?>
 
         <div id="sub-header">
-            <?/*
-            <div class="project-header">
-                <a href="/user/<?php echo $project->owner; ?>"><img src="<?php echo $project->user->avatar->getLink(56,56, true) ?>" /></a>
-                <h2><span><?php echo htmlspecialchars($project->name) ?></span></h2>
-                <div class="project-subtitle"><?php echo htmlspecialchars($project->subtitle) ?></div>
-                <div class="wants-skills">
-                    スキル: <?php
-                        // スキル表示
-                        if (!empty($skills)):
-                            foreach( $skills as $_skill_id => $_skill_name):
-                                ?>
-                                <a href=""><?php echo $_skill_name ?></a>
-                                <?
-                            endforeach;
-                        endif;
-                    ?>
-                </div>
-
-                <div class="project-by"><a href="/user/<?php echo $project->owner; ?>"><?php echo Text::get('regular-by') ?> <?php echo $project->user->name; ?></a></div>
-                <br clear="both" />
-
-                <div class="categories"><h3><?php echo Text::get('project-view-categories-title'); ?></h3>
-                    <?php $sep = ''; foreach ($categories as $key=>$value) :
-                        echo $sep.'<a href="/discover/results/'.$key.'">'.htmlspecialchars($value).'</a>';
-                    $sep = ', '; endforeach; ?>
-                </div>
-            </div>
-            */?>
-
             <div class="sub-menu">
                 <?php echo new View('view/m/project/view/menu.html.php',
-                            array(
-                                'project' => $project,
-                                'show' => $show,
-                                'supporters' => $supporters,
-                                'messages' => $messages,
-                                'updates' => $updates
-                            )
-                    );
+                    array(
+                        'project' => $project,
+                        'show' => $show,
+                        'supporters' => $supporters,
+                        'messages' => $messages,
+                        'updates' => $updates
+                    )
+                );
                 ?>
             </div>
-
         </div>
 
 <?php if(isset($_SESSION['messages'])) { include 'view/m/header/message.html.php'; } ?>
@@ -219,30 +189,7 @@ $bodyClass = 'project-show'; include 'view/m/prologue.html.php' ?>
              </div>
 
             <div class="side">
-            <?php
-            // el lateral es diferente segun el show (y el invest)
-            if($show !== 'home'){
-                echo
-                    new View('view/m/project/widget/support.html.php', array('project' => $project));
-            }
-            if ((!empty($project->investors) &&
-                !empty($step) &&
-                in_array($step, array('start', 'login', 'confirm', 'continue', 'ok', 'fail')) )
-                || $show == 'messages' ) {
-                echo new View('view/m/project/widget/investors.html.php', array('project' => $project));
-            }
-
-            if (!empty($project->supports) && $show !='messages') {
-                echo new View('view/m/project/widget/collaborations.html.php', array('project' => $project));
-            }
-
-            if ($show != 'rewards' && $show != 'messages') {
-                echo new View('view/m/project/widget/rewards.html.php', array('project' => $project));
-            }
-
-            echo new View('view/m/user/widget/user.html.php', array('user' => $project->user));
-
-            ?>
+            <?php echo new View('view/m/user/widget/user.html.php', array('user' => $project->user)); ?>
             </div>
 
             <?php $printSendMsg = false; ?>

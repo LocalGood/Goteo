@@ -2,17 +2,15 @@
   project/edit.css
 ----------------------------------------------------------------------*/
 
-body.project-edit div {
-  &#sub-header {
+.project-edit {
+
+  #sub-header {
     padding-bottom: 0;
     div.project-header {
       min-height: 75px;
     }
     img {
       float: left;
-      /*margin-right: 20px;
-      padding-top: 2px;
-      padding-left: 2px;*/
     }
     div {
       &.project-subtitle {
@@ -36,12 +34,13 @@ body.project-edit div {
       }
     }
   }
-  &#main {
+
+  #main {
     div.status {
       color: #bcbdbd;
       padding-bottom: 30px;
       padding-top: 20px;
-      border-bottom: 3px solid #cfd0d2;
+      border-bottom: 3px solid $grayCol01;
     }
     .status {
       #project-status, #project-score {
@@ -53,7 +52,7 @@ body.project-edit div {
         padding-right: 50px;
       }
       #project-score {
-        border-left: 1px dashed #bcbdbf;
+        border-left: 1px dashed $grayCol01;
         padding-left: 50px;
       }
       h3 {
@@ -68,7 +67,7 @@ body.project-edit div {
         list-style: none;
         font-size: 16px;
         line-height: 1.5em;
-        border-left: 1px solid #bcbcbd;
+        border-left: 1px solid $grayCol01;
         li strong {
           font-size: 22px;
           color: #58595b;
@@ -111,8 +110,9 @@ body.project-edit div {
       }
     }
   }
-  &.superform {
-    border: solid #0a0a0a;
+
+  .superform {
+    border: solid $grayCol01;
     border-width: 3px 0;
     > .elements > ol > li#errors {
       border: none;
@@ -120,78 +120,6 @@ body.project-edit div {
       top: 100%;
       margin-top: 54px;
       padding: 10px;
-    }
-  }
-}
-
-/* Footer  */
-
-footer {
-  background: #255b7f;
-  padding: 40px 20px 10px;
-  color: #fff;
-  .footer__link-title {
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
-  .footer_menu_links span {
-    font-size: 10px;
-    margin-bottom: 10px;
-    display: block;
-  }
-  ul {
-    margin-bottom: 30px;
-    line-height: 2em;
-    list-style: none;
-    padding-left: 0;
-  }
-  a {
-    color: #fff !important;
-    text-decoration: none;
-    font-size: 12px !important;
-  }
-  .footer_bottom {
-    .footer_logo {
-      margin-left: -10px;
-      img {
-        width: 70%;
-      }
-    }
-    .sns-area {
-      display: table;
-      width: 50%;
-      li {
-        display: table-cell;
-        width: 25%;
-        vertical-align: middle;
-        a {
-          display: block;
-          width: 100%;
-          text-align: center;
-          img {
-            width: auto;
-            height: 20px;
-          }
-        }
-      }
-    }
-    .link {
-      margin-bottom: 30px;
-      span {
-        display: inline-block;
-        height: 15px;
-        width: 15px;
-        color: #255b7f;
-        background: #fff;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        border-radius: 50%;
-        font-size: 80%;
-        vertical-align: middle;
-        text-align: center;
-        font-weight: bold;
-      }
     }
   }
 }

@@ -38,7 +38,7 @@
     }
     #text-query {
       background-color: #ffffff;
-      border: 1px solid #808184;
+      border: 1px solid $grayCol01;
       color: #808184;
       float: left;
       font-size: 16px;
@@ -69,7 +69,7 @@
         margin-right: 0;
       }
       label {
-        border-bottom: 1px solid #58595B;
+        border-bottom: 1px solid $grayCol01;
         color: #58595B;
         display: block;
         font-size: 14px;
@@ -78,7 +78,7 @@
       }
       select {
         background-color: #e7e7e7;
-        border: 1px solid #d1d3d4;
+        border: 1px solid $grayCol01;
         color: #58595B;
         font-size: 1.5em;
         height: 35px;
@@ -111,7 +111,7 @@
 
   .navi-bar {
     background-color: #ffffff;
-    border-top: 1px dashed #c0c0c0;
+    border-top: 1px dashed $grayCol01;
     text-align: center;
     a.all {
       display: block;

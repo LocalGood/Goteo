@@ -41,26 +41,16 @@ $level = (int) $this['level'] ?: 3;
     </div>
     <?php endif ?>
 
-    <?/*php if (!empty($project->about)): ?>
-    <div class="about">
-        <h<?php echo $level + 1?>><?php echo Text::get('overview-field-about'); ?></h<?php echo $level + 1?>>
-        <?php echo $project->about; ?>
-    </div>    
-    <?php endif */?>
-
     <?php if (!empty($project->motivation)): ?>
     <div class="motivation">
         <h<?php echo $level + 1?>><?php echo Text::get('overview-field-motivation'); ?></h<?php echo $level + 1?>>
         <?php echo $project->motivation; ?>
     </div>
     <?php endif ?>
-</div>
 
-<?
-    echo new View('view/m/project/widget/video.html.php', array('project' => $project));
-?>
-
-<div class="widget project-summary">
+    <?
+        echo new View('view/m/project/widget/video.html.php', array('project' => $project));
+    ?>
 
     <?php if (!empty($project->goal)): ?>
     <div class="goal">
@@ -77,6 +67,18 @@ $level = (int) $this['level'] ?: 3;
     <?php endif ?>
 
 </div>
-<?
-    echo new View('view/m/project/widget/share.html.php', array('project' => $project));
-?>
+
+<?php if ($project->status <= 3): ?>
+    <div class="widget project-support_btn">
+        <a class="button supportit" href="/project/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it'); ?></a>
+    </div>
+<?php endif; ?>
+
+<?php if (!empty($project->id)): ?>
+    <div class="widget project-share">
+        <h<?php echo $level + 1?> class="title"><?php echo Text::get('overview-field-share-head'); ?></h<?php echo $level + 1?>>
+        <?
+        echo new View('view/m/project/widget/share.html.php', array('project' => $project));
+        ?>
+    </div>
+<?php endif ?>

@@ -1,23 +1,43 @@
 @charset "UTF-8";
 /*
-base          :リセット、タグに対するベース設定
-mixins        :mixin設定
 colors        :カラーコードの変数
+mixins        :mixin設定
+base          :リセット、タグに対するベース設定
 commons       :header,footerなどの共通要素に対する設定
 widgets       :主にプロジェクトウィジェットに対する設定。.widgetが付くものに対する設定も少々
 meter         :メーターの設定
 superform     :.superformに対する設定。（form要素）
 home          :body.home配下に対する設定
-discover      :
-review        :
-project-show  :
-project-edit  :
-dashboard     :
-community     :
+discover      :cfのトップ、プロジェクト一覧
+review        :マイメニューのうち、レビューのみ
+project-show  :プロジェクト詳細
+project-edit  :プロジェクト新規・編集
+dashboard     :マイメニュー
+community     :マニメニュー > このユーザーの興味
 admin         :
-user-profile  :
 */
+/* Main Color */
+/* Sub Color */
+/* Gray Color */
+/* Alert Color*/
+/* Other Color */
+/*----------------------------------------------------------------------
+ colors
+----------------------------------------------------------------------*/
+/*----------------------------------------------------------------------
+ font-size (exchange rem)
+----------------------------------------------------------------------*/
+/*----------------------------------------------------------------------
+ media query
+----------------------------------------------------------------------*/
+/*----------------------------------------------------------------------
+ commons
+----------------------------------------------------------------------*/
+/*----------------------------------------------------------------------
+ borders
+----------------------------------------------------------------------*/
 * {
+  box-sizing: border-box;
   font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif; }
 
 html {
@@ -25,15 +45,14 @@ html {
   margin: 0;
   overflow: auto; }
 
-html,
 body {
   background-color: #e7e7e7;
-  padding: 0; }
-
-body {
+  color: #454545;
+  font-size: 14px;
   margin: 0;
   min-height: 100%;
   overflow: hidden !important;
+  padding: 0;
   position: relative;
   top: 0;
   word-wrap: break-word; }
@@ -42,8 +61,8 @@ body {
     overflow: hidden;
     zoom: 1; }
 
-body, td, th, a, a:link, a:visited, a:active, a:hover, input, textarea, button {
-  color: #58595b;
+td, th, a, a:link, a:visited, a:active, a:hover, input, textarea, button {
+  color: #454545;
   font-size: 14px;
   word-wrap: break-word; }
 
@@ -65,7 +84,7 @@ input[type="password"],
 textarea,
 fieldset {
   background-color: #eeeeee;
-  border: 1px solid #cccccc;
+  border: 1px solid #d9d9d9;
   min-height: 27px;
   padding: .3em; }
 
@@ -286,21 +305,6 @@ a.up {
 textarea#leave-message {
   width: 100%; }
 
-/*----------------------------------------------------------------------
- colors
-----------------------------------------------------------------------*/
-/*----------------------------------------------------------------------
- font-size (exchange rem)
-----------------------------------------------------------------------*/
-/*----------------------------------------------------------------------
- media query
-----------------------------------------------------------------------*/
-/*----------------------------------------------------------------------
- commons
-----------------------------------------------------------------------*/
-/*----------------------------------------------------------------------
- borders
-----------------------------------------------------------------------*/
 /*--------------------------------------------------
   header
 --------------------------------------------------*/
@@ -362,14 +366,14 @@ textarea#leave-message {
         margin: 0;
         padding-left: 20px; }
       .main_nav02 .main_nav__link-list .list01 li .list01__text {
-        border-bottom: solid 1px #ccc;
+        border-bottom: solid 1px #d9d9d9;
         color: #575757;
         display: block;
         font-size: 14px !important;
         font-weight: bold;
         padding: 20px 0; }
       .main_nav02 .main_nav__link-list .list01 li .list02 {
-        border-bottom: solid 1px #ccc;
+        border-bottom: solid 1px #d9d9d9;
         padding-bottom: 20px;
         padding-left: 20px; }
         .main_nav02 .main_nav__link-list .list01 li .list02 a {
@@ -420,7 +424,7 @@ textarea#leave-message {
       font: bold 58px/72px Helvetica, Arial, Geneva, sans-serif;
       text-align: center; }
     #sub-header > div > div.mod-pojctopen > .modpo-percent {
-      border-bottom: 1px solid #a7a9ac;
+      border-bottom: 1px solid #d9d9d9;
       color: #908499;
       font: bold 22px Helvetica, Arial, Geneva, sans-serif;
       margin: -10px 0 0;
@@ -524,6 +528,31 @@ footer {
 /*--------------------------------------------------
   contents
 --------------------------------------------------*/
+#message {
+  background: none repeat scroll 0 0 #ffa375;
+  color: #333333;
+  font-size: 14px;
+  padding: 25px 0;
+  width: 100%; }
+  #message #message-content {
+    margin: 0 auto;
+    position: relative;
+    width: 100%; }
+    #message #message-content input.message-close {
+      background: url("/view/m/images/message-close.png") no-repeat;
+      border: none;
+      cursor: pointer;
+      height: 10px;
+      position: absolute;
+      right: 0;
+      top: -8px;
+      width: 11px;
+      z-index: 100; }
+    #message #message-content ul {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+
 #wrapper {
   margin-top: 60px; }
 
@@ -570,25 +599,6 @@ ul#pagination {
       text-decoration: none; }
       ul#pagination li a:hover {
         background: #F3F3F3; }
-
-.project-menu {
-  position: relative; }
-  .project-menu .pj_prev,
-  .project-menu .pj_next {
-    display: block;
-    position: absolute;
-    top: 0;
-    width: 5%;
-    height: 35px;
-    color: #dae121;
-    font-size: 12px;
-    text-align: center;
-    line-height: 35px;
-    background: #999966; }
-  .project-menu .pj_prev {
-    left: 0; }
-  .project-menu .pj_next {
-    right: 0; }
 
 /*ul.lang {
   position: absolute;
@@ -638,6 +648,72 @@ ul#pagination {
     div.widget.project-rewards h4.supertitle {
       background-color: #ff9933;
     }
+  }*/
+  /*.side-worthcracy {
+    ul {
+      margin: 0 0 10px 4px;
+      list-style: none;
+      position: relative;
+      display: inline-block;
+      background: url('/view/m/images/yen/s.png') no-repeat right 25px;
+      padding: 2em 25px 1em 0;
+      li {
+        display: inline-block;
+        width: 44px;
+        height: 6px;
+        overflow: visible;
+        background-color: #e7e7e7;
+        position: relative;
+        > span.threshold,
+        > strong,
+        > em {
+          display: block;
+          width: 44px;
+          position: absolute;
+          text-align: center;
+        }
+        > span.threshold {
+          top: -14px;
+          font-size: 12px;
+          line-height: 18px;
+        }
+        > em,
+        > strong {
+          top: 10px;
+          width: 301px;
+          left: 50%;
+          margin-top: 6px;
+          margin-left: -150px;
+          color: #808285;
+        }
+        > em {
+          font-style: normal;
+          font-size: 12px;
+        }
+        &.done {
+          &.worth-1 {
+            background-color: #B6CAE0;
+            color: #B6CAE0;
+          }
+          &.worth-2 {
+            background-color: #92AFD1;
+            color: #92AFD1;
+          }
+          &.worth-3 {
+            background-color: #799EC7;
+            color: #799EC7;
+          }
+          &.worth-4 {
+            background-color: #3C71AE;
+            color: #3C71AE;
+          }
+          &.worth-5 {
+            background-color: #0C4E99;
+            color: #0C4E99;
+          }
+        }
+      }
+    }
   }*/ }
   .widget .title {
     font-size: 18px;
@@ -656,6 +732,12 @@ ul#pagination {
     font-weight: normal;
     margin: 0;
     padding: .5em 2px .5em 8px; }
+  .widget h4.supertitle, .widget h3.supertitle {
+    color: #ffffff;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    padding-left: 20px; }
   .widget a.more {
     float: none;
     display: block;
@@ -663,6 +745,23 @@ ul#pagination {
     padding: 10px;
     text-align: center;
     text-decoration: none; }
+  .widget.projects #widget-code {
+    width: 350px;
+    float: left;
+    margin: 0 0 0 20px; }
+    .widget.projects #widget-code .wc-embed {
+      background: url("/view/m/images/social/embed.png") no-repeat;
+      min-height: 20px;
+      padding: 3px 0 0 25px; }
+    .widget.projects #widget-code textarea {
+      width: 200px;
+      height: 130px;
+      margin: 10px 0;
+      padding: 10px;
+      background: #E7E7E7;
+      border: none;
+      font-size: 12px;
+      resize: none; }
   .widget.projects .discover-group .image {
     margin-bottom: 0; }
   .widget.projects .discover-group h3.title {
@@ -865,6 +964,8 @@ ul#pagination {
     .widget.project .meter.activable {
       padding-left: 16px !important;
       padding-right: 16px !important; }
+    .widget.project .meter dl.amount-bar {
+      display: none; }
     .widget.project div.rewards h2, .widget.project div.rewards h3, .widget.project div.rewards h4, .widget.project div.rewards h5, .widget.project div.rewards h6 {
       margin: 0;
       line-height: 22px;
@@ -930,16 +1031,7 @@ ul#pagination {
       position: absolute;
       right: 0;
       margin-top: -6px; }
-  .widget.project-support div.meter > h3.title {
-    color: #999900;
-    position: absolute;
-    top: 8px;
-    right: 16px;
-    text-transform: lowercase;
-    font-size: 12px;
-    font-weight: bold;
-    background-color: #fff; }
-  .widget.project-support div.meter.ver div.graph .minimum .done {
+  .widget.project-support .meter.ver div.graph .minimum .done {
     background-color: #c5da4d;
     height: 12px;
     max-width: 288px;
@@ -981,17 +1073,13 @@ ul#pagination {
     background-color: #fff;
     padding: 20px 16px; }
     .widget.project-summary h1, .widget.project-summary h2, .widget.project-summary h3, .widget.project-summary h4, .widget.project-summary h5, .widget.project-summary h6 {
-      font-weight: bold;
+      font-weight: 600;
       line-height: 1.3em;
       margin-top: 0;
       text-transform: none; }
     .widget.project-summary h1, .widget.project-summary h2 {
       font-size: 20px;
       font-weight: normal; }
-    .widget.project-summary h3 {
-      font-size: 20px;
-      font-weight: bold;
-      margin: 0 16px; }
     .widget.project-summary h4 {
       font-size: 18px; }
     .widget.project-summary h5, .widget.project-summary h6 {
@@ -1002,9 +1090,9 @@ ul#pagination {
     .widget.project-summary.h_ttl {
       border-bottom: none; }
       .widget.project-summary.h_ttl h3 {
-        margin: 0 0 8px 0;
+        margin: 0 0 15px 0;
         font-size: 18px;
-        color: #0098c4; }
+        font-weight: 300; }
       .widget.project-summary.h_ttl .project-subtitle,
       .widget.project-summary.h_ttl .wants-skills,
       .widget.project-summary.h_ttl .wants-skills a,
@@ -1013,15 +1101,13 @@ ul#pagination {
         font-size: 11px; }
       .widget.project-summary.h_ttl .wants-skills {
         margin-bottom: 8px; }
-      .widget.project-summary.h_ttl .categories,
       .widget.project-summary.h_ttl .categories h3 {
-        font-weight: normal;
-        color: #20B3B2;
-        margin: 0; }
-      .widget.project-summary.h_ttl .categories h3 {
-        margin: 0; }
+        display: none; }
       .widget.project-summary.h_ttl .categories a {
+        background: url("/view/m/images/icon_tag@2x.png") no-repeat left 50%/12px;
         color: #58595B;
+        display: inline-block;
+        padding-left: 16px;
         text-decoration: none; }
         .widget.project-summary.h_ttl .categories a:hover {
           color: #20B3B2; }
@@ -1048,81 +1134,155 @@ ul#pagination {
         font-size: 16px;
         margin: 0 0 1em 0;
         padding: 0; }
-  .widget.project-share .title {
-    border: none; }
-  .widget.project-share div.left {
-    clear: both;
-    margin: 0 20px; }
-  .widget.project-share div.left h4,
-  .widget.project-share div.right h4 {
-    margin-bottom: 6px; }
-  .widget.project-share h4 {
-    font-weight: bolder;
-    margin-top: 0; }
-  .widget.project-share ul {
-    height: 30px;
-    list-style: none outside none;
-    margin: 0;
-    overflow: visible;
-    padding: 0;
+  .widget.project-support_btn {
+    background-color: #fff;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 40px 0; }
+    .widget.project-support_btn a.button {
+      background: none;
+      background: #ff9900;
+      -moz-box-shadow: 0 3px 3px 0 #ccc;
+      -webkit-box-shadow: 0 3px 3px 0 #ccc;
+      box-shadow: 0 3px 3px 0 #ccc;
+      display: block;
+      font-size: 14px;
+      font-weight: 300;
+      height: 45px;
+      line-height: 45px;
+      margin: 10px auto;
+      padding: 0 8px;
+      text-align: center;
+      width: 280px; }
+  .widget.project-share {
+    padding: 26px 20px 50px;
     position: relative; }
-  .widget.project-share li {
-    background: no-repeat left center;
-    display: block;
-    float: left;
-    line-height: 2em;
-    min-height: 2em;
-    min-width: 22%;
-    padding-left: 28px; }
-    .widget.project-share li.twitter {
-      background-image: url("/view/m/images/social/twitter.png"); }
-    .widget.project-share li.facebook {
-      background-image: url("/view/m/images/social/facebook.png"); }
-    .widget.project-share li.url {
-      background-image: url("/view/m/images/social/url.png");
-      left: 100px;
-      position: absolute;
-      top: 0; }
-      .widget.project-share li.url input {
-        width: 265px; }
-    .widget.project-share li.proyecto {
-      background-color: #555555;
-      background-image: url("/view/m/images/project/widget/proyecto.jpg");
-      border-radius: 3px;
-      font-size: 12px;
-      height: 24px;
-      line-height: 24px;
-      margin-bottom: 2px;
-      margin-left: 5px;
-      margin-top: 2px;
-      text-align: left;
-      width: 150px; }
-      .widget.project-share li.proyecto a {
-        color: #fff; }
-        .widget.project-share li.proyecto a#a-proyecto:link {
-          font-size: 12px; }
-    .widget.project-share li.google {
-      background-image: url("/view/m/images/social/google.png"); }
-    .widget.project-share li.identica {
-      background-image: url("/view/m/images/social/identica.png"); }
-    .widget.project-share li.embed {
-      background-image: url("/view/m/images/social/embed.png"); }
-    .widget.project-share li.url span, .widget.project-share li.embed span {
-      display: none; }
-    .widget.project-share li.url input,
-    .widget.project-share li.url input:focus, .widget.project-share li.embed input,
-    .widget.project-share li.embed input:focus {
+    .widget.project-share .title {
       border: none;
-      font-size: inherit;
-      background-color: #e6e6e6 !important;
-      border-radius: .25em;
-      -moz-border-radius: .2em;
-      font-weight: normal;
-      padding: 0 .4em;
-      height: 24px;
-      width: 240px; }
-    .widget.project-share li a {
-      text-decoration: none; }
+      margin: 0 0 26px;
+      text-align: center; }
+    .widget.project-share .social_bookmark {
+      left: 0;
+      margin: auto;
+      max-width: 500px;
+      top: 75px;
+      width: 340px; }
+  .widget.user {
+    margin-bottom: 20px;
+    padding: 0; }
+    .widget.user .supertitle {
+      display: none; }
+    .widget.user .project-widget-box {
+      padding: 15px 20px; }
+    .widget.user .user-head {
+      margin-bottom: 20px; }
+      .widget.user .user-head .image {
+        border-radius: 50%;
+        display: inline-block;
+        height: 65px;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+        vertical-align: middle;
+        width: 65px; }
+        .widget.user .user-head .image img {
+          bottom: 0;
+          height: auto;
+          left: 0;
+          margin: auto;
+          position: absolute;
+          right: 0;
+          top: 0;
+          vertical-align: middle;
+          width: 100%; }
+      .widget.user .user-head-right {
+        display: inline-block;
+        padding-left: 20px;
+        vertical-align: middle;
+        width: 200px; }
+        .widget.user .user-head-right .title {
+          margin: 0 0 4px; }
+        .widget.user .user-head-right .location {
+          background: url(/view/images/location/s.png) no-repeat left center;
+          padding-left: 18px; }
+          .widget.user .user-head-right .location a {
+            color: #9b9b9b;
+            text-decoration: none; }
+    .widget.user .about p {
+      line-height: 1.5;
+      margin: 0 0 20px;
+      padding: 0 2px; }
+    .widget.user .about-link {
+      margin-bottom: 20px;
+      text-align: right; }
+      .widget.user .about-link a {
+        color: #337ab7;
+        display: inline-block;
+        font-size: 14px;
+        line-height: 20px;
+        text-decoration: none; }
+        .widget.user .about-link a:after {
+          background: url(/view/images/arrow_user_link.png) no-repeat right 50%;
+          content: '';
+          display: inline-block;
+          height: 8px;
+          padding: 0 0 4px 4px;
+          width: 6px; }
+    .widget.user .links {
+      line-height: 36px;
+      margin: 0 0 14px 0;
+      padding: 1em 0;
+      padding-bottom: 0;
+      padding-top: 0; }
+      .widget.user .links ul {
+        line-height: 18px;
+        list-style-type: none;
+        margin: 0;
+        padding-left: 0; }
+        .widget.user .links ul a {
+          font-size: 14px;
+          font-weight: 600;
+          text-decoration: none;
+          word-wrap: break-word; }
+      .widget.user .links.message {
+        background: url(/view/images/bocadillo/s.png) no-repeat left center;
+        padding-left: 22px;
+        text-decoration: none;
+        text-indent: .5em; }
+        .widget.user .links.message a {
+          color: #28B258;
+          font-size: 14px;
+          font-weight: 600;
+          text-decoration: none; }
+    .widget.user .widget.user-social {
+      margin-bottom: 30px;
+      padding: 0; }
+      .widget.user .widget.user-social .title {
+        display: none; }
+      .widget.user .widget.user-social ul {
+        list-style: none;
+        margin: 0;
+        overflow: visible;
+        padding: 0; }
+        .widget.user .widget.user-social ul li {
+          display: block;
+          float: left;
+          margin-right: 10px; }
+          .widget.user .widget.user-social ul li a {
+            background: no-repeat left center;
+            display: inline-block;
+            text-indent: -99999px;
+            width: 20px;
+            height: 20px; }
+          .widget.user .widget.user-social ul li.facebook a {
+            background-image: url(/view/images/social/facebook.png); }
+          .widget.user .widget.user-social ul li.google a {
+            background-image: url(/view/images/social/google.png); }
+          .widget.user .widget.user-social ul li.twitter a {
+            background-image: url(/view/images/social/twitter.png); }
+          .widget.user .widget.user-social ul li.identica a {
+            background-image: url(/view/images/social/identica.png); }
+          .widget.user .widget.user-social ul li.linkedin a {
+            background-image: url(/view/images/social/linkedin.png); }
   .widget.project-collaborations h4.supertitle {
     background-color: #33cc99; }
   .widget.project-collaborations h5.title {
@@ -1881,6 +2041,26 @@ ul#pagination {
     .widget.project-supporters ul#pagination {
       margin-top: 10px;
       clear: both; }
+  .widget.project-spread > h3.title {
+    padding-left: 46px; }
+  .widget.project-spread > div.widget.projects > div.left {
+    float: left;
+    width: 280px;
+    border-right: #000 1px solid; }
+  .widget.project-spread > div.widget.projects > div.right {
+    float: left;
+    width: 245px;
+    margin-left: 12px; }
+  .widget.project-spread div.subtitle {
+    width: 245px;
+    margin: 0 0 10px 7px; }
+    .widget.project-spread div.subtitle > span {
+      display: block; }
+      .widget.project-spread div.subtitle > span.primero {
+        margin-bottom: 3px; }
+      .widget.project-spread div.subtitle > span.segundo {
+        color: #28ACAB;
+        font-weight: bold; }
   .widget.post {
     background-color: #fff;
     line-height: 18px;
@@ -2113,38 +2293,165 @@ ul#pagination {
     padding: 10px 0; }
     .widget.project-evaluation .evaluation_content {
       padding: 16px; }
+  .widget.worthcracy {
+    text-align: center; }
+    .widget.worthcracy .title {
+      text-align: left !important; }
+    .widget.worthcracy ul {
+      padding: 3em 52px 3em 0;
+      margin: 0;
+      list-style: none;
+      position: relative;
+      display: inline-block;
+      background: url("yen/xl.png") no-repeat right center; }
+      .widget.worthcracy ul li {
+        display: inline-block;
+        width: 92px;
+        height: 8px;
+        overflow: visible;
+        background-color: #e7e7e7;
+        position: relative; }
+        .widget.worthcracy ul li > span.threshold,
+        .widget.worthcracy ul li > strong,
+        .widget.worthcracy ul li > em {
+          display: block;
+          width: 92px;
+          position: absolute;
+          text-align: center; }
+        .widget.worthcracy ul li > span.threshold {
+          top: -25px;
+          font-size: 16px; }
+        .widget.worthcracy ul li > em,
+        .widget.worthcracy ul li > strong {
+          top: 12px;
+          width: 300px;
+          left: 50%;
+          margin-left: -150px;
+          color: #808285; }
+        .widget.worthcracy ul li > em {
+          font-style: normal;
+          font-size: 12px; }
+        .widget.worthcracy ul li.done.worth-1, .widget.worthcracy ul li.done.active {
+          background-color: #B6CAE0 !important;
+          color: #B6CAE0; }
+        .widget.worthcracy ul li.done.worth-2, .widget.worthcracy ul li.done.worth-2.active {
+          background-color: #92AFD1 !important;
+          color: #92AFD1; }
+        .widget.worthcracy ul li.done.worth-3, .widget.worthcracy ul li.done.worth-3.active {
+          background-color: #799EC7 !important;
+          color: #799EC7; }
+        .widget.worthcracy ul li.done.worth-4, .widget.worthcracy ul li.done.worth-4.active {
+          background-color: #3C71AE !important;
+          color: #3C71AE; }
+        .widget.worthcracy ul li.done.worth-5, .widget.worthcracy ul li.done.worth-5.active {
+          background-color: #0C4E99 !important;
+          color: #0C4E99; }
+    .widget.worthcracy.user-worthcracy h3.title {
+      padding-left: 20px; }
+    .widget.worthcracy.user-worthcracy ul li > strong {
+      font-weight: bold;
+      font-size: 18px;
+      text-transform: uppercase;
+      top: 15px;
+      padding-top: 9px;
+      background: url("worth/beak.png") no-repeat top center; }
+    .widget.worthcracy.user-worthcracy div.worth-amount {
+      display: inline;
+      float: left;
+      color: #990033;
+      font-weight: bold;
+      font-size: 30px;
+      position: relative;
+      top: -10px;
+      left: 35px;
+      line-height: 33px;
+      padding-right: 30px;
+      background: url("/view/m/images/yen/violet/l.png") no-repeat center right;
+      border-bottom: 1px solid #990033; }
 
 h4.author:hover a {
   color: #c5da4d; }
 
 /*----------------------------------------------------------------------
-  project/widget/projects.css
-----------------------------------------------------------------------*/
-div#proyecto h2.widget-title {
-  font-weight: normal;
-  font-size: 20px;
-  margin-bottom: 1px;
-  text-transform: uppercase; }
-div#proyecto div#project-code {
-  float: left;
-  width: auto;
-  margin: 0 0 0 30px; }
-div#proyecto div#widget-code {
-  float: left;
-  width: 220px; }
-div#proyecto d.activableiv#widget-code blockquote {
-  font-size: 12px; }
-
-.project_view .project_box iframe {
-  width: 304px; }
-
-/*----------------------------------------------------------------------
   meter.css
 ----------------------------------------------------------------------*/
 .meter {
-  padding: 4px 0 148px !important;
+  margin: 0 16px;
+  padding: 4px 0 148px;
   position: relative;
-  height: 20px; }
+  height: 20px;
+  /*dl {
+    margin: 16px 0 0 0;
+    position: relative;
+    * {
+      margin: 0;
+    }
+    .minimum {
+      min-width: 10%;
+    }
+    .optimum,
+    .minimum {
+      display: block;
+      white-space: nowrap;
+    }
+    dt, dd {
+      height: 30px;
+      position: absolute;
+      text-align: center;
+      width: 33.3%;
+    }
+    dt {
+      font-size: 11px;
+      top: 0;
+      &.minimum {
+        color: #cc6600;
+        left: 0;
+        top: 0;
+      }
+      &.optimum {
+        color: #6699cc;
+        left: 33.3%;
+        top: 0;
+      }
+      &.percent {
+        right: 0;
+        top: 56px;
+      }
+      &.percent {
+        color: #666600;
+      }
+    }
+    dd {
+      border-bottom: 1px solid $grayCol01;
+      box-sizing: content-box;
+      font-size: 12px;
+      padding-top: 30px;
+      &.minimum {
+        border-right: 1px solid $grayCol01;
+        color: #cc6600;
+        left: 0;
+        top: -16px;
+      }
+      &.optimum {
+        border-right: 1px solid $grayCol01;
+        color: #6699cc;
+        left: 33.3%;
+        top: -16px;
+      }
+      &.minimum,
+      &.optimum {
+        span {
+          font-size: 11px;
+          font-weight: normal;
+        }
+      }
+      &.percent {
+        font-weight: normal;
+        right: 0;
+        top: 40px;
+      }
+    }
+  }*/ }
   .meter h3.title.obtained {
     display: none;
     padding-left: 5px; }
@@ -2193,121 +2500,66 @@ div#proyecto d.activableiv#widget-code blockquote {
     font-size: 26px;
     font-weight: bold;
     padding-left: 15px; }
-  .meter dl {
-    margin: 16px 0 0 0;
+  .meter dl.reached-bar {
+    margin-bottom: 14px; }
+    .meter dl.reached-bar .reached {
+      color: #000;
+      display: inline-block; }
+    .meter dl.reached-bar dt.reached {
+      font-size: 14px;
+      font-weight: 300;
+      padding-top: 0; }
+    .meter dl.reached-bar .supporters {
+      display: none; }
+  .meter dl.amount-bar {
+    margin: 0 0 20px;
     position: relative; }
-    .meter dl * {
-      margin: 0; }
-    .meter dl .minimum {
-      min-width: 10%; }
-    .meter dl .optimum,
-    .meter dl .minimum {
-      display: block;
-      white-space: nowrap; }
-    .meter dl dt, .meter dl dd {
-      height: 30px;
-      position: absolute;
-      text-align: center;
-      width: 33.3%; }
-    .meter dl dt {
-      font-size: 11px;
-      top: 0; }
-      .meter dl dt.minimum {
-        color: #cc6600;
-        left: 0;
-        top: 0; }
-      .meter dl dt.optimum {
-        color: #6699cc;
-        left: 33.3%;
-        top: 0; }
-      .meter dl dt.days {
-        right: 0;
-        top: 0; }
-      .meter dl dt.reached {
-        left: 0;
-        top: 56px; }
-      .meter dl dt.supporters {
-        left: 33.3%;
-        top: 56px; }
-      .meter dl dt.percent {
-        right: 0;
-        top: 56px; }
-      .meter dl dt.days, .meter dl dt.reached, .meter dl dt.supporters, .meter dl dt.percent {
-        color: #666600; }
-    .meter dl dd {
-      border-bottom: 1px solid #eee;
-      font-size: 12px;
-      padding-top: 30px; }
-      .meter dl dd.minimum {
-        border-right: 1px solid #eee;
-        color: #cc6600;
-        left: 0;
-        top: -16px; }
-      .meter dl dd.optimum {
-        border-right: 1px solid #eee;
-        color: #6699cc;
-        left: 33.3%;
-        top: -16px; }
-      .meter dl dd.days {
-        right: 0;
-        top: -16px; }
-        .meter dl dd.days strong {
-          color: #996666; }
-      .meter dl dd.minimum span, .meter dl dd.optimum span, .meter dl dd.days span, .meter dl dd.reached span, .meter dl dd.supporters span {
-        font-size: 11px;
-        font-weight: normal; }
-      .meter dl dd.reached {
-        border-right: 1px solid #eee;
-        font-weight: normal;
-        left: 0;
-        top: 40px; }
-      .meter dl dd.supporters {
-        border-right: 1px solid #eee;
-        font-weight: normal;
-        left: 33.3%;
-        top: 40px; }
-        .meter dl dd.supporters strong {
-          color: #990000; }
-      .meter dl dd.percent {
-        font-weight: normal;
-        right: 0;
-        top: 40px; }
+    .meter dl.amount-bar .optimum,
+    .meter dl.amount-bar .minimum {
+      display: inline-block;
+      line-height: 1.8; }
+    .meter dl.amount-bar dt.optimum, .meter dl.amount-bar dd.optimum {
+      color: #69c; }
+    .meter dl.amount-bar dt.minimum, .meter dl.amount-bar dd.minimum {
+      color: #c60; }
+    .meter dl.amount-bar dt.reached, .meter dl.amount-bar dd.reached {
+      margin-top: 16px; }
+    .meter dl.amount-bar dt.optimum, .meter dl.amount-bar dt.minimum {
+      width: 110px; }
+    .meter dl.amount-bar dd.optimum, .meter dl.amount-bar dd.minimum {
+      width: 130px; }
+    .meter dl.amount-bar dd.days {
+      width: 118px; }
+      .meter dl.amount-bar dd.days strong {
+        color: #82656f; }
   .meter h2, .meter h3, .meter h4, .meter h5, .meter h6 {
     font-size: 12px;
     font-weight: bold;
     margin: 0;
     padding: 2px 0 0; }
-  .meter > h3.ronda {
-    color: #999900;
-    position: absolute;
-    top: 4px;
-    right: 16px;
-    text-transform: lowercase; }
-  .meter.hor div.graph .minimum .done {
-    max-width: 278px; }
   .meter.activable {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+    padding-left: 16px;
+    padding-right: 16px;
     width: 90vw;
     z-index: 999; }
   .meter.skillmatching {
-    padding: 4px 0 78px !important; }
-    .meter.skillmatching dl dt, .meter.skillmatching dl dd {
-      height: 30px !important;
-      width: 50% !important; }
-    .meter.skillmatching dl dt.days {
+    padding: 4px 0 78px; }
+    .meter.skillmatching dl.amount-bar dt, .meter.skillmatching dl.amount-bar dd {
+      height: 30px;
+      width: 50%; }
+    .meter.skillmatching dl.amount-bar dt.days {
       padding-top: 5px;
       right: 0;
       top: 0; }
-    .meter.skillmatching dl dt.supporters {
+    .meter.skillmatching dl.amount-bar dt.supporters {
       left: 0;
       padding-top: 5px;
       top: 0; }
-    .meter.skillmatching dl dd.days {
-      border-top: 1px solid #eee;
+    .meter.skillmatching dl.amount-bar dd.days {
+      border-top: 1px solid #d9d9d9;
       top: 0; }
-    .meter.skillmatching dl dd.supporters {
-      border-top: 1px solid #eee;
+    .meter.skillmatching dl.amount-bar dd.supporters {
+      border-top: 1px solid #d9d9d9;
       left: 0;
       top: 0; }
 
@@ -2446,7 +2698,7 @@ div.superform fieldset {
     color: #6d7375; }
 div.superform h3 {
   font-size: 30px; }
-div.superform li.element > h4, div.superform li.element > h5, div.superform li.element > h6, div.superform li.element > h7, div.superform li.element > h8 {
+div.superform li.element > h4, div.superform li.element > h5, div.superform li.element > h6 {
   margin: 0 0 .6em;
   font-size: 14px; }
 div.superform li.element > h4 {
@@ -3063,7 +3315,7 @@ body.home {
       padding-top: 9px; }
   .discover .searcher #text-query {
     background-color: #ffffff;
-    border: 1px solid #808184;
+    border: 1px solid #d9d9d9;
     color: #808184;
     float: left;
     font-size: 16px;
@@ -3090,7 +3342,7 @@ body.home {
     .discover .searcher .filter:last-child {
       margin-right: 0; }
     .discover .searcher .filter label {
-      border-bottom: 1px solid #58595B;
+      border-bottom: 1px solid #d9d9d9;
       color: #58595B;
       display: block;
       font-size: 14px;
@@ -3098,7 +3350,7 @@ body.home {
       padding: 5px 5px 6px 0; }
     .discover .searcher .filter select {
       background-color: #e7e7e7;
-      border: 1px solid #d1d3d4;
+      border: 1px solid #d9d9d9;
       color: #58595B;
       font-size: 1.5em;
       height: 35px;
@@ -3120,7 +3372,7 @@ body.home {
   padding: 16px; }
 .discover .navi-bar {
   background-color: #ffffff;
-  border-top: 1px dashed #c0c0c0;
+  border-top: 1px dashed #d9d9d9;
   text-align: center; }
   .discover .navi-bar a.all {
     display: block;
@@ -3194,84 +3446,74 @@ body.review div#main div.widget {
 
 .project-show #sub-header {
   background: #faf8f8;
-  height: 36px;
+  height: 40px;
+  margin-bottom: 0;
   padding: 0;
   position: relative; }
   .project-show #sub-header > div {
     position: fixed;
     z-index: 1; }
   .project-show #sub-header .project-menu {
-    /*.flipsnap:after,*/
-    /* navigation */ }
+    position: relative; }
     .project-show #sub-header .project-menu.viewport_projectnav {
       background-color: #e7e7e7;
+      border-bottom: 1px solid #d9d9d9;
+      height: 41px;
       margin: 0 auto;
       margin-left: 0;
       overflow: hidden;
       -webkit-transform: translateZ(0);
       /* Optional: When heavy at iOS6+ */
       width: 100vw; }
-    .project-show #sub-header .project-menu ul.flipsnap_projectnav {
-      margin: 0 5%;
-      background: #ffffcc; }
-    .project-show #sub-header .project-menu .flipsnap_projectnav:after,
-    .project-show #sub-header .project-menu .flipsnap_dashboard:after {
-      clear: both;
-      content: '';
-      display: block;
-      height: 0; }
-    .project-show #sub-header .project-menu .flipsnap {
-      width: 1130px;
-      /* 320px(item width) * 3(item count) */ }
     .project-show #sub-header .project-menu .flipsnap_projectnav {
+      background-color: #fff;
+      font-size: 0;
+      list-style: none;
+      margin: 0 5%;
+      padding: 0;
       width: 700px !important; }
+      .project-show #sub-header .project-menu .flipsnap_projectnav:after {
+        clear: both;
+        content: '';
+        display: block;
+        height: 0; }
       .project-show #sub-header .project-menu .flipsnap_projectnav .item {
         border: none;
-        border-right: 1px dashed #cccccc;
-        color: #666;
+        border-right: 1px solid #d9d9d9;
         float: left; }
         .project-show #sub-header .project-menu .flipsnap_projectnav .item:last-child {
           border-right: none; }
+        .project-show #sub-header .project-menu .flipsnap_projectnav .item.active a {
+          border: none; }
         .project-show #sub-header .project-menu .flipsnap_projectnav .item a {
-          margin: 0 auto; }
-    .project-show #sub-header .project-menu ul {
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      font-size: 0; }
-      .project-show #sub-header .project-menu ul li span.digits {
-        display: inline-block;
-        text-align: center; }
-      .project-show #sub-header .project-menu ul li a {
-        display: inline-block;
-        height: 35px;
-        padding: 0 8px;
-        color: #666666;
-        text-decoration: none;
-        text-align: center;
-        line-height: 35px;
-        background: #ffffcc;
-        /* Old browsers */
-        background: -moz-linear-gradient(top, #ffffcc 0%, #e5e5b9 100%, #e8e8bb 100%);
-        /* FF3.6+ */
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffcc), color-stop(100%, #e5e5b9), color-stop(100%, #e8e8bb));
-        /* Chrome,Safari4+ */
-        background: -webkit-linear-gradient(top, #ffffcc 0%, #e5e5b9 100%, #e8e8bb 100%);
-        /* Chrome10+,Safari5.1+ */
-        background: -o-linear-gradient(top, #ffffcc 0%, #e5e5b9 100%, #e8e8bb 100%);
-        /* Opera 11.10+ */
-        background: linear-gradient(to bottom, #ffffcc 0%, #e5e5b9 100%, #e8e8bb 100%);
-        /* W3C */
-        color: #999966;
-        font-size: 12px; }
-      .project-show #sub-header .project-menu ul li.active a {
-        background: none;
-        background-color: #dae121;
-        border: none;
-        color: #666666; }
-      .project-show #sub-header .project-menu ul li.show a {
-        background: none;
-        background-color: #dae121; }
+          color: #454545;
+          display: inline-block;
+          font-size: 12px;
+          height: 40px;
+          line-height: 40px;
+          margin: 0 auto;
+          padding: 0 8px;
+          text-decoration: none;
+          text-align: center; }
+        .project-show #sub-header .project-menu .flipsnap_projectnav .item span.digits {
+          display: inline-block;
+          text-align: center; }
+    .project-show #sub-header .project-menu .pj_prev,
+    .project-show #sub-header .project-menu .pj_next {
+      background-color: #fff;
+      display: block;
+      font-size: 12px;
+      height: 40px;
+      line-height: 40px;
+      opacity: 0.9;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      width: 5%; }
+    .project-show #sub-header .project-menu .pj_prev {
+      left: 0; }
+    .project-show #sub-header .project-menu .pj_next {
+      right: 0; }
   .project-show #sub-header .sub-menu p.prev2, .project-show #sub-header .sub-menu p.next2 {
     position: absolute;
     top: 0;
@@ -3286,10 +3528,10 @@ body.review div#main div.widget {
     z-index: 1; }
   .project-show #sub-header .sub-menu p.prev2 {
     left: 0;
-    border-right: 1px dashed #c0c0c0; }
+    border-right: 1px dashed #d9d9d9; }
   .project-show #sub-header .sub-menu p.next2 {
     right: 0;
-    border-left: 1px dashed #c0c0c0; }
+    border-left: 1px dashed #d9d9d9; }
   .project-show #sub-header .project-subtitle {
     font-size: 16px;
     font-weight: normal;
@@ -3374,6 +3616,19 @@ body.review div#main div.widget {
   .project-show #main .center > div.widget {
     margin: 0 auto;
     background-color: #fff; }
+  .project-show #main .center .gallery-image {
+    background-color: #fff;
+    display: block;
+    margin: 0 auto;
+    max-height: 240px;
+    overflow: hidden;
+    text-align: center;
+    width: 100%; }
+    .project-show #main .center .gallery-image img {
+      display: block;
+      margin: 0 auto;
+      height: auto;
+      width: 100%; }
   .project-show #main .center .widget.project-support {
     border-bottom: none !important;
     border-top: none !important;
@@ -3387,6 +3642,16 @@ body.review div#main div.widget {
     .project-show #main .center .widget.project-support img {
       height: auto;
       width: 100% !important; }
+    .project-show #main .center .widget.project-support .meter > h3.title {
+      background-color: #454545;
+      color: #fff;
+      font-size: 12px;
+      font-weight: bold;
+      height: 30px;
+      line-height: 30px;
+      padding-top: 0; }
+    .project-show #main .center .widget.project-support div.graph {
+      margin-top: 0; }
   .project-show #main .center .widget.project-supporters .widget.project-summary.h_ttl {
     border-bottom: none; }
   .project-show #main .center .widget.project-supporters dl.summary .supporters,
@@ -3434,7 +3699,7 @@ body.review div#main div.widget {
     .project-show #main .center .widget.project-needs p.click span.text {
       margin-left: 0; }
   .project-show #main .center.home .widget.project-share {
-    border-top: 1px dashed #c0c0c0; }
+    border-top: 1px dashed #d9d9d9; }
   .project-show #main .center.needs .widget.project-needs,
   .project-show #main .center.needs .widget.project-message,
   .project-show #main .center.needs .widget.project-schedule {
@@ -3443,7 +3708,7 @@ body.review div#main div.widget {
     top: 205px; }
   .project-show #main .center.profile .widget:last-child {
     margin-bottom: 0 !important;
-    border-bottom: 1px dashed #c0c0c0; }
+    border-bottom: 1px dashed #d9d9d9; }
   .project-show #main .center.updates {
     margin: 0 auto;
     clear: left;
@@ -3467,7 +3732,7 @@ body.review div#main div.widget {
   display: none; }
 .project-show .widget.project-collaborations .project-widget-box {
   background-color: #fff;
-  border-bottom: 1px dashed #c0c0c0; }
+  border-bottom: 1px dashed #d9d9d9; }
   .project-show .widget.project-collaborations .project-widget-box ul {
     margin: 0;
     list-style: none; }
@@ -3514,7 +3779,7 @@ body.review div#main div.widget {
       line-height: 1.4em;
       margin: 10px 0 0 0; }
     .project-show .widget.user .project-widget-box dl {
-      border: 1px solid #ddd;
+      border: 1px solid #d9d9d9;
       border-radius: 6px;
       font-size: 13px;
       margin: 20px 0;
@@ -3523,7 +3788,7 @@ body.review div#main div.widget {
         display: none; }
       .project-show .widget.user .project-widget-box dl dd {
         border: none;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid #d9d9d9;
         line-height: 1.4em;
         margin-left: 0;
         padding: 0.8em 1.5em 0.8em 50px;
@@ -3550,75 +3815,24 @@ body.review div#main div.widget {
               font-weight: normal; }
         .project-show .widget.user .project-widget-box dl dd.profile {
           background: url("/view/m/images/icon/m/s_task.png") no-repeat 1.1em center; }
-.project-show .widget.project-support div.meter {
-  padding-bottom: 134px !important;
-  padding-left: 16px !important;
-  padding-right: 16px !important; }
-  .project-show .widget.project-support div.meter.skillmatching {
-    padding-bottom: 78px !important;
-    padding-top: 10px !important; }
+.project-show .widget.project-support .meter {
+  padding-bottom: 134px;
+  padding-left: 16px;
+  padding-right: 16px; }
+  .project-show .widget.project-support .meter.skillmatching {
+    padding-bottom: 98px;
+    padding-top: 10px; }
 .project-show .widget.project-support .invest-notice {
   margin: 5px 16px 0;
-  border: 1px solid #ccc;
+  border: 1px solid #d9d9d9;
   border-radius: 3px;
   padding: 4px; }
-
-/*--------------------------------------------------
-    project/home , project/supporters
---------------------------------------------------*/
-div.center div.widget.project-support div.graph {
-  margin-top: 0; }
+.project-show .widget.project-invest .disabled {
+  color: #cccccc; }
 
 /*----------------------------------------------------------------------
   project/view.css
 ----------------------------------------------------------------------*/
-/**
- * Menu
-*/
-/* ayuda a difundir este proyecto */
-div.widget.project-spread > h3.title {
-  padding-left: 46px; }
-div.widget.project-spread > div.widget.projects > div.left {
-  float: left;
-  width: 280px;
-  border-right: #000 1px solid; }
-div.widget.project-spread > div.widget.projects > div.right {
-  float: left;
-  width: 245px;
-  margin-left: 12px; }
-div.widget.project-spread div.subtitle {
-  width: 245px;
-  margin: 0 0 10px 7px; }
-  div.widget.project-spread div.subtitle > span {
-    display: block; }
-    div.widget.project-spread div.subtitle > span.primero {
-      margin-bottom: 3px; }
-    div.widget.project-spread div.subtitle > span.segundo {
-      color: #28ACAB;
-      font-weight: bold; }
-div.widget.projects #widget-code {
-  width: 350px;
-  float: left;
-  margin: 0 0 0 20px; }
-  div.widget.projects #widget-code .wc-embed {
-    background: url("/view/m/images/social/embed.png") no-repeat;
-    min-height: 20px;
-    padding: 3px 0 0 25px; }
-  div.widget.projects #widget-code textarea {
-    width: 200px;
-    height: 130px;
-    margin: 10px 0;
-    padding: 10px;
-    background: #E7E7E7;
-    border: none;
-    font-size: 12px;
-    resize: none; }
-div.widget h4.supertitle, div.widget h3.supertitle {
-  height: 40px;
-  padding: 0;
-  padding-left: 20px;
-  line-height: 40px;
-  color: #ffffff; }
 div#project-support, div#project-investors, div#project-collaborations, div#project-rewards {
   padding: 0; }
 div.widget.user, div.widget.project-investors, div.widget.user-mates, div.widget.user, div.widget.user-supporters {
@@ -3629,7 +3843,7 @@ div.widget.user .project-widget-box, div.widget.project-investors .project-widge
   padding: 15px 20px; }
 div#project-collaborations .project-widget-box, div#project-support .project-widget-box, div.widget.project-investors .project-widget-box {
   background-color: #fff;
-  border-bottom: 1px dashed #c0c0c0; }
+  border-bottom: 1px dashed #d9d9d9; }
 div#project-collaborations .project-widget-box h3.title {
   color: #666;
   font-weight: bold; }
@@ -3647,57 +3861,54 @@ div.widge dl {
 /*----------------------------------------------------------------------
   project/edit.css
 ----------------------------------------------------------------------*/
-body.project-edit div#sub-header {
+.project-edit #sub-header {
   padding-bottom: 0; }
-  body.project-edit div#sub-header div.project-header {
+  .project-edit #sub-header div.project-header {
     min-height: 75px; }
-  body.project-edit div#sub-header img {
-    float: left;
-    /*margin-right: 20px;
-    padding-top: 2px;
-    padding-left: 2px;*/ }
-  body.project-edit div#sub-header div.project-subtitle {
+  .project-edit #sub-header img {
+    float: left; }
+  .project-edit #sub-header div.project-subtitle {
     font-size: 14px;
     font-weight: bold;
     margin: 0 0 .5em; }
-  body.project-edit div#sub-header div.project-by {
+  .project-edit #sub-header div.project-by {
     color: #20B3B2;
     font-size: 12px;
     margin: 0 0 .5em; }
-    body.project-edit div#sub-header div.project-by a {
+    .project-edit #sub-header div.project-by a {
       font-weight: normal;
       color: #20B3B2;
       font-size: 12px;
       text-decoration: none; }
-      body.project-edit div#sub-header div.project-by a:hover {
+      .project-edit #sub-header div.project-by a:hover {
         color: #58595B; }
-body.project-edit div#main div.status {
+.project-edit #main div.status {
   color: #bcbdbd;
   padding-bottom: 30px;
   padding-top: 20px;
-  border-bottom: 3px solid #cfd0d2; }
-body.project-edit div#main .status #project-status, body.project-edit div#main .status #project-score {
+  border-bottom: 3px solid #d9d9d9; }
+.project-edit #main .status #project-status, .project-edit #main .status #project-score {
   display: table-cell;
   width: 50%;
   padding: 0 30px; }
-body.project-edit div#main .status #project-status {
+.project-edit #main .status #project-status {
   padding-right: 50px; }
-body.project-edit div#main .status #project-score {
-  border-left: 1px dashed #bcbdbf;
+.project-edit #main .status #project-score {
+  border-left: 1px dashed #d9d9d9;
   padding-left: 50px; }
-body.project-edit div#main .status h3 {
+.project-edit #main .status h3 {
   font-size: 26px;
   font-weight: normal;
   color: #9B9B9D;
   margin: 0 0 .6em; }
-body.project-edit div#main .status #project-status ul {
+.project-edit #main .status #project-status ul {
   padding: 0 0 0 16px;
   margin: 0 0  0 6px;
   list-style: none;
   font-size: 16px;
   line-height: 1.5em;
-  border-left: 1px solid #bcbcbd; }
-  body.project-edit div#main .status #project-status ul li strong {
+  border-left: 1px solid #d9d9d9; }
+  .project-edit #main .status #project-status ul li strong {
     font-size: 22px;
     color: #58595b;
     font-weight: bold;
@@ -3707,93 +3918,37 @@ body.project-edit div#main .status #project-status ul {
     background: url("project/statusmarker.png") no-repeat left center;
     margin-left: -22px;
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25); }
-body.project-edit div#main .status #project-score p {
+.project-edit #main .status #project-score p {
   margin-top: 0;
   width: 80%;
   font-size: 12px;
   color: #8A8B8C; }
-body.project-edit div#main .status #project-score .meter {
+.project-edit #main .status #project-score .meter {
   height: 117px;
   width: 369px;
   margin-top: -2em;
   position: relative; }
-  body.project-edit div#main .status #project-score .meter .done {
+  .project-edit #main .status #project-score .meter .done {
     background: url("project/scoremeter.png") no-repeat left top;
     position: absolute;
     left: 0;
     top: 0;
     bottom: 0; }
-  body.project-edit div#main .status #project-score .meter .left {
+  .project-edit #main .status #project-score .meter .left {
     background: url("project/scoremeter.png") no-repeat right bottom;
     position: absolute;
     right: 0;
     top: 0;
     bottom: 0; }
-body.project-edit div.superform {
-  border: solid #0a0a0a;
+.project-edit .superform {
+  border: solid #d9d9d9;
   border-width: 3px 0; }
-  body.project-edit div.superform > .elements > ol > li#errors {
+  .project-edit .superform > .elements > ol > li#errors {
     border: none;
     position: absolute;
     top: 100%;
     margin-top: 54px;
     padding: 10px; }
-
-/* Footer  */
-footer {
-  background: #255b7f;
-  padding: 40px 20px 10px;
-  color: #fff; }
-  footer .footer__link-title {
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 20px; }
-  footer .footer_menu_links span {
-    font-size: 10px;
-    margin-bottom: 10px;
-    display: block; }
-  footer ul {
-    margin-bottom: 30px;
-    line-height: 2em;
-    list-style: none;
-    padding-left: 0; }
-  footer a {
-    color: #fff !important;
-    text-decoration: none;
-    font-size: 12px !important; }
-  footer .footer_bottom .footer_logo {
-    margin-left: -10px; }
-    footer .footer_bottom .footer_logo img {
-      width: 70%; }
-  footer .footer_bottom .sns-area {
-    display: table;
-    width: 50%; }
-    footer .footer_bottom .sns-area li {
-      display: table-cell;
-      width: 25%;
-      vertical-align: middle; }
-      footer .footer_bottom .sns-area li a {
-        display: block;
-        width: 100%;
-        text-align: center; }
-        footer .footer_bottom .sns-area li a img {
-          width: auto;
-          height: 20px; }
-  footer .footer_bottom .link {
-    margin-bottom: 30px; }
-    footer .footer_bottom .link span {
-      display: inline-block;
-      height: 15px;
-      width: 15px;
-      color: #255b7f;
-      background: #fff;
-      -webkit-border-radius: 50%;
-      -moz-border-radius: 50%;
-      border-radius: 50%;
-      font-size: 80%;
-      vertical-align: middle;
-      text-align: center;
-      font-weight: bold; }
 
 .sp_footer_logo-area {
   padding: 25px 25px 10px 25px;
@@ -3832,490 +3987,99 @@ footer {
 ul.sf-footer-errors li {
   list-style-image: url("/view/m/images/project/bg-li-error.png"); }
 
-.dashboard .viewport_dashboard {
-  width: 100vw;
-  margin: 0 auto;
-  margin-left: 0;
-  overflow: hidden;
-  -webkit-transform: translateZ(0);
-  /* Optional: When heavy at iOS6+ */ }
-
-body.admin div#main {
-  margin-top: 0;
+.dashboard #sub-header {
   margin-bottom: 0; }
-body.admin div#sub-header {
-  padding-bottom: 10px; }
-  body.admin div#sub-header div.breadcrumbs {
-    color: #58595B;
-    font-size: 18px; }
-    body.admin div#sub-header div.breadcrumbs a {
-      color: #58595B;
-      font-size: 18px; }
-      body.admin div#sub-header div.breadcrumbs a:hover {
-        color: #20B2B3; }
-    body.admin div#sub-header div.breadcrumbs strong {
-      color: #20B2B3; }
-body.admin div#main div.admin-menu, body.admin div#main div.admin-home, body.admin div#main div.admin-side {
-  float: left; }
-body.admin div#main div.admin-menu {
-  width: 140px;
-  margin: 0 10px 0 0px; }
-  body.admin div#main div.admin-menu fieldset {
-    margin-bottom: 3px; }
-    body.admin div#main div.admin-menu fieldset legend {
-      font-weight: bold; }
-  body.admin div#main div.admin-menu ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    font-size: 0; }
-    body.admin div#main div.admin-menu ul li {
-      background-color: white;
-      padding: 0 3px;
-      margin-bottom: 1px; }
-      body.admin div#main div.admin-menu ul li a {
-        text-decoration: none; }
-        body.admin div#main div.admin-menu ul li a:hover {
-          color: #20B2B3; }
-body.admin div#main div.widget {
-  margin-bottom: 20px; }
-body.admin div#main div.admin-side {
-  width: 300px;
-  margin-left: 10px; }
-body.admin div#main div.admin-home {
-  width: 440px;
-  margin-left: 0px; }
-body.admin div#main div.board ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  font-size: 0; }
-  body.admin div#main div.board ul li {
-    display: inline-block;
-    margin-right: 1px; }
-    body.admin div#main div.board ul li a {
-      display: inline-block;
-      padding: .6em 2em .2em .6em;
-      color: black;
-      text-decoration: none; }
-      body.admin div#main div.board ul li a:hover {
-        background-color: #c8babc; }
-body.admin div#main div.board a {
-  padding: .3em .2em .2em .3em;
-  color: grey;
-  text-decoration: none; }
-  body.admin div#main div.board a:hover {
-    color: black; }
-body.admin div#main div.widget.report th, body.admin div#main div.widget.report td {
-  padding: 2px 10px; }
-body.admin div#main div.admin-center div.superform {
-  float: left;
-  max-width: 750px; }
-  body.admin div#main div.admin-center div.superform > div.elements {
-    border-right: none !important;
-    border-bottom: 1px dashed #B7C2C5; }
-    body.admin div#main div.admin-center div.superform > div.elements > ol > li.element {
-      margin: 0 !important; }
-  body.admin div#main div.admin-center div.superform div.elements > ol > li.required > .title, body.admin div#main div.admin-center div.superform div.elements > ol > li.busy > .title {
-    margin: 0 !important;
-    background: none !important; }
-body.admin div#main div.admin-center input[type="submit"], body.admin div#main div.admin-center a.button {
-  padding: 0.2em 0.4em !important; }
-body.admin div#main > div.admin-center > div.admin-side {
-  width: 300px; }
-  body.admin div#main > div.admin-center > div.admin-side > div.widget {
-    margin-bottom: 20px; }
-    body.admin div#main > div.admin-center > div.admin-side > div.widget.feed > div.scroll-pane {
-      height: 520px; }
-    body.admin div#main > div.admin-center > div.admin-side > div.widget.feed h3 {
-      margin-top: 0;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #E95C5C; }
-    body.admin div#main > div.admin-center > div.admin-side > div.widget.feed > p.categories > a {
-      margin-right: 15px;
-      font-size: 12px !important; }
-    body.admin div#main > div.admin-center > div.admin-side > div.widget.feed > div.scroll-pane div.subitem {
-      width: 230px;
-      padding-left: 5px; }
-    body.admin div#main > div.admin-center > div.admin-side > div.widget.feed div.subitem span.datepub {
-      margin-bottom: 5px; }
-body.admin div#main > div.admin-center > div.widget.feed > p.categories > a {
-  margin-right: 15px;
-  font-size: 12px !important; }
-body.admin div#main > div.admin-center > div.widget.feed > div.scroll-pane {
-  height: 800px; }
-body.admin div#main > div.admin-center > div.widget.feed div.subitem {
-  padding-left: 5px; }
-  body.admin div#main > div.admin-center > div.widget.feed div.subitem > span.datepub {
-    float: left;
-    width: 100px;
-    margin-right: 10px;
-    clear: none;
-    line-height: 1.2em; }
-  body.admin div#main > div.admin-center > div.widget.feed div.subitem > div.content-pub {
-    float: left;
-    width: 600px;
-    clear: none;
-    margin-top: 0; }
-
-/*----------------------------------------------------------------------
-  dashboard/profile/profile.css
-----------------------------------------------------------------------*/
-body.project-edit div#main.profile div.superform li.element.user_avatar > div.children > div.elements > ol > li.element {
-  display: inline-block;
-  vertical-align: top; }
-body.project-edit div#main.profile div.superform li.element.user_avatar ol {
-  padding: 0; }
-body.project-edit div#main.profile div.superform li.element.user_avatar li.element.avatar-image {
-  padding: 0 2em;
-  margin: 0 !important; }
-body.project-edit div#main.profile div.superform li.element.user_avatar li.element.avatar img {
-  width: 128px;
-  height: 128px; }
-body.project-edit div#main.profile div.superform li.element.user_avatar li.element .title {
-  display: none; }
-body.project-edit div#main.profile div.superform li.element.web div.title {
-  font-size: 14px;
-  width: 70%;
-  float: left; }
-body.project-edit div#main.profile div.superform li.element.web input.edit {
-  margin-top: -1em; }
-body.project-edit div#main.profile div.superform li.element.web input.remove {
-  margin-bottom: 1em;
-  margin-top: 0; }
-body.project-edit div#main.profile div.superform li.element.editweb li.element.web-accept input, body.project-edit div#main.profile div.superform li.element.editweb li.element.web-remove input {
-  margin: 0;
-  margin-right: 3px; }
-body.project-edit div#main.profile div.superform li.element.editweb li.buttons div.contents {
-  margin: 0 !important;
-  padding: 0 !important; }
-body.project-edit div#main.profile div.superform li.element.editweb li.buttons ol {
-  margin: 0 !important;
-  padding: 0 !important;
-  text-align: right; }
-body.project-edit div#main.profile div.superform li.element.editweb li.buttons li {
-  display: inline-block;
-  padding: 0;
-  margin: 0; }
-body.project-edit div#main.profile div.superform li.element.editweb li.buttons input {
-  width: auto;
-  float: left;
-  margin: 0 10px 0 0; }
-
-/*----------------------------------------------------------------------
-  dashboard/projects/rewards.css
-----------------------------------------------------------------------*/
-body.dashboard div#invests-list div.investor div.left span.profile {
-  display: inline-block;
-  margin-right: 5px; }
-body.dashboard div#invests-list div.investor div.left span.contact {
-  display: block; }
-body.dashboard div#invests-list div.investor div.left span.profile a {
-  float: left;
-  background: url("/view/m/images/user/plus.png") left no-repeat;
-  padding-left: 15px;
-  color: #808285;
-  text-decoration: none; }
-  body.dashboard div#invests-list div.investor div.left span.profile a:hover {
-    background: url("/view/m/images/user/plus-hover.png") left no-repeat;
-    color: #58595B; }
-body.dashboard div#invests-list div.investor div.left span.contact a {
-  background: url("/view/m/images/user/contact.png") left no-repeat;
-  padding-left: 15px;
-  color: #808285;
-  text-decoration: none; }
-  body.dashboard div#invests-list div.investor div.left span.contact a:hover {
-    background: url("/view/m/images/user/contact-hover.png") left no-repeat;
-    color: #58595B; }
-body.dashboard div#main div.status {
-  float: left;
-  color: #bcbdbd;
-  border: none !important;
-  padding: 0 !important;
-  margin-right: 20px; }
-body.dashboard #project-status {
-  background-color: #ffffff;
-  padding: 20px 20px 30px 30px !important;
-  width: 290px; }
-body.dashboard div#main div.status #project-status h3 {
-  font-size: 20px; }
-body.dashboard div#meter-big {
-  height: 200px;
-  position: relative; }
-  body.dashboard div#meter-big h3.title.ronda {
-    color: #20B3B2;
-    position: absolute;
-    top: 0;
-    right: 20px;
-    text-transform: lowercase;
-    background: none !important; }
-  body.dashboard div#meter-big div.meter.hor.big {
-    padding-top: 30px;
-    width: 420px; }
-    body.dashboard div#meter-big div.meter.hor.big h3 {
-      position: relative;
-      top: -40px;
-      padding-left: 0; }
-      body.dashboard div#meter-big div.meter.hor.big h3.ronda {
-        right: -20px;
-        top: -70px;
-        text-align: right; }
-  body.dashboard div#meter-big div.graph {
-    background-color: #BB70B6;
-    height: 8px;
-    border-right: 40px solid #DFBDDD;
-    margin: 40px 5px 70px;
-    position: relative;
-    top: -70px; }
-    body.dashboard div#meter-big div.graph .minimum {
-      background-color: #96238F;
-      height: 100%;
-      position: absolute;
-      left: 0;
-      top: 0; }
-      body.dashboard div#meter-big div.graph .minimum .done {
-        background-color: #20B3B2;
-        height: 10px;
-        position: absolute;
-        left: 0;
-        top: -2px;
-        max-width: 580px; }
-        body.dashboard div#meter-big div.graph .minimum .done strong {
-          background: url("dashboard/projects/marker.png") no-repeat;
-          display: block;
-          height: 21px;
-          margin-right: -13px;
-          margin-top: -11px;
-          overflow: hidden;
-          position: absolute;
-          right: 0;
-          width: 25px;
-          color: #ffffff;
-          font-size: 12px;
-          text-align: center; }
-      body.dashboard div#meter-big div.graph .minimum .left {
-        float: right;
-        height: 19px;
-        border-right: 4px solid #96238F;
-        margin-right: -2px;
-        margin-top: -6px; }
-    body.dashboard div#meter-big div.graph .optimum {
-      border-right: 4px solid #BB70B6;
-      height: 19px;
-      margin-right: -2px;
-      position: absolute;
-      right: 0;
-      margin-top: -6px; }
-  body.dashboard div#meter-big dl {
-    margin: -78px 40px 0 0;
-    position: relative;
-    top: -70px; }
-  body.dashboard div#meter-big div.graph {
-    top: 0; }
-  body.dashboard div#meter-big dl {
-    top: 0; }
-    body.dashboard div#meter-big dl * {
-      margin: 0; }
-    body.dashboard div#meter-big dl .minimum {
-      min-width: 10%; }
-    body.dashboard div#meter-big dl .optimum {
-      color: #BB70B6;
-      line-height: 14px;
-      display: block;
-      white-space: nowrap; }
-    body.dashboard div#meter-big dl .minimum {
-      line-height: 14px;
-      display: block;
-      white-space: nowrap; }
-    body.dashboard div#meter-big dl dt.optimum, body.dashboard div#meter-big dl dt.minimum {
-      font-size: 12px; }
-    body.dashboard div#meter-big dl dd.optimum, body.dashboard div#meter-big dl dd.minimum {
-      font-size: 16px;
-      font-weight: normal; }
-    body.dashboard div#meter-big dl dt.optimum {
-      margin-top: 18px; }
-    body.dashboard div#meter-big dl .optimum {
-      width: 70px;
-      right: 12px;
-      top: 45px;
-      float: right;
-      clear: right;
-      margin-right: -40px; }
-    body.dashboard div#meter-big dl .minimum {
-      color: #96238F;
-      width: 80px;
-      position: relative; }
-      body.dashboard div#meter-big dl .minimum span {
-        font-weight: normal; }
-      body.dashboard div#meter-big dl .minimum > * {
-        display: block;
-        width: 60px;
-        position: absolute;
-        right: 0;
-        top: 21px;
-        width: 60px;
-        margin-right: -30px; }
-body.dashboard div.widget.project div.meter dl dd.optimum span {
-  height: auto;
-  position: relative; }
-body.dashboard div#meter-big dl dt.minimum {
-  position: absolute;
-  top: -60px; }
-body.dashboard div#meter-big dl dd.minimum > * {
-  position: absolute;
-  top: -25px; }
-body.dashboard div#meter-big dl dd.minimum > span {
-  position: absolute;
-  right: -76px; }
-body.dashboard div.project div.meter.hor.activable dl dd.minimum > span {
-  right: -54px; }
-body.dashboard div#meter-big dl {
-  width: 420px;
-  height: 100px; }
-  body.dashboard div#meter-big dl dt.minimum {
-    top: -65px;
-    left: -10px; }
-    body.dashboard div#meter-big dl dt.minimum span {
-      width: auto; }
-  body.dashboard div#meter-big dl dd.minimum {
-    left: -10px; }
-    body.dashboard div#meter-big dl dd.minimum strong {
-      top: -28px; }
-  body.dashboard div#meter-big dl dt.optimum {
-    width: auto;
-    position: absolute;
-    top: 0;
-    right: 82px; }
-  body.dashboard div#meter-big dl dd.optimum {
-    width: auto;
-    position: absolute;
-    top: 32px;
-    right: 82px;
-    text-align: right; }
-  body.dashboard div#meter-big dl .reached {
-    position: absolute;
-    top: 55px;
-    padding: .8em 0;
-    font-size: 12px;
-    line-height: 1.5em;
-    font-weight: bold; }
-  body.dashboard div#meter-big dl dt.reached {
-    margin-top: 6px; }
-  body.dashboard div#meter-big dl dd.reached {
-    left: 100px;
-    color: #96238F;
-    font-size: 16px; }
-  body.dashboard div#meter-big dl .reached span.euro {
-    background-image: url("/view/m/images/euro/violet/s.png"); }
-  body.dashboard div#meter-big dl .supporters {
-    position: absolute;
-    top: 55px;
-    padding: .8em 0;
-    font-size: 12px;
-    line-height: 1.5em;
-    font-weight: bold;
-    color: #1b5b9e;
-    left: 340px; }
-  body.dashboard div#meter-big dl dt.supporters {
-    margin-top: 6px; }
-  body.dashboard div#meter-big dl dd.supporters {
-    font-size: 16px;
-    left: 390px; }
-  body.dashboard div#meter-big dl span.euro {
-    width: 16px;
-    height: 16px;
-    line-height: 2000px;
-    overflow: hidden;
-    display: inline-block;
-    background: url("/view/m/images/euro/light-violet/s.png") no-repeat center;
-    margin-bottom: -1px; }
-  body.dashboard div#meter-big dl .minimum span.euro {
-    background-image: url("/view/m/images/euro/violet/s.png"); }
-  body.dashboard div#meter-big dl .days {
-    position: absolute;
-    top: 55px;
-    padding: .8em 0;
-    font-size: 12px;
-    line-height: 1.5em;
-    font-weight: bold;
-    left: 200px; }
-  body.dashboard div#meter-big dl dt.days {
-    margin-top: 6px; }
-  body.dashboard div#meter-big dl dd.days {
-    left: 240px;
-    font-size: 16px; }
-body.dashboard div#meter-big div.keepiton {
-  background-color: #19B5B3;
-  border-radius: 3px 3px 3px 3px;
-  bottom: 20px;
-  color: #FFFFFF;
-  cursor: default;
-  display: inline-block;
-  font-size: 0.8em;
-  font-weight: bold;
-  overflow: visible;
-  padding: 3px;
-  position: absolute;
-  text-align: center;
-  width: 120px;
-  z-index: 899;
-  left: 20px; }
-body.dashboard div#main {
-  overflow: visible; }
-  body.dashboard div#main hr {
-    display: none; }
-  body.dashboard div#main div.widget {
-    margin-bottom: 20px; }
-body.dashboard div#sub-header {
-  margin-bottom: 0; }
-  body.dashboard div#sub-header div.dashboard-header h2 {
+  .dashboard #sub-header .dashboard-header h2 {
     display: table;
     float: left;
     width: 77%;
     height: 56px;
     padding-left: 5%; }
-body div#sub-header div.dashboard-header h2 {
-  display: table;
-  float: left;
-  width: 77%;
-  height: 56px;
-  padding-left: 5%; }
-body.dashboard div#sub-header div.dashboard-header h2 span, body div#sub-header div.dashboard-header h2 span.leave {
-  display: table-cell;
-  font-size: 18px;
-  font-weight: bold;
-  color: #666666;
-  vertical-align: middle;
-  line-height: 22px; }
-body.dashboard div#sub-header img {
-  float: left;
-  /*margin-right: 20px;*/ }
-body.dashboard div#dashboard-menu {
+    .dashboard #sub-header .dashboard-header h2 span,
+    .dashboard #sub-header .dashboard-header h2 span.leave {
+      display: table-cell;
+      font-size: 18px;
+      font-weight: bold;
+      color: #666666;
+      vertical-align: middle;
+      line-height: 22px; }
+  .dashboard #sub-header img {
+    float: left; }
+.dashboard #dashboard-menu {
   display: block;
-  font-size: 13px;
-  /*background-color: #3399cc;*/ }
-  body.dashboard div#dashboard-menu ul {
+  font-size: 13px; }
+  .dashboard #dashboard-menu .viewport_dashboard {
+    margin: 0 auto;
+    margin-left: 0;
+    overflow: hidden;
+    -webkit-transform: translateZ(0);
+    /* Optional: When heavy at iOS6+ */
+    width: 100vw; }
+    .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard {
+      zoom: 1;
+      background-color: #3399cc;
+      margin: 0 5%;
+      width: 132.8125%; }
+      .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard:after {
+        content: '';
+        display: block;
+        clear: both; }
+      .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard:last-child li.option {
+        border-right: none;
+        padding-right: 0; }
+      .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard:after {
+        clear: both;
+        content: '';
+        display: block;
+        height: 0; }
+      .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard li.option {
+        border: none;
+        border-right: 1px dashed #d9d9d9;
+        color: #666;
+        float: left;
+        height: 34px;
+        padding: 4px 8px; }
+        .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard li.option a {
+          height: 18px;
+          line-height: 35px; }
+    .dashboard #dashboard-menu .viewport_dashboard .db_prev,
+    .dashboard #dashboard-menu .viewport_dashboard .db_next {
+      display: block;
+      position: absolute;
+      top: 0;
+      width: 5%;
+      height: 42px;
+      color: #3399cc;
+      font-size: 12px;
+      text-align: center;
+      line-height: 42px;
+      background: #ccffff; }
+    .dashboard #dashboard-menu .viewport_dashboard .db_prev {
+      left: 0; }
+    .dashboard #dashboard-menu .viewport_dashboard .db_next {
+      right: 0; }
+  .dashboard #dashboard-menu ul {
     list-style: none;
     margin: 0;
     padding: 0;
     position: relative; }
-    body.dashboard div#dashboard-menu ul li {
+    .dashboard #dashboard-menu ul li {
       display: inline-block;
       text-decoration: none; }
-      body.dashboard div#dashboard-menu ul li a {
+      .dashboard #dashboard-menu ul li a {
         text-decoration: none;
         height: 40px;
         line-height: 40px;
         display: inline-block; }
-      body.dashboard div#dashboard-menu ul li.section ul {
+      .dashboard #dashboard-menu ul li.section ul {
         display: none; }
-      body.dashboard div#dashboard-menu ul li.section.current ul {
+      .dashboard #dashboard-menu ul li.section.current ul {
         display: block; }
-      body.dashboard div#dashboard-menu ul li.section.active {
+      .dashboard #dashboard-menu ul li.section.active {
         margin-bottom: 2.6em; }
-      body.dashboard div#dashboard-menu ul li.section.current {
+      .dashboard #dashboard-menu ul li.section.current {
         margin-bottom: 2.6em; }
-        body.dashboard div#dashboard-menu ul li.section.current ul {
+        .dashboard #dashboard-menu ul li.section.current ul {
           display: block;
           position: absolute;
           bottom: 0;
@@ -4323,7 +4087,7 @@ body.dashboard div#dashboard-menu {
           height: 2.6em;
           right: 0;
           z-index: 0; }
-      body.dashboard div#dashboard-menu ul li.section.active ul {
+      .dashboard #dashboard-menu ul li.section.active ul {
         display: block;
         position: absolute;
         bottom: 0;
@@ -4331,7 +4095,7 @@ body.dashboard div#dashboard-menu {
         height: 2.6em;
         right: 0;
         z-index: 9; }
-      body.dashboard div#dashboard-menu ul li.section a.section {
+      .dashboard #dashboard-menu ul li.section a.section {
         min-width: 150px !important;
         background: #ccf4ff;
         /* Old browsers */
@@ -4347,391 +4111,373 @@ body.dashboard div#dashboard-menu {
         /* W3C */
         height: 40px;
         line-height: 40px;
-        border-top: 1px solid #99b8cc;
-        border-left: 1px solid #99b8cc;
-        border-right: 1px solid #99b8cc;
+        border-top: 1px solid #d9d9d9;
+        border-left: 1px solid #d9d9d9;
+        border-right: 1px solid #d9d9d9;
         color: #669999;
         text-align: center;
         font-weight: normal;
         font-size: 14px; }
-      body.dashboard div#dashboard-menu ul li.section.active a.section {
+      .dashboard #dashboard-menu ul li.section.active a.section {
         color: #f5f5f5;
         background: none;
         background-color: #3399cc; }
-      body.dashboard div#dashboard-menu ul li.section.current a.section {
+      .dashboard #dashboard-menu ul li.section.current a.section {
         color: #f5f5f5;
         background: none;
         background-color: #3399cc;
         background-color: #3399cc;
         color: #f5f5f5;
         font-weight: normal; }
-      body.dashboard div#dashboard-menu ul li.section.current ul {
+      .dashboard #dashboard-menu ul li.section.current ul {
         background-color: #3399cc;
         color: #f5f5f5;
         font-weight: normal; }
-      body.dashboard div#dashboard-menu ul li.section.active a.section, body.dashboard div#dashboard-menu ul li.section.active ul {
+      .dashboard #dashboard-menu ul li.section.active a.section, .dashboard #dashboard-menu ul li.section.active ul {
         background-color: #3399cc;
         color: #f5f5f5;
         font-weight: normal; }
-      body.dashboard div#dashboard-menu ul li.section a:hover.section, body.dashboard div#dashboard-menu ul li.section ul:hover {
+      .dashboard #dashboard-menu ul li.section a:hover.section, .dashboard #dashboard-menu ul li.section ul:hover {
         background-color: #3399cc; }
-  body.dashboard div#dashboard-menu > ul {
+  .dashboard #dashboard-menu > ul {
     width: 308px;
     margin: 0 auto;
     top: 34px; }
-  body.dashboard div#dashboard-menu li.option a {
+  .dashboard #dashboard-menu li.option a {
     color: #ccffff;
     height: 25px;
     line-height: 25px;
     font-size: 12px;
     font-weight: normal; }
-  body.dashboard div#dashboard-menu li.option.current a, body.dashboard div#dashboard-menu li.option.active a {
+  .dashboard #dashboard-menu li.option.current a, .dashboard #dashboard-menu li.option.active a {
     height: 18px;
     padding-bottom: 15px;
     color: #f5f5f5;
-    border-bottom: 5px solid #ff9933;
+    border-bottom: 5px solid #d9d9d9;
     line-height: 35px; }
-body.dashboard div.superform {
+.dashboard .discover-arrow-right,
+.dashboard .discover-arrow-left {
+  display: none; }
+.dashboard .footer {
+  margin-top: 60px; }
+.dashboard > .widget > p > strong {
+  font-size: 16px; }
+.dashboard .superform {
   background-color: #ffffff !important;
   padding: 10px 20px !important;
   border: none !important; }
-body.dashboard div#project-selector {
-  background-color: #ffffff;
-  margin-bottom: 20px;
-  padding: 20px; }
-  body.dashboard div#project-selector #selector-form #selector {
-    height: 40px; }
-body.dashboard div#main > .widget > p > strong {
-  font-size: 16px; }
-body.dashboard div#project-selector label {
-  font-weight: bold;
-  font-size: 16px;
-  margin-right: 5px; }
-body.dashboard div#project-selector select {
-  width: 770px;
-  font-size: 14px; }
-body.dashboard div#main div.post {
-  margin: 20px;
-  border-bottom: 1px dashed #B7C2C5; }
-  body.dashboard div#main div.post strong {
-    font-weight: bold;
-    font-size: 14px; }
-  body.dashboard div#main div.post span {
+.dashboard #main {
+  overflow: visible; }
+  .dashboard #main hr {
+    display: none; }
+  .dashboard #main div.widget {
+    margin-bottom: 20px; }
+  .dashboard #main div.status {
+    float: left;
+    color: #bcbdbd;
+    border: none !important;
+    padding: 0 !important;
+    margin-right: 20px; }
+    .dashboard #main div.status #project-status h3 {
+      font-size: 20px; }
+  .dashboard #main.summary .widget.user-worthcracy {
+    padding-bottom: 60px; }
+    .dashboard #main.summary .widget.user-worthcracy div.worth-amount {
+      top: 25px; }
+  .dashboard #main.summary.widget.projects h2.title {
+    color: #f5f5f5;
+    background-color: #666666;
     font-weight: normal;
-    font-size: 12px; }
-body.dashboard div#main div.widget.gestrew div.message {
-  background: url("/view/m/images/project/view/invest/header_beak.png") #CCE5E6 no-repeat left bottom;
-  color: #58595B;
-  padding: 20px 20px 30px 20px;
-  height: auto;
-  overflow: auto; }
-body.dashboard div#main div.widget.gestrew div.rewards {
-  height: auto;
-  overflow: auto;
-  margin-top: 10px; }
-body.dashboard div#main div.widget.gestrew div.reward {
-  background: #E4C9E2;
-  width: 197px;
-  min-height: 175px;
-  padding: 10px;
-  margin-right: 10px;
-  float: left;
-  position: relative;
-  margin-bottom: 10px;
-  height: 190px; }
-  body.dashboard div#main div.widget.gestrew div.reward.last {
-    margin-right: 0; }
-  body.dashboard div#main div.widget.gestrew div.reward div.orden {
-    color: #fff;
-    display: inline-block;
-    font-weight: bold;
-    font-size: 13pt;
-    background-color: #e7e7e7;
-    border: 2px solid #a7a9ac;
-    color: #a7a9ac;
-    width: 20px;
-    text-align: center; }
-  body.dashboard div#main div.widget.gestrew div.reward span.aporte {
-    color: #96238F;
-    display: inline-block;
-    font-size: 8pt;
-    line-height: 22px; }
-  body.dashboard div#main div.widget.gestrew div.reward span.num {
-    font-size: 12pt; }
-  body.dashboard div#main div.widget.gestrew div.reward span.aporte > span.euro {
-    background: url("/view/m/images/yen/violet/m.png") no-repeat;
-    height: 20px;
-    width: 20px;
-    display: inline-block; }
-  body.dashboard div#main div.widget.gestrew div.reward span.cofinanciadores {
-    color: #40509F;
-    display: block;
-    margin-left: 29px;
-    font-size: 8pt;
-    line-height: 20px; }
-  body.dashboard div#main div.widget.gestrew div.reward div.tiporec {
-    display: block;
-    border-bottom: #8D878E 1px solid;
-    margin-bottom: 5px; }
-  body.dashboard div#main div.widget.gestrew div.reward ul {
-    list-style: none outside none;
-    padding: 0;
-    margin: 0 0 3px 0;
-    float: none;
-    font-size: 12px; }
-  body.dashboard div#main div.widget.gestrew div.reward div.tiporec ul li {
-    background: none no-repeat scroll 0 0 transparent;
-    padding: 0 0 0 29px;
-    min-height: 34px; }
-    body.dashboard div#main div.widget.gestrew div.reward div.tiporec ul li.file {
-      background-image: url("/view/m/images/icon/s/food.png");
-      background-image: url("/view/m/images/icon/s/file.png"); }
-    body.dashboard div#main div.widget.gestrew div.reward div.tiporec ul li.money {
-      background-image: url("/view/m/images/icon/s/money.png"); }
-    body.dashboard div#main div.widget.gestrew div.reward div.tiporec ul li.code {
-      background-image: url("/view/m/images/icon/s/code.png"); }
-    body.dashboard div#main div.widget.gestrew div.reward div.tiporec ul li.service {
-      background-image: url("/view/m/images/icon/s/service.png"); }
-    body.dashboard div#main div.widget.gestrew div.reward div.tiporec ul li.manual {
-      background-image: url("/view/m/images/icon/s/manual.png"); }
-    body.dashboard div#main div.widget.gestrew div.reward div.tiporec ul li.product {
-      background-image: url("/view/m/images/icon/s/product.png"); }
-    body.dashboard div#main div.widget.gestrew div.reward div.tiporec ul li.design {
-      background-image: url("/view/m/images/icon/s/design.png"); }
-    body.dashboard div#main div.widget.gestrew div.reward div.tiporec ul li.other {
-      background-image: url("/view/m/images/icon/s/other.png"); }
-  body.dashboard div#main div.widget.gestrew div.reward span.recompensa {
-    color: #8D878E;
-    font-size: 12px; }
-  body.dashboard div#main div.widget.gestrew div.reward a.green {
-    bottom: 5px;
-    left: 13px;
-    width: 160px;
-    padding: 0.3em 1.3em; }
-  body.dashboard div#main div.widget.gestrew div.reward div.contenedorrecompensa {
-    height: 67px;
-    overflow: hidden; }
-body.dashboard div.widget.gestrew h2.title {
-  font-size: 14pt;
-  font-weight: normal;
-  margin-bottom: 5px; }
-body.dashboard div.widget.gestrew label#invests-filter {
-  float: left; }
-body.dashboard div.widget.projects ul {
-  float: left; }
-body.dashboard div.widget.gestrew label#invests-filter {
-  font-size: 9pt; }
-body.dashboard div.widget.gestrew div.invests-list {
-  clear: both; }
-body.dashboard div.widget.gestrew div.filters {
-  height: auto;
-  overflow: auto; }
-  body.dashboard div.widget.gestrew div.filters ul {
-    list-style: none;
-    clear: right;
-    margin-top: 0;
-    margin-left: 10px;
-    padding-left: 0; }
-    body.dashboard div.widget.gestrew div.filters ul li {
-      display: inline-block; }
-      body.dashboard div.widget.gestrew div.filters ul li a {
-        text-decoration: none;
-        font-size: 9pt; }
-      body.dashboard div.widget.gestrew div.filters ul li.current a {
-        background: url("/view/m/images/arrow-down.png") no-repeat left;
-        padding-left: 15px; }
-      body.dashboard div.widget.gestrew div.filters ul li a:hover {
-        color: #20B3B2; }
-
-/*----------------------------------------------------------------------
-  dashboard/projects/summary.css
-----------------------------------------------------------------------*/
-/* Estilos especificos para
-Termometro horizontal grande  */
-/* Cambiar el marcador por uno grande con el strong del % dentro */
-/* Estilos de Obtenido, cofinanciadores, dias */
-/*ie8*/
-/* El superform con el fondo blanco */
-/* Seccion proyectos */
-/* Lista entradas */
-/* = recompensas
-***************************/
-/* = gestionar retornos
-***************************/
-.disabled {
-  color: #cccccc; }
-
-body.dashboard div#invests-list div.investor {
-  border-bottom: #C1C1C1 1px solid;
-  margin: 20px 20px 20px 20px;
-  height: auto;
-  overflow: auto;
-  padding-bottom: 10px;
-  margin-bottom: 10px; }
-  body.dashboard div#invests-list div.investor div.left {
-    float: left;
-    margin-right: 10px;
-    font-size: 8pt; }
-    body.dashboard div#invests-list div.investor div.left span {
-      display: block; }
-      body.dashboard div#invests-list div.investor div.left span.username {
-        margin-bottom: 2px; }
-        body.dashboard div#invests-list div.investor div.left span.username a {
-          color: #58595B;
-          font-size: 9pt;
-          font-weight: bold;
-          text-decoration: none; }
-      body.dashboard div#invests-list div.investor div.left span.amount {
-        display: inline-block;
-        background: url("/view/m/images/euro/violet/m.png") no-repeat scroll right center transparent;
-        clear: left;
-        color: #96238F;
-        font-size: 11pt;
-        font-weight: bold;
-        line-height: 25px;
-        padding-right: 30px;
-        width: auto; }
-    body.dashboard div#invests-list div.investor div.left label.amount {
-      display: block;
-      color: #223E98;
-      font-size: 8pt;
-      padding-left: 0;
-      width: 100%; }
-    body.dashboard div#invests-list div.investor div.left span.date {
-      display: block;
-      color: #223E98;
-      font-size: 8pt;
-      padding-left: 0;
-      width: 100%; }
-    body.dashboard div#invests-list div.investor div.left span.pendiente {
-      color: #f00; }
-  body.dashboard div#invests-list div.investor div.recompensas input[type="checkbox"] {
-    height: 16px;
-    width: 16px;
-    float: left;
-    position: absolute;
-    left: 0;
-    opacity: 0;
+    line-height: 22px;
     margin: 0;
+    padding: 8px 0 8px 20px; }
+  .dashboard #main.summary.widget.projects ul {
+    float: left; }
+  .dashboard #main.summary.widget.projects .widget.project .meter dl dd.optimum span {
+    height: auto;
+    position: relative; }
+  .dashboard #main.summary.widget.projects .widget.project .meter.activable dl dd.minimum > span {
+    right: -54px; }
+  .dashboard #main.profile .footer {
+    padding: 0 20px 20px 0;
+    margin: 0; }
+  .dashboard #main.profile div.superform li.element.user_avatar > div.children > div.elements > ol > li.element {
+    display: inline-block;
+    vertical-align: top; }
+  .dashboard #main.profile div.superform li.element.user_avatar ol {
     padding: 0; }
-  body.dashboard div#invests-list div.investor div.recompensas label {
-    line-height: 16px;
-    padding: 0 0 0 20px; }
-  body.dashboard div#invests-list div.investor div.recompensas input + label {
-    background: url("/view/m/images/dashboard/gr_custom-inputs.png") 0 -1px no-repeat;
-    height: 18px; }
-  body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:checked + label {
-    background-position: 0 -81px; }
-  body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:hover:checked + label, body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:focus:checked + label, body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:checked + label:hover, body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:focus:checked + label {
-    background-position: 0 -101px; }
-  body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:hover + label, body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:focus + label, body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox] + label:hover {
-    background-position: 0 -21px; }
-  body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:active + label {
-    background-position: 0 -41px; }
-  body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:active:checked + label {
-    background-position: 0 -121px; }
-  body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox] + label:hover:active {
-    background-position: 0 -41px; }
-  body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:checked + label:hover:active {
-    background-position: 0 -121px; }
-  body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:disabled + label, body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:hover:disabled + label, body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:focus:disabled + label {
-    background-position: 0 -61px; }
+  .dashboard #main.profile div.superform li.element.user_avatar li.element.avatar-image {
+    padding: 0 2em;
+    margin: 0 !important; }
+  .dashboard #main.profile div.superform li.element.user_avatar li.element.avatar img {
+    width: 128px;
+    height: 128px; }
+  .dashboard #main.profile div.superform li.element.user_avatar li.element .title {
+    display: none; }
+  .dashboard #main.profile div.superform li.element.web div.title {
+    font-size: 14px;
+    width: 70%;
+    float: left; }
+  .dashboard #main.profile div.superform li.element.web input.edit {
+    margin-top: -1em; }
+  .dashboard #main.profile div.superform li.element.web input.remove {
+    margin-bottom: 1em;
+    margin-top: 0; }
+  .dashboard #main.profile div.superform li.element.editweb li.element.web-accept input, .dashboard #main.profile div.superform li.element.editweb li.element.web-remove input {
+    margin: 0;
+    margin-right: 3px; }
+  .dashboard #main.profile div.superform li.element.editweb li.buttons div.contents {
+    margin: 0 !important;
+    padding: 0 !important; }
+  .dashboard #main.profile div.superform li.element.editweb li.buttons ol {
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: right; }
+  .dashboard #main.profile div.superform li.element.editweb li.buttons li {
+    display: inline-block;
+    padding: 0;
+    margin: 0; }
+  .dashboard #main.profile div.superform li.element.editweb li.buttons input {
+    width: auto;
+    float: left;
+    margin: 0 10px 0 0; }
+  .dashboard #main.access a.button {
+    margin-bottom: 20px; }
+
+.community {
+  /*widget スマホ*/ }
+  .community .widget.categorylist {
+    overflow: hidden;
+    margin-bottom: 15px; }
+    .community .widget.categorylist ul {
+      display: inline-block;
+      list-style: none;
+      margin: 0;
+      padding-left: 0; }
+      .community .widget.categorylist ul li {
+        display: inline-block;
+        margin-left: 0;
+        padding-left: 0; }
+        .community .widget.categorylist ul li a {
+          text-decoration: none; }
+          .community .widget.categorylist ul li a.active, .community .widget.categorylist ul li a:hover {
+            color: #19B4B2; }
+    .community .widget.categorylist > h3.title {
+      color: #ffffff;
+      background-color: #19B4B2;
+      border-bottom: none;
+      font-weight: normal;
+      line-height: 40px;
+      height: 40px;
+      margin: 0;
+      padding: 0 0 0 20px; }
+    .community .widget.categorylist > div.filters {
+      border-bottom: 1px solid #d9d9d9;
+      border-top: 1px solid #d9d9d9;
+      padding: 5px; }
+      .community .widget.categorylist > div.filters > span {
+        font-size: 12px; }
+      .community .widget.categorylist > div.filters > ul {
+        margin-left: 1em; }
+        .community .widget.categorylist > div.filters > ul > li {
+          margin-right: 5px; }
+          .community .widget.categorylist > div.filters > ul > li > a {
+            display: inline-block;
+            background: url("/view/m/images/user/grey-triangle-down.png") no-repeat left;
+            padding-left: 15px;
+            font-size: 12px; }
+            .community .widget.categorylist > div.filters > ul > li > a.active {
+              background: url("/view/m/images/user/blue-triangle-down.png") no-repeat left; }
+    .community .widget.categorylist > div.list {
+      background-color: #e5e5e5;
+      line-height: 27px;
+      padding-left: 20px; }
+      .community .widget.categorylist > div.list > ul > li {
+        margin-right: 0.5em; }
+        .community .widget.categorylist > div.list > ul > li > a {
+          text-transform: uppercase;
+          font-size: 12px; }
+  .community .widget.user-mates {
+    background-color: #fff;
+    padding-bottom: 0; }
+    .community .widget.user-mates > h3.title {
+      padding: 4px 0 4px 20px;
+      font-size: 14px;
+      font-weight: normal;
+      background-color: #666666;
+      color: #f5f5f5;
+      margin: 0; }
+    .community .widget.user-mates .users {
+      clear: both; }
+      .community .widget.user-mates .users .categories {
+        height: auto;
+        overflow: visible;
+        padding-left: 20px;
+        line-height: 27px;
+        background-color: #e5e5e5; }
+      .community .widget.user-mates .users ul {
+        height: auto;
+        list-style: none;
+        margin: 0;
+        overflow: hidden;
+        padding: 0; }
+        .community .widget.user-mates .users ul li {
+          display: inline-block;
+          margin-bottom: 5px;
+          margin-right: 5px; }
+          .community .widget.user-mates .users ul li a {
+            color: #636466;
+            font-size: 12px !important;
+            text-decoration: none; }
+            .community .widget.user-mates .users ul li a:hover {
+              color: #20B3B2; }
+          .community .widget.user-mates .users ul li div.user h4 {
+            margin-top: 4px; }
+            .community .widget.user-mates .users ul li div.user h4 a {
+              font-weight: bold;
+              display: inline-block; }
+        .community .widget.user-mates .users ul > li,
+        .community .widget.user-mates .users ul > li.nomarginright {
+          margin-right: 0; }
+        .community .widget.user-mates .users ul > li:hover > div.user > h4 > a {
+          color: #19B4B2; }
+        .community .widget.user-mates .users ul > li.active {
+          background-color: #f3f3f3 !important; }
+        .community .widget.user-mates .users ul > li .user {
+          padding: 3px 6px 3px 57px;
+          position: relative; }
+          .community .widget.user-mates .users ul > li .user > a.expand {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 99; }
+        .community .widget.user-mates .users ul > li .avatar {
+          height: 50px;
+          left: 4px;
+          position: absolute;
+          text-align: center;
+          top: 8px;
+          width: 50px; }
+        .community .widget.user-mates .users ul > li h3, .community .widget.user-mates .users ul > li h4, .community .widget.user-mates .users ul > li h5, .community .widget.user-mates .users ul > li h6 {
+          font-size: 12px;
+          line-height: 1em;
+          margin: 0; }
+          .community .widget.user-mates .users ul > li h3 a, .community .widget.user-mates .users ul > li h4 a, .community .widget.user-mates .users ul > li h5 a, .community .widget.user-mates .users ul > li h6 a {
+            font-size: 14px !important;
+            font-weight: normal; }
+        .community .widget.user-mates .users ul > li span {
+          display: block;
+          font-size: 12px;
+          padding-top: 4px; }
+          .community .widget.user-mates .users ul > li span.projects {
+            color: #20b3b2; }
+          .community .widget.user-mates .users ul > li span.invests {
+            color: #313b96; }
+      .community .widget.user-mates .users h3.supertitle {
+        border-bottom: 1px dashed #d9d9d9;
+        border-top: 1px solid #d9d9d9;
+        color: #20B3B2;
+        font-size: 12px;
+        margin-bottom: 8px;
+        padding: 5px 0 5px 5px; }
+    .community .widget.user-mates a:hover.more {
+      color: #20b3b2; }
+  .community.about .widget.user-mates {
+    margin-bottom: 15px; }
+    .community.about .widget.user-mates .users {
+      margin: 0;
+      padding: 0; }
+      .community.about .widget.user-mates .users ul li .user {
+        padding: 0 0 0 80px;
+        position: relative; }
+      .community.about .widget.user-mates .users ul li span.profile,
+      .community.about .widget.user-mates .users ul li span.contact {
+        display: block;
+        clear: both;
+        text-align: left;
+        position: relative;
+        top: -20px;
+        left: 0px;
+        width: auto;
+        margin-right: 10px; }
+      .community.about .widget.user-mates .users ul li span.profile a {
+        float: none;
+        background: url("/view/m/images/user/plus.png") left no-repeat;
+        padding-left: 15px;
+        color: #808285; }
+      .community.about .widget.user-mates .users ul li span.contact {
+        clear: both; }
+      .community.about .widget.user-mates .users ul li,
+      .community.about .widget.user-mates .users ul li:nth-child(odd) {
+        width: 100% !important;
+        max-width: 100% !important;
+        clear: both;
+        float: none;
+        border: none;
+        border-bottom: 1px dashed #d9d9d9;
+        height: auto;
+        margin: 0;
+        padding: 10px 0 0 0; }
+    .community.about .widget.user-mates a.more {
+      border-top: none; }
+    .community.about .widget.user-mates .avatar {
+      position: absolute;
+      left: 14px;
+      top: 0;
+      width: 50px;
+      height: 50px;
+      text-align: center; }
+  .community div.center div.widget.user-message {
+    overflow: hidden;
+    position: relative;
+    z-index: 99; }
+  .community div.center div.widget.user-message form {
+    padding: 8px; }
+  .community div.center div.widget.user-message form label[for="message"] {
+    position: absolute;
+    left: 8px;
+    top: 90px; }
+  .community div.center div.widget.user-message textarea {
+    display: block;
+    margin-left: 50px;
+    width: 220px; }
+  .community div.center div.widget.user-message #bocadillo {
+    background: url("/view/m/images/bocadillo.jpg") no-repeat;
+    position: absolute;
+    width: 56px;
+    height: 51px;
+    z-index: 100; }
+  .community div.center div.widget.user-message #a-preview {
+    color: #2EAB58;
+    font-weight: bold;
+    left: 52px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    top: 10px; }
+  .community div.center div.widget.user-message button {
+    float: right;
+    margin-right: 8px; }
+  .community body.user-profile div#main div.discover-group div.widget.project {
+    margin: 0 auto 0 !important;
+    border: none; }
 
 /* Custom checkbox in investors list*/
-input[type=checkbox]:disabled + label:hover, body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:disabled + label:hover:active {
+input[type=checkbox]:disabled + label:hover,
+body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:disabled + label:hover:active {
   background-position: 0 -61px; }
 
 input[type=checkbox]:disabled:checked + label, input[type=checkbox]:hover:disabled:checked + label, input[type=checkbox]:focus:disabled:checked + label, input[type=checkbox]:disabled:checked + label:hover {
   background-position: 0 -141px; }
-
-body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:disabled:checked + label:hover:active {
-  background-position: 0 -141px; }
-body.dashboard div#colective-messages input[type="checkbox"] {
-  height: 16px;
-  width: 16px;
-  float: left;
-  position: absolute;
-  left: 0;
-  opacity: 0;
-  margin: 0;
-  padding: 0; }
-body.dashboard div#colective-messages label {
-  float: left;
-  line-height: 16px;
-  padding: 0 0 0 20px;
-  margin-right: 45px; }
-body.dashboard div#colective-messages input + label {
-  background: url("/view/m/images/dashboard/gr_custom-inputs2.png") 0 -1px no-repeat;
-  height: 16px; }
-body.dashboard div#colective-messages input[type=checkbox]:checked + label {
-  background-position: 0 -81px; }
-body.dashboard div#colective-messages input[type=checkbox]:hover:checked + label, body.dashboard div#colective-messages input[type=checkbox]:focus:checked + label, body.dashboard div#colective-messages input[type=checkbox]:checked + label:hover, body.dashboard div#colective-messages input[type=checkbox]:focus:checked + label {
-  background-position: 0 -101px; }
-body.dashboard div#colective-messages input[type=checkbox]:hover + label, body.dashboard div#colective-messages input[type=checkbox]:focus + label, body.dashboard div#colective-messages input[type=checkbox] + label:hover {
-  background-position: 0 -21px; }
-body.dashboard div#colective-messages input[type=checkbox]:active + label {
-  background-position: 0 -41px; }
-body.dashboard div#colective-messages input[type=checkbox]:active:checked + label {
-  background-position: 0 -121px; }
-body.dashboard div#colective-messages input[type=checkbox] + label:hover:active {
-  background-position: 0 -41px; }
-body.dashboard div#colective-messages input[type=checkbox]:checked + label:hover:active {
-  background-position: 0 -121px; }
-body.dashboard div#colective-messages input[type=checkbox]:disabled + label, body.dashboard div#colective-messages input[type=checkbox]:hover:disabled + label, body.dashboard div#colective-messages input[type=checkbox]:focus:disabled + label {
-  background-position: 0 -61px; }
 
 /* Custom checkbox in comment box*/
-input[type=checkbox]:disabled + label:hover, body.dashboard div#colective-messages input[type=checkbox]:disabled + label:hover:active {
+input[type=checkbox]:disabled + label:hover,
+body.dashboard div#colective-messages input[type=checkbox]:disabled + label:hover:active {
   background-position: 0 -61px; }
 
 input[type=checkbox]:disabled:checked + label, input[type=checkbox]:hover:disabled:checked + label, input[type=checkbox]:focus:disabled:checked + label, input[type=checkbox]:disabled:checked + label:hover {
   background-position: 0 -141px; }
-
-body.dashboard div#colective-messages input[type=checkbox]:disabled:checked + label:hover:active {
-  background-position: 0 -141px; }
-body.dashboard div#colective-messages div#checks {
-  height: auto;
-  overflow: auto;
-  margin: 0 0 25px 25px; }
-body.dashboard div#colective-messages div#comment {
-  width: 657px;
-  margin-left: 20px; }
-body.dashboard div#colective-messages div#checks p {
-  height: auto;
-  line-height: 20px;
-  margin-bottom: 3px;
-  overflow: auto;
-  font-size: 8pt; }
-body.dashboard div#colective-messages div#bocadillo {
-  background: url("/view/m/images/bocadillo.jpg") no-repeat scroll 0 0 transparent;
-  height: 51px;
-  position: absolute;
-  width: 56px; }
-body.dashboard div#colective-messages textarea {
-  background-color: #DCEEDF;
-  border: 1px solid #2EAB58;
-  clear: right;
-  display: block;
-  float: left;
-  margin: -1px;
-  margin-left: 55px;
-  height: 50px;
-  padding: 0.3em 0;
-  resize: none;
-  width: 600px; }
-body.dashboard div#colective-messages a.preview {
-  clear: left;
-  color: #2EAB58;
-  float: left;
-  font-weight: bold;
-  left: 52px;
-  position: relative;
-  text-decoration: none;
-  top: 10px; }
-body.dashboard div#colective-messages button {
-  font-weight: bold;
-  padding: 5px 20px;
-  float: right;
-  margin-top: 20px; }
 
 /*# sourceMappingURL=styles-m.css.map */

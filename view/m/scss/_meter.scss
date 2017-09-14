@@ -2,7 +2,8 @@
   meter.css
 ----------------------------------------------------------------------*/
 .meter{
-  padding: 4px 0 148px !important;
+  margin: 0 16px;
+  padding: 4px 0 148px;
   position: relative;
   height: 20px;
 
@@ -67,7 +68,7 @@
     padding-left: 15px;
   }
 
-  dl {
+  /*dl {
     margin: 16px 0 0 0;
     position: relative;
     * {
@@ -100,75 +101,36 @@
         left: 33.3%;
         top: 0;
       }
-      &.days {
-        right: 0;
-        top: 0;
-      }
-      &.reached {
-        left: 0;
-        top: 56px;
-      }
-      &.supporters {
-        left: 33.3%;
-        top: 56px;
-      }
       &.percent {
         right: 0;
         top: 56px;
       }
-      &.days,
-      &.reached,
-      &.supporters,
       &.percent {
         color: #666600;
       }
     }
     dd {
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid $grayCol01;
+      box-sizing: content-box;
       font-size: 12px;
       padding-top: 30px;
       &.minimum {
-        border-right: 1px solid #eee;
+        border-right: 1px solid $grayCol01;
         color: #cc6600;
         left: 0;
         top: -16px;
       }
       &.optimum {
-        border-right: 1px solid #eee;
+        border-right: 1px solid $grayCol01;
         color: #6699cc;
         left: 33.3%;
         top: -16px;
       }
-      &.days {
-        right: 0;
-        top: -16px;
-        strong {
-          color: #996666;
-        }
-      }
       &.minimum,
-      &.optimum,
-      &.days,
-      &.reached,
-      &.supporters {
+      &.optimum {
         span {
           font-size: 11px;
           font-weight: normal;
-        }
-      }
-      &.reached {
-        border-right: 1px solid #eee;
-        font-weight: normal;
-        left: 0;
-        top: 40px;
-      }
-      &.supporters {
-        border-right: 1px solid #eee;
-        font-weight: normal;
-        left: 33.3%;
-        top: 40px;
-        strong {
-          color: #990000;
         }
       }
       &.percent {
@@ -177,45 +139,81 @@
         top: 40px;
       }
     }
+  }*/
+  dl.reached-bar {
+    margin-bottom: 14px;
+    .reached {
+      color: #000;
+      display: inline-block;
+    }
+    dt.reached {
+      font-size: 14px;
+      font-weight: 300;
+      padding-top: 0;
+    }
+    .supporters {
+      display:none;
+    }
   }
 
+  dl.amount-bar {
+    margin: 0 0 20px;
+    position:relative;
+    .optimum,
+    .minimum {
+      display: inline-block;
+      line-height: 1.8;
+    }
+    dt, dd {
+      &.optimum {
+        color: #69c;
+      }
+      &.minimum {
+        color: #c60;
+      }
+      &.reached {
+        margin-top: 16px;
+      }
+    }
+    dt {
+      &.optimum,
+      &.minimum {
+        width: 110px;
+      }
+    }
+    dd {
+      &.optimum,
+      &.minimum {
+        width: 130px;
+      }
+      &.days {
+        width: 118px;
+        strong {
+          color: #82656f;
+        }
+      }
+    }
+  }
   h2, h3, h4, h5, h6 {
     font-size: 12px;
     font-weight: bold;
     margin: 0;
     padding: 2px 0 0;
   }
-  > h3.ronda {
-    color: #999900;
-    position: absolute;
-    top: 4px;
-    right: 16px;
-    text-transform: lowercase;
-  }
-
-  &.hor{
-    div.graph{
-      .minimum{
-        .done {
-          max-width: 278px;
-        }
-      }
-    }
-  }
 
   &.activable {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+    padding-left: 16px;
+    padding-right: 16px;
     width: 90vw;
     z-index: 999;
   }
 
   &.skillmatching {
-    padding: 4px 0 78px !important;
-    dl {
+    padding: 4px 0 78px;
+    dl.amount-bar {
       dt, dd {
-        height: 30px !important;
-        width: 50% !important;
+        height: 30px;
+        width: 50%;
       }
       dt {
         &.days {
@@ -231,11 +229,11 @@
       }
       dd {
         &.days {
-          border-top: 1px solid #eee;
+          border-top: 1px solid $grayCol01;
           top: 0;
         }
         &.supporters {
-          border-top: 1px solid #eee;
+          border-top: 1px solid $grayCol01;
           left: 0;
           top: 0;
         }

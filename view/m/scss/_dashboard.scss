@@ -1,12 +1,378 @@
 .dashboard {
 
-  .viewport_dashboard{
-    width: 100vw;
-    margin: 0 auto;
-    margin-left: 0;
-    overflow: hidden;
-    -webkit-transform: translateZ(0); /* Optional: When heavy at iOS6+ */
+  #sub-header {
+    margin-bottom: 0;
+    .dashboard-header {
+      h2 {
+        display: table;
+        float: left;
+        width: 77%;
+        height: 56px;
+        padding-left: 5%;
+        span,
+        span.leave {
+          display: table-cell;
+          font-size: 18px;
+          font-weight: bold;
+          color: #666666;
+          vertical-align: middle;
+          line-height: 22px;
+        }
+      }
+    }
+    img {
+      float: left;
+    }
   }
 
+  #dashboard-menu {
+    display: block;
+    font-size: 13px;
+    .viewport_dashboard{
+      margin: 0 auto;
+      margin-left: 0;
+      overflow: hidden;
+      -webkit-transform: translateZ(0); /* Optional: When heavy at iOS6+ */
+      width: 100vw;
+      .flipsnap_dashboard {
+        @include cf;
+        background-color: #3399cc;
+        margin: 0 5%;
+        width: 132.8125%;
+        &:last-child li.option {
+          border-right: none;
+          padding-right: 0;
+        }
+        &:after{
+          clear: both;
+          content: '';
+          display: block;
+          height: 0;
+        }
+        li.option {
+          border: none;
+          border-right: 1px dashed $grayCol01;
+          color: #666;
+          float: left;
+          height: 34px;
+          padding: 4px 8px;
+          a {
+            height: 18px;
+            line-height: 35px;
+          }
+        }
+      }
+      .db_prev,
+      .db_next {
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 5%;
+        height: 42px;
+        color: #3399cc;
+        font-size: 12px;
+        text-align: center;
+        line-height: 42px;
+        background: #ccffff;
+      }
+      .db_prev {
+        left: 0;
+      }
+      .db_next {
+        right: 0;
+      }
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      li {
+        display: inline-block;
+        text-decoration: none;
+        a {
+          text-decoration: none;
+          height: 40px;
+          line-height: 40px;
+          display: inline-block;
+        }
+        &.section {
+          ul {
+            display: none;
+          }
+          &.current ul {
+            display: block;
+          }
+          &.active {
+            margin-bottom: 2.6em;
+          }
+          &.current {
+            margin-bottom: 2.6em;
+            ul {
+              display: block;
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              height: 2.6em;
+              right: 0;
+              z-index: 0;
+            }
+          }
+          &.active ul {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2.6em;
+            right: 0;
+            z-index: 9;
+          }
+          a.section {
+            min-width: 150px !important;
+            background: #ccf4ff;
+            /* Old browsers */
+            background: -moz-linear-gradient(top, #ccf4ff 0%, #c0e4ed 60%, #b1cfd3 100%);
+            /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ccf4ff), color-stop(60%, #c0e4ed), color-stop(100%, #b1cfd3));
+            /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top, #ccf4ff 0%, #c0e4ed 60%, #b1cfd3 100%);
+            /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top, #ccf4ff 0%, #c0e4ed 60%, #b1cfd3 100%);
+            /* Opera 11.10+ */
+            background: linear-gradient(to bottom, #ccf4ff 0%, #c0e4ed 60%, #b1cfd3 100%);
+            /* W3C */
+            height: 40px;
+            line-height: 40px;
+            border-top: 1px solid $grayCol01;
+            border-left: 1px solid $grayCol01;
+            border-right: 1px solid $grayCol01;
+            color: #669999;
+            text-align: center;
+            font-weight: normal;
+            font-size: 14px;
+          }
+          &.active a.section {
+            color: #f5f5f5;
+            background: none;
+            background-color: #3399cc;
+          }
+          &.current {
+            a.section {
+              color: #f5f5f5;
+              background: none;
+              background-color: #3399cc;
+              background-color: #3399cc;
+              color: #f5f5f5;
+              font-weight: normal;
+            }
+            ul {
+              background-color: #3399cc;
+              color: #f5f5f5;
+              font-weight: normal;
+            }
+          }
+          &.active {
+            a.section, ul {
+              background-color: #3399cc;
+              color: #f5f5f5;
+              font-weight: normal;
+            }
+          }
+          a:hover.section, ul:hover {
+            background-color: #3399cc;
+          }
+        }
+      }
+    }
+    > ul {
+      width: 308px;
+      margin: 0 auto;
+      top: 34px;
+    }
+    li.option {
+      a {
+        color: #ccffff;
+        height: 25px;
+        line-height: 25px;
+        font-size: 12px;
+        font-weight: normal;
+      }
+      &.current a, &.active a {
+        height: 18px;
+        padding-bottom: 15px;
+        color: #f5f5f5;
+        border-bottom: 5px solid $grayCol01;
+        line-height: 35px;
+      }
+    }
+  }
+
+  .discover-arrow-right,
+  .discover-arrow-left {
+    display: none;
+  }
+
+  .footer {
+    margin-top: 60px;
+  }
+
+  > .widget {
+    > p > strong {
+      font-size: 16px;
+    }
+  }
+
+  .superform {
+    background-color: #ffffff !important;
+    padding: 10px 20px !important;
+    border: none !important;
+  }
+
+
+  #main {
+    overflow: visible;
+    hr {
+      display: none;
+    }
+    div.widget {
+      margin-bottom: 20px;
+    }
+    div.status {
+      float: left;
+      color: #bcbdbd;
+      border: none !important;
+      padding: 0 !important;
+      margin-right: 20px;
+      #project-status h3 {
+        font-size: 20px;
+      }
+    }
+
+    //マイページ > アクティビティ > 概要
+    &.summary {
+
+      //マイページ > アクティビティ > 概要 > 累計寄付金額
+      .widget.user-worthcracy {
+        padding-bottom: 60px;
+        div.worth-amount {
+          top: 25px;
+        }
+      }
+
+      //マイページ > アクティビティ > 概要 > あなたのスキルがマッチしたプロジェクト
+      &.widget.projects {
+        h2.title {
+          color: #f5f5f5;
+          background-color: #666666;
+          font-weight: normal;
+          line-height: 22px;
+          margin: 0;
+          padding: 8px 0 8px 20px;
+        }
+        ul {
+          float: left;
+        }
+        .widget.project {
+          .meter {
+            dl dd.optimum span {
+              height: auto;
+              position: relative;
+            }
+            &.activable {
+              dl dd.minimum > span {
+                right: -54px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //マイページ > プロフィール > 公開プロフィール編集
+    &.profile {
+      .footer {
+        padding: 0 20px 20px 0;
+        margin: 0;
+      }
+      div.superform {
+        li.element {
+          &.user_avatar {
+            > div.children > div.elements > ol > li.element {
+              display: inline-block;
+              vertical-align: top;
+            }
+            ol {
+              padding: 0;
+            }
+            li.element {
+              &.avatar-image {
+                padding: 0 2em;
+                margin: 0 !important;
+              }
+              &.avatar img {
+                width: 128px;
+                height: 128px;
+              }
+              .title {
+                display: none;
+              }
+            }
+          }
+          &.web {
+            div.title {
+              font-size: 14px;
+              width: 70%;
+              float: left;
+            }
+            input {
+              &.edit {
+                margin-top: -1em;
+              }
+              &.remove {
+                margin-bottom: 1em;
+                margin-top: 0;
+              }
+            }
+          }
+          &.editweb li {
+            &.element {
+              &.web-accept input, &.web-remove input {
+                margin: 0;
+                margin-right: 3px;
+              }
+            }
+            &.buttons {
+              div.contents {
+                margin: 0 !important;
+                padding: 0 !important;
+              }
+              ol {
+                margin: 0 !important;
+                padding: 0 !important;
+                text-align: right;
+              }
+              li {
+                display: inline-block;
+                padding: 0;
+                margin: 0;
+              }
+              input {
+                width: auto;
+                float: left;
+                margin: 0 10px 0 0;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //マイページ > プロフィール > アカウント設定
+    &.access {
+      a.button {
+        margin-bottom: 20px;
+      }
+    }
+  }
 
 }

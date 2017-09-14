@@ -1,27 +1,26 @@
 @charset "utf-8";
 
 /*
-base          :リセット、タグに対するベース設定
-mixins        :mixin設定
 colors        :カラーコードの変数
+mixins        :mixin設定
+base          :リセット、タグに対するベース設定
 commons       :header,footerなどの共通要素に対する設定
 widgets       :主にプロジェクトウィジェットに対する設定。.widgetが付くものに対する設定も少々
 meter         :メーターの設定
 superform     :.superformに対する設定。（form要素）
 home          :body.home配下に対する設定
-discover      :
-review        :
-project-show  :
-project-edit  :
-dashboard     :
-community     :
+discover      :cfのトップ、プロジェクト一覧
+review        :マイメニューのうち、レビューのみ
+project-show  :プロジェクト詳細
+project-edit  :プロジェクト新規・編集
+dashboard     :マイメニュー
+community     :マニメニュー > このユーザーの興味
 admin         :
-user-profile  :
 */
 
-@import "base";
+@import "colors";
 @import "mixins";
-//@import "colors";
+@import "base";
 @import "commons";
 @import "widgets";
 @import "meter";
@@ -32,8 +31,7 @@ user-profile  :
 @import "project-show";
 @import "project-edit";
 @import "dashboard";
-//@import "community";
+@import "community";
 @import "admin";
-//@import "user-profile";
 
 //todo:各ファイルに、htmlに絡む変更と、どのファイルに書くか迷ったものをtodoで書いてあるので、追って対応する

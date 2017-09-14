@@ -1,4 +1,5 @@
 * {
+  box-sizing: border-box;
   font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif;
 }
 
@@ -8,16 +9,14 @@ html {
   overflow: auto;
 }
 
-html,
 body {
   background-color: #e7e7e7;
-  padding: 0;
-}
-
-body {
+  color: $grayCol03;
+  font-size: 14px;
   margin: 0;
   min-height: 100%;
   overflow: hidden !important;
+  padding: 0;
   position: relative;
   top: 0;
   word-wrap: break-word;
@@ -29,8 +28,8 @@ body {
   }
 }
 
-body, td, th, a, a:link, a:visited, a:active, a:hover, input, textarea, button {
-  color: #58595b;
+td, th, a, a:link, a:visited, a:active, a:hover, input, textarea, button {
+  color: $grayCol03;
   font-size: 14px;
   word-wrap: break-word;
 }
@@ -57,7 +56,7 @@ input[type="password"],
 textarea,
 fieldset {
   background-color: #eeeeee;
-  border: 1px solid #cccccc;
+  border: 1px solid $grayCol01;
   min-height: 27px;
   padding: .3em;
 }

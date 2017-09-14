@@ -23,7 +23,7 @@ use Goteo\Core\View,
 
 $level = (int) $this['level'] ?: 3;
 
-$project = $this['skillmatching'];
+$skillmatching = $this['skillmatching'];
 
 ?>
 <div class="widget project-support collapsable" id="project-support">
@@ -31,11 +31,11 @@ $project = $this['skillmatching'];
     <h<?php echo $level + 1 ?> class="supertitle"><?php echo Text::get('project-support-supertitle'); ?></h<?php echo $level + 1 ?>>
 
     <div class="project-widget-box">
-    <?php echo new View('view/m/skillmatching/meter.html.php', array('skillmatching' => $project, 'level' => $level) ) ?>
+    <?php echo new View('view/m/skillmatching/meter.html.php', array('skillmatching' => $skillmatching, 'level' => $level) ) ?>
     
         <div class="buttons">
-            <?php if ($project->status == 3) : // boton apoyar solo si esta en campaña ?>
-            <a class="button violet supportit" href="/skillmatching/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it-sm'); ?></a>
+            <?php if ($skillmatching->status == 3) : // boton apoyar solo si esta en campaña ?>
+            <a class="button violet supportit" href="/skillmatching/<?php echo $skillmatching->id; ?>/invest"><?php echo Text::get('regular-invest_it-sm'); ?></a>
             <?php endif; ?>
         </div>
     </div>

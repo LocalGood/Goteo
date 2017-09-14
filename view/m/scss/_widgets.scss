@@ -20,6 +20,13 @@
     margin: 0;
     padding: .5em 2px .5em 8px;
   }
+  h4.supertitle, h3.supertitle {
+    color: #ffffff;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    padding-left: 20px;
+  }
   a.more {
     float: none;
     display: block;
@@ -28,6 +35,30 @@
     text-align: center;
     text-decoration: none;
   }
+
+
+  &.projects #widget-code {
+    width: 350px;
+    float: left;
+    margin: 0 0 0 20px;
+    .wc-embed {
+      background: url("/view/m/images/social/embed.png") no-repeat;
+      min-height: 20px;
+      padding: 3px 0 0 25px;
+    }
+    textarea {
+      width: 200px;
+      height: 130px;
+      margin: 10px 0;
+      padding: 10px;
+      background: #E7E7E7;
+      border: none;
+      font-size: 12px;
+      resize: none;
+    }
+  }
+
+
 
   //プロジェクトウィジェット（一覧などのコンパクトにまとまったウィジェット）
   &.projects{
@@ -44,6 +75,7 @@
             color: #0098c4;
           }
         }
+        //todo: プロジェクトウィジェットからround表示を消す予定、実装から消したら削除
         &.ronda {
           padding-top: 0;
         }
@@ -303,6 +335,10 @@
         padding-left: 16px!important;
         padding-right: 16px!important;
       }
+      dl.amount-bar {
+        display: none;
+      }
+
     }
 
     div.rewards{
@@ -396,17 +432,7 @@
 
   //支援（グラフ）
   &.project-support {
-    div.meter {
-      > h3.title {
-        color: #999900;
-        position: absolute;
-        top: 8px;
-        right: 16px;
-        text-transform: lowercase;
-        font-size: 12px;
-        font-weight: bold;
-        background-color: #fff;
-      }
+    .meter {
       &.ver div.graph .minimum .done {
         background-color: #c5da4d;
         height: 12px;
@@ -461,7 +487,7 @@
     background-color: #fff;
     padding: 20px 16px;
     h1, h2, h3, h4, h5, h6 {
-      font-weight: bold;
+      font-weight: 600;
       line-height: 1.3em;
       margin-top: 0;
       text-transform: none;
@@ -469,11 +495,6 @@
     h1, h2 {
       font-size: 20px;
       font-weight: normal;
-    }
-    h3 {
-      font-size: 20px;
-      font-weight: bold;
-      margin: 0 16px;
     }
     h4 {
       font-size: 18px;
@@ -488,9 +509,10 @@
     &.h_ttl {
       border-bottom: none;
       h3 {
-        margin: 0 0 8px 0;
+        margin: 0 0 15px 0;
         font-size: 18px;
-        color: #0098c4;
+        font-weight: 300;
+        //color: $grayCol03;
       }
       .project-subtitle,
       .wants-skills,
@@ -502,20 +524,19 @@
       .wants-skills {
         margin-bottom: 8px;
       }
-      .categories,
-      .categories h3 {
-        font-weight: normal;
-        color: #20B3B2;
-        margin: 0;
-      }
-      .categories h3{
-        margin: 0;
-      }
-      .categories a {
-        color: #58595B;
-        text-decoration: none;
-        &:hover {
-          color: #20B3B2;
+      .categories {
+        h3 {
+          display: none;
+        }
+        a {
+          background: url('/view/m/images/icon_tag@2x.png') no-repeat left 50% / 12px;
+          color: #58595B;
+          display: inline-block;
+          padding-left: 16px;
+          text-decoration: none;
+          &:hover {
+            color: #20B3B2;
+          }
         }
       }
     }
@@ -548,102 +569,185 @@
     }
   }
 
+  //支援するボタンウィジェット
+  &.project-support_btn {
+    background-color: #fff;
+    border-bottom: $solidBorder;
+    padding: 40px 0;
+    a.button {
+      background: none;
+      background: #ff9900;
+      -moz-box-shadow: 0 3px 3px 0 #ccc;
+      -webkit-box-shadow: 0 3px 3px 0 #ccc;
+      box-shadow: 0 3px 3px 0 #ccc;
+      display: block;
+      font-size: 14px;
+      font-weight: 300;
+      height: 45px;
+      line-height: 45px;
+      margin: 10px auto;
+      padding: 0 8px;
+      text-align: center;
+      width: 280px;
+    }
+  }
+
   //シェアウィジェット
   &.project-share {
+    padding: 26px 20px 50px;
+    position: relative;
     .title {
-      border: none;
+      border:none;
+      margin: 0 0 26px;
+      text-align: center;
     }
-    div.left{
-      clear: both;
-      margin: 0 20px;
+    .social_bookmark {
+      left: 0;
+      margin: auto;
+      max-width: 500px;
+      top: 75px;
+      width: 340px;
     }
-    div.left h4,
-    div.right h4{
-      margin-bottom: 6px;
+  }
+
+  //オーナーウィジェット
+  &.user {
+    margin-bottom: 20px;
+    padding: 0;
+    .supertitle {
+      display: none;
     }
-    h4{
-      font-weight:bolder;
-      margin-top:0;
+    .project-widget-box {
+      padding: 15px 20px;
     }
-    ul {
-      height: 30px;
-      list-style: none outside none;
-      margin: 0;
-      overflow: visible;
-      padding: 0;
-      position: relative;
-    }
-    li {
-      background: no-repeat left center;
-      display: block;
-      float: left;
-      line-height: 2em;
-      min-height: 2em;
-      min-width: 22%;
-      padding-left: 28px;
-      &.twitter {
-        background-image: url('/view/m/images/social/twitter.png');
+    .user-head {
+      margin-bottom: 20px;
+      .image {
+        @include circleAvatar(65px);
       }
-      &.facebook {
-        background-image: url('/view/m/images/social/facebook.png');
-      }
-      &.url{
-        background-image: url('/view/m/images/social/url.png');
-        left:100px;
-        position:absolute;
-        top:0;
-        input {
-          width: 265px;
+      &-right {
+        display: inline-block;
+        padding-left: 20px;
+        vertical-align: middle;
+        width: 200px;
+        .title {
+          margin: 0 0 4px;
         }
-      }
-      &.proyecto{
-        background-color: #555555;
-        background-image: url("/view/m/images/project/widget/proyecto.jpg");
-        border-radius: 3px;
-        font-size: 12px;
-        height: 24px;
-        line-height: 24px;
-        margin-bottom: 2px;
-        margin-left: 5px;
-        margin-top: 2px;
-        text-align: left;
-        width: 150px;
-        a{
-          color:#fff;
-          &#a-proyecto:link{
-            font-size: 12px;
+        .location {
+          background: url(/view/images/location/s.png) no-repeat left center;
+          padding-left: 18px;
+          a {
+            color: #9b9b9b;
+            text-decoration: none;
           }
         }
       }
-      &.google {
-        background-image: url('/view/m/images/social/google.png');
+    }
+    .about {
+      p {
+        line-height: 1.5;
+        margin: 0 0 20px;
+        padding: 0 2px;
       }
-      &.identica {
-        background-image: url('/view/m/images/social/identica.png');
-      }
-      &.embed {
-        background-image: url('/view/m/images/social/embed.png');
-      }
-      &.url,
-      &.embed {
-        span {
-          display: none;
+      &-link {
+        margin-bottom: 20px;
+        text-align: right;
+        a {
+          color: $colLinkText01;
+          display: inline-block;
+          font-size: 14px;
+          line-height: 20px;
+          text-decoration: none;
+          &:after {
+            background: url(/view/images/arrow_user_link.png) no-repeat right 50%;
+            content: '';
+            display: inline-block;
+            height: 8px;
+            padding: 0 0 4px 4px;
+            width: 6px;
+          }
         }
-        input,
-        input:focus{
-          border: none;
-          font-size: inherit;
-          background-color: #e6e6e6 !important;
-          border-radius: .25em;
-          -moz-border-radius: .2em;
-          font-weight: normal;
-          padding: 0 .4em;
-          height: 24px;
-          width: 240px;
+      }
+    }
+    .links {
+      line-height: 36px;
+      margin: 0 0 14px 0;
+      padding: 1em 0;
+      padding-bottom: 0;
+      padding-top: 0;
+      ul {
+        line-height: 18px;
+        list-style-type: none;
+        margin: 0;
+        padding-left: 0;
+        a {
+          font-size: 14px;
+          font-weight: 600;
+          text-decoration: none;
+          word-wrap: break-word;
         }
       }
-      a {
+      &.message {
+        background: url(/view/images/bocadillo/s.png) no-repeat left center;
+        padding-left: 22px;
         text-decoration: none;
+        text-indent: .5em;
+        a {
+          color: #28B258;
+          font-size: 14px;
+          font-weight: 600;
+          text-decoration: none;
+        }
+      }
+    }
+    .widget.user-social {
+      margin-bottom: 30px;
+      padding: 0;
+      .title {
+        display: none;
+      }
+      ul {
+        list-style:none;
+        margin:0;
+        overflow:visible;
+        padding:0;
+        li {
+          display:block;
+          float:left;
+          margin-right: 10px;
+          a {
+            background:no-repeat left center;
+            display: inline-block;
+            text-indent: -99999px;
+            width: 20px;
+            height: 20px;
+          }
+          &.facebook {
+            a {
+              background-image:url(/view/images/social/facebook.png);
+            }
+          }
+          &.google {
+            a {
+              background-image:url(/view/images/social/google.png);
+            }
+          }
+          &.twitter {
+            a {
+              background-image:url(/view/images/social/twitter.png);
+            }
+          }
+          &.identica {
+            a {
+              background-image:url(/view/images/social/identica.png);
+            }
+          }
+          &.linkedin {
+            a {
+              background-image:url(/view/images/social/linkedin.png);
+            }
+          }
+        }
       }
     }
   }
@@ -1664,6 +1768,42 @@
     }
   }
 
+  //スキルマッチングで使用するウィジェット
+  &.project-spread {
+    > {
+      h3.title {
+        padding-left: 46px;
+      }
+      div.widget.projects > div {
+        &.left {
+          float: left;
+          width: 280px;
+          border-right: #000 1px solid;
+        }
+        &.right {
+          float: left;
+          width: 245px;
+          margin-left: 12px;
+        }
+      }
+    }
+    div.subtitle {
+      width: 245px;
+      margin: 0 0 10px 7px;
+      &#s1, &#s2 {}
+      > span {
+        display: block;
+        &.primero {
+          margin-bottom: 3px;
+        }
+        &.segundo {
+          color: #28ACAB;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
   //ブログ活動報告ウィジェット
   &.post {
     background-color: #fff;
@@ -1959,38 +2099,180 @@
     }
   }
 
+
+  //ユーザー
+  &.worthcracy {
+    text-align: center;
+    .title {
+      text-align: left !important;
+    }
+    ul {
+      padding: 3em 52px 3em 0;
+      margin: 0;
+      list-style: none;
+      position: relative;
+      display: inline-block;
+      background: url('yen/xl.png') no-repeat right center;
+      li {
+        display: inline-block;
+        width: 92px;
+        height: 8px;
+        overflow: visible;
+        background-color: #e7e7e7;
+        position: relative;
+        > span.threshold,
+        > strong,
+        > em {
+          display: block;
+          width: 92px;
+          position: absolute;
+          text-align: center;
+        }
+        > span.threshold {
+          top: -25px;
+          font-size: 16px;
+        }
+        > em,
+        > strong {
+          top: 12px;
+          width: 300px;
+          left: 50%;
+          margin-left: -150px;
+          color: #808285;
+        }
+        > em {
+          font-style: normal;
+          font-size: 12px;
+        }
+        &.done {
+          &.worth-1,
+          &.active {
+            background-color: #B6CAE0 !important;
+            color: #B6CAE0;
+          }
+          &.worth-2,
+          &.worth-2.active {
+            background-color: #92AFD1 !important;
+            color: #92AFD1;
+          }
+          &.worth-3,
+          &.worth-3.active {
+            background-color: #799EC7 !important;
+            color: #799EC7;
+          }
+          &.worth-4,
+          &.worth-4.active {
+            background-color: #3C71AE !important;
+            color: #3C71AE;
+          }
+          &.worth-5,
+          &.worth-5.active {
+            background-color: #0C4E99 !important;
+            color: #0C4E99;
+          }
+        }
+      }
+    }
+    &.user-worthcracy {
+      h3.title {
+        padding-left: 20px;
+      }
+      ul li > strong {
+        font-weight: bold;
+        font-size: 18px;
+        text-transform: uppercase;
+        top: 15px;
+        padding-top: 9px;
+        background: url('worth/beak.png') no-repeat top center;
+      }
+      div.worth-amount {
+        display: inline;
+        float: left;
+        color: #990033;
+        font-weight: bold;
+        font-size: 30px;
+        position: relative;
+        top: -10px;
+        left: 35px;
+        line-height: 33px;
+        padding-right: 30px;
+        background: url('/view/m/images/yen/violet/l.png') no-repeat center right;
+        border-bottom: 1px solid #990033;
+      }
+    }
+  }
+
+  //todo: investorsらしい
+  /*.side-worthcracy {
+    ul {
+      margin: 0 0 10px 4px;
+      list-style: none;
+      position: relative;
+      display: inline-block;
+      background: url('/view/m/images/yen/s.png') no-repeat right 25px;
+      padding: 2em 25px 1em 0;
+      li {
+        display: inline-block;
+        width: 44px;
+        height: 6px;
+        overflow: visible;
+        background-color: #e7e7e7;
+        position: relative;
+        > span.threshold,
+        > strong,
+        > em {
+          display: block;
+          width: 44px;
+          position: absolute;
+          text-align: center;
+        }
+        > span.threshold {
+          top: -14px;
+          font-size: 12px;
+          line-height: 18px;
+        }
+        > em,
+        > strong {
+          top: 10px;
+          width: 301px;
+          left: 50%;
+          margin-top: 6px;
+          margin-left: -150px;
+          color: #808285;
+        }
+        > em {
+          font-style: normal;
+          font-size: 12px;
+        }
+        &.done {
+          &.worth-1 {
+            background-color: #B6CAE0;
+            color: #B6CAE0;
+          }
+          &.worth-2 {
+            background-color: #92AFD1;
+            color: #92AFD1;
+          }
+          &.worth-3 {
+            background-color: #799EC7;
+            color: #799EC7;
+          }
+          &.worth-4 {
+            background-color: #3C71AE;
+            color: #3C71AE;
+          }
+          &.worth-5 {
+            background-color: #0C4E99;
+            color: #0C4E99;
+          }
+        }
+      }
+    }
+  }*/
+
 }
+
 
 h4.author:hover a{
   color:#c5da4d;
-}
-
-/*----------------------------------------------------------------------
-  project/widget/projects.css
-----------------------------------------------------------------------*/
-
-div#proyecto{
-  h2.widget-title{
-    font-weight:normal;
-    font-size:20px;
-    margin-bottom:1px;
-    text-transform:uppercase;
-  }
-  div#project-code{
-    float: left;
-    width: auto;
-    margin:0 0 0 30px;
-  }
-  div#widget-code{
-    float: left;
-    width: 220px;
-  }
-  d.activableiv#widget-code blockquote{
-    font-size:12px;
-  }
-}
-.project_view{
-  .project_box iframe {
-    width: 304px;
-  }
 }
