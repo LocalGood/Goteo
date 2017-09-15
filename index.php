@@ -49,6 +49,16 @@ if (GOTEO_MAINTENANCE === true && $_SERVER['REQUEST_URI'] != '/about/maintenance
     header('Location: /about/maintenance');
 }
 
+/*
+
+*/
+if ($_REQUEST['scss']){
+    if ($_REQUEST['scss'] === md5(LG_SCSS_COMPILE_PARAM)){
+        require_once __DIR__ . '/vendor/autoload.php';
+        SassCompiler::run(__DIR__ . "/view/scss/", __DIR__ . "/view/css/");
+    }
+}
+
 // Include path
 //set_include_path(GOTEO_PATH . PATH_SEPARATOR . '.');
 
