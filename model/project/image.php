@@ -49,10 +49,8 @@ namespace Goteo\Model\Project {
          */
 	 	public static function get ($id, $section = null) {
             
-//            $URL = SITE_URL;
-            $URL = preg_replace('/[A-Za-z0-9.]+\.localgood/',STATIC_SVR_DOMAIN,SITE_URL);
-            
-            
+            $URL = STATIC_SVR_DOMAIN;
+
             $array = array ();
             try {
                 $values = array(':id' => $id);

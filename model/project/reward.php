@@ -22,8 +22,8 @@ namespace Goteo\Model\Project {
 
     use \Goteo\Model\Icon,
         \Goteo\Library\Text,
-        \Goteo\Model\License,
-        \Goteo\Model\Image;
+        \Goteo\Model\License;
+//        \Goteo\Model\Image;
 
     class Reward extends \Goteo\Core\Model {
 
@@ -112,8 +112,8 @@ namespace Goteo\Model\Project {
 
 //                    error_log('Reward get');
 //                    error_log(var_export($item->image,true));
-                    $item->image = Image::get($item->image);
-                    if (empty($item->image) || !$item->image instanceof Image) {
+                    $item->image = \Goteo\Model\Image::get($item->image);
+                    if (empty($item->image) || !$item->image instanceof \Goteo\Model\Image) {
                         $item->image = null;
                     }
 //                    error_log(var_export($item->image,true));
@@ -155,7 +155,7 @@ namespace Goteo\Model\Project {
 
             if (is_array($this->image)){
                 // Imageオブジェクト生成
-                $image = new Image($this->image);
+                $image = new \Goteo\Model\Image($this->image);
 //                var_export(var_dump($image,true));
                 if ($image->save($errors)){
                     $this->image = $image;
