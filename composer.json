@@ -1,0 +1,5 @@
+{
+"require-dev": {
+    "panique/php-sass": "1.0"
+}
+}
