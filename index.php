@@ -56,6 +56,7 @@ if ($_REQUEST['scss']){
     if ($_REQUEST['scss'] === md5(LG_SCSS_COMPILE_PARAM)){
         require_once __DIR__ . '/vendor/autoload.php';
         SassCompiler::run(__DIR__ . "/view/scss/", __DIR__ . "/view/css/");
+        SassCompiler::run(__DIR__ . "/view/m/scss/", __DIR__ . "/view/m/css/");
     }
 }
 
