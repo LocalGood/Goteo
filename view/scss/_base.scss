@@ -1,3 +1,4 @@
+@charset "utf-8";
 html {
   font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -135,6 +136,10 @@ input.edit[type="submit"] {
     opacity: 0.75;
     color: #FFF;
   }
+}
+
+input[value='削除']{
+  background: $alertCol!important;
 }
 
 

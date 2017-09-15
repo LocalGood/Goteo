@@ -38,7 +38,7 @@ page          :スタイル調整が必要なページ
  borders
 ----------------------------------------------------------------------*/
 html {
-  font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', '繝｡繧､繝ｪ繧ｪ', Helvetica, Arial, sans-serif;
+  font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif;
   font-size: 14px;
   height: 100%;
   margin: 0;
@@ -166,6 +166,9 @@ input.edit[type="submit"] {
   input.edit[type="submit"]:hover {
     opacity: 0.75;
     color: #FFF; }
+
+input[value='削除'] {
+  background: #e02d22 !important; }
 
 /*a.button.red,
 a.button.weak {
@@ -4309,8 +4312,8 @@ body.js .superform > div.elements ol li.element div.contents p {
   margin: 0 0 20px;
   padding: 0; }
   .community .categorylist h3.title {
-    background-color: #0093c4;
-    border-bottom: 1px solid #0093c4;
+    background-color: #255b7f;
+    border-bottom: 1px solid #255b7f;
     color: #f2f2f2;
     font-size: 18px;
     font-weight: 400;
