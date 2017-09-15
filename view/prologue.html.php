@@ -25,7 +25,7 @@ use Goteo\Core\View,
 
 //@NODESYS
 
-$fbCode = Text::widget(Text::get('social-account-facebook'), 'fb');
+//$fbCode = Text::widget(Text::get('social-account-facebook'), 'fb');
 
 // metas og: para que al compartir en facebook coja las imagenes de novedades
 if($_SERVER['REQUEST_URI']=="/"):
