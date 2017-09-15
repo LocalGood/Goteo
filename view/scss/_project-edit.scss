@@ -35,16 +35,16 @@
       font-style: normal;
     }
     .project-by {
-      color: #20B3B2;
+      color: $mainCol01;//#20B3B2
       font-size: 12px;
       margin: 0 0 .5em;
       a {
         font-weight: normal;
-        color: #cc6600;
+        color: $mainCol01;//#cc6600
         font-size: 12px;
         text-decoration: none;
         &:hover {
-          color: $grayCol03;
+          color: $mainCol02;
         }
       }
     }
@@ -167,7 +167,7 @@
         box-shadow: none;
         box-sizing: content-box;
         border:none;
-        color:#20b2b1;
+        color: $grayCol02;//#20b2b1
         font-size:12px;
         font-weight:400;
         height:100%;
@@ -177,6 +177,7 @@
         padding:0 0 50px;
         width: auto;
         &:hover {
+          color: $color06;
           opacity: 1;
         }
       }
@@ -214,7 +215,7 @@
       }
     }
     fieldset fieldset {
-      border:1px solid #e13028;
+      border:1px solid $grayCol02;//#e13028
       border-top:none;
       padding-bottom:8px;
       position:relative;
@@ -225,7 +226,7 @@
         margin-right:-1px;
       }
       > legend {
-        color:#e13028;
+        color: $grayCol02;//#e13028
         display:block;
         font-size:12px;
         left:0;
@@ -248,17 +249,17 @@
       width: 960px;
       margin: 0 auto;
       position: relative;
-      input.message-close {
-        background: url('/view/images/message-close.png') no-repeat;
-        width: 11px;
-        height: 10px;
-        border: none;
-        position: absolute;
-        top: -8px;
-        right: 0;
-        z-index: 100;
-        cursor: pointer;
-      }
+      //input.message-close {
+      //  background: url('/view/images/message-close.png') no-repeat;
+      //  width: 11px;
+      //  height: 10px;
+      //  border: none;
+      //  position: absolute;
+      //  top: -8px;
+      //  right: 0;
+      //  z-index: 100;
+      //  cursor: pointer;
+      //}
       ul {
         list-style: none;
         margin: 0;
@@ -451,7 +452,7 @@
         }
         ol {
           margin:0;
-          padding:0;
+          padding: 0;
           li.element {
             div.contents {
               textarea {
@@ -600,15 +601,15 @@
                 }
                 &.minimum > span {
                   bottom:0;
-                  color:#96238F;
+                  color: $color06;//#96238F
                   margin-left:-66px;
                 }
                 &.optimum {
-                  border-top:10px solid #BB70B6;
+                  border-top:10px solid $color10;//#BB70B6
                   margin-top:-10px;
                   z-index:0;
                   > span {
-                    color:#BB70B6;
+                    color: $color10;//#BB70B6
                     margin-left:-76px;
                     margin-top:18px;
                     top:100%;
@@ -618,10 +619,10 @@
               }
               dd {
                 &.minimum {
-                  border-bottom:10px solid #96238F;
+                  border-bottom:10px solid $color06;
                   z-index:900;
                   > span {
-                    border-left:10px solid #96238F;
+                    border-left:10px solid $color06;//#96238F
                     bottom:-20px;
                     font-size:28px;
                     height:20px;
@@ -632,7 +633,7 @@
                     text-align:center;
                     width:0;
                     > strong {
-                      color:#96238F;
+                      color: $color06;//#96238F
                       padding-left:5px;
                       position:absolute;
                       right:0;
@@ -640,7 +641,7 @@
                       top:-36px;
                     }
                     > span.yen {
-                      color:#96238F;
+                      color: $color06;//#96238F
                       font-size:20px;
                       left:10px;
                       position:absolute;
@@ -657,7 +658,7 @@
                   text-align:center;
                   width:10em;
                   > span {
-                    border-left:10px solid #BB70B6;
+                    border-left:10px solid $color10;//#BB70B6
                     font-size:28px;
                     height:12px;
                     left:-15px;
@@ -668,13 +669,13 @@
                     top:0;
                     width:0;
                     > strong {
-                      color:#BB70B6;
+                      color: $color10;//#BB70B6
                       position:absolute;
                       right:0;
                       top:34px;
                     }
                     > span.yen {
-                      color:#BB70B6;
+                      color: $color10;//#BB70B6
                       font-size:20px;
                       left:10px;
                       position:absolute;
@@ -741,7 +742,7 @@
                 margin: .5em 0;
               }
               span.left {
-                color:#EE4843;
+                color: $color10;//#EE4843
                 font-weight:700;
               }
             }
@@ -980,6 +981,12 @@
           }
         }
       }
+    }
+
+    .superform > div > ol{
+      margin:0;
+      padding: 20px !important;
+      background: #FFF;
     }
   }
 }

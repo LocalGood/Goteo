@@ -1,3 +1,4 @@
+@charset "utf-8";
 .superform {
 
   div.element {
@@ -19,8 +20,8 @@
       > div.contents > input[type="text"],
       > div.contents > input[type="password"],
       > div.contents > textarea {
-        background-color:#eee;
-        border:1px solid #ccc;
+        background-color: $baseCol;
+        border:1px solid $grayCol01;
         box-sizing: content-box;
         display:block;
         margin:0;
@@ -31,8 +32,8 @@
       }
     }
     &.fullwidth {
-      background-color:#e7e7e7!important;
-      border-bottom:1px dashed #b7c2c5!important;
+      background-color: $baseCol!important;
+      border-bottom:1px dashed $grayCol01!important;
       border-right:none!important;
       margin-bottom:-1px!important;
       margin-right:-2px!important;
@@ -44,25 +45,37 @@
     }
     li.element {
       > div.feedback {
-        background:url(/view/images/superform/tooltip/beak/cyan/n.png) no-repeat 1em 0;
+        background:url('/view/images/superform/tooltip/beak/cyan/n.png') no-repeat 1em 0;
         display:inline-block;
         font-size:14px;
         margin-top:1em;
         padding-top:13px;
         z-index:999;
         > div {
+          position: relative;
           -moz-border-radius:7px;
           -moz-box-shadow:2px 3px 0 rgba(0,0,0,.2);
           -webkit-border-radius:7px;
           -webkit-box-shadow:2px 3px 0 rgba(0,0,0,.2);
-          background-color:#def1f1;
+          background-color: $baseCol;//#def1f1
           border-radius:7px;
           box-shadow:2px 3px 0 rgba(0,0,0,.2);
-          color:#7f8183;
+          color: $grayCol03;
           line-height:16px!important;
           margin:0;
           padding:20px;
           position:relative;
+          &::after{
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 20px;
+            left: -20px;
+            border: 10px solid transparent;
+            border-right: 10px solid $baseCol;
+          }
         }
       }
     }
@@ -82,12 +95,12 @@
         }
         &.error {
           + div.hint > blockquote {
-            border-top:1px dashed #b7c2C5;
+            border-top:1px dashed yellow;//#b7c2C5
             padding-top:1em;
           }
           blockquote
           {
-            background:url(/view/images/superform/feedback/error.png) no-repeat left .2em;
+            background:url('/view/images/superform/feedback/error.png') no-repeat left .2em;
             padding-left:30px;
           }
         }
@@ -118,6 +131,7 @@
     }
     > h4.title {
       font-size:16px;
+      font-weight: bold;
     }
     > label {
       display:block;
@@ -166,7 +180,7 @@
       padding: 0;
       > li {
         &.element {
-          border-right: 1px dashed #b7c2c5;
+          border-right: 1px dashed $grayCol01;
           margin-right: 251px;
           &.checkboxes,
           &.checkboxescustom,
@@ -177,8 +191,8 @@
           &.checkboxescustom > div.contents > ul,
           &.radios > div.contents > ul,
           &.slider > div.contents > ul {
-            border-left:1px dashed #B7C2C5;
-            border-top:1px dashed #bcbdbf;
+            //border-left:1px dashed $grayCol02;
+            //border-top:1px dashed $grayCol02;
             list-style:none;
             margin:0;
             overflow:hidden;
@@ -188,8 +202,8 @@
           &.checkboxescustom > div.contents > ul > li,
           &.radios > div.contents > ul > li,
           &.slider > div.contents > ul > li {
-            border-bottom:1px dashed #bcbdbf;
-            border-right:1px dashed #bcbdbf;
+            //border-bottom:1px dashed $grayCol02;
+            //border-right:1px dashed $grayCol02;
             padding:0;
           }
           &.checkboxes.inline > div.contents > ul > li,
@@ -223,7 +237,8 @@
           &.radios.cols_2 > div.contents > ul > li,
           &.slider.cols_2 > div.contents > ul > li {
             float:left;
-            width:49.8%;
+            //width:49.8%;
+            margin: 0 30px 0 0;
           }
           &.checkboxes.cols_3 > div.contents > ul > li,
           &.checkboxescustom.cols_3 > div.contents > ul > li,
@@ -256,12 +271,15 @@
           &.checkboxescustom > div.contents > ul > li > label > input[type="checkbox"],
           &.radios > div.contents > ul > li > label > input[type="radio"],
           &.slider > div.contents > ul > li > label > input[type="radio"] {
+            display: inline-block;
             cursor:pointer;
             height:1em;
             margin-top:-.5em;
-            position:absolute;
-            right:.5em;
-            top:50%;
+            margin-right: 10px;
+            //margin-left: 10px;
+            //position:absolute;
+            //right:-.5em;
+            //top:50%;
           }
           &.radio {
             padding:0!important;
@@ -274,13 +292,25 @@
           margin-top:1em;
         }
         &.required > .title {
-          background:url(/view/images/superform/badge/required.png) no-repeat right center;
+          //background:url('/view/images/superform/badge/required.png') no-repeat right center;
+          position: relative;
+          &::after{
+            @include form_icon('必須',calc(100% - 19px),60px,$subCol02);
+          }
         }
         &.ok > .title {
-          background:url(/view/images/superform/badge/ok.png) no-repeat right 80%;
+          //background:url(/view/images/superform/badge/ok.png) no-repeat right 80%;
+          position: relative;
+          &::before{
+            @include form_icon('OK',5px,0,$subCol01);
+          }
         }
         &.error > .title {
-          background:url(/view/images/superform/badge/error.png) no-repeat right bottom!important;
+          //background:url(/view/images/superform/badge/error.png) no-repeat right bottom!important;
+          position: relative;
+          &::before{
+            @include form_icon('エラー',2px,0,$alertCol);
+          }
         }
         &.busy > .title {
           background:url(/view/images/superform/badge/busy/cyan.gif) no-repeat right center;
@@ -318,9 +348,9 @@
   }
 
   fieldset {
-    border:1px solid #99a2a5;
+    border:1px solid $grayCol01;
     legend {
-      color:#6d7375;
+      color: $grayCol02;
     }
   }
 
@@ -334,12 +364,12 @@
   }
 
   > div.hint {
-    color:#7f8183;
+    color: $grayCol02;
     overflow:hidden;
     h4,
     blockquote {
       background-color:#fff;
-      border:dashed #b7c2c5;
+      border:dashed $grayCol02;
       border-width:1px 0 0;
       margin:0;
       padding:20px;
@@ -361,15 +391,15 @@
     }
   }
 
-  ol #interests div.contents > ul {
-    border-left:1px dashed #B7C2C5;
-  }
+  //ol #interests div.contents > ul {
+  //  border-left:1px dashed $grayCol02;
+  //}
 
   input[type="text"],
   input[type="password"],
   textarea {
-    background-color:#eee;
-    border:1px solid #ccc;
+    background-color: $baseCol;
+    border:1px solid $grayCol01;
     min-height:27px;
   }
 
@@ -380,10 +410,27 @@
   &.aqua {
     li.element {
       > div.feedback {
-        background-image:url(/view/images/superform/tooltip/beak/aqua/n.png);
+        background: none;
+        //background-image:url(/view/images/superform/tooltip/beak/aqua/n.png);
         > div {
-          background-color:#35b8b8;
-          color:#FFF;
+          color: $grayCol03;
+          padding: 20px;
+          -webkit-border-radius: 7px;
+          -moz-border-radius: 7px;
+          border-radius: 7px;
+          box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
+          background-color: $baseCol;//#35b8b8
+          &:after{
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 20px;
+            left: -20px;
+            border: 10px solid transparent;
+            border-right: 10px solid $baseCol;
+          }
           &.error + div.hint > blockquote {
             border-top-color:#FFF;
           }
@@ -401,8 +448,8 @@
       > div.feedback {
         background-image:url(/view/images/superform/tooltip/beak/red/n.png);
         > div {
-          background-color:#e13028;
-          color:#FFF;
+          background-color: $alertCol;//#e13028
+          color: #FFF;
           &.error + div.hint > blockquote {
             border-top-color:#FFF;
           }
@@ -412,13 +459,13 @@
     input[type="text"],
     input[type="password"],
     textarea {
-      background-color:#fdedec;
-      border-color:#ee4843;
+      background-color: #FFF;//#fdedec
+      border-color: $alertCol;//#ee4843
     }
     > div.hint h4,
     > div.hint blockquote {
-      background-color:#fdedec;
-      color:#ee4843;
+      background-color: #FFF;//#fdedec
+      color: $alertCol;//#ee4843
     }
     div.elements > ol > li.busy > .title {
       background:url(/view/images/superform/badge/busy/red.gif) no-repeat right top;
@@ -430,7 +477,7 @@
       > div.feedback {
         background-image:url(/view/images/superform/tooltip/beak/green/n.png);
         > div {
-          background-color:#00b05b;
+          background-color: $color10;//#00b05b
           color:#FFF;
         }
       }
@@ -438,13 +485,13 @@
     input[type="text"],
     input[type="password"],
     textarea {
-      background-color:#e7f3e8;
-      border-color:#00b05b;
+      background-color: $grayCol01;//#e7f3e8
+      border-color: $grayCol03;//#00b05b
     }
     > div.hint h4,
     > div.hint blockquote {
-      background-color:#e7f3e8;
-      color:#00b05b;
+      background-color: $grayCol01;//#e7f3e8
+      color: $grayCol03;//#00b05b
     }
     div.elements > ol > li.busy > .title {
       background:url(/view/images/superform/badge/busy/green.gif) no-repeat right top;
@@ -499,16 +546,16 @@
   }
 
   li.editcost li.required_cost-yes {
-    background-color:#e4c9e2!important;
+    background-color: yellow!important;//#e4c9e2
   }
 
   li.cost.required_cost-no,
   li.editcost.required_cost-no {
-    background-color:#f3f3f3!important;
+    background-color: $baseCol!important;
   }
 
   li.editcost li.required_cost-no {
-    background-color:#e2e2e2!important;
+    background-color: $baseCol!important;
   }
 
   li#gallery div.elements li.gallery-image {
@@ -521,7 +568,7 @@
   li#supports,
   li#social_rewards,
   li#individual_rewards {
-    border-bottom:1px dashed #b7c2c5;
+    border-bottom:1px dashed $grayCol01;
   }
 
   li.element div.contents input.addinput[type="submit"],
@@ -565,7 +612,7 @@ body.js {
     > div.elements {
       > ol {
         > li.element {
-          border-right:1px dashed #b7c2c5;
+          border-right:1px dashed $grayCol01;
           margin-right:251px;
           div.contents {
             font-size:14px;
@@ -579,15 +626,16 @@ body.js {
       li.element {
         .is_public {
           float: right;
-          margin-right:54px;
+          margin: 5px 0 0 0;
+          //margin-right:54px;
           &.non_required {
             margin-right:0;
           }
         }
         > div.feedback {
-          background:transparent url(/view/images/superform/tooltip/beak/cyan/w.png) no-repeat 0 1em;
+          //background:transparent url(/view/images/superform/tooltip/beak/cyan/w.png) no-repeat 0 1em;
           display:none;
-          padding-left:13px;
+          //padding-left:13px;
           padding-top:0;
           position:absolute;
           right:-250px;
@@ -597,27 +645,27 @@ body.js {
       }
     }
 
-    &.aqua li.element > div.feedback {
-      background-image:url(/view/images/superform/tooltip/beak/aqua/w.png);
-    }
-    &.red li.element > div.feedback {
-      background-image:url(/view/images/superform/tooltip/beak/red/w.png);
-    }
-    &.green li.element > div.feedback {
-      background-image:url(/view/images/superform/tooltip/beak/green/w.png);
-    }
+    //&.aqua li.element > div.feedback {
+    //  background-image:url(/view/images/superform/tooltip/beak/aqua/w.png);
+    //}
+    //&.red li.element > div.feedback {
+    //  background-image:url(/view/images/superform/tooltip/beak/red/w.png);
+    //}
+    //&.green li.element > div.feedback {
+    //  background-image:url(/view/images/superform/tooltip/beak/green/w.png);
+    //}
 
     .is_public {
       font-size: 12px;
-      background-color: #92c450;
-      padding: 2px 8px;
+      background-color: $subCol01;//#92c450
+      padding: 0 8px;
       color: #ffffff;
     }
 
     div.children > div.elements > ol > li.element > div.feedback
     {
-      left:100%;
-      margin-left:1em;
+      left: 100%;
+      margin-left: 2em;
       margin-top:0;
     }
 
@@ -628,6 +676,7 @@ body.js {
       }
       div.contents p {
         font-size:14px;
+        font-weight: bold;
         margin:2em 0 .6em;
         padding:0;
       }

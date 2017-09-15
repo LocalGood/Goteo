@@ -18,7 +18,7 @@
 
     .project {
       background-color: #fff;
-      border: 1px solid #d1d3d4;
+      border: 1px solid $grayCol01;
       box-sizing: content-box;
       border-radius: 4px;
       float: left;
@@ -42,7 +42,7 @@
         text-decoration:none;
       }
       .image {
-        background-color:#deddde;
+        background-color: $baseCol;
         border-radius: 4px 4px 0 0;
         height:135px;
         margin:0;
@@ -58,7 +58,7 @@
           margin: 0 0 16px;
         }
         .author {
-          color: #ababab;
+          color: $grayCol02;
           font-size:12px;
           margin-bottom: 10px;
           &-img {
@@ -70,7 +70,7 @@
         }
         .categories {
           background: url(/view/images/icon_tag.png) no-repeat left 50%;
-          color: #ababab;
+          color: $grayCol02;
           font-size:12px;
           padding-left: 20px;
         }
@@ -86,7 +86,7 @@
       }
 
       .want-support {
-        border-top: 1px solid #d1d3d4;
+        border-top: 1px solid $grayCol01;
         bottom: 0;
         letter-spacing: -.4em;
         position: absolute;
@@ -99,7 +99,7 @@
           vertical-align: top;
           width: 50%;
           &:first-child {
-            border-right: 1px solid #d1d3d4;
+            border-right: 1px solid $grayCol01;
           }
         }
         h4 {
@@ -120,8 +120,22 @@
       }
 
       .balloon {
-        background:#cae4e6 url(/view/images/balloonbeak.png) no-repeat bottom left;
-        border-bottom:15px solid #FFF;
+        //background:$grayCol01 url(/view/images/balloonbeak.png) no-repeat bottom left;
+        //border-bottom:15px solid #FFF;
+        position: relative;
+        margin: 0 0 30px 0;
+        background: $grayCol01;
+        &::after{
+          content: '';
+          display: block;
+          position: absolute;
+          bottom: -30px;
+          left: 20px;
+          width: 0;
+          height: 0;
+          border: 15px solid transparent;
+          border-top: solid 15px $grayCol01;
+        }
         > blockquote {
           font-size:12px;
           height:4.5em;
@@ -222,12 +236,12 @@
             width:100%;
           }
           > a {
-            background-color:#cdcdce;
+            background-color: $grayCol01;
             &:hover {
-              background-color:#20b3b2;
+              background-color: $color06;//#20b3b2
             }
             &.active {
-              background-color:#808184;
+              background-color: $grayCol02;//#808184
             }
           }
         }
@@ -239,7 +253,7 @@
         text-transform:uppercase;
         top:-20px;
         &:hover {
-          color:#20B3B2;
+          color: $color06;//#20B3B2
         }
       }
     }
@@ -248,7 +262,7 @@
   //支援（グラフ）
   &.project-support {
     .supertitle {
-      background-color: #58585a;
+      background-color: $grayCol03;
       color: #fff;
       font-size: 12px;
       height: 40px;
@@ -294,6 +308,74 @@
     }
   }
 
+  &.project-investors{
+    background: none;
+    .project-widget-box{
+      background: #FFF;
+      ul{
+        display: -webkit-flex;
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li{
+          position: relative;
+          width: 50%;
+          padding: 10px;
+          border-right: dashed 1px $grayCol01;
+          border-bottom: dashed 1px $grayCol01;
+          &:hover{
+            background: $baseCol;
+          }
+          &:nth-child(2n+2){
+            padding: 10px 20px 10px 10px;
+            border-right: none;
+          }
+          a{
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+          }
+          .supporter{
+            display: -webkit-flex;
+            display: flex;
+            flex-wrap: wrap;
+            .avatar{
+              @include circleAvatar(43px);
+              margin: 0 10px 0 0;
+            }
+            h4.aqua{
+              max-width: 75px;
+              font-weight: bold;
+              color: $mainCol01;
+              margin: 0;
+            }
+            dl{
+              display: -webkit-flex;
+              display: flex;
+              flex-wrap: wrap;
+              width: 100%;
+              margin-bottom: 0;
+              font-size: 12px;
+              dt{
+                width: 25%;
+              }
+              dd{
+                width: 74%;
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   //オーナーウィジェット
   &.user {
     margin-bottom: 20px;
@@ -321,7 +403,7 @@
           background: url(/view/images/location/s.png) no-repeat left center;
           padding-left: 18px;
           a {
-            color: #9b9b9b;
+            color: $grayCol02;
             text-decoration: none;
           }
         }
@@ -337,7 +419,7 @@
         margin-bottom: 20px;
         text-align: right;
         a {
-          color: $colLinkText01;
+          color: $mainCol01;
           display: inline-block;
           font-size: 14px;
           line-height: 20px;
@@ -349,6 +431,9 @@
             height: 8px;
             padding: 0 0 4px 4px;
             width: 6px;
+          }
+          &:hover{
+            color: $mainCol02;
           }
         }
       }
@@ -377,7 +462,7 @@
         text-decoration: none;
         text-indent: .5em;
         a {
-          color: #28B258;
+          color: $color10;//#28B258
           font-size: 14px;
           font-weight: 600;
           text-decoration: none;
@@ -590,7 +675,7 @@
       margin-bottom: 20px;
       .title {
         a {
-          color: #96238F !important;
+          color: $mainCol01 !important;//#96238F
         }
       }
       ul {
@@ -625,7 +710,7 @@
     .social {
       .title {
         a {
-          color: #28b258 !important;
+          color: $mainCol01 !important;//#28b258
         }
       }
     }
@@ -689,10 +774,10 @@
     padding: 40px 0;
     a.button {
       background: none;
-      background: #ff9900;
-      -moz-box-shadow: 0 3px 3px 0 #ccc;
-      -webkit-box-shadow: 0 3px 3px 0 #ccc;
-      box-shadow: 0 3px 3px 0 #ccc;
+      background: $subCol02;
+      -moz-box-shadow: 0 3px 3px 0 $grayCol01;
+      -webkit-box-shadow: 0 3px 3px 0 $grayCol01;
+      box-shadow: 0 3px 3px 0 $grayCol01;
       display: block;
       font-size: 14px;
       font-weight: 300;
@@ -742,13 +827,13 @@
       }
       .min {
         span {
-          background: #e3eadc;
+          background: $baseCol;
         }
       }
       .max {
         line-height: 20px;
         span {
-          background: #F2F2F2;
+          background: $baseCol;
         }
       }
     }
@@ -771,20 +856,20 @@
         }
       }
       tbody {
-        background: #e3eadc;
+        background: $baseCol;
         th.summary {
           padding: 16px 20px;
         }
       }
       tr {
         &:not(:last-child) {
-          border-bottom: 1px solid #c0c0c0;
+          border-bottom: 1px solid $grayCol01;
         }
         &.req {
-          background: #e3eadc;
+          background: $baseCol;
         }
         &.noreq {
-          background: #F2F2F2;
+          background: $baseCol;
         }
         &.sum {
           th {
@@ -862,7 +947,7 @@
             border-right: none;
           }
           &.active {
-            background-color: #f3f3f3;
+            background-color: $baseCol;
           }
         }
       }
@@ -887,7 +972,7 @@
           position: absolute;
         }
         h4 {
-          color: $colLinkText01;
+          color: $mainCol01;
           font-size: 16px;
           font-weight: 600;
           line-height: 1.15;
@@ -913,7 +998,7 @@
             margin-left: 0;
           }
           &.date {
-            color: #a6a8ab;
+            color: $grayCol02;
             font-size: 12px;
             margin: 0;
           }
@@ -968,16 +1053,16 @@
           text-align:center;
         }
         &.on {
-          background-color: #d1edf1;
+          background-color: $grayCol01;//#d1edf1
           text-align: left;
           span {
             opacity: .75;
           }
           &.req {
-            background-color: #c7d8b6;
+            background-color: $mainCol01;//#c7d8b6
           }
           &.noreq {
-            background-color: #e2e2e2;
+            background-color: $baseCol;
           }
         }
       }

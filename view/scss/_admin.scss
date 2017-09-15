@@ -41,11 +41,11 @@
         color: $grayCol03;
         font-size:18px;
         &:hover {
-          color: #20B2B3;//#20B2B3
+          color: $color06;//#20B2B3
         }
       }
       strong {
-        color: #20B2B3;//#20B2B3
+        color: $color06;//#20B2B3
       }
     }
   }
@@ -63,7 +63,7 @@
       padding: 0;
       width: 100%;
       legend {
-        background-color: #20B2B3;//#20B2B3
+        background-color: $color06;//#20B2B3
         color: #fff;
         display: block;
         font-weight: 700;
@@ -83,7 +83,7 @@
         width: 160px;
         &.active {
           a {
-            color: #20B2B3;
+            color: $color06;
           }
         }
         a {
@@ -172,7 +172,7 @@
           }
         }
         th {
-          background-color:#666;
+          background-color: $grayCol02;
           box-sizing: content-box;
           color: $baseCol;
         }
@@ -481,22 +481,22 @@
       text-decoration: none;
     }
     .light-blue {
-      color: #1DB3B2;
+      color: $color06;//#1DB3B2
     }
     .blue {
-      color:#0B4F99;
+      color: $color06;//#0B4F99
     }
     .violet {
-      color:#95268D;
+      color: $color06;//#95268D
     }
     .red {
-      color:#E22727;
+      color: $alertCol;
     }
     .grey {
-      color: $grayCol02;
+      color: $color06;
     }
     .green {
-      color:#20A64B;
+      color: $color06;//#20A64B
     }
     .subitem {
       border-bottom: $grayCol02 1px dashed;

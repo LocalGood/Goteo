@@ -12,7 +12,7 @@
   }
 
   #review-menu {
-    background-color:#78d1d1;
+    background-color: $grayCol01;
     display:block;
     font-size:13px;
     margin:-2.6em auto 0;
@@ -70,7 +70,7 @@
     ul li.section.active ul,
     ul li.section.current,
     ul li.section.current ul {
-      background-color:#808285;
+      background-color: $grayCol02;
     }
   }
 }

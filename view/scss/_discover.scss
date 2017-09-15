@@ -89,7 +89,7 @@
       right:40px;
       top:0;
       #searcher {
-        background:url('/view/images/search_icon.png') no-repeat center,#DE1F27;
+        background:url('/view/images/search_icon.png') no-repeat center,$subCol01;
         height:33px;
         margin: 2px 0 0;
         text-indent:-9999px;
@@ -119,4 +119,3 @@
     }
   }
 }
-

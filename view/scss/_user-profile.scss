@@ -65,14 +65,14 @@
         dt {
           margin: 0;
           &.reached {
-            color: #663;
+            color: yellow;//#663
             margin-top: -1.5em;
           }
         }
         dd {
           margin: 0;
           &.reached {
-            color: #903;
+            color: yellow;//#903
           }
         }
       }
@@ -124,7 +124,7 @@
               text-decoration:none;
               &.active,
               &:hover {
-                color:#19B4B2;
+                color: $color06;//#19B4B2
               }
             }
           }
@@ -230,14 +230,12 @@
           }
           h4 {
             float: right;
-            width: 101px;
+            width: 100px;
             height: 3em;
             font-size:12px;
-            margin: 0 0 4px 3px;
+            margin-bottom: 4px;
             text-align: left;
             overflow: hidden;
-            //text-overflow: ellipsis;
-            //white-space: nowrap;
             span{
               display: -webkit-box;
               -webkit-box-orient: vertical;
@@ -246,8 +244,7 @@
           }
           dl{
             float: right;
-            width: 101px;
-            margin: 0 0 0 3px;
+            width: 100px;
             dd.date{
               top: auto;
               bottom: -2em;
@@ -276,12 +273,12 @@
             margin-bottom:5px;
             margin-right:5px;
             a {
-              color:#636466;
+              color: $grayCol02;
               font-size:12px;
               text-decoration:none;
               text-transform:uppercase;
               &:hover {
-                color:#20B3B2;
+                color: $color06;//#20B3B2
               }
             }
           }
@@ -377,7 +374,7 @@
             font-size:12px;
             text-decoration:none;
             &:hover {
-              color:#20B3B2;
+              color: $color06;//#20B3B2
             }
           }
         }
@@ -399,7 +396,7 @@
           font-weight:400;
           text-decoration:none;
           &:hover {
-            color:#20B3B2;
+            color: $color06;//#20B3B2
           }
         }
       }
@@ -410,7 +407,7 @@
           min-height:22px;
           padding-left:26px;
           a {
-            color:#28B258;
+            color: $color06;//#28B258
             font-size:14px;
             font-weight:700;
             text-decoration:none;
@@ -457,7 +454,7 @@
             border-right:none;
           }
           &.active {
-            background-color:#f3f3f3;
+            background-color: $grayCol01;
           }
           div.supporterContainer {
             margin:0;
@@ -499,10 +496,6 @@
             dt {
               clear: left;
               float: left;
-              &.projects {
-                margin-right:0;
-                padding-left:4px;
-              }
               &.date {
                 display:none;
               }
@@ -510,11 +503,9 @@
             dd {
               font-size:10px;
               margin: 0;
-              &.projects {
-              }
               &.date {
                 bottom:0;
-                color:#a6a8ab;
+                color: $grayCol02;
                 left:4px;
                 position:absolute;
                 top:10px;
@@ -529,7 +520,7 @@
       background-color:#fff;
       border-top:$dashedBorder;
       clear:both;
-      color:#58595b;
+      color: $mainCol01;
       display:block;
       float:none;
       font-size:14px!important;
@@ -540,13 +531,13 @@
       text-decoration:none;
       text-transform:uppercase;
       &:hover {
-        color: #313B96;
+        color: $mainCol02;//#313B96
       }
     }
   }
 
   .widget.user-social {
-    border-bottom: 1px dashed #c0c0c0;
+    border-bottom: 1px dashed $grayCol01;
     .title {
       display:none;
     }
@@ -653,10 +644,10 @@
             margin-right:0;
           }
           &.active {
-            background-color:#f3f3f3!important;
+            background-color: $baseCol!important;
           }
           &:hover > div.user > h4 > a {
-            color:#19B4B2;
+            color: $color06;//#19B4B2
           }
           .user {
             padding: 20px 20px 20px 80px;
@@ -678,7 +669,7 @@
             top:20px;
             width:50px;
             a {
-              @include circleAvatar(50px);
+              @include circleAvatar(43px);
             }
           }
           h3, h4, h5, h6 {
@@ -693,11 +684,11 @@
           span {
             font-size:12px;
             &.projects {
-              color:#20b3b2;
+              color: $mainCol01;//#20b3b2
               margin-right: 8px;
             }
             &.invests {
-              color:#313b96;
+              color: $mainCol01;//#313b96
             }
           }
         }
@@ -707,7 +698,7 @@
             text-decoration:none;
             text-transform:none!important;
             &:hover {
-              color:#20B3B2;
+              color: $mainCol02;//#20B3B2
             }
           }
           div.user h4 {
@@ -721,7 +712,7 @@
       }
     }
     a.more {
-      color: #337ab7;
+      color: $mainCol01;//#337ab7
       display: inline-block;
       font-size:14px;
       line-height: 58px;
@@ -733,7 +724,7 @@
       text-decoration:none;
       top: 0;
       &:hover {
-        color:#20b3b2;
+        color: $mainCol02;//#20b3b2
       }
       &:after {
         background: url(/view/images/arrow_user_link.png) no-repeat right 50%;
@@ -745,7 +736,7 @@
       }
     }
     .project-widget-box {
-      background-color:#e5e5e5;
+      background-color: $baseCol;
       margin:0;
       padding:0;
     }
@@ -780,10 +771,10 @@
       font-weight: normal;
       margin: 0;
       padding: .5em 2px;
-      border-bottom: 1px solid #21b0b0;
+      border-bottom: 1px solid yellow;//#21b0b0
       font-size: 18px;
-      background-color: #21b0b0;
-      color: #f5f5f5;
+      background-color: yellow;//#21b0b0
+      color: $baseCol;
       padding-left: 8px;
     }
   }
@@ -801,7 +792,6 @@
       margin: 0 auto;
     }
     h2 {
-      //margin-bottom: 20px;
       min-height: 55px;
       position: relative;
       line-height: 1.2em;

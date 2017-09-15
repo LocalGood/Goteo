@@ -44,14 +44,14 @@
       max-width:215px;
     }
     .minimum {
-      background-color: #dc940f;
+      background-color: $color06;
       border-radius: 9px;
       height:100%;
       left:0;
       position:absolute;
       top:0;
       .done {
-        background-color:#c5da4d;
+        background-color: $color06;//#c5da4d
         border-radius: 9px;
         height:18px;
         left:0;
@@ -162,10 +162,10 @@
     }*/
     dt, dd {
       &.optimum {
-        color: #69c;
+        color: $grayCol03;//#69c
       }
       &.minimum {
-        color: #c60;
+        color: $grayCol03;//#c60
       }
       &.reached {
         margin-top: 16px;
@@ -185,7 +185,7 @@
       &.days {
         width: 118px;
         strong {
-          color: #82656f;
+          color: $grayCol03;//#82656f
         }
       }
     }

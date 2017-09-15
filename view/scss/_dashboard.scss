@@ -31,7 +31,7 @@
   }
 
   #dashboard-menu {
-    border-bottom: 40px solid #39c;
+    border-bottom: 40px solid $mainCol01;//#39c
     display: block;
     font-size: 13px;
     height: 0;
@@ -62,7 +62,7 @@
           &.current {
             a.section {
               background: none;
-              background-color: #39c;
+              background-color: $mainCol01;//#39c
               color: $baseCol;
               filter: none;
             }
@@ -74,20 +74,17 @@
           a.section {
             min-width: 80px!important;
             height: 52px;
-            color: #699;
+            color: $grayCol03;//#699
             font-size: 14px;
             line-height: 36px;
             text-align: center;
-            background: #ccf4ff;
-            border-left: 1px solid #99b8cc;
-            border-right: 1px solid #99b8cc;
-            border-top: 1px solid #99b8cc;
+            background: $grayCol01;//#ccf4ff
             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ccf4ff',endColorstr='#b1cfd3',GradientType=0);
           }
           &.active {
             a.section {
               background: none;
-              background-color: #39c;
+              background-color: $mainCol01;//#39c
               color: $baseCol;
               filter: none;
               font-weight: bolder;
@@ -110,7 +107,7 @@
             bottom: 0;
             right: 0;
             height: 40px;
-            background-color: #39c;
+            background-color: $mainCol01;//#39c
           }
         }
         &.option {
@@ -119,11 +116,11 @@
               color: $baseCol;
               height: 40px;
               line-height: 27px;
-              border-bottom: 5px solid #f93;
+              border-bottom: 5px solid #FFF;//#f93
             }
           }
           a {
-            color: #cff;
+            color: #FFF;
             height: 25px;
             line-height: 25px;
           }
@@ -160,12 +157,12 @@
       font-style: normal;
     }
     .project-by {
-      color: #20B3B2;
+      color: $color06;
       font-size: 12px;
       margin: 0 0 .5em;
       a {
         font-weight: normal;
-        color: #cc6600;
+        color: $color06;//#cc6600
         font-size: 12px;
         text-decoration: none;
         &:hover {
@@ -179,7 +176,7 @@
       text-align: right;
       top: 0;
       h3 {
-        color: #20B3B2;
+        color: yellow;
         font-size: 0.8571428rem;
         font-weight: normal;
         margin: 0;
@@ -189,7 +186,7 @@
         font-size: 12px;
         text-decoration: none;
         &:hover {
-          color: #20B3B2;
+          color: yellow;
         }
       }
     }
@@ -229,12 +226,12 @@
       top: -10px;
       left: 35px;
       //padding-right: 30px;
-      color: #903;//#903
+      color: $color10;//#903
       font-size: 30px;
       font-weight: 700;
       line-height: 33px;
       //background: url('/view/images/yen/violet/l.png') no-repeat center right;
-      border-bottom: 1px solid #903;
+      border-bottom: 1px solid $color10;
       &:after{
         content: '￥';
         display: inline-block;
@@ -248,7 +245,7 @@
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
         border-radius: 50%;
-        background: #903;
+        background: $color10;
       }
     }
   }
@@ -318,7 +315,7 @@
     .percent{
       top: 56px;
     }
-    .meter.hor.big {
+    .meter.big {
       width: 420px;
       padding-top: 30px;
       h3 {
@@ -331,28 +328,28 @@
         top: 0;
         height: 8px;
         margin: 40px 5px 70px;
-        background-color: #BB70B6;
-        border-right: 40px solid #DFBDDD;
+        background-color: yellow;//#BB70B6
+        border-right: 40px solid yellow;//#DFBDDD
         .optimum {
           position: absolute;
           right: 0;
           height: 19px;
           margin-right: -2px;
           margin-top: -6px;
-          border-right: 4px solid #BB70B6;
+          border-right: 4px solid yellow;//#BB70B6
         }
         .minimum {
           position: absolute;
           top: 0;
           left: 0;
           height: 100%;
-          background-color: #96238F;
+          background-color: yellow;//#96238F
           .left {
             float: right;
             height: 19px;
             margin-right: -2px;
             margin-top: -6px;
-            border-right: 4px solid #96238F;
+            border-right: 4px solid yellow;//#96238F
           }
           .done {
             position: absolute;
@@ -360,7 +357,7 @@
             left: 0;
             max-width: 580px;
             height: 10px;
-            background-color: #20B3B2;
+            background-color: yellow;//#20B3B2
             strong {
               background: url('/view/images/dashboard/projects_marker.png') no-repeat;
               color: #fff;
@@ -389,7 +386,7 @@
             clear: right;
             float: right;
             margin-right: -40px;
-            color: #BB70B6;
+            color: yellow;//#BB70B6
 
             display: block;
             position: absolute;
@@ -407,7 +404,7 @@
             left: -10px;
             top: -65px;
             min-width: 10%;
-            color: #96238F;
+            color: yellow;//#96238F
             font-size: 12px;
             line-height: 14px;
             white-space: nowrap;
@@ -446,7 +443,7 @@
             left: 340px;
             margin-top: 6px;
             padding: 10px 0;
-            color: #1b5b9e;
+            color: yellow;//#1b5b9e
             font-size: 12px;
             font-weight: 600;
             line-height: 30px;
@@ -463,7 +460,7 @@
             top: 32px;
             width: auto;
             margin-right: -40px;
-            color: #BB70B6;
+            color: yellow;//#BB70B6
             font-size: 16px;
             font-weight: 400;
             text-align: right;
@@ -474,7 +471,7 @@
             position: relative;
             left: -10px;
             min-width: 10%;
-            color: #96238F;
+            color: yellow;//#96238F
             font-size: 16px;
             font-weight: 400;
             line-height: 14px;
@@ -500,7 +497,7 @@
             left: 60px;
             margin-top: 6px;
             padding: 10px 0;
-            color: #96238F;
+            color: yellow;//#96238F
             font-size: 16px;
             font-weight: 600;
             line-height: 30px;
@@ -521,7 +518,7 @@
             left: 390px;
             margin-top: 6px;
             padding: 10px 0;
-            color: #1b5b9e;
+            color: yellow;//#1b5b9e
             font-size: 16px;
             font-weight: 600;
             line-height: 30px;
@@ -531,7 +528,7 @@
           clear: right;
           float: right;
           margin-right: -40px;
-          color: #BB70B6;
+          color: yellow;//#BB70B6
         }
       }
     }

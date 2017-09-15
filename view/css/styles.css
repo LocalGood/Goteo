@@ -15,14 +15,30 @@ dashboard     :
 community     :
 admin         :
 user-profile  :
+page          :スタイル調整が必要なページ
 */
 /* Main Color */
 /* Sub Color */
 /* Gray Color */
 /* Alert Color*/
 /* Other Color */
+/*----------------------------------------------------------------------
+ colors
+----------------------------------------------------------------------*/
+/*----------------------------------------------------------------------
+ font-size (exchange rem)
+----------------------------------------------------------------------*/
+/*----------------------------------------------------------------------
+ media query
+----------------------------------------------------------------------*/
+/*----------------------------------------------------------------------
+ commons
+----------------------------------------------------------------------*/
+/*----------------------------------------------------------------------
+ borders
+----------------------------------------------------------------------*/
 html {
-  font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif;
+  font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', '繝｡繧､繝ｪ繧ｪ', Helvetica, Arial, sans-serif;
   font-size: 14px;
   height: 100%;
   margin: 0;
@@ -52,6 +68,13 @@ body, td, th, a, a:link, a:visited, a:active, a:hover, input, textarea, button {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   margin: 1em 0; }
+
+a,
+a:link {
+  color: #255b7f; }
+  a:hover,
+  a:link:hover {
+    color: #009acb; }
 
 img {
   border: none;
@@ -86,7 +109,7 @@ input[type="reset"],
 button,
 a.button {
   background: none;
-  background: #33cc99;
+  background: #009480;
   box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
   border: none;
   border-radius: 3px;
@@ -102,11 +125,17 @@ a.button {
   text-align: center;
   text-decoration: none;
   width: 200px; }
+  input[type="submit"].weak,
+  input[type="reset"].weak,
+  button.weak,
+  a.button.weak {
+    background: #e02d22; }
   input[type="submit"]:hover,
   input[type="reset"]:hover,
   button:hover,
   a.button:hover {
-    opacity: 0.75; }
+    opacity: 0.75;
+    color: #FFF; }
 
 input.red[type="submit"],
 input.red[type="reset"],
@@ -114,7 +143,7 @@ button.red,
 a.button.red,
 input.edit[type="submit"] {
   background: none;
-  background: #b5161e;
+  background: #009480;
   box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
   border: none;
   border-radius: 3px;
@@ -135,7 +164,8 @@ input.edit[type="submit"] {
   button.red:hover,
   a.button.red:hover,
   input.edit[type="submit"]:hover {
-    opacity: 0.75; }
+    opacity: 0.75;
+    color: #FFF; }
 
 /*a.button.red,
 a.button.weak {
@@ -146,26 +176,6 @@ a.button.weak {
   padding: .3em 1.2em;
   width:auto;
 }*/
-/*----------------------------------------------------------------------
- colors
-----------------------------------------------------------------------*/
-/*----------------------------------------------------------------------
- font-size (exchange rem)
-----------------------------------------------------------------------*/
-/*----------------------------------------------------------------------
- media query
-----------------------------------------------------------------------*/
-/*----------------------------------------------------------------------
- commons
-----------------------------------------------------------------------*/
-/*----------------------------------------------------------------------
- borders
-----------------------------------------------------------------------*/
-/* Main Color */
-/* Sub Color */
-/* Gray Color */
-/* Alert Color*/
-/* Other Color */
 /*----------------------------------------------------------------------
  header.css
 ----------------------------------------------------------------------*/
@@ -188,7 +198,7 @@ a.button.weak {
     .header__right__nav__gnav {
       margin: 0;
       padding-left: 0;
-      color: #565352;
+      color: #454545;
       list-style-type: none;
       letter-spacing: -0.4em; }
       .header__right__nav__gnav > li {
@@ -199,7 +209,7 @@ a.button.weak {
         .header__right__nav__gnav > li > a {
           display: block;
           padding: 0 24px;
-          color: #565352;
+          color: #454545;
           font-size: 14px;
           box-sizing: border-box;
           text-decoration: none; }
@@ -207,7 +217,7 @@ a.button.weak {
             .header__right__nav__gnav > li > a {
               padding: 0 1.6vw; } }
         .header__right__nav__gnav > li:hover > a, .header__right__nav__gnav > li.active > a {
-          color: #075d79;
+          color: #255b7f;
           border-bottom: 3px solid #255b7f; }
         .header__right__nav__gnav > li:hover .header__right__snav, .header__right__nav__gnav > li.active .header__right__snav {
           opacity: 1;
@@ -225,13 +235,13 @@ a.button.weak {
               top: -6px;
               left: 50%;
               margin-left: -8px;
-              background: url(/view/images/snav_bk_arrow.png) no-repeat 50% top;
+              background: url("/view/images/snav_bk_arrow.png") no-repeat 50% top;
               width: 16px;
               height: 12px; }
             .header__right__nav__gnav > li:hover .header__right__snav__inner ul > li, .header__right__nav__gnav > li.active .header__right__snav__inner ul > li {
               display: table;
               width: 100%;
-              border-bottom: 1px solid #f2f2f2; }
+              border-bottom: 1px solid #d9d9d9; }
             .header__right__nav__gnav > li:hover .header__right__snav__inner ul, .header__right__nav__gnav > li.active .header__right__snav__inner ul {
               padding-left: 0;
               list-style-type: none; }
@@ -241,14 +251,14 @@ a.button.weak {
               .header__right__nav__gnav > li:hover .header__right__snav__inner ul a, .header__right__nav__gnav > li.active .header__right__snav__inner ul a {
                 display: inline-block;
                 padding: 6px 0;
-                color: #575757;
+                color: #454545;
                 font-size: 14px;
                 line-height: 1.5em; }
                 .header__right__nav__gnav > li:hover .header__right__snav__inner ul a:hover, .header__right__nav__gnav > li.active .header__right__snav__inner ul a:hover {
                   color: #009acb; }
           .header__right__nav__gnav > li:hover .header__right__snav .header__right__snav__second_title, .header__right__nav__gnav > li.active .header__right__snav .header__right__snav__second_title {
             opacity: 0.5;
-            color: #575757;
+            color: #454545;
             font-size: 12px; }
         .header__right__nav__gnav > li:hover .header__right__snav {
           display: block; }
@@ -274,7 +284,7 @@ a.button.weak {
           background-color: #fff; }
           .header__right__nav__gnav > li .header.common_header > li.gnav_goteo > a {
             color: #fff;
-            background-color: #105d7f;
+            background-color: #255b7f;
             border-radius: 4px; }
           .header__right__nav__gnav > li .header.common_header > li.gnav_goteo.active > a, .header__right__nav__gnav > li .header.common_header > li.gnav_goteo:hover > a {
             border-bottom: none; }
@@ -286,7 +296,7 @@ a.button.weak {
       height: 28px;
       padding-left: 20px;
       padding-right: 10px;
-      background-color: #e4e4e4;
+      background-color: #d9d9d9;
       border-radius: 15px; }
       .header__right__search_box form input[type="text"] {
         -webkit-appearance: none;
@@ -334,7 +344,7 @@ a.button.weak {
       color: #fff;
       line-height: 36px;
       border-radius: 2px;
-      background-color: #105d7f; }
+      background-color: #255b7f; }
 
 /*----------------------------------------------------------------------
  footer.css
@@ -349,7 +359,7 @@ a.button.weak {
 .footer__upper {
   zoom: 1;
   padding: 45px 0 52px;
-  background-color: #2f6f92; }
+  background-color: #255b7f; }
   .footer__upper:after {
     content: '';
     display: block;
@@ -387,7 +397,7 @@ a.button.weak {
       padding-left: 16px;
       font-size: 12px;
       line-height: 18px;
-      background: url(/view/images/integration_link.png) no-repeat left 50%; }
+      background: url("/view/images/integration_link.png") no-repeat left 50%; }
       .footer__upper_left .footer__integration_site:hover {
         text-decoration: underline; }
   .footer__upper_right {
@@ -471,7 +481,7 @@ a.button.weak {
       float: left;
       text-align: left; }
       .goteo_menu > ul > li.dashboard {
-        background: transparent url(/view/images/header/down-black.png) no-repeat right 30px; }
+        background: transparent url("/view/images/header/down-black.png") no-repeat right 30px; }
         .goteo_menu > ul > li.dashboard > a {
           display: block;
           position: relative;
@@ -479,17 +489,17 @@ a.button.weak {
           width: 130px;
           height: 38px;
           padding: 2px 10px 2px 6px;
-          color: #f5f5f5;
+          color: #f2f2f2;
           font-size: 11px;
           line-height: 34px;
           box-sizing: border-box;
-          background: #105d7f;
+          background: #255b7f;
           text-decoration: none;
           -moz-border-radius: 3px;
           -webkit-border-radius: 3px;
           border-radius: 3px; }
           .goteo_menu > ul > li.dashboard > a:hover {
-            background-color: #39c; }
+            background-color: #009acb; }
           .goteo_menu > ul > li.dashboard > a > img {
             position: absolute;
             right: 5px;
@@ -506,13 +516,13 @@ a.button.weak {
             padding: 0;
             list-style: none; }
             .goteo_menu > ul > li.dashboard > div > ul > li {
-              background-color: #58595b; }
+              background-color: #454545; }
               .goteo_menu > ul > li.dashboard > div > ul > li > a {
                 display: block;
                 font-size: 11px;
                 padding: 6px 3px; }
                 .goteo_menu > ul > li.dashboard > div > ul > li > a:hover {
-                  background-color: #39c; }
+                  background-color: #009acb; }
               .goteo_menu > ul > li.dashboard > div > ul > li * {
                 color: #FFF; }
 
@@ -545,7 +555,7 @@ a.button.weak {
   #pagination li {
     background: #fff;
     box-sizing: content-box;
-    box-shadow: 3px 3px 0 #E2E2E2;
+    box-shadow: 3px 3px 0 #d9d9d9;
     display: inline;
     float: left;
     margin: 0 6px 0 0;
@@ -554,7 +564,7 @@ a.button.weak {
     #pagination li:not(:last-child) {
       margin-right: 10px; }
     #pagination li.selected {
-      background: #cde4e5;
+      background: #f2f2f2;
       font-weight: bold;
       padding: 6px 20px; }
     #pagination li.hellip {
@@ -565,11 +575,11 @@ a.button.weak {
       padding: 6px 20px;
       text-decoration: none; }
       #pagination li a:hover {
-        background: #F3F3F3; }
+        background: #f2f2f2; }
 
 div#message {
-  background: none repeat scroll 0 0 #ffa375;
-  color: #333333;
+  background: none repeat scroll 0 0 #e02d22;
+  color: #FFF;
   padding: 25px 0;
   font-size: 14px;
   width: 100%; }
@@ -578,15 +588,21 @@ div#message {
     margin: 0 auto;
     position: relative; }
     div#message #message-content input.message-close {
-      background: url("/view/images/message-close.png") no-repeat;
-      width: 11px;
-      height: 10px;
-      border: none;
       position: absolute;
-      top: -8px;
+      top: 0;
       right: 0;
+      width: 26px;
+      height: 100%;
+      color: #FFF;
+      font-size: 26px;
+      font-weight: bold;
+      padding: 0;
+      text-align: center;
+      line-height: 100%;
+      border: none;
       z-index: 100;
-      cursor: pointer; }
+      cursor: pointer;
+      background: none; }
     div#message #message-content ul {
       list-style: none;
       margin: 0;
@@ -607,7 +623,7 @@ div#message {
     margin-bottom: 24px; }
     .widget.projects .project {
       background-color: #fff;
-      border: 1px solid #d1d3d4;
+      border: 1px solid #d9d9d9;
       box-sizing: content-box;
       border-radius: 4px;
       float: left;
@@ -626,7 +642,7 @@ div#message {
         display: block;
         text-decoration: none; }
       .widget.projects .project .image {
-        background-color: #deddde;
+        background-color: #f2f2f2;
         border-radius: 4px 4px 0 0;
         height: 135px;
         margin: 0;
@@ -638,7 +654,7 @@ div#message {
         .widget.projects .project-details h3.title {
           margin: 0 0 16px; }
         .widget.projects .project-details .author {
-          color: #ababab;
+          color: #828282;
           font-size: 12px;
           margin-bottom: 10px; }
           .widget.projects .project-details .author-img {
@@ -664,7 +680,7 @@ div#message {
             vertical-align: middle; }
         .widget.projects .project-details .categories {
           background: url(/view/images/icon_tag.png) no-repeat left 50%;
-          color: #ababab;
+          color: #828282;
           font-size: 12px;
           padding-left: 20px; }
       .widget.projects .project .meter div.graph {
@@ -672,7 +688,7 @@ div#message {
       .widget.projects .project .meter dl.amount-bar {
         display: none; }
       .widget.projects .project .want-support {
-        border-top: 1px solid #d1d3d4;
+        border-top: 1px solid #d9d9d9;
         bottom: 0;
         letter-spacing: -.4em;
         position: absolute;
@@ -685,7 +701,7 @@ div#message {
           vertical-align: top;
           width: 50%; }
           .widget.projects .project .want-support > div:first-child {
-            border-right: 1px solid #d1d3d4; }
+            border-right: 1px solid #d9d9d9; }
         .widget.projects .project .want-support h4 {
           font-size: 12px;
           line-height: 1;
@@ -698,18 +714,29 @@ div#message {
           .widget.projects .project .want-support .days strong {
             color: #000; }
       .widget.projects .project .balloon {
-        background: #cae4e6 url(/view/images/balloonbeak.png) no-repeat bottom left;
-        border-bottom: 15px solid #FFF; }
+        position: relative;
+        margin: 0 0 30px 0;
+        background: #d9d9d9; }
+        .widget.projects .project .balloon::after {
+          content: '';
+          display: block;
+          position: absolute;
+          bottom: -30px;
+          left: 20px;
+          width: 0;
+          height: 0;
+          border: 15px solid transparent;
+          border-top: solid 15px #d9d9d9; }
         .widget.projects .project .balloon > blockquote {
           font-size: 12px;
-          height: 4em;
+          height: 4.5em;
           margin: 0;
           overflow: hidden;
           padding: 3px 5px; }
         .widget.projects .project .balloon > h4 {
           font-size: 14px;
           font-weight: 700;
-          margin: 0 0 .5em;
+          margin: 0;
           padding: 3px 5px 0; }
     .widget.projects .skillmatching div.image span.sm-icon {
       position: absolute;
@@ -776,11 +803,11 @@ div#message {
             text-indent: 2000px;
             width: 100%; }
           .widget.projects .navi-bar ul.navi li > a {
-            background-color: #cdcdce; }
+            background-color: #d9d9d9; }
             .widget.projects .navi-bar ul.navi li > a:hover {
-              background-color: #20b3b2; }
+              background-color: #0093c4; }
             .widget.projects .navi-bar ul.navi li > a.active {
-              background-color: #808184; }
+              background-color: #828282; }
       .widget.projects .navi-bar a.all {
         position: relative;
         right: -825px;
@@ -788,9 +815,9 @@ div#message {
         text-transform: uppercase;
         top: -20px; }
         .widget.projects .navi-bar a.all:hover {
-          color: #20B3B2; }
+          color: #0093c4; }
   .widget.project-support .supertitle {
-    background-color: #58585a;
+    background-color: #454545;
     color: #fff;
     font-size: 12px;
     height: 40px;
@@ -816,6 +843,77 @@ div#message {
   .widget.project-support .invest-notice {
     font-size: 13px;
     padding: 0 20px 20px; }
+  .widget.project-investors {
+    background: none; }
+    .widget.project-investors .project-widget-box {
+      background: #FFF; }
+      .widget.project-investors .project-widget-box ul {
+        display: -webkit-flex;
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        margin: 0; }
+        .widget.project-investors .project-widget-box ul li {
+          position: relative;
+          width: 50%;
+          padding: 10px;
+          border-right: dashed 1px #d9d9d9;
+          border-bottom: dashed 1px #d9d9d9; }
+          .widget.project-investors .project-widget-box ul li:hover {
+            background: #f2f2f2; }
+          .widget.project-investors .project-widget-box ul li:nth-child(2n+2) {
+            padding: 10px 20px 10px 10px;
+            border-right: none; }
+          .widget.project-investors .project-widget-box ul li a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none; }
+          .widget.project-investors .project-widget-box ul li .supporter {
+            display: -webkit-flex;
+            display: flex;
+            flex-wrap: wrap; }
+            .widget.project-investors .project-widget-box ul li .supporter .avatar {
+              border-radius: 50%;
+              display: inline-block;
+              height: 43px;
+              overflow: hidden;
+              position: relative;
+              text-align: center;
+              vertical-align: middle;
+              width: 43px;
+              margin: 0 10px 0 0; }
+              .widget.project-investors .project-widget-box ul li .supporter .avatar img {
+                bottom: 0;
+                height: auto;
+                left: 0;
+                margin: auto;
+                position: absolute;
+                right: 0;
+                top: 0;
+                vertical-align: middle;
+                width: 100%; }
+            .widget.project-investors .project-widget-box ul li .supporter h4.aqua {
+              max-width: 75px;
+              font-weight: bold;
+              color: #255b7f;
+              margin: 0; }
+            .widget.project-investors .project-widget-box ul li .supporter dl {
+              display: -webkit-flex;
+              display: flex;
+              flex-wrap: wrap;
+              width: 100%;
+              margin-bottom: 0;
+              font-size: 12px; }
+              .widget.project-investors .project-widget-box ul li .supporter dl dt {
+                width: 25%; }
+              .widget.project-investors .project-widget-box ul li .supporter dl dd {
+                width: 74%;
+                margin: 0; }
   .widget.user {
     margin-bottom: 20px;
     padding: 0; }
@@ -855,7 +953,7 @@ div#message {
           background: url(/view/images/location/s.png) no-repeat left center;
           padding-left: 18px; }
           .widget.user .user-head-right .location a {
-            color: #9b9b9b;
+            color: #828282;
             text-decoration: none; }
     .widget.user .about p {
       line-height: 1.5;
@@ -865,7 +963,7 @@ div#message {
       margin-bottom: 20px;
       text-align: right; }
       .widget.user .about-link a {
-        color: #337ab7;
+        color: #255b7f;
         display: inline-block;
         font-size: 14px;
         line-height: 20px;
@@ -877,6 +975,8 @@ div#message {
           height: 8px;
           padding: 0 0 4px 4px;
           width: 6px; }
+        .widget.user .about-link a:hover {
+          color: #009acb; }
     .widget.user .links {
       line-height: 36px;
       margin: 0 0 14px 0;
@@ -899,7 +999,7 @@ div#message {
         text-decoration: none;
         text-indent: .5em; }
         .widget.user .links.message a {
-          color: #28B258;
+          color: #255B80;
           font-size: 14px;
           font-weight: 600;
           text-decoration: none; }
@@ -1067,7 +1167,7 @@ div#message {
     .widget.project-rewards .individual {
       margin-bottom: 20px; }
       .widget.project-rewards .individual .title a {
-        color: #96238F !important; }
+        color: #255b7f !important; }
       .widget.project-rewards .individual ul li dl {
         zoom: 1;
         margin: 0; }
@@ -1092,7 +1192,7 @@ div#message {
         font-size: 13px;
         margin: 0 0 8px 0; }
     .widget.project-rewards .social .title a {
-      color: #28b258 !important; }
+      color: #255b7f !important; }
   .widget.project-collaborations {
     background: none; }
     .widget.project-collaborations .project-widget-box {
@@ -1133,10 +1233,10 @@ div#message {
     padding: 40px 0; }
     .widget.project-support_btn a.button {
       background: none;
-      background: #ff9900;
-      -moz-box-shadow: 0 3px 3px 0 #ccc;
-      -webkit-box-shadow: 0 3px 3px 0 #ccc;
-      box-shadow: 0 3px 3px 0 #ccc;
+      background: #E08E22;
+      -moz-box-shadow: 0 3px 3px 0 #d9d9d9;
+      -webkit-box-shadow: 0 3px 3px 0 #d9d9d9;
+      box-shadow: 0 3px 3px 0 #d9d9d9;
       display: block;
       font-size: 14px;
       font-weight: 300;
@@ -1174,11 +1274,11 @@ div#message {
           margin: 5px 5px 0 0;
           width: 10px; }
       .widget.project-needs #legend .min span {
-        background: #e3eadc; }
+        background: #f2f2f2; }
       .widget.project-needs #legend .max {
         line-height: 20px; }
         .widget.project-needs #legend .max span {
-          background: #F2F2F2; }
+          background: #f2f2f2; }
     .widget.project-needs table {
       border-collapse: collapse; }
       .widget.project-needs table thead th.summary {
@@ -1192,15 +1292,15 @@ div#message {
         padding-bottom: 16px;
         padding-left: 40px; }
       .widget.project-needs table tbody {
-        background: #e3eadc; }
+        background: #f2f2f2; }
         .widget.project-needs table tbody th.summary {
           padding: 16px 20px; }
       .widget.project-needs table tr:not(:last-child) {
-        border-bottom: 1px solid #c0c0c0; }
+        border-bottom: 1px solid #d9d9d9; }
       .widget.project-needs table tr.req {
-        background: #e3eadc; }
+        background: #f2f2f2; }
       .widget.project-needs table tr.noreq {
-        background: #F2F2F2; }
+        background: #f2f2f2; }
       .widget.project-needs table tr.sum th {
         padding: 12px 20px 10px 0;
         text-align: right; }
@@ -1257,7 +1357,7 @@ div#message {
           .widget.project-supporters .supporters > ul > li:nth-child(2n+2) {
             border-right: none; }
           .widget.project-supporters .supporters > ul > li.active {
-            background-color: #f3f3f3; }
+            background-color: #f2f2f2; }
       .widget.project-supporters .supporters .supporterContainer {
         padding: 0;
         position: relative; }
@@ -1293,7 +1393,7 @@ div#message {
             vertical-align: middle;
             width: 100%; }
         .widget.project-supporters .supporters .supporter h4 {
-          color: #337ab7;
+          color: #255b7f;
           font-size: 16px;
           font-weight: 600;
           line-height: 1.15;
@@ -1311,7 +1411,7 @@ div#message {
           display: inline-block;
           margin-left: 0; }
         .widget.project-supporters .supporters .supporter dd.date {
-          color: #a6a8ab;
+          color: #828282;
           font-size: 12px;
           margin: 0; }
   .widget.project-schedule {
@@ -1348,14 +1448,14 @@ div#message {
         overflow: hidden;
         text-align: center; }
       .widget.project-schedule tbody td.on {
-        background-color: #d1edf1;
+        background-color: #d9d9d9;
         text-align: left; }
         .widget.project-schedule tbody td.on span {
           opacity: .75; }
         .widget.project-schedule tbody td.on.req {
-          background-color: #c7d8b6; }
+          background-color: #255b7f; }
         .widget.project-schedule tbody td.on.noreq {
-          background-color: #e2e2e2; }
+          background-color: #f2f2f2; }
     .widget.project-schedule tbody tr:not(:last-child) td {
       border-bottom: 14px solid #fff; }
     .widget.project-schedule tbody tr td:last-child {
@@ -1416,7 +1516,7 @@ div#message {
   .meter h3.title.obtained {
     display: none; }
   .meter div.graph {
-    background-color: #BCCCD8;
+    background-color: #d9d9d9;
     border-radius: 9px;
     height: 18px;
     margin-bottom: 20px;
@@ -1424,14 +1524,14 @@ div#message {
     .meter div.graph .minimum .done {
       max-width: 215px; }
     .meter div.graph .minimum {
-      background-color: #dc940f;
+      background-color: #0093c4;
       border-radius: 9px;
       height: 100%;
       left: 0;
       position: absolute;
       top: 0; }
       .meter div.graph .minimum .done {
-        background-color: #c5da4d;
+        background-color: #0093c4;
         border-radius: 9px;
         height: 18px;
         left: 0;
@@ -1439,7 +1539,7 @@ div#message {
         position: absolute;
         top: 0; }
         .meter div.graph .minimum .done strong {
-          background: url(/view/images/project/widget/project_marker.png) no-repeat;
+          background: url("/view/images/project/widget/project_marker.png") no-repeat;
           display: block;
           height: 11px;
           line-height: 2000px;
@@ -1460,7 +1560,7 @@ div#message {
       position: absolute;
       right: 0; }
   .meter dl.percent {
-    color: #000;
+    color: #FFF;
     font-size: 12px;
     line-height: 18px;
     margin-left: 16px;
@@ -1530,9 +1630,9 @@ div#message {
       position:absolute;
       top:90px;*/ }
     .meter dl.amount-bar dt.optimum, .meter dl.amount-bar dd.optimum {
-      color: #69c; }
+      color: #454545; }
     .meter dl.amount-bar dt.minimum, .meter dl.amount-bar dd.minimum {
-      color: #c60; }
+      color: #454545; }
     .meter dl.amount-bar dt.reached, .meter dl.amount-bar dd.reached {
       margin-top: 16px; }
     .meter dl.amount-bar dt.optimum, .meter dl.amount-bar dt.minimum {
@@ -1542,7 +1642,7 @@ div#message {
     .meter dl.amount-bar dd.days {
       width: 118px; }
       .meter dl.amount-bar dd.days strong {
-        color: #82656f; }
+        color: #454545; }
   .meter.activable {
     max-width: 288px;
     z-index: 999; }
@@ -1562,8 +1662,8 @@ div#message {
   .superform li.element.textbox > div.contents > textarea, .superform li.element.textarea > div.contents > input[type="text"],
   .superform li.element.textarea > div.contents > input[type="password"],
   .superform li.element.textarea > div.contents > textarea {
-    background-color: #eee;
-    border: 1px solid #ccc;
+    background-color: #f2f2f2;
+    border: 1px solid #d9d9d9;
     box-sizing: content-box;
     display: block;
     margin: 0;
@@ -1572,8 +1672,8 @@ div#message {
     min-width: 99%;
     width: 99%; }
   .superform li.element.fullwidth {
-    background-color: #e7e7e7 !important;
-    border-bottom: 1px dashed #b7c2c5 !important;
+    background-color: #f2f2f2 !important;
+    border-bottom: 1px dashed #d9d9d9 !important;
     border-right: none !important;
     margin-bottom: -1px !important;
     margin-right: -2px !important;
@@ -1582,25 +1682,36 @@ div#message {
     .superform li.element.fullwidth + li.element {
       border-top: none; }
   .superform li.element li.element > div.feedback {
-    background: url(/view/images/superform/tooltip/beak/cyan/n.png) no-repeat 1em 0;
+    background: url("/view/images/superform/tooltip/beak/cyan/n.png") no-repeat 1em 0;
     display: inline-block;
     font-size: 14px;
     margin-top: 1em;
     padding-top: 13px;
     z-index: 999; }
     .superform li.element li.element > div.feedback > div {
+      position: relative;
       -moz-border-radius: 7px;
       -moz-box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
       -webkit-border-radius: 7px;
       -webkit-box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
-      background-color: #def1f1;
+      background-color: #f2f2f2;
       border-radius: 7px;
       box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
-      color: #7f8183;
+      color: #454545;
       line-height: 16px !important;
       margin: 0;
       padding: 20px;
       position: relative; }
+      .superform li.element li.element > div.feedback > div::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 20px;
+        left: -20px;
+        border: 10px solid transparent;
+        border-right: 10px solid #f2f2f2; }
   .superform li.element > div.feedback > div + div {
     margin-top: -10px;
     padding-top: .5em;
@@ -1610,10 +1721,10 @@ div#message {
     margin: 0;
     padding: 0; }
   .superform li.element > div.feedback > div.error + div.hint > blockquote {
-    border-top: 1px dashed #b7c2C5;
+    border-top: 1px dashed yellow;
     padding-top: 1em; }
   .superform li.element > div.feedback > div.error blockquote {
-    background: url(/view/images/superform/feedback/error.png) no-repeat left 0.2em;
+    background: url("/view/images/superform/feedback/error.png") no-repeat left 0.2em;
     padding-left: 30px; }
   .superform li.element .contents input.addinput[type="submit"],
   .superform li.element .contents input.removeinput[type="submit"],
@@ -1633,7 +1744,8 @@ div#message {
   .superform li.element > h4 {
     font-size: 20px; }
   .superform li.element > h4.title {
-    font-size: 16px; }
+    font-size: 16px;
+    font-weight: bold; }
   .superform li.element > label {
     display: block;
     font-weight: 700;
@@ -1648,7 +1760,10 @@ div#message {
   overflow: visible;
   position: relative; }
   .superform > div.elements div.elements > ol {
-    padding-left: 2em; }
+    padding-left: 0; }
+    .superform > div.elements div.elements > ol .elements ol {
+      padding-left: 0;
+      margin-top: 5px; }
   .superform > div.elements > ol > li.element {
     padding: 0 2em 2em 0; }
     .superform > div.elements > ol > li.element.inline {
@@ -1661,7 +1776,7 @@ div#message {
   margin: 0;
   padding: 0; }
   .superform div.elements > ol > li.element {
-    border-right: 1px dashed #b7c2c5;
+    border-right: 1px dashed #d9d9d9;
     margin-right: 251px;
     /*&.checkboxescustom > div.contents > ul > li > label {
       padding-right:23px;
@@ -1670,15 +1785,11 @@ div#message {
     .superform div.elements > ol > li.element.checkboxes, .superform div.elements > ol > li.element.checkboxescustom, .superform div.elements > ol > li.element.radios {
       padding-bottom: 0; }
     .superform div.elements > ol > li.element.checkboxes > div.contents > ul, .superform div.elements > ol > li.element.checkboxescustom > div.contents > ul, .superform div.elements > ol > li.element.radios > div.contents > ul, .superform div.elements > ol > li.element.slider > div.contents > ul {
-      border-left: 1px dashed #B7C2C5;
-      border-top: 1px dashed #bcbdbf;
       list-style: none;
       margin: 0;
       overflow: hidden;
       padding: 0; }
     .superform div.elements > ol > li.element.checkboxes > div.contents > ul > li, .superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li, .superform div.elements > ol > li.element.radios > div.contents > ul > li, .superform div.elements > ol > li.element.slider > div.contents > ul > li {
-      border-bottom: 1px dashed #bcbdbf;
-      border-right: 1px dashed #bcbdbf;
       padding: 0; }
     .superform div.elements > ol > li.element.checkboxes.inline > div.contents > ul > li, .superform div.elements > ol > li.element.checkboxescustom.inline > div.contents > ul > li, .superform div.elements > ol > li.element.radios.inline > div.contents > ul > li, .superform div.elements > ol > li.element.slider.inline > div.contents > ul > li {
       margin-bottom: 0; }
@@ -1691,7 +1802,7 @@ div#message {
       width: 100%; }
     .superform div.elements > ol > li.element.checkboxes.cols_2 > div.contents > ul > li, .superform div.elements > ol > li.element.checkboxescustom.cols_2 > div.contents > ul > li, .superform div.elements > ol > li.element.radios.cols_2 > div.contents > ul > li, .superform div.elements > ol > li.element.slider.cols_2 > div.contents > ul > li {
       float: left;
-      width: 49.8%; }
+      margin: 0 30px 0 0; }
     .superform div.elements > ol > li.element.checkboxes.cols_3 > div.contents > ul > li, .superform div.elements > ol > li.element.checkboxescustom.cols_3 > div.contents > ul > li, .superform div.elements > ol > li.element.radios.cols_3 > div.contents > ul > li, .superform div.elements > ol > li.element.slider.cols_3 > div.contents > ul > li {
       float: left;
       width: 33.16%; }
@@ -1703,12 +1814,11 @@ div#message {
     .superform div.elements > ol > li.element.checkboxes.cols_6 > div.contents > ul > li, .superform div.elements > ol > li.element.checkboxescustom.cols_6 > div.contents > ul > li, .superform div.elements > ol > li.element.radios.cols_6 > div.contents > ul > li, .superform div.elements > ol > li.element.slider.cols_6 > div.contents > ul > li {
       width: 16.66%; }
     .superform div.elements > ol > li.element.radio > div.contents > label > input[type="radio"], .superform div.elements > ol > li.element.checkboxes > div.contents > ul > li > label > input[type="checkbox"], .superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li > label > input[type="checkbox"], .superform div.elements > ol > li.element.radios > div.contents > ul > li > label > input[type="radio"], .superform div.elements > ol > li.element.slider > div.contents > ul > li > label > input[type="radio"] {
+      display: inline-block;
       cursor: pointer;
       height: 1em;
       margin-top: -.5em;
-      position: absolute;
-      right: .5em;
-      top: 50%; }
+      margin-right: 10px; }
     .superform div.elements > ol > li.element.radio {
       padding: 0 !important; }
   .superform div.elements > ol > li div.element {
@@ -1716,11 +1826,50 @@ div#message {
   .superform div.elements > ol > li > div.contents + div.children > div.elements {
     margin-top: 1em; }
   .superform div.elements > ol > li.required > .title {
-    background: url(/view/images/superform/badge/required.png) no-repeat right center; }
+    position: relative; }
+    .superform div.elements > ol > li.required > .title::after {
+      content: "必須";
+      position: absolute;
+      top: calc(100% - 19px);
+      right: 60px;
+      display: block;
+      width: 40px;
+      color: #FFF;
+      font-size: 12px;
+      font-weight: 100;
+      padding: 0 10px;
+      text-align: center;
+      background: #E08E22; }
   .superform div.elements > ol > li.ok > .title {
-    background: url(/view/images/superform/badge/ok.png) no-repeat right 80%; }
+    position: relative; }
+    .superform div.elements > ol > li.ok > .title::before {
+      content: "OK";
+      position: absolute;
+      top: 5px;
+      right: 0;
+      display: block;
+      width: 40px;
+      color: #FFF;
+      font-size: 12px;
+      font-weight: 100;
+      padding: 0 10px;
+      text-align: center;
+      background: #009480; }
   .superform div.elements > ol > li.error > .title {
-    background: url(/view/images/superform/badge/error.png) no-repeat right bottom !important; }
+    position: relative; }
+    .superform div.elements > ol > li.error > .title::before {
+      content: "エラー";
+      position: absolute;
+      top: 2px;
+      right: 0;
+      display: block;
+      width: 40px;
+      color: #FFF;
+      font-size: 12px;
+      font-weight: 100;
+      padding: 0 10px;
+      text-align: center;
+      background: #e02d22; }
   .superform div.elements > ol > li.busy > .title {
     background: url(/view/images/superform/badge/busy/cyan.gif) no-repeat right center; }
 .superform div.elements li.element.textbox.facebook > div.contents, .superform div.elements li.element.textbox.google > div.contents, .superform div.elements li.element.textbox.twitter > div.contents, .superform div.elements li.element.textbox.identica > div.contents, .superform div.elements li.element.textbox.linkedin > div.contents {
@@ -1738,21 +1887,21 @@ div#message {
 .superform div.elements li.element.textbox.linkedin > div.contents {
   background-image: url(/view/images/superform/linkedin.png); }
 .superform fieldset {
-  border: 1px solid #99a2a5; }
+  border: 1px solid #d9d9d9; }
   .superform fieldset legend {
-    color: #6d7375; }
+    color: #828282; }
 .superform h3 {
   font-size: 30px; }
 .superform > div.hint,
 .superform > div.elements {
   overflow: visible; }
 .superform > div.hint {
-  color: #7f8183;
+  color: #828282;
   overflow: hidden; }
   .superform > div.hint h4,
   .superform > div.hint blockquote {
     background-color: #fff;
-    border: dashed #b7c2c5;
+    border: dashed #828282;
     border-width: 1px 0 0;
     margin: 0;
     padding: 20px;
@@ -1768,21 +1917,34 @@ div#message {
     padding-left: 0; }
     .superform > div.hint blockquote p {
       margin: 0; }
-.superform ol #interests div.contents > ul {
-  border-left: 1px dashed #B7C2C5; }
 .superform input[type="text"],
 .superform input[type="password"],
 .superform textarea {
-  background-color: #eee;
-  border: 1px solid #ccc;
+  background-color: #f2f2f2;
+  border: 1px solid #d9d9d9;
   min-height: 27px; }
 .superform textarea {
   min-height: 6em; }
 .superform.aqua li.element > div.feedback {
-  background-image: url(/view/images/superform/tooltip/beak/aqua/n.png); }
+  background: none; }
   .superform.aqua li.element > div.feedback > div {
-    background-color: #35b8b8;
-    color: #FFF; }
+    color: #454545;
+    padding: 20px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
+    background-color: #f2f2f2; }
+    .superform.aqua li.element > div.feedback > div:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 20px;
+      left: -20px;
+      border: 10px solid transparent;
+      border-right: 10px solid #f2f2f2; }
     .superform.aqua li.element > div.feedback > div.error + div.hint > blockquote {
       border-top-color: #FFF; }
 .superform.aqua div.elements > ol > li.busy > .title {
@@ -1790,35 +1952,35 @@ div#message {
 .superform.red li.element > div.feedback {
   background-image: url(/view/images/superform/tooltip/beak/red/n.png); }
   .superform.red li.element > div.feedback > div {
-    background-color: #e13028;
+    background-color: #e02d22;
     color: #FFF; }
     .superform.red li.element > div.feedback > div.error + div.hint > blockquote {
       border-top-color: #FFF; }
 .superform.red input[type="text"],
 .superform.red input[type="password"],
 .superform.red textarea {
-  background-color: #fdedec;
-  border-color: #ee4843; }
+  background-color: #FFF;
+  border-color: #e02d22; }
 .superform.red > div.hint h4,
 .superform.red > div.hint blockquote {
-  background-color: #fdedec;
-  color: #ee4843; }
+  background-color: #FFF;
+  color: #e02d22; }
 .superform.red div.elements > ol > li.busy > .title {
   background: url(/view/images/superform/badge/busy/red.gif) no-repeat right top; }
 .superform.green li.element > div.feedback {
   background-image: url(/view/images/superform/tooltip/beak/green/n.png); }
   .superform.green li.element > div.feedback > div {
-    background-color: #00b05b;
+    background-color: #255B80;
     color: #FFF; }
 .superform.green input[type="text"],
 .superform.green input[type="password"],
 .superform.green textarea {
-  background-color: #e7f3e8;
-  border-color: #00b05b; }
+  background-color: #d9d9d9;
+  border-color: #454545; }
 .superform.green > div.hint h4,
 .superform.green > div.hint blockquote {
-  background-color: #e7f3e8;
-  color: #00b05b; }
+  background-color: #d9d9d9;
+  color: #454545; }
 .superform.green div.elements > ol > li.busy > .title {
   background: url(/view/images/superform/badge/busy/green.gif) no-repeat right top; }
 .superform input.edit[type="submit"],
@@ -1855,12 +2017,12 @@ div#message {
 .superform li#costs h4.title {
   padding-left: 25px; }
 .superform li.editcost li.required_cost-yes {
-  background-color: #e4c9e2 !important; }
+  background-color: yellow !important; }
 .superform li.cost.required_cost-no,
 .superform li.editcost.required_cost-no {
-  background-color: #f3f3f3 !important; }
+  background-color: #f2f2f2 !important; }
 .superform li.editcost li.required_cost-no {
-  background-color: #e2e2e2 !important; }
+  background-color: #f2f2f2 !important; }
 .superform li#gallery div.elements li.gallery-image {
   display: inline-block !important;
   margin: 5px 25px !important;
@@ -1869,7 +2031,7 @@ div#message {
 .superform li#supports,
 .superform li#social_rewards,
 .superform li#individual_rewards {
-  border-bottom: 1px dashed #b7c2c5; }
+  border-bottom: 1px dashed #d9d9d9; }
 .superform li.element div.contents input.addinput[type="submit"],
 .superform li.element div.contents input.removeinput[type="submit"],
 .superform li.element div.contents input.editinput[type="submit"],
@@ -1897,7 +2059,7 @@ div#main.profile > div.elements > ol > li.element {
 body.js .superform .jshidden {
   display: none; }
 body.js .superform > div.elements > ol > li.element {
-  border-right: 1px dashed #b7c2c5;
+  border-right: 1px dashed #d9d9d9;
   margin-right: 251px; }
   body.js .superform > div.elements > ol > li.element div.contents {
     font-size: 14px; }
@@ -1906,38 +2068,31 @@ body.js .superform > div.elements > ol > li.element {
     margin-right: 0; }
 body.js .superform > div.elements li.element .is_public {
   float: right;
-  margin-right: 54px; }
+  margin: 5px 0 0 0; }
   body.js .superform > div.elements li.element .is_public.non_required {
     margin-right: 0; }
 body.js .superform > div.elements li.element > div.feedback {
-  background: transparent url(/view/images/superform/tooltip/beak/cyan/w.png) no-repeat 0 1em;
   display: none;
-  padding-left: 13px;
   padding-top: 0;
   position: absolute;
   right: -250px;
   top: -.5em;
   width: 250px; }
-body.js .superform.aqua li.element > div.feedback {
-  background-image: url(/view/images/superform/tooltip/beak/aqua/w.png); }
-body.js .superform.red li.element > div.feedback {
-  background-image: url(/view/images/superform/tooltip/beak/red/w.png); }
-body.js .superform.green li.element > div.feedback {
-  background-image: url(/view/images/superform/tooltip/beak/green/w.png); }
 body.js .superform .is_public {
   font-size: 12px;
-  background-color: #92c450;
-  padding: 2px 8px;
+  background-color: #009480;
+  padding: 0 8px;
   color: #ffffff; }
 body.js .superform div.children > div.elements > ol > li.element > div.feedback {
   left: 100%;
-  margin-left: 1em;
+  margin-left: 2em;
   margin-top: 0; }
 body.js .superform > div.elements ol li.element.html div.contents {
   font-size: 14px;
   margin: 0 0 0 2em; }
 body.js .superform > div.elements ol li.element div.contents p {
   font-size: 14px;
+  font-weight: bold;
   margin: 2em 0 .6em;
   padding: 0; }
 
@@ -1950,7 +2105,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   margin: 0 auto; }
 .discover .searcher {
   background-color: transparent;
-  border-bottom: 1px solid #d1d3d4;
+  border-bottom: 1px solid #d9d9d9;
   margin-bottom: 24px;
   padding: 0; }
   .discover .searcher form {
@@ -1967,9 +2122,9 @@ body.js .superform > div.elements ol li.element div.contents p {
       text-transform: uppercase; }
   .discover .searcher #text-query {
     background-color: #fff;
-    border: 1px solid #808184;
+    border: 1px solid #d9d9d9;
     box-sizing: content-box;
-    color: #808184;
+    color: #828282;
     float: left;
     font-size: 16px;
     margin-left: 16px;
@@ -1983,28 +2138,28 @@ body.js .superform > div.elements ol li.element div.contents p {
     .discover .searcher .filter:last-child {
       margin-right: 0; }
     .discover .searcher .filter label {
-      border-bottom: 1px solid #58595B;
-      color: #58595B;
+      border-bottom: 1px solid #d9d9d9;
+      color: #454545;
       display: block;
       font-size: 14px;
       font-weight: 700;
       padding: 5px 5px 6px 0;
       text-transform: uppercase; }
     .discover .searcher .filter select {
-      background-color: #e7e7e7;
+      background-color: #f2f2f2;
       border-style: none;
-      color: #58595B;
+      color: #454545;
       font-size: .9em;
       margin: 0;
       padding-top: 10px;
       width: 100%; }
       .discover .searcher .filter select option {
-        color: #58595B; }
+        color: #454545; }
       .discover .searcher .filter select option[selected=selected] {
-        background-color: #d5d5d6;
-        color: #58595B; }
+        background-color: #f2f2f2;
+        color: #454545; }
       .discover .searcher .filter select option.all {
-        color: #58595B;
+        color: #454545;
         font-size: 1em;
         font-weight: 700; }
   .discover .searcher .searcher-btn {
@@ -2012,7 +2167,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     right: 40px;
     top: 0; }
     .discover .searcher .searcher-btn #searcher {
-      background: url(/view/images/lupa.png) no-repeat;
+      background: url("/view/images/search_icon.png") no-repeat center, #009480;
       height: 33px;
       margin: 2px 0 0;
       text-indent: -9999px;
@@ -2040,7 +2195,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   margin-bottom: 0;
   padding-bottom: 4em; }
 .review #review-menu {
-  background-color: #78d1d1;
+  background-color: #d9d9d9;
   display: block;
   font-size: 13px;
   margin: -2.6em auto 0;
@@ -2089,7 +2244,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   .review #review-menu ul li.section.active ul,
   .review #review-menu ul li.section.current,
   .review #review-menu ul li.section.current ul {
-    background-color: #808285; }
+    background-color: #828282; }
 
 .project-show #main {
   margin: 0 auto; }
@@ -2134,48 +2289,52 @@ body.js .superform > div.elements ol li.element div.contents p {
     line-height: 20px;
     max-width: 620px; }
     .project-show .project-header .categories a {
-      color: #58595B;
+      color: #828282;
       font-size: 12px;
       text-decoration: none; }
       .project-show .project-header .categories a:hover {
-        color: #20B3B2; }
+        color: #0093c4; }
 .project-show .project-menu {
   margin-bottom: 20px; }
   .project-show .project-menu ul {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    /* Safari */
+    justify-content: space-between;
     font-size: 0;
     list-style: none;
     margin: 0;
-    padding: 0; }
-    .project-show .project-menu ul li {
-      display: inline-block; }
-      .project-show .project-menu ul li a {
-        background-color: #fff;
-        box-sizing: border-box;
-        color: #000;
-        display: inline-block;
-        font-size: 14px;
-        font-weight: 600;
-        line-height: 1;
-        max-height: 40px;
-        min-width: 80px;
-        padding: 13px 20px;
-        text-align: center;
-        text-decoration: none;
-        vertical-align: middle; }
-      .project-show .project-menu ul li.active a {
-        border-bottom: 4px solid #ff9900; }
-      .project-show .project-menu ul li.show a {
-        border-bottom: 4px solid #ff9900; }
-      .project-show .project-menu ul li span.digits {
-        background-color: #ffd89d;
-        border-radius: 5px;
-        color: #7c7c7c;
-        display: inline-block;
-        font-size: 8px;
-        line-height: 1;
-        padding: 3px 6px;
-        text-align: center;
-        vertical-align: middle; }
+    padding: 0;
+    background: #FFF; }
+    .project-show .project-menu ul li a {
+      background-color: #fff;
+      box-sizing: border-box;
+      color: #000;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1;
+      max-height: 40px;
+      min-width: 80px;
+      padding: 13px 10px;
+      text-align: center;
+      text-decoration: none;
+      vertical-align: middle; }
+    .project-show .project-menu ul li.active a {
+      border-bottom: 4px solid #e08e22; }
+    .project-show .project-menu ul li.show a {
+      border-bottom: 4px solid #e08e22; }
+    .project-show .project-menu ul li span.digits {
+      background-color: #e08e22;
+      border-radius: 5px;
+      color: #FFF;
+      display: inline-block;
+      font-size: 8px;
+      line-height: 1;
+      padding: 3px 6px;
+      text-align: center;
+      vertical-align: middle; }
 .project-show .threecols .side {
   float: right;
   width: 320px; }
@@ -2185,7 +2344,7 @@ body.js .superform > div.elements ol li.element div.contents p {
 .project-show .project-message {
   position: relative; }
   .project-show .project-message div#bocadillo {
-    background: url(/view/images/bocadillo.jpg) no-repeat;
+    background: url("/view/images/bocadillo.jpg") no-repeat;
     height: 50px;
     margin-top: 8px;
     position: absolute;
@@ -2197,8 +2356,8 @@ body.js .superform > div.elements ol li.element div.contents p {
     margin: 25px 0 0; }
   .project-show .project-message textarea#message,
   .project-show .project-message textarea#message-text {
-    background-color: #DCEEDF;
-    border: 1px solid #2EAB58;
+    background-color: #FFF;
+    border: 1px solid #d9d9d9;
     clear: right;
     display: block;
     float: right;
@@ -2208,7 +2367,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     resize: none;
     width: 525px; }
   .project-show .project-message a.preview {
-    color: #2EAB58;
+    color: #d9d9d9;
     font-style: normal;
     font-weight: 400;
     left: 80px;
@@ -2233,7 +2392,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       padding: 0; }
       .project-show .project-rewards-summary > div ul li {
         zoom: 1;
-        background-color: #e7e7e7;
+        background-color: #f2f2f2;
         margin-bottom: 20px;
         padding: 20px; }
         .project-show .project-rewards-summary > div ul li:after {
@@ -2264,7 +2423,7 @@ body.js .superform > div.elements ol li.element div.contents p {
         line-height: 24px;
         width: 70px; }
       .project-show .project-rewards-summary .individual dl dd {
-        color: #383838;
+        color: #454545;
         float: left;
         font-size: 14px;
         font-weight: 600;
@@ -2290,68 +2449,68 @@ body.js .superform > div.elements ol li.element div.contents p {
     .project-show .project-rewards-summary .license > a p {
       margin: 3px 0; }
   .project-show .project-rewards-summary .license.agpl > a strong {
-    background-image: url(/view/images/license/agpl.png); }
+    background-image: url("/view/images/license/agpl.png"); }
   .project-show .project-rewards-summary .license.apache > a strong {
-    background-image: url(/view/images/license/apache.png); }
+    background-image: url("/view/images/license/apache.png"); }
   .project-show .project-rewards-summary .license.balloon > a strong {
-    background-image: url(/view/images/license/balloon.png); }
+    background-image: url("/view/images/license/balloon.png"); }
   .project-show .project-rewards-summary .license.bsd > a strong {
-    background-image: url(/view/images/license/bsd.png); }
+    background-image: url("/view/images/license/bsd.png"); }
   .project-show .project-rewards-summary .license.cc0 > a strong {
-    background-image: url(/view/images/license/cc0.png); }
+    background-image: url("/view/images/license/cc0.png"); }
   .project-show .project-rewards-summary .license.ccby > a strong {
-    background-image: url(/view/images/license/ccby.png); }
+    background-image: url("/view/images/license/ccby.png"); }
   .project-show .project-rewards-summary .license.ccbync > a strong {
-    background-image: url(/view/images/license/ccbync.png); }
+    background-image: url("/view/images/license/ccbync.png"); }
   .project-show .project-rewards-summary .license.ccbyncnd > a strong {
-    background-image: url(/view/images/license/ccbyncnd.png); }
+    background-image: url("/view/images/license/ccbyncnd.png"); }
   .project-show .project-rewards-summary .license.ccbyncsa > a strong {
-    background-image: url(/view/images/license/ccbyncsa.png); }
+    background-image: url("/view/images/license/ccbyncsa.png"); }
   .project-show .project-rewards-summary .license.fal > a strong {
-    background-image: url(/view/images/license/fal.png); }
+    background-image: url("/view/images/license/fal.png"); }
   .project-show .project-rewards-summary .license.fdl > a strong {
-    background-image: url(/view/images/license/fdl.png); }
+    background-image: url("/view/images/license/fdl.png"); }
   .project-show .project-rewards-summary .license.freebsd > a strong {
-    background-image: url(/view/images/license/freebsd.png); }
+    background-image: url("/view/images/license/freebsd.png"); }
   .project-show .project-rewards-summary .license.gpl > a strong {
-    background-image: url(/view/images/license/gpl.png); }
+    background-image: url("/view/images/license/gpl.png"); }
   .project-show .project-rewards-summary .license.gpl2 > a strong {
-    background-image: url(/view/images/license/gpl2.png); }
+    background-image: url("/view/images/license/gpl2.png"); }
   .project-show .project-rewards-summary .license.lgpl > a strong {
-    background-image: url(/view/images/license/lgpl.png); }
+    background-image: url("/view/images/license/lgpl.png"); }
   .project-show .project-rewards-summary .license.mit > a strong {
-    background-image: url(/view/images/license/mit.png); }
+    background-image: url("/view/images/license/mit.png"); }
   .project-show .project-rewards-summary .license.mpl > a strong {
-    background-image: url(/view/images/license/mpl.png); }
+    background-image: url("/view/images/license/mpl.png"); }
   .project-show .project-rewards-summary .license.odbl > a strong {
-    background-image: url(/view/images/license/odbl.png); }
+    background-image: url("/view/images/license/odbl.png"); }
   .project-show .project-rewards-summary .license.odcby > a strong {
-    background-image: url(/view/images/license/odcby.png); }
+    background-image: url("/view/images/license/odcby.png"); }
   .project-show .project-rewards-summary .license.license.oshw > a strong {
-    background-image: url(/view/images/license/oshw.png); }
+    background-image: url("/view/images/license/oshw.png"); }
   .project-show .project-rewards-summary .license.pd > a strong {
-    background-image: url(/view/images/license/pd.png); }
+    background-image: url("/view/images/license/pd.png"); }
   .project-show .project-rewards-summary .license.php > a strong {
-    background-image: url(/view/images/license/php.png); }
+    background-image: url("/view/images/license/php.png"); }
   .project-show .project-rewards-summary .license.tapr > a strong {
-    background-image: url(/view/images/license/tapr.png); }
+    background-image: url("/view/images/license/tapr.png"); }
   .project-show .project-rewards-summary .license.xoln > a strong {
-    background-image: url(/view/images/license/xoln.png); }
+    background-image: url("/view/images/license/xoln.png"); }
   .project-show .project-rewards-summary .name {
     font-size: 14px;
     font-weight: 600;
     line-height: 24px;
     margin: 0 0 12px; }
   .project-show .project-rewards-summary .button.supportit {
-    background: #ff9900; }
+    background: #E08E22; }
 .project-show .side {
   /* todo: 多分「支援者」が入ると要るから、取っておく */ }
   .project-show .side .button.supportit {
-    background: #ff9900; }
+    background: #E08E22; }
   .project-show .side .button.aqua {
-    background: #21b0b0; }
+    background: #009480; }
   .project-show .side .button.green {
-    background-color: #33cc99; }
+    background-color: #009480; }
   .project-show .side .more {
     border-top: 1px solid #d9d9d9;
     clear: both;
@@ -2368,7 +2527,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       font-weight: 600;
       margin: 0 0 8px; }
     .project-show .side > .widget.project-support .supertitle {
-      background-color: #58585a;
+      background-color: #828282;
       color: #fff;
       font-size: 12px;
       height: 40px;
@@ -2389,7 +2548,7 @@ body.js .superform > div.elements ol li.element div.contents p {
         margin: 0;
         padding: 0; }
         .project-show .side > .widget .project-investors ul li {
-          border-bottom: 1px dashed #c0c0c0; }
+          border-bottom: 1px dashed #d9d9d9; }
           .project-show .side > .widget .project-investors ul li:last-child {
             border-bottom: none; }
       .project-show .side > .widget .project-investors .supporterContainer {
@@ -2435,7 +2594,7 @@ body.js .superform > div.elements ol li.element div.contents p {
         display: none; }
       .project-show .side > .widget .project-investors .supporter dd.date {
         bottom: 4px;
-        color: #a6a8ab;
+        color: #828282;
         font-size: 12px;
         margin-top: 5px;
         position: absolute;
@@ -2459,16 +2618,16 @@ body.js .superform > div.elements ol li.element div.contents p {
 .project-show .center.supporters {
   margin-bottom: 20px; }
   .project-show .center.supporters .invest-message {
-    background: url(/view/images/project/view/invest/message_beak.png) no-repeat left bottom;
-    background-color: #cce7e8 !important;
+    background: url("/view/images/project/view/invest/message_beak.png") no-repeat left bottom;
+    background-color: #FFF !important;
     min-height: 70px;
     padding: 20px 15px 40px; }
     .project-show .center.supporters .invest-message h2 {
       margin: 0 !important; }
       .project-show .center.supporters .invest-message h2 span {
-        color: #232020; }
+        color: #000; }
         .project-show .center.supporters .invest-message h2 span.message {
-          color: #57595b !important;
+          color: #454545 !important;
           font-size: 0.9em !important;
           font-weight: 400 !important;
           padding: 0;
@@ -2511,43 +2670,67 @@ body.js .superform > div.elements ol li.element div.contents p {
     margin: 0;
     padding: 0; }
   .project-show .center.supporters .project-invest div.invest-message {
-    background: url(/view/images/project/view/invest/message_beak.png) no-repeat left bottom;
-    background-color: #cce7e8 !important;
+    background: url("/view/images/project/view/invest/message_beak.png") no-repeat left bottom;
     min-height: 70px; }
     .project-show .center.supporters .project-invest div.invest-message h2 {
       margin: 0 !important; }
       .project-show .center.supporters .project-invest div.invest-message h2 span {
-        color: #232020; }
+        color: #000; }
     .project-show .center.supporters .project-invest div.invest-message img {
       float: left;
       margin-right: 20px; }
     .project-show .center.supporters .project-invest div.invest-message span.message {
-      color: #57595b !important;
+      color: #454545 !important;
       font-size: 0.9em !important;
       font-weight: 400 !important;
       padding: 0;
       text-transform: none !important; }
   .project-show .center.supporters .project-invest h3.beak {
-    background: url(/view/images/project/view/invest/header_beak.png) no-repeat left bottom;
-    background-color: #cce7e8 !important;
+    position: relative;
+    background: #255b7f;
+    color: #FFF;
     font-size: 1em !important;
-    padding: 20px 20px 40px;
+    padding: 20px;
     text-transform: uppercase !important; }
+    .project-show .center.supporters .project-invest h3.beak::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 20px;
+      display: block;
+      width: 0;
+      height: 0;
+      border: 10px solid transparent;
+      border-top: 10px solid #255b7f; }
   .project-show .center.supporters .project-invest.address table {
     width: 100%; }
     .project-show .center.supporters .project-invest.address table table tr td label {
       padding-left: 10px;
       padding-right: 5px;
       text-align: right; }
+  .project-show .center.supporters .project-invest-amount label::before {
+    content: '￥';
+    display: inline-block;
+    color: #FFF;
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 15px 0 0;
+    text-align: center;
+    line-height: 27px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background: #255b7f; }
   .project-show .center.supporters .project-invest #amount {
-    background: url(/view/images/yen/violet/l.png) no-repeat 5px center #E7E7E7;
-    color: #903;
+    color: #255B80;
     font-size: 24px;
     font-weight: 700;
     height: 24px;
     line-height: 40px;
     margin-right: 20px;
-    padding-left: 40px;
+    padding: 0 10px;
     width: 150px; }
   .project-show .center.supporters .project-invest #fullname, .project-show .center.supporters .project-invest #address {
     width: 266px; }
@@ -2562,7 +2745,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   .project-show .center.supporters .project-invest div.individual ul li {
     padding: 0; }
     .project-show .center.supporters .project-invest div.individual ul li label.amount {
-      color: #930;
+      color: #255B80;
       cursor: pointer;
       display: block;
       font-weight: 700;
@@ -2572,9 +2755,9 @@ body.js .superform > div.elements ol li.element div.contents p {
         font-size: 13px;
         font-weight: 400; }
       .project-show .center.supporters .project-invest div.individual ul li label.amount h5 {
-        color: #58595B; }
+        color: #454545; }
       .project-show .center.supporters .project-invest div.individual ul li label.amount p {
-        color: #58595B;
+        color: #454545;
         font-size: 13px;
         font-weight: 400; }
     .project-show .center.supporters .project-invest div.individual ul li label.resign {
@@ -2582,30 +2765,30 @@ body.js .superform > div.elements ol li.element div.contents p {
       display: block;
       padding: 10px 10px 10px 65px; }
     .project-show .center.supporters .project-invest div.individual ul li.disabled {
-      background-color: #e8e7e7; }
+      background-color: #f2f2f2; }
       .project-show .center.supporters .project-invest div.individual ul li.disabled label.amount {
-        color: #58595b; }
+        color: #454545; }
   .project-show .center.supporters .project-invest button.pay-tpv {
-    background: url(/view/images/button/tpv.gif) no-repeat 0 0 transparent;
+    background: url("/view/images/button/tpv.gif") no-repeat 0 0 transparent;
     height: 35px;
     padding: 3px;
     text-indent: 2000px;
     width: 178px; }
   .project-show .center.supporters .project-invest button.pay-paypal {
-    background: url(/view/images/button/paypal.gif) no-repeat 0 0 transparent;
+    background: url("/view/images/button/paypal.gif") no-repeat 0 0 transparent;
     height: 32px;
     padding: 3px;
     text-indent: 2000px;
     width: 145px; }
   .project-show .center.supporters .project-invest button:hover {
-    border: 1px solid #20b2b3; }
+    border: 1px solid #0093c4; }
   .project-show .center.supporters .project-invest p label {
     cursor: pointer;
     line-height: 14px; }
     .project-show .center.supporters .project-invest p label input[type="checkbox"] {
       opacity: 0; }
     .project-show .center.supporters .project-invest p label input[type="checkbox"] + span.chkbox {
-      background: url(/view/images/project/widget/checkbox_disabled.png) no-repeat scroll 0 0 transparent;
+      background: url("/view/images/project/widget/checkbox_disabled.png") no-repeat scroll 0 0 transparent;
       display: block;
       height: 12px;
       margin-top: -15px;
@@ -2627,7 +2810,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   .project-show .center.messages .project-collaborations .title {
     margin-bottom: 20px; }
   .project-show .center.messages .project-collaborations .supertitle {
-    background-color: #33cc99; }
+    background-color: yellow; }
   .project-show .center.messages .project-collaborations ul {
     list-style: none;
     margin: 0;
@@ -2653,7 +2836,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   .project-show .center.messages .project-messages #project-messages > div:not(:first-child) {
     margin-top: 20px; }
   .project-show .center.messages .project-messages .message, .project-show .center.messages .project-messages .child {
-    background: #e7e7e7;
+    background: #f2f2f2;
     border-radius: 8px;
     margin-left: 70px;
     overflow: visible;
@@ -2662,22 +2845,33 @@ body.js .superform > div.elements ol li.element div.contents p {
     word-break: normal;
     word-wrap: break-word; }
     .project-show .center.messages .project-messages .message:before, .project-show .center.messages .project-messages .child:before {
-      background: url(/view/images/message/beak/arrow_02.png) no-repeat left top;
       content: '';
-      display: block;
-      height: 12px;
-      left: -12px;
       position: absolute;
-      width: 12px; }
+      top: 20px;
+      left: -20px;
+      display: block;
+      width: 0;
+      height: 0;
+      border: 10px solid transparent;
+      border-right: 15px solid #f2f2f2;
+      background: none; }
   .project-show .center.messages .project-messages .message.owner {
-    background-color: #e9f4ea; }
-    .project-show .center.messages .project-messages .message.owner:before {
-      background: url(/view/images/message/beak/arrow_01.png) no-repeat left top; }
+    position: relative;
+    background: #f2f2f2; }
   .project-show .center.messages .project-messages .child {
-    background-color: #e7e7e7;
+    background-color: #f2f2f2;
     margin-left: 130px; }
     .project-show .center.messages .project-messages .child:before {
-      background: url(/view/images/message/beak/arrow_02.png) no-repeat left top; }
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: -20px;
+      display: block;
+      width: 0;
+      height: 0;
+      border: 10px solid transparent;
+      border-right: 15px solid #f2f2f2;
+      background: none; }
   .project-show .center.messages .project-messages .avatar {
     left: -70px;
     position: absolute;
@@ -2727,21 +2921,21 @@ body.js .superform > div.elements ol li.element div.contents p {
 .project-show .center.updates .post {
   line-height: 18px; }
   .project-show .center.updates .post h4 a {
-    color: #535353;
+    color: #454545;
     font-size: 16px;
     font-weight: bolder;
     margin: 0 0 5px;
     text-decoration: none; }
   .project-show .center.updates .post .date {
-    color: #808285;
+    color: #828282;
     display: block;
     font-size: 12px; }
   .project-show .center.updates .post .post-gallery {
     margin-bottom: 30px; }
     .project-show .center.updates .post .post-gallery a.prev {
-      background: url(/view/images/small_arrowslider-sprt.png) scroll no-repeat 0 0; }
+      background: url("/view/images/small_arrowslider-sprt.png") scroll no-repeat 0 0; }
     .project-show .center.updates .post .post-gallery a.next {
-      background: url(/view/images/small_arrowslider-sprt.png) scroll no-repeat 0 -16px; }
+      background: url("/view/images/small_arrowslider-sprt.png") scroll no-repeat 0 -16px; }
     .project-show .center.updates .post .post-gallery .slderpag {
       float: left;
       height: auto;
@@ -2755,11 +2949,11 @@ body.js .superform > div.elements ol li.element div.contents p {
         margin: 0 4px 5px;
         overflow: hidden; }
         .project-show .center.updates .post .post-gallery .slderpag li.current a {
-          background-color: #808184;
-          color: #808184; }
+          background-color: #828282;
+          color: #828282; }
         .project-show .center.updates .post .post-gallery .slderpag li a {
-          background-color: #cdcdce;
-          color: #cdcdce;
+          background-color: #d9d9d9;
+          color: #d9d9d9;
           display: block;
           height: 12px;
           margin-top: 2px;
@@ -2781,7 +2975,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   .project-show .center.updates .post .read_more {
     margin-top: 16px; }
     .project-show .center.updates .post .read_more a {
-      color: #337ab7;
+      color: #255b7f;
       display: inline-block;
       font-size: 12px;
       line-height: 2;
@@ -2789,7 +2983,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       position: relative;
       text-decoration: none; }
       .project-show .center.updates .post .read_more a:after {
-        background: url(/view/images/arrow-updates.png) no-repeat 50%;
+        background: url("/view/images/arrow-updates.png") no-repeat 50%;
         bottom: 0;
         content: '';
         display: block;
@@ -2799,6 +2993,8 @@ body.js .superform > div.elements ol li.element div.contents p {
         position: absolute;
         top: 0;
         width: 6px; }
+      .project-show .center.updates .post .read_more a:hover {
+        color: #009acb; }
   .project-show .center.updates .post .post_nav {
     margin: 0;
     padding: 0; }
@@ -2816,27 +3012,27 @@ body.js .superform > div.elements ol li.element div.contents p {
       float: left;
       margin: 0 0 0 10px; }
       .project-show .center.updates .post .share-goteo li.twitter a {
-        background: transparent url(/view/images/twitter.png) scroll no-repeat 0 0;
-        color: #13c2ec;
+        background: transparent url("/view/images/twitter.png") scroll no-repeat 0 0;
+        color: yellow;
         text-decoration: none; }
       .project-show .center.updates .post .share-goteo li.facebook a {
-        background: transparent url(/view/images/facebook.png) scroll no-repeat 0 0;
-        color: #4a6393;
+        background: transparent url("/view/images/facebook.png") scroll no-repeat 0 0;
+        color: yellow;
         text-decoration: none; }
   .project-show .center.updates .post .comments-num {
-    background: transparent url(/view/images/ico-blogcomment.png) scroll no-repeat 0 0;
+    background: transparent url("/view/images/ico-blogcomment.png") scroll no-repeat 0 0;
     float: left;
     height: 24px;
     line-height: 24px;
     margin: 0;
     padding: 0 0 0 26px; }
     .project-show .center.updates .post .comments-num a {
-      color: #00ad4e;
+      color: yellow;
       text-decoration: none; }
 .project-show .center.updates #pagination {
   margin-top: 10px; }
 .project-show .center.updates .post-comments div.message {
-  background: #e7e7e7 url(/view/images/message/beak/1.png) no-repeat left top;
+  background: #f2f2f2, url("/view/images/message/beak/1.png") no-repeat left top;
   margin-left: 60px;
   overflow: visible;
   padding: .5em 1em .5em 1.5em;
@@ -2857,7 +3053,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     margin: 0 0 1em;
     text-transform: none; }
   .project-show .center.updates .post-comments div.message .date {
-    color: gray;
+    color: #828282;
     float: right;
     font-size: 12px; }
   .project-show .center.updates .post-comments div.message blockquote {
@@ -2867,9 +3063,9 @@ body.js .superform > div.elements ol li.element div.contents p {
   .project-show .center.updates .post-comments div.message h3.user a {
     text-decoration: none; }
     .project-show .center.updates .post-comments div.message h3.user a:hover {
-      color: #20B3B2; }
+      color: #0093c4; }
 .project-show .center.updates .post-comments div.owner {
-  background: #e9f4ea url(/view/images/message/beak/2.png) no-repeat left top !important; }
+  background: #FFF url("/view/images/message/beak/2.png") no-repeat left top !important; }
 .project-show .center.updates .blog-comment {
   position: relative; }
   .project-show .center.updates .blog-comment h5 {
@@ -2883,8 +3079,8 @@ body.js .superform > div.elements ol li.element div.contents p {
     height: 50px;
     margin-top: 8px; }
   .project-show .center.updates .blog-comment textarea {
-    background-color: #DCEEDF;
-    border: 1px solid #2EAB58;
+    background-color: #FFF;
+    border: 1px solid #d9d9d9;
     clear: right;
     display: block;
     float: left;
@@ -2894,7 +3090,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     resize: none;
     width: 525px; }
   .project-show .center.updates .blog-comment a.preview {
-    color: #2EAB58;
+    color: #009480;
     font-style: normal;
     font-weight: 400;
     left: 52px;
@@ -2947,23 +3143,23 @@ body.js .superform > div.elements ol li.element div.contents p {
     max-width: 620px;
     font-style: normal; }
   .project-edit .project-header .project-by {
-    color: #20B3B2;
+    color: #255b7f;
     font-size: 12px;
     margin: 0 0 .5em; }
     .project-edit .project-header .project-by a {
       font-weight: normal;
-      color: #cc6600;
+      color: #255b7f;
       font-size: 12px;
       text-decoration: none; }
       .project-edit .project-header .project-by a:hover {
-        color: #58595B; }
+        color: #009acb; }
 .project-edit .status {
   padding: 20px 0 30px;
-  color: #bcbdbd;
-  border-bottom: 3px solid #cfd0d2; }
+  color: #d9d9d9;
+  border-bottom: 3px solid #d9d9d9; }
   .project-edit .status h3 {
     margin: 0 0 .6em;
-    color: #9B9B9D;
+    color: #828282;
     font-size: 26px; }
   .project-edit .status #project-status {
     display: table-cell;
@@ -2975,10 +3171,10 @@ body.js .superform > div.elements ol li.element div.contents p {
       font-size: 16px;
       line-height: 1.5em;
       list-style: none;
-      border-left: 1px solid #bcbcbd; }
+      border-left: 1px solid #d9d9d9; }
     .project-edit .status #project-status strong {
-      background: url(/view/images/project/statusmarker.png) no-repeat left center;
-      color: #58595b;
+      background: url("/view/images/project/statusmarker.png") no-repeat left center;
+      color: #454545;
       display: block;
       font-size: 22px;
       font-weight: 700;
@@ -2987,12 +3183,12 @@ body.js .superform > div.elements ol li.element div.contents p {
       padding-left: 20px;
       text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25); }
   .project-edit .status #project-score {
-    border-left: 1px dashed #bcbdbf;
+    border-left: 1px dashed #d9d9d9;
     display: table-cell;
     padding: 0 50px 0 30px;
     width: 50%; }
     .project-edit .status #project-score p {
-      color: #8A8B8C;
+      color: #828282;
       font-size: 12px;
       margin-top: 0;
       width: 80%; }
@@ -3002,13 +3198,13 @@ body.js .superform > div.elements ol li.element div.contents p {
       position: relative;
       width: 369px; }
       .project-edit .status #project-score .meter .done {
-        background: url(/view/images/project/scoremeter.png) no-repeat left top;
+        background: url("/view/images/project/scoremeter.png") no-repeat left top;
         bottom: 0;
         left: 0;
         position: absolute;
         top: 0; }
       .project-edit .status #project-score .meter .left {
-        background: url(/view/images/project/scoremeter.png) no-repeat right bottom;
+        background: url("/view/images/project/scoremeter.png") no-repeat right bottom;
         bottom: 0;
         position: absolute;
         right: 0;
@@ -3027,33 +3223,33 @@ body.js .superform > div.elements ol li.element div.contents p {
   .project-edit #project-steps .steps {
     display: inline-block; }
   .project-edit #project-steps span.step {
-    background: #e7e7e7 no-repeat bottom center;
+    background: #f2f2f2 no-repeat bottom center;
     display: inline-block;
     height: 100%;
     padding: 0 1em;
     position: relative; }
     .project-edit #project-steps span.step.first-off {
-      background-image: url(/view/images/project/edit/steps/line-first-off.png); }
+      background-image: url("/view/images/project/edit/steps/line-first-off.png"); }
     .project-edit #project-steps span.step.first-on {
-      background-image: url(/view/images/project/edit/steps/line-first-on.png); }
+      background-image: url("/view/images/project/edit/steps/line-first-on.png"); }
     .project-edit #project-steps span.step.on-on {
-      background-image: url(/view/images/project/edit/steps/line-on-on.png); }
+      background-image: url("/view/images/project/edit/steps/line-on-on.png"); }
     .project-edit #project-steps span.step.on-off {
-      background-image: url(/view/images/project/edit/steps/line-on-off.png); }
+      background-image: url("/view/images/project/edit/steps/line-on-off.png"); }
     .project-edit #project-steps span.step.on-last {
-      background-image: url(/view/images/project/edit/steps/line-on-off.png); }
+      background-image: url("/view/images/project/edit/steps/line-on-off.png"); }
     .project-edit #project-steps span.step.off-off {
-      background-image: url(/view/images/project/edit/steps/line-off-off.png); }
+      background-image: url("/view/images/project/edit/steps/line-off-off.png"); }
     .project-edit #project-steps span.step.off-on {
-      background-image: url(/view/images/project/edit/steps/line-off-on.png); }
+      background-image: url("/view/images/project/edit/steps/line-off-on.png"); }
     .project-edit #project-steps span.step.off-last {
-      background-image: url(/view/images/project/edit/steps/line-off-last.png); }
+      background-image: url("/view/images/project/edit/steps/line-off-last.png"); }
     .project-edit #project-steps span.step > button {
-      background: url(/view/images/project/edit/steps/balloon-on.png) no-repeat bottom center;
+      background: url("/view/images/project/edit/steps/balloon-on.png") no-repeat bottom center;
       box-shadow: none;
       box-sizing: content-box;
       border: none;
-      color: #20b2b1;
+      color: #828282;
       font-size: 12px;
       font-weight: 400;
       height: 100%;
@@ -3063,18 +3259,19 @@ body.js .superform > div.elements ol li.element div.contents p {
       padding: 0 0 50px;
       width: auto; }
       .project-edit #project-steps span.step > button:hover {
+        color: #0093c4;
         opacity: 1; }
     .project-edit #project-steps span.step.off > button {
-      background-image: url(/view/images/project/edit/steps/balloon-off.png);
-      color: #b2b2b2; }
+      background-image: url("/view/images/project/edit/steps/balloon-off.png");
+      color: #f2f2f2; }
     .project-edit #project-steps span.step.active > button {
-      background-image: url(/view/images/project/edit/steps/balloon-on-active.png); }
+      background-image: url("/view/images/project/edit/steps/balloon-on-active.png"); }
     .project-edit #project-steps span.step.off.active > button {
-      background-image: url(/view/images/project/edit/steps/balloon-off-active.png); }
+      background-image: url("/view/images/project/edit/steps/balloon-off-active.png"); }
     .project-edit #project-steps span.step.error > button {
-      background-image: url(/view/images/project/edit/steps/balloon-error.png); }
+      background-image: url("/view/images/project/edit/steps/balloon-error.png"); }
     .project-edit #project-steps span.step.error.active > button {
-      background-image: url(/view/images/project/edit/steps/balloon-error-active.png); }
+      background-image: url("/view/images/project/edit/steps/balloon-error-active.png"); }
     .project-edit #project-steps span.step > button > strong.number {
       bottom: 0;
       color: #FFF;
@@ -3090,7 +3287,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       font-size: 18px;
       font-weight: 700; }
   .project-edit #project-steps fieldset fieldset {
-    border: 1px solid #e13028;
+    border: 1px solid #828282;
     border-top: none;
     padding-bottom: 8px;
     position: relative; }
@@ -3099,7 +3296,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     .project-edit #project-steps fieldset fieldset span.step + span.step {
       margin-right: -1px; }
     .project-edit #project-steps fieldset fieldset > legend {
-      color: #e13028;
+      color: #828282;
       display: block;
       font-size: 12px;
       left: 0;
@@ -3109,8 +3306,8 @@ body.js .superform > div.elements ol li.element div.contents p {
       top: 100%;
       width: 100%; }
 .project-edit #message {
-  background: none repeat scroll 0 0 #ffa375;
-  color: #333333;
+  background: none repeat scroll 0 0 #e02d22;
+  color: #FFF;
   padding: 25px 0;
   font-size: 14px;
   width: 100%; }
@@ -3118,33 +3315,23 @@ body.js .superform > div.elements ol li.element div.contents p {
     width: 960px;
     margin: 0 auto;
     position: relative; }
-    .project-edit #message #message-content input.message-close {
-      background: url(/view/images/message-close.png) no-repeat;
-      width: 11px;
-      height: 10px;
-      border: none;
-      position: absolute;
-      top: -8px;
-      right: 0;
-      z-index: 100;
-      cursor: pointer; }
     .project-edit #message #message-content ul {
       list-style: none;
       margin: 0;
       padding: 0; }
 .project-edit .superform {
-  border: solid #0a0a0a;
+  border: solid #000;
   border-width: 3px 0; }
   .project-edit .superform h3 {
     font-size: 30px; }
   .project-edit .superform > .hint {
-    color: #7f8183;
+    color: #828282;
     overflow: hidden; }
     .project-edit .superform > .hint blockquote {
       margin-bottom: 0; }
   .project-edit .superform ol li.element#footer {
-    background-color: #e7e7e7;
-    border-top: 3px solid #0a0a0a;
+    background-color: #f2f2f2;
+    border-top: 3px solid #000;
     border-right: none;
     margin: 46px -5px 0 0;
     overflow: hidden;
@@ -3273,7 +3460,7 @@ body.js .superform > div.elements ol li.element div.contents p {
 .project-edit div#main.costs .superform li.element.cost {
   padding: 16px 8px; }
   .project-edit div#main.costs .superform li.element.cost.required_cost-no {
-    background-color: #f3f3f3 !important; }
+    background-color: #f2f2f2 !important; }
   .project-edit div#main.costs .superform li.element.cost input[type="text"],
   .project-edit div#main.costs .superform li.element.cost textarea {
     box-sizing: border-box;
@@ -3294,7 +3481,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     .project-edit div#main.costs .superform li.element.cost .description p {
       margin: .5em 0; }
   .project-edit div#main.costs .superform li.element.cost .cost-amount input {
-    background-image: url(/view/images/yen/m.png);
+    background-image: url("/view/images/yen/m.png");
     background-position: 4px 50%;
     background-repeat: no-repeat;
     float: left;
@@ -3356,22 +3543,22 @@ body.js .superform > div.elements ol li.element div.contents p {
       width: 10em; }
     .project-edit div#main.costs .superform li.element.cost-meter dl dt.minimum > span {
       bottom: 0;
-      color: #96238F;
+      color: #0093c4;
       margin-left: -66px; }
     .project-edit div#main.costs .superform li.element.cost-meter dl dt.optimum {
-      border-top: 10px solid #BB70B6;
+      border-top: 10px solid #255B80;
       margin-top: -10px;
       z-index: 0; }
       .project-edit div#main.costs .superform li.element.cost-meter dl dt.optimum > span {
-        color: #BB70B6;
+        color: #255B80;
         margin-left: -76px;
         margin-top: 18px;
         top: 100%; }
   .project-edit div#main.costs .superform li.element.cost-meter dl dd.minimum {
-    border-bottom: 10px solid #96238F;
+    border-bottom: 10px solid #0093c4;
     z-index: 900; }
     .project-edit div#main.costs .superform li.element.cost-meter dl dd.minimum > span {
-      border-left: 10px solid #96238F;
+      border-left: 10px solid #0093c4;
       bottom: -20px;
       font-size: 28px;
       height: 20px;
@@ -3382,14 +3569,14 @@ body.js .superform > div.elements ol li.element div.contents p {
       text-align: center;
       width: 0; }
       .project-edit div#main.costs .superform li.element.cost-meter dl dd.minimum > span > strong {
-        color: #96238F;
+        color: #0093c4;
         padding-left: 5px;
         position: absolute;
         right: 0;
         text-align: right;
         top: -36px; }
       .project-edit div#main.costs .superform li.element.cost-meter dl dd.minimum > span > span.yen {
-        color: #96238F;
+        color: #0093c4;
         font-size: 20px;
         left: 10px;
         position: absolute;
@@ -3403,7 +3590,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     text-align: center;
     width: 10em; }
     .project-edit div#main.costs .superform li.element.cost-meter dl dd.optimum > span {
-      border-left: 10px solid #BB70B6;
+      border-left: 10px solid #255B80;
       font-size: 28px;
       height: 12px;
       left: -15px;
@@ -3414,12 +3601,12 @@ body.js .superform > div.elements ol li.element div.contents p {
       top: 0;
       width: 0; }
       .project-edit div#main.costs .superform li.element.cost-meter dl dd.optimum > span > strong {
-        color: #BB70B6;
+        color: #255B80;
         position: absolute;
         right: 0;
         top: 34px; }
       .project-edit div#main.costs .superform li.element.cost-meter dl dd.optimum > span > span.yen {
-        color: #BB70B6;
+        color: #255B80;
         font-size: 20px;
         left: 10px;
         position: absolute;
@@ -3464,7 +3651,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     .project-edit div#main.rewards div.superform li.element.reward div.description p {
       margin: .5em 0; }
     .project-edit div#main.rewards div.superform li.element.reward div.description span.left {
-      color: #EE4843;
+      color: #255B80;
       font-weight: 700; }
 .project-edit div#main.rewards div.superform li.element .buttons ol {
   text-align: right; }
@@ -3520,7 +3707,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   min-height: 32px;
   padding-left: 110px !important; }
 .project-edit div#main.rewards div.superform li.element.editsocial_reward div.children li.element.reward-amount > div.contents > input {
-  background-image: url(/view/images/yen/s.png);
+  background-image: url("/view/images/yen/s.png");
   background-position: 7.7em center;
   background-repeat: no-repeat;
   float: left;
@@ -3605,6 +3792,10 @@ body.js .superform > div.elements ol li.element div.contents p {
   background: none; }
 .project-edit div#main.preview form.project .superform > div.elements > ol > li.element.html div.contents {
   margin-left: 0; }
+.project-edit div#main .superform > div > ol {
+  margin: 0;
+  padding: 20px !important;
+  background: #FFF; }
 
 .dashboard #sub-header {
   height: 145px; }
@@ -3641,10 +3832,10 @@ body.js .superform > div.elements ol li.element div.contents p {
     padding: 0;
     vertical-align: middle; }
     .dashboard .dashboard-header h2 span {
-      color: #666;
+      color: #828282;
       font-size: 30px; }
 .dashboard #dashboard-menu {
-  border-bottom: 40px solid #39c;
+  border-bottom: 40px solid #255b7f;
   display: block;
   font-size: 13px;
   height: 0;
@@ -3667,8 +3858,8 @@ body.js .superform > div.elements ol li.element div.contents p {
     margin: 0 auto; }
     .dashboard #dashboard-menu > ul li.section.current a.section {
       background: none;
-      background-color: #39c;
-      color: #f5f5f5;
+      background-color: #255b7f;
+      color: #f2f2f2;
       filter: none; }
     .dashboard #dashboard-menu > ul li.section.current ul {
       display: block;
@@ -3676,19 +3867,16 @@ body.js .superform > div.elements ol li.element div.contents p {
     .dashboard #dashboard-menu > ul li.section a.section {
       min-width: 80px !important;
       height: 52px;
-      color: #699;
+      color: #454545;
       font-size: 14px;
       line-height: 36px;
       text-align: center;
-      background: #ccf4ff;
-      border-left: 1px solid #99b8cc;
-      border-right: 1px solid #99b8cc;
-      border-top: 1px solid #99b8cc;
+      background: #d9d9d9;
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ccf4ff',endColorstr='#b1cfd3',GradientType=0); }
     .dashboard #dashboard-menu > ul li.section.active a.section {
       background: none;
-      background-color: #39c;
-      color: #f5f5f5;
+      background-color: #255b7f;
+      color: #f2f2f2;
       filter: none;
       font-weight: bolder; }
     .dashboard #dashboard-menu > ul li.section.active:not(.current) ul li a {
@@ -3704,14 +3892,14 @@ body.js .superform > div.elements ol li.element div.contents p {
       bottom: 0;
       right: 0;
       height: 40px;
-      background-color: #39c; }
+      background-color: #255b7f; }
     .dashboard #dashboard-menu > ul li.option.current a {
-      color: #f5f5f5;
+      color: #f2f2f2;
       height: 40px;
       line-height: 27px;
-      border-bottom: 5px solid #f93; }
+      border-bottom: 5px solid #FFF; }
     .dashboard #dashboard-menu > ul li.option a {
-      color: #cff;
+      color: #FFF;
       height: 25px;
       line-height: 25px; }
 .dashboard .project-header {
@@ -3738,32 +3926,32 @@ body.js .superform > div.elements ol li.element div.contents p {
     max-width: 620px;
     font-style: normal; }
   .dashboard .project-header .project-by {
-    color: #20B3B2;
+    color: #0093c4;
     font-size: 12px;
     margin: 0 0 .5em; }
     .dashboard .project-header .project-by a {
       font-weight: normal;
-      color: #cc6600;
+      color: #0093c4;
       font-size: 12px;
       text-decoration: none; }
       .dashboard .project-header .project-by a:hover {
-        color: #58595B; }
+        color: #454545; }
   .dashboard .project-header .categories {
     position: absolute;
     right: 10px;
     text-align: right;
     top: 0; }
     .dashboard .project-header .categories h3 {
-      color: #20B3B2;
+      color: yellow;
       font-size: 0.8571428rem;
       font-weight: normal;
       margin: 0; }
     .dashboard .project-header .categories a {
-      color: #58595B;
+      color: #454545;
       font-size: 12px;
       text-decoration: none; }
       .dashboard .project-header .categories a:hover {
-        color: #20B3B2; }
+        color: yellow; }
 .dashboard .summary > .widget {
   margin-bottom: 20px; }
 .dashboard .summary .select-action {
@@ -3784,11 +3972,11 @@ body.js .superform > div.elements ol li.element div.contents p {
   float: left;
   top: -10px;
   left: 35px;
-  color: #903;
+  color: #255B80;
   font-size: 30px;
   font-weight: 700;
   line-height: 33px;
-  border-bottom: 1px solid #903; }
+  border-bottom: 1px solid #255B80; }
   .dashboard .user-worthcracy .worth-amount:after {
     content: '￥';
     display: inline-block;
@@ -3802,7 +3990,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    background: #903; }
+    background: #255B80; }
 .dashboard #project-selector {
   margin-bottom: 20px;
   padding: 20px;
@@ -3823,11 +4011,11 @@ body.js .superform > div.elements ol li.element div.contents p {
   display: table-cell;
   width: 50%;
   padding: 20px 20px 30px 30px;
-  color: #bcbdbd;
+  color: #d9d9d9;
   background-color: #fff; }
   .dashboard #project-status h3 {
     margin: 0 0 .6em;
-    color: #9B9B9D;
+    color: #828282;
     font-size: 20px;
     font-weight: 400; }
   .dashboard #project-status ul {
@@ -3836,10 +4024,10 @@ body.js .superform > div.elements ol li.element div.contents p {
     font-size: 16px;
     line-height: 1.5em;
     list-style: none;
-    border-left: 1px solid #bcbcbd; }
+    border-left: 1px solid #828282; }
   .dashboard #project-status strong {
-    background: url(/view/images/project/statusmarker.png) no-repeat left center;
-    color: #58595b;
+    background: url("/view/images/project/statusmarker.png") no-repeat left center;
+    color: #454545;
     display: block;
     font-size: 22px;
     font-weight: 700;
@@ -3854,48 +4042,48 @@ body.js .superform > div.elements ol li.element div.contents p {
     top: 20px; }
   .dashboard #meter-big .percent {
     top: 56px; }
-  .dashboard #meter-big .meter.hor.big {
+  .dashboard #meter-big .meter.big {
     width: 420px;
     padding-top: 30px; }
-    .dashboard #meter-big .meter.hor.big h3 {
+    .dashboard #meter-big .meter.big h3 {
       position: relative;
       top: -40px;
       padding-left: 0; }
-    .dashboard #meter-big .meter.hor.big .graph {
+    .dashboard #meter-big .meter.big .graph {
       position: relative;
       top: 0;
       height: 8px;
       margin: 40px 5px 70px;
-      background-color: #BB70B6;
-      border-right: 40px solid #DFBDDD; }
-      .dashboard #meter-big .meter.hor.big .graph .optimum {
+      background-color: yellow;
+      border-right: 40px solid yellow; }
+      .dashboard #meter-big .meter.big .graph .optimum {
         position: absolute;
         right: 0;
         height: 19px;
         margin-right: -2px;
         margin-top: -6px;
-        border-right: 4px solid #BB70B6; }
-      .dashboard #meter-big .meter.hor.big .graph .minimum {
+        border-right: 4px solid yellow; }
+      .dashboard #meter-big .meter.big .graph .minimum {
         position: absolute;
         top: 0;
         left: 0;
         height: 100%;
-        background-color: #96238F; }
-        .dashboard #meter-big .meter.hor.big .graph .minimum .left {
+        background-color: yellow; }
+        .dashboard #meter-big .meter.big .graph .minimum .left {
           float: right;
           height: 19px;
           margin-right: -2px;
           margin-top: -6px;
-          border-right: 4px solid #96238F; }
-        .dashboard #meter-big .meter.hor.big .graph .minimum .done {
+          border-right: 4px solid yellow; }
+        .dashboard #meter-big .meter.big .graph .minimum .done {
           position: absolute;
           top: -2px;
           left: 0;
           max-width: 580px;
           height: 10px;
-          background-color: #20B3B2; }
-          .dashboard #meter-big .meter.hor.big .graph .minimum .done strong {
-            background: url(/view/images/dashboard/projects_marker.png) no-repeat;
+          background-color: yellow; }
+          .dashboard #meter-big .meter.big .graph .minimum .done strong {
+            background: url("/view/images/dashboard/projects_marker.png") no-repeat;
             color: #fff;
             display: block;
             font-size: 12px;
@@ -3907,17 +4095,17 @@ body.js .superform > div.elements ol li.element div.contents p {
             right: 0;
             text-align: center;
             width: 25px; }
-    .dashboard #meter-big .meter.hor.big dl {
+    .dashboard #meter-big .meter.big dl {
       position: relative;
       top: 0;
       width: 420px;
       height: 100px;
       margin: -78px 40px 0 0; }
-      .dashboard #meter-big .meter.hor.big dl dt.optimum {
+      .dashboard #meter-big .meter.big dl dt.optimum {
         clear: right;
         float: right;
         margin-right: -40px;
-        color: #BB70B6;
+        color: yellow;
         display: block;
         position: absolute;
         right: 82px;
@@ -3927,17 +4115,17 @@ body.js .superform > div.elements ol li.element div.contents p {
         font-size: 12px;
         line-height: 14px;
         white-space: nowrap; }
-      .dashboard #meter-big .meter.hor.big dl dt.minimum {
+      .dashboard #meter-big .meter.big dl dt.minimum {
         display: block;
         position: absolute;
         left: -10px;
         top: -65px;
         min-width: 10%;
-        color: #96238F;
+        color: yellow;
         font-size: 12px;
         line-height: 14px;
         white-space: nowrap; }
-        .dashboard #meter-big .meter.hor.big dl dt.minimum span {
+        .dashboard #meter-big .meter.big dl dt.minimum span {
           display: block;
           position: absolute;
           top: 21px;
@@ -3945,7 +4133,7 @@ body.js .superform > div.elements ol li.element div.contents p {
           width: auto;
           margin-right: -30px;
           font-weight: 300; }
-      .dashboard #meter-big .meter.hor.big dl dt.reached {
+      .dashboard #meter-big .meter.big dl dt.reached {
         position: absolute;
         top: 55px;
         margin-top: 6px;
@@ -3953,7 +4141,7 @@ body.js .superform > div.elements ol li.element div.contents p {
         font-size: 12px;
         font-weight: 600;
         line-height: 30px; }
-      .dashboard #meter-big .meter.hor.big dl dt.days {
+      .dashboard #meter-big .meter.big dl dt.days {
         position: absolute;
         top: 55px;
         left: 200px;
@@ -3962,19 +4150,19 @@ body.js .superform > div.elements ol li.element div.contents p {
         font-size: 12px;
         font-weight: 600;
         line-height: 30px; }
-      .dashboard #meter-big .meter.hor.big dl dt.supporters {
+      .dashboard #meter-big .meter.big dl dt.supporters {
         position: absolute;
         top: 55px;
         left: 340px;
         margin-top: 6px;
         padding: 10px 0;
-        color: #1b5b9e;
+        color: yellow;
         font-size: 12px;
         font-weight: 600;
         line-height: 30px; }
-      .dashboard #meter-big .meter.hor.big dl dd {
+      .dashboard #meter-big .meter.big dl dd {
         margin: 0; }
-        .dashboard #meter-big .meter.hor.big dl dd.optimum {
+        .dashboard #meter-big .meter.big dl dd.optimum {
           clear: right;
           float: right;
           display: block;
@@ -3983,43 +4171,43 @@ body.js .superform > div.elements ol li.element div.contents p {
           top: 32px;
           width: auto;
           margin-right: -40px;
-          color: #BB70B6;
+          color: yellow;
           font-size: 16px;
           font-weight: 400;
           text-align: right;
           white-space: nowrap; }
-        .dashboard #meter-big .meter.hor.big dl dd.minimum {
+        .dashboard #meter-big .meter.big dl dd.minimum {
           display: block;
           position: relative;
           left: -10px;
           min-width: 10%;
-          color: #96238F;
+          color: yellow;
           font-size: 16px;
           font-weight: 400;
           line-height: 14px;
           white-space: nowrap; }
-          .dashboard #meter-big .meter.hor.big dl dd.minimum > * {
+          .dashboard #meter-big .meter.big dl dd.minimum > * {
             display: block;
             position: absolute;
             top: -25px;
             margin-right: -30px; }
-          .dashboard #meter-big .meter.hor.big dl dd.minimum strong {
+          .dashboard #meter-big .meter.big dl dd.minimum strong {
             text-align: right;
             right: 16px; }
-          .dashboard #meter-big .meter.hor.big dl dd.minimum span {
+          .dashboard #meter-big .meter.big dl dd.minimum span {
             right: 0;
             font-weight: 300; }
-        .dashboard #meter-big .meter.hor.big dl dd.reached {
+        .dashboard #meter-big .meter.big dl dd.reached {
           position: absolute;
           top: 55px;
           left: 60px;
           margin-top: 6px;
           padding: 10px 0;
-          color: #96238F;
+          color: yellow;
           font-size: 16px;
           font-weight: 600;
           line-height: 30px; }
-        .dashboard #meter-big .meter.hor.big dl dd.days {
+        .dashboard #meter-big .meter.big dl dd.days {
           position: absolute;
           top: 55px;
           left: 285px;
@@ -4028,21 +4216,21 @@ body.js .superform > div.elements ol li.element div.contents p {
           font-size: 16px;
           font-weight: 600;
           line-height: 30px; }
-        .dashboard #meter-big .meter.hor.big dl dd.supporters {
+        .dashboard #meter-big .meter.big dl dd.supporters {
           position: absolute;
           top: 55px;
           left: 390px;
           margin-top: 6px;
           padding: 10px 0;
-          color: #1b5b9e;
+          color: yellow;
           font-size: 16px;
           font-weight: 600;
           line-height: 30px; }
-      .dashboard #meter-big .meter.hor.big dl .optimum {
+      .dashboard #meter-big .meter.big dl .optimum {
         clear: right;
         float: right;
         margin-right: -40px;
-        color: #BB70B6; }
+        color: yellow; }
 .dashboard.dashboard .superform {
   padding-left: 20px;
   padding-top: 1px;
@@ -4121,9 +4309,9 @@ body.js .superform > div.elements ol li.element div.contents p {
   margin: 0 0 20px;
   padding: 0; }
   .community .categorylist h3.title {
-    background-color: #21b0b0;
-    border-bottom: 1px solid #21b0b0;
-    color: #f5f5f5;
+    background-color: #0093c4;
+    border-bottom: 1px solid #0093c4;
+    color: #f2f2f2;
     font-size: 18px;
     font-weight: 400;
     margin: 0;
@@ -4133,18 +4321,18 @@ body.js .superform > div.elements ol li.element div.contents p {
   padding: 0;
   overflow: hidden; }
   .community .user-mates h3.title {
-    background-color: #666;
-    color: #f5f5f5;
+    background-color: #454545;
+    color: #f2f2f2;
     font-size: 14px;
     font-weight: 400;
     margin: 0;
     padding: 4px 0 4px 20px; }
   .community .user-mates > h3.title {
-    border-bottom: 1px solid #908499;
-    border-top: 1px solid #808285; }
+    border-bottom: 1px solid #454545;
+    border-top: 1px solid #454545; }
   .community .user-mates a.more {
     background-color: #fff;
-    border-top: 1px dashed silver;
+    border-top: 1px dashed #d9d9d9;
     display: block;
     float: none;
     font-size: 14px !important;
@@ -4166,8 +4354,8 @@ body.js .superform > div.elements ol li.element div.contents p {
     padding: 0; }
     .community .users ul li {
       border: none;
-      border-right: 1px dashed silver;
-      border-top: 1px dashed silver;
+      border-right: 1px dashed #d9d9d9;
+      border-top: 1px dashed #d9d9d9;
       float: left;
       margin: -1px 0 0;
       max-width: 319px !important;
@@ -4178,9 +4366,9 @@ body.js .superform > div.elements ol li.element div.contents p {
       .community .users ul li:nth-child(3n+3) {
         border-right: none; }
       .community .users ul li.active {
-        background-color: #f3f3f3 !important; }
+        background-color: #f2f2f2 !important; }
         .community .users ul li.active .user > h4 > a {
-          color: #19B4B2; }
+          color: #0093c4; }
       .community .users ul li .user {
         padding: 3px 6px 3px 57px;
         position: relative; }
@@ -4211,9 +4399,9 @@ body.js .superform > div.elements ol li.element div.contents p {
       .community .users ul li .profile {
         display: inline-block;
         margin-right: 15px;
-        color: #20b3b2; }
+        color: #0093c4; }
       .community .users ul li .invests {
-        color: #313b96; }
+        color: #255B80; }
       .community .users ul li .profile,
       .community .users ul li .contact {
         display: block;
@@ -4226,7 +4414,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   min-height: inherit;
   padding: 0; }
 .admin input[type="text"].readonly {
-  color: #ccc; }
+  color: #d9d9d9; }
 .admin input[type="reset"],
 .admin button,
 .admin a.button {
@@ -4242,18 +4430,18 @@ body.js .superform > div.elements ol li.element div.contents p {
 .admin #sub-header {
   padding-bottom: 10px; }
   .admin #sub-header .breadcrumbs {
-    color: #58595B;
+    color: #828282;
     display: block;
     font-size: 18px;
     margin: 0 auto;
     max-width: 960px; }
     .admin #sub-header .breadcrumbs a {
-      color: #58595B;
+      color: #454545;
       font-size: 18px; }
       .admin #sub-header .breadcrumbs a:hover {
-        color: #20B2B3; }
+        color: #0093c4; }
     .admin #sub-header .breadcrumbs strong {
-      color: #20B2B3; }
+      color: #0093c4; }
 .admin #main {
   margin-bottom: 0;
   margin-top: 0; }
@@ -4265,7 +4453,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     padding: 0;
     width: 100%; }
     .admin .admin-menu fieldset legend {
-      background-color: #20B2B3;
+      background-color: #0093c4;
       color: #fff;
       display: block;
       font-weight: 700;
@@ -4282,7 +4470,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       padding: 0;
       width: 160px; }
       .admin .admin-menu ul li.active a {
-        color: #20B2B3; }
+        color: #0093c4; }
       .admin .admin-menu ul li a {
         display: block;
         padding: 4px 8px;
@@ -4315,14 +4503,14 @@ body.js .superform > div.elements ol li.element div.contents p {
       display: inline-block;
       margin-right: 1px; }
       .admin .admin-right ul li.active a {
-        background-color: #c8babc; }
+        background-color: #d9d9d9; }
       .admin .admin-right ul li a {
         color: #000;
         display: inline-block;
         padding: .6em 2em .2em .6em;
         text-decoration: none; }
         .admin .admin-right ul li a:hover {
-          background-color: #c8babc; }
+          background-color: #d9d9d9; }
   .admin .admin-right .board {
     padding: 0; }
     .admin .admin-right .board.shortcut {
@@ -4334,13 +4522,13 @@ body.js .superform > div.elements ol li.element div.contents p {
       box-sizing: content-box;
       width: 100%; }
       .admin .admin-right .board table.t_border tr:nth-child(even) td {
-        background-color: #f5f5f5; }
+        background-color: #f2f2f2; }
       .admin .admin-right .board table th {
-        background-color: #666;
+        background-color: #828282;
         box-sizing: content-box;
-        color: #f5f5f5; }
+        color: #f2f2f2; }
       .admin .admin-right .board table td {
-        border-bottom: 1px dotted #ccc;
+        border-bottom: 1px dotted #d9d9d9;
         box-sizing: content-box;
         padding: 8px 4px; }
         .admin .admin-right .board table td.w70 {
@@ -4358,7 +4546,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     .admin .admin-right .board > h3.title {
       padding-left: 20px; }
     .admin .admin-right .board a {
-      color: grey;
+      color: #828282;
       text-decoration: none; }
     .admin .admin-right .board form table td {
       border-bottom: none; }
@@ -4566,37 +4754,37 @@ body.js .superform > div.elements ol li.element div.contents p {
   font-weight: 400; }
 .admin .feed a {
   font-size: 14px;
-  color: #58595b;
+  color: #454545;
   text-decoration: none; }
 .admin .feed .light-blue {
-  color: #1DB3B2; }
+  color: #0093c4; }
 .admin .feed .blue {
-  color: #0B4F99; }
+  color: #0093c4; }
 .admin .feed .violet {
-  color: #95268D; }
+  color: #0093c4; }
 .admin .feed .red {
-  color: #E22727; }
+  color: #e02d22; }
 .admin .feed .grey {
-  color: #CBBCBF; }
+  color: #0093c4; }
 .admin .feed .green {
-  color: #20A64B; }
+  color: #0093c4; }
 .admin .feed .subitem {
-  border-bottom: #A7A8AC 1px dashed;
+  border-bottom: #828282 1px dashed;
   height: auto;
   overflow: auto;
   padding: 10px 5px 10px 0; }
   .admin .feed .subitem.odd {
-    background: #F7F7F7; }
+    background: #f2f2f2; }
   .admin .feed .subitem .datepub {
     clear: right;
-    color: #A7A8AC;
+    color: #828282;
     display: block;
     float: left;
     font-size: .9em;
     margin-bottom: 2px; }
   .admin .feed .subitem .content-pub {
     clear: both;
-    color: #59595C;
+    color: #454545;
     font-size: .9em;
     margin-top: 2px; }
     .admin .feed .subitem .content-pub a {
@@ -4662,12 +4850,12 @@ body.js .superform > div.elements ol li.element div.contents p {
   .user-profile .center .widget.project-supporters .summary dt {
     margin: 0; }
     .user-profile .center .widget.project-supporters .summary dt.reached {
-      color: #663;
+      color: yellow;
       margin-top: -1.5em; }
   .user-profile .center .widget.project-supporters .summary dd {
     margin: 0; }
     .user-profile .center .widget.project-supporters .summary dd.reached {
-      color: #903; }
+      color: yellow; }
 .user-profile .center .widget.project-supporters .supporters > ul > li {
   min-height: 105px;
   width: 305px; }
@@ -4702,7 +4890,7 @@ body.js .superform > div.elements ol li.element div.contents p {
         font-size: 12px;
         text-decoration: none; }
         .user-profile .center .widget.user-mates .categories ul li a.active, .user-profile .center .widget.user-mates .categories ul li a:hover {
-          color: #19B4B2; }
+          color: #0093c4; }
 .user-profile .center .widget.user-message label {
   display: block; }
 .user-profile .center .widget.user-message input#contact-subject {
@@ -4808,12 +4996,12 @@ body.js .superform > div.elements ol li.element div.contents p {
         margin-bottom: 5px;
         margin-right: 5px; }
         .user-profile .side .widget.user-mates div.categories ul li a {
-          color: #636466;
+          color: #828282;
           font-size: 12px;
           text-decoration: none;
           text-transform: uppercase; }
           .user-profile .side .widget.user-mates div.categories ul li a:hover {
-            color: #20B3B2; }
+            color: #0093c4; }
   .user-profile .side .widget.user-mates .users ul {
     display: -webkit-flex;
     display: flex;
@@ -4884,7 +5072,7 @@ body.js .superform > div.elements ol li.element div.contents p {
           font-size: 12px;
           text-decoration: none; }
           .user-profile .widget.user-about > div.webs ul li a:hover {
-            color: #20B3B2; }
+            color: #0093c4; }
     .user-profile .widget.user-about > div.location h4 {
       display: none; }
     .user-profile .widget.user-about > div.location p {
@@ -4900,14 +5088,14 @@ body.js .superform > div.elements ol li.element div.contents p {
       text-decoration: none; }
       .user-profile .widget.user-about > div.location p:hover,
       .user-profile .widget.user-about > div.location p *:hover {
-        color: #20B3B2; }
+        color: #0093c4; }
     .user-profile .widget.user-about > div.message p {
       background: url(/view/images/bocadillo/s.png) no-repeat left center;
       line-height: 22px;
       min-height: 22px;
       padding-left: 26px; }
       .user-profile .widget.user-about > div.message p a {
-        color: #28B258;
+        color: #0093c4;
         font-size: 14px;
         font-weight: 700;
         text-decoration: none; }
@@ -4937,7 +5125,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     .user-profile .widget.user-supporters .supporters ul li:nth-child(3n+3) {
       border-right: none; }
     .user-profile .widget.user-supporters .supporters ul li.active {
-      background-color: #f3f3f3; }
+      background-color: #d9d9d9; }
     .user-profile .widget.user-supporters .supporters ul li div.supporterContainer {
       margin: 0;
       padding: 0; }
@@ -4996,7 +5184,7 @@ body.js .superform > div.elements ol li.element div.contents p {
         margin: 0; }
         .user-profile .widget.user-supporters .supporters ul li dl dd.date {
           bottom: 0;
-          color: #a6a8ab;
+          color: #828282;
           left: 4px;
           position: absolute;
           top: 10px; }
@@ -5004,7 +5192,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   background-color: #fff;
   border-top: 1px dashed #d9d9d9;
   clear: both;
-  color: #58595b;
+  color: #255b7f;
   display: block;
   float: none;
   font-size: 14px !important;
@@ -5015,9 +5203,9 @@ body.js .superform > div.elements ol li.element div.contents p {
   text-decoration: none;
   text-transform: uppercase; }
   .user-profile .widget.user-supporters a.more:hover {
-    color: #313B96; }
+    color: #009acb; }
 .user-profile .widget.user-social {
-  border-bottom: 1px dashed #c0c0c0; }
+  border-bottom: 1px dashed #d9d9d9; }
   .user-profile .widget.user-social .title {
     display: none; }
   .user-profile .widget.user-social ul {
@@ -5102,9 +5290,9 @@ body.js .superform > div.elements ol li.element div.contents p {
         .user-profile .widget.user-mates div.users ul > li.nomarginright {
           margin-right: 0; }
         .user-profile .widget.user-mates div.users ul > li.active {
-          background-color: #f3f3f3 !important; }
+          background-color: #f2f2f2 !important; }
         .user-profile .widget.user-mates div.users ul > li:hover > div.user > h4 > a {
-          color: #19B4B2; }
+          color: #0093c4; }
         .user-profile .widget.user-mates div.users ul > li .user {
           padding: 20px 20px 20px 80px;
           position: relative; }
@@ -5151,23 +5339,23 @@ body.js .superform > div.elements ol li.element div.contents p {
         .user-profile .widget.user-mates div.users ul > li span {
           font-size: 12px; }
           .user-profile .widget.user-mates div.users ul > li span.projects {
-            color: #20b3b2;
+            color: #255b7f;
             margin-right: 8px; }
           .user-profile .widget.user-mates div.users ul > li span.invests {
-            color: #313b96; }
+            color: #255b7f; }
       .user-profile .widget.user-mates div.users ul li a {
         font-size: 12px !important;
         text-decoration: none;
         text-transform: none !important; }
         .user-profile .widget.user-mates div.users ul li a:hover {
-          color: #20B3B2; }
+          color: #009acb; }
       .user-profile .widget.user-mates div.users ul li div.user h4 {
         margin-bottom: 10px; }
         .user-profile .widget.user-mates div.users ul li div.user h4 a {
           display: inline-block;
           font-weight: 700; }
   .user-profile .widget.user-mates a.more {
-    color: #337ab7;
+    color: #255b7f;
     display: inline-block;
     font-size: 14px;
     line-height: 58px;
@@ -5179,7 +5367,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     text-decoration: none;
     top: 0; }
     .user-profile .widget.user-mates a.more:hover {
-      color: #20b3b2; }
+      color: #009acb; }
     .user-profile .widget.user-mates a.more:after {
       background: url(/view/images/arrow_user_link.png) no-repeat right 50%;
       content: '';
@@ -5188,7 +5376,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       padding: 0 0 4px 4px;
       width: 6px; }
   .user-profile .widget.user-mates .project-widget-box {
-    background-color: #e5e5e5;
+    background-color: #f2f2f2;
     margin: 0;
     padding: 0; }
   .user-profile .widget.user-mates div.categories {
@@ -5211,10 +5399,10 @@ body.js .superform > div.elements ol li.element div.contents p {
   font-weight: normal;
   margin: 0;
   padding: .5em 2px;
-  border-bottom: 1px solid #21b0b0;
+  border-bottom: 1px solid yellow;
   font-size: 18px;
-  background-color: #21b0b0;
-  color: #f5f5f5;
+  background-color: yellow;
+  color: #f2f2f2;
   padding-left: 8px; }
 
 .user-login {
@@ -5322,5 +5510,58 @@ body.js .superform > div.elements ol li.element div.contents p {
       .user-login .login textarea[type="checkbox"],
       .user-login .login input:not([type="submit"])[type="checkbox"] {
         display: inline-block; }
+
+.about #main {
+  margin: 0 auto; }
+  .about #main > .widget {
+    margin: 0 0 20px 0; }
+.about div#sub-header div {
+  display: block;
+  max-width: 960px;
+  margin: 0 auto; }
+.about div#sub-header h2 {
+  min-height: 55px;
+  position: relative;
+  line-height: 1.2em;
+  font-size: 18px;
+  font-weight: normal; }
+  .about div#sub-header h2 a {
+    border-radius: 50%;
+    display: inline-block;
+    height: 55px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    width: 55px; }
+    .about div#sub-header h2 a img {
+      bottom: 0;
+      height: auto;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+      vertical-align: middle;
+      width: 100%; }
+  .about div#sub-header h2 em {
+    font-weight: bold;
+    font-size: 24px;
+    font-style: normal; }
+
+.review #sub-header {
+  height: 145px; }
+  .review #sub-header .dashboard-header {
+    margin: 10px auto 0;
+    max-width: 960px;
+    min-height: 100px;
+    position: relative; }
+    .review #sub-header .dashboard-header h2 {
+      display: inline-block;
+      color: #666;
+      font-size: 30px;
+      margin: 0;
+      padding: 0;
+      vertical-align: middle; }
 
 /*# sourceMappingURL=styles.css.map */

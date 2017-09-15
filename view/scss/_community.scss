@@ -8,9 +8,9 @@
     margin: 0 0 20px;
     padding: 0;
     h3.title {
-      background-color: #21b0b0;
-      border-bottom: 1px solid #21b0b0;
-      color: #f5f5f5;
+      background-color: $color06;//#21b0b0
+      border-bottom: 1px solid $color06;//#21b0b0
+      color: $baseCol;
       font-size: 18px;
       font-weight: 400;
       margin: 0;
@@ -76,7 +76,7 @@
         &.active {
           background-color: $baseCol!important;
           .user > h4 > a {
-            color: #19B4B2;
+            color: $color06;
           }
         }
         .user {
@@ -115,10 +115,10 @@
         .profile {
           display: inline-block;
           margin-right: 15px;
-          color: #20b3b2;
+          color: $color06;//#20b3b2
         }
         .invests {
-          color: #313b96;
+          color: $color10;//#313b96
         }
         .profile,
         .contact {

@@ -522,16 +522,24 @@ div#message {
     width:960px;
     margin:0 auto;
     position:relative;
+
     input.message-close {
-      background:url('/view/images/message-close.png') no-repeat;
-      width:11px;
-      height:10px;
-      border:none;
-      position:absolute;
-      top:-8px;
-      right:0;
+      //background:url('/view/images/message-close.png') no-repeat;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 26px;
+      height: 100%;
+      color: #FFF;
+      font-size: 26px;
+      font-weight: bold;
+      padding: 0;
+      text-align: center;
+      line-height: 100%;
+      border: none;
       z-index:100;
       cursor:pointer;
+      background: none;
     }
     ul{
       list-style:none;
