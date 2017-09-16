@@ -19,21 +19,22 @@ user-profile  :
 page          :スタイル調整が必要なページ
 */
 
-@import "colors";
-@import "mixins";
-@import "base";
-@import "commons";
-@import "widgets";
-@import "meter";
-@import "superform";
-@import "discover";
-@import "review";
-@import "project-show";
-@import "project-edit";
-@import "dashboard";
-@import "community";
-@import "admin";
-@import "user-profile";
-@import "page";
+@import "inc/palette";
+@import "inc/colors";
+@import "inc/mixins";
+@import "inc/base";
+@import "inc/commons";
+@import "inc/widgets";
+@import "inc/meter";
+@import "inc/superform";
+@import "inc/discover";
+@import "inc/review";
+@import "inc/project-show";
+@import "inc/project-edit";
+@import "inc/dashboard";
+@import "inc/community";
+@import "inc/admin";
+@import "inc/user-profile";
+@import "inc/page";
 
 //todo:各ファイルに、htmlに絡む変更と、どのファイルに書くか迷ったものをtodoで書いてあるので、追って対応する

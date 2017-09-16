@@ -47,7 +47,7 @@ h1 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
+  font-weight: 300;
   margin: 1em 0;
 }
 
@@ -82,28 +82,26 @@ input[type="button"],
 button,
 a.button {
   background: none;
-  background: #66cc99;
-  background: -moz-linear-gradient(top, #66cc99 0%, #339966 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#66cc99), color-stop(100%,#339966));
-  background: -webkit-linear-gradient(top, #66cc99 0%,#339966 100%);
-  background: -o-linear-gradient(top, #66cc99 0%,#339966 100%);
-  background: linear-gradient(to bottom, #66cc99 0%,#339966 100%);
+  background-color: $subCol01;
   border: none;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
+  -moz-box-shadow: 0 3px 3px 0 #ccc;
+  -webkit-box-shadow: 0 3px 3px 0 #ccc;
+  box-shadow: 0 3px 3px 0 #ccc;
   color: white;
   cursor: pointer;
-  display: inline-block;
-  font-size: 13px;
-  font-weight: bolder;
-  height: 50px;
-  line-height: 50px;
-  margin: .8em 0 .5em;
+  display: block;
+  font-size: 14px;
+  font-weight: 300;
+  height: 40px;
+  line-height: 40px;
+  margin: 10px auto;
   padding: 0;
   text-align: center;
   text-decoration: none;
-  width: 200px;
+  width: 250px;
 }
 
 input.black[type="button"] {
@@ -114,17 +112,6 @@ input.black[type="button"] {
   background: -o-linear-gradient(top, #58595B 0%,#333333 100%);
   background: -ms-linear-gradient(top, #58595B 0%,#333333 100%);
   background: linear-gradient(to bottom, #58595B 0%,#333333 100%);
-}
-
-div.side div.widget.project-support a.button,
-div.side div.widget.project-collaborations a.button,
-div.side div.widget.user a.button,
-div.project-preview div.widget a.button,
-div.center div.widget.project-support a.button,
-div.widget.project-rewards-summary a.button {
-  line-height: 30px;
-  height: 30px;
-  width: 160px;
 }
 
 button.green {
@@ -138,14 +125,9 @@ body.project-edit div#main #project-steps button {
   width: auto;
 }
 
-a.button {
-  margin: 0;
-  padding: 4px !important;
-}
-
 a.button.red {
   font-size: 16px;
-  font-weight: bolder;
+  font-weight: 600;
   line-height: 50px;
 }
 

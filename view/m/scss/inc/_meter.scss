@@ -1,0 +1,204 @@
+/*----------------------------------------------------------------------
+  meter.css
+----------------------------------------------------------------------*/
+.meter{
+  margin: 0 16px;
+  padding: 4px 0 148px;
+  position: relative;
+  height: 20px;
+
+  h3.title.obtained {
+    display:none;
+    padding-left: 5px;
+  }
+  h3.title.investment{
+    color:#336633;
+  }
+
+  div.graph {
+    background-color: $grayCol01;
+    border-radius: 9px;
+    height: 20px;
+
+    margin: 24px 0 20px;
+    position: relative;
+    * strong,
+    * span {
+      display: none;
+    }
+    .minimum {
+      background-color: $color06;
+      border-radius: 9px 0 0 9px;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      .done {
+        background-color: #c5da4d;
+        height: 20px;
+        left: 0;
+        max-width: 288px;
+        position: absolute;
+        top: 0;
+        strong {
+          background: url("/view/m/images/project/widget/project/project_marker.png") no-repeat;
+          background-size: 9px auto;
+          display: block;
+          height: 16px;
+          line-height: 2000px;
+          margin-right: -10px;
+          margin-top: -5px;
+          overflow: hidden;
+          position: absolute;
+          right: 0;
+          text-indent: 2000px;
+          width: 17px;
+        }
+      }
+      .left {
+        float: right;
+        height: 19px;
+        margin-right: -2px;
+        margin-top: -6px;
+      }
+    }
+  }
+
+  span.percent {
+    color: #a7a9ac;
+    font-size: 26px;
+    font-weight: 600;
+    padding-left: 15px;
+  }
+
+  dl {
+    margin: 0;
+    dt,
+    dd {
+      margin:0;
+    }
+    &.reached-bar {
+      margin-bottom: 14px;
+      .reached,
+      .supporters {
+        strong {
+          color: #000;
+          font-size: 16px;
+        }
+      }
+      .reached {
+        color: #000;
+        display: inline-block;
+      }
+      dt.reached {
+        font-size: 14px;
+        font-weight: 300;
+        padding-top: 0;
+      }
+      .supporters {
+        color: #000;
+        display: inline-block;
+      }
+      dt.supporters {
+        &:before {
+          content: '/';
+          display: inline-block;
+        }
+      }
+    }
+    &.amount-bar {
+      margin: 0 0 20px;
+      position:relative;
+      .optimum,
+      .minimum {
+        display: inline-block;
+        line-height: 1.8;
+      }
+      dt, dd {
+        &.reached {
+          margin-top: 16px;
+        }
+      }
+      dt {
+        &.optimum,
+        &.minimum {
+          width: 110px;
+        }
+      }
+      dd {
+        &.optimum,
+        &.minimum {
+          width: 130px;
+        }
+        &.days {
+          width: 118px;
+          strong {
+            color: #82656f;
+          }
+        }
+      }
+    }
+    &.percent {
+      text-shadow: 1px 1px 1px $grayCol03;
+      color: #FFF;
+      font-size: 12px;
+      line-height: 18px;
+      margin-left: 16px;
+      position: absolute;
+      top: 42px;
+      dt,dd {
+        display: inline-block;
+      }
+    }
+  }
+  h2, h3, h4, h5, h6 {
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0;
+    padding: 2px 0 0;
+  }
+
+  &.activable {
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 90vw;
+    z-index: 999;
+  }
+
+  &.skillmatching {
+    padding: 4px 0 78px;
+    dl.reached-bar {
+      dt, dd {
+        height: 30px;
+        width: 50%;
+      }
+      dt {
+        &.days {
+          padding-top: 5px;
+          right: 0;
+          top: 0;
+        }
+        &.supporters {
+          left: 0;
+          padding-top: 5px;
+          top: 0;
+          &:before {
+            content: '';
+          }
+        }
+      }
+      dd {
+        &.days {
+          border-top: 1px solid $grayCol01;
+          top: 0;
+        }
+        &.supporters {
+          border-top: 1px solid $grayCol01;
+          left: 0;
+          top: 0;
+        }
+      }
+    }
+  }
+
+}

@@ -41,7 +41,7 @@ div.datepicker {
     td div.datepicker th {
       text-align: center;
       color: #999;
-      font-weight: normal;
+      font-weight: 300;
     }
   }
   tbody {
@@ -56,7 +56,7 @@ div.datepicker {
 
 table.datepickerViewDays tr.datepickerDoW th {
   padding: .6em .4em;
-  font-weight: normal;
+  font-weight: 300;
   color: #666;
   text-align: center;
   font-size: 12px;
@@ -211,12 +211,12 @@ div.superform {
       margin: 1em 0;
     }
     h5 {
-      font-weight: bold;
+      font-weight: 600;
       margin: 0 0 .4em 0;
       color: #1DB3B2;
     }
     label {
-      font-weight: bold;
+      font-weight: 600;
       margin: 1em 0;
       display: block;
     }
@@ -319,7 +319,7 @@ div {
       /*margin-top: 1em;*/
       margin-top: 6px;
       p {
-        font-weight: bold;
+        font-weight: 600;
         margin: 1.2em 0 .4em 0;
         color: #1DB3B2;
       }
@@ -371,7 +371,7 @@ body {
           height: auto;
           font-size: 12px;
           line-height: 16px;
-          font-weight: normal;
+          font-weight: 300;
           width: 100%;
         }
       }
@@ -731,7 +731,7 @@ div.superform {
   input {
     &.edit[type="submit"], &.remove[type="submit"], &.add[type="submit"] {
       padding: 0.3em 1.2em !important;
-      font-weight: bold;
+      font-weight: 600;
       font-size: 16px;
     }
   }
@@ -742,13 +742,9 @@ div.superform {
 
 a.button {
   &.red, &.weak {
-    padding: 0.3em 1.2em !important;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 16px;
   }
-  padding: 0.3em 1.2em !important;
-  font-weight: bold;
-  font-size: 16px;
 }
 
 div.superform {
@@ -880,7 +876,7 @@ div.superform li {
         height: auto;
         line-height: 16px;
         font-size: 12px;
-        font-weight: normal;
+        font-weight: 300;
       }
     }
     &.avatar_upload div.contents input[type="submit"] {
@@ -888,7 +884,7 @@ div.superform li {
       height: auto;
       line-height: 16px;
       font-size: 12px;
-      font-weight: normal;
+      font-weight: 300;
     }
   }
 }
@@ -907,13 +903,8 @@ a.button {
     height: auto;
     line-height: 16px;
     font-size: 12px;
-    font-weight: normal;
+    font-weight: 300;
   }
-  width: auto;
-  height: auto;
-  line-height: 16px;
-  font-size: 12px;
-  font-weight: normal;
 }
 
 body.js div.superform > div.hint {

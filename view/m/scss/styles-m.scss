@@ -18,20 +18,20 @@ community     :マニメニュー > このユーザーの興味
 admin         :
 */
 
-@import "colors";
-@import "mixins";
-@import "base";
-@import "commons";
-@import "widgets";
-@import "meter";
-@import "superform";
-@import "home";
-@import "discover";
-@import "review";
-@import "project-show";
-@import "project-edit";
-@import "dashboard";
-@import "community";
-@import "admin";
+@import "inc/colors";
+@import "inc/mixins";
+@import "inc/base";
+@import "inc/commons";
+@import "inc/widgets";
+@import "inc/meter";
+@import "inc/superform";
+@import "inc/home";
+@import "inc/discover";
+@import "inc/review";
+@import "inc/project-show";
+@import "inc/project-edit";
+@import "inc/dashboard";
+@import "inc/community";
+@import "inc/admin";
 
 //todo:各ファイルに、htmlに絡む変更と、どのファイルに書くか迷ったものをtodoで書いてあるので、追って対応する

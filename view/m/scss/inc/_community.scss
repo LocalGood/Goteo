@@ -26,7 +26,7 @@
       color: #ffffff;
       background-color: #19B4B2;
       border-bottom: none;
-      font-weight: normal;
+      font-weight: 300;
       line-height: 40px;
       height: 40px;
       margin: 0;
@@ -63,7 +63,6 @@
         > li{
           margin-right:0.5em;
           > a {
-            text-transform:uppercase;
             font-size:12px;
           }
         }
@@ -78,7 +77,7 @@
     > h3.title {
       padding: 4px 0 4px 20px;
       font-size: 14px;
-      font-weight: normal;
+      font-weight: 300;
       background-color: #666666;
       color: #f5f5f5;
       margin: 0;
@@ -104,7 +103,6 @@
           margin-right:5px;
           a{
             color:#636466;
-            //font-size:12px;
             font-size: 12px !important;
             text-decoration: none;
             &:hover{
@@ -115,7 +113,7 @@
             h4 {
               margin-top:4px;
               a {
-                font-weight:bold;
+                font-weight: 600;
                 display:inline-block;
               }
             }
@@ -157,7 +155,7 @@
             margin: 0;
             a {
               font-size: 14px !important;
-              font-weight: normal;
+              font-weight: 300;
             }
           }
           span {
@@ -261,7 +259,7 @@
   div.center div.widget.user-message #bocadillo{background:url('/view/m/images/bocadillo.jpg') no-repeat;position:absolute;
     width:56px; height:51px;z-index:100;}
   div.center div.widget.user-message #a-preview{color: #2EAB58;
-    font-weight: bold;left: 52px;position: relative;text-decoration: none;text-transform: uppercase;top: 10px;}
+    font-weight: 600;left: 52px;position: relative;text-decoration: none;top: 10px;}
   div.center div.widget.user-message button{float:right;margin-right:8px;}
 
   /*widget スマホ*/

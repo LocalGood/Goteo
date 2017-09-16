@@ -52,12 +52,10 @@ if (GOTEO_MAINTENANCE === true && $_SERVER['REQUEST_URI'] != '/about/maintenance
 /*
 
 */
-if ($_REQUEST['scss']){
-    if ($_REQUEST['scss'] === md5(LG_SCSS_COMPILE_PARAM)){
-        require_once __DIR__ . '/vendor/autoload.php';
-        SassCompiler::run(__DIR__ . "/view/scss/", __DIR__ . "/view/css/");
-        SassCompiler::run(__DIR__ . "/view/m/scss/", __DIR__ . "/view/m/css/");
-    }
+if (!empty($_REQUEST['scss']) && $_REQUEST['scss'] === md5(LG_SCSS_COMPILE_PARAM)){
+    require_once __DIR__ . '/vendor/autoload.php';
+    SassCompiler::run(__DIR__ . "/view/scss/", __DIR__ . "/view/css/");
+    SassCompiler::run(__DIR__ . "/view/m/scss/", __DIR__ . "/view/m/css/");
 }
 
 // Include path

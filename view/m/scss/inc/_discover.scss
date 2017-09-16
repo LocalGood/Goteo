@@ -12,7 +12,7 @@
     div {
       &.widget {
         overflow: hidden;
-        padding-bottom: 20px;
+        padding-bottom: 120px;
       }
     }
   }
@@ -30,7 +30,7 @@
       margin-bottom: 20px;
       label {
         display: block;
-        font-weight: bold;
+        font-weight: 600;
         font-size: 14px;
         margin-left: 16px;
         padding-top: 9px;
@@ -73,7 +73,7 @@
         color: #58595B;
         display: block;
         font-size: 14px;
-        font-weight: bold;
+        font-weight: 600;
         padding: 5px 5px 6px 0;
       }
       select {
@@ -93,7 +93,7 @@
           &.all {
             color: #58595B;
             font-size: 1em;
-            font-weight: bold;
+            font-weight: 600;
           }
         }
       }

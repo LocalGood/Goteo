@@ -13,7 +13,7 @@
         span.leave {
           display: table-cell;
           font-size: 18px;
-          font-weight: bold;
+          font-weight: 600;
           color: #666666;
           vertical-align: middle;
           line-height: 22px;
@@ -148,7 +148,7 @@
             border-right: 1px solid $grayCol01;
             color: #669999;
             text-align: center;
-            font-weight: normal;
+            font-weight: 300;
             font-size: 14px;
           }
           &.active a.section {
@@ -163,19 +163,19 @@
               background-color: #3399cc;
               background-color: #3399cc;
               color: #f5f5f5;
-              font-weight: normal;
+              font-weight: 300;
             }
             ul {
               background-color: #3399cc;
               color: #f5f5f5;
-              font-weight: normal;
+              font-weight: 300;
             }
           }
           &.active {
             a.section, ul {
               background-color: #3399cc;
               color: #f5f5f5;
-              font-weight: normal;
+              font-weight: 300;
             }
           }
           a:hover.section, ul:hover {
@@ -195,7 +195,7 @@
         height: 25px;
         line-height: 25px;
         font-size: 12px;
-        font-weight: normal;
+        font-weight: 300;
       }
       &.current a, &.active a {
         height: 18px;
@@ -264,7 +264,7 @@
         h2.title {
           color: #f5f5f5;
           background-color: #666666;
-          font-weight: normal;
+          font-weight: 300;
           line-height: 22px;
           margin: 0;
           padding: 8px 0 8px 20px;

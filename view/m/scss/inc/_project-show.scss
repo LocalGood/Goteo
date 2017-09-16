@@ -1,5 +1,9 @@
 .project-show {
 
+  .button.supportit {
+    background: $subCol02;
+  }
+
   #sub-header {
     background: #faf8f8;
     height: 40px;
@@ -44,11 +48,6 @@
           &:last-child {
             border-right: none;
           }
-          &.active a {
-            border: none;
-          }
-          &.show a {
-          }
           a {
             color: $grayCol03;
             display: inline-block;
@@ -60,6 +59,13 @@
             text-decoration: none;
             text-align: center;
           }
+          &.active,
+          &.show {
+            a {
+              border-bottom: 4px solid $color07;
+            }
+          }
+
           span.digits {
             display: inline-block;
             text-align: center;
@@ -80,9 +86,11 @@
         width: 5%;
       }
       .pj_prev {
+        border-right: 1px solid #d9d9d9;
         left: 0;
       }
       .pj_next {
+        border-left: 1px solid #d9d9d9;
         right: 0;
       }
     }
@@ -115,7 +123,7 @@
 
     .project-subtitle {
       font-size: 16px;
-      font-weight: normal;
+      font-weight: 300;
       margin: 3px 0;
       max-width: 620px;
       font-style: normal;
@@ -131,7 +139,7 @@
       color: #20B3B2;
       font-size: 12px;
       a {
-        font-weight: normal;
+        font-weight: 300;
         color: #cc6600;
         font-size: 12px;
         text-decoration: none;
@@ -146,7 +154,7 @@
       top: 90px;
       width: 100%;
       h3 {
-        font-weight: normal;
+        font-weight: 300;
         color: #20B3B2;
         margin: 0;
         display: inline-block;
@@ -164,20 +172,6 @@
     }
   }
 
-  #social_bookmark {
-    letter-spacing: -0.4em;
-    > div {
-      display: inline-block;
-      letter-spacing: normal;
-      margin-right: 2%;
-      vertical-align: top;
-      &:last-child {
-        margin-right: 0;
-        width: 100%;
-      }
-    }
-  }
-
   #main {
     clear: both;
     overflow-y: hidden;
@@ -191,18 +185,13 @@
       padding: 0;
     }
 
-
     .center {
-      > div.widget {
-        margin: 0 auto;
-        background-color: #fff;
-      }
 
       //ギャラリー
       .gallery-image{
         background-color: $color10;
         display:block;
-        margin: 0 auto;
+        margin: 0 auto 40px;
         max-height: 240px;
         overflow: hidden;
         text-align:center;
@@ -217,34 +206,24 @@
 
       //支援(グラフ)ウィジェット
       .widget.project-support {
-        border-bottom: none !important;
-        border-top: none !important;
-        background-color: #fff;
         .project-widget-box {
           padding-left: 0;
           padding-right: 0;
           border-bottom: none;
-        }
-        div.widget {
-          border-bottom: none !important;
-        }
-        img {
-          height: auto;
-          width: 100% !important;
         }
         .meter {
           > h3.title {
             background-color: $grayCol03;
             color: $color10;
             font-size: 12px;
-            font-weight: bold;
+            font-weight: 600;
             height: 30px;
             line-height: 30px;
             padding-top: 0;
           }
-        }
-        div.graph {
-          margin-top: 0;
+          div.graph {
+            margin-top: 0;
+          }
         }
       }
 
@@ -267,10 +246,27 @@
 
       //シェアウィジェット
       .widget.project-share {
-        border-bottom: none;
-        margin-bottom: 20px !important;
-        padding-bottom: 8px;
-        padding-top: 8px;
+        margin-bottom: 25px;
+        padding: 20px;
+        .social_bookmark {
+          display: flex;
+          justify-content: space-around;
+          letter-spacing: -0.4em;
+          .twitter,
+          .facebook,
+          .gPlus {
+            margin-right: 10px;
+          }
+          > div {
+            display: inline-block;
+            letter-spacing: normal;
+            vertical-align: top;
+            margin-right: 10px;
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
       }
 
       //
@@ -307,8 +303,7 @@
             margin: 0 0 10px;
             min-height: 32px;
             font-size: 14px;
-            font-weight: bold;
-            text-transform: none;
+            font-weight: 600;
             line-height: 20px;
             span {
               display: table-cell;
@@ -327,11 +322,10 @@
         }
       }
 
-
       //サブナビ　＞　プロジェクト
       &.home {
-        .widget.project-share {
-          border-top: 1px dashed $grayCol01;
+        .widget.project-support {
+          padding: 0 20px 40px;
         }
       }
 
@@ -369,7 +363,7 @@
             padding: 8px 0 8px 20px;
             background-color: #666666;
             color: #f5f5f5;
-            font-weight: normal;
+            font-weight: 300;
           }
           #social_bookmark {
             padding: 10px;
@@ -446,7 +440,7 @@
       border-bottom: none;
       color: #ffffff;
       font-size: 15px;
-      font-weight: normal;
+      font-weight: 300;
       height: 40px;
       line-height: 40px;
       padding: 0;
@@ -456,27 +450,6 @@
       margin: 0;
       padding: 16px;
       position: relative;
-      h4.title {
-        font-size: 13px;
-        margin: 10px 0 20px 50px;
-      }
-      .image {
-        height: 40px;
-        left: 16px;
-        margin: 0;
-        padding: 0;
-        position: absolute;
-        text-align: center;
-        top: 16px;
-        overflow: hidden;
-        width: 40px;
-        img {
-          height: 100%;
-          margin: 0;
-          padding: 0;
-          width: auto;
-        }
-      }
       blockquote.about {
         font-size: 12px;
         line-height: 1.4em;
@@ -513,7 +486,7 @@
             a {
               color: #666;
               font-size: 14px;
-              font-weight: normal;
+              font-weight: 300;
             }
           }
           &.links {
@@ -522,7 +495,7 @@
               line-height: 1.2em !important;
               li a {
                 font-size: 14px;
-                font-weight: normal;
+                font-weight: 300;
               }
             }
           }
@@ -593,7 +566,7 @@ div {
   &#project-collaborations .project-widget-box {
     h3.title {
       color: #666;
-      font-weight: bold;
+      font-weight: 600;
     }
     ul li p {
       font-size: 12px;

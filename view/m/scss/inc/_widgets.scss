@@ -2,21 +2,21 @@
 
   .title {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 600;
     padding-left: 6px;
     text-decoration: none;
   }
-  h3.title {
+  /*h3.title {
     background-color: #666666;
     color: #f5f5f5;
-    font-weight: normal;
+    font-weight: 300;
     margin: 0;
-  }
+  }*/
   .supertitle {
     background-color: #21b0b0;
     color: #f5f5f5;
     font-size: 18px;
-    font-weight: normal;
+    font-weight: 300;
     margin: 0;
     padding: .5em 2px .5em 8px;
   }
@@ -25,7 +25,6 @@
     height: 40px;
     line-height: 40px;
     padding: 0;
-    padding-left: 20px;
   }
   a.more {
     float: none;
@@ -123,7 +122,6 @@
 
     > .widget-porject-legend {
       margin: 0 0 20px 30px;
-      text-transform:uppercase;
     }
 
     > .project-code {
@@ -142,7 +140,6 @@
         background: url("/view/m/images/social/embed.png") no-repeat;
         height:20px;
         padding: 3px 0 0 25px;
-        text-transform:uppercase;
       }
       textarea  {
         background:#E7E7E7;
@@ -234,7 +231,7 @@
           padding-right: 4px;
           span.amount {
             color: #cc6600;
-            font-weight: bold;
+            font-weight: 600;
             font-size: 16px;
             line-height: 18px;
             padding-right: 19px;
@@ -262,7 +259,7 @@
       margin: 10px;
       a {
         font-size: 14px;
-        font-weight: bold;
+        font-weight: 600;
         text-decoration: none;
         position: relative;
         left: 0;
@@ -298,7 +295,7 @@
       }
       > h4 {
         font-size:  14px;
-        font-weight: bold;
+        font-weight: 600;
         margin: 0 0 .5em;
         padding: 0;
       }
@@ -311,10 +308,9 @@
 
     > .author,
     > .author a {
-      font-weight: bold;
+      font-weight: 600;
       font-size: 12px;
       text-decoration: none;
-      text-transform: none;
       position:relative;
       z-index:100;
     }
@@ -432,69 +428,43 @@
 
   //支援（グラフ）
   &.project-support {
-    .meter {
-      &.ver div.graph .minimum .done {
-        background-color: #c5da4d;
-        height: 12px;
-        max-width: 288px;
-        position: absolute;
-        left: 0;
-        top: 0;
+    .supertitle {
+      background-color: #58585a;
+      color: #fff;
+      font-size: 12px;
+      height: 40px;
+      line-height: 40px;
+      margin: 0;
+      text-align: center;
+      .days {
+        strong {
+          font-size: 14px;
+        }
       }
     }
-    div.graph {
-      background-color: #BCCCD8;
-      height: 12px;
-      margin: 24px 0 0;
+    .project-widget-box {
+      padding: 15px 20px;
       position: relative;
-      > div.minimum > div.done strong {
-        background: url("/view/m/images/project/widget/project/marker_sp.png") no-repeat;
-        display: block;
-        height: 16px;
-        line-height: 2000px;
-        margin-right: -10px;
-        margin-top: -5px;
-        overflow: hidden;
-        position: absolute;
-        right: 0;
-        text-indent: 2000px;
-        width: 17px;
-      }
-      .minimum .left {
-        float: right;
-        height: 19px;
-        margin-right: -2px;
-        margin-top: -6px;
-      }
     }
-    dl {
-      position: relative;
-      margin: 16px 0 0 0;
-      * {
-        margin: 0;
-      }
-      .optimum,
-      .minimum {
-        display: block;
-        white-space: nowrap;
-      }
+    .invest-notice {
+      font-size:13px;
+      padding:0 20px 20px;
     }
   }
-
 
   //プロジェクト概要
   &.project-summary{
     background-color: #fff;
-    padding: 20px 16px;
+    border-bottom: $solidBorder;
+    padding: 20px;
     h1, h2, h3, h4, h5, h6 {
       font-weight: 600;
       line-height: 1.3em;
       margin-top: 0;
-      text-transform: none;
     }
     h1, h2 {
       font-size: 20px;
-      font-weight: normal;
+      font-weight: 300;
     }
     h4 {
       font-size: 18px;
@@ -505,16 +475,22 @@
     > div {
       margin-bottom: 1em;
       font-size: 14px;
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
     &.h_ttl {
+      background: none;
       border-bottom: none;
+      padding: 20px;
       h3 {
         margin: 0 0 15px 0;
         font-size: 18px;
         font-weight: 300;
-        //color: $grayCol03;
       }
-      .project-subtitle,
+      .project-subtitle {
+        font-size: 13px;
+      }
       .wants-skills,
       .wants-skills a,
       .categories > h3,
@@ -525,14 +501,15 @@
         margin-bottom: 8px;
       }
       .categories {
+        background: url('/view/m/images/icon_tag@2x.png') no-repeat left 50% / 12px;
+        margin-bottom: 0;
+        padding-left: 16px;
         h3 {
           display: none;
         }
         a {
-          background: url('/view/m/images/icon_tag@2x.png') no-repeat left 50% / 12px;
           color: #58595B;
           display: inline-block;
-          padding-left: 16px;
           text-decoration: none;
           &:hover {
             color: #20B3B2;
@@ -555,7 +532,6 @@
     .description {
       margin: 0 0 20px 0;
     }
-
     .about,
     .motivation,
     .goal,
@@ -575,25 +551,13 @@
     border-bottom: $solidBorder;
     padding: 40px 0;
     a.button {
-      background: none;
-      background: #ff9900;
-      -moz-box-shadow: 0 3px 3px 0 #ccc;
-      -webkit-box-shadow: 0 3px 3px 0 #ccc;
-      box-shadow: 0 3px 3px 0 #ccc;
-      display: block;
-      font-size: 14px;
-      font-weight: 300;
-      height: 45px;
-      line-height: 45px;
-      margin: 10px auto;
-      padding: 0 8px;
-      text-align: center;
-      width: 280px;
+      background-color: $subCol02;
     }
   }
 
   //シェアウィジェット
   &.project-share {
+    background-color: #fff;
     padding: 26px 20px 50px;
     position: relative;
     .title {
@@ -612,8 +576,6 @@
 
   //オーナーウィジェット
   &.user {
-    margin-bottom: 20px;
-    padding: 0;
     .supertitle {
       display: none;
     }
@@ -637,7 +599,30 @@
           background: url(/view/images/location/s.png) no-repeat left center;
           padding-left: 18px;
           a {
-            color: #9b9b9b;
+            color: $grayCol02;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    .user-head {
+      margin-bottom: 20px;
+      .image {
+        @include circleAvatar(60px);
+      }
+      &-right {
+        display: inline-block;
+        padding-left: 10px;
+        vertical-align: middle;
+        width: 200px;
+        .title {
+          margin: 0 0 4px;
+        }
+        .location {
+          background: url(/view/images/location/s.png) no-repeat left center;
+          padding-left: 18px;
+          a {
+            color: $grayCol02;
             text-decoration: none;
           }
         }
@@ -671,10 +656,8 @@
     }
     .links {
       line-height: 36px;
-      margin: 0 0 14px 0;
-      padding: 1em 0;
-      padding-bottom: 0;
-      padding-top: 0;
+      margin: 0 0 20px 0;
+      padding: 0;
       ul {
         line-height: 18px;
         list-style-type: none;
@@ -761,7 +744,7 @@
       margin-top: 0;
       margin-bottom: 0;
       color: #58595b;
-      font-weight: bolder;
+      font-weight: 600;
     }
     ul {
       margin: 0 0 1em;
@@ -823,7 +806,7 @@
       margin-top: 6px;
       margin-bottom: 0;
       font-style: normal;
-      font-weight: normal;
+      font-weight: 300;
     }
     textarea {
       clear: right;
@@ -846,8 +829,7 @@
       line-height: 38px;
       color: #2EAB58;
       text-decoration: none;
-      text-transform: uppercase;
-      font-weight: normal;
+      font-weight: 300;
       font-style: normal;
     }
     .button {
@@ -895,9 +877,8 @@
         text-align: right;
       }
       .user {
-        text-transform: none;
         font-size: 14px;
-        font-weight: bold;
+        font-weight: 600;
         margin: 0 0 1em;
         float: left;
       }
@@ -985,7 +966,7 @@
               border-right: #e7e7e7 solid 5px;
               display: inline-block;
               font-size: 14px;
-              font-weight: bold;
+              font-weight: 600;
               line-height: 28px;
               margin: 0 0 0 2px;
               padding-left: 8px;
@@ -1019,9 +1000,8 @@
             h5.name {
               background: url('/view/m/images/icon/m/file.png') no-repeat left 50%;
               font-size: 13px;
-              font-weight: bold;
+              font-weight: 600;
               margin: 0 0 .4em;
-              text-transform: none;
             }
           }
           &.service {
@@ -1039,7 +1019,7 @@
           }
           span.name{
             font-size: 13px;
-            font-weight: bold;
+            font-weight: 600;
             margin: 0 0 .4em;
           }
           span.taken {
@@ -1051,7 +1031,7 @@
           }
           span.left {
             color: #EE4843;
-            font-weight: bold;
+            font-weight: 600;
           }
           div.investors {
             color: #313B96;
@@ -1066,11 +1046,14 @@
       display: block;
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2bb67', endColorstr='#ff9900',GradientType=0 );
       font-size: 14px;
+      height: 30px;
+      line-height: 30px;
       margin: 10px auto;
       padding-left: 8px!important;
       padding-right: 8px!important;
-      width: 182px;
+      width: 160px;
     }
+
     ul {
       list-style: none;
       margin: 0.5em 0 0;
@@ -1109,7 +1092,7 @@
         }
         h5.name {
           font-size: 13px;
-          font-weight: bold;
+          font-weight: 600;
           margin: 0 0 .5em;
           padding: 0 0 0 42px;
         }
@@ -1121,10 +1104,9 @@
           h4, h5, h6 {
             border-bottom: 1px dashed #c8c8c8;
             font-size: 12px;
-            font-weight: bold;
+            font-weight: 600;
             margin: .5em 0 .6em;
             padding: 0 0 .2em;
-            text-transform: none;
           }
           h6 {
             font-size: 14px;
@@ -1231,7 +1213,7 @@
     h4 {
       background-color: #666666;
       color: #f5f5f5;
-      font-weight: normal;
+      font-weight: 300;
       margin: 0;
     }
     div#legend{
@@ -1267,21 +1249,16 @@
     }
     .summary {
       font-size: 18px;
-      font-weight: bold;
+      font-weight: 600;
       padding-left: 16px;
-      text-transform: uppercase;
       text-align: left;
-      width: 250px;
     }
     p.click {
-      border-bottom: 2px solid #C1C1C1;
       margin-bottom: 8px;
-      padding-left: 1em;
-      padding-bottom: 8px;
       span.text {
         clear:left;
         font-size: 14px;
-        font-weight: normal;
+        font-weight: 300;
         margin: 3px 0 0 10px;
         padding: 0;
       }
@@ -1308,6 +1285,7 @@
       padding-top: 16px;
       padding-bottom: 16px;
     }
+    //todo: #legendこのページに複数出て来るので、クラスメイなど直す
     #legend {
       margin: 0;
       overflow: hidden;
@@ -1317,6 +1295,17 @@
         float: left;
         height: 30px;
         line-height: 30px;
+      }
+      .min {
+        span {
+          background: $baseCol;
+        }
+      }
+      .max {
+        line-height: 20px;
+        span {
+          background: $baseCol;
+        }
       }
       dt.min,
       dt.max {
@@ -1346,6 +1335,8 @@
     }
     .req,
     .noreq {
+      padding: 20px;
+      //todo: #legendこのページに複数出て来るので、クラスメイなど直す
       #legend {
         margin: 0 auto;
         width: 200px;
@@ -1362,11 +1353,10 @@
       background: no-repeat 16px 50%;
       margin: 0;
       min-height: 32px;
-      padding-left: 58px;
+      padding-left: 0;
     }
     .task {
       h5.summary {
-        background-image: url('/view/m/images/icon/m/task.png');
         display: table;
         font-size: 18px;
         margin: 0;
@@ -1374,21 +1364,6 @@
           display: table-cell;
           vertical-align: middle;
         }
-      }
-    }
-    .structure {
-      h5.summary {
-        background-image: url('/view/m/images/icon/m/structure.png');
-      }
-    }
-    .material {
-      h5.summary {
-        background-image: url('/view/m/images/icon/m/material.png');
-      }
-    }
-    .lend {
-      h5.summary {
-        background-image: url('/view/m/images/icon/m/lend.png');
       }
     }
     ul {
@@ -1409,6 +1384,91 @@
       }
     }
   }
+  //資金の内訳ウィジェット
+  &.project-needs {
+    table {
+      border-collapse: collapse;
+      thead {
+        th {
+          &.summary {
+            padding: 3px 8px 3px 0;
+          }
+        }
+        th {
+          background-position: left 50%;
+          background-repeat: no-repeat;
+          font-size: 16px;
+          font-weight: 700;
+          min-height: 32px;
+          padding-bottom: 16px;
+          padding-left: 40px;
+        }
+      }
+      tbody {
+        background: $baseCol;
+        th.summary {
+          padding: 16px 20px;
+        }
+      }
+      tr {
+        &:not(:last-child) {
+          border-bottom: 1px solid $grayCol01;
+        }
+        &.req {
+          background: $baseCol;
+        }
+        &.noreq {
+          background: $baseCol;
+        }
+        &.sum {
+          th {
+            padding: 12px 20px 10px 0;
+            text-align: right;
+          }
+        }
+      }
+      th {
+        padding: 3px 20px;
+        &.summary {
+          padding-right: 20px;
+          text-align: left;
+          .click {
+            margin-left: 5px;
+            span {
+              display: block;
+              margin-bottom: 12px;
+              max-width: 360px;
+            }
+            blockquote {
+              font-size: 14px;
+              font-weight: 400;
+              margin: 0;
+              padding: 0;
+            }
+          }
+        }
+        &.min,
+        &.max {
+          font-size: 14px;
+          padding: 3px 7px;
+          vertical-align: middle;
+          width: 120px;
+          word-wrap: break-word;
+        }
+      }
+      td {
+        font-size: 14px;
+        padding: 16px 20px 16px 0;
+        text-align: right;
+        vertical-align: top;
+        word-wrap: break-word;
+      }
+    }
+    table thead + tbody + thead th.min, table thead + tbody + thead th.max {
+      font-size: 0;
+    }
+  }
+
 
   //スケジュールウィジェット
   &.project-schedule {
@@ -1433,7 +1493,7 @@
         }
         &.months {
           tr th {
-            font-weight: normal;
+            font-weight: 300;
             font-size: 14px;
             span {
               color: #808285;
@@ -1468,7 +1528,7 @@
           display: none;
           strong {
             font-size: 13px;
-            font-weight: bold;
+            font-weight: 600;
             display: block;
             line-height: 13px;
             width: 22px;
@@ -1480,7 +1540,7 @@
         td {
           span {
             font-size: 12px;
-            font-weight: normal;
+            font-weight: 300;
             text-align: center;
             height: 5em;
             overflow: hidden;
@@ -1537,7 +1597,6 @@
       }
       dt {
         font-size: 12px;
-        text-transform: uppercase;
         &.reached {
           margin-top: -1.5em;
           color: #666633;
@@ -1545,7 +1604,7 @@
       }
       dd {
         font-size: 28px;
-        font-weight: bold;
+        font-weight: 600;
         &.supporters {
           clear: left;
         }
@@ -1618,12 +1677,10 @@
           }
           h3, h4, h5, h6 {
             font-size: 12px;
-            font-weight: bold;
+            font-weight: 600;
             margin: 0 0 .5em;
-            text-transform: none;
             a {
               font-size: 12px !important;
-              text-transform: none !important;
               text-decoration: none;
               position: absolute;
               top: 0;
@@ -1684,7 +1741,7 @@
                 position: absolute;
                 right: 16px;
                 width: 96px;
-                font-weight: bold;
+                font-weight: 600;
                 color: #990033;
                 padding-top: 2px;
                 text-align: right;
@@ -1743,7 +1800,7 @@
                       display: block;
                       position: absolute;
                       top: 7px;
-                      font-weight: normal;
+                      font-weight: 300;
                       width: 200px;
                       left: 50%;
                       margin-left: -100px;
@@ -1798,7 +1855,7 @@
         }
         &.segundo {
           color: #28ACAB;
-          font-weight: bold;
+          font-weight: 600;
         }
       }
     }
@@ -1812,13 +1869,13 @@
     h4 {
       background-color: #666666;
       color: #f5f5f5;
-      font-weight: normal;
+      font-weight: 300;
       margin: 0;
       padding: 8px 0 8px 20px;
       a {
         color: #f5f5f5;
         font-size: 15px;
-        font-weight: normal;
+        font-weight: 300;
         margin: 0 0 5px 0;
         text-decoration:none;
       }
@@ -1886,7 +1943,6 @@
       text-align: right;
       a {
         text-decoration: none;
-        text-transform: uppercase;
         font-size: 12px;
       }
     }
@@ -2015,9 +2071,8 @@
         height: 50px;
       }
       .user {
-        text-transform: none;
         font-size: 14px;
-        font-weight: bold;
+        font-weight: 600;
         margin: 0 0 1em;
         float: left;
       }
@@ -2065,11 +2120,10 @@
     }
     a.preview{
       color: #2EAB58;
-      font-weight: normal;
+      font-weight: 300;
       left: 60px;
       position: absolute;
       text-decoration: none;
-      text-transform: uppercase;
       top: 194px;
       font-style: normal;
       display: block;
@@ -2178,18 +2232,17 @@
         padding-left: 20px;
       }
       ul li > strong {
-        font-weight: bold;
+        font-weight: 600;
         font-size: 18px;
-        text-transform: uppercase;
         top: 15px;
         padding-top: 9px;
-        background: url('worth/beak.png') no-repeat top center;
+        background: url('/view/m/images/worth/beak.png') no-repeat top center;
       }
       div.worth-amount {
         display: inline;
         float: left;
         color: #990033;
-        font-weight: bold;
+        font-weight: 600;
         font-size: 30px;
         position: relative;
         top: -10px;
