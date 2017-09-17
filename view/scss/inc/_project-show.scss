@@ -497,7 +497,6 @@
     //サブナビ　＞　支援者
     &.supporters {
       margin-bottom: 20px;
-      //todo: .project-show .center > .widge　が効かず、追加。閉じdivがずれているとか？
 
       .invest-message {
         background:url('/view/images/project/view/invest/message_beak.png') no-repeat left bottom;
@@ -550,7 +549,6 @@
         }
         div.invest-message {
           background: url('/view/images/project/view/invest/message_beak.png') no-repeat left bottom;
-          //background-color: $grayCol04 !important;//#cce7e8
           min-height:70px;
           h2 {
             margin: 0!important;
@@ -574,8 +572,6 @@
           position: relative;
           background: $mainCol01;
           color: #FFF;
-          //background:url('/view/images/project/view/invest/header_beak.png') no-repeat left bottom;
-          //background-color: yellow !important;//#cce7e8
           font-size: 1em!important;
           padding: 20px;
           text-transform: uppercase!important;
@@ -594,41 +590,50 @@
 
         &.address table {
           width:100%;
-          table tr td label {
+          tr td label {
             padding-left:10px;
             padding-right:5px;
             text-align:right;
           }
+          td {
+            width: 130px;
+          }
         }
 
-        &-amount label::before{
-          content: '￥';
-          display: inline-block;
-          color: #FFF;
-          width: 25px;
-          height: 25px;
-          font-size: 16px;
-          font-weight: bold;
-          margin: 0 15px 0 0;
-          text-align: center;
-          line-height: 27px;
-          -webkit-border-radius: 50%;
-          -moz-border-radius: 50%;
-          border-radius: 50%;
-          background: $mainCol01;
+        //支援する -> 支援額ウィジェット
+        &-amount {
+          margin-bottom: 20px;
+          h4 {
+            margin-bottom: 12px;
+          }
+          label::before{
+            content: '￥';
+            display: inline-block;
+            color: #FFF;
+            width: 25px;
+            height: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 15px 0 0;
+            text-align: center;
+            line-height: 27px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            background: $mainCol01;
+          }
+          #amount {
+            color: $color10;
+            font-size: 24px;
+            font-weight: 700;
+            height: 24px;
+            line-height: 40px;
+            margin-right: 20px;
+            padding: 0 10px;
+            width: 150px;
+          }
         }
 
-        #amount {
-          //background:url('/view/images/yen/violet/l.png') no-repeat 5px center $baseCol;
-          color: $color10;
-          font-size: 24px;
-          font-weight: 700;
-          height: 24px;
-          line-height: 40px;
-          margin-right: 20px;
-          padding: 0 10px;
-          width: 150px;
-        }
         #fullname,#address {
           width: 266px;
         }
@@ -646,15 +651,18 @@
         }
         div.individual {
           ul {
+            border-top: $solidBorder;
             li {
+              border-bottom: $solidBorder;
               padding:0;
               label {
+                @include cf;
+                padding: 16px 20px;
                 &.amount {
                   color: $color10;
                   cursor: pointer;
                   display: block;
                   font-weight: 700;
-                  padding: 10px 10px 10px 65px;
                   h1, h2, h3, h4, h5, h6 {
                     color: #000;
                     font-size: 13px;
@@ -662,17 +670,33 @@
                   }
                   h5 {
                     color: $grayCol03;
+                    font-weight: 600;
+                    margin-bottom: 8px;
                   }
                   p {
                     color: $grayCol03;
                     font-size: 13px;
                     font-weight: 400;
+                    margin: 0 0 18px;
                   }
                 }
                 &.resign {
                   cursor: pointer;
                   display: block;
-                  padding: 10px 10px 10px 65px;
+                }
+                .left {
+                  display: block;
+                  float: left;
+                  width: 60%;
+                }
+                .right {
+                  display: block;
+                  float: right;
+                  width: 40%;
+                  img {
+                    width: 100%;
+                    height: auto;
+                  }
                 }
               }
               &.disabled {
@@ -724,6 +748,11 @@
           }
         }
       }
+      //累計寄付額
+      .worthcracy {
+        margin-bottom: 20px;
+      }
+
       //支援者ウィジェット
       .project-supporters {
         ul li {

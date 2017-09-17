@@ -18,21 +18,21 @@ community     :マニメニュー > このユーザーの興味
 admin         :
 */
 
-@import "inc/pallete";
-@import "inc/colors";
-@import "inc/mixins";
-@import "inc/base";
-@import "inc/commons";
-@import "inc/widgets";
-@import "inc/meter";
-@import "inc/superform";
-@import "inc/home";
-@import "inc/discover";
-@import "inc/review";
-@import "inc/project-show";
-@import "inc/project-edit";
-@import "inc/dashboard";
-@import "inc/community";
-@import "inc/admin";
+//@import "inc/pallete";
+@import "inc/_colors.scss";
+@import "inc/_mixins.scss";
+@import "inc/_base.scss";
+@import "inc/_commons.scss";
+@import "inc/_widgets.scss";
+@import "inc/_meter.scss";
+@import "inc/_superform.scss";
+@import "inc/_home.scss";
+@import "inc/_discover.scss";
+@import "inc/_review.scss";
+@import "inc/_project-show.scss";
+@import "inc/_project-edit.scss";
+@import "inc/_dashboard.scss";
+@import "inc/_community.scss";
+@import "inc/_admin.scss"; //todo:多分これいらない。spに管理者画面がないから。
 
 //todo:各ファイルに、htmlに絡む変更と、どのファイルに書くか迷ったものをtodoで書いてあるので、追って対応する
