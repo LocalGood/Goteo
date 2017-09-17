@@ -51,7 +51,7 @@ foreach (License::getAll() as $l) {
 $action = ($step == 'start') ? '/user/login' : '/invest/' . $project->id;
 ?>
 <div class="widget project-invest project-invest-amount">
-    <h<?php echo $level ?> class="title"><?php echo Text::get('invest-amount') ?></h<?php echo $level ?>>
+    <h<?php echo $level+1 ?> class="title"><?php echo Text::get('invest-amount') ?></h<?php echo $level+1 ?>>
     
     <form method="post" action="<?php echo $action; ?>">
 
@@ -66,25 +66,32 @@ $action = ($step == 'start') ? '/user/login' : '/invest/' . $project->id;
         <div class="individual">
             <h<?php echo $level+1 ?> class="title"><?php echo Text::get('project-rewards-individual_reward-title'); ?></h<?php echo $level+1 ?>>
             <ul>
-                <li><label class="resign"><input class="individual_reward" type="radio" id="resign_reward" name="selected_reward" value="0" amount="0"/><?php echo Text::get('invest-resign') ?></label></li>
+                <li>
+                    <label class="resign">
+                        <input class="individual_reward" type="radio" id="resign_reward" name="selected_reward" value="0" amount="0"/><?php echo Text::get('invest-resign') ?>
+                    </label>
+                </li>
             <?php foreach ($project->individual_rewards as $individual) : ?>
-            <li class="<?php echo $individual->icon ?><?php if ($individual->none) echo ' disabled' ?>">
-                
-                <label class="amount" for="reward_<?php echo $individual->id; ?>">
-                    <input type="radio" name="selected_reward" id="reward_<?php echo $individual->id; ?>" value="<?php echo $individual->id; ?>" amount="<?php echo $individual->amount; ?>" class="individual_reward" title="<?php echo htmlspecialchars($individual->reward) ?>" <?php if ($individual->none) echo 'disabled="disabled"' ?>/>
-                    <span class="amount"><?php echo $individual->amount; ?> 円</span>
-            	<h<?php echo $level + 2 ?> class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>>
-                <p><?php echo htmlspecialchars($individual->description)?></p>
-                    <?php if ($individual->none) : // no quedan ?>
-                    <span class="left"><?php echo Text::get('invest-reward-none') ?></span>
-                    <?php elseif (!empty($individual->units)) : // unidades limitadas ?>
-                    <?/*<strong><?php echo Text::get('project-rewards-individual_reward-limited'); ?></strong><br />
-                    <?php $units = ($individual->units - $individual->taken); // resto
-                    echo Text::html('project-rewards-individual_reward-units_left', $units); ?><br />*/?>
-                <?php endif; ?>
-                </label>
-                
-            </li>
+                <li class="<?php echo $individual->icon ?><?php if ($individual->none) echo ' disabled' ?>">
+                    <label class="amount" for="reward_<?php echo $individual->id; ?>">
+                        <span class="left">
+                            <input type="radio" name="selected_reward" id="reward_<?php echo $individual->id; ?>" value="<?php echo $individual->id; ?>" amount="<?php echo $individual->amount; ?>" class="individual_reward" title="<?php echo htmlspecialchars($individual->reward) ?>" <?php if ($individual->none) echo 'disabled="disabled"' ?>/>
+                            <span class="amount"><?php echo $individual->amount; ?> 円</span>
+                        </span>
+                        <span class="right">
+                            <h<?php echo $level + 2 ?> class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>>
+                            <p><?php echo htmlspecialchars($individual->description)?></p>
+                            <?php if ($individual->none) : // no quedan ?>
+                                <span class="left"><?php echo Text::get('invest-reward-none') ?></span>
+                            <?php elseif (!empty($individual->units)) : // unidades limitadas ?>
+                                <?/*<strong><?php echo Text::get('project-rewards-individual_reward-limited'); ?></strong><br />
+                        <?php $units = ($individual->units - $individual->taken); // resto
+                        echo Text::html('project-rewards-individual_reward-units_left', $units); ?><br />*/?>
+                            <?php endif; ?>
+                            <img src="" alt="">
+                        </span>
+                    </label>
+                </li>
             <?php endforeach ?>
             </ul>
         </div>
@@ -114,10 +121,6 @@ if ($step == 'start') : ?>
                 <label for="fullname"><?php echo Text::get('invest-address-name-field') ?></label><br />
                 <input type="text" id="fullname" name="fullname" value="<?php echo $personal->contract_name; ?>" />
             </td>
-            <!--<td><?php /* Para ocultar el campo nif:  id="donation-data" style="display:none;"  */ ?>
-                <label for="nif"><?php echo Text::get('invest-address-nif-field') ?></label><br />
-                <input type="text" id="nif" name="nif" value="<?php echo $personal->contract_nif; ?>" />
-            </td>-->
         </tr>
         <tr>
             <td>
@@ -129,18 +132,6 @@ if ($step == 'start') : ?>
                 <input type="text" id="zipcode" name="zipcode" value="<?php echo $personal->zipcode; ?>" />
             </td>
         </tr>
-        <? /*
-        <tr>
-            <td>
-                <label for="location"><?php echo Text::get('invest-address-location-field') ?></label><br />
-                <input type="text" id="location" name="location" value="<?php echo $personal->location; ?>" />
-            </td>
-            <td>
-                <label for="country"><?php echo Text::get('invest-address-country-field') ?></label><br />
-                <input type="text" id="country" name="country" value="<?php echo $personal->country; ?>" />
-            </td>
-        </tr>
-        */ ?>
     </table>
 
     <p>
