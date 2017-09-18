@@ -4049,6 +4049,80 @@ body.js .superform > div.elements ol li.element div.contents p {
     -moz-border-radius: 50%;
     border-radius: 50%;
     background: #255B80; }
+.dashboard .widget.gestrew div.message {
+  background: url(/view/images/project/view/invest/header_beak.png) #CCE5E6 no-repeat left bottom;
+  color: #58595B;
+  height: auto;
+  overflow: auto;
+  padding: 20px 20px 30px; }
+.dashboard .widget.gestrew div.rewards {
+  height: auto;
+  margin-top: 10px; }
+.dashboard .widget.gestrew div.reward {
+  background: #E4C9E2;
+  float: left;
+  height: 300px;
+  margin-right: 10px;
+  min-height: 310px;
+  padding: 10px;
+  position: relative;
+  width: 197px; }
+  .dashboard .widget.gestrew div.reward.last {
+    margin-right: 0; }
+  .dashboard .widget.gestrew div.reward div.orden {
+    background-color: #e7e7e7;
+    border: 2px solid #a7a9ac;
+    color: #a7a9ac;
+    display: inline-block;
+    font-size: 13pt;
+    font-weight: 700;
+    text-align: center;
+    width: 20px; }
+  .dashboard .widget.gestrew div.reward div.tiporec {
+    border-bottom: #8D878E 1px solid;
+    display: block;
+    margin-bottom: 5px; }
+    .dashboard .widget.gestrew div.reward div.tiporec ul li {
+      background: none no-repeat scroll 0 0 transparent;
+      min-height: 34px; }
+  .dashboard .widget.gestrew div.reward div.contenedorrecompensa {
+    height: 120px;
+    overflow-y: scroll; }
+  .dashboard .widget.gestrew div.reward span.aporte {
+    color: #96238F;
+    display: inline-block;
+    font-size: 8pt;
+    line-height: 22px; }
+    .dashboard .widget.gestrew div.reward span.aporte > span.euro {
+      background: url(/view/images/yen/violet/m.png) no-repeat;
+      display: inline-block;
+      height: 20px;
+      width: 20px; }
+  .dashboard .widget.gestrew div.reward span.num {
+    font-size: 12pt; }
+  .dashboard .widget.gestrew div.reward span.cofinanciadores {
+    color: #40509F;
+    display: block;
+    font-size: 8pt;
+    line-height: 20px;
+    margin-left: 29px;
+    text-transform: uppercase; }
+  .dashboard .widget.gestrew div.reward span.recompensa {
+    color: #8D878E;
+    font-size: 12px; }
+  .dashboard .widget.gestrew div.reward ul {
+    float: none;
+    font-size: 12px;
+    list-style: none outside none;
+    margin: 0 0 3px;
+    padding: 0; }
+  .dashboard .widget.gestrew div.reward a.green {
+    bottom: 8px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    width: 180px; }
 .dashboard #project-selector {
   margin-bottom: 20px;
   padding: 20px;
