@@ -26,9 +26,6 @@
       line-height: 1.2em;
       font-size: 18px;
       font-weight: normal;
-      a {
-        @include circleAvatar(55px);
-      }
       em {
         font-weight: bold;
         font-size: 24px;
@@ -79,7 +76,7 @@
       .supporters {
         > ul > li {
           min-height: 105px;
-          width: 305px;
+          width: 304px;
           &:first-child,
           &:nth-child(2) {
             padding-top: 20px;
@@ -166,7 +163,6 @@
         }
         .list{
           padding: 0;
-          border-bottom: $dashedBorder;
           > ul{
             list-style: none;
             padding: 0;
@@ -207,15 +203,12 @@
           width: 50%;
           min-height: 95px;
           padding: 10px 5px;
-          border-bottom:$dashedBorder;
+          border-bottom: $solidBorder;
           -webkit-box-sizing: border-box;
           -moz-box-sizing: border-box;
           box-sizing: border-box;
           &:nth-child(2n+2) {
             border-right:none;
-          }
-          &:nth-child(3n+3) {
-            border-right:$dashedBorder;
           }
           .supporter{
             zoom: 1;
@@ -264,7 +257,10 @@
         min-height: 56px;
         overflow:hidden;
         padding: 0;
-        > .list {
+        .list {
+          min-height: 58px;
+          padding:12px 0 12px 20px;
+
         }
         ul {
           overflow:hidden;
@@ -284,8 +280,8 @@
           }
         }
       }
-
       .users{
+        border-bottom: none;
         ul{
           display: -webkit-flex;
           display: flex;
@@ -330,9 +326,7 @@
           }
         }
       }
-
     }
-
   }
 
   .widget.user-message {
@@ -342,7 +336,6 @@
     form textarea#message {
       margin-bottom:16px;
     }
-
   }
 
   .widget.user-about {
@@ -350,7 +343,7 @@
     margin-bottom: 20px;
     padding-bottom:0;
     > div {
-      border-top:$dashedBorder;
+      border-top: $solidBorder;
       clear:both;
       padding-top:20px;
       &:nth-child(1) {
@@ -444,15 +437,12 @@
         padding:0;
         li {
           background-color:#FFF;
-          border-right:$dashedBorder;
+          border-right: $solidBorder;
           border-top:none;
           float:left;
           min-height:120px;
           position:relative;
           width:109px;
-          &:nth-child(3n+3) {
-            border-right:none;
-          }
           &.active {
             background-color: $grayCol01;
           }
@@ -518,7 +508,7 @@
 
     a.more {
       background-color:#fff;
-      border-top:$dashedBorder;
+      border-top: $solidBorder;
       clear:both;
       color: $mainCol01;
       display:block;
@@ -530,6 +520,7 @@
       text-align:center;
       text-decoration:none;
       text-transform:uppercase;
+      top: -1px;
       &:hover {
         color: $mainCol02;//#313B96
       }
@@ -578,12 +569,11 @@
   }
 
   .widget.user-mates {
-    border-bottom: $solidBorder;
     padding: 0;
     position: relative;
     h3.title {
       background: url(/view/images/icon_tag_b.png) no-repeat 20px 50%;
-      border-bottom:$dashedBorder;
+      border-bottom: $solidBorder;
       font-size: 14px;
       font-weight: 400;
       margin: 0;
@@ -592,7 +582,7 @@
     }
     h4.supertitle {
       background: url(/view/images/icon_tag_b.png) #fff no-repeat 20px 50%;
-      border-bottom:$dashedBorder;
+      border-bottom: $solidBorder;
       font-size: 14px;
       font-weight: 400;
       margin: 0;
@@ -613,6 +603,7 @@
       padding:0;
     }
     div.users {
+      border-bottom: $solidBorder;
       clear:both;
       position: relative;
       ul {
@@ -629,13 +620,13 @@
           }
         }
         > li {
-          border-right:$dashedBorder;
+          border-right: $solidBorder;
           float:left;
           margin:-1px 0 0;
           overflow:hidden;
           position:relative;
           width:164px;
-          border-bottom:$dashedBorder;
+          border-bottom: $solidBorder;
 
           &:nth-child(2n+2) {
             border-right:none;
@@ -749,9 +740,6 @@
         background-color: #fff;
       }
       .list {
-        border-bottom:$solidBorder;
-        min-height: 58px;
-        padding:12px 0 12px 20px;
         > ul {
           background: url(/view/images/icon_tag.png) no-repeat left 50%;
           padding-left: 20px;

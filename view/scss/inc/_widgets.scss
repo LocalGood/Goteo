@@ -323,8 +323,8 @@
           position: relative;
           width: 50%;
           padding: 10px;
-          border-right: dashed 1px $grayCol01;
-          border-bottom: dashed 1px $grayCol01;
+          border-right: $solidBorder;
+          border-bottom: $solidBorder;
           &:hover{
             background: $baseCol;
           }
@@ -372,6 +372,10 @@
             }
           }
         }
+      }
+      .more {
+        position: relative;
+        top: -1px;
       }
     }
   }
@@ -967,10 +971,10 @@
         padding: 0;
         >li {
           border-right: $solidBorder;
-          box-sizing: border-box;
+          box-sizing: content-box;
           float: left;
-            padding: 0;
-          width: 310px;
+          padding: 0;
+          width: 309px;
           &:nth-child(2n+2) {
             border-right: none;
           }
