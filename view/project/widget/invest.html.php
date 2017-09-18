@@ -28,6 +28,16 @@ use Goteo\Core\View,
 $project = $this['project'];
 $personal = $this['personal'];
 
+$user = $_SESSION['user'];
+if ($user != NULL) {
+	$usedepslion = $user->getUsedEpsilon ();
+	$repeatf = ($usedepslion['usedcnt'] != 0) ? 1 : 0;
+} else {
+	$repeatf = 0;
+}
+
+
+
 // cantidad de aporte
 if (isset($_SESSION['invest-amount'])) {
     $amount = $_SESSION['invest-amount'];
@@ -141,8 +151,18 @@ if ($step == 'start') : ?>
 
 
 <div class="widget project-invest method">
+
+<?php if ( defined('AXESON')) : ?>
     <h<?php echo $level ?> class="beak"><?php echo Text::get('project-invest-continue') ?>
     <p style="color:#ff3300;margin-bottom: 0;">*注意<br />クレジットカードの決済システム上、次ページからの決済申込フォームでは料金が「￥0」と表示されますが、そのまま決済を進めていただくと正常に処理されますのでご安心ください。</p></h<?php echo $level ?>>
+<?php endif; ?>
+
+<?php if ( defined('EPSILONON')) : ?>
+    <h<?php echo $level ?> class="beak">
+    <p style="color:#ff3300;margin-bottom: 0;">２度目以降のご利用の場合は、「前回のクレジットカード」の利用で、クレジットカード番号の入力が不要となります。<br />なおクレジットカードの番号は、決済システムにのみ情報が保存されていますので安心してご利用いただけます。</p></h<?php echo $level ?>>
+<?php endif; ?>
+
+
             
 <input type="hidden" id="paymethod"  />
 
@@ -150,7 +170,24 @@ if ($step == 'start') : ?>
 <p><button type="submit" class="process pay-cash" name="method" value="cash">現金</button></p>
 <?php endif; ?>
 <!--<p><button type="submit" class="process pay-paypal" name="method"  value="paypal">PAYPAL</button></p>-->
+
+<?php if ( defined('AXESON')) : ?>
 <p><button type="submit" class="process pay-axes" name="method"  value="axes">クレジットカード</button></p>
+<?php endif; ?>
+
+<?php if ( defined('EPSILONON')) : ?>
+<p><button type="submit" class="process pay-axes" name="method"  value="epsilon">新規のクレジットカード</button></p>
+<?php if ( $repeatf != 0) : ?>
+<p><button type="submit" class="process pay-axes" name="method"  value="epsilonrepeat">前回のクレジットカード</button><br />
+<p style="color:#ff3300;margin-bottom: 0;">クレジットカード番号を変更したい場合は、「新規のクレジットカード」にて自動更新されます。</p>
+<?php endif; ?>
+</p>
+
+<?php endif; ?>
+
+<?php if ( defined('EPSILONCONVENI')) : ?>
+<p><button type="submit" class="process pay-axes" name="method"  value="conveni">コンビニ決済</button></p>
+<?php endif; ?>
 
 
 </div>

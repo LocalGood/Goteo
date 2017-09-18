@@ -1220,6 +1220,22 @@ namespace Goteo\Model {
             return array('projects' => $projects, 'amount' => $invest[0], 'invests' => $invest[1]);
         }
 
+
+
+        /**
+         * 過去にイプシロンで決済済みかを取得
+         *
+         * @return type int
+         */
+        public function getUsedEpsilon () {
+            $query = self::query("SELECT COUNT(project) FROM invest WHERE user = ? AND status IN ('0', '1', '3') AND method='epsilon' ", array($this->id));
+            $invest = $query->fetch();
+            return array('usedcnt' => $invest[0]);
+        }
+
+
+
+
         /**
          * Nivel actual de meritocracia. (1-5)
          * [Recalcula y actualiza el registro en db]
