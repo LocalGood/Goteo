@@ -23,7 +23,7 @@ use Goteo\Core\View,
 
 $bodyClass = 'user-login';
 // para que el prologue ponga el c��digo js para bot��n facebook en el bannerside
-$fbCode = Text::widget(Text::get('social-account-facebook'), 'fb');
+// $fbCode = Text::widget(Text::get('social-account-facebook'), 'fb');
 $jscrypt = true;
 include 'view/prologue.html.php';
 include 'view/header.html.php';
@@ -45,13 +45,14 @@ if (empty($username) && isset($this['username'])) $username = $this['username'];
             });
 
             //openid
+          /*
             $('.sign-in-with li.openid input').focus(function(){
                 $(this).addClass('focus');
-                if($(this).val() == '<?php echo Text::get('login-signin-openid'); ?>') $(this).val('');
+                if($(this).val() == '<?php // echo Text::get('login-signin-openid'); ?>') $(this).val('');
             });
             $('.sign-in-with li.openid input').blur(function(){
                 $(this).removeClass('focus');
-                if($(this).val().trim() == '') $(this).val('<?php echo Text::get('login-signin-openid'); ?>');
+                if($(this).val().trim() == '') $(this).val('<?php // echo Text::get('login-signin-openid'); ?>');
             });
             $('.sign-in-with li.openid a').click(function(){
                 $(this).attr('href',$(this).attr('href') + '?provider=' + $('.sign-in-with li.openid input').val());
@@ -63,7 +64,7 @@ if (empty($username) && isset($this['username'])) $username = $this['username'];
                     location = $('.sign-in-with li.openid a').attr('href') + '?provider=' + $(this).val();
                 }
             });
-
+            */
             //view more
             $('.sign-in-with li.more a').click(function(){
                 $(this).parent().remove();

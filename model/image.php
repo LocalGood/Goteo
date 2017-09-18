@@ -406,8 +406,7 @@ die("test");
 
             $ret = "";
 
-            $src_url = preg_replace('/[A-Za-z0-9.]+\.localgood/','static.localgood',SRC_URL);
-
+            $src_url = STATIC_SVR_DOMAIN;
             $tc = $crop ? 'c' : '';
 
             $cache = $this->dir_cache . "{$width}x{$height}{$tc}" . DIRECTORY_SEPARATOR . $this->name;

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Goteo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-14 14:04+0900\n"
-"PO-Revision-Date: 2016-11-29 16:55+0900\n"
+"POT-Creation-Date: 2017-09-06 14:22+0900\n"
+"PO-Revision-Date: 2017-09-08 09:46+0900\n"
 "Last-Translator: Masaki Ike <ike@info-lounge.jp>\n"
 "Language-Team: Goteo translations\n"
 "Language: ja_JP\n"
@@ -77,7 +77,7 @@ msgstr "プロジェクトレポート"
 msgid "Viendo logs"
 msgstr "閲覧ログ"
 
-#: controller/admin.php:77
+#: controller/admin.php:77 view/admin/index.html.php:77
 msgid "Skillmatching Accounts"
 msgstr "スキルマッチング応募"
 
@@ -224,8 +224,7 @@ msgid "Traduciendo Tipo"
 msgstr "タイプの翻訳"
 
 #: controller/admin.php:176 view/admin/accounts/viewer.html.php:48
-#: view/admin/index.html.php:75 view/admin/index.html.php:76
-#: view/admin/index.html.php:77
+#: view/admin/index.html.php:75
 #: view/admin/skillmatching_accounts/viewer.html.php:48
 #: view/admin/users/list.html.php:220
 msgid "Aportes"
@@ -346,6 +345,7 @@ msgid "Organizar imágenes"
 msgstr "画像位置を編集"
 
 #: controller/admin.php:246 controller/admin.php:599
+#: view/admin/index.html.php:76
 msgid "Skillmatching"
 msgstr "スキルマッチング"
 
@@ -506,7 +506,7 @@ msgstr "管理者"
 msgid "Contenidos"
 msgstr "コンテンツ"
 
-#: controller/admin.php:598 controller/admin/users.php:460 model/home.php:54
+#: controller/admin.php:598 controller/admin/users.php:483 model/home.php:54
 #: view/admin/index.html.php:73
 msgid "Proyectos"
 msgstr "プロジェクト"
@@ -515,7 +515,7 @@ msgstr "プロジェクト"
 msgid "Usuarios"
 msgstr "ユーザー"
 
-#: controller/admin.php:601 controller/translate.php:535 library/text.php:329
+#: controller/admin.php:601 controller/translate.php:535 library/text.php:328
 msgid "Portada"
 msgstr "表紙"
 
@@ -532,18 +532,18 @@ msgid "Invest"
 msgstr "支援"
 
 #: controller/admin/accounts.php:116
-#: controller/admin/skillmatching_accounts.php:119
+#: controller/admin/skillmatching_accounts.php:118
 #, fuzzy
 msgid "Ha fallado algo al reubicar el aporte"
 msgstr "マニュアルでの入力を作成することに失敗しました"
 
 #: controller/admin/accounts.php:200 controller/admin/accounts.php:409
-#: controller/admin/skillmatching_accounts.php:203
+#: controller/admin/skillmatching_accounts.php:202
 msgid "Preaproval paypal cancelado."
 msgstr "キャンセルされたPayPalの事前支払い"
 
 #: controller/admin/accounts.php:201 controller/admin/accounts.php:410
-#: controller/admin/skillmatching_accounts.php:204
+#: controller/admin/skillmatching_accounts.php:203
 #, php-format
 msgid ""
 "El admin %s ha cancelado aporte y preapproval de %s de %s mediante PayPal "
@@ -553,12 +553,12 @@ msgstr ""
 "PayPal (id: %s) to project %s on date %s"
 
 #: controller/admin/accounts.php:204 controller/admin/accounts.php:413
-#: controller/admin/skillmatching_accounts.php:207
+#: controller/admin/skillmatching_accounts.php:206
 msgid "Fallo al cancelar el preapproval en paypal: "
 msgstr "PayPalによる事前支払いのキャンセルに失敗しました"
 
 #: controller/admin/accounts.php:205
-#: controller/admin/skillmatching_accounts.php:208
+#: controller/admin/skillmatching_accounts.php:207
 #, php-format
 msgid ""
 "El admin %s ha fallado al cancelar el aporte de %s de %s mediante PayPal "
@@ -571,9 +571,9 @@ msgstr ""
 #: controller/admin/accounts.php:207 controller/admin/accounts.php:228
 #: controller/admin/accounts.php:416 controller/admin/accounts.php:437
 #: controller/admin/accounts.php:445
-#: controller/admin/skillmatching_accounts.php:210
-#: controller/admin/skillmatching_accounts.php:231
-#: controller/admin/skillmatching_accounts.php:442
+#: controller/admin/skillmatching_accounts.php:209
+#: controller/admin/skillmatching_accounts.php:230
+#: controller/admin/skillmatching_accounts.php:441
 #, fuzzy
 msgid "Aporte cancelado"
 msgstr "マニュアル操作で支援する"
@@ -581,20 +581,20 @@ msgstr "マニュアル操作で支援する"
 #: controller/admin/accounts.php:209 controller/admin/accounts.php:231
 #: controller/admin/accounts.php:418 controller/admin/accounts.php:440
 #: controller/admin/accounts.php:447
-#: controller/admin/skillmatching_accounts.php:212
-#: controller/admin/skillmatching_accounts.php:234
-#: controller/admin/skillmatching_accounts.php:445
+#: controller/admin/skillmatching_accounts.php:211
+#: controller/admin/skillmatching_accounts.php:233
+#: controller/admin/skillmatching_accounts.php:444
 #, fuzzy
 msgid "Fallo al cancelar el aporte"
 msgstr "PayPalによる事前支払いのキャンセルに失敗しました"
 
 #: controller/admin/accounts.php:217 controller/admin/accounts.php:426
-#: controller/admin/skillmatching_accounts.php:220
+#: controller/admin/skillmatching_accounts.php:219
 msgid "Aporte cancelado correctamente. "
 msgstr "支援のキャンセルに成功しました"
 
 #: controller/admin/accounts.php:218 controller/admin/accounts.php:427
-#: controller/admin/skillmatching_accounts.php:221
+#: controller/admin/skillmatching_accounts.php:220
 #, php-format
 msgid ""
 "El admin %s ha anulado el cargo tpv de %s de %s mediante TPV (id: %s) al "
@@ -604,12 +604,12 @@ msgstr ""
 "%s on date %s"
 
 #: controller/admin/accounts.php:221 controller/admin/accounts.php:430
-#: controller/admin/skillmatching_accounts.php:224
+#: controller/admin/skillmatching_accounts.php:223
 msgid "Fallo en la operación. "
 msgstr "タスクに失敗しました"
 
 #: controller/admin/accounts.php:222 controller/admin/accounts.php:431
-#: controller/admin/skillmatching_accounts.php:225
+#: controller/admin/skillmatching_accounts.php:224
 #, fuzzy, php-format
 msgid ""
 "El admin %s ha fallado al solicitar la cancelación del cargo tpv de %s de %s "
@@ -620,8 +620,8 @@ msgstr ""
 "project %s on date %s. <br/>Has the following errors:"
 
 #: controller/admin/accounts.php:227 controller/admin/accounts.php:436
-#: controller/admin/skillmatching_accounts.php:230
-#: controller/admin/skillmatching_accounts.php:441
+#: controller/admin/skillmatching_accounts.php:229
+#: controller/admin/skillmatching_accounts.php:440
 #, php-format
 msgid ""
 "El admin %s ha cancelado aporte manual de %s de %s (id: %s) al proyecto %s "
@@ -631,8 +631,8 @@ msgstr ""
 "%s on date %s"
 
 #: controller/admin/accounts.php:230 controller/admin/accounts.php:439
-#: controller/admin/skillmatching_accounts.php:233
-#: controller/admin/skillmatching_accounts.php:444
+#: controller/admin/skillmatching_accounts.php:232
+#: controller/admin/skillmatching_accounts.php:443
 #, php-format
 msgid ""
 "El admin %s ha fallado al cancelar el aporte manual de %s de %s (id: %s) al "
@@ -642,12 +642,12 @@ msgstr ""
 "project %s on date %s."
 
 #: controller/admin/accounts.php:336
-#: controller/admin/skillmatching_accounts.php:339
+#: controller/admin/skillmatching_accounts.php:338
 msgid "Ha fallado algo al crear el aporte manual"
 msgstr "マニュアルでの入力を作成することに失敗しました"
 
 #: controller/admin/accounts.php:401
-#: controller/admin/skillmatching_accounts.php:404
+#: controller/admin/skillmatching_accounts.php:403
 msgid ""
 "No debería poderse cancelar un aporte cuando el proyecto ya está financiado. "
 "Si es imprescindible, hacerlo desde el panel de paypal o tpv"
@@ -665,12 +665,12 @@ msgstr ""
 "project %s on date %s. <br/>Has the following errors:"
 
 #: controller/admin/accounts.php:493
-#: controller/admin/skillmatching_accounts.php:500
+#: controller/admin/skillmatching_accounts.php:499
 msgid "Aporte al contado, nada que ejecutar."
 msgstr "まだ支払われていない現金による支援"
 
 #: controller/admin/accounts.php:494
-#: controller/admin/skillmatching_accounts.php:501
+#: controller/admin/skillmatching_accounts.php:500
 #, php-format
 msgid ""
 "El admin %s ha dado por ejecutado el aporte manual a nombre de %s por la "
@@ -680,7 +680,7 @@ msgstr ""
 "%s (id: %s) to project %s on date %s"
 
 #: controller/admin/accounts.php:534
-#: controller/admin/skillmatching_accounts.php:541
+#: controller/admin/skillmatching_accounts.php:540
 #, fuzzy
 msgid "Ha fallado al marcar donativo"
 msgstr "通知失敗"
@@ -1031,109 +1031,109 @@ msgstr "プロジェクトの翻訳が可能です（管理者）"
 msgid "traducción finalizada (admin)"
 msgstr "翻訳完了（管理者）"
 
-#: controller/admin/users.php:39
+#: controller/admin/users.php:60
 msgid "Desactivado"
 msgstr "非アクティブ"
 
-#: controller/admin/users.php:43
+#: controller/admin/users.php:64
 msgid "Activado"
 msgstr "アクティブ"
 
-#: controller/admin/users.php:47
+#: controller/admin/users.php:68
 msgid "Mostrado"
 msgstr "表示"
 
-#: controller/admin/users.php:51
+#: controller/admin/users.php:72
 msgid "Ocultado"
 msgstr "非表示"
 
-#: controller/admin/users.php:55
+#: controller/admin/users.php:76
 msgid "Hecho revisor"
 msgstr "レビュワーに追加する"
 
-#: controller/admin/users.php:59
+#: controller/admin/users.php:80
 msgid "Quitado de revisor"
 msgstr "レビュワーから外す"
 
-#: controller/admin/users.php:63
+#: controller/admin/users.php:84
 msgid "Hecho traductor"
 msgstr "翻訳者に追加する"
 
-#: controller/admin/users.php:67
+#: controller/admin/users.php:88
 msgid "Quitado de traductor"
 msgstr "翻訳者から外す"
 
-#: controller/admin/users.php:71
+#: controller/admin/users.php:92
 msgid "Hecho admin"
 msgstr "管理者に追加する"
 
-#: controller/admin/users.php:75
+#: controller/admin/users.php:96
 msgid "Quitado de admin"
 msgstr "管理者から外す"
 
-#: controller/admin/users.php:79
+#: controller/admin/users.php:100
 #, fuzzy
 msgid "Hecho project owner"
 msgstr "翻訳者に追加する"
 
-#: controller/admin/users.php:83
+#: controller/admin/users.php:104
 #, fuzzy
 msgid "Quitado de project owner"
 msgstr "翻訳者から外す"
 
-#: controller/admin/users.php:87
+#: controller/admin/users.php:108
 msgid "Hecho localadmin"
 msgstr ""
 
-#: controller/admin/users.php:91
+#: controller/admin/users.php:112
 msgid "Quitado de localadmin"
 msgstr ""
 
-#: controller/admin/users.php:169
+#: controller/admin/users.php:190
 msgid "el email"
 msgstr "eメール"
 
-#: controller/admin/users.php:173
+#: controller/admin/users.php:194
 msgid "la contraseña"
 msgstr "パスワード"
 
-#: controller/admin/users.php:181 controller/admin/users.php:298
+#: controller/admin/users.php:202 controller/admin/users.php:319
 msgid "Operación sobre usuario"
 msgstr "ユーザー操作"
 
-#: controller/admin/users.php:247
+#: controller/admin/users.php:268
 #, php-format
 msgid "El admin %s ha %s al usuario %s"
 msgstr "Admin %s has %s to user %s"
 
-#: controller/admin/users.php:290
+#: controller/admin/users.php:311
 #, fuzzy
 msgid "Ha FALLADO cuando ha"
 msgstr "彼はときに失敗しました"
 
-#: controller/admin/users.php:290
+#: controller/admin/users.php:311
 msgid "al usuario"
 msgstr "ユーザー"
 
-#: controller/admin/users.php:291
+#: controller/admin/users.php:312
 #, php-format
 msgid "Al admin %s le ha <strong>FALLADO</strong> cuando ha %s al usuario %s"
 msgstr "Admin %s <strong>FAILED</strong> when %s to user %s"
 
-#: controller/admin/users.php:358
+#: controller/admin/users.php:380
 msgid ""
 "No se ha seleccionado ningún idioma, este usuario tendrá problemas en su "
 "panel de traducción!"
 msgstr "翻訳言語が見つかりません。ユーザー設定を確認して下さい"
 
-#: controller/admin/users.php:390
+#: controller/admin/users.php:412
 #, fuzzy, php-format
 msgid ""
 "El admin %s ha <span class=\"red\">movido</span> el usuario %s al nodo %s"
 msgstr ""
 "管理者%sはプロジェクト%sの<span class=\"red\">日付を変更</span>しました"
 
-#: controller/admin/users.php:392
+#: controller/admin/users.php:414
 #, fuzzy, php-format
 msgid ""
 "Al admin %s le ha <span class=\"red\">fallado al mover</span> el usuario %s "
@@ -1141,48 +1141,48 @@ msgid ""
 msgstr ""
 "管理者%sはプロジェクト%sの<span class=\"red\">日付変更に失敗</span>しました"
 
-#: controller/admin/users.php:441 view/admin/newsletter/detail.html.php:42
+#: controller/admin/users.php:463 view/admin/newsletter/detail.html.php:42
 #: view/admin/newsletter/list.html.php:88
 msgid "Activo"
 msgstr "アクティブ"
 
-#: controller/admin/users.php:442 view/admin/newsletter/detail.html.php:43
+#: controller/admin/users.php:464 view/admin/newsletter/detail.html.php:43
 #: view/admin/newsletter/list.html.php:88 view/admin/users/list.html.php:224
 msgid "Inactivo"
 msgstr "非アクティブ"
 
-#: controller/admin/users.php:448
+#: controller/admin/users.php:471
 msgid "Solo usuario"
 msgstr "ユーザー"
 
-#: controller/admin/users.php:450
+#: controller/admin/users.php:473
 msgid "Impulsores"
 msgstr "drivers"
 
-#: controller/admin/users.php:451 view/admin/projects/list.html.php:176
+#: controller/admin/users.php:474 view/admin/projects/list.html.php:176
 #: view/admin/skillmatchings/list.html.php:176
 msgid "Cofinanciadores"
 msgstr "支援者"
 
-#: controller/admin/users.php:452
+#: controller/admin/users.php:475
 msgid "Colaboradores"
 msgstr "支援者"
 
-#: controller/admin/users.php:456
+#: controller/admin/users.php:479
 msgid "Fecha de alta"
 msgstr "登録日"
 
-#: controller/admin/users.php:457 view/admin/users/add.html.php:32
+#: controller/admin/users.php:480 view/admin/users/add.html.php:32
 msgid "Nombre público"
 msgstr "公開名"
 
-#: controller/admin/users.php:458 view/admin/users/add.html.php:28
+#: controller/admin/users.php:481 view/admin/users/add.html.php:28
 #: view/admin/users/edit.html.php:36 view/admin/users/impersonate.html.php:34
 #: view/admin/users/list.html.php:193 view/admin/users/manage.html.php:35
 msgid "User ID"
 msgstr "ユーザーID"
 
-#: controller/admin/users.php:459 view/admin/invests/report.html.php:89
+#: controller/admin/users.php:482 view/admin/invests/report.html.php:89
 #: view/admin/invests/report.html.php:123
 #: view/admin/invests/report.html.php:143
 msgid "Cantidad"
@@ -1198,12 +1198,12 @@ msgstr "プロジェクト"
 msgid "El proyecto %s ha fallado al, %s obteniendo %s"
 msgstr "プロジェクト%s はまだ %s にセットされていません"
 
-#: controller/cron.php:270 controller/cron.php:836
+#: controller/cron.php:270 controller/cron.php:837
 #, fuzzy, php-format
 msgid "El proyecto %s ha sido %s obteniendo %s"
 msgstr "プロジェクト%s はまだ %s にセットされていません"
 
-#: controller/cron.php:276 controller/cron.php:842
+#: controller/cron.php:276 controller/cron.php:843
 #, fuzzy, php-format
 msgid "El proyecto %s ha fallado al ser, %s obteniendo %s"
 msgstr "プロジェクト%s はまだ %s にセットされていません"
@@ -1234,7 +1234,7 @@ msgstr ""
 "Admin %s has failed to cancel contribution %s for %s via PayPal (id: %s) to "
 "project %s on date %s. <br/>Has the following errors:"
 
-#: controller/cron.php:486 controller/cron.php:1061
+#: controller/cron.php:486 controller/cron.php:1062
 #, fuzzy, php-format
 msgid ""
 "Se ha cancelado aporte manual de %s de %s (id: %s) al proyecto %s del dia %s"
@@ -1242,7 +1242,7 @@ msgstr ""
 "Admin %s has cancelled a manual contribution of %s of %s (id: %s) to project "
 "%s on date %s"
 
-#: controller/cron.php:488 controller/cron.php:1063
+#: controller/cron.php:488 controller/cron.php:1064
 #, fuzzy, php-format
 msgid ""
 "Ha fallado al cancelar el aporte manual de %s de %s (id: %s) al proyecto %s "
@@ -1260,7 +1260,7 @@ msgstr ""
 "Admin %s has executed a charge to %s for its contribution of %s via PayPal "
 "(id: %s) to project %s on date %s"
 
-#: controller/cron.php:1441
+#: controller/cron.php:1442
 #, fuzzy, php-format
 msgid ""
 "Se ha realizado el pago de %s PayPal al proyecto %s por el aporte de %s (id: "
@@ -1268,7 +1268,7 @@ msgid ""
 msgstr ""
 "一日の（ID）の寄与によってプロジェクトのためにペイパルの支払いを行われている"
 
-#: controller/cron.php:1446
+#: controller/cron.php:1447
 #, fuzzy, php-format
 msgid ""
 "Ha fallado al realizar el pago de %s PayPal al proyecto %s por el aporte de "
@@ -1617,7 +1617,7 @@ msgstr "全て"
 msgid "Administrador"
 msgstr "管理者"
 
-#: library/feed.php:60 model/invest.php:120
+#: library/feed.php:60 model/invest.php:121
 #: view/admin/accounts/details.html.php:46 view/admin/invests/add.html.php:32
 #: view/admin/invests/details.html.php:36 view/admin/invests/list.html.php:33
 #: view/admin/invests/report.html.php:142
@@ -1639,14 +1639,14 @@ msgstr "ユーザー"
 #: view/admin/rewards/edit.html.php:17 view/admin/rewards/list.html.php:13
 #: view/admin/rewards/list.html.php:56
 #: view/admin/skillmatching_accounts/details.html.php:44
-#: view/admin/skillmatching_accounts/list.html.php:29
-#: view/admin/skillmatching_accounts/list.html.php:107
+#: view/admin/skillmatching_accounts/list.html.php:28
+#: view/admin/skillmatching_accounts/list.html.php:103
 #: view/admin/skillmatchings/list.html.php:124
 #: view/admin/translates/list.html.php:54
 msgid "Proyecto"
 msgstr "プロジェクト"
 
-#: library/feed.php:68 view/admin/accounts/details.html.php:193
+#: library/feed.php:68 view/admin/accounts/details.html.php:186
 #: view/admin/invests/list.html.php:45
 #: view/admin/skillmatching_accounts/details.html.php:178
 msgid "Convocatoria"
@@ -1666,12 +1666,12 @@ msgstr "システム"
 #: model/blog/post/tag.php:156 model/blog/post/tag.php:185
 #: model/category.php:184 model/criteria.php:126 model/faq.php:207
 #: model/glossary.php:167 model/icon.php:180 model/image.php:126
-#: model/image.php:189 model/info.php:187 model/invest.php:458
+#: model/image.php:189 model/info.php:187 model/invest.php:461
 #: model/license.php:168 model/news.php:130 model/post.php:270
 #: model/post.php:311 model/promote.php:193 model/review.php:99
 #: model/review.php:487 model/review.php:506 model/skill.php:222
-#: model/sponsor.php:163 model/user.php:521 model/user.php:1351
-#: model/user.php:1415 model/user/interest.php:149 model/user/review.php:81
+#: model/sponsor.php:163 model/user.php:521 model/user.php:1357
+#: model/user.php:1421 model/user/interest.php:149 model/user/review.php:81
 #: model/user/skill.php:107 model/user/translate.php:217
 #: model/user/translate.php:245 model/user/web.php:87
 msgid "No se ha guardado correctamente. "
@@ -1817,7 +1817,7 @@ msgstr "コンテンツを書く"
 msgid "Error sql al grabar el contenido de la palntilla. "
 msgstr "SQLは、テンプレートの内容を記録することができませんでした。"
 
-#: library/template.php:191 library/text.php:345
+#: library/template.php:191 library/text.php:344
 msgid "Propósito general"
 msgstr "汎用"
 
@@ -1845,155 +1845,155 @@ msgstr "コミュニケーション"
 msgid "Avisos al autor"
 msgstr "作者へのお知らせ"
 
-#: library/text.php:296 library/text.php:318
+#: library/text.php:295 library/text.php:317
 msgid "Error al insertar los datos <pre>"
 msgstr "データの挿入エラー"
 
-#: library/text.php:330
+#: library/text.php:329
 msgid "Pagina de perfil de usuario"
 msgstr "ユーザーリスト"
 
-#: library/text.php:331
+#: library/text.php:330
 msgid "Proyecto, pública y formulario"
 msgstr "Project, public and form"
 
-#: library/text.php:332
+#: library/text.php:331
 msgid "Generales del formulario de proyecto"
 msgstr "プロジェクトの一般フォーム"
 
-#: library/text.php:333
+#: library/text.php:332
 msgid "Gestión de perfil del usuario"
 msgstr "ユーザー管理"
 
-#: library/text.php:334
+#: library/text.php:333
 msgid "Datos personales del usuario"
 msgstr "ユーザーの個人情報"
 
-#: library/text.php:335
+#: library/text.php:334
 msgid "Descripción del proyecto"
 msgstr "プロジェクトの説明"
 
-#: library/text.php:336
+#: library/text.php:335
 msgid "Costes del proyecto"
 msgstr "プロジェクトコスト"
 
-#: library/text.php:337
+#: library/text.php:336
 msgid "Retornos y recompensas del proyecto"
 msgstr "プロジェクトのお礼"
 
-#: library/text.php:338
+#: library/text.php:337
 msgid "Colaboraciones del proyecto"
 msgstr "コラボレーションしているプロジェクト"
 
-#: library/text.php:339
+#: library/text.php:338
 msgid "Previsualización del proyecto"
 msgstr "プロジェクトのプレビュー"
 
-#: library/text.php:340
+#: library/text.php:339
 msgid "Dashboard del usuario"
 msgstr "ユーザーダッシュボード"
 
-#: library/text.php:341
+#: library/text.php:340
 msgid "Registro de usuarios"
 msgstr "ユーザー登録"
 
-#: library/text.php:342
+#: library/text.php:341
 msgid "Pagina de login"
 msgstr "ログインページ"
 
-#: library/text.php:343
+#: library/text.php:342
 msgid "Sección descubre proyectos"
 msgstr "プロジェクト発見セクション"
 
-#: library/text.php:344
+#: library/text.php:343
 msgid "Sección comunidad"
 msgstr "コミュニティセクション"
 
-#: library/text.php:346
+#: library/text.php:345
 msgid "Blog/Actualizaciones"
 msgstr "ブログの更新"
 
-#: library/text.php:347
+#: library/text.php:346
 msgid "Pagina de FAQ"
 msgstr "FAQページ"
 
-#: library/text.php:348
+#: library/text.php:347
 msgid "Pagina de contacto"
 msgstr "お問い合わせページ"
 
-#: library/text.php:349
+#: library/text.php:348
 msgid "Banderolos"
 msgstr "バナー"
 
-#: library/text.php:350
+#: library/text.php:349
 msgid "Pagina de aportar a un proyecto"
 msgstr "プロジェクトに持っていくページ"
 
-#: library/text.php:351
+#: library/text.php:350
 msgid "Tooltips para tipos de necesidades"
 msgstr "ツールチップのタイプを指定してください"
 
-#: library/text.php:352
+#: library/text.php:351
 msgid "Banners y cabeceras"
 msgstr "バナーとヘッダー"
 
-#: library/text.php:353
+#: library/text.php:352
 msgid "Footer"
 msgstr "フッター"
 
-#: library/text.php:354
+#: library/text.php:353
 msgid "Cuentas de redes sociales"
 msgstr "ソーシャルネットワークアカウント"
 
-#: library/text.php:355
+#: library/text.php:354
 msgid "Panel revisor"
 msgstr "レビュワーパネル"
 
-#: library/text.php:356
+#: library/text.php:355
 msgid "Panel traductor"
 msgstr "翻訳者パネル"
 
-#: library/text.php:357
+#: library/text.php:356
 msgid "Menu superior"
 msgstr "トップメニュー"
 
-#: library/text.php:358
+#: library/text.php:357
 msgid "Eventos recientes"
 msgstr "最近のイベント"
 
-#: library/text.php:359
+#: library/text.php:358
 msgid "Emails automaticos"
 msgstr "自動配信メール"
 
-#: library/text.php:360
+#: library/text.php:359
 msgid "Avisos azules"
 msgstr "青いニュース"
 
-#: library/text.php:361
+#: library/text.php:360
 msgid "Errores catastroficos"
 msgstr "致命的なエラー"
 
-#: library/text.php:362
+#: library/text.php:361
 msgid "Convocatorias: publicos"
 msgstr "スポンサー：公式"
 
-#: library/text.php:363
+#: library/text.php:362
 msgid "Convocatorias: formulario"
 msgstr "スポンサー：フォーム"
 
-#: library/text.php:364
+#: library/text.php:363
 msgid "Convocatorias: dashboard"
 msgstr "スポンサー：ダッシュボード"
 
-#: library/text.php:365
+#: library/text.php:364
 msgid "Wall of friends"
 msgstr "友達のウォール"
 
-#: library/text.php:366
+#: library/text.php:365
 msgid "Nodos"
 msgstr "ノード"
 
-#: library/text.php:367
+#: library/text.php:366
 msgid "Formulario Contrato"
 msgstr "問い合わせフォーム"
 
@@ -2031,7 +2031,7 @@ msgstr "正常に保存されませんでした"
 msgid "Error sql al grabar el nivel de meritocracia. "
 msgstr "SQLエラーが発生しました。"
 
-#: model/banner.php:173 model/invest.php:380 model/message.php:143
+#: model/banner.php:173 model/invest.php:382 model/message.php:143
 #: model/review.php:61
 msgid "Falta proyecto"
 msgstr "プロジェクトがありません"
@@ -2121,98 +2121,98 @@ msgstr "公共リターン"
 msgid "Recompensa individual"
 msgstr "支援者へのお礼"
 
-#: model/invest.php:119 view/admin/accounts/list.html.php:94
+#: model/invest.php:120 view/admin/accounts/list.html.php:94
 #: view/admin/blog/list.html.php:86 view/admin/invests/list.html.php:96
 #: view/admin/newsletter/detail.html.php:50
 #: view/admin/newsletter/list.html.php:74 view/admin/sended/list.html.php:82
-#: view/admin/skillmatching_accounts/list.html.php:105
+#: view/admin/skillmatching_accounts/list.html.php:101
 msgid "Fecha"
 msgstr "日付"
 
-#: model/invest.php:121 view/admin/rewards/edit.html.php:24
+#: model/invest.php:122 view/admin/rewards/edit.html.php:24
 #: view/admin/rewards/list.html.php:57
 msgid "Recompensa"
 msgstr "お礼"
 
-#: model/invest.php:122 view/admin/newsletter/detail.html.php:54
+#: model/invest.php:123 view/admin/newsletter/detail.html.php:54
 msgid "Pendientes"
 msgstr "保留"
 
-#: model/invest.php:123
+#: model/invest.php:124
 msgid "Cumplidos"
 msgstr "達成済み"
 
-#: model/invest.php:371
+#: model/invest.php:373
 msgid "La cantidad no es correcta"
 msgstr "数量が正しくありません"
 
-#: model/invest.php:374
+#: model/invest.php:376
 msgid "Falta metodo de pago"
 msgstr "支払い方法がありません"
 
-#: model/invest.php:377 model/message.php:140
+#: model/invest.php:379 model/message.php:140
 msgid "Falta usuario"
 msgstr "無効なユーザー"
 
-#: model/invest.php:426
+#: model/invest.php:429
 msgid "No ha conseguido Id de aporte"
 msgstr "彼は、IDを指定するために失敗しました"
 
-#: model/invest.php:508
+#: model/invest.php:511
 msgid "Envíanos esto: <br />"
 msgstr "これを送信"
 
-#: model/invest.php:1084
+#: model/invest.php:1092
 msgid "Incompleto"
 msgstr "処理未完了"
 
-#: model/invest.php:1085
+#: model/invest.php:1093
 msgid "Preaprobado"
 msgstr "決済待ち（予約中）"
 
-#: model/invest.php:1086
+#: model/invest.php:1094
 msgid "Cobrado"
 msgstr "決済完了"
 
-#: model/invest.php:1087
+#: model/invest.php:1095
 msgid "Cancelado"
 msgstr "キャンセル"
 
-#: model/invest.php:1088
+#: model/invest.php:1096
 msgid "Pagado al proyecto"
 msgstr "支払われたプロジェクト"
 
-#: model/invest.php:1089
+#: model/invest.php:1097
 msgid "Archivado (devuelto)"
 msgstr "プロジェクト不成立（未決済）"
 
-#: model/invest.php:1108
+#: model/invest.php:1116
 msgid "AXES"
 msgstr "AXES"
 
-#: model/invest.php:1109
+#: model/invest.php:1117
 msgid "Tarjeta"
 msgstr "カード"
 
-#: model/invest.php:1110 view/admin/accounts/list.html.php:125
+#: model/invest.php:1118 view/admin/accounts/list.html.php:125
 #: view/admin/invests/list.html.php:124
 #: view/admin/skillmatching_accounts/list.html.php:141
 msgid "Manual"
 msgstr "現金"
 
-#: model/invest.php:1163
+#: model/invest.php:1171
 msgid "El aporte PayPal"
 msgstr "PayPalでの支援"
 
-#: model/invest.php:1163 model/invest.php:1179
+#: model/invest.php:1171 model/invest.php:1187
 msgid "no debería estar en estado '"
 msgstr "この状態であるべきではない"
 
-#: model/invest.php:1179
+#: model/invest.php:1187
 msgid "El aporte TPV"
 msgstr "TPVによる支援"
 
-#: model/invest.php:1208
+#: model/invest.php:1216
 msgid ""
 "ATENCION! En segunda ronda pero NO está marcada la fecha de pase a segunda "
 "ronda!"
@@ -2220,7 +2220,7 @@ msgstr ""
 "Admin %s has cancelled the contribution and preapproval of %s of %s via "
 "PayPal (id: %s) to project %s on date %s"
 
-#: model/invest.php:1404
+#: model/invest.php:1412
 msgid "No se ha calculado bien el parametro $act_eq"
 msgstr "$act_eqはまだ計算されていません。"
 
@@ -2240,10 +2240,6 @@ msgstr "URLがありません"
 #, fuzzy
 msgid "Ha fallado!!! "
 msgstr "通知失敗"
-
-#: model/project.php:195 model/skillmatching.php:195
-msgid "El nuevo proyecto de "
-msgstr "プロジェクト"
 
 #: model/project.php:240 model/skillmatching.php:240
 msgid "ERROR al crear un nuevo proyecto"
@@ -2270,15 +2266,15 @@ msgstr "支援するプロジェクトを選択する"
 msgid "Fallo al verificar id única para el proyecto. "
 msgstr "プロジェクトのID認証に失敗しました。"
 
-#: model/project.php:2537 model/skillmatching.php:2543
+#: model/project.php:2537 model/skillmatching.php:2545
 msgid "En primera ronda"
 msgstr "in first round"
 
-#: model/project.php:2538 model/skillmatching.php:2544
+#: model/project.php:2538 model/skillmatching.php:2546
 msgid "En segunda ronda"
 msgstr "in second round"
 
-#: model/project.php:2539 model/skillmatching.php:2545
+#: model/project.php:2539 model/skillmatching.php:2547
 msgid "Campaña completada"
 msgstr "キャンペーン終了"
 
@@ -2326,7 +2322,7 @@ msgid "El coste "
 msgstr "コスト"
 
 #: model/project/cost.php:139 model/project/cost.php:168
-#: model/project/reward.php:173 model/project/reward.php:204
+#: model/project/reward.php:203 model/project/reward.php:234
 #: model/project/support.php:125 model/project/support.php:153
 #: model/skillmatching/cost.php:136 model/skillmatching/cost.php:165
 #: model/skillmatching/reward.php:168 model/skillmatching/reward.php:199
@@ -2339,17 +2335,17 @@ msgstr "正しく保存されませんでした。データを確認してくだ
 msgid "No se ha podido quitar el coste del proyecto "
 msgstr "ウェブを削除できませんでした"
 
-#: model/project/reward.php:121 model/skillmatching/reward.php:116
+#: model/project/reward.php:132 model/skillmatching/reward.php:116
 #, fuzzy
 msgid "No hay proyecto al que asignar la recompensa/rettorno"
 msgstr "操作できるプロジェクトはありません"
 
-#: model/project/reward.php:173 model/project/reward.php:204
+#: model/project/reward.php:203 model/project/reward.php:234
 #: model/skillmatching/reward.php:168 model/skillmatching/reward.php:199
 msgid "El retorno "
 msgstr "戻る"
 
-#: model/project/reward.php:227 model/skillmatching/reward.php:222
+#: model/project/reward.php:257 model/skillmatching/reward.php:222
 #, fuzzy
 msgid "No se ha podido quitar el retorno "
 msgstr "ウェブを削除できませんでした"
@@ -2397,36 +2393,40 @@ msgstr "コラボレーションプロジェクトを削除できませんでし
 msgid "Se muestra y no tiene proyecto"
 msgstr "表示できるプロジェクトはありません"
 
+#: model/skillmatching.php:195
+msgid "El nuevo proyecto de "
+msgstr "プロジェクト"
+
 #: model/task.php:173 model/task.php:194
 #, fuzzy
 msgid "Algo ha fallado"
 msgstr "完了済み"
 
-#: model/user.php:1143
+#: model/user.php:1149
 msgid "Admin Goteo"
 msgstr "Goteoの管理者"
 
-#: model/user.php:1144
+#: model/user.php:1150
 msgid "El usuario "
 msgstr "ユーザー"
 
-#: model/user.php:1144
+#: model/user.php:1150
 msgid " se da de baja"
 msgstr "精算済"
 
-#: model/user.php:1145
+#: model/user.php:1151
 msgid "Han solicitado la baja para el mail"
 msgstr "参加者にメールを要請する"
 
-#: model/user.php:1145
+#: model/user.php:1151
 msgid "que corresponde al usuario"
 msgstr "一致するユーザー"
 
-#: model/user.php:1146
+#: model/user.php:1152
 msgid "y ha dejado el siguiente mensaje:"
 msgstr "以下のメッセージ届いています"
 
-#: model/user.php:1449
+#: model/user.php:1455
 msgid "Usuario registrado"
 msgstr "一般ユーザー"
 
@@ -2567,7 +2567,6 @@ msgstr "支援金額"
 #: view/admin/projects/list.html.php:157
 #: view/admin/skillmatchings/list.html.php:144
 #: view/admin/skillmatchings/list.html.php:145
-#: view/admin/skillmatchings/list.html.php:157
 #: view/admin/users/list.html.php:210 view/admin/worth/list.html.php:40
 msgid "yen"
 msgstr "円"
@@ -2582,7 +2581,7 @@ msgstr "キャンペーン"
 #: view/admin/projects/list.html.php:127 view/admin/promote/list.html.php:34
 #: view/admin/rewards/list.html.php:58
 #: view/admin/skillmatching_accounts/details.html.php:73
-#: view/admin/skillmatching_accounts/list.html.php:108
+#: view/admin/skillmatching_accounts/list.html.php:104
 #: view/admin/skillmatchings/list.html.php:127
 #: view/admin/tasks/edit.html.php:39 view/admin/tasks/list.html.php:63
 msgid "Estado"
@@ -2637,7 +2636,7 @@ msgstr "いいえ"
 #: view/admin/accounts/list.html.php:35 view/admin/invests/details.html.php:86
 #: view/admin/invests/list.html.php:36
 #: view/admin/skillmatching_accounts/details.html.php:98
-#: view/admin/skillmatching_accounts/list.html.php:35
+#: view/admin/skillmatching_accounts/list.html.php:34
 msgid "Método de pago"
 msgstr "支払方法"
 
@@ -2663,40 +2662,28 @@ msgstr "寄付"
 msgid "Manual generado por admin"
 msgstr "管理者によってマニュアルで作成された"
 
-#: view/admin/accounts/details.html.php:139
-msgid "Códigos de seguimiento"
-msgstr ""
-"Admin %s has cancelled a TPV charge of %s of %s via TPV (id: %s) to project "
-"%s on date %s"
-
-#: view/admin/accounts/details.html.php:139
-msgid "Ir al aporte"
-msgstr "支援に進む"
-
-#: view/admin/accounts/details.html.php:154
+#: view/admin/accounts/details.html.php:147
 msgid "Recompensas elegidas"
-msgstr ""
-"Admin %s has cancelled a manual contribution of %s of %s (id: %s) to project "
-"%s on date %s"
+msgstr "選択した報酬"
 
-#: view/admin/accounts/details.html.php:162
+#: view/admin/accounts/details.html.php:155
 #: view/admin/skillmatching_accounts/details.html.php:147
 msgid "Dirección"
 msgstr "お礼送付先住所"
 
-#: view/admin/accounts/details.html.php:174
+#: view/admin/accounts/details.html.php:167
 msgid "Mostrar detalles técnicos"
 msgstr "技術詳細を表示する"
 
-#: view/admin/accounts/details.html.php:180
+#: view/admin/accounts/details.html.php:173
 msgid "Detalles de la devolución"
 msgstr "お礼の詳細"
 
-#: view/admin/accounts/details.html.php:181
+#: view/admin/accounts/details.html.php:174
 msgid "Hay que ir al panel de paypal para ver los detalles de una devolución"
 msgstr "獲得額を確認するためにPayPalメニューを見てください"
 
-#: view/admin/accounts/details.html.php:185
+#: view/admin/accounts/details.html.php:178
 msgid ""
 "Hay que ir al panel del banco para ver los detalles de los aportes mediante "
 "TPV."
@@ -2704,97 +2691,95 @@ msgstr ""
 "Admin %s has failed to cancel a manual contribution of %s to %s (id: %s) to "
 "project %s on date %s."
 
-#: view/admin/accounts/details.html.php:187
+#: view/admin/accounts/details.html.php:180
 msgid "No hay nada que hacer con los aportes manuales."
 msgstr "手動入力でできることはありません"
 
-#: view/admin/accounts/details.html.php:191
+#: view/admin/accounts/details.html.php:184
 #: view/admin/skillmatching_accounts/details.html.php:176
 msgid "Capital riego asociado"
 msgstr "関連するCapital riego"
 
-#: view/admin/accounts/details.html.php:196
+#: view/admin/accounts/details.html.php:189
 #: view/admin/skillmatching_accounts/details.html.php:181
 msgid "Ver aporte completo de riego"
 msgstr "riegoからの支援を見る"
 
-#: view/admin/accounts/details.html.php:202
+#: view/admin/accounts/details.html.php:195
 #: view/admin/skillmatching_accounts/details.html.php:187
 msgid "Log"
 msgstr "ログ"
 
-#: view/admin/accounts/details.html.php:210
+#: view/admin/accounts/details.html.php:203
 #: view/admin/skillmatching_accounts/details.html.php:195
 msgid "Detalles técnicos de la transaccion"
 msgstr "取引の技術詳細"
 
-#: view/admin/accounts/details.html.php:215
+#: view/admin/accounts/details.html.php:208
 #: view/admin/skillmatching_accounts/details.html.php:200
 msgid "Detalles del preapproval"
 msgstr "事前承認の詳細"
 
-#: view/admin/accounts/details.html.php:224
+#: view/admin/accounts/details.html.php:217
 #: view/admin/skillmatching_accounts/details.html.php:209
 msgid "Detalles del cargo"
 msgstr "手数料の詳細"
 
 #: view/admin/accounts/list.html.php:30 view/admin/invests/list.html.php:31
 #: view/admin/rewards/list.html.php:15
-#: view/admin/skillmatching_accounts/list.html.php:30
+#: view/admin/skillmatching_accounts/list.html.php:29
 msgid "Todos los proyectos"
 msgstr "全てのプロジェクト"
 
 #: view/admin/accounts/list.html.php:32
-#: view/admin/skillmatching_accounts/list.html.php:32
+#: view/admin/skillmatching_accounts/list.html.php:31
 msgid "Accounts Usuario"
 msgstr "支援者"
 
 #: view/admin/accounts/list.html.php:33 view/admin/invests/list.html.php:34
-#: view/admin/skillmatching_accounts/list.html.php:33
+#: view/admin/skillmatching_accounts/list.html.php:32
 msgid "Todos los usuarios"
 msgstr "全ての支援者"
 
 #: view/admin/accounts/list.html.php:36 view/admin/licenses/list.html.php:40
-#: view/admin/skillmatching_accounts/list.html.php:36
+#: view/admin/skillmatching_accounts/list.html.php:35
 #: view/translate/contents/list.html.php:53
 msgid "Todos los tipos"
 msgstr "全てのタイプ"
 
 #: view/admin/accounts/list.html.php:38
-#: view/admin/skillmatching_accounts/list.html.php:38
 msgid "Estado del aporte"
 msgstr "支援ステータス"
 
 #: view/admin/accounts/list.html.php:39 view/admin/invests/list.html.php:40
 #: view/admin/invests/list.html.php:43 view/admin/projects/list.html.php:81
-#: view/admin/skillmatching_accounts/list.html.php:39
 #: view/admin/skillmatchings/list.html.php:81
 msgid "Todos los estados"
 msgstr "全ての状態"
 
 #: view/admin/accounts/list.html.php:41 view/admin/invests/details.html.php:62
-#: view/admin/skillmatching_accounts/list.html.php:41
+#: view/admin/skillmatching_accounts/list.html.php:37
 msgid "Campaña"
 msgstr "キャンペーン"
 
 #: view/admin/accounts/list.html.php:42
-#: view/admin/skillmatching_accounts/list.html.php:42
+#: view/admin/skillmatching_accounts/list.html.php:38
 msgid "Todas las campañas"
 msgstr "New campaign"
 
 #: view/admin/accounts/list.html.php:44
-#: view/admin/skillmatching_accounts/list.html.php:44
+#: view/admin/skillmatching_accounts/list.html.php:40
 msgid "Para revisión"
 msgstr "レビューに回す"
 
 #: view/admin/accounts/list.html.php:45 view/admin/invests/list.html.php:49
 #: view/admin/rewards/list.html.php:30
-#: view/admin/skillmatching_accounts/list.html.php:45
+#: view/admin/skillmatching_accounts/list.html.php:41
 msgid "Todos"
 msgstr "全て"
 
 #: view/admin/accounts/list.html.php:47
-#: view/admin/skillmatching_accounts/list.html.php:47
+#: view/admin/skillmatching_accounts/list.html.php:43
 msgid "Visor de logs"
 msgstr "閲覧ログ"
 
@@ -2803,19 +2788,19 @@ msgid "Support information"
 msgstr "支援情報検索"
 
 #: view/admin/accounts/list.html.php:67
-#: view/admin/skillmatching_accounts/list.html.php:78
+#: view/admin/skillmatching_accounts/list.html.php:74
 msgid "Fecha desde"
 msgstr "開始日付"
 
 #: view/admin/accounts/list.html.php:71
-#: view/admin/skillmatching_accounts/list.html.php:82
+#: view/admin/skillmatching_accounts/list.html.php:78
 msgid "Fecha hasta"
 msgstr "終了日付"
 
 #: view/admin/accounts/list.html.php:75 view/admin/invests/list.html.php:76
 #: view/admin/list.html.php:65 view/admin/projects/list.html.php:93
 #: view/admin/rewards/list.html.php:40 view/admin/sended/list.html.php:66
-#: view/admin/skillmatching_accounts/list.html.php:86
+#: view/admin/skillmatching_accounts/list.html.php:82
 #: view/admin/skillmatchings/list.html.php:93
 #: view/admin/skills/list.html.php:64 view/admin/templates/list.html.php:48
 #: view/admin/texts/list.html.php:58 view/admin/users/list.html.php:81
@@ -2826,7 +2811,7 @@ msgstr "検索"
 
 #: view/admin/accounts/list.html.php:79 view/admin/invests/list.html.php:80
 #: view/admin/projects/list.html.php:106 view/admin/rewards/list.html.php:44
-#: view/admin/skillmatching_accounts/list.html.php:90
+#: view/admin/skillmatching_accounts/list.html.php:86
 #: view/admin/skillmatchings/list.html.php:106
 #: view/admin/users/list.html.php:182
 msgid "Quitar filtros"
@@ -2835,7 +2820,7 @@ msgstr "フィルターを解除する"
 #: view/admin/accounts/list.html.php:84 view/admin/invests/list.html.php:85
 #: view/admin/projects/list.html.php:108 view/admin/rewards/list.html.php:49
 #: view/admin/sended/list.html.php:74
-#: view/admin/skillmatching_accounts/list.html.php:95
+#: view/admin/skillmatching_accounts/list.html.php:91
 #: view/admin/skillmatchings/list.html.php:108
 #: view/admin/texts/list.html.php:68 view/admin/users/list.html.php:187
 msgid "Es necesario poner algun filtro, hay demasiados registros!"
@@ -2847,13 +2832,13 @@ msgid "TOTAL"
 msgstr "合計"
 
 #: view/admin/accounts/list.html.php:93 view/admin/invests/list.html.php:95
-#: view/admin/skillmatching_accounts/list.html.php:104
+#: view/admin/skillmatching_accounts/list.html.php:100
 msgid "Aporte ID"
 msgstr "支援ID"
 
 #: view/admin/accounts/list.html.php:95 view/admin/invests/list.html.php:97
 #: view/admin/rewards/list.html.php:55
-#: view/admin/skillmatching_accounts/list.html.php:106
+#: view/admin/skillmatching_accounts/list.html.php:102
 msgid "Cofinanciador"
 msgstr "支援者"
 
@@ -2862,7 +2847,7 @@ msgid "Metodo"
 msgstr "支払方法"
 
 #: view/admin/accounts/list.html.php:99 view/admin/invests/list.html.php:101
-#: view/admin/skillmatching_accounts/list.html.php:110
+#: view/admin/skillmatching_accounts/list.html.php:106
 msgid "Estado aporte"
 msgstr "支援状況"
 
@@ -2874,13 +2859,13 @@ msgstr "金額（￥）"
 
 #: view/admin/accounts/list.html.php:101 view/admin/invests/list.html.php:48
 #: view/admin/invests/list.html.php:103
-#: view/admin/skillmatching_accounts/list.html.php:112
+#: view/admin/skillmatching_accounts/list.html.php:108
 msgid "Extra"
 msgstr "支払日"
 
 #: view/admin/accounts/list.html.php:110 view/admin/invests/list.html.php:110
 #: view/admin/newsletter/list.html.php:85
-#: view/admin/skillmatching_accounts/list.html.php:121
+#: view/admin/skillmatching_accounts/list.html.php:117
 msgid "Detalles"
 msgstr "詳細"
 
@@ -2894,7 +2879,7 @@ msgstr "匿名"
 msgid "Donativo "
 msgstr "寄付"
 
-#: view/admin/accounts/list.html.php:133
+#: view/admin/accounts/list.html.php:134
 #: view/admin/skillmatching_accounts/list.html.php:149
 msgid "No hay transacciones que cumplan con los filtros."
 msgstr "絞り込みに一致する取引はありません"
@@ -4103,7 +4088,6 @@ msgid "días"
 msgstr "日"
 
 #: view/admin/projects/list.html.php:157
-#: view/admin/skillmatchings/list.html.php:157
 msgid "Achieved"
 msgstr "達成済み"
 
@@ -4113,7 +4097,6 @@ msgid "Cofin"
 msgstr "支援人数"
 
 #: view/admin/projects/list.html.php:157
-#: view/admin/skillmatchings/list.html.php:157
 msgid "Colab"
 msgstr "スキル・物品支援マッチング"
 
@@ -4151,11 +4134,6 @@ msgstr "日付"
 #: view/admin/skillmatchings/list.html.php:184
 msgid "Esto es MUY DELICADO, seguimos?"
 msgstr "プロジェクトIDを変更します。続けますか？"
-
-#: view/admin/projects/list.html.php:184
-#: view/admin/skillmatchings/list.html.php:184
-msgid "Id"
-msgstr "プロジェクトID"
 
 #: view/admin/projects/list.html.php:186
 #: view/admin/skillmatchings/list.html.php:186
@@ -4511,9 +4489,13 @@ msgstr "前の"
 msgid "Email address"
 msgstr "メールアドレス"
 
-#: view/admin/skillmatching_accounts/list.html.php:49
+#: view/admin/skillmatching_accounts/list.html.php:45
 msgid "Account information"
 msgstr "応募情報検索"
+
+#: view/admin/skillmatchings/list.html.php:184
+msgid "Id"
+msgstr "プロジェクトID"
 
 #: view/admin/skills/edit.html.php:62
 msgid "Parent_Skill"
@@ -4968,6 +4950,14 @@ msgstr "レビュワーへのコメント: "
 #: view/review/reviews/summary.html.php:45
 msgid "Dar por terminada mi revisión"
 msgstr "このレビューを終了する"
+
+#~ msgid "Códigos de seguimiento"
+#~ msgstr ""
+#~ "Admin %s has cancelled a TPV charge of %s of %s via TPV (id: %s) to "
+#~ "project %s on date %s"
+
+#~ msgid "Ir al aporte"
+#~ msgstr "支援に進む"
 
 #~ msgid ""
 #~ "El proyecto no tiene cuenta paypal!!, ponersela en la seccion Contrato "

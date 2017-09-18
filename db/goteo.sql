@@ -118,15 +118,7 @@ CREATE TABLE `category` (
 -- Volcar la base de datos para la tabla `category`
 --
 
-INSERT INTO `category` VALUES(2, 'Social', 'Proyectos que promueven el cambio social, la resolución de problemas en las relaciones humanas y/o su fortalecimiento para conseguir un mayor bienestar.', 1);
-INSERT INTO `category` VALUES(6, 'Comunicativo', 'Proyectos con el objetivo de informar, denunciar, comunicar (por ejemplo periodismo ciudadano, documentales, blogs, programas de radio).', 3);
-INSERT INTO `category` VALUES(7, 'Tecnológico', 'Desarrollos técnicos de software, hardware, herramientas etc. para solucionar problemas o necesidades concretas. ', 1);
-INSERT INTO `category` VALUES(9, 'Comercial', 'Proyectos que aspiran a convertirse en una iniciativa empresarial, generando beneficios económicos. ', 1);
-INSERT INTO `category` VALUES(10, 'Educativo', 'Proyectos donde el objetivo primordial es la formación o el aprendizaje. ', 5);
-INSERT INTO `category` VALUES(11, 'Cultural', 'Proyectos con objetivos artísticos y culturales en un sentido amplio.', 6);
-INSERT INTO `category` VALUES(13, 'Ecológico', 'Proyectos relacionados con el cuidado del medio ambiente, la sostenibilidad y/o la diversidad biológica.\r\n', 7);
-INSERT INTO `category` VALUES(14, 'Científico', 'Estudios o investigaciones de alguna materia, proyectos que buscan respuestas, soluciones, explicaciones nuevas.', 8);
-
+INSERT INTO `category` VALUES (15,'Other','その他',7),(16,'Child care','子育て',1),(17,'Youth','若者',2),(18,'Challenged','障害者',4),(19,'Aging','高齢者',5),(20,'Social infrastructure','社会インフラ',6),(21,'Women','女性',3),(22,'地産地消（食）','',1),(23,'防災','',1),(24,'まちづくり','',1),(25,'共生社会','',1),(26,'ダイバーシティ','',1);
 -- --------------------------------------------------------
 
 --
@@ -145,30 +137,7 @@ CREATE TABLE `category_lang` (
 -- Volcar la base de datos para la tabla `category_lang`
 --
 
-INSERT INTO `category_lang` VALUES(2, 'ca', 'Social', 'Projectes que promouen el canvi social, la resolució de problemes en les relacions humanes i/o el seu enfortiment per aconseguir un major benestar.');
-INSERT INTO `category_lang` VALUES(2, 'de', 'Gesellschaft', 'Projekte, die den sozialen Austausch sowie die Problemlösung in zwischenmenschlichen Beziehungen fördern und die eine Stärkung gesellschaftlicher Bindungen zur Förderung des Allgemeinwohls unterstützen.');
-INSERT INTO `category_lang` VALUES(2, 'en', 'Social', 'Projects that promote social change, resolve problems with or strengthen human relationshiops in order to achieve better well-being.');
-INSERT INTO `category_lang` VALUES(6, 'ca', 'Comunicatiu', 'Projectes amb l''objectiu d''informar, denunciar, comunicar (per exemple periodisme ciutadà, documentals, blogs, programes de radio).');
-INSERT INTO `category_lang` VALUES(6, 'de', 'Kommunikation', 'Projekte, deren Ziel es ist zu informieren, Misstände öffentlich zu machen oder die sich um Kommunikation im Allgemeinen drehen (z.B. Bürgerzeitungen, Dokumentarfilme, Blogs, Radioprogramme).');
-INSERT INTO `category_lang` VALUES(6, 'en', 'Communications', 'Projects whose objective is to inform, denounce and/or communicate (for example, civic journalism, documentaries, blogs, radio programs).');
-INSERT INTO `category_lang` VALUES(7, 'ca', 'Tecnològic', 'Desenvolupaments tècnics de programari, maquinari, eines etc. per solucionar problemes o necessitats concretes. ');
-INSERT INTO `category_lang` VALUES(7, 'de', 'Technologie', 'Technische Entwicklungen im Bereich Software, Hardware, Werkzeuge etc. die der Problemlösung dienen oder die auf konkrete Bedürfnisse eingehen.\r\n');
-INSERT INTO `category_lang` VALUES(7, 'en', 'Technological', 'Technical development of software, hardware, tools, etc in order to solve concrete problems or needs.');
-INSERT INTO `category_lang` VALUES(9, 'ca', 'Comercial', 'Projectes que aspiren a convertir-se en una iniciativa empresarial, generant beneficis econòmics. ');
-INSERT INTO `category_lang` VALUES(9, 'de', 'Kommerziell', 'Projekte, die eine unternehmerische Initiative darstellen und die die Absicht haben, ökonomischen Gewinn zu generieren.');
-INSERT INTO `category_lang` VALUES(9, 'en', 'Commercial', 'Projects that are business initiatives, and that hope to generate profits.');
-INSERT INTO `category_lang` VALUES(10, 'ca', 'Educatiu', 'Projectes on l''objectiu primordial és la formació o l''aprenentatge. ');
-INSERT INTO `category_lang` VALUES(10, 'de', 'Bildung', 'Projekte, deren primäres Ziel im Bereich Bildung und Lernen liegt.');
-INSERT INTO `category_lang` VALUES(10, 'en', 'Educational', 'Projects whose most important objective is formation or learning. ');
-INSERT INTO `category_lang` VALUES(11, 'ca', 'Cultural', 'Projectes amb objectius artístics i culturals en un sentit ampli.');
-INSERT INTO `category_lang` VALUES(11, 'de', 'Kultur', 'Projekte mit künstlerischen und kulturellen Zielsetzungen im weiteren Sinne.');
-INSERT INTO `category_lang` VALUES(11, 'en', 'Cultural', 'Projects with artistic or cultural objectives.');
-INSERT INTO `category_lang` VALUES(13, 'ca', 'Ecològic', 'Projectes relacionats amb la cura del medi ambient, la sostenibilitat i/o la diversitat biològica.\r\n');
-INSERT INTO `category_lang` VALUES(13, 'de', 'Ökologie', 'Projekte im Bereich Umweltschutz, Nachhaltigkeit und Biodiversität.');
-INSERT INTO `category_lang` VALUES(13, 'en', 'Ecological', 'Projects that are related to the care of the environment, sustainability, and/or biological diversity.\r\n');
-INSERT INTO `category_lang` VALUES(14, 'ca', 'Científic', 'Estudis o investigacions d''alguna matèria, projectes que busquen respostes, solucions, explicacions noves.');
-INSERT INTO `category_lang` VALUES(14, 'de', 'Wissenschaft', 'Studien und Untersuchungen jeglicher Art, Projekte auf der Suche nach Antworten, Lösungen, und neuen Erklärungen.');
-INSERT INTO `category_lang` VALUES(14, 'en', 'Scientific', 'Studies or research, projects that look for answers, solutions, new explanations.');
+INSERT INTO `category_lang` VALUES(15,'ja','その他','その他'),(16,'ja','子育て','子育て'),(17,'ja','若者','若者'),(18,'ja','障害者','障害者'),(19,'ja','高齢者','高齢者'),(20,'ja','社会インフラ','社会インフラ'),(21,'ja','女性','女性');
 
 -- --------------------------------------------------------
 
@@ -238,7 +207,7 @@ CREATE TABLE `criteria` (
 --
 -- Volcar la base de datos para la tabla `criteria`
 --
-
+/*
 INSERT INTO `criteria` VALUES(5, 'project', 'Es original', 'donde va esta descripción? donde esta el tool tip?\r\n\r\nHola, este tooltip ira en el formulario de revision', 1);
 INSERT INTO `criteria` VALUES(6, 'project', 'Es eficaz en su estrategia de comunicación', '', 2);
 INSERT INTO `criteria` VALUES(7, 'project', 'Aporta información suficiente del proyecto', '', 3);
@@ -262,7 +231,7 @@ INSERT INTO `criteria` VALUES(24, 'reward', 'Da libertad en el uso de sus result
 INSERT INTO `criteria` VALUES(25, 'reward', 'Ofrece un retorno atractivo (por original, por útil, por inspirador... )', '', 6);
 INSERT INTO `criteria` VALUES(26, 'reward', 'Cuenta con actualizaciones', '', 7);
 INSERT INTO `criteria` VALUES(27, 'reward', 'Integra a la comunidad (a los seguidores, cofinanciadores, a un grupo social)', '', 8);
-
+*/
 -- --------------------------------------------------------
 
 --
@@ -275,6 +244,18 @@ CREATE TABLE `criteria_lang` (
   `title` tinytext,
   `description` text,
   UNIQUE KEY `id_lang` (`id`,`lang`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `evaluation`
+--
+
+CREATE TABLE `evaluation` (
+  `project` varchar(50) NOT NULL,
+  `content` longtext NOT NULL,
+  UNIQUE KEY `page` (`project`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -376,7 +357,7 @@ CREATE TABLE `glossary_lang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
-
+/* 未使用？ */
 --
 -- Estructura de tabla para la tabla `home`
 --
@@ -408,14 +389,14 @@ CREATE TABLE `icon` (
 -- Volcar la base de datos para la tabla `icon`
 --
 
-INSERT INTO `icon` VALUES('code', 'Código fuente', 'Por código fuente entendemos programas y software en general.', 'social', 0);
-INSERT INTO `icon` VALUES('design', 'Diseño', 'Los diseños pueden ser de planos o patrones, esquemas, esbozos, diagramas de flujo, etc.', 'social', 0);
-INSERT INTO `icon` VALUES('file', 'Archivos digitales', 'Los archivos digitales pueden ser de música, vídeo, documentos de texto, etc.', '', 0);
-INSERT INTO `icon` VALUES('manual', 'Manuales', 'Documentos prácticos detallando pasos, materiales formativos, bussiness plans, “how tos”, recetas, etc.', 'social', 0);
-INSERT INTO `icon` VALUES('money', 'Dinero', 'Retornos económicos proporcionales a la inversión realizada, que se deben detallar en cantidad pero también forma de pago.', 'individual', 50);
-INSERT INTO `icon` VALUES('other', 'Otro', 'Sorpréndenos con esta nueva tipología, realmente nos interesa :) ', '', 99);
-INSERT INTO `icon` VALUES('product', 'Producto', 'Los productos pueden ser los que se han producido, en edición limitada, o fragmentos u obras derivadas del original.', 'individual', 0);
-INSERT INTO `icon` VALUES('service', 'Servicios', 'Acciones y/o sesiones durante tiempo determinado para satisfacer una necesidad individual o de grupo: una formación, una ayuda técnica, un asesoramiento, etc.', '', 0);
+INSERT INTO `icon` VALUES('code', 'ソースコード', 'プログラムのソースコードやソフトウェア', 'social', 0);
+INSERT INTO `icon` VALUES('design', 'デザイン', '平面、パターン、図、フローチャートなどのデザイン', 'social', 0);
+INSERT INTO `icon` VALUES('file', 'デジタルファイル', '音楽、ビデオ、テキストなどのデジタルファイル', '', 0);
+INSERT INTO `icon` VALUES('manual', 'マニュアル', 'トレーニング方法、ビジネスプラン、ハウツーなど', 'social', 0);
+INSERT INTO `icon` VALUES('food', '食品', 'お菓子や名産品など', 'individual', 50);
+INSERT INTO `icon` VALUES('other', 'その他', 'その他お礼', '', 99);
+INSERT INTO `icon` VALUES('product', '製品', 'オリジナル製品や地域で生産されるような製品', 'individual', 0);
+INSERT INTO `icon` VALUES('service', 'サービス', 'トレーニング、技術支援、カウンセリングなどのサービス', '', 0);
 
 -- --------------------------------------------------------
 
@@ -599,6 +580,7 @@ CREATE TABLE `invest` (
   `amount` int(6) NOT NULL,
   `status` int(1) NOT NULL COMMENT '-1 en proceso, 0 pendiente, 1 cobrado, 2 devuelto, 3 pagado al proyecto',
   `anonymous` tinyint(1) DEFAULT NULL,
+  `disp_name` varchar(255) DEFAULT NULL,
   `resign` tinyint(1) DEFAULT NULL,
   `invested` date DEFAULT NULL,
   `charged` date DEFAULT NULL,
@@ -692,7 +674,7 @@ INSERT INTO `lang` VALUES('it', 'Italiano', 0, 'ITA', 'it_IT');
 INSERT INTO `lang` VALUES('nl', 'Dutch', 1, 'NL', 'nl_NL');
 INSERT INTO `lang` VALUES('pl', 'Polski', 0, 'POL', 'pl_PL');
 INSERT INTO `lang` VALUES('pt', 'Português', 0, 'PORT', 'pt_PT');
-
+INSERT INTO `lang` VALUES('ja','日本語',1,'JA','ja_JP');
 -- --------------------------------------------------------
 
 --
@@ -1023,7 +1005,7 @@ CREATE TABLE `project` (
   `id` varchar(50) NOT NULL,
   `name` tinytext,
   `subtitle` tinytext,
-  `lang` varchar(2) DEFAULT 'es',
+  `lang` varchar(2) DEFAULT 'ja',
   `status` int(1) NOT NULL,
   `translate` int(1) NOT NULL DEFAULT '0',
   `progress` int(3) NOT NULL,
@@ -1037,6 +1019,8 @@ CREATE TABLE `project` (
   `success` date DEFAULT NULL,
   `closed` date DEFAULT NULL,
   `passed` date DEFAULT NULL,
+  `period_1r` int(3) NOT NULL DEFAULT '0',
+  `period_2r` int(3) NOT NULL DEFAULT '0',
   `contract_name` varchar(255) DEFAULT NULL,
   `contract_nif` varchar(15) DEFAULT NULL COMMENT 'Guardar sin espacios ni puntos ni guiones',
   `phone` varchar(20) DEFAULT NULL COMMENT 'guardar talcual',
@@ -1047,6 +1031,8 @@ CREATE TABLE `project` (
   `country` varchar(50) DEFAULT NULL,
   `image` varchar(256) DEFAULT NULL,
   `description` text,
+  `description_1` text,
+  `description_2` text,
   `motivation` text,
   `video` varchar(256) DEFAULT NULL,
   `video_usubs` int(1) NOT NULL DEFAULT '0',
@@ -1073,6 +1059,7 @@ CREATE TABLE `project` (
   `post_zipcode` varchar(10) DEFAULT NULL,
   `post_location` varchar(255) DEFAULT NULL,
   `post_country` varchar(50) DEFAULT NULL,
+  `evaluation` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `owner` (`owner`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Proyectos de la plataforma';
@@ -1140,6 +1127,17 @@ CREATE TABLE `project_lang` (
   `media` varchar(255) DEFAULT NULL,
   `subtitle` tinytext,
   UNIQUE KEY `id_lang` (`id`,`lang`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `project_skill`
+--
+CREATE TABLE `project_skill` (
+  `project` varchar(50) NOT NULL,
+  `skill` int(12) NOT NULL,
+  UNIQUE KEY `project_skill` (`project`,`skill`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -1250,6 +1248,7 @@ CREATE TABLE `reward` (
   `description` text,
   `type` varchar(50) DEFAULT NULL,
   `icon` varchar(50) DEFAULT NULL,
+  `image` varchar(256) DEFAULT NULL,
   `other` tinytext COMMENT 'Otro tipo de recompensa',
   `license` varchar(50) DEFAULT NULL,
   `amount` int(5) DEFAULT NULL,
@@ -1291,12 +1290,111 @@ CREATE TABLE `role` (
 -- Volcar la base de datos para la tabla `role`
 --
 
-INSERT INTO `role` VALUES('admin', 'Administrador');
-INSERT INTO `role` VALUES('checker', 'Revisor de proyectos');
+INSERT INTO `role` VALUES('admin', '管理者');
+INSERT INTO `role` VALUES('checker', 'プロジェクトのレビュワー');
 INSERT INTO `role` VALUES('root', 'ROOT');
 INSERT INTO `role` VALUES('superadmin', 'Super administrador');
 INSERT INTO `role` VALUES('translator', 'Traductor de contenidos');
-INSERT INTO `role` VALUES('user', 'Usuario mediocre');
+INSERT INTO `role` VALUES('user', '一般ユーザー');
+INSERT INTO `role` VALUES('localadmin', '地域管理者');
+INSERT INTO `role` VALUES('project_owner', 'プロジェクト作成者');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `skill`
+--
+
+CREATE TABLE `skill` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50),
+  `description` text DEFAULT NULL,
+  `order` tinyint(3) UNSIGNED NOT NULL DEFAULT '1',
+  `parent_skill_id` bigint(20),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `skill`
+--
+
+CREATE TABLE `skill_lang` (
+  `id` bigint(20) unsigned NOT NULL,
+  `lang` varchar(2) NOT NULL,
+  `name` tinytext,
+  `description` text DEFAULT NULL,
+  UNIQUE KEY `id_lang` (`id`,`lang`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `skillmatching`
+--
+
+CREATE TABLE `skillmatching` (
+  `id` varchar(50) NOT NULL,
+  `name` tinytext,
+  `subtitle` tinytext,
+  `lang` varchar(2) DEFAULT 'ja',
+  `status` int(1) NOT NULL,
+  `translate` int(1) NOT NULL DEFAULT '0',
+  `progress` int(3) NOT NULL,
+  `owner` varchar(50) NOT NULL COMMENT 'usuario que lo ha creado',
+  `node` varchar(50) NOT NULL COMMENT 'nodo en el que se ha creado',
+  `amount` int(6) DEFAULT NULL COMMENT 'acumulado actualmente',
+  `days` int(3) NOT NULL DEFAULT '0' COMMENT 'Dias restantes',
+  `created` date DEFAULT NULL,
+  `updated` date DEFAULT NULL,
+  `published` date DEFAULT NULL,
+  `success` date DEFAULT NULL,
+  `closed` date DEFAULT NULL,
+  `passed` date DEFAULT NULL,
+  `period_1r` int(3) NOT NULL DEFAULT '0',
+  `period_2r` int(3) NOT NULL DEFAULT '0',
+  `contract_name` varchar(255) DEFAULT NULL,
+  `contract_nif` varchar(15) DEFAULT NULL COMMENT 'Guardar sin espacios ni puntos ni guiones',
+  `phone` varchar(20) DEFAULT NULL COMMENT 'guardar talcual',
+  `contract_email` varchar(255) DEFAULT NULL,
+  `address` tinytext,
+  `zipcode` varchar(10) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `country` varchar(50) DEFAULT NULL,
+  `image` varchar(256) DEFAULT NULL,
+  `description` text,
+  `motivation` text,
+  `video` varchar(256) DEFAULT NULL,
+  `video_usubs` int(1) NOT NULL DEFAULT '0',
+  `about` text,
+  `goal` text,
+  `related` text,
+  `reward` text,
+  `category` varchar(50) DEFAULT NULL,
+  `keywords` tinytext COMMENT 'Separadas por comas',
+  `media` varchar(256) DEFAULT NULL,
+  `media_usubs` int(1) NOT NULL DEFAULT '0',
+  `currently` int(1) DEFAULT NULL,
+  `project_location` varchar(256) DEFAULT NULL,
+  `scope` int(1) DEFAULT NULL COMMENT 'Ambito de alcance',
+  `resource` text,
+  `comment` text COMMENT 'Comentario para los admin',
+  `contract_entity` int(1) NOT NULL DEFAULT '0',
+  `contract_birthdate` date DEFAULT NULL,
+  `entity_office` varchar(255) DEFAULT NULL COMMENT 'Cargo del responsable',
+  `entity_name` varchar(255) DEFAULT NULL,
+  `entity_cif` varchar(10) DEFAULT NULL COMMENT 'Guardar sin espacios ni puntos ni guiones',
+  `post_address` tinytext,
+  `secondary_address` int(11) NOT NULL DEFAULT '0',
+  `post_zipcode` varchar(10) DEFAULT NULL,
+  `post_location` varchar(255) DEFAULT NULL,
+  `post_country` varchar(50) DEFAULT NULL,
+  `evaluation` text DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `owner` (`owner`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Proyectos de la plataforma';
 
 -- --------------------------------------------------------
 
@@ -1413,6 +1511,8 @@ CREATE TABLE `template` (
 CREATE TABLE `template_lang` (
   `id` bigint(20) unsigned NOT NULL,
   `lang` varchar(2) NOT NULL,
+  `name` tinytext,
+  `purpose` tinytext,
   `title` tinytext,
   `text` text,
   UNIQUE KEY `id_lang` (`id`,`lang`)
@@ -1430,224 +1530,6 @@ CREATE TABLE `text` (
   `text` text NOT NULL,
   PRIMARY KEY (`id`,`lang`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Textos multi-idioma';
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `user`
---
-
-CREATE TABLE `user` (
-  `id` varchar(50) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `location` varchar(255) DEFAULT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(60) NOT NULL,
-  `about` text,
-  `keywords` tinytext,
-  `active` tinyint(1) NOT NULL,
-  `avatar` int(11) DEFAULT NULL,
-  `contribution` text,
-  `twitter` tinytext,
-  `facebook` tinytext,
-  `google` tinytext,
-  `identica` tinytext,
-  `linkedin` tinytext,
-  `worth` int(7) DEFAULT NULL,
-  `created` timestamp NULL DEFAULT NULL,
-  `modified` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `token` tinytext NOT NULL,
-  `hide` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'No se ve publicamente',
-  `confirmed` int(1) NOT NULL DEFAULT '0',
-  `lang` varchar(2) DEFAULT NULL,
-  `node` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcar la base de datos para la tabla `user`
---
-
-INSERT INTO `user` VALUES('root', 'Sysadmin', '', '', '', '', '', 1, 91, '', '', '', '', '', '', 0, '', '', '', 1, 1, 'es', 'goteo');
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `user_image`
---
-
-CREATE TABLE `user_image` (
-  `user` varchar(50) NOT NULL,
-  `image` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`user`,`image`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `user_interest`
---
-
-CREATE TABLE `user_interest` (
-  `user` varchar(50) NOT NULL,
-  `interest` int(12) NOT NULL,
-  UNIQUE KEY `user_interest` (`user`,`interest`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Intereses de los usuarios';
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `user_lang`
---
-
-CREATE TABLE `user_lang` (
-  `id` varchar(50) NOT NULL,
-  `lang` varchar(2) NOT NULL,
-  `about` text,
-  `keywords` tinytext,
-  `contribution` text,
-  UNIQUE KEY `id_lang` (`id`,`lang`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `user_login`
---
-
-CREATE TABLE `user_login` (
-  `user` varchar(50) NOT NULL,
-  `provider` varchar(50) NOT NULL,
-  `oauth_token` text NOT NULL,
-  `oauth_token_secret` text NOT NULL,
-  `datetime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`user`,`oauth_token`(255))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `user_personal`
---
-
-CREATE TABLE `user_personal` (
-  `user` varchar(50) NOT NULL,
-  `contract_name` varchar(255) DEFAULT NULL,
-  `contract_surname` varchar(255) DEFAULT NULL,
-  `contract_nif` varchar(15) DEFAULT NULL COMMENT 'Guardar sin espacios ni puntos ni guiones',
-  `contract_email` varchar(256) DEFAULT NULL,
-  `phone` varchar(9) DEFAULT NULL COMMENT 'guardar sin espacios ni puntos',
-  `address` tinytext,
-  `zipcode` varchar(10) DEFAULT NULL,
-  `location` varchar(255) DEFAULT NULL,
-  `country` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Datos personales de usuario';
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `user_prefer`
---
-
-CREATE TABLE `user_prefer` (
-  `user` varchar(50) NOT NULL,
-  `updates` int(1) NOT NULL DEFAULT '0',
-  `threads` int(1) NOT NULL DEFAULT '0',
-  `rounds` int(1) NOT NULL DEFAULT '0',
-  `mailing` int(1) NOT NULL DEFAULT '0',
-  `email` int(1) NOT NULL DEFAULT '0',
-  `tips` int(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Preferencias de notificacion de usuario';
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `user_review`
---
-
-CREATE TABLE `user_review` (
-  `user` varchar(50) NOT NULL,
-  `review` bigint(20) unsigned NOT NULL,
-  `ready` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Ha terminado con la revision',
-  PRIMARY KEY (`user`,`review`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Asignacion de revision a usuario';
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `user_role`
---
-
-CREATE TABLE `user_role` (
-  `user_id` varchar(50) NOT NULL,
-  `role_id` varchar(50) NOT NULL,
-  `node_id` varchar(50) NOT NULL,
-  `datetime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`user_id`,`role_id`),
-  KEY `user_FK` (`user_id`),
-  KEY `role_FK` (`role_id`),
-  KEY `node_FK` (`node_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-INSERT INTO `user_role` VALUES('root', 'checker', '*', NULL);
-INSERT INTO `user_role` VALUES('root', 'root', '*', NULL);
-INSERT INTO `user_role` VALUES('root', 'superadmin', '*', NULL);
-INSERT INTO `user_role` VALUES('root', 'translator', '*', NULL);
-INSERT INTO `user_role` VALUES('root', 'user', '*', NULL);
-
-
---
--- Estructura de tabla para la tabla `user_translang`
---
-
-CREATE TABLE `user_translang` (
-  `user` varchar(50) NOT NULL,
-  `lang` varchar(2) NOT NULL,
-  PRIMARY KEY (`user`,`lang`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Idiomas de traductores';
-
--- --------------------------------------------------------
-
-INSERT INTO `user_translang` (`user`, `lang`) VALUES
-('root', 'ca'),
-('root', 'de'),
-('root', 'el'),
-('root', 'en'),
-('root', 'es'),
-('root', 'eu'),
-('root', 'fr'),
-('root', 'gl'),
-('root', 'it'),
-('root', 'nl'),
-('root', 'pt');
-
---
--- Estructura de tabla para la tabla `user_translate`
---
-
-CREATE TABLE `user_translate` (
-  `user` varchar(50) NOT NULL,
-  `type` varchar(10) NOT NULL COMMENT 'Tipo de contenido',
-  `item` varchar(50) NOT NULL COMMENT 'id del contenido',
-  `ready` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Ha terminado con la traduccion',
-  PRIMARY KEY (`user`,`type`,`item`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Asignacion de traduccion a usuario';
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `user_web`
---
-
-CREATE TABLE `user_web` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `user` varchar(50) NOT NULL,
-  `url` tinytext NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Webs de los usuarios';
 
 -- --------------------------------------------------------
 

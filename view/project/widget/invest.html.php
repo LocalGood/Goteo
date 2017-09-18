@@ -90,6 +90,14 @@ $action = ($step == 'start') ? '/user/login' : '/invest/' . $project->id;
                         </span>
                         <span class="right">
                             <h<?php echo $level + 2 ?> class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>>
+                            <?php
+                            if (!empty($individual->image)):
+                                $img_src = $individual->image->getLink(300,300,false);
+                                ?>
+                                <img src="<?php echo $img_src ?>" alt="<?php echo htmlspecialchars($individual->reward) ?>" />
+                                <?php
+                            endif;
+                            ?>
                             <p><?php echo htmlspecialchars($individual->description)?></p>
                             <?php if ($individual->none) : // no quedan ?>
                                 <span class="left"><?php echo Text::get('invest-reward-none') ?></span>
@@ -143,12 +151,24 @@ if ($step == 'start') : ?>
             </td>
         </tr>
     </table>
-
     <p>
         <label><input type="checkbox" name="anonymous" value="1" /><span class="chkbox"></span><?php echo Text::get('invest-anonymous') ?></label>
     </p>
 </div>
+<?php if (ACL::check('/admin')) : ?>
+<div class="widget project-invest display-name">
+    <h<?php echo $level ?> class="beak" id="address-header">現金寄付時の表示名を記入してください</h<?php echo $level ?>>
 
+    <table>
+        <tr>
+            <td>
+                <label for="disp_name">表示名：</label><br />
+                <input type="text" id="disp_name" name="disp_name" value="" />
+            </td>
+        </tr>
+    </table>
+</div>
+<?php endif; ?>
 
 <div class="widget project-invest method">
 

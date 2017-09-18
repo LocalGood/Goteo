@@ -935,8 +935,24 @@ namespace Goteo\Controller {
                     $reward->amount = $_POST['individual_reward-' . $reward->id . '-amount'];
                     $reward->units = $_POST['individual_reward-' . $reward->id . '-units'];
                     $reward->icon_name = $types[$reward->icon]->name;
+
+                    if (isset($_FILES['image_upload_'.$reward->id]) && $_FILES['image_upload_'.$reward->id]['error'] != UPLOAD_ERR_NO_FILE){
+                        $reward->image = $_FILES['image_upload_'.$reward->id];
+                    }
+
                 }
-                
+                if (!empty($_POST["reward-image_{$reward->id}-remove"])) {
+//                    error_log('Push Remove Image');
+//                    error_log(var_export($reward,true));
+                    if(isset($reward->image)){
+//                        error_log('Remove Image');
+                        $reward->image->remove();
+                        $reward->image = null;
+//                        error_log(var_export($reward, true));
+                        $reward->save($errors);
+                    }
+                }
+
             }
 
             //tratar retornos sociales
@@ -967,6 +983,7 @@ namespace Goteo\Controller {
                     'project'   => $project->id,
                     'reward'    => '',
                     'icon'      => '',
+                    'image'     => '',
                     'amount'    => '',
                     'units'     => ''
                 ));

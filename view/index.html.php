@@ -18,9 +18,7 @@
  *
  */
 
-use Goteo\Core\View,
-    Goteo\Model\Image,
-    Goteo\Library\Text;
+use Goteo\Core\View;
 
 //@NODESYS
 //@CALLSYS
@@ -43,5 +41,9 @@ include 'view/header.html.php';
 
     </div>
 </div><!--.contents_wrapper-->
-<?php include 'view/footer.html.php'; ?>
+<?php
+if (file_exists('omniconfig/footer.html')){
+    include 'omniconfig/footer.html';
+}
+?>
 <?php include 'view/epilogue.html.php'; ?>

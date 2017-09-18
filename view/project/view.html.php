@@ -80,7 +80,6 @@ $bodyClass = 'project-show'; include 'view/prologue.html.php' ?>
                         echo new View('view/project/widget/share.html.php', array('project' => $project));
                     endif;
                     ?>
-
                     <?php if (!empty($categories)): ?>
                         <div class="categories">
                             <?php $sep = ''; foreach ($categories as $key=>$value) :

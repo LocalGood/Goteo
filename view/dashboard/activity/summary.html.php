@@ -70,7 +70,7 @@ $lsuf = (LANG != 'es') ? '?lang='.LANG : '';
 </script>
 
 <!-- nivel de meritocracia -->
-<?php echo new View('view/user/widget/worth.html.php', array('worthcracy' => $worthcracy, 'level' => $user->worth, 'amount' => $support['amount'])) ?>
+<?php // echo new View('view/user/widget/worth.html.php', array('worthcracy' => $worthcracy, 'level' => $user->worth, 'amount' => $support['amount'])) ?>
 
 <!-- matching projects for YOU -->
 <?php if (!empty($this['lists']['matched_projects'])) : ?>
