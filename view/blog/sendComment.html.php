@@ -43,7 +43,7 @@
     <h<?php echo $level ?> class="title"><?php echo Text::get('blog-send_comment-header'); ?></h<?php echo $level ?>>
     <form method="post" action="/message/post/<?php echo $this['post']; ?>/<?php echo $this['project']; ?>">
 	    <div id="bocadillo"></div>
-        <textarea id="message" name="message" cols="50" rows="5"></textarea>
+        <textarea id="send_message" name="message" cols="50" rows="5"></textarea>
         <div style="display:none">
         	<div id="preview" style="width:400px;height:300px;overflow:auto;">
                     

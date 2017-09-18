@@ -37,7 +37,6 @@
     height: 0;
     margin: 0 auto 40px;
     //mainタブ、subタブ共通
-    //todo:ulにクラスをつけたい。ul.section -> ul.optionにして、li.sectionとかも直したい
     ul {
       list-style: none;
       margin: 0;
@@ -45,11 +44,13 @@
       position: relative;
       li {
         display: inline-block;
+        vertical-align: top;
         a {
           display: inline-block;
           padding: 8px 14px;
           font-weight: 600;
           text-decoration: none;
+          vertical-align: top;
         }
       }
     }
@@ -59,46 +60,6 @@
       margin: 0 auto;
       li {
         &.section {
-          &.current {
-            a.section {
-              background: none;
-              background-color: $mainCol01;//#39c
-              color: $baseCol;
-              filter: none;
-            }
-            ul {
-              display: block;
-              z-index: 0;
-            }
-          }
-          a.section {
-            min-width: 80px!important;
-            height: 52px;
-            color: $grayCol03;//#699
-            font-size: 14px;
-            line-height: 36px;
-            text-align: center;
-            background: $grayCol01;//#ccf4ff
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ccf4ff',endColorstr='#b1cfd3',GradientType=0);
-          }
-          &.active {
-            a.section {
-              background: none;
-              background-color: $mainCol01;//#39c
-              color: $baseCol;
-              filter: none;
-              font-weight: bolder;
-            }
-            &:not(.current) {
-              ul li a {
-                padding: 11px 14px 10px;
-              }
-            }
-            ul {
-              display: block;
-              z-index: 9;
-            }
-          }
           ul {
             display: none;
             position: absolute;
@@ -109,20 +70,53 @@
             height: 40px;
             background-color: $mainCol01;//#39c
           }
+          a.section {
+            min-width: 80px!important;
+            height: 52px;
+            color: $grayCol03;//#699
+            font-size: 14px;
+            line-height: 36px;
+            text-align: center;
+            background: $grayCol01;//#ccf4ff
+          }
+          &.current {
+            a.section {
+              background: none;
+              background-color: $mainCol01;//#39c
+              color: $baseCol;
+            }
+            ul {
+              display: block;
+              z-index: 0;
+            }
+          }
+          &.active {
+            a.section {
+              background: none;
+              background-color: $mainCol01;//#39c
+              color: $baseCol;
+              font-weight: bolder;
+            }
+            ul {
+              display: block;
+              z-index: 9;
+            }
+          }
         }
         &.option {
-          &.current {
-            a {
-              color: $baseCol;
-              height: 40px;
-              line-height: 27px;
+          a {
+            color: $baseCol;
+            display: block;
+            height: 40px;
+            line-height: 27px;
+            &:hover {
               border-bottom: 5px solid #FFF;//#f93
             }
           }
-          a {
-            color: #FFF;
-            height: 25px;
-            line-height: 25px;
+          &.current {
+            a {
+              border-bottom: 5px solid #FFF;//#f93
+            }
           }
         }
       }

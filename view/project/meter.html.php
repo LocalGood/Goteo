@@ -133,10 +133,9 @@ var_dump($over);
         <dt class="optimum"><?php echo Text::get('project-view-metter-optimum'); ?></dt>
         <dd class="optimum"><strong><?php echo \amount_format($optimum) ?></strong><span>円</span></dd>
 
-        <!-- todo:meterとしてはdaysは不要になったが、一応残している。 -->
+        <!-- todo:meterとしてはdaysは不要になったが、一応残している。css直す -->
         <dt class="days"><span><?php echo Text::get('project-view-metter-days'); ?></span></dt>
         <dd class="days"><strong><?php echo number_format($days) ?></strong><span><?php echo Text::get('regular-days'); ?></span></dd>
-
     </dl>
 
     <?/*php if ($activable) : */?>

@@ -38,7 +38,7 @@ include 'view/header.html.php';
 ?>
 
         <div id="sub-header">
-            <div>
+            <div class="dashboard-header">
                 <h2>
                     <?php echo Text::_('Mi panel de revisor / ') . $this['menu'][$this['section']]['label']; ?></h2>
             </div>

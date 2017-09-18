@@ -144,7 +144,6 @@
       font-weight: normal;
       margin:25px 0 0;
     }
-    textarea#message,
     textarea#message-text {
       background-color: #FFF;//#DCEEDF
       border:1px solid $grayCol01;//#2EAB58
@@ -492,6 +491,11 @@
 
     //サブナビ　＞　必要資金の内訳
     &.needs {
+      .widget.project-message {
+        a.preview {
+          top: 205px;
+        }
+      }
     }
 
     //サブナビ　＞　支援者

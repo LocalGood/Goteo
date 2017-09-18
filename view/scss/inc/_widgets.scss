@@ -920,6 +920,34 @@
     }
   }
 
+  &.project-message {
+    textarea {
+      clear: right;
+      display: block;
+      float: right;
+      width: 240px;
+      height: 50px;
+      margin-top: 8px;
+      padding: 0.3em 0;
+      resize:none;
+      background-color: #DCEEDF;
+      border: 1px solid #2EAB58;
+    }
+    a.preview{
+      display: inline-block;
+      position: absolute;
+      top: 178px;
+      left: 48px;
+      height: 38px;
+      line-height: 38px;
+      color: #2EAB58;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: normal;
+      font-style: normal;
+    }
+  }
+
   //支援者ウィジェット
   &.project-supporters {
     background: none;

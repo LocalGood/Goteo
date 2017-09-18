@@ -41,7 +41,7 @@ $user = $this['user'];
 	    <?php if ($user->user == 'anonymous') : ?>
 	    <h4><?php echo $user->name; ?></h4>
 	    <?php else : ?>
-	    <h4 class="aqua"<?php if ($user->campaign) echo 'style="color: #96238F;"'; ?>><?php echo Text::shorten($user->name, 28); ?></h4>
+	    <h4 class="aqua"<?php if ($user->campaign) echo 'style="color: #96238F;"'; ?>><span><?php echo Text::shorten($user->name, 28); ?></span></h4>
 	    <?php endif; ?>
 	    <dl>
 	        <?php  if (isset($user->projects))  : ?>

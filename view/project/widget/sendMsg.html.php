@@ -51,7 +51,7 @@ $level = (int) $this['level'] ?: 3;
         todo: #messageというエラーメッセージを出すウィジェットがあり、こちら側のID名を変えたい
         todo: scssにもtextarea#messageで指定してあるので注意
         */?>
-        <textarea id="message" name="message" cols="50" rows="5"></textarea>
+        <textarea id="message-text" name="message" cols="50" rows="5"></textarea>
         
         <a target="_blank" id="a-preview" href="#preview" class="preview"><?php echo Text::get('regular-preview'); ?></a>
         <div style="display:none">

@@ -1337,6 +1337,29 @@ div#message {
         word-wrap: break-word; }
     .widget.project-needs table thead + tbody + thead th.min, .widget.project-needs table thead + tbody + thead th.max {
       font-size: 0; }
+  .widget.project-message textarea {
+    clear: right;
+    display: block;
+    float: right;
+    width: 240px;
+    height: 50px;
+    margin-top: 8px;
+    padding: 0.3em 0;
+    resize: none;
+    background-color: #DCEEDF;
+    border: 1px solid #2EAB58; }
+  .widget.project-message a.preview {
+    display: inline-block;
+    position: absolute;
+    top: 178px;
+    left: 48px;
+    height: 38px;
+    line-height: 38px;
+    color: #2EAB58;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-style: normal; }
   .widget.project-supporters {
     background: none;
     padding: 0; }
@@ -2355,7 +2378,6 @@ body.js .superform > div.elements ol li.element div.contents p {
     font-style: normal;
     font-weight: normal;
     margin: 25px 0 0; }
-  .project-show .project-message textarea#message,
   .project-show .project-message textarea#message-text {
     background-color: #FFF;
     border: 1px solid #d9d9d9;
@@ -2616,6 +2638,8 @@ body.js .superform > div.elements ol li.element div.contents p {
     font-weight: bold; }
   .project-show .center.home .project-summary .gallery-image img {
     width: 100%; }
+.project-show .center.needs .widget.project-message a.preview {
+  top: 205px; }
 .project-show .center.supporters {
   margin-bottom: 20px; }
   .project-show .center.supporters .invest-message {
@@ -3877,44 +3901,18 @@ body.js .superform > div.elements ol li.element div.contents p {
     padding: 0;
     position: relative; }
     .dashboard #dashboard-menu ul li {
-      display: inline-block; }
+      display: inline-block;
+      vertical-align: top; }
       .dashboard #dashboard-menu ul li a {
         display: inline-block;
         padding: 8px 14px;
         font-weight: 600;
-        text-decoration: none; }
+        text-decoration: none;
+        vertical-align: top; }
   .dashboard #dashboard-menu > ul {
     top: -52px;
     width: 960px;
     margin: 0 auto; }
-    .dashboard #dashboard-menu > ul li.section.current a.section {
-      background: none;
-      background-color: #255b7f;
-      color: #f2f2f2;
-      filter: none; }
-    .dashboard #dashboard-menu > ul li.section.current ul {
-      display: block;
-      z-index: 0; }
-    .dashboard #dashboard-menu > ul li.section a.section {
-      min-width: 80px !important;
-      height: 52px;
-      color: #454545;
-      font-size: 14px;
-      line-height: 36px;
-      text-align: center;
-      background: #d9d9d9;
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ccf4ff',endColorstr='#b1cfd3',GradientType=0); }
-    .dashboard #dashboard-menu > ul li.section.active a.section {
-      background: none;
-      background-color: #255b7f;
-      color: #f2f2f2;
-      filter: none;
-      font-weight: bolder; }
-    .dashboard #dashboard-menu > ul li.section.active:not(.current) ul li a {
-      padding: 11px 14px 10px; }
-    .dashboard #dashboard-menu > ul li.section.active ul {
-      display: block;
-      z-index: 9; }
     .dashboard #dashboard-menu > ul li.section ul {
       display: none;
       position: absolute;
@@ -3924,15 +3922,38 @@ body.js .superform > div.elements ol li.element div.contents p {
       right: 0;
       height: 40px;
       background-color: #255b7f; }
-    .dashboard #dashboard-menu > ul li.option.current a {
+    .dashboard #dashboard-menu > ul li.section a.section {
+      min-width: 80px !important;
+      height: 52px;
+      color: #454545;
+      font-size: 14px;
+      line-height: 36px;
+      text-align: center;
+      background: #d9d9d9; }
+    .dashboard #dashboard-menu > ul li.section.current a.section {
+      background: none;
+      background-color: #255b7f;
+      color: #f2f2f2; }
+    .dashboard #dashboard-menu > ul li.section.current ul {
+      display: block;
+      z-index: 0; }
+    .dashboard #dashboard-menu > ul li.section.active a.section {
+      background: none;
+      background-color: #255b7f;
       color: #f2f2f2;
-      height: 40px;
-      line-height: 27px;
-      border-bottom: 5px solid #FFF; }
+      font-weight: bolder; }
+    .dashboard #dashboard-menu > ul li.section.active ul {
+      display: block;
+      z-index: 9; }
     .dashboard #dashboard-menu > ul li.option a {
-      color: #FFF;
-      height: 25px;
-      line-height: 25px; }
+      color: #f2f2f2;
+      display: block;
+      height: 40px;
+      line-height: 27px; }
+      .dashboard #dashboard-menu > ul li.option a:hover {
+        border-bottom: 5px solid #FFF; }
+    .dashboard #dashboard-menu > ul li.option.current a {
+      border-bottom: 5px solid #FFF; }
 .dashboard .project-header {
   position: relative;
   top: 10px;
