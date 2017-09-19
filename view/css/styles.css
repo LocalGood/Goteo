@@ -4595,9 +4595,9 @@ body.js .superform > div.elements ol li.element div.contents p {
       color: #454545;
       font-size: 18px; }
       .admin #sub-header .breadcrumbs a:hover {
-        color: #0093c4; }
+        color: #009acb; }
     .admin #sub-header .breadcrumbs strong {
-      color: #0093c4; }
+      color: #009acb; }
 .admin #main {
   margin-bottom: 0;
   margin-top: 0; }
@@ -4609,7 +4609,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     padding: 0;
     width: 100%; }
     .admin .admin-menu fieldset legend {
-      background-color: #0093c4;
+      background-color: #009acb;
       color: #fff;
       display: block;
       font-weight: 700;
@@ -4626,7 +4626,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       padding: 0;
       width: 160px; }
       .admin .admin-menu ul li.active a {
-        color: #0093c4; }
+        color: #009acb; }
       .admin .admin-menu ul li a {
         display: block;
         padding: 4px 8px;
@@ -4913,17 +4913,17 @@ body.js .superform > div.elements ol li.element div.contents p {
   color: #454545;
   text-decoration: none; }
 .admin .feed .light-blue {
-  color: #0093c4; }
+  color: #009acb; }
 .admin .feed .blue {
-  color: #0093c4; }
+  color: #009acb; }
 .admin .feed .violet {
-  color: #0093c4; }
+  color: #009acb; }
 .admin .feed .red {
   color: #e02d22; }
 .admin .feed .grey {
-  color: #0093c4; }
+  color: #009acb; }
 .admin .feed .green {
-  color: #0093c4; }
+  color: #009acb; }
 .admin .feed .subitem {
   border-bottom: #828282 1px dashed;
   height: auto;
