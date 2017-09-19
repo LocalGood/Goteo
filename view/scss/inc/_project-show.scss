@@ -55,7 +55,7 @@
       line-height: 20px;
       max-width: 620px;
       a {
-        color: $grayCol02;
+        color: $mainCol01;
         font-size: 12px;
         text-decoration: none;
         &:hover {
@@ -96,13 +96,13 @@
           vertical-align: middle;
         }
         &.active a {
-          border-bottom: 4px solid $color07;//#ff9900
+          border-bottom: 4px solid $subCol02;//#ff9900
         }
         &.show a {
-          border-bottom: 4px solid $color07;//#ff9900
+          border-bottom: 4px solid $subCol02;//#ff9900
         }
         span.digits{
-          background-color: $color07;//#ffd89d
+          background-color: $subCol02;//#ffd89d
           border-radius: 5px;
           color: #FFF;
           display:inline-block;
@@ -158,7 +158,7 @@
       width:525px;
     }
     a.preview {
-      color: $grayCol01;//#2EAB58
+      color: $mainCol01;//#2EAB58
       font-style:normal;
       font-weight:400;
       left:80px;
@@ -166,6 +166,9 @@
       text-decoration:none;
       text-transform:uppercase;
       top:210px;
+      &:hover{
+        color: $mainCol02;
+      }
     }
     h3.title {
       padding-left:0;
@@ -788,8 +791,9 @@
           margin-bottom: 20px;
         }
         .supertitle {
-          background-color: yellow;//#33cc99
         }
+
+
         ul {
           list-style: none;
           margin: 0;
@@ -1054,7 +1058,7 @@
           margin: 0;
           padding: 0 0 0 26px;
           a {
-            color: yellow;//#00ad4e
+            color: $mainCol01;//#00ad4e
             text-decoration: none;
           }
         }
@@ -1100,7 +1104,7 @@
           h3.user a {
             text-decoration:none;
             &:hover {
-              color: $color06;//#20B3B2
+              color: $mainCol02;//#20B3B2
             }
           }
         }
@@ -1138,7 +1142,7 @@
           width:525px;
         }
         a.preview {
-          color: $color09;//#2EAB58
+          color: $mainCol01;//#2EAB58
           font-style:normal;
           font-weight:400;
           left:52px;

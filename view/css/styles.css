@@ -18,7 +18,6 @@ user-profile  :
 page          :スタイル調整が必要なページ
 */
 /* Main Color */
-/* Sub Color */
 /* Gray Color */
 /* Alert Color*/
 /* Other Color */
@@ -433,7 +432,8 @@ a.button.weak {
           font-size: 13px;
           line-height: 20px; }
           .footer__upper_right > li ul a:hover {
-            text-decoration: underline; }
+            text-decoration: underline;
+            color: #FFF; }
 .footer__under {
   padding: 45px 0 13px;
   background-color: #fff; }
@@ -783,6 +783,7 @@ div#message {
         .widget.projects .discover-arrow-right a.discover-arrow:hover {
           background: url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 -72px; }
     .widget.projects .navi-bar {
+      position: relative;
       clear: both;
       display: block;
       height: 30px; }
@@ -812,13 +813,14 @@ div#message {
             .widget.projects .navi-bar ul.navi li > a.active {
               background-color: #828282; }
       .widget.projects .navi-bar a.all {
-        position: relative;
-        right: -825px;
+        position: absolute;
+        top: 5px;
+        right: 35px;
+        color: #255b7f;
         text-decoration: none;
-        text-transform: uppercase;
-        top: -20px; }
+        text-transform: uppercase; }
         .widget.projects .navi-bar a.all:hover {
-          color: #0093c4; }
+          color: #009acb; }
   .widget.project-support .supertitle {
     background-color: #454545;
     color: #fff;
@@ -1465,6 +1467,7 @@ div#message {
       padding: 0;
       vertical-align: middle; }
     .widget.project-schedule tbody th {
+      border-bottom: 14px solid #fff;
       font-weight: 300;
       text-align: left;
       width: 250px; }
@@ -1554,14 +1557,14 @@ div#message {
     .meter div.graph .minimum .done {
       max-width: 215px; }
     .meter div.graph .minimum {
-      background-color: #0093c4;
+      background-color: #009acb;
       border-radius: 9px;
       height: 100%;
       left: 0;
       position: absolute;
       top: 0; }
       .meter div.graph .minimum .done {
-        background-color: #0093c4;
+        background-color: #009acb;
         border-radius: 9px;
         height: 18px;
         left: 0;
@@ -1751,7 +1754,7 @@ div#message {
     margin: 0;
     padding: 0; }
   .superform li.element > div.feedback > div.error + div.hint > blockquote {
-    border-top: 1px dashed yellow;
+    border-top: 1px dashed #d9d9d9;
     padding-top: 1em; }
   .superform li.element > div.feedback > div.error blockquote {
     background: url("/view/images/superform/feedback/error.png") no-repeat left 0.2em;
@@ -2047,7 +2050,7 @@ div#message {
 .superform li#costs h4.title {
   padding-left: 25px; }
 .superform li.editcost li.required_cost-yes {
-  background-color: yellow !important; }
+  background-color: #f2f2f2 !important; }
 .superform li.cost.required_cost-no,
 .superform li.editcost.required_cost-no {
   background-color: #f2f2f2 !important; }
@@ -2317,7 +2320,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     line-height: 20px;
     max-width: 620px; }
     .project-show .project-header .categories a {
-      color: #828282;
+      color: #255b7f;
       font-size: 12px;
       text-decoration: none; }
       .project-show .project-header .categories a:hover {
@@ -2350,11 +2353,11 @@ body.js .superform > div.elements ol li.element div.contents p {
       text-decoration: none;
       vertical-align: middle; }
     .project-show .project-menu ul li.active a {
-      border-bottom: 4px solid #e08e22; }
+      border-bottom: 4px solid #E08E22; }
     .project-show .project-menu ul li.show a {
-      border-bottom: 4px solid #e08e22; }
+      border-bottom: 4px solid #E08E22; }
     .project-show .project-menu ul li span.digits {
-      background-color: #e08e22;
+      background-color: #E08E22;
       border-radius: 5px;
       color: #FFF;
       display: inline-block;
@@ -2395,7 +2398,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     resize: none;
     width: 525px; }
   .project-show .project-message a.preview {
-    color: #d9d9d9;
+    color: #255b7f;
     font-style: normal;
     font-weight: 400;
     left: 80px;
@@ -2403,6 +2406,8 @@ body.js .superform > div.elements ol li.element div.contents p {
     text-decoration: none;
     text-transform: uppercase;
     top: 210px; }
+    .project-show .project-message a.preview:hover {
+      color: #009acb; }
   .project-show .project-message h3.title {
     padding-left: 0; }
 .project-show .project-rewards-summary {
@@ -2869,8 +2874,6 @@ body.js .superform > div.elements ol li.element div.contents p {
     margin: 0; }
   .project-show .center.messages .project-collaborations .title {
     margin-bottom: 20px; }
-  .project-show .center.messages .project-collaborations .supertitle {
-    background-color: yellow; }
   .project-show .center.messages .project-collaborations ul {
     list-style: none;
     margin: 0;
@@ -3087,7 +3090,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     margin: 0;
     padding: 0 0 0 26px; }
     .project-show .center.updates .post .comments-num a {
-      color: yellow;
+      color: #255b7f;
       text-decoration: none; }
 .project-show .center.updates #pagination {
   margin-top: 10px; }
@@ -3123,7 +3126,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   .project-show .center.updates .post-comments div.message h3.user a {
     text-decoration: none; }
     .project-show .center.updates .post-comments div.message h3.user a:hover {
-      color: #0093c4; }
+      color: #009acb; }
 .project-show .center.updates .post-comments div.owner {
   background: #FFF url("/view/images/message/beak/2.png") no-repeat left top !important; }
 .project-show .center.updates .blog-comment {
@@ -3151,7 +3154,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     resize: none;
     width: 525px; }
   .project-show .center.updates .blog-comment a.preview {
-    color: #009480;
+    color: #255b7f;
     font-style: normal;
     font-weight: 400;
     left: 52px;
@@ -3320,7 +3323,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       padding: 0 0 50px;
       width: auto; }
       .project-edit #project-steps span.step > button:hover {
-        color: #0093c4;
+        color: #009acb;
         opacity: 1; }
     .project-edit #project-steps span.step.off > button {
       background-image: url("/view/images/project/edit/steps/balloon-off.png");
@@ -3984,12 +3987,12 @@ body.js .superform > div.elements ol li.element div.contents p {
     max-width: 620px;
     font-style: normal; }
   .dashboard .project-header .project-by {
-    color: #0093c4;
+    color: #255b7f;
     font-size: 12px;
     margin: 0 0 .5em; }
     .dashboard .project-header .project-by a {
       font-weight: normal;
-      color: #0093c4;
+      color: #255b7f;
       font-size: 12px;
       text-decoration: none; }
       .dashboard .project-header .project-by a:hover {
@@ -4000,7 +4003,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     text-align: right;
     top: 0; }
     .dashboard .project-header .categories h3 {
-      color: yellow;
+      color: #255b7f;
       font-size: 0.8571428rem;
       font-weight: normal;
       margin: 0; }
@@ -4009,7 +4012,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       font-size: 12px;
       text-decoration: none; }
       .dashboard .project-header .categories a:hover {
-        color: yellow; }
+        color: #009acb; }
 .dashboard .summary > .widget {
   margin-bottom: 20px; }
 .dashboard .summary .select-action {
@@ -4050,16 +4053,26 @@ body.js .superform > div.elements ol li.element div.contents p {
     border-radius: 50%;
     background: #255B80; }
 .dashboard .widget.gestrew div.message {
-  background: url(/view/images/project/view/invest/header_beak.png) #CCE5E6 no-repeat left bottom;
-  color: #58595B;
+  position: relative;
+  color: #454545;
   height: auto;
-  overflow: auto;
-  padding: 20px 20px 30px; }
+  padding: 20px;
+  background: #f2f2f2; }
+  .dashboard .widget.gestrew div.message:after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 20px;
+    display: block;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top: 10px solid #f2f2f2; }
 .dashboard .widget.gestrew div.rewards {
   height: auto;
   margin-top: 10px; }
 .dashboard .widget.gestrew div.reward {
-  background: #E4C9E2;
+  background: #f2f2f2;
   float: left;
   height: 300px;
   margin-right: 10px;
@@ -4070,45 +4083,56 @@ body.js .superform > div.elements ol li.element div.contents p {
   .dashboard .widget.gestrew div.reward.last {
     margin-right: 0; }
   .dashboard .widget.gestrew div.reward div.orden {
-    background-color: #e7e7e7;
-    border: 2px solid #a7a9ac;
-    color: #a7a9ac;
+    background-color: #f2f2f2;
+    border: 2px solid #d9d9d9;
+    color: #828282;
     display: inline-block;
     font-size: 13pt;
     font-weight: 700;
     text-align: center;
     width: 20px; }
   .dashboard .widget.gestrew div.reward div.tiporec {
-    border-bottom: #8D878E 1px solid;
+    border-bottom: #d9d9d9 1px solid;
     display: block;
     margin-bottom: 5px; }
     .dashboard .widget.gestrew div.reward div.tiporec ul li {
       background: none no-repeat scroll 0 0 transparent;
       min-height: 34px; }
   .dashboard .widget.gestrew div.reward div.contenedorrecompensa {
-    height: 120px;
+    height: 105px;
     overflow-y: scroll; }
   .dashboard .widget.gestrew div.reward span.aporte {
-    color: #96238F;
+    color: #255b7f;
     display: inline-block;
     font-size: 8pt;
     line-height: 22px; }
     .dashboard .widget.gestrew div.reward span.aporte > span.euro {
-      background: url(/view/images/yen/violet/m.png) no-repeat;
       display: inline-block;
       height: 20px;
       width: 20px; }
+      .dashboard .widget.gestrew div.reward span.aporte > span.euro:after {
+        content: '￥';
+        display: block;
+        color: #FFF;
+        font-size: 13px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 20px;
+        background: #255b7f;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%; }
   .dashboard .widget.gestrew div.reward span.num {
     font-size: 12pt; }
   .dashboard .widget.gestrew div.reward span.cofinanciadores {
-    color: #40509F;
+    color: #255b7f;
     display: block;
     font-size: 8pt;
     line-height: 20px;
     margin-left: 29px;
     text-transform: uppercase; }
   .dashboard .widget.gestrew div.reward span.recompensa {
-    color: #8D878E;
+    color: #828282;
     font-size: 12px; }
   .dashboard .widget.gestrew div.reward ul {
     float: none;
@@ -4186,8 +4210,8 @@ body.js .superform > div.elements ol li.element div.contents p {
       top: 0;
       height: 8px;
       margin: 40px 5px 70px;
-      background-color: yellow;
-      border-right: 40px solid yellow; }
+      background-color: #f2f2f2;
+      border-right: 40px solid #0093c4; }
       .dashboard #meter-big .meter.big .graph .optimum {
         position: absolute;
         right: 0;
@@ -4500,7 +4524,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       .community .users ul li.active {
         background-color: #f2f2f2 !important; }
         .community .users ul li.active .user > h4 > a {
-          color: #0093c4; }
+          color: #255b7f; }
       .community .users ul li .user {
         padding: 3px 6px 3px 57px;
         position: relative; }
@@ -4963,12 +4987,12 @@ body.js .superform > div.elements ol li.element div.contents p {
   .user-profile .center .widget.project-supporters .summary dt {
     margin: 0; }
     .user-profile .center .widget.project-supporters .summary dt.reached {
-      color: yellow;
+      color: #454545;
       margin-top: -1.5em; }
   .user-profile .center .widget.project-supporters .summary dd {
     margin: 0; }
     .user-profile .center .widget.project-supporters .summary dd.reached {
-      color: yellow; }
+      color: #454545; }
 .user-profile .center .widget.project-supporters .supporters > ul > li {
   min-height: 105px;
   width: 304px; }
@@ -5210,11 +5234,12 @@ body.js .superform > div.elements ol li.element div.contents p {
       min-height: 22px;
       padding-left: 26px; }
       .user-profile .widget.user-about > div.message p a {
-        color: #0093c4;
+        color: #255b7f;
         font-size: 14px;
         font-weight: 700;
         text-decoration: none; }
         .user-profile .widget.user-about > div.message p a:hover {
+          color: #009acb;
           text-decoration: underline; }
   .user-profile .widget.user-about h4 {
     font-size: 16px;
@@ -5509,9 +5534,9 @@ body.js .superform > div.elements ol li.element div.contents p {
   font-weight: normal;
   margin: 0;
   padding: .5em 2px;
-  border-bottom: 1px solid yellow;
+  border-bottom: 1px solid #255b7f;
   font-size: 18px;
-  background-color: yellow;
+  background-color: #255b7f;
   color: #f2f2f2;
   padding-left: 8px; }
 
@@ -5555,7 +5580,6 @@ body.js .superform > div.elements ol li.element div.contents p {
   .user-login .register,
   .user-login .external-login,
   .user-login .login {
-    min-height: calc(100vh - 2em - 758px);
     padding: 15px 20px;
     margin: 0 0 20px 0;
     background: #FFF; }

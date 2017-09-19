@@ -95,7 +95,7 @@
         }
         &.error {
           + div.hint > blockquote {
-            border-top:1px dashed yellow;//#b7c2C5
+            border-top:1px dashed $grayCol01;//#b7c2C5
             padding-top:1em;
           }
           blockquote
@@ -546,7 +546,7 @@
   }
 
   li.editcost li.required_cost-yes {
-    background-color: yellow!important;//#e4c9e2
+    background-color: $baseCol!important;//#e4c9e2
   }
 
   li.cost.required_cost-no,

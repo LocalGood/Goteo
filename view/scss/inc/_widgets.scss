@@ -212,7 +212,8 @@
     }
 
     .navi-bar {
-      clear:both;
+      position: relative;
+      clear: both;
       display:block;
       height:30px;
       ul.navi {
@@ -247,13 +248,14 @@
         }
       }
       a.all {
-        position:relative;
-        right:-825px;
+        position: absolute;
+        top: 5px;
+        right: 35px;
+        color: $mainCol01;
         text-decoration:none;
         text-transform:uppercase;
-        top:-20px;
         &:hover {
-          color: $color06;//#20B3B2
+          color: $mainCol02;//#20B3B2
         }
       }
     }
@@ -1071,6 +1073,7 @@
         vertical-align:middle;
       }
       th {
+        border-bottom: 14px solid #fff;
         font-weight: 300;
         text-align: left;
         width: 250px;

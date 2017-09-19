@@ -151,12 +151,12 @@
       font-style: normal;
     }
     .project-by {
-      color: $color06;
+      color: $mainCol01;
       font-size: 12px;
       margin: 0 0 .5em;
       a {
         font-weight: normal;
-        color: $color06;//#cc6600
+        color: $mainCol01;//#cc6600
         font-size: 12px;
         text-decoration: none;
         &:hover {
@@ -170,7 +170,7 @@
       text-align: right;
       top: 0;
       h3 {
-        color: yellow;
+        color: $mainCol01;
         font-size: 0.8571428rem;
         font-weight: normal;
         margin: 0;
@@ -180,7 +180,7 @@
         font-size: 12px;
         text-decoration: none;
         &:hover {
-          color: yellow;
+          color: $mainCol02;
         }
       }
     }
@@ -247,18 +247,31 @@
   //マイプロジェクト -> お礼と支援者の管理
   .widget.gestrew {
     div.message {
-      background:url(/view/images/project/view/invest/header_beak.png) #CCE5E6 no-repeat left bottom;
-      color:#58595B;
+      position: relative;
+      //background:url(/view/images/project/view/invest/header_beak.png) #CCE5E6 no-repeat left bottom;
+      color: $grayCol03;
       height:auto;
-      overflow:auto;
-      padding:20px 20px 30px;
+      //overflow:auto;
+      padding: 20px;
+      background: $baseCol;
+      &:after{
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        left: 20px;
+        display: block;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-top: 10px solid $baseCol;
+      }
     }
     div.rewards {
       height:auto;
       margin-top:10px;
     }
     div.reward {
-      background:#E4C9E2;
+      background: $baseCol;
       float:left;
       height:300px;
       margin-right:10px;
@@ -270,17 +283,17 @@
         margin-right:0;
       }
       div.orden {
-        background-color:#e7e7e7;
-        border:2px solid #a7a9ac;
-        color:#a7a9ac;
+        background-color: $baseCol;
+        border:2px solid $grayCol01;
+        color: $grayCol02;
         display:inline-block;
-        font-size:13pt;
+        font-size: 13pt;
         font-weight:700;
         text-align:center;
         width:20px;
       }
       div.tiporec {
-        border-bottom:#8D878E 1px solid;
+        border-bottom: $grayCol01 1px solid;
         display:block;
         margin-bottom:5px;
         ul li {
@@ -289,20 +302,33 @@
         }
       }
       div.contenedorrecompensa {
-        height: 120px;
+        height: 105px;
         overflow-y: scroll;
       }
       span {
         &.aporte {
-          color:#96238F;
+          color: $mainCol01;//#96238F
           display:inline-block;
           font-size:8pt;
           line-height:22px;
           > span.euro {
-            background:url(/view/images/yen/violet/m.png) no-repeat;
+            //background:url(/view/images/yen/violet/m.png) no-repeat;
             display:inline-block;
-            height:20px;
-            width:20px;
+            height: 20px;
+            width: 20px;
+            &:after{
+              content: '￥';
+              display: block;
+              color: #FFF;
+              font-size: 13px;
+              font-weight: bold;
+              text-align: center;
+              line-height: 20px;
+              background: $mainCol01;
+              -webkit-border-radius: 50%;
+              -moz-border-radius: 50%;
+              border-radius: 50%;
+            }
           }
         }
         &.num
@@ -310,7 +336,7 @@
           font-size:12pt;
         }
         &.cofinanciadores {
-          color:#40509F;
+          color: $mainCol01;//#40509F
           display:block;
           font-size:8pt;
           line-height:20px;
@@ -318,7 +344,7 @@
           text-transform:uppercase;
         }
         &.recompensa {
-          color:#8D878E;
+          color: $grayCol02;
           font-size:12px;
         }
       }
@@ -418,8 +444,8 @@
         top: 0;
         height: 8px;
         margin: 40px 5px 70px;
-        background-color: yellow;//#BB70B6
-        border-right: 40px solid yellow;//#DFBDDD
+        background-color: $baseCol;//#BB70B6
+        border-right: 40px solid $color06;//#DFBDDD
         .optimum {
           position: absolute;
           right: 0;
