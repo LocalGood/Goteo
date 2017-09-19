@@ -640,7 +640,7 @@ div#message {
         filter: alpha(opacity=85);
         opacity: 0.85; }
       .widget.projects .project.active a.link {
-        color: #337ab7; }
+        color: #009acb; }
       .widget.projects .project a.link {
         display: block;
         text-decoration: none; }
@@ -772,16 +772,27 @@ div#message {
       width: 24px; }
     .widget.projects .discover-arrow-left {
       float: left; }
-      .widget.projects .discover-arrow-left a.discover-arrow {
-        background: url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 0; }
-        .widget.projects .discover-arrow-left a.discover-arrow:hover {
-          background: url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 -48px; }
+      .widget.projects .discover-arrow-left a.discover-arrow:before {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-right: 10px solid #828282; }
+      .widget.projects .discover-arrow-left a.discover-arrow:hover:before {
+        border-right: 10px solid #009acb; }
     .widget.projects .discover-arrow-right {
       float: right; }
-      .widget.projects .discover-arrow-right a.discover-arrow {
-        background: url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 -24px; }
-        .widget.projects .discover-arrow-right a.discover-arrow:hover {
-          background: url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 -72px; }
+      .widget.projects .discover-arrow-right a.discover-arrow:before {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        margin: 0 0 0 20px;
+        border: 10px solid transparent;
+        border-left: 10px solid #828282; }
+      .widget.projects .discover-arrow-right a.discover-arrow:hover:before {
+        border-left: 10px solid #009acb; }
     .widget.projects .navi-bar {
       position: relative;
       clear: both;
@@ -2967,13 +2978,13 @@ body.js .superform > div.elements ol li.element div.contents p {
     .project-show .center.messages .project-messages .user a {
       text-decoration: none; }
   .project-show .center.messages .project-messages .user_name {
-    color: #337ab7; }
+    color: #009acb; }
   .project-show .center.messages .project-messages blockquote {
     clear: both;
     margin: 0 0 16px;
     padding: 0; }
   .project-show .center.messages .project-messages .actions_date a {
-    color: #337ab7;
+    color: #009acb;
     text-decoration: none; }
   .project-show .center.messages .project-messages .actions_date .date {
     display: inline-block;

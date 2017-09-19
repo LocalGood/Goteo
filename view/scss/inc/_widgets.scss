@@ -194,18 +194,41 @@
       &-left {
         float:left;
         a.discover-arrow {
-          background:url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 0;
+          //background:url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 0;
+          &:before{
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-right: 10px solid $grayCol02;
+          }
           &:hover {
-            background:url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 -48px;
+            //background:url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 -48px;
+            &:before{
+              border-right: 10px solid $mainCol02;
+            }
           }
         }
       }
       &-right {
         float:right;
         a.discover-arrow {
-          background:url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 -24px;
+          //background:url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 -24px;
+          &:before{
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            margin: 0 0 0 20px;
+            border: 10px solid transparent;
+            border-left: 10px solid $grayCol02;
+          }
           &:hover {
-            background:url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 -72px;
+            //background:url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 -72px;
+            &:before{
+              border-left: 10px solid $mainCol02;
+            }
           }
         }
       }
