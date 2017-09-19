@@ -66,10 +66,7 @@
           margin-top: 14px;
         }
         dd {
-          background: url("/view/m/images/header/s-main_nav-icon.png") no-repeat left;
-          line-height: 2.5em;
           margin: 0;
-          padding-left: 20px;
         }
         .list01__text {
           border-bottom: solid 1px $grayCol01;
@@ -84,7 +81,11 @@
           padding-bottom: 20px;
           padding-left: 20px;
           a {
+            background: url("/view/m/images/header/s-main_nav-icon.png") no-repeat left;
+            display: block;
             font-size: 13px;
+            line-height: 2.5em;
+            padding-left: 20px;
           }
         }
         a {
