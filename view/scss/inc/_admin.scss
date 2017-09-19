@@ -41,11 +41,11 @@
         color: $grayCol03;
         font-size:18px;
         &:hover {
-          color: $color06;//#20B2B3
+          color: $mainCol02;//#20B2B3
         }
       }
       strong {
-        color: $color06;//#20B2B3
+        color: $mainCol02;//#20B2B3
       }
     }
   }
@@ -63,7 +63,7 @@
       padding: 0;
       width: 100%;
       legend {
-        background-color: $color06;//#20B2B3
+        background-color: $mainCol02;//#20B2B3
         color: #fff;
         display: block;
         font-weight: 700;
@@ -83,7 +83,7 @@
         width: 160px;
         &.active {
           a {
-            color: $color06;
+            color: $mainCol02;
           }
         }
         a {
@@ -481,22 +481,22 @@
       text-decoration: none;
     }
     .light-blue {
-      color: $color06;//#1DB3B2
+      color: $mainCol02;//#1DB3B2
     }
     .blue {
-      color: $color06;//#0B4F99
+      color: $mainCol02;//#0B4F99
     }
     .violet {
-      color: $color06;//#95268D
+      color: $mainCol02;//#95268D
     }
     .red {
       color: $alertCol;
     }
     .grey {
-      color: $color06;
+      color: $mainCol02;
     }
     .green {
-      color: $color06;//#20A64B
+      color: $mainCol02;//#20A64B
     }
     .subitem {
       border-bottom: $grayCol02 1px dashed;
