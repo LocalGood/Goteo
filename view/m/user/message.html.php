@@ -37,8 +37,8 @@ $_SESSION['msg_token'] = uniqid(rand(), true);
 	// Mark DOM as javascript-enabled
 	jQuery(document).ready(function ($) {
 	    //change div#preview content when textarea lost focus
-		$("#message").blur(function(){
-			$("#preview").html($("#message").val().replace(/\n/g, "<br />"));
+		$("#message_user").blur(function(){
+			$("#preview").html($("#message_user").val().replace(/\n/g, "<br />"));
 		});
 
 		//add fancybox on #a-preview click
@@ -67,8 +67,8 @@ $_SESSION['msg_token'] = uniqid(rand(), true);
             <label for="contact-subject"><?php echo Text::get('contact-subject-field'); ?></label>
             <input id="contact-subject" type="text" name="subject" value="" placeholder="" />
             
-            <label for="message"><?php echo Text::get('contact-message-field'); ?></label>
-            <textarea id="message" name="message" cols="50" rows="5"></textarea>
+            <label for="message_user"><?php echo Text::get('contact-message-field'); ?></label>
+            <textarea id="message_user" name="message" cols="50" rows="5"></textarea>
 <?php /*
             <a target="_blank" id="a-preview" href="#preview" class="preview">&middot;<?php echo Text::get('regular-preview'); ?></a>
             <div style="display:none">
@@ -93,8 +93,8 @@ $_SESSION['msg_token'] = uniqid(rand(), true);
 
     </div>
     <div class="side">
-        <?php echo new View('view/m/user/widget/investors.html.php', $this) ?>
-        <?php echo new View('view/m/user/widget/sharemates.html.php', $this) ?>
+        <?/*php echo new View('view/m/user/widget/investors.html.php', $this) */?>
+        <?/*php echo new View('view/m/user/widget/sharemates.html.php', $this) */?>
     </div>
 
 </div>

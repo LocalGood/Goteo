@@ -51,7 +51,7 @@ $level = (int) $this['level'] ?: 3;
     $_url = urldecode($_SERVER['REQUEST_URI']);
     if(strstr($_url,$_value) && preg_match('/^\/skillmatching\/((?!\/).)*$/',$_url)):
         ?>
-        <div id="social_bookmark">
+        <div class="social_bookmark">
             <div id="twitter">
                 <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
                 <script>

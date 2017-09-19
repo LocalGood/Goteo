@@ -16,6 +16,7 @@ project-edit  :プロジェクト新規・編集
 dashboard     :マイメニュー
 community     :マニメニュー > このユーザーの興味
 admin         :
+user-profile  :ユーザープロフィール
 */
 
 //@import "inc/pallete";
@@ -34,5 +35,6 @@ admin         :
 @import "inc/_dashboard.scss";
 @import "inc/_community.scss";
 @import "inc/_admin.scss"; //todo:多分これいらない。spに管理者画面がないから。
+@import "inc/_user-profile.scss";
 
 //todo:各ファイルに、htmlに絡む変更と、どのファイルに書くか迷ったものをtodoで書いてあるので、追って対応する

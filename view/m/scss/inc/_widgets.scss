@@ -6,12 +6,6 @@
     padding-left: 6px;
     text-decoration: none;
   }
-  /*h3.title {
-    background-color: #666666;
-    color: #f5f5f5;
-    font-weight: 300;
-    margin: 0;
-  }*/
   .supertitle {
     background-color: #21b0b0;
     color: #f5f5f5;
@@ -36,31 +30,28 @@
   }
 
 
-  &.projects #widget-code {
-    width: 350px;
-    float: left;
-    margin: 0 0 0 20px;
-    .wc-embed {
-      background: url("/view/m/images/social/embed.png") no-repeat;
-      min-height: 20px;
-      padding: 3px 0 0 25px;
-    }
-    textarea {
-      width: 200px;
-      height: 130px;
-      margin: 10px 0;
-      padding: 10px;
-      background: #E7E7E7;
-      border: none;
-      font-size: 12px;
-      resize: none;
-    }
-  }
-
-
-
   //プロジェクトウィジェット（一覧などのコンパクトにまとまったウィジェット）
   &.projects{
+    #widget-code {
+      width: 350px;
+      float: left;
+      margin: 0 0 0 20px;
+      .wc-embed {
+        background: url("/view/m/images/social/embed.png") no-repeat;
+        min-height: 20px;
+        padding: 3px 0 0 25px;
+      }
+      textarea {
+        width: 200px;
+        height: 130px;
+        margin: 10px 0;
+        padding: 10px;
+        background: #E7E7E7;
+        border: none;
+        font-size: 12px;
+        resize: none;
+      }
+    }
     .discover-group {
       .image {
         margin-bottom: 0;
@@ -104,7 +95,6 @@
         padding: 0.4em 1em !important;
       }
     }
-
     > .more {
       clear: both;
       text-align: right;
@@ -115,15 +105,12 @@
         }
       }
     }
-
     > .widget-title {
       padding: 0 0 0 30px;
     }
-
     > .widget-porject-legend {
       margin: 0 0 20px 30px;
     }
-
     > .project-code {
       float: left;
       height: auto;
@@ -131,7 +118,6 @@
       overflow: auto;
       width: auto;
     }
-
     > #widget-code  {
       float:left;
       margin: 0 0 0 20px;
@@ -161,17 +147,14 @@
       margin: 0;
       padding: 12px;
     }
-
     &.active{
       div.image {
         opacity: 0.85;
       }
-
       > .title a {
         color: #c5da4d !important;
       }
     }
-
     .image {
       background-color: #deddde;
       margin: 0 0 10px 0;
@@ -186,7 +169,6 @@
         width: 100vw;
         height: auto;
       }
-
       span.cf-icon {
         position: absolute;
         top: 8px;
@@ -196,7 +178,6 @@
         background-image: url('/view/m/images/lg-project-cf.png');
         background-size:60px 60px;
       }
-
       span.sm-icon {
         position: absolute;
         top: 8px;
@@ -206,7 +187,6 @@
         background-image: url('/view/m/images/lg-project-sm.png');
         background-size: 60px 60px;
       }
-
       .investor {
         position: absolute;
         z-index: 899;
@@ -219,7 +199,6 @@
           margin: 3px;
           float: left;
         }
-
         .invest {
           text-align: left;
           font-size: 12px;
@@ -238,7 +217,6 @@
           }
         }
       }
-
       .categories {
         text-align: left;
         color: #ffffff;
@@ -252,7 +230,6 @@
         left: 0;
       }
     }
-
     > .title {
       font-size: 14px;
       padding: 0;
@@ -272,11 +249,9 @@
         }
       }
     }
-
     .title {
       background: none;
     }
-
     .balloon {
       background: #cae4e6 url('/view/m/images/balloonbeak.png') no-repeat bottom left;
       height: auto;
@@ -300,12 +275,10 @@
         padding: 0;
       }
     }
-
     > .author {
       padding: 2px 0 0 12px;
       overflow:hidden;
     }
-
     > .author,
     > .author a {
       font-weight: 600;
@@ -314,12 +287,10 @@
       position:relative;
       z-index:100;
     }
-
     .description {
       padding: 2px 12px;
       font-size: 12px;
     }
-
     .skills {
       line-height: 16px;
       a {
@@ -334,9 +305,7 @@
       dl.amount-bar {
         display: none;
       }
-
     }
-
     div.rewards{
       h2, h3, h4, h5, h6 {
         margin: 0;
@@ -430,7 +399,7 @@
   &.project-support {
     .supertitle {
       background-color: #58585a;
-      color: #fff;
+      color: $baseWhite;
       font-size: 12px;
       height: 40px;
       line-height: 40px;
@@ -454,9 +423,7 @@
 
   //プロジェクト概要
   &.project-summary{
-    background-color: #fff;
     border-bottom: $solidBorder;
-    padding: 20px;
     h1, h2, h3, h4, h5, h6 {
       font-weight: 600;
       line-height: 1.3em;
@@ -547,7 +514,6 @@
 
   //支援するボタンウィジェット
   &.project-support_btn {
-    background-color: #fff;
     border-bottom: $solidBorder;
     padding: 40px 0;
     a.button {
@@ -557,7 +523,6 @@
 
   //シェアウィジェット
   &.project-share {
-    background-color: #fff;
     padding: 26px 20px 50px;
     position: relative;
     .title {
@@ -735,8 +700,11 @@
     }
   }
 
-  //スキル・物品ウィジェット
+  //スキルと物品の募集ウィジェット
   &.project-collaborations {
+    .project-widget-box {
+      background-color: $baseWhite;
+    }
     h4.supertitle {
       background-color: #33cc99;
     }
@@ -747,23 +715,16 @@
       font-weight: 600;
     }
     ul {
-      margin: 0 0 1em;
+      margin: 0;
       padding: 0;
       list-style: none;
       li {
-        background: none no-repeat left top;
-        padding-left: 45px;
-        min-height: 32px;
         line-height: 32px;
-        &.task {
-          background-image: url('/view/m/images/icon/m/task.png');
-        }
-        &.lend {
-          background-image: url('/view/m/images/icon/m/lend.png');
-        }
+        min-height: 32px;
         > p {
-          margin:  0;
+          font-size: 13px;
           line-height: 1.7em;
+          margin:  0;
         }
       }
     }
@@ -788,37 +749,33 @@
   //メッセージ送信ウィジェット
   &.project-message {
     position:relative;
-    max-width:580px;
+    h3.title {
+      margin: 0 0 12px;
+      padding: 0;
+    }
     form {
       overflow: hidden;
-      padding: 16px;
     }
     div#bocadillo{
-      float: left;
-      width: 34px;
-      height: 50px;
-      margin-top: 8px;
       background:url('/view/m/images/bocadillo.jpg') no-repeat;
+      float: left;
+      height: 34px;
+      margin-bottom: 8px;
+      width: 34px;
     }
-    button{
-      float:right;
-      width: 240px;
-      margin-top: 6px;
-      margin-bottom: 0;
-      font-style: normal;
-      font-weight: 300;
-    }
-    textarea {
+    textarea#message_text {
+      background-color: $baseWhite;
+      border: $solidBorder;
+      box-sizing: content-box;
+      border-radius: 3px;
       clear: right;
       display: block;
       float: right;
-      width: 240px;
       height: 50px;
-      margin-top: 8px;
-      padding: 0.3em 0;
-      resize:none;
-      background-color: #DCEEDF;
-      border: 1px solid #2EAB58;
+      margin: 0 0 12px;
+      padding: .3em 0;
+      resize: none;
+      width: 85%;
     }
     a.preview{
       display: inline-block;
@@ -832,6 +789,14 @@
       font-weight: 300;
       font-style: normal;
     }
+    /*button{
+      float:right;
+      width: 240px;
+      margin-top: 6px;
+      margin-bottom: 0;
+      font-style: normal;
+      font-weight: 300;
+    }*/
     .button {
       float: right;
       margin: 1em 0 0;
@@ -841,24 +806,26 @@
   //メッセージ表示ウィジェット
   &.project-messages {
     #project-messages {
-      padding: 16px;
-    }
-    div.message {
-      background: #e7e7e7 url('/view/m/images/message/beak/1.png') no-repeat left top;
-      margin-left: 50px;
-      overflow: visible;
-      position: relative;
-      padding: .8em 1em .5em 1.5em;
-    }
-    div.child{
-      background: #e7e7e7 url('/view/m/images/message/beak/1.png') no-repeat left top;
-      margin-left: 90px;
-      padding: .8em 1em .8em 1.5em;
-      overflow: visible;
-      position: relative;
-    }
-    div.owner {
-      background: #e9f4ea url('/view/m/images/message/beak/2.png') no-repeat left top !important;
+      > div {
+        background-color: $baseCol;
+        border-radius: 8px;
+        margin-left: 50px;
+        overflow: visible;
+        position: relative;
+        padding: 12px 16px;
+        &:before {
+          background: none;
+          border: 10px solid transparent;
+          border-right: 15px solid $baseCol;
+          content: '';
+          display: block;
+          height: 0;
+          left: -20px;
+          position: absolute;
+          top: 20px;
+          width: 0;
+        }
+      }
     }
     div.message + div.message,
     div.child + div.message,
@@ -868,123 +835,113 @@
     div.message,
     div.child {
       .avatar {
-        position: absolute;
-        left: -50px;
-        top: 0;
         display: block;
-        width: 50px;
-        height: 50px;
-        text-align: right;
+        height: 40px;
+        left: -50px;
+        text-align: left;
+        top: 0;
+        position: absolute;
+        width: 40px;
       }
-      .user {
+      h3.user {
         font-size: 14px;
         font-weight: 600;
         margin: 0 0 1em;
-        float: left;
-      }
-      .date {
-        float: right;
-        color: #808080;
-        font-size: 12px;
-      }
-      blockquote {
-        margin: 0;
-        padding: 0;
-        clear: both;
-      }
-      .actions {
-        margin-top: 1em;
-        border-top: 1px solid #c8c8c8;
-        padding-top: .4em;
-        a {
-          color: #808080;
-          font-size: 12px;
-          text-decoration: none;
-          &:hover {
-            color: #58595b;
+        a{
+          text-decoration:none;
+          .user_name {
+            color: $colLinkText01;
           }
         }
       }
-      h3.user a{
-        text-decoration:none;
-        &:hover{
-          color:#20B3B2;
+      blockquote {
+        margin: 0 0 16px;
+        padding: 0;
+      }
+      .actions_date {
+        margin-top: 1em;
+        padding-top: .4em;
+        a {
+          color: $colLinkText01;
+          font-size: 12px;
+          text-decoration: none;
+        }
+        .date {
+          float: right;
+          font-size: 12px;
         }
       }
     }
   }
 
-  //お礼・公共リターン //todo: .sideでしか使われていないため、不要になる予定
-  /*&.project-rewards {
-    div.social,
-    div.individual,
-    .project-rewards-summary div.individual {
-      padding: 15px 20px;
-      border-bottom: 1px dashed #c0c0c0;
-      background-color: #fff;
-    }
-    .project-rewards-summary h3.supertitle,
-    div.widget.project-rewards h4.supertitle {
-      background-color: #ff9933;
-    }
-  }*/
-
-  //お礼・公共リターン //todo: .centerだけで使用している、こちらがメイン。
+  //お礼・公共リターン
   &.project-rewards-summary {
-    h3.supertitle{
-      background-color: #ff9933;
-      font-size: 15px;
+    h4.title {
+      margin: 0 0 16px;
+      padding-left: 0;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        background-color: $baseCol;
+        font-size: 12px;
+        margin-bottom: 12px;
+        min-height: 33px;
+        padding: 12px 16px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        h5.name {
+          font-size: 14px;
+          font-weight: 600;
+          margin: 0 0 6px;
+        }
+        > p {
+          margin:  0 0 1em;
+        }
+      }
     }
     div.individual {
-      background-color: #fff;
-      border-bottom: 1px dashed #c0c0c0;
-      padding: 15px 20px;
-      h4.title {
-        color: #96238F !important;
-        margin: 8px 0 0;
-        padding-left: 0;
-      }
+      background-color: $baseWhite;
+      margin-bottom: 20px;
+      padding: 20px;
       ul {
         li{
-          &.service {
-            background-image: url('/view/m/images/icon/m/service.png');
-          }
-          &.other {
-            background-image: url('/view/m/images/icon/m/other.png');
-            background-position: 0.8em 3em;
-          }
-          div.amount {
-            color: #96238F;
-            height: 28px;
-            margin-left: 40px;
-            position: relative;
-            right: -10px;
-            text-align: right;
-            top: 0;
-            span.euro {
-              background-color: #e7e7e7;
-              border-right: #e7e7e7 solid 5px;
-              display: inline-block;
+          dl {
+            @include cf;
+            margin: 0;
+            dt {
+              float: left;
+              font-size: 13px;
+              line-height: 22px;
+              width: 70px;
+            }
+            dd {
+              color: $grayCol03;
+              float: left;
               font-size: 14px;
               font-weight: 600;
-              line-height: 28px;
-              margin: 0 0 0 2px;
-              padding-left: 8px;
-              padding-right: 20px;
+              line-height: 22px;
+              margin-left: 0;
             }
+            &.remain {
+              margin-bottom: 12px;
+            }
+          }
+          img {
+            width: 100%;
+            height: auto;
+            min-height: 200px;
           }
         }
       }
     }
     div.social {
-      background-color: #fff;
-      border-bottom: 1px dashed #c0c0c0;
-      padding: 15px 20px;
-      h4.title {
-        color: #28b258 !important;
-        margin: 8px 0 0;
-        padding-left: 0;
-      }
+      background-color: $baseWhite;
+      margin-bottom: 20px;
+      padding: 20px;
       ul {
         margin-top: 0;
         li {
@@ -998,21 +955,14 @@
           }
           &.file {
             h5.name {
-              background: url('/view/m/images/icon/m/file.png') no-repeat left 50%;
-              font-size: 13px;
+              font-size: 14px;
               font-weight: 600;
-              margin: 0 0 .4em;
-            }
-          }
-          &.service {
-            h5.name {
-              background: url('/view/m/images/icon/m/service.png') no-repeat left 50%;
+              margin: 0 0 6px;
             }
           }
           &.service,
           &.file {
             > h5.name {
-              padding-left: 42px;
               padding-top: 0;
               margin-bottom: .4em;
             }
@@ -1038,6 +988,105 @@
             padding: 2px 6px 2px 3px;
             margin-top: 10px;
           }
+          div.license {
+            font-size: 12px;
+            h6 {
+              font-size: 14px;
+              font-weight: 600;
+              margin: 0;
+              padding: 0;
+            }
+            p {
+              margin: .2em 0;
+            }
+            a {
+              text-decoration: none;
+            }
+            > a strong {
+              background: url("/view/m/images/license/license.png") no-repeat left 4px;
+              display: block;
+              padding-top: 40px;
+            }
+
+            &.agpl > a strong {
+              background-image: url('/view/m/images/license/agpl.png');
+            }
+            &.apache > a strong {
+              background-image: url('/view/m/images/license/apache.png');
+            }
+            &.balloon > a strong {
+              background-image: url('/view/m/images/license/balloon.png');
+            }
+            &.bsd > a strong {
+              background-image: url('/view/m/images/license/bsd.png');
+            }
+            &.cc0 > a strong {
+              background-image: url('/view/m/images/license/cc0.png');
+            }
+            &.ccby > a strong {
+              background-image: url('/view/m/images/license/ccby.png');
+            }
+            &.ccbync > a strong {
+              background-image: url('/view/m/images/license/ccbync.png');
+            }
+            &.ccbyncnd > a strong {
+              background-image: url('/view/m/images/license/ccbyncnd.png');
+            }
+            &.ccbyncsa > a strong {
+              background-image: url('/view/m/images/license/ccbyncsa.png');
+            }
+            &.ccbynd > a strong {
+              background-image: url('/view/m/images/license/ccbynd.png');
+            }
+            &.ccbysa > a strong {
+              background-image: url('/view/m/images/license/ccbysa.png');
+            }
+            &.fal > a strong {
+              background-image: url('/view/m/images/license/fal.png');
+            }
+            &.fdl > a strong {
+              background-image: url('/view/m/images/license/fdl.png');
+            }
+            &.freebsd > a strong {
+              background-image: url('/view/m/images/license/freebsd.png');
+            }
+            &.gpl > a strong {
+              background-image: url('/view/m/images/license/gpl.png');
+            }
+            &.gpl2 > a strong {
+              background-image: url('/view/m/images/license/gpl2.png');
+            }
+            &.lgpl > a strong {
+              background-image: url('/view/m/images/license/lgpl.png');
+            }
+            &.mit > a strong {
+              background-image: url('/view/m/images/license/mit.png');
+            }
+            &.mpl > a strong {
+              background-image: url('/view/m/images/license/mpl.png');
+            }
+            &.odbl > a strong {
+              background-image: url('/view/m/images/license/odbl.png');
+            }
+            &.odcby > a strong {
+              background-image: url('/view/m/images/license/odcby.png');
+            }
+            &.oshw > a strong {
+              background-image: url('/view/m/images/license/oshw.png');
+            }
+            &.pd > a strong {
+              background-image: url('/view/m/images/license/pd.png');
+            }
+            &.php > a strong {
+              background-image: url('/view/m/images/license/php.png');
+            }
+            &.tapr > a strong {
+              background-image: url('/view/m/images/license/tapr.png');
+            }
+            &.xoln > a strong {
+              background-image: url('/view/m/images/license/xoln.png');
+            }
+          }
         }
       }
     }
@@ -1053,163 +1102,11 @@
       padding-right: 8px!important;
       width: 160px;
     }
-
-    ul {
-      list-style: none;
-      margin: 0.5em 0 0;
-      padding: 0;
-      li {
-        background: none no-repeat 5px 5px;
-        font-size: 12px;
-        min-height: 33px;
-        padding: 10px 10px 0 0;
-        &.money {
-          background-image: url('/view/m/images/icon/m/money.png');
-          background-position: 0.8em 3em;
-        }
-        &.code {
-          background-image: url('/view/m/images/icon/m/code.png');
-        }
-        &.manual {
-          background-image: url('/view/m/images/icon/m/manual.png');
-        }
-        &.product {
-          background-image: url('/view/m/images/icon/m/product.png');
-          background-position: 10px 10px;
-        }
-        &.design {
-          background-image: url('/view/m/images/icon/m/design.png');
-        }
-        &.food {
-          background-image: url('/view/m/images/icon/m/food.png');
-        }
-        &.other {
-          background-image: url('/view/m/images/icon/m/other.png');
-        }
-        .name {
-          min-height: 33px;
-          padding-left: 40px;
-        }
-        h5.name {
-          font-size: 13px;
-          font-weight: 600;
-          margin: 0 0 .5em;
-          padding: 0 0 0 42px;
-        }
-        > p {
-          margin:  0 0 1em;
-        }
-        div.license {
-          font-size: 12px;
-          h4, h5, h6 {
-            border-bottom: 1px dashed #c8c8c8;
-            font-size: 12px;
-            font-weight: 600;
-            margin: .5em 0 .6em;
-            padding: 0 0 .2em;
-          }
-          h6 {
-            font-size: 14px;
-          }
-          p {
-            margin: .2em 0;
-          }
-          a {
-            text-decoration: none;
-          }
-          > a strong {
-            background: url("/view/m/images/license/license.png") no-repeat left 4px;
-            display: block;
-            padding-top: 40px;
-          }
-
-          &.agpl > a strong {
-            background-image: url('/view/m/images/license/agpl.png');
-          }
-          &.apache > a strong {
-            background-image: url('/view/m/images/license/apache.png');
-          }
-          &.balloon > a strong {
-            background-image: url('/view/m/images/license/balloon.png');
-          }
-          &.bsd > a strong {
-            background-image: url('/view/m/images/license/bsd.png');
-          }
-          &.cc0 > a strong {
-            background-image: url('/view/m/images/license/cc0.png');
-          }
-          &.ccby > a strong {
-            background-image: url('/view/m/images/license/ccby.png');
-          }
-          &.ccbync > a strong {
-            background-image: url('/view/m/images/license/ccbync.png');
-          }
-          &.ccbyncnd > a strong {
-            background-image: url('/view/m/images/license/ccbyncnd.png');
-          }
-          &.ccbyncsa > a strong {
-            background-image: url('/view/m/images/license/ccbyncsa.png');
-          }
-          &.ccbynd > a strong {
-            background-image: url('/view/m/images/license/ccbynd.png');
-          }
-          &.ccbysa > a strong {
-            background-image: url('/view/m/images/license/ccbysa.png');
-          }
-          &.fal > a strong {
-            background-image: url('/view/m/images/license/fal.png');
-          }
-          &.fdl > a strong {
-            background-image: url('/view/m/images/license/fdl.png');
-          }
-          &.freebsd > a strong {
-            background-image: url('/view/m/images/license/freebsd.png');
-          }
-          &.gpl > a strong {
-            background-image: url('/view/m/images/license/gpl.png');
-          }
-          &.gpl2 > a strong {
-            background-image: url('/view/m/images/license/gpl2.png');
-          }
-          &.lgpl > a strong {
-            background-image: url('/view/m/images/license/lgpl.png');
-          }
-          &.mit > a strong {
-            background-image: url('/view/m/images/license/mit.png');
-          }
-          &.mpl > a strong {
-            background-image: url('/view/m/images/license/mpl.png');
-          }
-          &.odbl > a strong {
-            background-image: url('/view/m/images/license/odbl.png');
-          }
-          &.odcby > a strong {
-            background-image: url('/view/m/images/license/odcby.png');
-          }
-          &.oshw > a strong {
-            background-image: url('/view/m/images/license/oshw.png');
-          }
-          &.pd > a strong {
-            background-image: url('/view/m/images/license/pd.png');
-          }
-          &.php > a strong {
-            background-image: url('/view/m/images/license/php.png');
-          }
-          &.tapr > a strong {
-            background-image: url('/view/m/images/license/tapr.png');
-          }
-          &.xoln > a strong {
-            background-image: url('/view/m/images/license/xoln.png');
-          }
-        }
-      }
-    }
   }
 
   //資金の内訳ウィジェット
   &.project-needs {
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0 0 20px;
     h4 {
       background-color: #666666;
       color: #f5f5f5;
@@ -1218,32 +1115,18 @@
     }
     div#legend{
       background-color: #ffffff;
-      height: 70px;
-      line-height: 70px;
+      margin-bottom: 20px;
       div.min,
       div.max {
-        float:left;
         font-size: 13px;
-        line-height:40px;
+        line-height:20px;
+        margin-bottom: 8px;
         span {
-          display:block;
-          float:left;
-          height:18px;
-          margin-right:5px;
-          margin-top:10px;
-          width:18px;
-        }
-      }
-      div.min{
-        margin-right:15px;
-        span{
-          border:#C1C1C1 1px solid;
-          background:#F2F2F2;
-        }      }
-      div.min {
-        span{
-          background:#e3eadc;
-          border:#999999 1px solid;
+          background-color: $baseCol;
+          display:inline-block;
+          height:20px;
+          margin-right: 4px;
+          width:20px;
         }
       }
     }
@@ -1254,7 +1137,7 @@
       text-align: left;
     }
     p.click {
-      margin-bottom: 8px;
+      margin: 0 0 12px;
       span.text {
         clear:left;
         font-size: 14px;
@@ -1263,87 +1146,47 @@
         padding: 0;
       }
     }
-    dd.min,
-    dd.max {
-      font-size: 15px;
-      text-align: right;
-      vertical-align: top;
-      width: 90px;
-      word-wrap: break-word;
-    }
-    dd.min {
-      color: #cc9900;
-    }
-    dd.max {
-      color: #6699cc;
-    }
-    .req {
-      background:#e3eadc;
-    }
-    .req,
-    .noreq {
-      padding-top: 16px;
-      padding-bottom: 16px;
-    }
-    //todo: #legendこのページに複数出て来るので、クラスメイなど直す
-    #legend {
-      margin: 0;
+    .needs_list {
+      margin: 0 auto;
       overflow: hidden;
-      padding: 0 1em;
-      .min,
-      .max {
-        float: left;
-        height: 30px;
-        line-height: 30px;
-      }
-      .min {
-        span {
-          background: $baseCol;
-        }
-      }
-      .max {
-        line-height: 20px;
-        span {
-          background: $baseCol;
-        }
-      }
-      dt.min,
-      dt.max {
+      width: 230px;
+      dt,
+      dd {
         display: inline-block;
-        font-size: 10px;
-        line-height: 32px;
+        height: 24px;
+        line-height: 24px;
         margin-right: 4px;
-        width: 60px;
+        width: 90px;
+        &.min {
+          span {
+            background: $baseWhite;
+          }
+        }
+        &.max {
+          line-height: 20px;
+          span {
+            background: $baseWhite;
+          }
+        }
       }
-      dt.min {
-        color: #cc6600;
-      }
-      dt.max {
-        color: #6699cc;
-      }
-      dd.min,
-      dd.max {
-        margin: 0;
+      dd {
+        font-weight: 600;
+        margin-left: 0;
         width: 120px;
-      }
-      dd.min {
-        margin-right: 16px;
-      }
-      dd.max {
-        padding-right: 0;
+        &.max{
+          padding-right: 0;
+        }
       }
     }
     .req,
     .noreq {
-      padding: 20px;
-      //todo: #legendこのページに複数出て来るので、クラスメイなど直す
-      #legend {
-        margin: 0 auto;
-        width: 200px;
-        .min,
-        .max {
-          height: 24px;
-        }
+      margin-bottom: 20px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      .inner {
+        background-color: $baseCol;
+        padding: 20px;
       }
     }
     .structure #legend dd.min {
@@ -1363,23 +1206,6 @@
         span {
           display: table-cell;
           vertical-align: middle;
-        }
-      }
-    }
-    ul {
-      list-style: none;
-      margin: 1em 0;
-      padding: 0;
-      li {
-        background: none no-repeat left 5px;
-        line-height: 32px;
-        min-height: 32px;
-        padding-left: 55px;
-        &.task {
-          background-image: url('/view/m/images/icon/m/task.png');
-        }
-        &.lend {
-          background-image: url('/view/m/images/icon/m/lend.png');
         }
       }
     }
@@ -1405,7 +1231,7 @@
         }
       }
       tbody {
-        background: $baseCol;
+        background: $baseWhite;
         th.summary {
           padding: 16px 20px;
         }
@@ -1415,10 +1241,10 @@
           border-bottom: 1px solid $grayCol01;
         }
         &.req {
-          background: $baseCol;
+          background: $baseWhite;
         }
         &.noreq {
-          background: $baseCol;
+          background: $baseWhite;
         }
         &.sum {
           th {
@@ -1469,22 +1295,19 @@
     }
   }
 
-
   //スケジュールウィジェット
   &.project-schedule {
-    padding-left: 0;
-    padding-right: 0;
+    h3.title {
+      margin: 0 0 8px;
+      padding: 0;
+    }
     table {
       border-collapse: separate;
       width: 100%;
-      cursor: default !important;
       td,
       th {
-        border: none;
-        text-align: center;
-        padding: .5em .1em;
+        box-sizing: content-box;
         font-size: 12px;
-        width: 1.5em;
       }
       thead {
         &.days,
@@ -1492,84 +1315,35 @@
           display: none;
         }
         &.months {
-          tr th {
-            font-weight: 300;
-            font-size: 14px;
-            span {
-              color: #808285;
+          tr {
+            th {
+              font-size: 14px;
+              &:first-child {
+                span {
+                  display: none;
+                }
+              }
             }
-          }
-        }
-        tr {
-          > * {
-            border-top: none;
-          }
-          th:last-child {
-            border-right-width: 0;
-          }
-          th:first-child {
-            display: none;
           }
         }
       }
       tbody {
-        background: #f5f5f5;
-        tr {
-          border: solid #d3d3d3;
-          border-width: 1px 0;
-        }
         th,
         td {
-          height: 5em;
+          border-bottom: 8px solid #fff;
+          box-sizing: content-box;
+          height: 30px;
+          padding: 0 8px;
           vertical-align: middle;
-          padding: .5em;
         }
         th {
-          display: none;
-          strong {
-            font-size: 13px;
-            font-weight: 600;
-            display: block;
-            line-height: 13px;
-            width: 22px;
-          }
-          span {
-            display: none;
-          }
+          font-weight: 300;
+          text-align: left;
+          width: 150px;
         }
         td {
-          span {
-            font-size: 12px;
-            font-weight: 300;
-            text-align: center;
-            height: 5em;
-            overflow: hidden;
-          }
           &.on {
-            background-color: #d1edf1;
-            text-align: left;
-            padding: 1em;
-            span {
-              opacity: .75;
-            }
-            &.task {
-              background: #d1edf1 url('/view/m/images/icon/s/task.png') no-repeat 10px center;
-              padding-left: 38px;
-            }
-            &.material {
-              background: #d1edf1 url('/view/m/images/icon/s/material.png') no-repeat 10px center;
-              padding-left: 38px;
-            }
-            &.structure {
-              background: #d1edf1 url("/view/m/images/icon/s/structure.png") no-repeat 10px center;
-              padding-left: 38px;
-            }
-            &.req {
-              background-color: #c7d8b6;
-            }
-            &.noreq {
-              background-color: #e2e2e2;
-            }
+            background-color: $color10;
           }
         }
       }
@@ -1579,68 +1353,31 @@
   //支援者ウィジェット
   &.project-supporters {
     @include cf;
-    background: transparent !important;
-    max-width: 620px !important;
-    padding: 0 !important;
-    dl.summary {
-      background-color: white;
-      line-height: 30px;
-      margin: 0 0 20px;
-      overflow: hidden;
-      padding: 20px;
-      dt,
-      dd {
-        float: left;
-        height: 1.5em;
-        line-height: 1.5em;
-        margin: 0;
-      }
-      dt {
-        font-size: 12px;
-        &.reached {
-          margin-top: -1.5em;
-          color: #666633;
-        }
-      }
-      dd {
-        font-size: 28px;
-        font-weight: 600;
-        &.supporters {
-          clear: left;
-        }
-        &.reached {
-          color: #990033;
-        }
-      }
-      .supporters {
-        width: 50%;
-      }
-    }
     .supporters {
       ul {
-        background-color: #ffffff;
-        overflow: hidden;
+        background-color: $baseWhite;
         list-style: none;
         margin: -20px 0 0 0;
+        overflow: hidden;
         padding: 0;
-        border-top: 1px dashed silver;
         li{
-          background-color:  white;
+          border-bottom: $solidBorder;
+          border-right: $solidBorder;
           float: left;
-          width: 33.3%;
-          height:100px;
+          height:110px;
           position: relative;
-          border-bottom: 1px dashed #c0c0c0;
-          border-right: 1px dashed #c0c0c0;
-          &:nth-child(3n+3) {
-            width: 106px;
+          width: 50%;
+          &:nth-child(2n+2) {
             border-right: none;
           }
           &.active {
-            background-color:  #f3f3f3;
+            background-color: #f3f3f3;
             h3, h4, h5, h6 {
               color: #20B3B2;
             }
+          }
+          .supporterContainer {
+            padding: 6px;
           }
           a.expand {
             bottom: 0;
@@ -1670,8 +1407,7 @@
             text-align: center;
             display: block;
             left:6px;
-            padding-top:3px;
-            img {
+              img {
               background-color: white;
             }
           }
@@ -1694,11 +1430,10 @@
           }
           h4 {
             font-size: 16px;
-            margin-top: 2px;
-            margin-bottom: 2px;
+            line-height: 16px;
+            margin: 8px 0 4px;
             overflow: hidden;
             text-align: center;
-            line-height: 16px;
             word-wrap: break-word;
           }
           a:hover {
@@ -1713,106 +1448,13 @@
           }
           dl {
             dt {
-              float: left;
-              margin-left: 4px;
-              margin-right: 4px;
-              clear: left;
-              &.amount {
-                position: absolute;
-                right: 16px;
-                margin: 0;
-                font-size: 12px;
-                color: #666633;
-                top: 8px
-
-              }
-              &.date {
-                display: none;
-              }
-              &.worthcracy {
-                display: none;
-              }
-              &.projects{
-                font-size: 0.8em;
-              }
+              display: none;
             }
             dd {
-              &.amount {
-                position: absolute;
-                right: 16px;
-                width: 96px;
-                font-weight: 600;
-                color: #990033;
-                padding-top: 2px;
-                text-align: right;
-                height: 25px;
-                top: 28px;
-                font-size:8px;
-                line-height: 16px;
-                strong {
-                  font-size: 18px;
-                  word-wrap: nowrap;
-                }
-              }
               &.date {
-                position: absolute;
-                bottom: 2px;
                 color: #a6a8ab;
                 font-size: 10px;
-                margin-top: 5px;
                 width: 100%;
-                padding-left: 4px;
-              }
-              &.worthcracy {
-                position: absolute;
-                top: 28px;
-                margin-top: 5px;
-                ul {
-                  padding: 0;
-                  margin: 0;
-                  list-style: none;
-                  li {
-                    display: inline-block;
-                    width: 23px;
-                    height: 6px;
-                    overflow: visible;
-                    background-color: #e7e7e7;
-                    position: relative;
-                    &.done.worth-1 {
-                      background-color: #B6CAE0;
-                    }
-                    &.done.worth-2 {
-                      background-color: #92AFD1;
-                    }
-                    &.done.worth-3 {
-                      background-color: #799EC7;
-                    }
-                    &.done.worth-4 {
-                      background-color: #3C71AE;
-                    }
-                    &.done.worth-5 {
-                      background-color: #0C4E99;
-                    }
-                    > * {
-                      display: none;
-                    }
-                    > strong {
-                      display: block;
-                      position: absolute;
-                      top: 7px;
-                      font-weight: 300;
-                      width: 200px;
-                      left: 50%;
-                      margin-left: -100px;
-                      text-align: center;
-                      padding-top: 9px;
-                      background: url('/view/m/images/worth/beak.png') no-repeat center top;
-                    }
-                  }
-                }
-              }
-              &.projects{
-                font-size: 0.8em;
               }
             }
           }
@@ -1820,8 +1462,10 @@
       }
     }
     ul#pagination {
-      margin-top: 10px;
       clear: both;
+      li {
+        margin-top: 10px;
+      }
     }
   }
 
@@ -1863,7 +1507,6 @@
 
   //ブログ活動報告ウィジェット
   &.post {
-    background-color: #fff;
     line-height: 18px;
     margin: 0 ;
     h4 {

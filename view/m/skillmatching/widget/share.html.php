@@ -77,7 +77,7 @@ if(strstr($_url,$_value) && preg_match('/^\/skillmatching\/(.*)$/',$_url)): ?>
               })();
             </script>
         </div>
-        <div id="embed">aaaaa
+        <div id="embed">
             <a target="_blank" id="a-proyecto" href="#proyecto" title=""><img src="/view/images/embed_btn.png" alt="埋め込み"></a>
             <div style="display: none;">
                 <div id="proyecto" class="widget projects" style="width:600px;height:600px;overflow:hidden;padding:0;">

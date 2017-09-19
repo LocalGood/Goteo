@@ -28,10 +28,9 @@ $project = $this['project'];
 ?>
 <div class="widget project-support collapsable" id="project-support">
 
-    <h<?php echo $level + 1 ?> class="supertitle"><?php echo Text::get('project-support-supertitle'); ?></h<?php echo $level + 1 ?>>
     <h<?php echo $level + 1 ?> class="supertitle">
 
-        <?php if ($project->status < 3): ?>
+        <?php if ($project->status == 3): ?>
             <?php if (!empty($project->round)) : ?>
                 <span class="round"><?php echo $project->round; if ($project->round == 1 ){ echo 'st '; } else { echo 'nd '; }; echo Text::get('regular-round'); ?></span>
             <?php endif; ?>

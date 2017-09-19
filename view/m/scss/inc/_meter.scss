@@ -81,23 +81,17 @@
       margin-bottom: 14px;
       .reached,
       .supporters {
+        color: #000;
+        display: inline-block;
         strong {
           color: #000;
           font-size: 16px;
         }
       }
-      .reached {
-        color: #000;
-        display: inline-block;
-      }
       dt.reached {
         font-size: 14px;
         font-weight: 300;
         padding-top: 0;
-      }
-      .supporters {
-        color: #000;
-        display: inline-block;
       }
       dt.supporters {
         &:before {
@@ -168,34 +162,20 @@
   &.skillmatching {
     padding: 4px 0 78px;
     dl.reached-bar {
-      dt, dd {
-        height: 30px;
-        width: 50%;
-      }
-      dt {
-        &.days {
-          padding-top: 5px;
-          right: 0;
-          top: 0;
-        }
-        &.supporters {
-          left: 0;
-          padding-top: 5px;
-          top: 0;
-          &:before {
-            content: '';
-          }
+      text-align: center;
+      .days,
+      .supporters {
+        color: #000;
+        display: inline-block;
+        strong {
+          color: #000;
+          font-size: 16px;
         }
       }
-      dd {
-        &.days {
-          border-top: 1px solid $grayCol01;
-          top: 0;
-        }
-        &.supporters {
-          border-top: 1px solid $grayCol01;
-          left: 0;
-          top: 0;
+      dt.supporters {
+        &:before {
+          content: '/';
+          display: inline-block;
         }
       }
     }

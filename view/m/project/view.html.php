@@ -177,11 +177,10 @@ $bodyClass = 'project-show'; include 'view/m/prologue.html.php' ?>
                     
                     default:
                         echo
-                            new View('view/m/project/widget/gallery.html.php', array('project' => $project)),
                             new View('view/m/project/widget/summary.h_ttl.html.php', array('project' => $project)),
-                            new View('view/m/project/meter.home.html.php', array('project' => $project, 'lavel' => $lavel, 'supporters' => $supporters)),
+                            new View('view/m/project/widget/support.html.php', array('project' => $project)),
+                        new View('view/m/project/widget/gallery.html.php', array('project' => $project)),
                             new View('view/m/project/widget/summary.html.php', array('project' => $project));
-                            ;
                         break;
                 }
                 ?>

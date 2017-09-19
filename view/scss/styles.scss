@@ -19,7 +19,7 @@ user-profile  :
 page          :スタイル調整が必要なページ
 */
 
-//@import "inc/palette";
+@import "inc/_palette.scss";
 @import "inc/_colors.scss";
 @import "inc/_mixins.scss";
 @import "inc/_base.scss";

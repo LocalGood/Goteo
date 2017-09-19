@@ -44,34 +44,6 @@ uasort($project->individual_rewards,
 ?>
 <div class="widget project-rewards-summary" id="rewards-summary">
 
-    <h<?php echo $level ?> class="supertitle"><?php echo Text::get('project-rewards-supertitle'); ?></h<?php echo $level ?>>
-
-    <?php if (!empty($project->social_rewards)) : ?>
-    <div class="social">
-        <h<?php echo $level + 1 ?> class="title"><?php echo Text::get('project-rewards-social_reward-title'); ?></h<?php echo $level + 1 ?>>
-        <ul>
-        <?php foreach ($project->social_rewards as $social) : ?>
-            <li class="<?php echo $social->icon ?>">
-                <h<?php echo $level + 2 ?> class="name"><?php echo  htmlspecialchars($social->reward) ?></h<?php echo $level + 2 ?>
-                <p><?php echo htmlspecialchars($social->description)?></p>
-                <?php if (!empty($social->license) && array_key_exists($social->license, $licenses)): ?>
-                <div class="license <?php echo htmlspecialchars($social->license) ?>">
-                    <h<?php echo $level + 3 ?>><?php echo Text::get('regular-license'); ?></h<?php echo $level + 3 ?>>
-                    <a href="<?php echo htmlspecialchars($licenses[$social->license]->url) ?>" target="_blank">
-                        <strong><?php echo htmlspecialchars($licenses[$social->license]->name) ?></strong>
-
-                    <?php if (!empty($licenses[$social->license]->description)): ?>
-                    <p><?php echo htmlspecialchars($licenses[$social->license]->description) ?></p>
-                    <?php endif ?>
-                    </a>
-                </div>
-                <?php endif ?>
-            </li>
-        <?php endforeach; ?>
-        </ul>
-    </div>
-    <?php endif; ?>
-
     <?php if (!empty($project->individual_rewards)) : ?>
     <div class="individual">
         <h<?php echo $level+1 ?> class="title"><?php echo Text::get('project-rewards-individual_reward-title'); ?></h<?php echo $level+1 ?>>
@@ -79,20 +51,53 @@ uasort($project->individual_rewards,
         <?php foreach ($project->individual_rewards as $individual) : ?>
         <li class="<?php echo $individual->icon ?>">
 
-            <div class="amount"><?php echo Text::get('regular-investing'); ?> <span class="euro"><?php echo \amount_format($individual->amount); ?>円</span></div>
-            <h<?php echo $level + 2 ?> class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>
-            <?php if (!empty($individual->units)) :
+            <dl class="amount">
+                <dt><?php echo Text::get('regular-support-amount'); ?></dt>
+                <dd><strong><?php echo \amount_format($individual->amount); ?></strong>円</dd>
+            </dl>
+            <?php if (!empty($individual->units)):
                 $units = ($individual->units - $individual->taken);
                 ?>
-                <p class="remain"><strong><?php echo Text::get('project-rewards-individual_reward-limited'); ?> <?php echo $units; ?></strong></p>
+                <dl class="remain">
+                    <dt><?php echo Text::get('project-rewards-individual_reward-limited'); ?></dt>
+                    <dd><?php echo $units; ?></dd>
+                </dl>
             <?php endif; ?>
+
+            <h<?php echo $level + 2 ?> class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>
             <p><?php echo htmlspecialchars($individual->description)?></p>
-            <div class="investors"><span class="taken"><?php echo $individual->taken; ?></span><?php echo Text::get('project-view-metter-investors'); ?></div>
+            <img src="<?php echo SRC_URL ?>/view/images/" alt="<?/*php todo: $project->新しく追加されるお礼画像のキャプション　を出す */?>">
 
         </li>
         <?php endforeach ?>
         </ul>
     </div>
+    <?php endif; ?>
+
+    <?php if (!empty($project->social_rewards)) : ?>
+        <div class="social">
+            <h<?php echo $level + 1 ?> class="title"><?php echo Text::get('project-rewards-social_reward-title'); ?></h<?php echo $level + 1 ?>>
+            <ul>
+                <?php foreach ($project->social_rewards as $social) : ?>
+                    <li class="<?php echo $social->icon ?>">
+                        <h<?php echo $level + 2 ?> class="name"><?php echo htmlspecialchars($social->reward) ?></h<?php echo $level + 2 ?>>
+                        <p><?php echo htmlspecialchars($social->description) ?></p>
+                        <?php if (!empty($social->license) && array_key_exists($social->license, $licenses)): ?>
+                            <div class="license <?php echo htmlspecialchars($social->license) ?>">
+                                <h<?php echo $level + 3 ?>><?php echo Text::get('regular-license'); ?></h<?php echo $level + 3 ?>>
+                                <a href="<?php echo htmlspecialchars($licenses[$social->license]->url) ?>" target="_blank">
+                                    <strong><?php echo htmlspecialchars($licenses[$social->license]->name) ?></strong>
+
+                                    <?php if (!empty($licenses[$social->license]->description)): ?>
+                                        <p><?php echo htmlspecialchars($licenses[$social->license]->description) ?></p>
+                                    <?php endif ?>
+                                </a>
+                            </div>
+                        <?php endif ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
     <?php endif; ?>
 
 </div>

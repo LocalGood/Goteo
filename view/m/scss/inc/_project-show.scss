@@ -29,12 +29,12 @@
         width: 100vw;
       }
       .flipsnap_projectnav {
-        background-color: $color10;
+        background-color: $baseWhite;
         font-size: 0;
         list-style: none;
         margin: 0 5%;
         padding: 0;
-        width: 700px!important;
+        width: 680px;
         &:after {
           clear: both;
           content: '';
@@ -74,7 +74,7 @@
       }
       .pj_prev,
       .pj_next {
-        background-color: $color10;
+        background-color: $baseWhite;
         display: block;
         font-size: 12px;
         height: 40px;
@@ -187,9 +187,20 @@
 
     .center {
 
+      > .widget {
+        background-color: $baseWhite;
+        margin-bottom: 20px;
+        padding: 20px;
+      }
+
+      .widget.project-summary.h_ttl {
+        background: none;
+        margin-bottom: 0;
+      }
+
       //ギャラリー
       .gallery-image{
-        background-color: $color10;
+        background-color: $baseWhite;
         display:block;
         margin: 0 auto 40px;
         max-height: 240px;
@@ -214,7 +225,7 @@
         .meter {
           > h3.title {
             background-color: $grayCol03;
-            color: $color10;
+            color: $baseWhite;
             font-size: 12px;
             font-weight: 600;
             height: 30px;
@@ -229,18 +240,10 @@
 
       //支援者ウィジェット
       .widget.project-supporters {
-        .widget.project-summary.h_ttl {
-          border-bottom: none;
-        }
-        dl.summary {
-          .supporters,
-          .reached {
-            clear: none;
-            width: 300px;
-          }
-          dt.reached {
-            margin-top: 0;
-          }
+        padding: 0;
+        margin-top: 20px;
+        h3.title {
+          display: none;
         }
       }
 
@@ -289,13 +292,19 @@
 
       //スキルと物品の募集
       .widget.project-collaborations {
+        background: none;
+        padding: 0;
         .project-widget-box {
+          background: none;
           ul {
-            padding: 16px;
             li {
-              margin-bottom: 24px;
+              background-color: $baseWhite;
               list-style: none;
-              line-height: 32px;
+              margin-bottom: 12px;
+              padding: 16px;
+              &:last-child {
+                margin-bottom: 0;
+              }
             }
           }
           h6 {
@@ -313,33 +322,38 @@
         }
       }
 
-      //資金の内訳ウィジェット
-      .widget.project-needs {
-        max-width: 620px;
-        padding-bottom: 0;
-        p.click span.text {
-          margin-left: 0;
-        }
+      //お礼・公共リターンウィジェット
+      .widget.project-rewards-summary {
+        background: none;
+        padding: 0;
       }
 
       //サブナビ　＞　プロジェクト
       &.home {
         .widget.project-support {
-          padding: 0 20px 40px;
+          margin: 0 20px 20px;
+          padding: 0;
         }
       }
 
       //サブナビ　＞　資金の内訳
       &.needs {
-        .widget.project-needs,
-        .widget.project-message,
-        .widget.project-schedule {
-          margin-bottom: 20px;
-        }
         .widget.project-message {
           a.preview {
             top: 205px;
           }
+        }
+      }
+
+      //サブナビ　＞　スキル・物品の募集
+      &.messages {
+        //メッセージ送信
+        .widget.project-message {
+          margin-bottom: 0;
+        }
+        //メッセージ表示
+        .widget.project-messages {
+          padding-top: 0;
         }
       }
 
@@ -412,23 +426,6 @@
   .widget.project-spread{
     .obtained {
       display: none;
-    }
-  }
-
-  //スキルと物品の募集
-  .widget.project-collaborations {
-    .project-widget-box {
-      background-color: #fff;
-      border-bottom: 1px dashed $grayCol01;
-      ul {
-        margin: 0;
-        list-style: none;
-        li p {
-          background: none no-repeat left 5px;
-          line-height: 1.7em;
-          font-size: 13px;
-        }
-      }
     }
   }
 
@@ -514,8 +511,7 @@
       padding-left: 16px;
       padding-right: 16px;
       &.skillmatching {
-        padding-bottom: 98px;
-        padding-top: 10px;
+        padding-bottom: 28px;
       }
     }
     .invest-notice {

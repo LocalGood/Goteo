@@ -84,7 +84,7 @@ $minimum_ratio =  min(100, round(($minimum / $optimum) * 100));
             <h<?php echo $level ?> class="title investment"><?php echo Text::get('project-view-metter-investment'); ?></h<?php echo $level ?>>
         <? endif; ?>
 
-        <dl class="amount-bar">
+        <dl class="reached-bar">
             <dt class="days"><span><?php echo Text::get('project-view-metter-days'); ?></span></dt>
             <dd class="days"><strong><?php echo number_format($days) ?></strong><span><?php echo Text::get('regular-days'); ?></span></dd>
 

@@ -103,7 +103,7 @@ $level = (int) $this['level'] ?: 3;
     if(preg_match('/^\/project\/(.*)\/updates\/[0-9]{1,}$/', $_SERVER['REQUEST_URI'], $m)):
         $permalink = SITE_URL . $_SERVER['REQUEST_URI'];
         ?>
-        <div id="social_bookmark" class="update">
+        <div class="update social_bookmark">
             <div id="twitter">
                 <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
                 <script>

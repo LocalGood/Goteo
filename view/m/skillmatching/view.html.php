@@ -167,45 +167,17 @@ $bodyClass = 'project-show'; include 'view/m/prologue.html.php' ?>
                     
                     default:
                         echo
-                            new View('view/m/skillmatching/widget/gallery.html.php', array('skillmatching' => $project)),
                             new View('view/m/skillmatching/widget/summary.h_ttl.html.php', array('skillmatching' => $project)),
-                            new View('view/m/skillmatching/meter.home.html.php', array('skillmatching' => $project, 'lavel' => $lavel, 'supporters' => $supporters)),
+                            new View('view/m/skillmatching/widget/support.html.php', array('skillmatching' => $project)),
+                            new View('view/m/skillmatching/widget/gallery.html.php', array('skillmatching' => $project)),
                             new View('view/m/skillmatching/widget/summary.html.php', array('skillmatching' => $project));
-                            ;
                         break;
                 }
                 ?>
              </div>
 
             <div class="side">
-            <?php
-            // el lateral es diferente segun el show (y el invest)
-            /*
-            if($show !== 'home'){
-*/
-                echo
-                    new View('view/m/skillmatching/widget/support.html.php', array('skillmatching' => $project));
-/*
-            }
-            if ((!empty($project->investors) &&
-                !empty($step) &&
-                in_array($step, array('start', 'login', 'confirm', 'continue', 'ok', 'fail')) )
-                || $show == 'messages' ) {
-                echo new View('view/m/skillmatching/widget/investors.html.php', array('skillmatching' => $project));
-            }
-
-            if (!empty($project->supports) && $show !='messages') {
-                echo new View('view/m/skillmatching/widget/collaborations.html.php', array('skillmatching' => $project));
-            }
-            */
-
-            if ($show != 'rewards') {
-                echo new View('view/m/skillmatching/widget/rewards.html.php', array('skillmatching' => $project));
-            }
-
-            echo new View('view/m/user/widget/user.html.php', array('user' => $project->user, 'projectType' => 'skillmatching'));
-
-            ?>
+            <?php echo new View('view/m/user/widget/user.html.php', array('user' => $project->user, 'projectType' => 'skillmatching')); ?>
             </div>
 
             <?php $printSendMsg = false; ?>

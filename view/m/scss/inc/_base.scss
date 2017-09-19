@@ -51,6 +51,14 @@ h1, h2, h3, h4, h5, h6 {
   margin: 1em 0;
 }
 
+a,
+a:link{
+  color: $mainCol01;
+  &:hover{
+    color: $mainCol02;
+  }
+}
+
 input[type="text"],
 input[type="password"],
 textarea,
@@ -131,7 +139,7 @@ a.button.red {
   line-height: 50px;
 }
 
-input[type="submit"]:active,
+/*input[type="submit"]:active,
 input[type="reset"]:active,
 button:active,
 a.button:active {
@@ -168,11 +176,11 @@ button.red:hover,
 a.button.red:hover,
 input.edit[type="submit"]:hover {
   background: #e44133 url('/view/m/images/button/red-active.png') repeat-x top;
-}
+}*/
 
 /* = botones violeta
 *****************************/
-input.violet[type="submit"],
+/*input.violet[type="submit"],
 input.violet[type="reset"],
 button.violet,
 a.button.violet {
@@ -185,7 +193,7 @@ button.violet:hover,
 a.button.violet:hover {
   background: #96238F url('/view/m/images/button/violet-active.png') repeat-x top;
 }
-/* fin botones violeta */
+!* fin botones violeta *!
 
 input.weak[type="submit"],
 input.weak[type="reset"],
@@ -200,16 +208,16 @@ input.weak[type="reset"]:active,
 button.weak:active,
 a.button.weak:active {
   background: #b5161e url('/view/m/images/button/red.png') repeat-x top;
-}
+}*/
 
-input.weak[type="submit"]:hover,
+/*input.weak[type="submit"]:hover,
 input.weak[type="reset"]:hover,
 button.weak:hover,
 a.button.weak:hover {
   background: #b5161e url('/view/m/images/button/red.png') repeat-x top;
-}
+}*/
 
-input.disabled[type="submit"],
+/*input.disabled[type="submit"],
 input.disabled[type="reset"],
 button.disabled,
 a.button.disabled {
@@ -224,9 +232,9 @@ button.disabled:hover,
 a.button.disabled:hover {
   background: #CCCCCC;
   cursor: default;
-}
+}*/
 
-input.green[type="submit"],
+/*input.green[type="submit"],
 input.green[type="reset"],
 button.green,
 a.button.green {
@@ -246,7 +254,7 @@ input.green[type="reset"]:hover,
 button.green:hover,
 a.button.green:hover {
   background: #00b05b url('/view/m/images/button/green-active.png') repeat-x top;
-}
+}*/
 
 .clearfix:after {
   visibility: hidden;

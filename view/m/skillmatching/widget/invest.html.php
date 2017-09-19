@@ -138,16 +138,6 @@ if ($step == 'start') : ?>
                 <input type="text" id="zipcode" name="zipcode" value="<?php echo $personal->zipcode; ?>" />
             </td>
         </tr>
-        <tr>
-            <td>
-                <label for="location"><?php echo Text::get('invest-address-location-field') ?></label><br />
-                <input type="text" id="location" name="location" value="<?php echo $personal->location; ?>" />
-            </td>
-            <td>
-                <label for="country"><?php echo Text::get('invest-address-country-field') ?></label><br />
-                <input type="text" id="country" name="country" value="<?php echo $personal->country; ?>" />
-            </td>
-        </tr>
     </table>
 
     <p>

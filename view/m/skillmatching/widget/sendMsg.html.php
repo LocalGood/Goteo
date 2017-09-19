@@ -47,7 +47,7 @@ $level = (int) $this['level'] ?: 3;
         
     <form method="post" action="/message/direct/<?php echo $project->id; ?>">    	
     	<div id="bocadillo"></div>
-        <textarea id="message" name="message" cols="50" rows="5"></textarea>
+        <textarea id="message_text" name="message" cols="50" rows="5"></textarea>
         <?php /*
         <a target="_blank" id="a-preview" href="#preview" class="preview"><?php echo Text::get('regular-preview'); ?></a>
 */ ?>
@@ -56,8 +56,6 @@ $level = (int) $this['level'] ?: 3;
                     
                 </div>
         </div>
-        
-         
         
         <button class="green" type="submit"><?php echo Text::get('project-messages-send_message-button'); ?></button>
     </form>

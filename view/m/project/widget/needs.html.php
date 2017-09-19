@@ -45,8 +45,6 @@ foreach ($project->costs as $cost) {
 ?>
 <div class="widget project-needs">
         
-    <h<?php echo $level+1 ?> class="title"><?php echo Text::get('project-view-metter-investment'); ?></h<?php echo $level+1 ?>>
-    
     <script type="text/javascript">
 	$(document).ready(function() {
 	   $("div.click").click(function() {
@@ -56,6 +54,7 @@ foreach ($project->costs as $cost) {
 	 });
 	</script>
 
+    <!-- todo: #legendこのページに複数出て来るので、クラスメイなど直す -->
     <div id="legend">
         <div class="min"><span>&nbsp;</span><?php echo Text::get('costs-field-required_cost-yes') ?></div>
         <div class="max"><span>&nbsp;</span><?php echo Text::get('costs-field-required_cost-no') ?></div>
@@ -69,23 +68,27 @@ foreach ($project->costs as $cost) {
     <?php foreach ($list as $cost): ?>
     <div class="<?php echo htmlspecialchars($type); echo ($cost->req == 1) ? " req" : " noreq"; ?>">
         <h<?php echo $level+2 ?> class="summary"><span><?php echo htmlspecialchars($types[$type]) ?></span></h<?php echo $level+2 ?>>
-        <p class="click"><span class="text"><?php echo $cost->description ?></span></p>
-        <dl id="legend">
-            <dt class="min">
-                <?php echo Text::get('project-view-metter-minimum'); ?>
-            </dt>
-            <dd class="min">
-                <?php echo $minimum ?>
-            </dd>
-        </dl>
-        <dl id="legend">
-            <dt class="max">
-                <?php echo Text::get('project-view-metter-optimum'); ?>
-            </dt>
-            <dd class="max">
-                <?php echo $optimum ?>
-            </dd>
-        </dl>
+        <div class="inner">
+            <p class="click"><span class="text"><?php echo $cost->description ?></span></p>
+            <!-- todo: #legendこのページに複数出て来るので、クラスメイなど直す -->
+            <dl class="needs_list">
+                <dt class="min">
+                    <?php echo Text::get('project-view-metter-minimum'); ?>
+                </dt>
+                <dd class="min">
+                    <?php echo $minimum ?>
+                </dd>
+            </dl>
+            <!-- todo: #legendこのページに複数出て来るので、クラスメイなど直す -->
+            <dl class="needs_list">
+                <dt class="max">
+                    <?php echo Text::get('project-view-metter-optimum'); ?>
+                </dt>
+                <dd class="max">
+                    <?php echo $optimum ?>
+                </dd>
+            </dl>
+        </div>
     </div>
     <?php endforeach ?>
 

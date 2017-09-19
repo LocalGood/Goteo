@@ -1,0 +1,180 @@
+@charset "utf-8";
+.user-profile {
+
+  #sub-header {
+    h2 {
+      font-size: 18px;
+      font-weight: normal;
+      line-height: 1.2em;
+      min-height: 55px;
+      padding-left: 72px;
+      position: relative;
+      a {
+        @include circleAvatar(55px);
+      }
+      /*img {
+        height: 55px;
+        left: 0;
+        position: absolute;
+        width: 55px;
+      }*/
+      em {
+        display: block;
+        font-size: 24px;
+        font-weight: bold;
+        font-style: normal;
+      }
+    }
+  }
+
+  //プロジェクトオーナーへメッセージ送信するウィジェット
+  .user-message {
+    overflow:hidden;
+    position:relative;
+    z-index:99;
+    form {
+      padding: 8px;
+      label[for="message_user"] {
+        left: 8px;
+        position: absolute;
+        top: 90px;
+      }
+    }
+    textarea#message_user{
+      display:block;
+      margin-left:50px;
+      width:220px;
+    }
+    #bocadillo{
+      background:url('/view/m/images/bocadillo.jpg') no-repeat;
+      height:51px;
+      position:absolute;
+      width:56px;
+      z-index:100;
+    }
+    #a-preview{
+      color: #2EAB58;
+      font-weight: bold;
+      left: 52px;
+      position: relative;
+      text-decoration: none;
+      top: 10px;
+    }
+    button{
+      float:right;
+      margin-right:8px;
+    }
+  }
+
+  //累計寄付金額ウィジェット
+  .user-worthcracy {
+    h3.title {
+      height: 50px;
+      padding: 0;
+      border-bottom: none;
+      line-height: 50px;
+      color: #ffffff;
+      margin: 0;
+      font-size: 18px;
+      font-weight: normal;
+      text-align: center!important;
+      background-color: #669900;
+    }
+  }
+
+  //ユーザープロフィールウィジェット
+  .widget.user-about {
+    background-color: #fff;
+    border-bottom: $solidBorder;
+    line-height: 16px;
+    padding-bottom: 0;
+    > div {
+      border-top: 1px dashed #c0c0c0;
+      clear: both;
+      padding: 16px 16px 0;
+      &:nth-child(1) {
+        border-top: none;
+      }
+      &.webs {
+        ul {
+          list-style: none;
+          margin: 0;
+          overflow: visible;
+          padding: 0 0 10px;
+          li {
+            background: url('/view/m/images/social/url.png') no-repeat left center;
+            display: block;
+            line-height: 2em;
+            margin: 0 0 10px;
+            min-height: 2em;
+            padding-left: 30px;
+            word-wrap: break-word;
+            a {
+              font-size: 12px;
+              text-decoration: none;
+              &:hover {
+                color: #20B3B2;
+              }
+            }
+          }
+        }
+      }
+      &.location {
+        h4 {
+          display: none;
+        }
+        p {
+          background: url("/view/m/images/location/m.png") no-repeat left center;
+          line-height: 20px;
+          min-height: 22px;
+          padding-left: 28px;
+          a:hover,
+          a:hover * {
+            color: #20B3B2;
+          }
+        }
+        p,
+        p * {
+          font-size: 12px;
+          font-weight: normal;
+          text-decoration: none;
+          font-style: normal;
+        }
+      }
+      &.message {
+        p {
+          background: url("/view/m/images/bocadillo/s.png") no-repeat left center;
+          line-height: 22px;
+          min-height: 22px;
+          padding-left: 26px;
+          a {
+            color: #28B258;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+    h4 {
+      font-size: 15px;
+      font-weight: bolder;
+      margin: 0 0 12px;
+    }
+    p {
+      margin: 0 0 16px;
+    }
+    .improper_report {
+      padding: 16px;
+      text-align: right;
+      a {
+        color: #808080;
+        font-size: 11px;
+      }
+    }
+  }
+
+}

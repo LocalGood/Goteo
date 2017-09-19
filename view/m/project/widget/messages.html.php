@@ -28,8 +28,8 @@ $level = (int) $this['level'] ?: 3;
 <script type="text/javascript">
 	jQuery(document).ready(function ($) { 
 	    //change div#preview content when textarea lost focus
-		$("#message-text").blur(function(){
-			$("#preview").html($("#message-text").val().replace(/\n/g, "<br />"));
+		$("#message_text").blur(function(){
+			$("#preview").html($("#message_text").val().replace(/\n/g, "<br />"));
 		});
 		
 		//add fancybox on #a-preview click
@@ -42,7 +42,7 @@ $level = (int) $this['level'] ?: 3;
 
     function answer(id) {
         $('#thread').val(id);
-        $('#message-text').val('<?php echo Text::get('project-messages-send_message-your_answer'); ?>').focus().select();
+        $('#message_text').val('<?php echo Text::get('project-messages-send_message-your_answer'); ?>').focus().select();
     }
 </script>
 <?php if (!empty($_SESSION['user']) && $project->status >= 3) : ?>
@@ -53,11 +53,9 @@ $level = (int) $this['level'] ?: 3;
         <form method="post" action="/message/<?php echo $project->id; ?>">
             <input type="hidden" id="thread" name="thread" value="<?php echo $thread;?>" />
             <div id="bocadillo"></div>
-            <textarea id="message-text" name="message" cols="50" rows="5"></textarea>
+            <textarea id="message_text" name="message" cols="50" rows="5"></textarea>
             <div style="display:none">
-                <div id="preview" style="width:400px;height:300px;overflow:auto;">
-                        
-                    </div>
+                <div id="preview" style="width:400px;height:300px;overflow:auto;"></div>
             </div>
             <button class="green" type="submit"><?php echo Text::get('project-messages-send_message-button'); ?></button>
         </form>
@@ -65,7 +63,6 @@ $level = (int) $this['level'] ?: 3;
 </div>
 <?php endif; ?>
 <div class="widget project-messages">
-
 
     <div id="project-messages">
 
@@ -76,21 +73,22 @@ $level = (int) $this['level'] ?: 3;
                     <img src="<?php echo $message->user->avatar->getLink(50,50, true); ?>" alt="" />
                    </a>
                   </span>
+
                    <h<?php echo $level ?> class="user">
 				   <a href="/user/profile/<?php echo htmlspecialchars($message->user->id)?>" target="_blank">
-				   <?php echo htmlspecialchars($message->user->name); if ($message->blocked == 1) echo ' ' . Text::get('regular-looks_for'); ?>
+    				   <span class="user_name"><?php echo htmlspecialchars($message->user->name); ?></span><?php if ($message->blocked == 1) echo ' ' . Text::get('regular-looks_for'); ?>
                    </a>
                    </h<?php echo $level ?>>
                    <a name="message<?php echo $message->id; ?>"></a>
-                   <div class="date"><span><?php echo $message->timeago ?>前</span></div>
                    <blockquote><?php echo $message->message; ?></blockquote>
                 <?php if (!empty($_SESSION['user'])) : ?>
-                   <div class="actions">
+                   <div class="actions_date">
                         <a class="" href="#" onclick="answer('<?php echo $message->id; ?>')"><?php echo Text::get('project-messages-answer_it'); ?></a>
                         <?php // si puede borrar este mensaje
                         if (\Goteo\Core\ACL::check("/message/delete/{$message->id}/{$project->id}")) : ?>
                                 <a href="/message/delete/<?php echo $message->id; ?>/<?php echo $project->id; ?>"><?php echo Text::get('regular-delete'); ?></a>
                         <?php endif ?>
+                       <div class="date"><span><?php echo $message->timeago ?>前</span></div>
                    </div>
                 <?php endif; ?>
                 </div>
@@ -106,15 +104,15 @@ $level = (int) $this['level'] ?: 3;
                            <a name="message<?php echo $child->id; ?>" />
                            <h<?php echo $level ?> class="user">
 						   <a href="/user/profile/<?php echo htmlspecialchars($child->user->id) ?>" target="_blank">
-						   <?php echo $child->user->name; ?>
+                               <span class="user_name"><?php echo $child->user->name; ?></span>
                            </a>
                            </h<?php echo $level ?>>
-                           <div class="date"><span><?php echo $child->timeago; ?>前</span></div>
                            <blockquote><?php echo $child->message; ?></blockquote>
                            <?php // si puede borrar este mensaje
                            if (\Goteo\Core\ACL::check("/message/delete/{$child->id}/{$project->id}")) : ?>
-                           <div class="actions">
+                           <div class="actions_date">
                                 <a href="/message/delete/<?php echo $child->id; ?>/<?php echo $project->id; ?>"><?php echo Text::get('regular-delete'); ?></a>
+                               <div class="date"><span><?php echo $child->timeago; ?>前</span></div>
                            </div>
                            <?php endif; ?>
                        </div>

@@ -37,12 +37,10 @@ foreach ($project->investors as $user=>$investor) {
     $investors[] = $investor;
 }
 
-
 // en la p�gina de cofinanciadores, paginaci�n de 20 en 20
 require_once 'library/pagination/pagination.php';
 
 $pagedResults = new \Paginated($investors, 20, isset($_GET['page']) ? $_GET['page'] : 1);
-
 
 ?>
 <div class="widget project-supporters">

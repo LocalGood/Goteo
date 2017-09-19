@@ -128,10 +128,6 @@ if ($step == 'start') : ?>
                 <label for="fullname"><?php echo Text::get('invest-address-name-field') ?></label><br />
                 <input type="text" id="fullname" name="fullname" value="<?php echo $personal->contract_name; ?>" />
             </td>
-            <!--<td><?php /* Para ocultar el campo nif:  id="donation-data" style="display:none;"  */ ?>
-                <label for="nif"><?php echo Text::get('invest-address-nif-field') ?></label><br />
-                <input type="text" id="nif" name="nif" value="<?php echo $personal->contract_nif; ?>" />
-            </td>-->
         </tr>
         <tr>
             <td>
@@ -141,16 +137,6 @@ if ($step == 'start') : ?>
             <td>
                 <label for="zipcode"><?php echo Text::get('invest-address-zipcode-field') ?></label><br />
                 <input type="text" id="zipcode" name="zipcode" value="<?php echo $personal->zipcode; ?>" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="location"><?php echo Text::get('invest-address-location-field') ?></label><br />
-                <input type="text" id="location" name="location" value="<?php echo $personal->location; ?>" />
-            </td>
-            <td>
-                <label for="country"><?php echo Text::get('invest-address-country-field') ?></label><br />
-                <input type="text" id="country" name="country" value="<?php echo $personal->country; ?>" />
             </td>
         </tr>
     </table>

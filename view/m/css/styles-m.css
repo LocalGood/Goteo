@@ -1830,8 +1830,9 @@ ul#pagination {
           font-size: 10px;
           width: 100%; }
     .widget.project-supporters ul#pagination {
-      margin-top: 10px;
       clear: both; }
+      .widget.project-supporters ul#pagination li {
+        margin-top: 10px; }
   .widget.project-spread > h3.title {
     padding-left: 46px; }
   .widget.project-spread > div.widget.projects > div.left {

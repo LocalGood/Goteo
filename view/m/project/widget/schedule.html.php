@@ -89,7 +89,7 @@ $until = mktime(0, 0, 0, date('m', $until) + 1, -1, date('Y', $until));
                         
         <thead class="months">
             <tr>
-                <th><?php echo Text::get('regular-months'); ?></th>
+                <th><span><?php echo Text::get('regular-months'); ?></span></th>
                 <?php 
                 $d = $from;
                 while ( $d <= $until) {
@@ -156,89 +156,88 @@ $until = mktime(0, 0, 0, date('m', $until) + 1, -1, date('Y', $until));
             
             ?>
             <tr>
-                <th><strong><?php echo $iCost ?></strong>
-                    <span><?php echo htmlspecialchars($cost->cost) ?></span></th>
+                <th>
+                    <span><?php echo htmlspecialchars($cost->cost) ?></span>
+                </th>
                 
-                    <?php                                                 
+                <?php
 
-                    $d = $from;
+                $d = $from;
 
-                    $span = 0;
-                    $i = 0;
+                $span = 0;
+                $i = 0;
 
-                    while (true) {
-                        
-                        if ($span === 7) {
-                            echo '<td colspan="7"></td>';
-                            $span = 0;
-                        } else if ($d >= $cost_from) {
-                            if ($span > 1) {
-                                echo '<td colspan="', $span, '"></td>';
-                            } else if ($span) {
-                                echo '<td></td>';
-                            }
-                            break;
-                        }                   
+                while (true) {
 
-                        $span++;
-                        $i++;                    
-                        $d = mktime(0, 0, 0, date('m', $d), date('d', $d) + 1, date('Y', $d));
-
-                    }               
-
-                    $span = 0;
-
-                    while ($d <= $cost_until) {
-                        $span++;                    
-                        $i++;
-                        $d = mktime(0, 0, 0, date('m', $d), date('d', $d) + 1, date('Y', $d));
-                    }
-                    
-                    $cls = 'on ' . htmlspecialchars($cost->type);
-                    $cls .= $cost->required ? ' req' : ' noreq';
-
-                    echo '<td';
-
-                    if ($span > 1) {
-                        echo ' colspan="', $span, '"';
+                    if ($span === 7) {
+                        echo '<td colspan="7"></td>';
+                        $span = 0;
+                    } else if ($d >= $cost_from) {
+                        if ($span > 1) {
+                            echo '<td colspan="', $span, '"></td>';
+                        } else if ($span) {
+                            echo '<td></td>';
+                        }
+                        break;
                     }
 
-                    echo ' class="', $cls, '">',
-                         '<span title="', date('d/m/Y', $cost_from), ' - ', date('d/m/Y', $cost_until), '">',
-                         htmlspecialchars($cost->cost), '</span></td>';
+                    $span++;
+                    $i++;
+                    $d = mktime(0, 0, 0, date('m', $d), date('d', $d) + 1, date('Y', $d));
 
-                    $span = 0;
+                }
 
-                    while (true) {
+                $span = 0;
 
-                        if ($d > $until) {
+                while ($d <= $cost_until) {
+                    $span++;
+                    $i++;
+                    $d = mktime(0, 0, 0, date('m', $d), date('d', $d) + 1, date('Y', $d));
+                }
 
-                            if ($span) {
-                                echo '<td colspan="', $span, '"></td>';
-                            }                        
-                            break;
+                $cls = 'on ' . htmlspecialchars($cost->type);
+                $cls .= $cost->required ? ' req' : ' noreq';
 
-                        } else if (!($i % 7)) {
+                echo '<td';
 
-                            if ($span > 1) {
-                                echo '<td colspan="', $span, '"></td>';
-                            } else if ($span) {
-                                echo '<td></td>';
-                            }
+                if ($span > 1) {
+                    echo ' colspan="', $span, '"';
+                }
 
-                            $span = 1;
+                echo ' class="', $cls, '">', '</td>';
 
-                        } else {
-                            $span++;
+                $span = 0;
+
+                while (true) {
+
+                    if ($d > $until) {
+
+                        if ($span) {
+                            echo '<td colspan="', $span, '"></td>';
+                        }
+                        break;
+
+                    } else if (!($i % 7)) {
+
+                        if ($span > 1) {
+                            echo '<td colspan="', $span, '"></td>';
+                        } else if ($span) {
+                            echo '<td></td>';
                         }
 
-                        $i++;
+                        $span = 1;
 
-                        $d = mktime(0, 0, 0, date('m', $d), date('d', $d) + 1, date('Y', $d));                    
+                    } else {
+                        $span++;
+                    }
 
-                    }    
+                    $i++;
 
-                    ?>
+                    $d = mktime(0, 0, 0, date('m', $d), date('d', $d) + 1, date('Y', $d));
+
+                }
+
+                ?>
             </tr>
             <?php endif ?>            
         </tbody>
