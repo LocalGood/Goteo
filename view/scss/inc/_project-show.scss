@@ -59,7 +59,7 @@
         font-size: 12px;
         text-decoration: none;
         &:hover {
-          color: $color06;
+          color: $mainCol02;
         }
       }
     }
@@ -132,28 +132,9 @@
   .project-message {
     position:relative;
     div#bocadillo {
+      @include comment_icon(30px);
       //background:url('/view/images/bocadillo.jpg') no-repeat;
       //height:50px;
-      width: 30px;
-      height: 30px;
-      text-align: center;
-      margin-top:8px;
-      position:absolute;
-      //width:50px;
-      -webkit-border-radius: 50%;
-      -moz-border-radius: 50%;
-      border-radius: 50%;
-      background: lighten($mainCol01,40%);
-      display: inline-block;
-      font: normal normal normal 14px/1 FontAwesome;
-      font-size: inherit;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      &:before{
-        content: "\f075";
-        color: $mainCol01;
-        line-height: 30px;
-      }
     }
     button {
       float:right;
@@ -1012,6 +993,7 @@
         .read_more {
           margin-top: 16px;
           a {
+            @include text_link_arrow($mainCol01);
             color: $mainCol01;
             display: inline-block;
             font-size: 12px;
@@ -1020,10 +1002,10 @@
             position: relative;
             text-decoration: none;
             &:after {
-              background: url('/view/images/arrow-updates.png') no-repeat 50%;
-              bottom: 0;
-              content: '';
-              display: block;
+              //background: url('/view/images/arrow-link.png') no-repeat 50%;
+              //bottom: 0;
+              //content: '';
+              //display: block;
               height: 8px;
               margin: auto;
               right: 0;
@@ -1139,11 +1121,8 @@
           overflow:hidden;
         }
         #bocadillo{
-          background:url('/view/images/bocadillo.jpg') no-repeat;
-          position:absolute;
-          width: 50px;
-          height: 50px;
-          margin-top: 8px;
+          //background:url('/view/images/bocadillo.jpg') no-repeat;
+          @include comment_icon(30px);
         }
         #send_message {
           background-color: #FFF;//#DCEEDF
