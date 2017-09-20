@@ -100,6 +100,41 @@ $fz15px: 1.0714285rem;
   text-align: center;
   background: $bk;
 }
+@mixin comment_icon($size){
+  position: absolute;
+  width: $size;
+  height: $size;
+  margin-top: 8px;
+  text-align: center;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background: lighten($mainCol01,40%);
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  &:before{
+    content: "\f075";
+    color: $mainCol01;
+    line-height: 30px;
+  }
+}
+
+@mixin text_link_arrow($color){
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  &:after{
+    content: "\f105";
+    color: $color;
+    font-weight: bold;
+  }
+}
 /*----------------------------------------------------------------------
  borders
 ----------------------------------------------------------------------*/

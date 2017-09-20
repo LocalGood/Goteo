@@ -274,7 +274,7 @@
               text-decoration:none;
               text-transform:uppercase;
               &:hover {
-                color: $color06;//#20B3B2
+                color: $mainCol02;//#20B3B2
               }
             }
           }
@@ -394,11 +394,28 @@
         }
       }
       &.message {
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        &:before{
+          content: "\f075";
+          display: inline-block;
+          width: 25px;
+          height: 25px;
+          color: $mainCol01;
+          text-align: center;
+          line-height: 25px;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%;
+          background: lighten($mainCol01,40%);
+        }
         p {
-          background:url(/view/images/bocadillo/s.png) no-repeat left center;
+          //background:url(/view/images/bocadillo/s.png) no-repeat left center;
+          display: inline-block;
           line-height:22px;
           min-height:22px;
-          padding-left:26px;
           a {
             color: $mainCol01;//#28B258
             font-size:14px;
@@ -639,7 +656,7 @@
             background-color: $baseCol!important;
           }
           &:hover > div.user > h4 > a {
-            color: $color06;//#19B4B2
+            color: $mainCol02;//#19B4B2
           }
           .user {
             padding: 20px 20px 20px 80px;
@@ -704,28 +721,29 @@
       }
     }
     a.more {
-      color: $mainCol01;//#337ab7
-      display: inline-block;
+      @include text_link_arrow($mainCol01);
       font-size:14px;
       line-height: 58px;
       margin:0;
       min-height: 58px;
       padding: 0 20px 0 10px;
-      position: absolute;
       right: 0;
       text-decoration:none;
       top: 0;
+      //color: $mainCol01;//#337ab7
+      //display: inline-block;
+      //position: absolute;
       &:hover {
         color: $mainCol02;//#20b3b2
       }
-      &:after {
-        background: url(/view/images/arrow_user_link.png) no-repeat right 50%;
-        content: '';
-        display: inline-block;
-        height: 8px;
-        padding: 0 0 4px 4px;
-        width: 6px;
-      }
+      //&:after {
+      //  background: url(/view/images/arrow_user_link.png) no-repeat right 50%;
+      //  content: '';
+      //  display: inline-block;
+      //  height: 8px;
+      //  padding: 0 0 4px 4px;
+      //  width: 6px;
+      //}
     }
     .project-widget-box {
       background-color: $baseCol;

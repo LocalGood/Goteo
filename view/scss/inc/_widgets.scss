@@ -448,19 +448,20 @@
         margin-bottom: 20px;
         text-align: right;
         a {
+          @include text_link_arrow($mainCol01);
           color: $mainCol01;
           display: inline-block;
           font-size: 14px;
           line-height: 20px;
           text-decoration: none;
-          &:after {
-            background: url(/view/images/arrow_user_link.png) no-repeat right 50%;
-            content: '';
-            display: inline-block;
-            height: 8px;
-            padding: 0 0 4px 4px;
-            width: 6px;
-          }
+          //&:after {
+          //  background: url(/view/images/arrow_user_link.png) no-repeat right 50%;
+          //  content: '';
+          //  display: inline-block;
+          //  height: 8px;
+          //  padding: 0 0 4px 4px;
+          //  width: 6px;
+          //}
           &:hover{
             color: $mainCol02;
           }
