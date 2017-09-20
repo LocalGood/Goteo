@@ -1,14 +1,5 @@
 @charset "utf-8";
 /*----------------------------------------------------------------------
- colors
-----------------------------------------------------------------------*/
-$colMain01: #075d79; //リンクテキストのメインカラー
-$colMain02: #255b7f; //ボーダーのメインカラー
-$colMain03: #105d7f; //背景のメインカラー
-
-$colLinkText01: #337ab7; //リンクテキストのバリエーションカラー
-
-/*----------------------------------------------------------------------
  font-size (exchange rem)
 ----------------------------------------------------------------------*/
 $fz12px: 0.8571428rem;
@@ -61,27 +52,61 @@ $fz15px: 1.0714285rem;
   }
 }
 
-//管理画面のdl用
-@mixin adminList($leftWidth) {
-  letter-spacing: -.4em;
-  dt {
-    display: inline-block;
-    letter-spacing: normal;
-    vertical-align: top;
-    width: $leftWidth;
-    &:not(:last-child) {
-      margin-bottom: 20px;
-    }
+@mixin comment_icon($size){
+  position: absolute;
+  width: $size;
+  height: $size;
+  text-align: center;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background: lighten($mainCol01,40%);
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  &:before{
+    content: "\f075";
+    color: $mainCol01;
+    line-height: 30px;
   }
-  dd {
-    display: inline-block;
-    letter-spacing: normal;
-    margin-left: 20px;
-    vertical-align: top;
-    width: 750px - 20px - $leftWidth;
-    &:not(:last-child) {
-      margin-bottom: 20px;
-    }
+}
+@mixin text_link_arrow($color){
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  &:after{
+    content: "\f105";
+    color: $color;
+    font-weight: bold;
+  }
+}
+//messages
+@mixin message_box{
+  background-color: $baseCol;
+  border-radius: 8px;
+  margin-left: 50px;
+  overflow: visible;
+  position: relative;
+  padding: 12px 16px;
+  &:before {
+    background: none;
+    border: 10px solid transparent;
+    border-right: 15px solid $baseCol;
+    content: '';
+    display: block;
+    height: 0;
+    left: -20px;
+    position: absolute;
+    top: 10px;
+    width: 0;
+  }
+  &.child {
+    margin-left: 90px;
   }
 }
 

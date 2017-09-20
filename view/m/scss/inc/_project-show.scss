@@ -370,6 +370,7 @@
       &.updates {
         .project-updates {
           background: none;
+          margin-bottom: 12px;
           padding: 0;
           .widget.post {
             background-color: $baseWhite;
@@ -389,7 +390,7 @@
             }
           }
           .blog-share {
-            margin-bottom: 20px;
+            padding-top: 20px;
             .social_bookmark {
               margin-bottom: 12px;
               margin-left: 0;
@@ -400,11 +401,6 @@
             padding: 0 10px;
           }
         }
-      }
-
-      //達成レポート
-      &.evaluation {
-
       }
 
       form div.widget {
