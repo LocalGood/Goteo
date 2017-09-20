@@ -60,14 +60,14 @@ body.review div {
               height: 2.6em;
               right: 0;
               z-index: 9;
-              background-color: #808285;
+              background-color: $grayCol02;
             }
-            background-color: #808285;
+            background-color: $grayCol02;
           }
           &.current {
-            background-color: #808285;
+            background-color: $grayCol02;
             ul {
-              background-color: #808285;
+              background-color: $grayCol02;
             }
           }
         }

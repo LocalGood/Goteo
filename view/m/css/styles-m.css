@@ -621,7 +621,7 @@ ul#pagination {
     width: 70px;
     text-align: center;
     &:hover {
-      background: #808285;
+      background: $grayCol02;
       > a {
         color: #908499;
       }
@@ -674,7 +674,7 @@ ul#pagination {
           left: 50%;
           margin-top: 6px;
           margin-left: -150px;
-          color: #808285;
+          color: $grayCol02;
         }
         > em {
           font-style: normal;
@@ -1857,26 +1857,48 @@ ul#pagination {
     line-height: 18px;
     margin: 0; }
     .widget.post h4 {
-      background-color: #666666;
-      color: #f5f5f5;
-      font-weight: 300;
-      margin: 0;
-      padding: 8px 0 8px 20px; }
+      margin: 0 0 16px;
+      line-height: 32px; }
       .widget.post h4 a {
-        color: #f5f5f5;
         font-size: 15px;
-        font-weight: 300;
-        margin: 0 0 5px 0;
+        font-weight: 600;
+        margin: 0 0 5px;
         text-decoration: none; }
     .widget.post .date {
       display: block;
-      color: #808285;
-      margin: 10px;
-      font-size: 12px;
-      text-align: right; }
+      color: #828282;
+      font-size: 12px; }
+    .widget.post blockquote {
+      font-size: 13px;
+      line-height: 1.7em;
+      margin: 8px 0 12px; }
+    .widget.post .read_more {
+      margin-top: 12px; }
+      .widget.post .read_more a {
+        color: #255b7f;
+        display: inline-block;
+        font-size: 12px;
+        line-height: 2;
+        padding-right: 10px;
+        position: relative;
+        text-decoration: none; }
+        .widget.post .read_more a:after {
+          background: url("/view/m/images/arrow-link.png") no-repeat 50%;
+          background-size: 6px auto;
+          bottom: 0;
+          content: '';
+          display: block;
+          height: 8px;
+          margin: auto;
+          right: 0;
+          position: absolute;
+          top: 0;
+          width: 6px; }
+        .widget.post .read_more a:hover {
+          color: #009acb; }
     .widget.post .categories {
       display: block;
-      color: #808285;
+      color: #828282;
       margin: 0 0 8px 0; }
     .widget.post .gallery-image {
       text-align: center;
@@ -1912,48 +1934,6 @@ ul#pagination {
         font-size: 12px;
         text-decoration: none;
         line-height: 16px; }
-    .widget.post blockquote {
-      padding: 10px;
-      margin: 0;
-      font-size: 13px;
-      line-height: 1.7em; }
-    .widget.post .read_more {
-      margin-top: 16px;
-      text-align: right; }
-      .widget.post .read_more a {
-        text-decoration: none;
-        font-size: 12px; }
-    .widget.post ul.share-goteo {
-      margin: 0;
-      padding: 0 10px 0 0;
-      list-style: none;
-      float: right;
-      background-color: #fff;
-      display: block;
-      height: 40px; }
-      .widget.post ul.share-goteo li {
-        display: inline;
-        float: left;
-        margin: 0 0 0 10px; }
-        .widget.post ul.share-goteo li.twitter a, .widget.post ul.share-goteo li.facebook a, .widget.post ul.share-goteo li.rss a {
-          height: 20px;
-          float: left;
-          padding: 0 0 0 25px;
-          font-size: 12px;
-          line-height: 20px; }
-        .widget.post ul.share-goteo li.sharetext {
-          height: 20px;
-          float: left;
-          color: #808285;
-          font-size: 12px; }
-        .widget.post ul.share-goteo li.twitter a {
-          background: transparent url("/view/m/images/twitter.png") scroll no-repeat 0 0;
-          color: #13c2ec;
-          text-decoration: none; }
-        .widget.post ul.share-goteo li.facebook a {
-          background: transparent url("/view/m/images/facebook.png") scroll no-repeat 0 0;
-          color: #4a6393;
-          text-decoration: none; }
     .widget.post .post-gallery-container {
       width: 580px;
       height: 300px;
@@ -2000,6 +1980,7 @@ ul#pagination {
       .widget.post .post-gallery a.next:hover {
         background: url("/view/m/images/small_arrowslider-sprt.png") scroll no-repeat 0 -48px; }
   .widget.post-comments {
+    background-color: #ffffff;
     margin: 0;
     padding: 10px; }
     .widget.post-comments div.message {
@@ -2033,7 +2014,7 @@ ul#pagination {
     .widget.post-comments div.owner {
       background: #e9f4ea url("/view/m/images/message/beak/2.png") no-repeat left top !important; }
   .widget.blog-comment {
-    border-bottom: 1px dashed #c0c0c0;
+    background-color: #ffffff;
     margin: 0;
     overflow: hidden;
     padding: 10px 0;
@@ -2044,17 +2025,19 @@ ul#pagination {
         content: '';
         display: block;
         clear: both; }
-    .widget.blog-comment textarea {
+    .widget.blog-comment textarea#send_message {
+      background-color: #ffffff;
+      border: 1px solid #d9d9d9;
+      box-sizing: content-box;
+      border-radius: 3px;
       clear: right;
       display: block;
       float: right;
-      width: 250px;
       height: 50px;
-      margin: 10px 10px 20px 0;
-      padding: 0.3em 0;
+      margin: 0 0 12px;
+      padding: .3em 0;
       resize: none;
-      background-color: #DCEEDF;
-      border: 1px solid #2EAB58; }
+      width: 85%; }
     .widget.blog-comment a.preview {
       color: #2EAB58;
       font-weight: 300;
@@ -2115,7 +2098,7 @@ ul#pagination {
           width: 300px;
           left: 50%;
           margin-left: -150px;
-          color: #808285; }
+          color: #828282; }
         .widget.worthcracy ul li > em {
           font-style: normal;
           font-size: 12px; }
@@ -3145,7 +3128,7 @@ body.review div#review-menu {
           right: 0;
           z-index: 0; }
       body.review div#review-menu ul li.section.active {
-        background-color: #808285; }
+        background-color: #828282; }
         body.review div#review-menu ul li.section.active ul {
           display: block;
           position: absolute;
@@ -3154,11 +3137,11 @@ body.review div#review-menu {
           height: 2.6em;
           right: 0;
           z-index: 9;
-          background-color: #808285; }
+          background-color: #828282; }
       body.review div#review-menu ul li.section.current {
-        background-color: #808285; }
+        background-color: #828282; }
         body.review div#review-menu ul li.section.current ul {
-          background-color: #808285; }
+          background-color: #828282; }
 body.review div#main div.widget {
   margin-bottom: 20px; }
 
@@ -3292,36 +3275,28 @@ body.review div#main div.widget {
       text-decoration: none; }
       .project-show #sub-header .categories a:hover {
         color: #20B3B2; }
+.project-show .social_bookmark {
+  display: flex;
+  justify-content: space-around;
+  letter-spacing: -0.4em; }
+  .project-show .social_bookmark .twitter,
+  .project-show .social_bookmark .facebook,
+  .project-show .social_bookmark .gPlus {
+    margin-right: 10px; }
+  .project-show .social_bookmark > div {
+    display: inline-block;
+    letter-spacing: normal;
+    vertical-align: top;
+    margin-right: 10px; }
+    .project-show .social_bookmark > div:last-child {
+      margin-right: 0; }
 .project-show #main {
   clear: both;
   overflow-y: hidden;
   overflow-x: hidden;
   padding: 4px;
   position: relative;
-  z-index: 0;
-    /*.side {
-      margin: 20px 0 0 0;
-      .widget {
-        margin-bottom: 20px;
-        .title {
-          background: none !important;
-        }
-      }
-
-      //スキルと物品の募集
-      .widget.project-collaborations {
-        .project-widget-box {
-          padding: 20px 20px 0;
-          ul li p {
-            padding-bottom: 16px;
-          }
-          h6 {
-            padding-left: 42px;
-          }
-        }
-      }
-
-    }*/ }
+  z-index: 0; }
   .project-show #main.threecols {
     background-color: #e7e7e7;
     padding: 0; }
@@ -3367,21 +3342,6 @@ body.review div#main div.widget {
   .project-show #main .center .widget.project-share {
     margin-bottom: 25px;
     padding: 20px; }
-    .project-show #main .center .widget.project-share .social_bookmark {
-      display: flex;
-      justify-content: space-around;
-      letter-spacing: -0.4em; }
-      .project-show #main .center .widget.project-share .social_bookmark .twitter,
-      .project-show #main .center .widget.project-share .social_bookmark .facebook,
-      .project-show #main .center .widget.project-share .social_bookmark .gPlus {
-        margin-right: 10px; }
-      .project-show #main .center .widget.project-share .social_bookmark > div {
-        display: inline-block;
-        letter-spacing: normal;
-        vertical-align: top;
-        margin-right: 10px; }
-        .project-show #main .center .widget.project-share .social_bookmark > div:last-child {
-          margin-right: 0; }
   .project-show #main .center .widget.project-invest .address {
     margin: 0 auto;
     padding: 0 0 20px 0;
@@ -3430,21 +3390,30 @@ body.review div#main div.widget {
   .project-show #main .center.profile .widget:last-child {
     margin-bottom: 0 !important;
     border-bottom: 1px dashed #d9d9d9; }
-  .project-show #main .center.updates {
-    margin: 0 auto;
-    clear: left;
-    padding: 0;
-    background-color: #fff; }
+  .project-show #main .center.updates .project-updates {
+    background: none;
+    padding: 0; }
+    .project-show #main .center.updates .project-updates .widget.post {
+      background-color: #ffffff;
+      padding: 12px 16px; }
     .project-show #main .center.updates .project-updates h3.title {
-      margin: 0;
-      padding: 8px 0 8px 20px;
-      background-color: #666666;
-      color: #f5f5f5;
-      font-weight: 300; }
-    .project-show #main .center.updates .project-updates #social_bookmark {
-      padding: 10px; }
-      .project-show #main .center.updates .project-updates #social_bookmark > div {
-        float: left; }
+      font-weight: 400;
+      margin: 12px 20px;
+      padding-left: 0; }
+    .project-show #main .center.updates .project-updates .widget.blog-comment {
+      padding: 0 16px 20px; }
+      .project-show #main .center.updates .project-updates .widget.blog-comment h3.title {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 12px 0; }
+    .project-show #main .center.updates .project-updates .blog-share {
+      margin-bottom: 20px; }
+      .project-show #main .center.updates .project-updates .blog-share .social_bookmark {
+        margin-bottom: 12px;
+        margin-left: 0;
+        position: relative; }
+    .project-show #main .center.updates .project-updates > p {
+      padding: 0 16px; }
   .project-show #main .center form div.widget {
     margin: 0 auto;
     clear: left;
@@ -4097,7 +4066,7 @@ ul.sf-footer-errors li {
         float: none;
         background: url("/view/m/images/user/plus.png") left no-repeat;
         padding-left: 15px;
-        color: #808285; }
+        color: #828282; }
       .community.about .widget.user-mates .users ul li span.contact {
         clear: both; }
       .community.about .widget.user-mates .users ul li,

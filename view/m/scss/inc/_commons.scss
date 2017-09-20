@@ -392,7 +392,7 @@ ul#pagination {
     width: 70px;
     text-align: center;
     &:hover {
-      background: #808285;
+      background: $grayCol02;
       > a {
         color: #908499;
       }

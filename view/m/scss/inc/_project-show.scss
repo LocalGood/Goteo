@@ -172,6 +172,26 @@
     }
   }
 
+  .social_bookmark {
+    display: flex;
+    justify-content: space-around;
+    letter-spacing: -0.4em;
+    .twitter,
+    .facebook,
+    .gPlus {
+      margin-right: 10px;
+    }
+    > div {
+      display: inline-block;
+      letter-spacing: normal;
+      vertical-align: top;
+      margin-right: 10px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
   #main {
     clear: both;
     overflow-y: hidden;
@@ -251,25 +271,6 @@
       .widget.project-share {
         margin-bottom: 25px;
         padding: 20px;
-        .social_bookmark {
-          display: flex;
-          justify-content: space-around;
-          letter-spacing: -0.4em;
-          .twitter,
-          .facebook,
-          .gPlus {
-            margin-right: 10px;
-          }
-          > div {
-            display: inline-block;
-            letter-spacing: normal;
-            vertical-align: top;
-            margin-right: 10px;
-            &:last-child {
-              margin-right: 0;
-            }
-          }
-        }
       }
 
       //
@@ -367,23 +368,36 @@
 
       //活動報告
       &.updates {
-        margin: 0 auto;
-        clear: left;
-        padding: 0;
-        background-color: #fff;
         .project-updates {
-          h3.title {
-            margin: 0;
-            padding: 8px 0 8px 20px;
-            background-color: #666666;
-            color: #f5f5f5;
-            font-weight: 300;
+          background: none;
+          padding: 0;
+          .widget.post {
+            background-color: $baseWhite;
+            padding: 12px 16px;
           }
-          #social_bookmark {
-            padding: 10px;
-            > div {
-              float: left;
+          h3.title {
+            font-weight: 400;
+            margin: 12px 20px;
+            padding-left: 0;
+          }
+          .widget.blog-comment {
+            padding: 0 16px 20px;
+            h3.title {
+              font-size: 16px;
+              font-weight: 600;
+              margin: 12px 0;
             }
+          }
+          .blog-share {
+            margin-bottom: 20px;
+            .social_bookmark {
+              margin-bottom: 12px;
+              margin-left: 0;
+              position: relative;
+            }
+          }
+          > p {
+            padding: 0 10px;
           }
         }
       }
@@ -395,30 +409,6 @@
       }
     }
 
-    //todo: おそらく不要になる
-    /*.side {
-      margin: 20px 0 0 0;
-      .widget {
-        margin-bottom: 20px;
-        .title {
-          background: none !important;
-        }
-      }
-
-      //スキルと物品の募集
-      .widget.project-collaborations {
-        .project-widget-box {
-          padding: 20px 20px 0;
-          ul li p {
-            padding-bottom: 16px;
-          }
-          h6 {
-            padding-left: 42px;
-          }
-        }
-      }
-
-    }*/
   }
 
 
