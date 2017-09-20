@@ -77,7 +77,8 @@ $bodyClass = 'project-show'; include 'view/m/prologue.html.php' ?>
                         'show' => $show,
                         'supporters' => $supporters,
                         'messages' => $messages,
-                        'updates' => $updates
+                        'updates' => $updates,
+                        'evaluation' => $evaluation
                     )
                 );
                 ?>
@@ -170,7 +171,8 @@ $bodyClass = 'project-show'; include 'view/m/prologue.html.php' ?>
 
                     case 'evaluation':
                         echo
-                        new View('view/m/project/widget/evaluation.html.php', array('project' => $project, 'evaluation' => $evaluation));
+                            new View('view/m/project/widget/summary.h_ttl.html.php', array('project' => $project)),
+                            new View('view/m/project/widget/evaluation.html.php', array('project' => $project, 'evaluation' => $evaluation));
                         break;
 
                     case 'home':

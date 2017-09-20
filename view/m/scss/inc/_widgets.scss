@@ -1765,9 +1765,13 @@
   //達成報告
   &.project-evaluation {
     padding: 10px 0;
-    .evaluation_content {
-      padding: 16px;
+    h3.title {
+      margin-top: 0;
+      padding-left: 0;
     }
+    /*.evaluation_content {
+      padding: 16px;
+    }*/
   }
 
 

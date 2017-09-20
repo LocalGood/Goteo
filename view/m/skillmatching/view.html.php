@@ -33,6 +33,7 @@ $step    = $this['step'];
 $post    = $this['post'];
 $blog    = $this['blog'];
 $thread    = $this['thread'];
+$evaluation = \Goteo\Library\Evaluation::get($project->id);
 $level = (int) $this['level'] ?: 3;
 
 $user    = $_SESSION['user'];
@@ -58,6 +59,11 @@ if (!empty($blog->posts)) {
 } else {
     $updates = '';
 }
+if (!empty($evaluation->content)){
+    $ev_label = '評価';
+} else {
+    $ev_label = '';
+}
 
 
 $bodyClass = 'project-show'; include 'view/m/prologue.html.php' ?>
@@ -72,7 +78,8 @@ $bodyClass = 'project-show'; include 'view/m/prologue.html.php' ?>
                         'show' => $show,
                         'supporters' => $supporters,
                         'messages' => $messages,
-                        'updates' => $updates
+                        'updates' => $updates,
+                        'evaluation' => $evaluation
                     )
                 );
                 ?>
@@ -162,7 +169,13 @@ $bodyClass = 'project-show'; include 'view/m/prologue.html.php' ?>
                             new View('view/m/skillmatching/widget/summary.h_ttl.html.php', array('skillmatching' => $project)),
                             new View('view/m/skillmatching/widget/updates.html.php', array('skillmatching' => $project, 'blog' => $blog, 'post' => $post));
                         break;
-                    
+
+                    case 'evaluation':
+                        echo
+                        new View('view/m/skillmatching/widget/summary.h_ttl.html.php', array('skillmatching' => $project)),
+                        new View('view/m/skillmatching/widget/evaluation.html.php', array('skillmatching' => $project, 'evaluation' => $evaluation));
+                        break;
+
                     case 'home':
                     
                     default:

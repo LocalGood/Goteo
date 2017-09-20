@@ -19,7 +19,7 @@
     .project-menu {
       position: relative;
       &.viewport_projectnav {
-        background-color: #e7e7e7;
+        background-color: $baseWhite;
         border-bottom: 1px solid $grayCol01;
         height: 41px;
         margin: 0 auto;
@@ -34,7 +34,7 @@
         list-style: none;
         margin: 0 5%;
         padding: 0;
-        width: 680px;
+        width: 720px;
         &:after {
           clear: both;
           content: '';
@@ -400,6 +400,11 @@
             padding: 0 10px;
           }
         }
+      }
+
+      //達成レポート
+      &.evaluation {
+
       }
 
       form div.widget {

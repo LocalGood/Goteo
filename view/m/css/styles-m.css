@@ -2061,9 +2061,13 @@ ul#pagination {
       position: absolute;
       width: 50px; }
   .widget.project-evaluation {
-    padding: 10px 0; }
-    .widget.project-evaluation .evaluation_content {
-      padding: 16px; }
+    padding: 10px 0;
+    /*.evaluation_content {
+      padding: 16px;
+    }*/ }
+    .widget.project-evaluation h3.title {
+      margin-top: 0;
+      padding-left: 0; }
   .widget.worthcracy {
     text-align: center; }
     .widget.worthcracy .title {
@@ -3159,7 +3163,7 @@ body.review div#main div.widget {
   .project-show #sub-header .project-menu {
     position: relative; }
     .project-show #sub-header .project-menu.viewport_projectnav {
-      background-color: #e7e7e7;
+      background-color: #ffffff;
       border-bottom: 1px solid #d9d9d9;
       height: 41px;
       margin: 0 auto;
@@ -3174,7 +3178,7 @@ body.review div#main div.widget {
       list-style: none;
       margin: 0 5%;
       padding: 0;
-      width: 680px; }
+      width: 720px; }
       .project-show #sub-header .project-menu .flipsnap_projectnav:after {
         clear: both;
         content: '';
@@ -3413,7 +3417,7 @@ body.review div#main div.widget {
         margin-left: 0;
         position: relative; }
     .project-show #main .center.updates .project-updates > p {
-      padding: 0 16px; }
+      padding: 0 10px; }
   .project-show #main .center form div.widget {
     margin: 0 auto;
     clear: left;
