@@ -40,11 +40,31 @@
     border-radius: 9px;
     height:18px;
     margin-bottom: 20px;
+    overflow: hidden;
     position:relative;
 
-    .minimum .done {
-      max-width:215px;
+    .done {
+      background-color: $mainCol02;//#c5da4d
+      border-radius: 9px;
+      height:18px;
+      left:0;
+      max-width:288px;
+      position:absolute;
+      top:0;
+      strong {
+        background:url('/view/images/project/widget/project_marker.png') no-repeat;
+        display:block;
+        height:11px;
+        line-height:2000px;
+        margin-right:-5px;
+        margin-top:-11px;
+        position:absolute;
+        right:0;
+        text-indent:2000px;
+        width:10px;
+      }
     }
+
     .minimum {
       //background-color: $mainCol02;
       border-radius: 9px;
@@ -52,37 +72,14 @@
       left:0;
       position:absolute;
       top:0;
-      .done {
-        background-color: $mainCol02;//#c5da4d
-        border-radius: 9px;
-        height:18px;
-        left:0;
-        max-width:288px;
-        position:absolute;
-        top:0;
-        strong {
-          background:url('/view/images/project/widget/project_marker.png') no-repeat;
-          display:block;
-          height:11px;
-          line-height:2000px;
-          margin-right:-5px;
-          margin-top:-11px;
-          position:absolute;
-          right:0;
-          text-indent:2000px;
-          width:10px;
-        }
-      }
       .left {
         float:right;
         height:18px;
-        margin-right:-2px;
         padding-left: 16px;
       }
     }
     .optimum {
       height:18px;
-      margin-right:-2px;
       position:absolute;
       right:0;
     }
