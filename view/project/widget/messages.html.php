@@ -65,7 +65,6 @@ $level = (int) $this['level'] ?: 3;
 <?php endif; ?>
 <div class="widget project-messages">
 
-
     <div id="project-messages">
 
 		<?php foreach ($project->messages as $message) : ?>
