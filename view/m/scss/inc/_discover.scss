@@ -60,6 +60,7 @@
       }
     }
     .filter {
+      box-sizing: content-box;
       margin: 0 auto 8px;
       padding: 4px 8px;
       position: relative;
@@ -103,6 +104,10 @@
     background-color: $baseWhite;
     margin: 20px 0;
 
+    h2.title {
+      padding-bottom: 0;
+    }
+
     .project {
       box-sizing: content-box;
       border: $solidBorder;
@@ -110,9 +115,6 @@
       margin: 20px auto;
       padding-bottom: 130px;
       width: 92%;
-      &:first-child {
-        margin-top: 0;
-      }
     }
   }
 
