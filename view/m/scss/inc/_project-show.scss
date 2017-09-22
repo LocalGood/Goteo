@@ -222,7 +222,7 @@
       .gallery-image{
         background-color: $baseWhite;
         display:block;
-        margin: 0 auto 40px;
+        margin: 0 auto;
         max-height: 240px;
         overflow: hidden;
         text-align:center;
@@ -498,7 +498,7 @@
   //プロジェクト詳細　＞　
   .widget.project-support {
     .meter {
-      padding-bottom: 134px;
+      //padding-bottom: 134px;
       padding-left: 16px;
       padding-right: 16px;
       &.skillmatching {

@@ -1,157 +1,135 @@
 @charset "utf-8";
 
-.meter{
+.meter {
   margin: 0 16px;
-  padding: 4px 0 148px;
   position: relative;
-  height: 20px;
-
-  h3.title.obtained {
-    display:none;
-    padding-left: 5px;
-  }
-  h3.title.investment{
-    color:#336633;
-  }
-
-  div.graph {
-    background-color: $grayCol01;
-    border-radius: 9px;
-    height: 20px;
-    margin: 24px 0 20px;
-    overflow: hidden;
-    position: relative;
-    * strong,
-    * span {
-      display: none;
-    }
-    .done {
-      background-color: $color06;
-      border-radius: 9px;
-      height: 20px;
-      left: 0;
-      max-width: 288px;
-      position: absolute;
-      top: 0;
-      strong {
-        background: url("/view/m/images/project/widget/project/project_marker.png") no-repeat;
-        background-size: 9px auto;
-        display: block;
-        height: 16px;
-        line-height: 2000px;
-        margin-right: -10px;
-        margin-top: -5px;
-        overflow: hidden;
-        position: absolute;
-        right: 0;
-        text-indent: 2000px;
-        width: 17px;
-      }
-    }
-    .minimum {
-      height: 20px;
-      .left {
-        height: 20px;
-      }
-    }
-    .left {
-      float: right;
-      height: 20px;
-    }
-  }
-
-  span.percent {
-    color: #a7a9ac;
-    font-size: 26px;
-    font-weight: 600;
-    padding-left: 15px;
-  }
-
-  dl {
-    margin: 0;
-    dt,
-    dd {
-      margin:0;
-    }
-    &.reached-bar {
-      margin-bottom: 14px;
-      .reached,
-      .supporters {
-        color: #000;
-        display: inline-block;
-        strong {
-          color: #000;
-          font-size: 16px;
-        }
-      }
-      dt.reached {
-        font-size: 14px;
-        font-weight: 300;
-        padding-top: 0;
-      }
-      dt.supporters {
-        &:before {
-          content: '/';
-          display: inline-block;
-        }
-      }
-    }
-    &.amount-bar {
-      margin: 0 0 20px;
-      position:relative;
-      .optimum,
-      .minimum {
-        display: inline-block;
-        line-height: 1.8;
-      }
-      dt, dd {
-        &.reached {
-          margin-top: 16px;
-        }
-      }
-      dt {
-        &.optimum,
-        &.minimum {
-          width: 100px;
-        }
-      }
-      dd {
-        &.optimum,
-        &.minimum {
-          width: 110px;
-        }
-        &.days {
-          width: 118px;
-          strong {
-            color: #82656f;
-          }
-        }
-      }
-    }
-    &.percent {
-      text-shadow: 1px 1px 1px $grayCol03;
-      color: #FFF;
-      font-size: 12px;
-      line-height: 18px;
-      margin-left: 16px;
-      position: absolute;
-      top: 42px;
-      dt,dd {
-        display: inline-block;
-      }
-    }
-  }
   h2, h3, h4, h5, h6 {
     font-size: 12px;
     font-weight: 600;
     margin: 0;
     padding: 2px 0 0;
   }
+  dl {
+    margin: 0;
+    dt,
+    dd {
+      margin:0;
+    }
+  }
+  dl.reached-bar {
+    margin-bottom: 14px;
+    .reached {
+      color: #000;
+      display: inline-block;
+    }
+    /*dt.reached {
+      font-size: 14px;
+      font-weight: 300;
+      padding-top: 0;
+    }*/
+    .supporters {
+      display:none;
+    }
+  }
+  h3.title.obtained {
+    display: none;
+  }
+  div.graph {
+    background-color: $grayCol01;
+    border-radius: 9px;
+    height:20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position:relative;
+
+    .done {
+      background-color: $mainCol02;
+      border-radius: 9px;
+      height:100%;
+      left:0;
+      position:absolute;
+      top:0;
+      strong {
+        background:url('/view/images/project/widget/project_marker.png') no-repeat;
+        display:block;
+        height:11px;
+        line-height:2000px;
+        margin-right:-5px;
+        margin-top:-11px;
+        position:absolute;
+        right:0;
+        text-indent:2000px;
+        width:10px;
+      }
+    }
+    .minimum {
+      border-radius: 9px;
+      height:100%;
+      left:0;
+      position:absolute;
+      top:0;
+      .left {
+        float:right;
+        height: 100%;
+        padding-left: 16px;
+      }
+    }
+    .optimum {
+      height:100%;
+      position:absolute;
+      right:0;
+    }
+  }
+  dl.percent {
+    color: #FFF;
+    font-size: 12px;
+    line-height: 20px;
+    margin-left: 16px;
+    position: absolute;
+    top: 35px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
+    dt,dd {
+      display: inline-block;
+    }
+  }
+  dl.amount-bar {
+    position:relative;
+    .optimum,
+    .minimum {
+      display: inline-block;
+      line-height: 1.8;
+    }
+    .days {
+      display: none;
+    }
+    dt, dd {
+      &.optimum {
+        color: $grayCol03;
+      }
+      &.minimum {
+        color: $grayCol03;
+      }
+      &.reached {
+        margin-top: 16px;
+      }
+    }
+    dt {
+      &.optimum,
+      &.minimum {
+        width: 100px;
+      }
+    }
+    dd {
+      &.optimum,
+      &.minimum {
+        width: 110px;
+      }
+    }
+  }
 
   &.activable {
-    padding-left: 16px;
-    padding-right: 16px;
-    //width: 90vw;
+    padding-left: 0;
+    padding-right: 0;
     z-index: 999;
   }
 
@@ -176,5 +154,5 @@
       }
     }
   }
-
 }
+

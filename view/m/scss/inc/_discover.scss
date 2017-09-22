@@ -103,17 +103,17 @@
   .widget.projects {
     background-color: $baseWhite;
     margin: 20px 0;
+    padding-top: 20px;
 
     h2.title {
-      padding-bottom: 0;
+      padding-top: 0;
     }
 
     .project {
-      box-sizing: content-box;
       border: $solidBorder;
       border-radius: 4px;
-      margin: 20px auto;
-      padding-bottom: 130px;
+      margin: 0 auto 20px;
+      padding-bottom: 20px;
       width: 92%;
     }
   }
@@ -132,15 +132,6 @@
       &:hover {
         color: #20B3B2;
       }
-    }
-  }
-
-  .meter {
-    div.graph {
-      margin-top: 0;
-    }
-    dl.percent {
-      top: 50px;
     }
   }
 }
