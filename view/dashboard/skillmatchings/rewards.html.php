@@ -95,7 +95,9 @@ switch ($order) {
                 <div class="contenedorrecompensa">
                     <span class="recompensa"><strong style="color:#666;"><?= Text::get('dashboard-rewards-management-reward'); ?></strong><br/> <?php echo Text::shorten($rewardData->description, 100); ?></span>
                 </div>
-                <a class="button green" onclick="msgto('<?php echo $rewardData->id; ?>')" ><?= Text::get('dashboard-rewards-management-message'); ?></a>
+                <?php if (!empty($invests)): ?>
+                    <a class="button green" onclick="msgto('<?php echo $rewardData->id; ?>')" ><?= Text::get('dashboard-rewards-management-message'); ?></a>
+                <?php endif; ?>
             </div>
             <?php ++$num;
         endforeach; ?>
@@ -262,7 +264,7 @@ switch ($order) {
                 </script>
                 <div id="bocadillo"></div>
                 <input type="hidden" name="username" value="<?php echo $investData->user->name; ?>" />
-                <?/*php todo: ボタンを押すと遷移するはずだが出てない。出たら#messageを直す */?>
+                <?php /* todo: ボタンを押すと遷移するはずだが出てない。出たら#messageを直す */?>
                 <textarea rows="5" cols="50" name="message" id="message_reward"></textarea>
                 <a class="preview" href="#preview" id="a-preview" target="_blank"><?php echo Text::get('regular-preview'); ?></a>
                 <div style="display:none">

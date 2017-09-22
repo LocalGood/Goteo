@@ -95,7 +95,9 @@ switch ($order) {
                 <div class="contenedorrecompensa">
                     <span class="recompensa"><strong style="color:#666;"><?= Text::get('dashboard-rewards-management-reward'); ?></strong><br/> <?php echo Text::shorten($rewardData->description, 100); ?></span>
                 </div>
-                <a class="button green" onclick="msgto('<?php echo $rewardData->id; ?>')" ><?= Text::get('dashboard-rewards-management-message'); ?></a>
+                <?php if (!empty($invests)): ?>
+                    <a class="button green" onclick="msgto('<?php echo $rewardData->id; ?>')" ><?= Text::get('dashboard-rewards-management-message'); ?></a>
+                <?php endif; ?>
             </div>
             <?php ++$num;
         endforeach; ?>
