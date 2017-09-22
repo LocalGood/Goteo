@@ -48,7 +48,7 @@
       border-radius: 9px;
       height:18px;
       left:0;
-      max-width:288px;
+      //max-width:288px;
       position:absolute;
       top:0;
       strong {
@@ -214,7 +214,7 @@
   }*/
 
   &.activable {
-    max-width:288px;
+    //max-width:288px;
     z-index:999;
   }
 }
