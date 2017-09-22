@@ -96,7 +96,7 @@ $params = $this['params'];
         </div>
 
         <div class="searcher-btn">
-            <button type="submit" id="searcher" name="searcher"><?php echo Text::get('discover-searcher-button'); ?></button>
+            <button type="submit" id="searcher" name="searcher"><i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
         </div>
         
         <br clear="all" />

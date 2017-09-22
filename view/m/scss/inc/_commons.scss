@@ -108,15 +108,18 @@
 #sub-header,
 #sub-header-secondary {
   clear: both;
-  margin-bottom: 32px;
   > div {
     display: block;
   }
 }
 
+#sub-header-secondary {
+  margin-bottom: 32px;
+}
+
 /* Sub-header */
 #sub-header {
-  margin-bottom: 1px;
+  //margin-bottom: 0;
   margin-top: 60px;
   h2.title {
     padding: 10px;
