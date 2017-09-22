@@ -93,6 +93,18 @@ $minimum_ratio =  min(100, round(($minimum / $optimum) * 100));
         <? endif; ?>
         <?php if ($activable) : ?><h<?php echo $level ?> class="title obtained"><?php echo Text::get('project-view-metter-got'); ?></h<?php echo $level ?>><?php endif; ?>
         <div class="graph">
+            <?php if ($minimum_done_per > 100) : ?>
+                <div class="optimum" style="width:100%">
+                    <div class="left" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($optimum_left) ?>%"></div>
+                    <div class="done" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format(min(100, round(($reached / $optimum) * 100))) ?>%"></div>
+                </div>
+            <?php else: ?>
+                <div class="minimum" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_ratio) ?>%">
+                    <div class="left" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_left) ?>%"><!-- <strong><?php // echo number_format($minimum_left) ?>%</strong> --></div>
+                    <div class="done" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_done) ?>%"><!--<strong><?php // echo number_format($minimum_done_per) ?>%</strong>--></div>
+                </div>
+            <?php endif; ?>
+<?php /*
             <div class="optimum">
                  <div class="left" style="<?php echo $horizontal ? 'width' : 'width' ?>: <?php echo number_format($optimum_left) ?>%"></div>
                  <div class="done" style="<?php echo $horizontal ? 'width' : 'width' ?>: <?php echo number_format($optimum_done) ?>%"></div>
@@ -101,11 +113,12 @@ $minimum_ratio =  min(100, round(($minimum / $optimum) * 100));
                 <div class="left" style="<?php echo $horizontal ? 'width' : 'width' ?>: <?php echo number_format($minimum_left) ?>%"><!-- <strong><?php echo number_format($minimum_left) ?>%</strong> --></div>
                 <div class="done" style="<?php echo $horizontal ? 'width' : 'width' ?>: <?php echo number_format($minimum_done) ?>%"><strong><?php echo number_format($minimum_done_per) ?>%</strong></div>
             </div>
+*/ ?>
         </div>
 
         <dl class="amount-bar">
-            <dt class="minimum" style="<?php echo $horizontal ? 'width' : '' ?>: <?php echo number_format($minimum_ratio) ?>%"><span><?php echo Text::get('project-view-metter-minimum'); ?></span></dt>
-            <dd class="minimum" style="<?php echo $horizontal ? 'width' : '' ?>: <?php echo number_format($minimum_ratio) ?>%"><strong><?php echo \amount_format($minimum) ?></strong><span>円</span></dd>
+            <dt class="minimum"><span><?php echo Text::get('project-view-metter-minimum'); ?></span></dt>
+            <dd class="minimum"><strong><?php echo \amount_format($minimum) ?></strong><span>円</span></dd>
 
             <dt class="optimum"><?php echo Text::get('project-view-metter-optimum'); ?></dt>
             <dd class="optimum"><strong><?php echo \amount_format($optimum) ?></strong><span>円</span></dd>

@@ -23,7 +23,8 @@ use Goteo\Library\Text;
 $level = (int) $this['level'] ?: 3;
 
 //todo: horとverのところを直す。全部horで出す。varだったものはwidthではなくheightに値が入ってしまっている（縦のレイアウトは無くなった）→JS
-$horizontal = !empty($this['horizontal']);
+//$horizontal = !empty($this['horizontal']);
+$horizontal = true;
 $big = !empty($this['big']);
 $activable = !empty($this['activable']);
 
@@ -116,19 +117,26 @@ var_dump($over);
     <?php endif; */?>
 
     <div class="graph">
-        <div class="optimum">
-             <div class="left" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($optimum_done) ?>%"></div>
-             <div class="done" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($optimum_left) ?>%"></div>
-        </div>
-        <div class="minimum" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_ratio) ?>%">
-            <div class="left" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_left) ?>%"><!-- <strong><?php echo number_format($minimum_left) ?>%</strong> --></div>
-            <div class="done" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_done) ?>%"><strong><?php echo number_format($minimum_done_per) ?>%</strong></div>
-        </div>
+        <?php
+        // 寄付金額が最低金額(minimum)に達したら、以降は目標金額(optimum)を親とするメーターに差し替えてしまう
+        // 表示されている数値はあくまで最低金額に対するパーセンテージだが、バーの長さ(width)は ((達成額 / 目標金額) * 100)％に変わる
+        // この数値には上限100を設定しているし、目標金額(optimum)メーターの幅は常に100%なので、バーがはみ出ることはなくなるはず
+        if ($minimum_done_per > 100) : ?>
+            <div class="optimum" style="width:100%">
+                <div class="left" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($optimum_left) ?>%"></div>
+                <div class="done" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format(min(100, round(($reached / $optimum) * 100))) ?>%"></div>
+            </div>
+        <?php else: ?>
+            <div class="minimum" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_ratio) ?>%">
+                <div class="left" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_left) ?>%"><!-- <strong><?php // echo number_format($minimum_left) ?>%</strong> --></div>
+                <div class="done" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_done) ?>%"><!--<strong><?php // echo number_format($minimum_done_per) ?>%</strong>--></div>
+            </div>
+        <?php endif; ?>
     </div>
 
     <dl class="amount-bar">
-        <dt class="minimum" style="<?php echo $horizontal ? 'width' : '' ?>: <?php echo number_format($minimum_ratio) ?>%"><span><?php echo Text::get('project-view-metter-minimum'); ?></span></dt>
-        <dd class="minimum" style="<?php echo $horizontal ? 'width' : '' ?>: <?php echo number_format($minimum_ratio) ?>%"><strong><?php echo \amount_format($minimum) ?></strong><span>円</span></dd>
+        <dt class="minimum"><span><?php echo Text::get('project-view-metter-minimum'); ?></span></dt>
+        <dd class="minimum"><strong><?php echo \amount_format($minimum) ?></strong><span>円</span></dd>
 
         <dt class="optimum"><?php echo Text::get('project-view-metter-optimum'); ?></dt>
         <dd class="optimum"><strong><?php echo \amount_format($optimum) ?></strong><span>円</span></dd>
