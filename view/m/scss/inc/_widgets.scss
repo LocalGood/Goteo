@@ -297,15 +297,6 @@
         font-size: 11px;
       }
     }
-    .meter{
-      &.activable {
-        padding-left: 16px!important;
-        padding-right: 16px!important;
-      }
-      dl.amount-bar {
-        display: none;
-      }
-    }
     div.rewards{
       h2, h3, h4, h5, h6 {
         margin: 0;
@@ -385,13 +376,6 @@
           float: right;
         }
       }
-    }
-    div.graph .optimum, &.project-support div.graph > div.optimum {
-      height: 19px;
-      margin-right: -2px;
-      position: absolute;
-      right: 0;
-      margin-top: -6px;
     }
   }
 

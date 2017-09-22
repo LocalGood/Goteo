@@ -18,48 +18,45 @@
     background-color: $grayCol01;
     border-radius: 9px;
     height: 20px;
-
     margin: 24px 0 20px;
+    overflow: hidden;
     position: relative;
     * strong,
     * span {
       display: none;
     }
-    .minimum {
+    .done {
       background-color: $color06;
-      border-radius: 9px 0 0 9px;
-      height: 100%;
+      border-radius: 9px;
+      height: 20px;
       left: 0;
+      max-width: 288px;
       position: absolute;
       top: 0;
-      .done {
-        background-color: #c5da4d;
-        height: 20px;
-        left: 0;
-        max-width: 288px;
+      strong {
+        background: url("/view/m/images/project/widget/project/project_marker.png") no-repeat;
+        background-size: 9px auto;
+        display: block;
+        height: 16px;
+        line-height: 2000px;
+        margin-right: -10px;
+        margin-top: -5px;
+        overflow: hidden;
         position: absolute;
-        top: 0;
-        strong {
-          background: url("/view/m/images/project/widget/project/project_marker.png") no-repeat;
-          background-size: 9px auto;
-          display: block;
-          height: 16px;
-          line-height: 2000px;
-          margin-right: -10px;
-          margin-top: -5px;
-          overflow: hidden;
-          position: absolute;
-          right: 0;
-          text-indent: 2000px;
-          width: 17px;
-        }
+        right: 0;
+        text-indent: 2000px;
+        width: 17px;
       }
+    }
+    .minimum {
+      height: 20px;
       .left {
-        float: right;
-        height: 19px;
-        margin-right: -2px;
-        margin-top: -6px;
+        height: 20px;
       }
+    }
+    .left {
+      float: right;
+      height: 20px;
     }
   }
 
@@ -115,13 +112,13 @@
       dt {
         &.optimum,
         &.minimum {
-          width: 110px;
+          width: 100px;
         }
       }
       dd {
         &.optimum,
         &.minimum {
-          width: 130px;
+          width: 110px;
         }
         &.days {
           width: 118px;
@@ -154,7 +151,7 @@
   &.activable {
     padding-left: 16px;
     padding-right: 16px;
-    width: 90vw;
+    //width: 90vw;
     z-index: 999;
   }
 

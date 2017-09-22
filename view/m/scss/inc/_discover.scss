@@ -127,4 +127,12 @@
     }
   }
 
+  .meter {
+    div.graph {
+      margin-top: 0;
+    }
+    dl.percent {
+      top: 50px;
+    }
+  }
 }
