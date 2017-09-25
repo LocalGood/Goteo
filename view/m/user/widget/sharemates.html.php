@@ -91,7 +91,7 @@ function displayCategories(categoryId1,categoryId2){
                         <div class="user-right">
                             <h4>
                                 <a href="/user/<?php echo htmlspecialchars($mate->user) ?>">
-                                <?php echo htmlspecialchars(Text::recorta($mate->name,20)) ?>
+                                <?php echo htmlspecialchars(Text::shorten($mate->name,20)) ?>
                                 </a>
                             </h4>
                             <span class="projects">

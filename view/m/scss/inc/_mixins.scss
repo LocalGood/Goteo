@@ -82,7 +82,9 @@ $fz15px: 1.0714285rem;
   &:after{
     content: "\f105";
     color: $color;
+    display: inline-block;
     font-weight: bold;
+    margin-left: 4px;
   }
 }
 //messages

@@ -26,23 +26,42 @@
     }
   }
 
+  //ユーザーにメッセージを送るウィジェット
+  .widget.user-message{
+    label{
+      display: block;
+    }
+    input#contact-subject{
+      margin: 0 0 10px 0;
+    }
+    textarea,
+    input{
+      width: 100%;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      background: #FFF;
+    }
+    a.preview{
+      display: none;
+    }
+  }
+
   //プロジェクトオーナーへメッセージ送信するウィジェット
-  .user-message {
-    overflow:hidden;
+  .widget.user-message {
+    background-color: $baseWhite;
+    padding: 16px;
     position:relative;
     z-index:99;
+    h3.title {
+      margin: 0 0 16px 0;
+      padding-left: 0;
+    }
     form {
       padding: 8px;
-      label[for="message_user"] {
-        left: 8px;
-        position: absolute;
-        top: 90px;
-      }
     }
     textarea#message_user{
       display:block;
-      margin-left:50px;
-      width:220px;
     }
     #bocadillo{
       background:url('/view/m/images/bocadillo.jpg') no-repeat;
@@ -62,22 +81,6 @@
     button{
       float:right;
       margin-right:8px;
-    }
-  }
-
-  //累計寄付金額ウィジェット
-  .user-worthcracy {
-    h3.title {
-      height: 50px;
-      padding: 0;
-      border-bottom: none;
-      line-height: 50px;
-      color: #ffffff;
-      margin: 0;
-      font-size: 18px;
-      font-weight: normal;
-      text-align: center!important;
-      background-color: #669900;
     }
   }
 
@@ -206,14 +209,6 @@
     padding: 0;
     position: relative;
     margin:0 0 20px;
-    /*h3.title {
-      background: url(/view/m/images/icon_tag_b@2x.png) no-repeat 8px 50%;
-      background-size: 14px auto;
-      border-bottom: $solidBorder;
-      font-size: 14px;
-      font-weight: 400;
-      margin: 0;
-    }*/
     h3.supertitle {
       color: #000;
       font-size: 16px;
@@ -252,10 +247,8 @@
       }
     }
     div.users {
-      //border-bottom: $solidBorder;
       border-bottom: none;
       clear:both;
-      margin-bottom: 16px;
       position: relative;
       ul {
         display: flex;
@@ -309,13 +302,15 @@
               padding-left: 8px;
               width: calc(100% - 43px);
               h4{
+                line-height: 1.2;
                 margin-bottom: 10px;
                 a {
                   font-weight:700;
                 }
               }
               .invests,
-              .projects{
+              .projects,
+              .profile a {
                 color: $mainCol01;//#20b3b2
                 font-size: 10px;
               }
@@ -355,7 +350,7 @@
       border-bottom:$solidBorder;
       padding: 5px 0;
       ul {
-        background: url(/view/m/images/icon_tag@2x.png) no-repeat 8px 50%;
+        background: url(/view/m/images/icon_tag@2x.png) no-repeat 8px 5px;
         background-size: 14px auto;
         padding-left: 28px;
       }
@@ -378,8 +373,42 @@
 
   //サイドバー
   .side {
-    padding: 16px;
+    padding-bottom: 16px;
 
+    //このユーザーの興味ウィジェット
+    .widget.user-mates {
+      padding: 16px;
+      div.users {
+        margin-bottom: 16px;
+      }
+    }
   }
 
+  .center {
+
+    //このユーザーの興味ウィジェット
+    .widget.user-mates {
+      &:first-child {
+        margin-bottom: 0;
+      }
+      .categories{
+        padding: 16px;
+        h3.title{
+          margin: 0 0 16px 0;
+          padding-left: 0;
+        }
+      }
+      div.users {
+        ul {
+          li {
+            .invests,
+            .projects,
+            .profile {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
 }

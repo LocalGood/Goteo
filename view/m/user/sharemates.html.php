@@ -58,36 +58,36 @@ if (empty($shares)) {
 
 <div id="main">
 
-    <div class="center">
+    <div class="center sharemates">
 
-       <!-- lista de categorías -->
-        <div class="widget categorylist">
-            <h3 class="title"><?php echo Text::get('profile-sharing_interests-header');?></h3>
-            <script type="text/javascript">
-            function displayCategory(categoryId){
-                $(".user-mates").css("display","none");
-                $("#cat" + categoryId).fadeIn("slow");
-                $(".active").removeClass('active');
-                $("#catlist" + categoryId).addClass('active');
-            }
-            </script>
-            <div class="list">
+        <div class="widget user-mates">
+           <!-- lista de categorías -->
+            <div class="categories">
+                <h3 class="supertitle"><?php echo Text::get('profile-sharing_interests-header');?></h3>
+                <script type="text/javascript">
+                function displayCategory(categoryId){
+                    $(".user-mates").css("display","none");
+                    $("#cat" + categoryId).fadeIn("slow");
+                    $(".active").removeClass('active');
+                    $("#catlist" + categoryId).addClass('active');
+                }
+                </script>
                 <ul>
                     <?php foreach ($categories as $catId=>$catName) : if (count($shares[$catId]) == 0) continue; ?>
                     <li><a id="catlist<?php echo $catId ?>" href="/user/profile/<?php echo $this['user']->id ?>/sharemates/<?php echo $catId ?>" <?php if (!empty($this['category'])) : ?>onclick="displayCategory(<?php echo $catId ?>); return false;"<?php endif; ?> <?php if ($catId == $this['category']) echo 'class="active"'?>><?php echo $catName ?></a></li>
                     <?php endforeach; ?>
                 </ul>
             </div>
+            <!-- fin lista de categorías -->
         </div>
-        <!-- fin lista de categorías -->
-        
+
         <!-- detalle de categoría (cabecera de categoría) -->
         <?php foreach ($shares as $catId => $sharemates) :
             if (count($sharemates) == 0) continue;
             shuffle($sharemates);
             ?>
             <div class="widget user-mates" id="cat<?php echo $catId;?>" <?php if (!empty($this['category']) && $catId != $this['category']) echo 'style="display:none;"'?>>
-                <h3 class="title"><?php echo $categories[$catId] ?></h3>
+                <h4 class="supertitle"><?php echo $categories[$catId] ?></h4>
                 <div class="users">
                     <ul>
                     <?php 
@@ -95,15 +95,18 @@ if (empty($shares)) {
                     foreach ($sharemates as $mate) :
                         if (empty($this['category']) && $cnt > 6) break;
                     ?>
-                        <li class="heightLine">
+                        <li class="">
                             <div class="user">
                                 <a href="/user/<?php echo htmlspecialchars($mate->user) ?>" class="expand">&nbsp;</a>
-                                <div class="avatar"><a href="/user/<?php echo htmlspecialchars($mate->user) ?>"><img src="<?php echo $mate->avatar->getLink(43, 43, true) ?>" /></a></div>
-                                <h4><a href="/user/<?php echo htmlspecialchars($mate->user) ?>"><?php echo htmlspecialchars($mate->name) ?></a></h4>
-                                <span class="projects"><?php echo Text::get('regular-projects'); ?> (<?php echo $mate->projects ?>)</span>
-                                <span class="invests"><?php echo Text::get('regular-investing'); ?> (<?php echo $mate->invests ?>)</span>
-                                <span class="profile"><a href="/user/profile/<?php echo htmlspecialchars($mate->user) ?>"><?php echo Text::get('profile-widget-button'); ?></a> </span>
-                                <span class="contact"><a href="/user/profile/<?php echo htmlspecialchars($mate->user) ?>/message"><?php echo Text::get('regular-send_message'); ?></a></span>
+                                <a class="avatar" href="/user/<?php echo htmlspecialchars($mate->user) ?>">
+                                    <img src="<?php echo $mate->avatar->getLink(43, 43, true) ?>" />
+                                </a>
+                                <div class="user-right">
+                                    <h4><a href="/user/<?php echo htmlspecialchars($mate->user) ?>"><?php echo htmlspecialchars(Text::shorten($mate->name,20)) ?></a></h4>
+                                    <span class="projects"><?php echo Text::get('regular-projects'); ?> (<?php echo $mate->projects ?>)</span>
+                                    <span class="invests"><?php echo Text::get('regular-investing'); ?> (<?php echo $mate->invests ?>)</span>
+                                    <span class="profile"><a href="/user/profile/<?php echo htmlspecialchars($mate->user) ?>"><?php echo Text::get('profile-widget-button'); ?></a> </span>
+                                </div>
                             </div>
                         </li>
                     <?php 
