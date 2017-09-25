@@ -19,15 +19,15 @@
           text-decoration:none;
           &.active,
           &:hover{
-            color:#19B4B2
+            color:$mainCol02
           }
         }
       }
     }
     > h3.title{
-      color: #ffffff;
-      background-color: #19B4B2;
-      border-bottom: none;
+      background-color: $mainCol01;
+      color: $baseCol;
+      font-size: 18px;
       font-weight: 300;
       line-height: 40px;
       height: 40px;
@@ -74,18 +74,20 @@
 
   //マイページ > みんなの興味 > 選択したカテゴリーに興味があるユーザー一覧ウィジェット
   .widget.user-mates {
-    background-color: #fff;
+    background-color: $baseWhite;
+    margin-bottom: 16px;
     padding-bottom:0;
     > h3.title {
-      padding: 4px 0 4px 20px;
+      background-color: $grayCol03;
+      color: $baseCol;
       font-size: 14px;
       font-weight: 300;
-      background-color: #666666;
-      color: #f5f5f5;
       margin: 0;
+      padding: 4px 0 4px 20px;
     }
     .users {
-      clear:both;
+      margin: 0;
+      padding: 0;
       .categories{
         height:auto;
         overflow:visible;
@@ -94,62 +96,16 @@
         background-color: #e5e5e5;
       }
       ul {
-        height:auto;
-        list-style: none;
         margin: 0;
-        overflow:hidden;
         padding: 0;
         li{
           display:inline-block;
-          margin-bottom: 5px;
-          margin-right:5px;
+          border-bottom: $solidBorder;
+          padding: 14px 8px 0;
+          width: 100%;
           a{
-            color:#636466;
-            font-size: 12px !important;
+            font-size: 12px;
             text-decoration: none;
-            &:hover{
-              color:#20B3B2;
-            }
-          }
-          div.user {
-            h4 {
-              margin-top:4px;
-              a {
-                font-weight: 600;
-                display:inline-block;
-              }
-            }
-          }
-        }
-
-        > li,
-        > li.nomarginright{
-          margin-right:0
-        }
-
-        > li {
-          &:hover > div.user > h4 > a{
-            color:#19B4B2;
-          }
-          &.active {
-            background-color: #f3f3f3!important;
-          }
-          .user {
-            padding: 3px 6px 3px 57px;
-            position:relative;
-            > a.expand{
-              position:absolute;
-              top:0;bottom:0;left:0;right:0;
-              z-index:99;
-            }
-          }
-          .avatar {
-            height: 50px;
-            left: 4px;
-            position: absolute;
-            text-align: center;
-            top: 8px;
-            width: 50px;
           }
           h3, h4, h5, h6 {
             font-size: 12px;
@@ -160,115 +116,59 @@
               font-weight: 300;
             }
           }
-          span {
-            display: block;
-            font-size: 12px;
-            padding-top: 4px;
-            &.projects {
-              color: #20b3b2;
+          div.user {
+            padding: 0 0 0 80px;
+            position: relative;
+            > a.expand{
+              position:absolute;
+              top:0;bottom:0;left:0;right:0;
+              z-index:99;
             }
-            &.invests {
-              color: #313b96;
+            .avatar {
+              left: 4px;
+              position: absolute;
+              top: 8px;
+              a {
+                display: block;
+                @include circleAvatar(50px);
+                box-sizing: content-box;
+              }
             }
-          }
-        }
-      }
-      h3.supertitle{
-        border-bottom:1px dashed $grayCol01;
-        border-top: 1px solid $grayCol01;
-        color:#20B3B2;
-        font-size:12px;
-        margin-bottom:8px;
-        padding:5px 0 5px 5px;
-      }
-    }
-    a:hover.more  {
-      color: #20b3b2;
-    }
-  }
-
-
-  //マイページ > このユーザーの興味
-  &.about {
-    .widget.user-mates {
-      margin-bottom: 15px;
-      .users {
-        margin: 0;
-        padding: 0;
-        ul  {
-          li {
-            .user {
-              padding: 0 0 0 80px;
-              position: relative;
+            h4 {
+              margin-top:4px;
+              a {
+                font-weight: 600;
+              }
+            }
+            span {
+              color: $mainCol01;
+              display: block;
+              font-size: 12px;
+              padding-top: 4px;
             }
             span.profile,
             span.contact {
-              display:block;
-              clear: both;
-              text-align: left;
               position: relative;
               top: -20px;
-              left: 0px;
-              width: auto;
-              margin-right: 10px;
             }
             span.profile a{
-              float:none;
               background:url('/view/m/images/user/plus.png') left no-repeat;
               padding-left:15px;
-              color:$grayCol02;
             }
-            span.contact{
-              clear: both;
-            }
-          }
-          li,
-          li:nth-child(odd) {
-            width: 100% !important;
-            max-width: 100% !important;
-            clear: both;
-            float: none;
-            border: none;
-            border-bottom: 1px dashed $grayCol01;
-            height: auto;
-            margin: 0;
-            padding: 10px 0 0 0;
           }
         }
       }
-      a.more {
-        border-top: none;
-      }
-      .avatar {
-        position: absolute;
-        left: 14px;
-        top: 0;
-        width: 50px;
-        height: 50px;
-        text-align: center;
+    }
+    a.more {
+      @include text_link_arrow($mainCol01);
+      line-height: 38px;
+      min-height: 38px;
+      padding: 0;
+      width: 100%;
+      &:hover {
+        color: $mainCol02;//#20b3b2
       }
     }
   }
-
-  div.center div.widget.user-message{overflow:hidden;position:relative;z-index:99;}
-  div.center div.widget.user-message form {padding: 8px;}
-  div.center div.widget.user-message form label[for="message"] {
-    position: absolute;
-    left: 8px;
-    top: 90px;
-  }
-  div.center div.widget.user-message textarea{display:block;margin-left:50px;width:220px;}
-  div.center div.widget.user-message #bocadillo{background:url('/view/m/images/bocadillo.jpg') no-repeat;position:absolute;
-    width:56px; height:51px;z-index:100;}
-  div.center div.widget.user-message #a-preview{color: #2EAB58;
-    font-weight: 600;left: 52px;position: relative;text-decoration: none;top: 10px;}
-  div.center div.widget.user-message button{float:right;margin-right:8px;}
-
-  /*widget スマホ*/
-  body.user-profile div#main div.discover-group div.widget.project {
-    margin: 0 auto 0 !important;
-    border: none;
-  }
-
 
 }
