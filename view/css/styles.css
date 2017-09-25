@@ -1646,7 +1646,7 @@ body.project-embed {
     .meter dl dd {
       margin: 0; }
   .meter dl.reached-bar {
-    margin-bottom: 14px; }
+    margin-bottom: 35px; }
     .meter dl.reached-bar .reached {
       color: #000;
       display: inline-block; }
@@ -1663,8 +1663,30 @@ body.project-embed {
     border-radius: 9px;
     height: 18px;
     margin-bottom: 20px;
-    overflow: hidden;
-    position: relative; }
+    position: relative;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; }
+    .meter div.graph:after {
+      content: '目標';
+      position: absolute;
+      top: -30px;
+      right: -0.9em;
+      display: inline-block;
+      width: 2em;
+      font-size: 11px;
+      background: #FFF;
+      z-index: 101; }
+    .meter div.graph:before {
+      content: '\f175';
+      position: absolute;
+      top: -16px;
+      right: 0;
+      text-align: center;
+      color: #828282;
+      font-size: 15px; }
     .meter div.graph .done {
       background-color: #009acb;
       border-radius: 9px;
@@ -1703,7 +1725,7 @@ body.project-embed {
     line-height: 18px;
     margin-left: 16px;
     position: absolute;
-    top: 35px;
+    top: 55px;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7); }
     .meter dl.percent dt, .meter dl.percent dd {
       display: inline-block; }
@@ -1784,6 +1806,33 @@ body.project-embed {
         color: #454545; }
   .meter.activable {
     z-index: 999; }
+  .meter__minimum {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: #FFF;
+    z-index: 100;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; }
+    .meter__minimum:after {
+      content: "\f175";
+      position: absolute;
+      top: -16px;
+      left: -2px;
+      text-align: center;
+      color: #828282;
+      font-size: 15px; }
+    .meter__minimum:before {
+      content: '必須';
+      position: absolute;
+      top: -30px;
+      left: -0.9em;
+      width: 2em;
+      font-size: 11px; }
 
 .superform div.element {
   position: relative; }

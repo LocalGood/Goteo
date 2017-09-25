@@ -17,7 +17,7 @@
     }
   }
   dl.reached-bar {
-    margin-bottom: 14px;
+    margin-bottom: 35px;
     .reached {
       color: #000;
       display: inline-block;
@@ -40,8 +40,34 @@
     border-radius: 9px;
     height:18px;
     margin-bottom: 20px;
-    overflow: hidden;
+    //overflow: hidden;
     position:relative;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    &:after{
+      content: '目標';
+      position: absolute;
+      top: -30px;
+      right: -0.9em;
+      display: inline-block;
+      width: 2em;
+      font-size: 11px;
+      background: #FFF;
+      z-index: 101;
+    }
+    &:before{
+      content: '\f175';
+      position: absolute;
+      top: -16px;
+      right: 0;
+      text-align: center;
+      color: $grayCol02;
+      font-size: 15px;
+    }
 
     .done {
       background-color: $mainCol02;//#c5da4d
@@ -90,7 +116,7 @@
     line-height: 18px;
     margin-left: 16px;
     position: absolute;
-    top: 35px;
+    top: 55px;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
     dt,dd {
       display: inline-block;
@@ -216,6 +242,37 @@
   &.activable {
     //max-width:288px;
     z-index:999;
+  }
+
+  &__minimum{
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: #FFF;
+    z-index: 100;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    &:after{
+      content: "\f175";
+      position: absolute;
+      top: -16px;
+      left: -2px;
+      text-align: center;
+      color: $grayCol02;
+      font-size: 15px;
+    }
+    &:before{
+      content: '必須';
+      position: absolute;
+      top: -30px;
+      left: -0.9em;
+      width: 2em;
+      font-size: 11px;
+    }
   }
 }
 
