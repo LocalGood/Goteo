@@ -2182,6 +2182,7 @@ body.project-embed {
 .superform li#user_avatar li.avatar_upload input[type="submit"] {
   padding: 0.3em 1.2em !important; }
 .superform button.image-remove {
+  display: inline-block;
   background: url(/view/images/button/cross.png) no-repeat center center !important;
   box-shadow: none;
   height: 20px;
@@ -2190,7 +2191,8 @@ body.project-embed {
   position: absolute;
   right: 5px;
   top: -10px;
-  width: 20px; }
+  width: 20px;
+  text-indent: -99999px; }
   .superform button.image-remove:hover {
     background: url(/view/images/button/cross-active.png) no-repeat center center !important; }
 .superform input.next, .superform input.confirm, .superform input.retry {

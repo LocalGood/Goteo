@@ -527,6 +527,7 @@
 
   button {
     &.image-remove {
+      display: inline-block;
       background:url(/view/images/button/cross.png) no-repeat center center!important;
       box-shadow: none;
       height:20px;
@@ -536,6 +537,7 @@
       right:5px;
       top:-10px;
       width:20px;
+      text-indent: -99999px;
       &:hover {
         background:url(/view/images/button/cross-active.png) no-repeat center center!important;
       }
