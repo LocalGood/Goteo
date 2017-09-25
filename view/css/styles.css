@@ -53,9 +53,11 @@ iframe body {
 body {
   margin: 0 auto;
   min-height: 100%;
-  min-width: 780px;
   top: 0;
   position: relative; }
+
+iframe body {
+  min-width: unset !important; }
 
 * {
   box-sizing: border-box; }
@@ -832,6 +834,9 @@ div#message {
         text-transform: uppercase; }
         .widget.projects .navi-bar a.all:hover {
           color: #009acb; }
+    .widget.projects#colective-messages label {
+      display: inline-block;
+      width: 95%; }
   .widget.project-support .supertitle {
     background-color: #454545;
     color: #fff;
@@ -1506,6 +1511,45 @@ div#message {
       border-bottom: 14px solid #fff; }
     .widget.project-schedule tbody tr td:last-child {
       border-right: none; }
+  .widget.gestrew {
+    margin: 20px 0; }
+    .widget.gestrew .filters {
+      margin: 0 0 20px 0; }
+      .widget.gestrew .filters ul {
+        display: -webkit-flex;
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0 0 0 10px; }
+        .widget.gestrew .filters ul a {
+          display: block;
+          padding: 0 5px;
+          text-decoration: none; }
+    .widget.gestrew .investor {
+      display: -webkit-flex;
+      display: flex;
+      padding: 10px 0;
+      border-bottom: solid 1px #d9d9d9; }
+      .widget.gestrew .investor > .left {
+        width: auto;
+        padding: 0 10px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box; }
+      .widget.gestrew .investor .left > span,
+      .widget.gestrew .investor .left > label {
+        display: block; }
+      .widget.gestrew .investor .left.username, .widget.gestrew .investor .left.recompensas, .widget.gestrew .investor .left.name, .widget.gestrew .investor .left.address {
+        width: calc((100% - 45px) / 5); }
+      .widget.gestrew .investor .left.username span a {
+        font-weight: bold; }
+      .widget.gestrew .investor .left.username span.amount {
+        color: #255B80;
+        font-size: 16px;
+        font-weight: bold; }
+      .widget.gestrew .investor .left.username label.amount,
+      .widget.gestrew .investor .left.username span.date {
+        font-size: 12px; }
 
 /*----------------------------------------------------------------------
  .meter
@@ -1567,42 +1611,38 @@ div#message {
     border-radius: 9px;
     height: 18px;
     margin-bottom: 20px;
+    overflow: hidden;
     position: relative; }
-    .meter div.graph .minimum .done {
-      max-width: 215px; }
+    .meter div.graph .done {
+      background-color: #009acb;
+      border-radius: 9px;
+      height: 18px;
+      left: 0;
+      position: absolute;
+      top: 0; }
+      .meter div.graph .done strong {
+        background: url("/view/images/project/widget/project_marker.png") no-repeat;
+        display: block;
+        height: 11px;
+        line-height: 2000px;
+        margin-right: -5px;
+        margin-top: -11px;
+        position: absolute;
+        right: 0;
+        text-indent: 2000px;
+        width: 10px; }
     .meter div.graph .minimum {
       border-radius: 9px;
       height: 100%;
       left: 0;
       position: absolute;
       top: 0; }
-      .meter div.graph .minimum .done {
-        background-color: #009acb;
-        border-radius: 9px;
-        height: 18px;
-        left: 0;
-        max-width: 288px;
-        position: absolute;
-        top: 0; }
-        .meter div.graph .minimum .done strong {
-          background: url("/view/images/project/widget/project_marker.png") no-repeat;
-          display: block;
-          height: 11px;
-          line-height: 2000px;
-          margin-right: -5px;
-          margin-top: -11px;
-          position: absolute;
-          right: 0;
-          text-indent: 2000px;
-          width: 10px; }
       .meter div.graph .minimum .left {
         float: right;
         height: 18px;
-        margin-right: -2px;
         padding-left: 16px; }
     .meter div.graph .optimum {
       height: 18px;
-      margin-right: -2px;
       position: absolute;
       right: 0; }
   .meter dl.percent {
@@ -1691,7 +1731,6 @@ div#message {
       .meter dl.amount-bar dd.days strong {
         color: #454545; }
   .meter.activable {
-    max-width: 288px;
     z-index: 999; }
 
 .superform div.element {
@@ -2596,6 +2635,8 @@ body.js .superform > div.elements ol li.element div.contents p {
       text-align: center; }
       .project-show .side > .widget.project-support .supertitle .days strong {
         font-size: 14px; }
+    .project-show .side > .widget.project-support .meter {
+      padding-bottom: 0; }
     .project-show .side > .widget .project-investors {
       background: none;
       padding: 0; }
@@ -5032,6 +5073,29 @@ body.js .superform > div.elements ol li.element div.contents p {
   line-height: 1.2em;
   font-size: 18px;
   font-weight: normal; }
+  .user-profile div#sub-header h2 a {
+    border-radius: 50%;
+    display: inline-block;
+    height: 55px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    width: 55px; }
+    .user-profile div#sub-header h2 a img {
+      bottom: 0;
+      height: auto;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+      vertical-align: middle;
+      width: 100%; }
+  .user-profile div#sub-header h2 span {
+    display: inline-block;
+    line-height: 24px;
+    vertical-align: middle; }
   .user-profile div#sub-header h2 em {
     font-weight: bold;
     font-size: 24px;
@@ -5126,7 +5190,8 @@ body.js .superform > div.elements ol li.element div.contents p {
       padding: 0;
       background: none; }
 .user-profile .side > .widget {
-  background: none; }
+  background: none;
+  margin: 0 0 20px; }
   .user-profile .side > .widget h3.supertitle {
     color: #000;
     font-size: 16px;
@@ -5135,7 +5200,6 @@ body.js .superform > div.elements ol li.element div.contents p {
   .user-profile .side > .widget .project-widget-box {
     background-color: #fff; }
 .user-profile .side .widget.user-supporters {
-  margin: 0 0 20px;
   padding: 0; }
   .user-profile .side .widget.user-supporters .supporters ul {
     display: -webkit-flex;
@@ -5183,6 +5247,23 @@ body.js .superform > div.elements ol li.element div.contents p {
           top: auto;
           bottom: -2em;
           left: 0; }
+  .user-profile .side .widget.user-supporters a.more {
+    background-color: #fff;
+    border-top: 1px solid #d9d9d9;
+    clear: both;
+    color: #255b7f;
+    display: block;
+    float: none;
+    font-size: 14px !important;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    top: -1px; }
+    .user-profile .side .widget.user-supporters a.more:hover {
+      color: #009acb; }
 .user-profile .side .widget.user-mates {
   margin: 0 0 20px;
   padding: 0; }
@@ -5247,9 +5328,9 @@ body.js .superform > div.elements ol li.element div.contents p {
             width: 101px;
             font-size: 10px;
             margin: 0 0 0 5px; }
-.user-profile .widget.user-message form label[for=message] {
+.user-profile .widget.user-message form label[for=user_message] {
   display: block; }
-.user-profile .widget.user-message form textarea#message {
+.user-profile .widget.user-message form textarea#user_message {
   margin-bottom: 16px; }
 .user-profile .widget.user-about {
   line-height: 16px;
@@ -5410,23 +5491,6 @@ body.js .superform > div.elements ol li.element div.contents p {
           left: 4px;
           position: absolute;
           top: 10px; }
-.user-profile .widget.user-supporters a.more {
-  background-color: #fff;
-  border-top: 1px solid #d9d9d9;
-  clear: both;
-  color: #255b7f;
-  display: block;
-  float: none;
-  font-size: 14px !important;
-  margin: 0;
-  padding: 10px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  top: -1px; }
-  .user-profile .widget.user-supporters a.more:hover {
-    color: #009acb; }
 .user-profile .widget.user-social {
   border-bottom: 1px dashed #d9d9d9; }
   .user-profile .widget.user-social .title {

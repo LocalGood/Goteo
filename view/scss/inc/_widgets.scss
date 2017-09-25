@@ -34,7 +34,7 @@
           opacity:0.85;
         }
         a.link {
-          color: $colLinkText01;
+          color: $grayCol02;
         }
       }
       a.link {
@@ -280,6 +280,13 @@
         &:hover {
           color: $mainCol02;//#20B3B2
         }
+      }
+    }
+
+    &#colective-messages{
+      label{
+        display: inline-block;
+        width: 95%;
       }
     }
   }
@@ -1132,6 +1139,65 @@
       }
       tr td:last-child {
         border-right: none;
+      }
+    }
+  }
+
+  &.gestrew{
+    margin: 20px 0;
+    .filters{
+      margin: 0 0 20px 0;
+      ul {
+        display: -webkit-flex;
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0 0 0 10px;
+        a {
+          display: block;
+          padding: 0 5px;
+          text-decoration: none;
+        }
+      }
+    }
+    .investor{
+      display: -webkit-flex;
+      display: flex;
+      padding: 10px 0;
+      border-bottom: solid 1px $grayCol01;
+      >.left{
+        width: auto;
+        padding: 0 10px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      .left{
+
+        > span,
+        > label{
+          display: block;
+        }
+        &.username,
+        &.recompensas,
+        &.name,
+        &.address{
+          width: calc((100% - 45px) / 5);
+        }
+        &.username{
+          span a{
+            font-weight: bold;
+          }
+          span.amount{
+            color: $color10;
+            font-size: 16px;
+            font-weight: bold;
+          }
+          label.amount,
+          span.date{
+            font-size: 12px;
+          }
+        }
       }
     }
   }
