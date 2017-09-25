@@ -29,18 +29,12 @@
         width: 100vw;
       }
       .flipsnap_projectnav {
-        background-color: $baseWhite;
+        @include cf;
         font-size: 0;
         list-style: none;
         margin: 0 5%;
         padding: 0;
         width: 720px;
-        &:after {
-          clear: both;
-          content: '';
-          display: block;
-          height: 0;
-        }
         .item {
           border: none;
           border-right: 1px solid $grayCol01;
@@ -50,14 +44,12 @@
           }
           a {
             color: $grayCol03;
-            display: inline-block;
+            display: block;
             font-size: 12px;
             height: 40px;
             line-height: 40px;
-            margin: 0 auto;
             padding: 0 8px;
             text-decoration: none;
-            text-align: center;
           }
           &.active,
           &.show {
