@@ -53,6 +53,7 @@ iframe body {
 body {
   margin: 0 auto;
   min-height: 100%;
+  min-width: 780px;
   top: 0;
   position: relative; }
 
@@ -613,6 +614,21 @@ div#message {
       margin: 0;
       padding: 0; }
 
+/*iframe*/
+body.project-embed {
+  min-width: unset; }
+  body.project-embed #wrapper {
+    margin: 0;
+    padding: 0; }
+  body.project-embed .alone-project .want-support {
+    display: -webkit-flex;
+    display: flex; }
+    body.project-embed .alone-project .want-support > div {
+      width: 50%; }
+  body.project-embed .widget.project.activable.heightLine-project {
+    height: auto !important;
+    min-height: 560px; }
+
 /*----------------------------------------------------------------------
  .widget
 ----------------------------------------------------------------------*/
@@ -837,6 +853,48 @@ div#message {
     .widget.projects#colective-messages label {
       display: inline-block;
       width: 95%; }
+    .widget.projects#colective-messages #bocadillo {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      margin-top: 8px;
+      text-align: center;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      background: #91c0df;
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased; }
+      .widget.projects#colective-messages #bocadillo:before {
+        content: "\f075";
+        color: #255b7f;
+        line-height: 30px; }
+    .widget.projects#colective-messages #message_reward {
+      background: #f2f2f2;
+      border-radius: 8px;
+      margin-left: 70px;
+      overflow: visible;
+      padding: 20px;
+      position: relative;
+      word-break: normal;
+      word-wrap: break-word; }
+      .widget.projects#colective-messages #message_reward:before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: -20px;
+        display: block;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-right: 15px solid #f2f2f2;
+        background: none; }
+    .widget.projects#colective-messages .preview {
+      display: block;
+      margin: 10px 0 0 70px; }
   .widget.project-support .supertitle {
     background-color: #454545;
     color: #fff;

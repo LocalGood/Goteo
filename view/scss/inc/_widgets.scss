@@ -288,6 +288,16 @@
         display: inline-block;
         width: 95%;
       }
+      #bocadillo{
+        @include comment_icon(30px);
+      }
+      #message_reward{
+        @include message;
+      }
+      .preview{
+        display: block;
+        margin: 10px 0 0 70px;
+      }
     }
   }
 

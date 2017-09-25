@@ -549,3 +549,24 @@ div#message {
     }
   }
 }
+/*iframe*/
+body.project-embed{
+  min-width: unset;
+  #wrapper{
+    margin: 0;
+    padding: 0;
+  }
+  .alone-project{
+    .want-support{
+      display: -webkit-flex;
+      display: flex;
+      > div{
+        width: 50%;
+      }
+    }
+  }
+  .widget.project.activable.heightLine-project{
+    height: auto !important;
+    min-height: 560px;
+  }
+}
