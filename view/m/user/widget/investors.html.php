@@ -23,7 +23,7 @@ use Goteo\Core\View,
 
 $cuantos = count($this['investors']);
 ?>
-<?php if($cuantos > 0){	/* for_apps_review ?>
+<?/*php if($cuantos > 0){	 for_apps_review ?>
 <div class="widget user-supporters">
     <h3 class="supertitle"><?php echo Text::get('profile-my_investors-header') . " ($cuantos)" ?></h3>
     <div class="project-widget-box">
@@ -39,5 +39,5 @@ $cuantos = count($this['investors']);
     </div>
     <a class="more" href="/user/profile/<?php echo $this['user']->id ?>/investors"><?php echo Text::get('regular-see_more'); ?></a>
 </div>
-	*/
-<?php }?>
+
+<?php }*/?>

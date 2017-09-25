@@ -76,31 +76,31 @@ function displayCategories(categoryId1,categoryId2){
         <div class="users" id="mates-<?php echo $catId ?>" 
     	<?php if ($muestra > 2) {echo 'style="display:none;"';} else {$muestra++;} ?>>
     	    
-            <h3 class="supertitle"><?php echo $categories[$catId] ?></h3>
+            <h4 class="supertitle"><?php echo $categories[$catId] ?></h4>
 
             <!--pintar usuarios -->
             <ul>
             <?php $c=1; // limitado a 6 sharemates en el lateral
             foreach ($sharemates as $mate){ ?>
-                <li class="activable<?php if(($c%2)==0)echo " nomarginright"?> heightLine">
+                <li class="activable">
                     <div class="user">
                     	<a href="/user/<?php echo htmlspecialchars($mate->user) ?>" class="expand">&nbsp;</a>
-                        <div class="avatar">
-                            <a href="/user/<?php echo htmlspecialchars($mate->user) ?>">
-                                <img src="<?php echo $mate->avatar->getLink(43, 43, true) ?>" />
-                            </a>
+                        <a class="avatar" href="/user/<?php echo htmlspecialchars($mate->user) ?>">
+                            <img src="<?php echo $mate->avatar->getLink(43, 43, true) ?>" />
+                        </a>
+                        <div class="user-right">
+                            <h4>
+                                <a href="/user/<?php echo htmlspecialchars($mate->user) ?>">
+                                <?php echo htmlspecialchars(Text::recorta($mate->name,20)) ?>
+                                </a>
+                            </h4>
+                            <span class="projects">
+                                <?php echo Text::get('regular-projects'); ?> (<?php echo $mate->projects ?>)
+                            </span>
+                            <span class="invests">
+                                <?php echo Text::get('regular-investing'); ?> (<?php echo $mate->invests ?>)
+                            </span>
                         </div>
-                        <h4>
-                        	<a href="/user/<?php echo htmlspecialchars($mate->user) ?>">
-    						<?php echo htmlspecialchars(Text::recorta($mate->name,20)) ?>
-                            </a>
-                        </h4>
-                        <span class="projects">
-    						<?php echo Text::get('regular-projects'); ?> (<?php echo $mate->projects ?>)
-                        </span>
-                        <span class="invests">
-    						<?php echo Text::get('regular-investing'); ?> (<?php echo $mate->invests ?>)
-                        </span>
                     </div>
                 </li>
             <?php $c++;
