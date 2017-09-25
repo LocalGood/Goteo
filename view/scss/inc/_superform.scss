@@ -295,21 +295,31 @@
           //background:url('/view/images/superform/badge/required.png') no-repeat right center;
           position: relative;
           &::after{
-            @include form_icon('必須',calc(100% - 19px),60px,$subCol02);
+            content: '必須';
+            display: inline-block;
+            width: 40px;
+            color: #FFF;
+            font-size: 12px;
+            font-weight: 100;
+            padding: 0 10px;
+            margin: 0 0 0 10px;
+            text-align: center;
+            background: $subCol02;
+            //@include form_icon('必須',calc(100% - 19px),60px,$subCol02);
           }
         }
         &.ok > .title {
           //background:url(/view/images/superform/badge/ok.png) no-repeat right 80%;
           position: relative;
           &::before{
-            @include form_icon('OK',5px,0,$subCol01);
+            @include form_icon('OK',calc(100% - 19px),0,$subCol01);
           }
         }
         &.error > .title {
           //background:url(/view/images/superform/badge/error.png) no-repeat right bottom!important;
           position: relative;
           &::before{
-            @include form_icon('エラー',2px,0,$alertCol);
+            @include form_icon('エラー',calc(100% - 19px),0,$alertCol);
           }
         }
         &.busy > .title {
