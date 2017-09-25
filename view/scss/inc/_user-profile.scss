@@ -337,10 +337,10 @@
   }
 
   .widget.user-message {
-    form label[for=message] {
+    form label[for=user_message] {
       display:block;
     }
-    form textarea#message {
+    form textarea#user_message {
       margin-bottom:16px;
     }
   }

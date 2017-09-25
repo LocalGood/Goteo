@@ -67,8 +67,8 @@ $_SESSION['msg_token'] = uniqid(rand(), true);
             <label for="contact-subject"><?php echo Text::get('contact-subject-field'); ?></label>
             <input id="contact-subject" type="text" name="subject" value="" placeholder="" />
             
-            <label for="message"><?php echo Text::get('contact-message-field'); ?></label>
-            <textarea id="message" name="message" cols="50" rows="5"></textarea>
+            <label for="user_message"><?php echo Text::get('contact-message-field'); ?></label>
+            <textarea id="user_message" name="message" cols="50" rows="5"></textarea>
 
             <a target="_blank" id="a-preview" href="#preview" class="preview">&middot;<?php echo Text::get('regular-preview'); ?></a>
             <div style="display:none">
