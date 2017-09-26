@@ -2,10 +2,6 @@
 /*----------------------------------------------------------------------
  colors
 ----------------------------------------------------------------------*/
-$colMain01: #075d79; //リンクテキストのメインカラー
-$colMain02: #255b7f; //ボーダーのメインカラー
-$colMain03: #105d7f; //背景のメインカラー
-
 $colLinkText01: $mainCol02; //リンクテキストのバリエーションカラー
 $borderCol01: $grayCol01; //実線のボーダーカラー
 
@@ -118,7 +114,7 @@ $fz15px: 1.0714285rem;
   &:before{
     content: "\f075";
     color: $mainCol01;
-    line-height: 30px;
+    line-height: $size;
   }
 }
 
@@ -133,6 +129,28 @@ $fz15px: 1.0714285rem;
     content: "\f105";
     color: $color;
     font-weight: bold;
+  }
+}
+@mixin message{
+  background: $baseCol;
+  border-radius: 8px;
+  margin-left: 70px;
+  overflow: visible;
+  padding: 20px;
+  position: relative;
+  word-break: normal;
+  word-wrap: break-word;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -20px;
+    display: block;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-right: 15px solid $baseCol;
+    background: none;
   }
 }
 /*----------------------------------------------------------------------

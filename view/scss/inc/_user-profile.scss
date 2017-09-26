@@ -184,6 +184,7 @@
   .side {
     > .widget {
       background: none;
+      margin: 0 0 20px;
       h3.supertitle {
         color: #000;
         font-size: 16px;
@@ -197,7 +198,6 @@
 
     //サイドバー　＞　支援者
     .widget.user-supporters {
-      margin: 0 0 20px;
       padding: 0;
       .supporters ul{
         display: -webkit-flex;
@@ -251,6 +251,25 @@
               left: 0;
             }
           }
+        }
+      }
+      a.more {
+        background-color:#fff;
+        border-top: $solidBorder;
+        clear:both;
+        color: $mainCol01;
+        display:block;
+        float:none;
+        font-size:14px!important;
+        margin:0;
+        padding:10px;
+        position:relative;
+        text-align:center;
+        text-decoration:none;
+        text-transform:uppercase;
+        top: -1px;
+        &:hover {
+          color: $mainCol02;//#313B96
         }
       }
     }
@@ -528,26 +547,6 @@
             }
           }
         }
-      }
-    }
-
-    a.more {
-      background-color:#fff;
-      border-top: $solidBorder;
-      clear:both;
-      color: $mainCol01;
-      display:block;
-      float:none;
-      font-size:14px!important;
-      margin:0;
-      padding:10px;
-      position:relative;
-      text-align:center;
-      text-decoration:none;
-      text-transform:uppercase;
-      top: -1px;
-      &:hover {
-        color: $mainCol02;//#313B96
       }
     }
   }

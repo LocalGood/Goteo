@@ -805,11 +805,7 @@
             line-height: 1em;
             min-height: 32px;
             margin: 0 0 20px 0;
-            //margin: 20px 0 0;
             padding-bottom: 20px;
-            &:not(:last-child) {
-              border-bottom: $solidBorder;
-            }
             strong {
               display: block;
               margin-bottom: 16px;
@@ -852,14 +848,14 @@
           }
         }
         .message {
-          @extend %message;
+          @include message;
           &.owner {
             position: relative;
             background: $baseCol;
           }
         }
         .child {
-          @extend %message;
+          @include message;
           background-color: $baseCol;
           margin-left: 130px;
           &:before {
@@ -896,7 +892,7 @@
           }
         }
         .user_name {
-          color: $colLinkText01;
+          color: $mainCol02;
         }
         blockquote {
           clear: both;
@@ -905,7 +901,7 @@
         }
         .actions_date {
           a {
-            color: $colLinkText01;
+            color: $mainCol02;
             text-decoration: none;
           }
           .date {
@@ -1024,6 +1020,13 @@
         .post_nav {
           margin: 0;
           padding: 0;
+          list-style: none;
+          a{
+            color: $mainCol01;
+            &:hover{
+              color: $mainCol02;
+            }
+          }
           .prev {
             float: left;
           }
