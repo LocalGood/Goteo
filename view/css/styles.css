@@ -916,6 +916,10 @@ body.project-embed {
   .widget.project-support .invest-notice {
     font-size: 13px;
     padding: 0 20px 20px; }
+    .widget.project-support .invest-notice dt {
+      font-weight: bold; }
+    .widget.project-support .invest-notice dd {
+      margin: 0 0 10px 0; }
   .widget.project-investors {
     background: none; }
     .widget.project-investors .project-widget-box {
