@@ -1710,7 +1710,8 @@ body.project-embed {
       height: 100%;
       left: 0;
       position: absolute;
-      top: 0; }
+      top: 0;
+      overflow: hidden; }
       .meter div.graph .minimum .left {
         float: right;
         height: 18px;
