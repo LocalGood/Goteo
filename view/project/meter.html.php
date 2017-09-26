@@ -52,7 +52,7 @@ if ($reached >= $minimum) {
 
 if ($minimum_done >= 100) {
     // No muestres 100 si falta aunque sea un céntimo
-    $minimum_done = 99;
+    $minimum_done = 100;
 }
 
 //todo:hor->widthとvar->heightはmax100%にしたい ex)一覧の「いのちの木」のPJ、.meter.horがはみ出る。
@@ -132,6 +132,9 @@ var_dump($over);
                 <div class="done" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_done) ?>%"><!--<strong><?php // echo number_format($minimum_done_per) ?>%</strong>--></div>
             </div>
         <?php endif; ?>
+		<?php if($minimum_ratio < 100):?>
+		<div class="meter__minimum" style="left: <?php echo number_format($minimum_ratio) ?>%"></div>
+		<?php endif;?>
     </div>
 
     <dl class="amount-bar">
