@@ -41,12 +41,14 @@ namespace Goteo\Controller {
 
 
     //パスを通してインクルード
-//    $path = dirname(__FILE__)."/../library";
+//    $path = dirname(__FILE__)."/../library/pear/";
+//    $path = $_SERVER['DOCUMENT_ROOT'] . "/library";
 //    set_include_path(get_include_path().PATH_SEPARATOR.$path);
-    require_once "HTTP/Request2.php" ;
+//var_dump(get_include_path());
+//    require_once "HTTP/Request2.php" ;
 
-//	require_once "PEAR.php";
-//	require_once "HTTP/Request2.php";
+//	require_once  "PEAR.php";
+//    require_once  "HTTP/Request2.php";
 
 
     class Invest extends \Goteo\Core\Controller {
@@ -748,21 +750,6 @@ namespace Goteo\Controller {
             //	 2. xml でステータスと、決済URL が返るので取得
             //	 3. 決済URLに、header() でロケーション。
 
-
-            // httpリクエスト用のオプションを指定
-            $http_option = array(
-                "timeout" => "20", // タイムアウトの秒数指定
-                //    "allowRedirects" => true, // リダイレクトの許可設定(true/false)
-                //    "maxRedirects" => 3, // リダイレクトの最大回数
-            );
-
-
-            $request = new HTTP_Request2(EPSILON_ORDER_URL, HTTP_Request2::METHOD_POST, $http_option);
-            $request->setConfig(array(
-                'ssl_verify_peer' => false,
-            ));
-
-
             // 契約番号(8桁)
             $contract_code = EPSILON_CONTRACT_CODE;
 
@@ -793,14 +780,9 @@ namespace Goteo\Controller {
             // 処理区分
             $process_code = $processcode;
 
-
             // ユーザー固有情報
 
             $user = Model\User::get($invest->user);
-            #var_dump($user);
-
-            $user_tel = 'user_tel';          // ユーザ電話番号
-            $user_name_kana = 'user_name_kana'; // ユーザー名(カナ)
 
             $user_id = $user->id;            // ユーザーID
 
@@ -809,36 +791,39 @@ namespace Goteo\Controller {
             $user_mail_add = $user->email;	// メールアドレス
 
             $st = "card";	// クレジットカード設定
-            $stc = $st_code[$st];
 
+            $postdata = array(
+                'version'        => '2',
+                'contract_code'  => $contract_code,
+                'user_id'        => $user_id,
+                'user_name'      => $user_name,
+                'user_mail_add'  => $user_mail_add,
+                'item_code'      => $item_code,
+                'item_name'      => mb_convert_encoding(mb_strcut(mb_convert_encoding($item_name, "SJIS", "UTF-8"), 0, 64, "SJIS"), "UTF-8", "auto"),
+                'order_number'   => $order_number,
+                'st_code'        => $st_code[$st],
+                'mission_code'   => $mission_code,
+                'item_price'     => $item_price,
+                'process_code'   => $process_code,
+                'memo1'          => $memo1,
+                'memo2'          => $memo2,
+                'xml'            => '1',
+                'character_code' => 'UTF8'
+            );
+            $ch = curl_init();
+            curl_setopt( $ch,CURLOPT_POST, TRUE);
+            curl_setopt( $ch, CURLOPT_URL, EPSILON_ORDER_URL );
+            curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+            curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postdata));
+            $content = curl_exec( $ch );
+            $response = curl_getinfo( $ch );
+            curl_close ( $ch );
 
-            $request->addPostParameter('version', '2' );
-            $request->addPostParameter('contract_code', $contract_code);
-            $request->addPostParameter('user_id', $user_id);
-            $request->addPostParameter('user_name', $user_name);
-            $request->addPostParameter('user_mail_add', $user_mail_add);
-            $request->addPostParameter('item_code', $item_code);
-            $request->addPostParameter('item_name', mb_convert_encoding(mb_strcut(mb_convert_encoding($item_name,"SJIS","UTF-8"),0,64,"SJIS"),"UTF-8","auto"), "UTF-8", "auto");
-            $request->addPostParameter('order_number', $order_number);
-            $request->addPostParameter('st_code', $st_code[$st]);
-            $request->addPostParameter('mission_code', $mission_code);
-            $request->addPostParameter('item_price', $item_price);
-            $request->addPostParameter('process_code', $process_code);
-            $request->addPostParameter('memo1', $memo1);
-            $request->addPostParameter('memo2', $memo2);
-            $request->addPostParameter('xml', '1');
-            $request->addPostParameter('character_code', 'UTF8' );
-
-
-
-            // HTTPリクエスト実行
-            $response = $request->send();
 
             // 応答内容(XML)の解析
-//			if (!PEAR::isError($response)) {
-            if (true) {
-                $res_code = $response->getStatus();
-                $res_content = $response->getBody();
+            if ($response['http_code'] === 200) {
+                $res_content = $content;
 
                 $resultno = $redirect = $err_code = $err_detail = "";
 
@@ -909,20 +894,6 @@ namespace Goteo\Controller {
             //	 3. 決済URLに、header() でロケーション。
 
 
-            // httpリクエスト用のオプションを指定
-            $http_option = array(
-                "timeout" => "20", // タイムアウトの秒数指定
-                //    "allowRedirects" => true, // リダイレクトの許可設定(true/false)
-                //    "maxRedirects" => 3, // リダイレクトの最大回数
-            );
-
-
-            $request = new HTTP_Request2(EPSILON_ORDER_URL, HTTP_Request2::METHOD_POST, $http_option);
-            $request->setConfig(array(
-                'ssl_verify_peer' => false,
-            ));
-
-
             // 契約番号(8桁)
             $contract_code = EPSILON_CONTRACT_CODE;
 
@@ -959,9 +930,6 @@ namespace Goteo\Controller {
             $user = Model\User::get($invest->user);
             #var_dump($user);
 
-            $user_tel = 'user_tel';          // ユーザ電話番号
-            $user_name_kana = 'user_name_kana'; // ユーザー名(カナ)
-
             $user_id = $user->id;            // ユーザーID
 
             $user_name = $user->name;        // ユーザー氏名
@@ -969,37 +937,40 @@ namespace Goteo\Controller {
             $user_mail_add = $user->email;	// メールアドレス
 
             $st = "conveni";	// コンビニ決済
-            $stc = $st_code[$st];
 
 
+            $postdata = array(
+                'version'        => '2',
+                'contract_code'  => $contract_code,
+                'user_id'        => $user_id,
+                'user_name'      => $user_name,
+                'user_mail_add'  => $user_mail_add,
+                'item_code'      => $item_code,
+                'item_name'      => mb_convert_encoding(mb_strcut(mb_convert_encoding($item_name, "SJIS", "UTF-8"), 0, 64, "SJIS"), "UTF-8", "auto"),
+                'order_number'   => $order_number,
+                'st_code'        => $st_code[$st],
+                'mission_code'   => $mission_code,
+                'item_price'     => $item_price,
+                'process_code'   => $process_code,
+                'memo1'          => $memo1,
+                'memo2'          => $memo2,
+                'xml'            => '1',
+                'character_code' => 'UTF8'
+            );
+            $ch = curl_init();
+            curl_setopt( $ch,CURLOPT_POST, TRUE);
+            curl_setopt( $ch, CURLOPT_URL, EPSILON_ORDER_URL );
+            curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+            curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postdata));
+            $content = curl_exec( $ch );
+            $response = curl_getinfo( $ch );
+            curl_close ( $ch );
 
-            $request->addPostParameter('version', '2' );
-            $request->addPostParameter('contract_code', $contract_code);
-            $request->addPostParameter('user_id', $user_id);
-            $request->addPostParameter('user_name', $user_name);
-            $request->addPostParameter('user_mail_add', $user_mail_add);
-            $request->addPostParameter('item_code', $item_code);
-            $request->addPostParameter('item_name', $item_name, "UTF-8", "auto");
-            $request->addPostParameter('order_number', $order_number);
-            $request->addPostParameter('st_code', $st_code[$st]);
-            $request->addPostParameter('mission_code', $mission_code);
-            $request->addPostParameter('item_price', $item_price);
-            $request->addPostParameter('process_code', $process_code);
-            $request->addPostParameter('memo1', $memo1);
-            $request->addPostParameter('memo2', $memo2);
-            $request->addPostParameter('xml', '1');
-            $request->addPostParameter('character_code', 'UTF8' );
-
-
-
-            // HTTPリクエスト実行
-            $response = $request->send();
 
             // 応答内容(XML)の解析
-            if (true) {
-//                if (!PEAR::isError($response)) {
-                $res_code = $response->getStatus();
-                $res_content = $response->getBody();
+            if ($response['http_code'] === 200) {
+                $res_content = $content;
 
                 $resultno = $redirect = $err_code = $err_detail = "";
 
