@@ -2668,6 +2668,19 @@ body.js .superform > div.elements ol li.element div.contents p {
       font-size: 16px;
       font-weight: 600;
       margin: 0 0 8px; }
+    .project-show .side > .widget .title--flex {
+      display: -webkit-flex;
+      display: flex; }
+      .project-show .side > .widget .title--flex .side_image {
+        width: 60px;
+        margin: 0 10px 0 0; }
+        .project-show .side > .widget .title--flex .side_image img {
+          width: 100%;
+          height: auto; }
+      .project-show .side > .widget .title--flex .name {
+        width: calc(100% - 70px); }
+        .project-show .side > .widget .title--flex .name.only {
+          width: 100%; }
     .project-show .side > .widget.project-support .supertitle {
       background-color: #828282;
       color: #fff;

@@ -38,8 +38,9 @@ $project = $this['project'];
             <?php foreach ($project->supports as $support) : ?>
             <?php if(!empty($support->support)):?>
             <li class="support <?php echo htmlspecialchars($support->type) ?>">
+				<!-- 画像がない時のみ.nameにクラス名onlyを追加してください。-->
 				<div class="title--flex">
-					<div class="support_image">
+					<div class="side_image">
 						<img src="https://pbs.twimg.com/profile_images/378800000220029324/fe66faeca20115da8566e51d83447ead_400x400.jpeg" alt="">
 					</div>
 					<h6 class="name"><span><?php echo htmlspecialchars($support->support) ?></span></h6>

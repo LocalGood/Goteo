@@ -19,9 +19,9 @@
  */
 
 use Goteo\Library\Text;
-$messages_count = !empty($this['messages'])?$this['messages']:'(0)';
-$investors_count = !empty($this['project']->investors)?'('.count($this['project']->investors).')':'(0)';
-$updates_count = !empty($this['updates'])?$this['updates']:'(0)';
+$messages_count = !empty($this['messages'])?$this['messages']:'0';
+$investors_count = !empty($this['project']->investors)?''.count($this['project']->investors).'':'0';
+$updates_count = !empty($this['updates'])?$this['updates']:'0';
 $menu = array(
     'home'        => Text::get('project-menu-home'),
     'needs'       => Text::get('project-menu-needs'),

@@ -378,6 +378,29 @@
         margin: 0 0 8px;
       }
 
+      .title--flex{
+        display: -webkit-flex;
+        display: flex;
+
+        .side_image{
+          width: 60px;
+          margin: 0 10px 0 0;
+          img{
+            width: 100%;
+            height: auto;
+          }
+        }
+
+        .name{
+          width: calc(100% - 70px);
+          &.only{
+            width: 100%;
+          }
+        }
+
+      }
+
+
       //支援（グラフ）
       &.project-support {
         .supertitle {
@@ -1018,6 +1041,10 @@
             position: relative;
             text-decoration: none;
             &:after {
+              //background: url('/view/images/arrow-link.png') no-repeat 50%;
+              //bottom: 0;
+              //content: '';
+              //display: block;
               height: 8px;
               margin: auto;
               right: 0;
