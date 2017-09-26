@@ -130,7 +130,8 @@
 
   //メッセージ送信ウィジェット
   .project-message {
-    position:relative;
+    position: relative;
+    margin: 20px 0 0 0;
     div#bocadillo {
       @include comment_icon(30px);
       //background:url('/view/images/bocadillo.jpg') no-repeat;
@@ -194,12 +195,15 @@
           margin-bottom: 20px;
           padding: 20px;
           .left {
-            float: left;
-            width: 60%;
+            //float: left;
+            display: inline-block;
+            min-width: 60%;
           }
           .right {
-            float: right;
-            width: 40%;
+            //float: right;
+            display: inline-block;
+            min-width: 35%;
+            margin: 0 0 0 5%;
             img {
               width: 100%;
               height: auto;

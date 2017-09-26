@@ -68,6 +68,4 @@ $level = (int) $this['level'] ?: 3;
         <span class="avatar"><?php echo $avatarhtml; ?></span>
         <span><?php echo $title; ?></span>
     </h2>
-
-
 </div>
