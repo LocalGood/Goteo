@@ -40,8 +40,13 @@ namespace Goteo\Controller {
         ;
 
 
-	require_once "PEAR.php";
-	require_once "HTTP/Request2.php";
+    //パスを通してインクルード
+//    $path = dirname(__FILE__)."/../library";
+//    set_include_path(get_include_path().PATH_SEPARATOR.$path);
+    require_once "HTTP/Request2.php" ;
+
+//	require_once "PEAR.php";
+//	require_once "HTTP/Request2.php";
 
 
     class Invest extends \Goteo\Core\Controller {
@@ -814,7 +819,7 @@ namespace Goteo\Controller {
 			$request->addPostParameter('user_name', $user_name);
 			$request->addPostParameter('user_mail_add', $user_mail_add);
 			$request->addPostParameter('item_code', $item_code);
-			$request->addPostParameter('item_name', $item_name, "UTF-8", "auto");
+			$request->addPostParameter('item_name', mb_convert_encoding(mb_strcut(mb_convert_encoding($item_name,"SJIS","UTF-8"),0,64,"SJIS"),"UTF-8","SJIS"), "UTF-8", "auto");
 			$request->addPostParameter('order_number', $order_number);
 			$request->addPostParameter('st_code', $st_code[$st]);
 			$request->addPostParameter('mission_code', $mission_code);
@@ -831,7 +836,8 @@ namespace Goteo\Controller {
 			$response = $request->send();
 
 			// 応答内容(XML)の解析
-			if (!PEAR::isError($response)) {
+//			if (!PEAR::isError($response)) {
+                if (true) {
 				$res_code = $response->getStatus();
 				$res_content = $response->getBody();
 
@@ -866,7 +872,7 @@ namespace Goteo\Controller {
 						break;
 					case 0:	// 失敗
 						// エラー出力
-						Message::Error(Text::get('Epsilon Return Error'));
+						Message::Error(Text::get('Epsilon Return Error') . "\n" . $err_code ."\n" .$err_detail);
             			throw new Redirection(SEC_URL."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
 						break;
 				}
@@ -967,14 +973,13 @@ namespace Goteo\Controller {
 			$stc = $st_code[$st];
 
 
-
 			$request->addPostParameter('version', '2' );
 			$request->addPostParameter('contract_code', $contract_code);
 			$request->addPostParameter('user_id', $user_id);
 			$request->addPostParameter('user_name', $user_name);
 			$request->addPostParameter('user_mail_add', $user_mail_add);
 			$request->addPostParameter('item_code', $item_code);
-			$request->addPostParameter('item_name', $item_name, "UTF-8", "auto");
+			$request->addPostParameter('item_name', mb_convert_encoding(mb_strcut(mb_convert_encoding($item_name,"SJIS","UTF-8"),0,64,"SJIS"),"UTF-8","SJIS"), "UTF-8", "auto");
 			$request->addPostParameter('order_number', $order_number);
 			$request->addPostParameter('st_code', $st_code[$st]);
 			$request->addPostParameter('mission_code', $mission_code);
@@ -991,7 +996,8 @@ namespace Goteo\Controller {
 			$response = $request->send();
 
 			// 応答内容(XML)の解析
-			if (!PEAR::isError($response)) {
+			if (true) {
+//                if (!PEAR::isError($response)) {
 				$res_code = $response->getStatus();
 				$res_content = $response->getBody();
 
