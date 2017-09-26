@@ -219,12 +219,10 @@
       float: left;
       top: -10px;
       left: 35px;
-      //padding-right: 30px;
       color: $color10;//#903
       font-size: 30px;
       font-weight: 700;
       line-height: 33px;
-      //background: url('/view/images/yen/violet/l.png') no-repeat center right;
       border-bottom: 1px solid $color10;
       &:after{
         content: '￥';
@@ -248,10 +246,8 @@
   .widget.gestrew {
     div.message {
       position: relative;
-      //background:url(/view/images/project/view/invest/header_beak.png) #CCE5E6 no-repeat left bottom;
       color: $grayCol03;
       height:auto;
-      //overflow:auto;
       padding: 20px;
       background: $baseCol;
       &:after{
@@ -312,7 +308,6 @@
           font-size:8pt;
           line-height:22px;
           > span.euro {
-            //background:url(/view/images/yen/violet/m.png) no-repeat;
             display:inline-block;
             height: 20px;
             width: 20px;

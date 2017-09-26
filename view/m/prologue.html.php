@@ -23,7 +23,7 @@ if($_SERVER['REQUEST_URI']=="/"):
         'title' => GOTEO_META_TITLE,
         'description' => GOTEO_META_DESCRIPTION,
         'url' => SITE_URL,
-        'image' => array(SITE_URL . '/view/css/ogimg.png')
+        'image' => array(SITE_URL . '/view/images/ogimg.png')
     );
 elseif(strstr($_SERVER['REQUEST_URI'],'project')):
     if(!empty($this['project']->subtitle)) {
@@ -137,19 +137,7 @@ $_blog_key = substr($ogmeta['url'], $blog_post+9);
             echo GOTEO_ANALYTICS_TRACKER;
         }  ?>
 
-        <?/*<link rel="stylesheet" type="text/css" href="<?php echo SRC_URL ?>/view/m/css/goteo.css" />*/?>
         <link rel="stylesheet" type="text/css" href="<?php echo SRC_URL ?>/view/m/css/styles.css" />
-        <!--[if IE]>
-        <link href="<?php echo SRC_URL ?>/view/m/css/ie.css" media="screen" rel="stylesheet" type="text/css" />
-        <![endif]-->
-        <?php /*
-        <script type="text/javascript">
-        if(navigator.userAgent.indexOf('Mac') != -1)
-		{
-			document.write ('<link rel="stylesheet" type="text/css" href="<?php echo SRC_URL ?>/view/m/css/mac.css" />');
-		}
-	    </script>
-*/ ?>
 
     </head>
 

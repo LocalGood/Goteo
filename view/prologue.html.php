@@ -33,7 +33,7 @@ if($_SERVER['REQUEST_URI']=="/"):
         'title' => GOTEO_META_TITLE,
         'description' => GOTEO_META_DESCRIPTION,
         'url' => SITE_URL,
-        'image' => array(SITE_URL . '/view/css/ogimg.png')
+        'image' => array(SITE_URL . '/view/images/ogimg.png')
     );
 elseif(strstr($_SERVER['REQUEST_URI'],'project')):
     if(!empty($this['project']->subtitle)) {
@@ -142,7 +142,7 @@ $_blog_key = substr($ogmeta['url'], $blog_post+9);
     <?php else : ?>
         <meta property="og:title" content="<?php echo htmlspecialchars($ogmeta['title'], ENT_QUOTES, 'UTF-8'); ?>" />
         <meta property="og:description" content="<?php if(defined('GOTEO_META_DESCRIPTION')){echo htmlspecialchars(strip_tags(GOTEO_META_DESCRIPTION), ENT_QUOTES, 'UTF-8');} ?>" />
-        <meta property="og:image" content="<?php if(defined('SITE_URL')){echo SITE_URL;} ?>/view/css/header/logo.png" />
+        <meta property="og:image" content="<?php if(defined('SITE_URL')){echo SITE_URL;} ?>/view/images/header/logo.png" />
         <meta property="og:url" content="<?php if(defined('SITE_URL')){echo SITE_URL;} ?>" />
         <meta property="og:locale" content="ja_JP" />
         <meta property="fb:app_id" content="<? if(defined('OAUTH_FACEBOOK_ID')){echo OAUTH_FACEBOOK_ID;} ?>" />

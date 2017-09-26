@@ -292,7 +292,6 @@
           margin-top:1em;
         }
         &.required > .title {
-          //background:url('/view/images/superform/badge/required.png') no-repeat right center;
           position: relative;
           &::after{
             content: '必須';
@@ -305,18 +304,15 @@
             margin: 0 0 0 10px;
             text-align: center;
             background: $subCol02;
-            //@include form_icon('必須',calc(100% - 19px),60px,$subCol02);
           }
         }
         &.ok > .title {
-          //background:url(/view/images/superform/badge/ok.png) no-repeat right 80%;
           position: relative;
           &::before{
             @include form_icon('OK',calc(100% - 19px),0,$subCol01);
           }
         }
         &.error > .title {
-          //background:url(/view/images/superform/badge/error.png) no-repeat right bottom!important;
           position: relative;
           &::before{
             @include form_icon('エラー',calc(100% - 19px),0,$alertCol);

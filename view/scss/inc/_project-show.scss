@@ -508,10 +508,24 @@
       margin-bottom: 20px;
 
       .invest-message {
-        background:url('/view/images/project/view/invest/message_beak.png') no-repeat left bottom;
+        position: relative;
+        //background:url('/view/images/project/view/invest/message_beak.png') no-repeat left bottom;
         background-color: #FFF!important;
         min-height:70px;
-        padding: 20px 15px 40px;
+        padding: 20px 15px ;
+        margin: 0 0 20px 0;
+        overflow: visible;
+        &:after{
+          content: '';
+          position: absolute;
+          bottom: -20px;
+          left: 40px;
+          display: block;
+          width: 0;
+          height: 0;
+          border: 10px solid transparent;
+          border-top: 10px solid #FFF;
+        }
         h2 {
           margin:0!important;
           span {
@@ -869,7 +883,6 @@
             border: 10px solid transparent;
             border-right: 15px solid $baseCol;
             background: none;
-            //background: url('/view/images/message/beak/arrow_02.png') no-repeat left top;
           }
         }
 
@@ -1001,10 +1014,6 @@
             position: relative;
             text-decoration: none;
             &:after {
-              //background: url('/view/images/arrow-link.png') no-repeat 50%;
-              //bottom: 0;
-              //content: '';
-              //display: block;
               height: 8px;
               margin: auto;
               right: 0;
