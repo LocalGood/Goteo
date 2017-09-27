@@ -672,8 +672,8 @@ body.js {
 
     div.children > div.elements > ol > li.element > div.feedback
     {
-      left: 100%;
-      margin-left: 2em;
+      left: calc(100% + 80px);
+      //margin-left: 2em;
       margin-top:0;
     }
 

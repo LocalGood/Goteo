@@ -848,6 +848,7 @@
       }
     }
   }
+
   .register,
   .external-login,
   .login{
@@ -855,6 +856,12 @@
     padding: 15px 20px;
     margin: 0 0 20px 0;
     background: #FFF;
+    a{
+      color: $mainCol01;
+      &:hover{
+        color: $mainCol02;
+      }
+    }
     label{
       display: block;
       &.conditions{

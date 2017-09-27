@@ -641,7 +641,7 @@
                 }
                 &.optimum {
                   display:block;
-                  left:100%;
+                  left: 100%;
                   margin-left:-70px;
                   padding-top:35px;
                   position:absolute;
@@ -767,7 +767,19 @@
                 border-right: none;
                 //margin: 0 20px 0 0;
                 margin-right: 20px;
+                overflow: visible!important;
+                .contents{
+                  > .children,
+                  > .jshidden{
+                    overflow: visible!important;
+                  }
+                }
               }
+            }
+          }
+          &.editsocial_reward {
+            > .children ol,li{
+
             }
           }
           &.editsocial_reward {
@@ -975,8 +987,8 @@
 
     .superform > div > ol{
       margin:0;
-      //padding: 20px !important;
-      //background: #FFF;
+      padding: 20px !important;
+      background: #FFF;
       #preview {
         .contents {
           .title--flex{
@@ -1009,6 +1021,14 @@
             @include button($subCol01);
           }
         }
+      }
+    }
+
+    &.preview{
+      .superform > div > ol {
+        margin: 0;
+        padding: 0!important;
+        background: none;
       }
     }
   }
