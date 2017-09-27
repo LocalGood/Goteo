@@ -142,6 +142,14 @@ array_walk($rewards, function (&$reward) { $reward = $reward->reward; });
             </dd>
         </dl>
     <?php endif; ?>
+    <?php if (!empty($invest->investor_email)) : ?>
+        <dl>
+            <dt><?php echo Text::get('admin-account-detail-investor_email') ?>:</dt>
+            <dd>
+                <?php echo $invest->investor_email; ?>
+            </dd>
+        </dl>
+    <?php endif; ?>
     <?php if (!empty($invest->rewards)) : ?>
     <dl>
         <dt><?php echo Text::_("Recompensas elegidas"); ?>:</dt>

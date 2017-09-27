@@ -168,6 +168,7 @@ namespace Goteo\Controller {
                         'invested' => date('Y-m-d'),
                         'anonymous' => $_POST['anonymous'],
                         'disp_name' => $_POST['disp_name'],
+                        'investor_email' => $_POST['investor_email'],
                         'resign' => $resign
                     )
                 );

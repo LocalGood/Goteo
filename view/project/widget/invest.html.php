@@ -157,13 +157,19 @@ if ($step == 'start') : ?>
 </div>
 <?php if (ACL::check('/admin')) : ?>
 <div class="widget project-invest display-name">
-    <h<?php echo $level ?> class="beak" id="address-header">現金寄付時の表示名を記入してください</h<?php echo $level ?>>
+    <h<?php echo $level ?> class="beak" id="address-header">現金寄付時の表示名および連絡先メールアドレスを記入してください</h<?php echo $level ?>>
 
     <table>
         <tr>
             <td>
                 <label for="disp_name">表示名：</label><br />
                 <input type="text" id="disp_name" name="disp_name" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="disp_name">メールアドレス：</label><br />
+                <input type="text" id="investor_email" name="investor_email" value="" />
             </td>
         </tr>
     </table>

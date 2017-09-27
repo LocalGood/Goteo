@@ -123,7 +123,8 @@ $filters = $this['filters'];
                     <?php if ($invest->anonymous == 1)  echo Text::_("Anónimo ") . "<br>" ?>
                     <?php if ($invest->resign == 1)  echo Text::_("Donativo ") . "<br>" ?>
                     <?php if (!empty($invest->admin)) echo Text::_("Manual") . "<br>" ?>
-                    <?php if (!empty($invest->disp_name))  echo Text::get('admin-account-detail-disp_name') . "：" . $invest->disp_name ?>
+                    <?php if (!empty($invest->disp_name))  echo Text::get('admin-account-detail-disp_name') . "：" . $invest->disp_name . "<br>"?>
+                    <?php if (!empty($invest->investor_email))  echo Text::get('admin-account-detail-investor_email') . "：" . $invest->investor_email ?>
                 </td>
             </tr>
             <?php endforeach; ?>
