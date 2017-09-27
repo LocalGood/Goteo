@@ -166,6 +166,28 @@ input.edit[type="submit"] {
 input[value='削除'] {
   background: #e02d22 !important; }
 
+input[type="button"].back {
+  background: none;
+  background: #828282;
+  box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 14px;
+  font-weight: 300;
+  height: 45px;
+  line-height: 45px;
+  margin: 10px 0;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  width: 200px; }
+  input[type="button"].back:hover {
+    opacity: 0.75;
+    color: #FFF; }
+
 /*a.button.red,
 a.button.weak {
   font-size:12px;
@@ -3606,6 +3628,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     font-weight: 400;
     height: auto;
     line-height: 16px;
+    padding: 0 10px;
     margin-top: 0;
     width: auto; }
     .project-edit .superform ol li.element .contents input.inline {
@@ -5574,19 +5597,21 @@ body.js .superform > div.elements ol li.element div.contents p {
       float: left;
       line-height: 2em;
       min-height: 2em;
-      min-width: 20%;
-      padding-left: 30px; }
+      min-width: 20px; }
       .user-profile .widget.user-social ul li a {
-        text-decoration: none; }
-      .user-profile .widget.user-social ul li.facebook {
+        display: block;
+        min-height: 20px;
+        text-decoration: none;
+        background-repeat: no-repeat; }
+      .user-profile .widget.user-social ul li.facebook a {
         background-image: url(/view/images/social/facebook.png); }
-      .user-profile .widget.user-social ul li.google {
+      .user-profile .widget.user-social ul li.google a {
         background-image: url(/view/images/social/google.png); }
-      .user-profile .widget.user-social ul li.twitter {
+      .user-profile .widget.user-social ul li.twitter a {
         background-image: url(/view/images/social/twitter.png); }
-      .user-profile .widget.user-social ul li.identica {
+      .user-profile .widget.user-social ul li.identica a {
         background-image: url(/view/images/social/identica.png); }
-      .user-profile .widget.user-social ul li.linkedin {
+      .user-profile .widget.user-social ul li.linkedin a {
         background-image: url(/view/images/social/linkedin.png); }
 .user-profile .widget.user-mates {
   padding: 0;
@@ -5716,6 +5741,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: #255b7f;
     font-size: 14px;
     line-height: 58px;
     margin: 0;
