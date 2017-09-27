@@ -4120,6 +4120,27 @@ body.js .superform > div.elements ol li.element div.contents p {
     .project-edit div#main .superform > div > ol #preview .contents .button.aqua:hover {
       opacity: 0.75;
       color: #FFF; }
+  .project-edit div#main .superform > div > ol #preview .contents .button.green {
+    background: none;
+    background: #009480;
+    box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    font-weight: 300;
+    height: 45px;
+    line-height: 45px;
+    margin: 10px auto;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    width: 200px; }
+    .project-edit div#main .superform > div > ol #preview .contents .button.green:hover {
+      opacity: 0.75;
+      color: #FFF; }
 .project-edit div#main.preview .superform > div > ol {
   margin: 0;
   padding: 0 !important;

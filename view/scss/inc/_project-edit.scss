@@ -1017,7 +1017,12 @@
           .button.violet{
             @include button($subCol02);
           }
+
           .button.aqua{
+            @include button($subCol01);
+          }
+
+          .button.green{
             @include button($subCol01);
           }
         }
