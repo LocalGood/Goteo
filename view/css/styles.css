@@ -2233,8 +2233,7 @@ body.js .superform .is_public {
   padding: 0 8px;
   color: #ffffff; }
 body.js .superform div.children > div.elements > ol > li.element > div.feedback {
-  left: 100%;
-  margin-left: 2em;
+  left: calc(100% + 80px);
   margin-top: 0; }
 body.js .superform > div.elements ol li.element.html div.contents {
   font-size: 14px;
@@ -3932,7 +3931,11 @@ body.js .superform > div.elements ol li.element div.contents p {
     min-height: 24px; }
   .project-edit div#main.rewards div.superform li.element#social_rewards div.elements ol li.element li.element {
     border-right: none;
-    margin-right: 20px; }
+    margin-right: 20px;
+    overflow: visible !important; }
+    .project-edit div#main.rewards div.superform li.element#social_rewards div.elements ol li.element li.element .contents > .children,
+    .project-edit div#main.rewards div.superform li.element#social_rewards div.elements ol li.element li.element .contents > .jshidden {
+      overflow: visible !important; }
 .project-edit div#main.rewards div.superform li.element.editsocial_reward > .children ol, .project-edit div#main.rewards div.superform li.element.editsocial_reward li.element.editindividual_reward > .children ol {
   margin: 0 !important;
   padding: 0 !important; }
@@ -4057,7 +4060,9 @@ body.js .superform > div.elements ol li.element div.contents p {
 .project-edit div#main.preview form.project .superform > div.elements > ol > li.element.html div.contents {
   margin-left: 0; }
 .project-edit div#main .superform > div > ol {
-  margin: 0; }
+  margin: 0;
+  padding: 20px !important;
+  background: #FFF; }
   .project-edit div#main .superform > div > ol #preview .contents .title--flex {
     display: -webkit-flex;
     display: flex; }
@@ -4115,6 +4120,10 @@ body.js .superform > div.elements ol li.element div.contents p {
     .project-edit div#main .superform > div > ol #preview .contents .button.aqua:hover {
       opacity: 0.75;
       color: #FFF; }
+.project-edit div#main.preview .superform > div > ol {
+  margin: 0;
+  padding: 0 !important;
+  background: none; }
 
 .dashboard #sub-header {
   height: 145px; }
@@ -5880,6 +5889,14 @@ body.js .superform > div.elements ol li.element div.contents p {
     padding: 15px 20px;
     margin: 0 0 20px 0;
     background: #FFF; }
+    .user-login .register a,
+    .user-login .external-login a,
+    .user-login .login a {
+      color: #255b7f; }
+      .user-login .register a:hover,
+      .user-login .external-login a:hover,
+      .user-login .login a:hover {
+        color: #009acb; }
     .user-login .register label,
     .user-login .external-login label,
     .user-login .login label {
