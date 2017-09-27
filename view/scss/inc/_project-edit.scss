@@ -975,8 +975,38 @@
 
     .superform > div > ol{
       margin:0;
-      padding: 20px !important;
-      background: #FFF;
+      //padding: 20px !important;
+      //background: #FFF;
+      #preview {
+        .contents {
+          .title--flex{
+            display: -webkit-flex;
+            display: flex;
+
+            .side_image{
+              width: 60px;
+              margin: 0 10px 0 0;
+              img{
+                width: 100%;
+                height: auto;
+              }
+            }
+
+            .name{
+              width: calc(100% - 70px);
+              &.only{
+                width: 100%;
+              }
+            }
+          }
+          .button.violet{
+            @include button($subCol02);
+          }
+          .button.aqua{
+            @include button($subCol01);
+          }
+        }
+      }
     }
   }
 }

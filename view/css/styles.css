@@ -4057,9 +4057,62 @@ body.js .superform > div.elements ol li.element div.contents p {
 .project-edit div#main.preview form.project .superform > div.elements > ol > li.element.html div.contents {
   margin-left: 0; }
 .project-edit div#main .superform > div > ol {
-  margin: 0;
-  padding: 20px !important;
-  background: #FFF; }
+  margin: 0; }
+  .project-edit div#main .superform > div > ol #preview .contents .title--flex {
+    display: -webkit-flex;
+    display: flex; }
+    .project-edit div#main .superform > div > ol #preview .contents .title--flex .side_image {
+      width: 60px;
+      margin: 0 10px 0 0; }
+      .project-edit div#main .superform > div > ol #preview .contents .title--flex .side_image img {
+        width: 100%;
+        height: auto; }
+    .project-edit div#main .superform > div > ol #preview .contents .title--flex .name {
+      width: calc(100% - 70px); }
+      .project-edit div#main .superform > div > ol #preview .contents .title--flex .name.only {
+        width: 100%; }
+  .project-edit div#main .superform > div > ol #preview .contents .button.violet {
+    background: none;
+    background: #e08e22;
+    box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    font-weight: 300;
+    height: 45px;
+    line-height: 45px;
+    margin: 10px auto;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    width: 200px; }
+    .project-edit div#main .superform > div > ol #preview .contents .button.violet:hover {
+      opacity: 0.75;
+      color: #FFF; }
+  .project-edit div#main .superform > div > ol #preview .contents .button.aqua {
+    background: none;
+    background: #009480;
+    box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    font-weight: 300;
+    height: 45px;
+    line-height: 45px;
+    margin: 10px auto;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    width: 200px; }
+    .project-edit div#main .superform > div > ol #preview .contents .button.aqua:hover {
+      opacity: 0.75;
+      color: #FFF; }
 
 .dashboard #sub-header {
   height: 145px; }

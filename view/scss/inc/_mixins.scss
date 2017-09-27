@@ -153,6 +153,30 @@ $fz15px: 1.0714285rem;
     background: none;
   }
 }
+
+@mixin button($color){
+  background: none;
+  background: $color;
+  box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 14px;
+  font-weight: 300;
+  height: 45px;
+  line-height: 45px;
+  margin: 10px auto;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  width: 200px;
+  &:hover{
+    opacity: 0.75;
+    color: #FFF;
+  }
+}
 /*----------------------------------------------------------------------
  borders
 ----------------------------------------------------------------------*/
