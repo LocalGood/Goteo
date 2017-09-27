@@ -999,6 +999,9 @@
               }
             }
           }
+          p{
+            font-weight: normal;
+          }
           .button.violet{
             @include button($subCol02);
           }

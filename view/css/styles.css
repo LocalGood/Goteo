@@ -4071,6 +4071,8 @@ body.js .superform > div.elements ol li.element div.contents p {
       width: calc(100% - 70px); }
       .project-edit div#main .superform > div > ol #preview .contents .title--flex .name.only {
         width: 100%; }
+  .project-edit div#main .superform > div > ol #preview .contents p {
+    font-weight: normal; }
   .project-edit div#main .superform > div > ol #preview .contents .button.violet {
     background: none;
     background: #e08e22;
