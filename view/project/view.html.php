@@ -225,13 +225,12 @@ $bodyClass = 'project-show'; include 'view/prologue.html.php' ?>
                         break;
                 }
                 ?>
-             </div>
-
 			<?php
-				if($printSendMsg){
-					 echo new View('view/project/widget/sendMsg.html.php',array('project' => $project));
-				}
-            ?>
+			if($printSendMsg){
+				echo new View('view/project/widget/sendMsg.html.php',array('project' => $project));
+			}
+			?>
+             </div>
 
         </div>
 
