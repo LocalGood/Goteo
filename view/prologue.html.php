@@ -153,6 +153,7 @@ $_blog_key = substr($ogmeta['url'], $blog_post+9);
 ?>
 
     <link rel="stylesheet" type="text/css" href="<?php echo SRC_URL ?>/view/css/styles.css" />
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <?/*
     <link rel="stylesheet" type="text/css" href="<?php echo SRC_URL ?>/view/css/base.css" />
