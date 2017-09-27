@@ -4722,6 +4722,9 @@ body.js .superform > div.elements ol li.element div.contents p {
   width: 200px; }
 .dashboard div#main.access div.superform li.element input.inline {
   margin: 0 0 2em; }
+.dashboard .superform div.children > div.elements > ol > li.element > div.feedback {
+  left: 100% !important;
+  margin: 0 0 0 2em; }
 
 .community #main {
   margin-top: 0; }
