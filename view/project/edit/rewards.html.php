@@ -140,7 +140,7 @@ foreach ($project->individual_rewards as $individual_reward) {
                                 'type'  => 'html',
                                 'class' => 'inline project-image',
                                 'html'  => !empty($individual_reward->image) ?
-                                    '<img src="'.SRC_URL.'/image/'.$individual_reward->image->id.'/128/128" alt="Imagen" /><button class="image-remove weak" type="submit" name="reward-image_'.$individual_reward->id.'-remove" title="Quitar imagen" value="remove"></button>' :
+                                    '<img src="'.STATIC_SVR_DOMAIN.'/data/cache//128x128/'. $individual_reward->image->name . '" alt="Imagen" /><button class="image-remove weak" type="submit" name="reward-image_'.$individual_reward->id.'-remove" title="Quitar imagen" value="remove"></button>' :
                                     ''
                             )
                         )

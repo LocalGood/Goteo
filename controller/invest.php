@@ -34,34 +34,36 @@ namespace Goteo\Controller {
         //Goteo\Library\Tpv;
         Goteo\Core\View,
 
-		PEAR,
-		HTTP_Request2,
-		DOMDocument
+        PEAR,
+        HTTP_Request2,
+        DOMDocument
         ;
 
 
     //パスを通してインクルード
-//    $path = dirname(__FILE__)."/../library";
+//    $path = dirname(__FILE__)."/../library/pear/";
+//    $path = $_SERVER['DOCUMENT_ROOT'] . "/library";
 //    set_include_path(get_include_path().PATH_SEPARATOR.$path);
-    require_once "HTTP/Request2.php" ;
+//var_dump(get_include_path());
+//    require_once "HTTP/Request2.php" ;
 
-//	require_once "PEAR.php";
-//	require_once "HTTP/Request2.php";
+//	require_once  "PEAR.php";
+//    require_once  "HTTP/Request2.php";
 
 
     class Invest extends \Goteo\Core\Controller {
 
         // metodos habilitados
         public static function _methods() {
-             return array(
-                    'cash' => 'cash',
-                    //'tpv' => 'tpv',
-                    //'paypal' => 'paypal'
-                    'axes' => 'axes',
-                    'epsilon' => 'epsilon',
-                    'epsilonrepeat' => 'epsilonrepeat',
-                    'conveni' => 'conveni'
-                );
+            return array(
+                'cash' => 'cash',
+                //'tpv' => 'tpv',
+                //'paypal' => 'paypal'
+                'axes' => 'axes',
+                'epsilon' => 'epsilon',
+                'epsilonrepeat' => 'epsilonrepeat',
+                'conveni' => 'conveni'
+            );
         }
 
         /*
@@ -307,15 +309,15 @@ namespace Goteo\Controller {
                 $log->populate('Aporte Axes', '/admin/invests',
                     \vsprintf("%s ha aportado %s al proyecto %s mediante PayPal",
                         array(
-                        Feed::item('user', $user->name, $user->id),
-                        Feed::item('money', $invest->amount.' &yen;'),
-                        Feed::item('project', $projectData->name, $projectData->id))
+                            Feed::item('user', $user->name, $user->id),
+                            Feed::item('money', $invest->amount.' &yen;'),
+                            Feed::item('project', $projectData->name, $projectData->id))
                     ));
                 $log->doAdmin('money');
                 // evento público
                 $log_html = Text::html('feed-invest',
-                                    Feed::item('money', $invest->amount.' &yen;'),
-                                    Feed::item('project', $projectData->name, $projectData->id));
+                    Feed::item('money', $invest->amount.' &yen;'),
+                    Feed::item('project', $projectData->name, $projectData->id));
                 if ($invest->anonymous) {
                     $log->populate(Text::get('regular-anonymous'), '/user/profile/anonymous', $log_html, 1);
                 } else {
@@ -356,7 +358,7 @@ namespace Goteo\Controller {
                 }
             }
 
-            
+
             // Dirección en el mail (y version para regalo)
             $txt_address = Text::get('invest-address-address-field') . ' ' . $invest->address->address;
             $txt_address .= '<br> ' . Text::get('invest-address-zipcode-field') . ' ' . $invest->address->zipcode;
@@ -392,7 +394,7 @@ namespace Goteo\Controller {
             }
 
             unset($mailHandler);
-            
+
 
             // Notificación al autor
             $template = Template::get(29);
@@ -430,10 +432,10 @@ namespace Goteo\Controller {
 
 
 
-		//
-		//		イプシロン　決済ページが完了したときの処理
-		//
-		//
+        //
+        //		イプシロン　決済ページが完了したときの処理
+        //
+        //
         public function epsilonpaid ($id = null) {
 
             #if($_GET['result'] != 'ok') die();
@@ -441,7 +443,7 @@ namespace Goteo\Controller {
             $trans_code = $_GET['trans_code'];
             $user_id = $_GET['user_id'];
             $result = $_GET['result'];
-            $order_number = $_GET['order_number'];		// order_number は、goteo の invest->id 
+            $order_number = $_GET['order_number'];		// order_number は、goteo の invest->id
 
 
             $invest = Model\Invest::get($order_number);
@@ -451,10 +453,10 @@ namespace Goteo\Controller {
             $projType = $invest->project_type;
 
 
-			if ($result != 1) {   // 1:成功 0:失敗
+            if ($result != 1) {   // 1:成功 0:失敗
                 Message::Error("return error from Epsilon" );
                 throw new Redirection(SEC_URL."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
-			}
+            }
 
 
             $projectData = Model\Project::getMedium($invest->project);
@@ -473,8 +475,8 @@ namespace Goteo\Controller {
                 // hay que cambiarle el status a 0
                 $invest->setStatus('0');
 
-				// trans_code の保管
-				$invest->setTransaction( $trans_code );
+                // trans_code の保管
+                $invest->setTransaction( $trans_code );
 
                 // Evento Feed
                 $log = new Feed();
@@ -482,15 +484,15 @@ namespace Goteo\Controller {
                 $log->populate('Aporte Axes', '/admin/invests',
                     \vsprintf("%s ha aportado %s al proyecto %s mediante PayPal",
                         array(
-                        Feed::item('user', $user->name, $user->id),
-                        Feed::item('money', $invest->amount.' &yen;'),
-                        Feed::item('project', $projectData->name, $projectData->id))
+                            Feed::item('user', $user->name, $user->id),
+                            Feed::item('money', $invest->amount.' &yen;'),
+                            Feed::item('project', $projectData->name, $projectData->id))
                     ));
                 $log->doAdmin('money');
                 // evento público
                 $log_html = Text::html('feed-invest',
-                                    Feed::item('money', $invest->amount.' &yen;'),
-                                    Feed::item('project', $projectData->name, $projectData->id));
+                    Feed::item('money', $invest->amount.' &yen;'),
+                    Feed::item('project', $projectData->name, $projectData->id));
                 if ($invest->anonymous) {
                     $log->populate(Text::get('regular-anonymous'), '/user/profile/anonymous', $log_html, 1);
                 } else {
@@ -506,8 +508,8 @@ namespace Goteo\Controller {
                 // hay que cambiarle el status a 0
                 $invest->setStatus('0');
 
-				// trans_code の保管
-				$invest->setTransaction( $trans_code );
+                // trans_code の保管
+                $invest->setTransaction( $trans_code );
 
                 // Evento Feed
                 $log = new Feed();
@@ -515,15 +517,15 @@ namespace Goteo\Controller {
                 $log->populate('Aporte Axes', '/admin/invests',
                     \vsprintf("%s ha aportado %s al proyecto %s mediante PayPal",
                         array(
-                        Feed::item('user', $user->name, $user->id),
-                        Feed::item('money', $invest->amount.' &yen;'),
-                        Feed::item('project', $projectData->name, $projectData->id))
+                            Feed::item('user', $user->name, $user->id),
+                            Feed::item('money', $invest->amount.' &yen;'),
+                            Feed::item('project', $projectData->name, $projectData->id))
                     ));
                 $log->doAdmin('money');
                 // evento público
                 $log_html = Text::html('feed-invest',
-                                    Feed::item('money', $invest->amount.' &yen;'),
-                                    Feed::item('project', $projectData->name, $projectData->id));
+                    Feed::item('money', $invest->amount.' &yen;'),
+                    Feed::item('project', $projectData->name, $projectData->id));
                 if ($invest->anonymous) {
                     $log->populate(Text::get('regular-anonymous'), '/user/profile/anonymous', $log_html, 1);
                 } else {
@@ -567,7 +569,7 @@ namespace Goteo\Controller {
                 }
             }
 
-            
+
             // Dirección en el mail (y version para regalo)
             $txt_address = Text::get('invest-address-address-field') . ' ' . $invest->address->address;
             $txt_address .= '<br> ' . Text::get('invest-address-zipcode-field') . ' ' . $invest->address->zipcode;
@@ -597,17 +599,17 @@ namespace Goteo\Controller {
             $mailHandler->template = $template->id;
 
 
-			if ( !defined('DEBUGTEST')) {
-              if ($mailHandler->send($errors)) {
-                Message::Info(Text::get('project-invest-thanks_mail-success'));
-              } else {
-                Message::Error(Text::get('project-invest-thanks_mail-fail'));
-                Message::Error(implode('<br />', $errors));
-			  }
+            if ( !defined('DEBUGTEST')) {
+                if ($mailHandler->send($errors)) {
+                    Message::Info(Text::get('project-invest-thanks_mail-success'));
+                } else {
+                    Message::Error(Text::get('project-invest-thanks_mail-fail'));
+                    Message::Error(implode('<br />', $errors));
+                }
             }
 
             unset($mailHandler);
-            
+
 
             // Notificación al autor
             $template = Template::get(29);
@@ -628,9 +630,9 @@ namespace Goteo\Controller {
             $mailHandler->html = true;
             $mailHandler->template = $template->id;
 
-			if ( !defined('DEBUGTEST')) {
-              $mailHandler->send();
-			}
+            if ( !defined('DEBUGTEST')) {
+                $mailHandler->send();
+            }
 
             unset($mailHandler);
 
@@ -649,10 +651,10 @@ namespace Goteo\Controller {
 
 
 
-		//
-		//		コンビニ入金時に、イプシロンからPOSTで通知が来る。
-		//
-		//
+        //
+        //		コンビニ入金時に、イプシロンからPOSTで通知が来る。
+        //
+        //
         public function convpaid ($id = null) {
 
             $trans_code = $_POST['trans_code'];
@@ -669,62 +671,62 @@ namespace Goteo\Controller {
             $memo2 = $_POST['memo2'];
 
 
-			$returnmsg = "1";
-			$errmsg = "0 999 PAID_ERROR";
+            $returnmsg = "1";
+            $errmsg = "0 999 PAID_ERROR";
 
-			// 入金済みでないならエラー
+            // 入金済みでないならエラー
             if($paid != 1) {
-				$returnmsg = "0 999 PAID_ERROR";
-			};
+                $returnmsg = "0 999 PAID_ERROR";
+            };
 
 
-			// エラー時は返送して終了
-			if ($returnmsg != "1") {
-				print "Content-type:text/plain\n\n";
-				print $errmsg;
-				die();
-			}
+            // エラー時は返送して終了
+            if ($returnmsg != "1") {
+                print "Content-type:text/plain\n\n";
+                print $errmsg;
+                die();
+            }
 
 
-			// 
-			// コンビニ決済の場合は、ＤＢの決済の有効化を行う。
-			// 
+            //
+            // コンビニ決済の場合は、ＤＢの決済の有効化を行う。
+            //
             $invest = Model\Invest::get($order_number);
 
             if ($invest->status != "0") {
-				print "Content-type:text/plain\n\n";
-				print $errmsg;
-				die();
-			}
+                print "Content-type:text/plain\n\n";
+                print $errmsg;
+                die();
+            }
 
 
             $project = $invest->project;
             $projType = $invest->project_type;
 
-			// trans_code のチェック
-			if ( strcmp($invest->transaction, $trans_code) ) {
-				print "Content-type:text/plain\n\n";
-				print $errmsg;
-				die();
-			}
-			
-
-			$invest->setStatus('1');	// 合計を有効にする。
+            // trans_code のチェック
+            if ( strcmp($invest->transaction, $trans_code) ) {
+                print "Content-type:text/plain\n\n";
+                print $errmsg;
+                die();
+            }
 
 
-			// 正常終了のレスポンスコードを返信して終了
-
-			print "Content-type:text/plain\n\n";
-			print $returnmsg;
-			die();
-		}
+            $invest->setStatus('1');	// 合計を有効にする。
 
 
+            // 正常終了のレスポンスコードを返信して終了
 
-		//
-		//		イプシロンの決済ページへ遷移する処理
-		//
-		//
+            print "Content-type:text/plain\n\n";
+            print $returnmsg;
+            die();
+        }
+
+
+
+        //
+        //		イプシロンの決済ページへ遷移する処理
+        //
+        //
         public function epsilongo($id=null, $processcode) {
 
             if (empty($id)) {
@@ -743,154 +745,136 @@ namespace Goteo\Controller {
             $projectData = Model\Project::getMedium($invest->project);
 
 
-			// イプシロンに決済処理を飛ばす　事前処理
-			//   1. 決済cgi にデータを送る
-			//	 2. xml でステータスと、決済URL が返るので取得
-			//	 3. 決済URLに、header() でロケーション。
+            // イプシロンに決済処理を飛ばす　事前処理
+            //   1. 決済cgi にデータを送る
+            //	 2. xml でステータスと、決済URL が返るので取得
+            //	 3. 決済URLに、header() でロケーション。
+
+            // 契約番号(8桁)
+            $contract_code = EPSILON_CONTRACT_CODE;
+
+            // 注文番号
+            $order_number = $invest->id;
+
+            // 決済区分
+            $st_code = array(
+                'normal'  => '10100-0000-00000-00010-00000-00000-00000',
+                'card'    => '10000-0000-00000-00000-00000-00000-00000',
+                'conveni' => '00100-0000-00000-00000-00000-00000-00000',
+                'atobarai'=> '00000-0000-00000-00010-00000-00000-00000',
+            );
+
+            $memo1 = "";
+            $memo2 = "";
+
+            // 商品コード
+            $item_code = $invest->project;
+
+            // 商品名と価格
+            $item_name = $projectData->name;
+            $item_price = $invest->amount;
+
+            // 課金区分
+            $mission_code  = 1;
+
+            // 処理区分
+            $process_code = $processcode;
+
+            // ユーザー固有情報
+
+            $user = Model\User::get($invest->user);
+
+            $user_id = $user->id;            // ユーザーID
+
+            $user_name = $user->name;        // ユーザー氏名
+
+            $user_mail_add = $user->email;	// メールアドレス
+
+            $st = "card";	// クレジットカード設定
+
+            $postdata = array(
+                'version'        => '2',
+                'contract_code'  => $contract_code,
+                'user_id'        => $user_id,
+                'user_name'      => $user_name,
+                'user_mail_add'  => $user_mail_add,
+                'item_code'      => $item_code,
+                'item_name'      => mb_convert_encoding(mb_strcut(mb_convert_encoding($item_name, "SJIS", "UTF-8"), 0, 64, "SJIS"), "UTF-8", "auto"),
+                'order_number'   => $order_number,
+                'st_code'        => $st_code[$st],
+                'mission_code'   => $mission_code,
+                'item_price'     => $item_price,
+                'process_code'   => $process_code,
+                'memo1'          => $memo1,
+                'memo2'          => $memo2,
+                'xml'            => '1',
+                'character_code' => 'UTF8'
+            );
+            $ch = curl_init();
+            curl_setopt( $ch,CURLOPT_POST, TRUE);
+            curl_setopt( $ch, CURLOPT_URL, EPSILON_ORDER_URL );
+            curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+            curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postdata));
+            $content = curl_exec( $ch );
+            $response = curl_getinfo( $ch );
+            curl_close ( $ch );
 
 
-			// httpリクエスト用のオプションを指定
-			$http_option = array(
-			  "timeout" => "20", // タイムアウトの秒数指定
-			  //    "allowRedirects" => true, // リダイレクトの許可設定(true/false)
-			  //    "maxRedirects" => 3, // リダイレクトの最大回数
-			);
+            // 応答内容(XML)の解析
+            if ($response['http_code'] === 200) {
+                $res_content = $content;
+
+                $resultno = $redirect = $err_code = $err_detail = "";
+
+                $xmlobj = simplexml_load_string($res_content);
+                foreach ($xmlobj->result as $d) {
+                    $t = (string) $d->attributes()->result;
+                    if ($t != "") {
+                        $resultno = $t;
+                    }
+                    $t = (string) $d->attributes()->redirect;
+                    if ($t != "") {
+                        $redirect = urldecode($t);
+                    }
+                    $t = (string) $d->attributes()->err_code;
+                    if ($t != "") {
+                        $err_code = $t;
+                    }
+                    $t = (string) $d->attributes()->err_detail;
+                    if ($t != "") {
+                        $err_detail = urldecode($t);
+                    }
+                }
 
 
-			$request = new HTTP_Request2(EPSILON_ORDER_URL, HTTP_Request2::METHOD_POST, $http_option);
-			$request->setConfig(array(
-				'ssl_verify_peer' => false,
-			));
+                // アクセスエラーのチェック
+                switch ( $resultno ) {
+                    case 1:	// 正常終了
+                        // 何もしない
+
+                        break;
+                    case 0:	// 失敗
+                        // エラー出力
+                        Message::Error(Text::get('Epsilon Return Error') . "\n" . $err_code ."\n" .$err_detail);
+                        throw new Redirection(SEC_URL."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
+                        break;
+                }
 
 
-			// 契約番号(8桁)
-			$contract_code = EPSILON_CONTRACT_CODE;
+            }
 
-			// 注文番号
-			$order_number = $invest->id;
-
-			// 決済区分
-			$st_code = array( 
-				'normal'  => '10100-0000-00000-00010-00000-00000-00000',
-  				'card'    => '10000-0000-00000-00000-00000-00000-00000',
-   				'conveni' => '00100-0000-00000-00000-00000-00000-00000',
-   				'atobarai'=> '00000-0000-00000-00010-00000-00000-00000',
-			);
-
-			$memo1 = "";
-			$memo2 = "";
-
-			// 商品コード
-			$item_code = $invest->project;
-
-			// 商品名と価格
-			$item_name = $projectData->name;
-			$item_price = $invest->amount;
-
-			// 課金区分
-			$mission_code  = 1;
-
-			// 処理区分
-			$process_code = $processcode;
-
-
-			// ユーザー固有情報
-
-			$user = Model\User::get($invest->user);
-			#var_dump($user);
-
-			$user_tel = 'user_tel';          // ユーザ電話番号
-			$user_name_kana = 'user_name_kana'; // ユーザー名(カナ)
-
-			$user_id = $user->id;            // ユーザーID
-
-			$user_name = $user->name;        // ユーザー氏名
-
-			$user_mail_add = $user->email;	// メールアドレス
-
-			$st = "card";	// クレジットカード設定
-			$stc = $st_code[$st];
-
-
-
-			$request->addPostParameter('version', '2' );
-			$request->addPostParameter('contract_code', $contract_code);
-			$request->addPostParameter('user_id', $user_id);
-			$request->addPostParameter('user_name', $user_name);
-			$request->addPostParameter('user_mail_add', $user_mail_add);
-			$request->addPostParameter('item_code', $item_code);
-			$request->addPostParameter('item_name', mb_convert_encoding(mb_strcut(mb_convert_encoding($item_name,"SJIS","UTF-8"),0,64,"SJIS"),"UTF-8","SJIS"), "UTF-8", "auto");
-			$request->addPostParameter('order_number', $order_number);
-			$request->addPostParameter('st_code', $st_code[$st]);
-			$request->addPostParameter('mission_code', $mission_code);
-			$request->addPostParameter('item_price', $item_price);
-			$request->addPostParameter('process_code', $process_code);
-			$request->addPostParameter('memo1', $memo1);
-			$request->addPostParameter('memo2', $memo2);
-			$request->addPostParameter('xml', '1');
-			$request->addPostParameter('character_code', 'UTF8' );
-
-
-
-			// HTTPリクエスト実行
-			$response = $request->send();
-
-			// 応答内容(XML)の解析
-//			if (!PEAR::isError($response)) {
-                if (true) {
-				$res_code = $response->getStatus();
-				$res_content = $response->getBody();
-
-				$resultno = $redirect = $err_code = $err_detail = "";
-
-				$xmlobj = simplexml_load_string($res_content);
-				foreach ($xmlobj->result as $d) {
-					$t = (string) $d->attributes()->result;
-					if ($t != "") {
-						$resultno = $t;
-					}
-					$t = (string) $d->attributes()->redirect;
-					if ($t != "") {
-						$redirect = urldecode($t);
-					}
-					$t = (string) $d->attributes()->err_code;
-					if ($t != "") {
-						$err_code = $t;
-					}
-					$t = (string) $d->attributes()->err_detail;
-					if ($t != "") {
-						$err_detail = urldecode($t);
-					}
-				}
-
-
-				// アクセスエラーのチェック
-				switch ( $resultno ) {
-					case 1:	// 正常終了
-						// 何もしない
-
-						break;
-					case 0:	// 失敗
-						// エラー出力
-						Message::Error(Text::get('Epsilon Return Error') . "\n" . $err_code ."\n" .$err_detail);
-            			throw new Redirection(SEC_URL."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
-						break;
-				}
-
-
-			}
-
-			header("Location: " . $redirect);
-			exit;
+            header("Location: " . $redirect);
+            exit;
 
         }
 
 
 
-		//
-		//		コンビニ決済ページへ遷移する処理
-		//
-		//
+        //
+        //		コンビニ決済ページへ遷移する処理
+        //
+        //
         public function convenigo($id=null) {
 
             if (empty($id)) {
@@ -904,143 +888,130 @@ namespace Goteo\Controller {
             $projectData = Model\Project::getMedium($invest->project);
 
 
-			// イプシロンに決済処理を飛ばす　事前処理
-			//   1. 決済cgi にデータを送る
-			//	 2. xml でステータスと、決済URL が返るので取得
-			//	 3. 決済URLに、header() でロケーション。
+            // イプシロンに決済処理を飛ばす　事前処理
+            //   1. 決済cgi にデータを送る
+            //	 2. xml でステータスと、決済URL が返るので取得
+            //	 3. 決済URLに、header() でロケーション。
 
 
-			// httpリクエスト用のオプションを指定
-			$http_option = array(
-			  "timeout" => "20", // タイムアウトの秒数指定
-			  //    "allowRedirects" => true, // リダイレクトの許可設定(true/false)
-			  //    "maxRedirects" => 3, // リダイレクトの最大回数
-			);
+            // 契約番号(8桁)
+            $contract_code = EPSILON_CONTRACT_CODE;
+
+            // 注文番号
+            $order_number = $invest->id;
+
+            // 決済区分
+            $st_code = array(
+                'normal'  => '10100-0000-00000-00010-00000-00000-00000',
+                'card'    => '10000-0000-00000-00000-00000-00000-00000',
+                'conveni' => '00100-0000-00000-00000-00000-00000-00000',
+                'atobarai'=> '00000-0000-00000-00010-00000-00000-00000',
+            );
+
+            $memo1 = "";
+            $memo2 = "";
+
+            // 商品コード
+            $item_code = $invest->project;
+
+            // 商品名と価格
+            $item_name = $projectData->name;
+            $item_price = $invest->amount;
+
+            // 課金区分
+            $mission_code  = 1;
+
+            // 処理区分
+            $process_code = 1;
 
 
-			$request = new HTTP_Request2(EPSILON_ORDER_URL, HTTP_Request2::METHOD_POST, $http_option);
-			$request->setConfig(array(
-				'ssl_verify_peer' => false,
-			));
+            // ユーザー固有情報
+
+            $user = Model\User::get($invest->user);
+            #var_dump($user);
+
+            $user_id = $user->id;            // ユーザーID
+
+            $user_name = $user->name;        // ユーザー氏名
+
+            $user_mail_add = $user->email;	// メールアドレス
+
+            $st = "conveni";	// コンビニ決済
 
 
-			// 契約番号(8桁)
-			$contract_code = EPSILON_CONTRACT_CODE;
-
-			// 注文番号
-			$order_number = $invest->id;
-
-			// 決済区分
-			$st_code = array( 
-				'normal'  => '10100-0000-00000-00010-00000-00000-00000',
-  				'card'    => '10000-0000-00000-00000-00000-00000-00000',
-   				'conveni' => '00100-0000-00000-00000-00000-00000-00000',
-   				'atobarai'=> '00000-0000-00000-00010-00000-00000-00000',
-			);
-
-			$memo1 = "";
-			$memo2 = "";
-
-			// 商品コード
-			$item_code = $invest->project;
-
-			// 商品名と価格
-			$item_name = $projectData->name;
-			$item_price = $invest->amount;
-
-			// 課金区分
-			$mission_code  = 1;
-
-			// 処理区分
-			$process_code = 1;
+            $postdata = array(
+                'version'        => '2',
+                'contract_code'  => $contract_code,
+                'user_id'        => $user_id,
+                'user_name'      => $user_name,
+                'user_mail_add'  => $user_mail_add,
+                'item_code'      => $item_code,
+                'item_name'      => mb_convert_encoding(mb_strcut(mb_convert_encoding($item_name, "SJIS", "UTF-8"), 0, 64, "SJIS"), "UTF-8", "auto"),
+                'order_number'   => $order_number,
+                'st_code'        => $st_code[$st],
+                'mission_code'   => $mission_code,
+                'item_price'     => $item_price,
+                'process_code'   => $process_code,
+                'memo1'          => $memo1,
+                'memo2'          => $memo2,
+                'xml'            => '1',
+                'character_code' => 'UTF8'
+            );
+            $ch = curl_init();
+            curl_setopt( $ch,CURLOPT_POST, TRUE);
+            curl_setopt( $ch, CURLOPT_URL, EPSILON_ORDER_URL );
+            curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+            curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postdata));
+            $content = curl_exec( $ch );
+            $response = curl_getinfo( $ch );
+            curl_close ( $ch );
 
 
-			// ユーザー固有情報
+            // 応答内容(XML)の解析
+            if ($response['http_code'] === 200) {
+                $res_content = $content;
 
-			$user = Model\User::get($invest->user);
-			#var_dump($user);
+                $resultno = $redirect = $err_code = $err_detail = "";
 
-			$user_tel = 'user_tel';          // ユーザ電話番号
-			$user_name_kana = 'user_name_kana'; // ユーザー名(カナ)
-
-			$user_id = $user->id;            // ユーザーID
-
-			$user_name = $user->name;        // ユーザー氏名
-
-			$user_mail_add = $user->email;	// メールアドレス
-
-			$st = "conveni";	// コンビニ決済
-			$stc = $st_code[$st];
-
-
-			$request->addPostParameter('version', '2' );
-			$request->addPostParameter('contract_code', $contract_code);
-			$request->addPostParameter('user_id', $user_id);
-			$request->addPostParameter('user_name', $user_name);
-			$request->addPostParameter('user_mail_add', $user_mail_add);
-			$request->addPostParameter('item_code', $item_code);
-			$request->addPostParameter('item_name', mb_convert_encoding(mb_strcut(mb_convert_encoding($item_name,"SJIS","UTF-8"),0,64,"SJIS"),"UTF-8","SJIS"), "UTF-8", "auto");
-			$request->addPostParameter('order_number', $order_number);
-			$request->addPostParameter('st_code', $st_code[$st]);
-			$request->addPostParameter('mission_code', $mission_code);
-			$request->addPostParameter('item_price', $item_price);
-			$request->addPostParameter('process_code', $process_code);
-			$request->addPostParameter('memo1', $memo1);
-			$request->addPostParameter('memo2', $memo2);
-			$request->addPostParameter('xml', '1');
-			$request->addPostParameter('character_code', 'UTF8' );
+                $xmlobj = simplexml_load_string($res_content);
+                foreach ($xmlobj->result as $d) {
+                    $t = (string) $d->attributes()->result;
+                    if ($t != "") {
+                        $resultno = $t;
+                    }
+                    $t = (string) $d->attributes()->redirect;
+                    if ($t != "") {
+                        $redirect = urldecode($t);
+                    }
+                    $t = (string) $d->attributes()->err_code;
+                    if ($t != "") {
+                        $err_code = $t;
+                    }
+                    $t = (string) $d->attributes()->err_detail;
+                    if ($t != "") {
+                        $err_detail = urldecode($t);
+                    }
+                }
 
 
+                // アクセスエラーのチェック
+                switch ( $resultno ) {
+                    case 1:	// 正常終了
+                        // 何もしない
 
-			// HTTPリクエスト実行
-			$response = $request->send();
+                        break;
+                    case 0:	// 失敗
+                        // エラー出力
+                        Message::Error(Text::get('Epsilon Return Error'));
+                        throw new Redirection(SEC_URL."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
+                        break;
+                }
 
-			// 応答内容(XML)の解析
-			if (true) {
-//                if (!PEAR::isError($response)) {
-				$res_code = $response->getStatus();
-				$res_content = $response->getBody();
+            }
 
-				$resultno = $redirect = $err_code = $err_detail = "";
-
-				$xmlobj = simplexml_load_string($res_content);
-				foreach ($xmlobj->result as $d) {
-					$t = (string) $d->attributes()->result;
-					if ($t != "") {
-						$resultno = $t;
-					}
-					$t = (string) $d->attributes()->redirect;
-					if ($t != "") {
-						$redirect = urldecode($t);
-					}
-					$t = (string) $d->attributes()->err_code;
-					if ($t != "") {
-						$err_code = $t;
-					}
-					$t = (string) $d->attributes()->err_detail;
-					if ($t != "") {
-						$err_detail = urldecode($t);
-					}
-				}
-
-
-				// アクセスエラーのチェック
-				switch ( $resultno ) {
-					case 1:	// 正常終了
-						// 何もしない
-
-						break;
-					case 0:	// 失敗
-						// エラー出力
-						Message::Error(Text::get('Epsilon Return Error'));
-            			throw new Redirection(SEC_URL."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
-						break;
-				}
-
-			}
-
-			header("Location: " . $redirect);
-			exit;
+            header("Location: " . $redirect);
+            exit;
 
         }
 
@@ -1064,13 +1035,13 @@ namespace Goteo\Controller {
          * @params is id del aporte
          */
         public function fail ($id = null) {
-			// イプシロンの場合、$id はカラで来る。
-			// GET で(ユーザＩＤ，実行結果、注文番号等)が送られてくるので、それを処理する。
+            // イプシロンの場合、$id はカラで来る。
+            // GET で(ユーザＩＤ，実行結果、注文番号等)が送られてくるので、それを処理する。
 
             $trans_code = $_GET['trans_code'];
             $user_id = $_GET['user_id'];
             $result = $_GET['result'];
-            $order_number = $_GET['order_number'];		
+            $order_number = $_GET['order_number'];
 
 
 

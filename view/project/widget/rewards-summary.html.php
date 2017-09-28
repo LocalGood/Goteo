@@ -51,7 +51,8 @@ uasort($project->individual_rewards,
     <div class="individual">
         <h<?php echo $level+1 ?> id="individual_ttl" class="title"><?php echo Text::get('project-rewards-individual_reward-title'); ?></h<?php echo $level+1 ?>>
         <ul>
-        <?php foreach ($project->individual_rewards as $individual) : ?>
+        <?php foreach ($project->individual_rewards as $individual) :
+            ?>
         <li class="<?php echo $individual->icon ?>">
             <dl class="amount">
                 <dt><?php echo Text::get('regular-support-amount'); ?></dt>
@@ -73,7 +74,7 @@ uasort($project->individual_rewards,
                 </div>
             </div>
             <div class="right">
-                <img src="<?php echo SRC_URL ?>/view/images/" alt="<?/*php todo: $project->新しく追加されるお礼画像のキャプション　を出す */?>">
+                <img src="<?php echo $individual->image->getLink(580, 580) ?>" alt="<?/*php todo: $project->新しく追加されるお礼画像のキャプション　を出す */?>">
             </div>
 
         </li>
