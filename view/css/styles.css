@@ -1796,6 +1796,50 @@ body.project-embed {
       width: 2em;
       font-size: 11px; }
 
+.superform input[type="text"],
+.superform input[type="password"],
+.superform textarea {
+  background-color: #f2f2f2;
+  border: 1px solid #d9d9d9;
+  min-height: 27px; }
+.superform textarea {
+  min-height: 6em; }
+.superform fieldset {
+  border: 1px solid #d9d9d9; }
+  .superform fieldset legend {
+    color: #828282; }
+.superform input.edit[type="submit"],
+.superform input.remove[type="submit"],
+.superform input.add[type="submit"],
+.superform input.add[type="submit"],
+.superform input.ok[type="submit"],
+.superform a.button.red,
+.superform a.button,
+.superform a.button.weak {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 0.3em 1.2em !important; }
+.superform button.image-remove {
+  display: inline-block;
+  background: url(/view/images/button/cross.png) no-repeat center center !important;
+  box-shadow: none;
+  height: 20px;
+  margin: 0 10px 0 0 !important;
+  padding: 0 !important;
+  position: absolute;
+  right: 5px;
+  top: -10px;
+  width: 20px;
+  text-indent: -99999px; }
+  .superform button.image-remove:hover {
+    background: url(/view/images/button/cross-active.png) no-repeat center center !important; }
+.superform input.next,
+.superform input.confirm,
+.superform input.retry {
+  font-size: 15px;
+  padding: .6em 1.6em; }
+.superform h3 {
+  font-size: 30px; }
 .superform div.element {
   position: relative; }
 .superform li.element {
@@ -1849,8 +1893,7 @@ body.project-embed {
       color: #454545;
       line-height: 16px !important;
       margin: 0;
-      padding: 20px;
-      position: relative; }
+      padding: 20px; }
       .superform li.element li.element > div.feedback > div::after {
         content: '';
         display: block;
@@ -1892,9 +1935,9 @@ body.project-embed {
     margin: 0 0 .5em; }
   .superform li.element > h4 {
     font-size: 20px; }
-  .superform li.element > h4.title {
-    font-size: 16px;
-    font-weight: bold; }
+    .superform li.element > h4.title {
+      font-size: 16px;
+      font-weight: bold; }
   .superform li.element > label {
     display: block;
     font-weight: 700;
@@ -1926,11 +1969,7 @@ body.project-embed {
   padding: 0; }
   .superform div.elements > ol > li.element {
     border-right: 1px dashed #d9d9d9;
-    margin-right: 251px;
-    /*&.checkboxescustom > div.contents > ul > li > label {
-      padding-right:23px;
-      width:181px;
-    }*/ }
+    margin-right: 251px; }
     .superform div.elements > ol > li.element.checkboxes, .superform div.elements > ol > li.element.checkboxescustom, .superform div.elements > ol > li.element.radios {
       padding-bottom: 0; }
     .superform div.elements > ol > li.element.checkboxes > div.contents > ul, .superform div.elements > ol > li.element.checkboxescustom > div.contents > ul, .superform div.elements > ol > li.element.radios > div.contents > ul, .superform div.elements > ol > li.element.slider > div.contents > ul {
@@ -1938,15 +1977,44 @@ body.project-embed {
       margin: 0;
       overflow: hidden;
       padding: 0; }
-    .superform div.elements > ol > li.element.checkboxes > div.contents > ul > li, .superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li, .superform div.elements > ol > li.element.radios > div.contents > ul > li, .superform div.elements > ol > li.element.slider > div.contents > ul > li {
-      padding: 0; }
-    .superform div.elements > ol > li.element.checkboxes.inline > div.contents > ul > li, .superform div.elements > ol > li.element.checkboxescustom.inline > div.contents > ul > li, .superform div.elements > ol > li.element.radios.inline > div.contents > ul > li, .superform div.elements > ol > li.element.slider.inline > div.contents > ul > li {
-      margin-bottom: 0; }
-    .superform div.elements > ol > li.element.radio > div.contents > label, .superform div.elements > ol > li.element.checkboxes > div.contents > ul > li > label, .superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li > label, .superform div.elements > ol > li.element.radios > div.contents > ul > li > label, .superform div.elements > ol > li.element.slider > div.contents > ul > li > label {
+      .superform div.elements > ol > li.element.checkboxes > div.contents > ul li, .superform div.elements > ol > li.element.checkboxescustom > div.contents > ul li, .superform div.elements > ol > li.element.radios > div.contents > ul li, .superform div.elements > ol > li.element.slider > div.contents > ul li {
+        padding: 0; }
+      .superform div.elements > ol > li.element.checkboxes > div.contents > ul > li > label, .superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li > label, .superform div.elements > ol > li.element.radios > div.contents > ul > li > label, .superform div.elements > ol > li.element.slider > div.contents > ul > li > label {
+        cursor: pointer;
+        display: block;
+        padding: .8em 1em;
+        position: relative; }
+        .superform div.elements > ol > li.element.checkboxes > div.contents > ul > li > label > input[type="checkbox"],
+        .superform div.elements > ol > li.element.checkboxes > div.contents > ul > li > label > input[type="checkbox"],
+        .superform div.elements > ol > li.element.checkboxes > div.contents > ul > li > label > input[type="radio"],
+        .superform div.elements > ol > li.element.checkboxes > div.contents > ul > li > label > input[type="radio"], .superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li > label > input[type="checkbox"],
+        .superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li > label > input[type="checkbox"],
+        .superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li > label > input[type="radio"],
+        .superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li > label > input[type="radio"], .superform div.elements > ol > li.element.radios > div.contents > ul > li > label > input[type="checkbox"],
+        .superform div.elements > ol > li.element.radios > div.contents > ul > li > label > input[type="checkbox"],
+        .superform div.elements > ol > li.element.radios > div.contents > ul > li > label > input[type="radio"],
+        .superform div.elements > ol > li.element.radios > div.contents > ul > li > label > input[type="radio"], .superform div.elements > ol > li.element.slider > div.contents > ul > li > label > input[type="checkbox"],
+        .superform div.elements > ol > li.element.slider > div.contents > ul > li > label > input[type="checkbox"],
+        .superform div.elements > ol > li.element.slider > div.contents > ul > li > label > input[type="radio"],
+        .superform div.elements > ol > li.element.slider > div.contents > ul > li > label > input[type="radio"] {
+          display: inline-block;
+          cursor: pointer;
+          height: 1em;
+          margin-top: -.5em;
+          margin-right: 10px; }
+    .superform div.elements > ol > li.element.checkboxes > div.contents > label, .superform div.elements > ol > li.element.checkboxescustom > div.contents > label, .superform div.elements > ol > li.element.radios > div.contents > label, .superform div.elements > ol > li.element.slider > div.contents > label {
       cursor: pointer;
       display: block;
       padding: .8em 1em;
       position: relative; }
+      .superform div.elements > ol > li.element.checkboxes > div.contents > label > input[type="radio"], .superform div.elements > ol > li.element.checkboxescustom > div.contents > label > input[type="radio"], .superform div.elements > ol > li.element.radios > div.contents > label > input[type="radio"], .superform div.elements > ol > li.element.slider > div.contents > label > input[type="radio"] {
+        display: inline-block;
+        cursor: pointer;
+        height: 1em;
+        margin-top: -.5em;
+        margin-right: 10px; }
+    .superform div.elements > ol > li.element.checkboxes.inline > div.contents > ul > li, .superform div.elements > ol > li.element.checkboxescustom.inline > div.contents > ul > li, .superform div.elements > ol > li.element.radios.inline > div.contents > ul > li, .superform div.elements > ol > li.element.slider.inline > div.contents > ul > li {
+      margin-bottom: 0; }
     .superform div.elements > ol > li.element.checkboxes.cols_1 > div.contents > ul > li, .superform div.elements > ol > li.element.checkboxescustom.cols_1 > div.contents > ul > li, .superform div.elements > ol > li.element.radios.cols_1 > div.contents > ul > li, .superform div.elements > ol > li.element.slider.cols_1 > div.contents > ul > li {
       width: 100%; }
     .superform div.elements > ol > li.element.checkboxes.cols_2 > div.contents > ul > li, .superform div.elements > ol > li.element.checkboxescustom.cols_2 > div.contents > ul > li, .superform div.elements > ol > li.element.radios.cols_2 > div.contents > ul > li, .superform div.elements > ol > li.element.slider.cols_2 > div.contents > ul > li {
@@ -1962,12 +2030,6 @@ body.project-embed {
       width: 20%; }
     .superform div.elements > ol > li.element.checkboxes.cols_6 > div.contents > ul > li, .superform div.elements > ol > li.element.checkboxescustom.cols_6 > div.contents > ul > li, .superform div.elements > ol > li.element.radios.cols_6 > div.contents > ul > li, .superform div.elements > ol > li.element.slider.cols_6 > div.contents > ul > li {
       width: 16.66%; }
-    .superform div.elements > ol > li.element.radio > div.contents > label > input[type="radio"], .superform div.elements > ol > li.element.checkboxes > div.contents > ul > li > label > input[type="checkbox"], .superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li > label > input[type="checkbox"], .superform div.elements > ol > li.element.radios > div.contents > ul > li > label > input[type="radio"], .superform div.elements > ol > li.element.slider > div.contents > ul > li > label > input[type="radio"] {
-      display: inline-block;
-      cursor: pointer;
-      height: 1em;
-      margin-top: -.5em;
-      margin-right: 10px; }
     .superform div.elements > ol > li.element.radio {
       padding: 0 !important; }
   .superform div.elements > ol > li div.element {
@@ -2033,12 +2095,6 @@ body.project-embed {
   background-image: url(/view/images/superform/identica.png); }
 .superform div.elements li.element.textbox.linkedin > div.contents {
   background-image: url(/view/images/superform/linkedin.png); }
-.superform fieldset {
-  border: 1px solid #d9d9d9; }
-  .superform fieldset legend {
-    color: #828282; }
-.superform h3 {
-  font-size: 30px; }
 .superform > div.hint,
 .superform > div.elements {
   overflow: visible; }
@@ -2064,14 +2120,6 @@ body.project-embed {
     padding-left: 0; }
     .superform > div.hint blockquote p {
       margin: 0; }
-.superform input[type="text"],
-.superform input[type="password"],
-.superform textarea {
-  background-color: #f2f2f2;
-  border: 1px solid #d9d9d9;
-  min-height: 27px; }
-.superform textarea {
-  min-height: 6em; }
 .superform.aqua li.element > div.feedback {
   background: none; }
   .superform.aqua li.element > div.feedback > div {
@@ -2130,36 +2178,8 @@ body.project-embed {
   color: #454545; }
 .superform.green div.elements > ol > li.busy > .title {
   background: url(/view/images/superform/badge/busy/green.gif) no-repeat right top; }
-.superform input.edit[type="submit"],
-.superform input.remove[type="submit"],
-.superform input.add[type="submit"],
-.superform input.add[type="submit"],
-.superform input.ok[type="submit"],
-.superform a.button.red,
-.superform a.button,
-.superform a.button.weak {
-  font-size: 16px;
-  font-weight: 700;
-  padding: 0.3em 1.2em !important; }
 .superform li#user_avatar li.avatar_upload input[type="submit"] {
   padding: 0.3em 1.2em !important; }
-.superform button.image-remove {
-  display: inline-block;
-  background: url(/view/images/button/cross.png) no-repeat center center !important;
-  box-shadow: none;
-  height: 20px;
-  margin: 0 10px 0 0 !important;
-  padding: 0 !important;
-  position: absolute;
-  right: 5px;
-  top: -10px;
-  width: 20px;
-  text-indent: -99999px; }
-  .superform button.image-remove:hover {
-    background: url(/view/images/button/cross-active.png) no-repeat center center !important; }
-.superform input.next, .superform input.confirm, .superform input.retry {
-  font-size: 15px;
-  padding: .6em 1.6em; }
 .superform li#social_rewards h4.title,
 .superform li#individual_rewards h4.title,
 .superform li#supports h4.title,
