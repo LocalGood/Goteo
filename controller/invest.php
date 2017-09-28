@@ -32,24 +32,8 @@ namespace Goteo\Controller {
         Goteo\Library\Message,
         //Goteo\Library\Paypal,
         //Goteo\Library\Tpv;
-        Goteo\Core\View,
-
-        PEAR,
-        HTTP_Request2,
-        DOMDocument
+        Goteo\Core\View
         ;
-
-
-    //パスを通してインクルード
-//    $path = dirname(__FILE__)."/../library/pear/";
-//    $path = $_SERVER['DOCUMENT_ROOT'] . "/library";
-//    set_include_path(get_include_path().PATH_SEPARATOR.$path);
-//var_dump(get_include_path());
-//    require_once "HTTP/Request2.php" ;
-
-//	require_once  "PEAR.php";
-//    require_once  "HTTP/Request2.php";
-
 
     class Invest extends \Goteo\Core\Controller {
 
@@ -507,7 +491,7 @@ namespace Goteo\Controller {
             if ($invest->method == 'conveni') {
 
                 // hay que cambiarle el status a 0
-                $invest->setStatus('0');
+                #$invest->setStatus('0');
 
                 // trans_code の保管
                 $invest->setTransaction( $trans_code );
@@ -694,7 +678,7 @@ namespace Goteo\Controller {
             //
             $invest = Model\Invest::get($order_number);
 
-            if ($invest->status != "0") {
+            if ($invest->status != "-1") {
                 print "Content-type:text/plain\n\n";
                 print $errmsg;
                 die();
@@ -710,6 +694,12 @@ namespace Goteo\Controller {
                 print $errmsg;
                 die();
             }
+
+            #  $fp = fopen( "/home/miyamoto/HP/localgood2/logs/convpaid", "a");
+            #  fputs($fp, "convpaid: $order_number $user_id $item_price return: $returnmsg \n");
+            #  fclose ($fp);
+            #  @chmod( "/home/miyamoto/HP/localgood2/logs/convpaid", 0666);
+
 
 
             $invest->setStatus('1');	// 合計を有効にする。
