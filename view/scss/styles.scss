@@ -1,26 +1,25 @@
 @charset "utf-8";
 
 /*
-base          :リセット、タグに対するベース設定
-mixins        :mixin設定
+palette       :WPで設定した可変カラーの自動生成ファイル
 colors        :カラーコードの変数
+mixins        :mixin設定
+base          :リセット、タグに対するベース設定
 commons       :header,footerなどの共通要素に対する設定
 widgets       :主にプロジェクトウィジェットに対する設定。.widgetが付くものに対する設定も少々
 meter         :メーターの設定
-superform     :.sperformに対する設定。（form要素）
-discover      :
-review        :
-project-show  :
-project-edit  :
-dashboard     :
-community     :
-admin         :
-user-profile  :
+superform     :.superformに対する設定。form要素。プロジェクト作成、編集、プロフィール編集（マイページ内）などに使用。
+discover      :cfのトップ、プロジェクト一覧
+review        :マイメニューのうち、レビューのみ
+project-show  :プロジェクト詳細
+project-edit  :プロジェクト新規・編集
+dashboard     :マイメニュー
+community     :マニメニュー > このユーザーの興味
+admin         :管理者メニュー
+user-profile  :ユーザープロフィール
+user-login    :ログインページに対する設定
 page          :スタイル調整が必要なページ
 */
-
-
-
 
 @import "inc/_palette.scss";
 @import "inc/_colors.scss";
@@ -38,6 +37,7 @@ page          :スタイル調整が必要なページ
 @import "inc/_community.scss";
 @import "inc/_admin.scss";
 @import "inc/_user-profile.scss";
+@import "inc/_user-login.scss";
 @import "inc/_page.scss";
 
 //todo:各ファイルに、htmlに絡む変更と、どのファイルに書くか迷ったものをtodoで書いてあるので、追って対応する
