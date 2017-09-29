@@ -104,6 +104,15 @@ a.button {
     opacity: 0.75;
     color: #FFF;
   }
+  &.disabled {
+    background: $grayCol01;
+    box-shadow: none;
+    color: #fff;
+    cursor: default;
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 input.red[type="submit"],

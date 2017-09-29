@@ -307,6 +307,9 @@
                     margin-right: 0;
                     padding:8px 16px;
                   }
+                  input[name="nofinish"] {
+                    box-shadow: none;
+                  }
                 }
               }
             }
