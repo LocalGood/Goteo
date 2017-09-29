@@ -427,8 +427,9 @@ namespace Goteo\Controller\Admin {
             $calls = array();
             // la lista de nodos la hemos cargado arriba
             $orders = array(
-                'name' => Text::_('Nombre'),
-                'updated' => Text::_('Enviado a revision')
+                'name' => Text::get('admin-projects-list-order_name'),
+                'updated' => Text::get('admin-projects-list-order_updated'),
+                'created' => Text::get('admin-projects-list-order_created')
             );
 
             return new View(

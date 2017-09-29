@@ -1271,3 +1271,6 @@ REPLACE INTO `purpose` VALUES ('wof-join-comunity','Únete al grupo de personas 
 REPLACE INTO `purpose` VALUES ('wof-join-group','Únete al grupo de personas que están ayudando a hacer posible el proyecto!',NULL,'wof');
 REPLACE INTO `purpose` VALUES ('wof-support','Apoyar',NULL,'wof');
 REPLACE INTO `purpose` VALUES ('wof-title','MURO DE APOYOS',NULL,'wof');
+REPLACE INTO `purpose` VALUES ('admin-projects-list-order_created','admin-projects-list-order_created',NULL,'admin');
+REPLACE INTO `purpose` VALUES ('admin-projects-list-order_updated','admin-projects-list-order_updated',NULL,'admin');
+REPLACE INTO `purpose` VALUES ('admin-projects-list-order_name','admin-projects-list-order_created',NULL,'admin');
