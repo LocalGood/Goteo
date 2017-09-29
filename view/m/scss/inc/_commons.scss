@@ -294,24 +294,31 @@ footer {
   contents
 --------------------------------------------------*/
 #message{
-  background: none repeat scroll 0 0 #ffa375;
-  color: #333333;
+  //background: none repeat scroll 0 0 $alertCol;
+  background-color: $alertCol;
+  color: $baseWhite;
   font-size: 14px;
-  padding: 25px 0;
+  padding: 20px;
   width: 100%;
   #message-content{
     margin:0 auto;
     position:relative;
     width: 100%;
     input.message-close{
-      background:url('/view/m/images/message-close.png') no-repeat;
+      //background:url('/view/m/images/message-close.png') no-repeat;
+      background: none;
       border:none;
+      box-shadow: none;
+      color: $baseWhite;
       cursor:pointer;
-      height:10px;
+      font-size: 20px;
+      font-weight: 600;
+      height:20px;
+      line-height: 100%;
       position:absolute;
-      right:0;
-      top:-8px;
-      width:11px;
+      right: -14px;
+      top: -26px;
+      width:20px;
       z-index:100;
     }
     ul{
