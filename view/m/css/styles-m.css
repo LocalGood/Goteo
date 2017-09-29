@@ -23,9 +23,6 @@ user-profile  :ユーザープロフィール
 /* Alert Color*/
 /* Other Color */
 /*----------------------------------------------------------------------
- colors
-----------------------------------------------------------------------*/
-/*----------------------------------------------------------------------
  font-size (exchange rem)
 ----------------------------------------------------------------------*/
 /*----------------------------------------------------------------------
@@ -47,7 +44,7 @@ html {
   overflow: auto; }
 
 body {
-  background-color: #e7e7e7;
+  background-color: #f2f2f2;
   color: #454545;
   font-size: 14px;
   margin: 0;
@@ -158,118 +155,6 @@ a.button.red {
   font-weight: 600;
   line-height: 50px; }
 
-/*input[type="submit"]:active,
-input[type="reset"]:active,
-button:active,
-a.button:active {
-  background: #60c1bf url('/view/m/images/button/aqua-active.png') repeat-x top;
-}
-
-input[type="submit"]:hover,
-input[type="reset"]:hover,
-button:hover,
-a.button:hover {
-  background: #60c1bf url('/view/m/images/button/aqua-active.png') repeat-x top;
-}
-
-input.red[type="submit"],
-input.red[type="reset"],
-button.red,
-a.button.red,
-input.edit[type="submit"] {
-  background: #b5161e url('/view/m/images/button/red.png') repeat-x top;
-  color: white;
-}
-
-input.red[type="submit"]:active,
-input.red[type="reset"]:active,
-button.red:active,
-a.button.red:active,
-input.edit[type="submit"]:active {
-  background: #e44133 url('/view/m/images/button/red-active.png') repeat-x top;
-}
-
-input.red[type="submit"]:hover,
-input.red[type="reset"]:hover,
-button.red:hover,
-a.button.red:hover,
-input.edit[type="submit"]:hover {
-  background: #e44133 url('/view/m/images/button/red-active.png') repeat-x top;
-}*/
-/* = botones violeta
-*****************************/
-/*input.violet[type="submit"],
-input.violet[type="reset"],
-button.violet,
-a.button.violet {
-  background: #96238F url('/view/m/images/button/violet.png') repeat-x top;
-}
-
-input.violet[type="submit"]:hover,
-input.violet[type="reset"]:hover,
-button.violet:hover,
-a.button.violet:hover {
-  background: #96238F url('/view/m/images/button/violet-active.png') repeat-x top;
-}
-!* fin botones violeta *!
-
-input.weak[type="submit"],
-input.weak[type="reset"],
-button.weak,
-a.button.weak {
-  background: #60c1bf url('/view/images/button/aqua-active.png') repeat-x top;
-  color: white;
-}
-
-input.weak[type="submit"]:active,
-input.weak[type="reset"]:active,
-button.weak:active,
-a.button.weak:active {
-  background: #b5161e url('/view/m/images/button/red.png') repeat-x top;
-}*/
-/*input.weak[type="submit"]:hover,
-input.weak[type="reset"]:hover,
-button.weak:hover,
-a.button.weak:hover {
-  background: #b5161e url('/view/m/images/button/red.png') repeat-x top;
-}*/
-/*input.disabled[type="submit"],
-input.disabled[type="reset"],
-button.disabled,
-a.button.disabled {
-  background: #CCCCCC;
-  color: white;
-  cursor: default;
-}
-
-input.disabled[type="submit"]:hover,
-input.disabled[type="reset"]:hover,
-button.disabled:hover,
-a.button.disabled:hover {
-  background: #CCCCCC;
-  cursor: default;
-}*/
-/*input.green[type="submit"],
-input.green[type="reset"],
-button.green,
-a.button.green {
-  background: #00b05b url('/view/m/images/button/green.png') repeat-x top;
-  color: white;
-}
-
-input.green[type="submit"]:active,
-input.green[type="reset"]:active,
-button.green:active,
-a.button.green:active {
-  background: #00b05b url('/view/m/images/button/green-active.png') repeat-x top;
-}
-
-input.green[type="submit"]:hover,
-input.green[type="reset"]:hover,
-button.green:hover,
-a.button.green:hover {
-  background: #00b05b url('/view/m/images/button/green-active.png') repeat-x top;
-}*/
 .clearfix:after {
   visibility: hidden;
   display: block;
@@ -392,15 +277,16 @@ textarea#leave-message {
 
 #sub-header,
 #sub-header-secondary {
-  clear: both;
-  margin-bottom: 32px; }
+  clear: both; }
   #sub-header > div,
   #sub-header-secondary > div {
     display: block; }
 
+#sub-header-secondary {
+  margin-bottom: 32px; }
+
 /* Sub-header */
 #sub-header {
-  margin-bottom: 1px;
   margin-top: 60px; }
   #sub-header h2.title {
     padding: 10px;
@@ -638,522 +524,450 @@ ul#pagination {
     }
   }
 }*/
-.widget {
-  /*.side-worthcracy {
-    ul {
-      margin: 0 0 10px 4px;
-      list-style: none;
-      position: relative;
-      display: inline-block;
-      background: url('/view/m/images/yen/s.png') no-repeat right 25px;
-      padding: 2em 25px 1em 0;
-      li {
-        display: inline-block;
-        width: 44px;
-        height: 6px;
-        overflow: visible;
-        background-color: #e7e7e7;
-        position: relative;
-        > span.threshold,
-        > strong,
-        > em {
-          display: block;
-          width: 44px;
-          position: absolute;
-          text-align: center;
-        }
-        > span.threshold {
-          top: -14px;
-          font-size: 12px;
-          line-height: 18px;
-        }
-        > em,
-        > strong {
-          top: 10px;
-          width: 301px;
-          left: 50%;
-          margin-top: 6px;
-          margin-left: -150px;
-          color: $grayCol02;
-        }
-        > em {
-          font-style: normal;
-          font-size: 12px;
-        }
-        &.done {
-          &.worth-1 {
-            background-color: #B6CAE0;
-            color: #B6CAE0;
-          }
-          &.worth-2 {
-            background-color: #92AFD1;
-            color: #92AFD1;
-          }
-          &.worth-3 {
-            background-color: #799EC7;
-            color: #799EC7;
-          }
-          &.worth-4 {
-            background-color: #3C71AE;
-            color: #3C71AE;
-          }
-          &.worth-5 {
-            background-color: #0C4E99;
-            color: #0C4E99;
-          }
-        }
-      }
-    }
-  }*/ }
-  .widget .title {
-    font-size: 18px;
-    font-weight: 600;
-    padding-left: 6px;
-    text-decoration: none; }
-  .widget .supertitle {
-    background-color: #21b0b0;
-    color: #f5f5f5;
-    font-size: 18px;
-    font-weight: 300;
-    margin: 0;
-    padding: .5em 2px .5em 8px; }
-  .widget h4.supertitle, .widget h3.supertitle {
-    color: #ffffff;
-    height: 40px;
-    line-height: 40px;
-    padding: 0; }
-  .widget a.more {
-    float: none;
-    display: block;
-    background-color: #fff;
+.widget .title {
+  font-size: 18px;
+  font-weight: 600;
+  padding-left: 6px;
+  text-decoration: none; }
+.widget .supertitle {
+  font-size: 18px;
+  font-weight: 300;
+  margin: 0;
+  padding: .5em 2px .5em 8px; }
+.widget h4.supertitle, .widget h3.supertitle {
+  color: #ffffff;
+  height: 40px;
+  line-height: 40px;
+  padding: 0; }
+.widget a.more {
+  float: none;
+  display: block;
+  background-color: #fff;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none; }
+.widget.projects #widget-code {
+  width: 350px;
+  float: left;
+  margin: 0 0 0 20px; }
+  .widget.projects #widget-code .wc-embed {
+    background: url("/view/m/images/social/embed.png") no-repeat;
+    min-height: 20px;
+    padding: 3px 0 0 25px; }
+  .widget.projects #widget-code textarea {
+    width: 200px;
+    height: 130px;
+    margin: 10px 0;
     padding: 10px;
-    text-align: center;
-    text-decoration: none; }
-  .widget.projects #widget-code {
-    width: 350px;
-    float: left;
-    margin: 0 0 0 20px; }
-    .widget.projects #widget-code .wc-embed {
-      background: url("/view/m/images/social/embed.png") no-repeat;
-      min-height: 20px;
-      padding: 3px 0 0 25px; }
-    .widget.projects #widget-code textarea {
-      width: 200px;
-      height: 130px;
-      margin: 10px 0;
-      padding: 10px;
-      background: #E7E7E7;
-      border: none;
-      font-size: 12px;
-      resize: none; }
-  .widget.projects .discover-group .image {
-    margin-bottom: 0; }
-  .widget.projects .discover-group h3.title {
-    margin: 0;
-    padding: 16px 16px 0; }
-    .widget.projects .discover-group h3.title a {
-      font-size: 18px;
-      color: #0098c4; }
-  .widget.projects .discover-group h3.ronda {
-    padding-top: 0; }
-  .widget.projects > .title {
-    background-color: #666666;
-    color: #f5f5f5;
-    margin: 0;
-    padding: 16px; }
-  .widget.projects .project {
-    background-color: #fff;
-    margin: 0 auto;
-    overflow: hidden;
+    background: #E7E7E7;
+    border: none;
+    font-size: 12px;
+    resize: none; }
+.widget.projects > .title {
+  margin: 0;
+  padding: 16px; }
+.widget.projects .project {
+  background-color: #fff;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  z-index: 98; }
+  .widget.projects .project h3.title {
+    margin: 0 16px 16px; }
+  .widget.projects .project a.expand {
     padding: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 99; }
+  .widget.projects .project a.button {
+    padding: 0.4em 1em !important; }
+.widget.projects > .more {
+  clear: both;
+  text-align: right; }
+  .widget.projects > .more a {
+    text-decoration: none; }
+    .widget.projects > .more a:hover {
+      text-decoration: underline; }
+.widget.projects > .widget-title {
+  padding: 0 0 0 30px; }
+.widget.projects > .widget-porject-legend {
+  margin: 0 0 20px 30px; }
+.widget.projects > .project-code {
+  float: left;
+  height: auto;
+  margin-left: 45px;
+  overflow: auto;
+  width: auto; }
+.widget.projects > #widget-code {
+  float: left;
+  margin: 0 0 0 20px;
+  width: 350px; }
+  .widget.projects > #widget-code .wc-embed {
+    background: url("/view/m/images/social/embed.png") no-repeat;
+    height: 20px;
+    padding: 3px 0 0 25px; }
+  .widget.projects > #widget-code textarea {
+    background: #E7E7E7;
+    border: none;
+    font-size: 12px;
+    margin: 10px 0;
+    padding: 10px;
+    resize: none;
+    width: 200px; }
+.widget.project {
+  overflow: visible;
+  position: relative; }
+  .widget.project.active div.image {
+    opacity: 0.85; }
+  .widget.project.active > .title a {
+    color: #c5da4d !important; }
+  .widget.project .image {
+    background-color: #deddde;
+    margin-bottom: 16px;
+    min-height: 180px;
+    overflow: hidden;
+    padding: 0 !important;
     position: relative;
-    z-index: 98; }
-    .widget.projects .project a.expand {
-      padding: 0;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      z-index: 99; }
-    .widget.projects .project a.button {
-      padding: 0.4em 1em !important; }
-  .widget.projects > .more {
-    clear: both;
-    text-align: right; }
-    .widget.projects > .more a {
-      text-decoration: none; }
-      .widget.projects > .more a:hover {
-        text-decoration: underline; }
-  .widget.projects > .widget-title {
-    padding: 0 0 0 30px; }
-  .widget.projects > .widget-porject-legend {
-    margin: 0 0 20px 30px; }
-  .widget.projects > .project-code {
-    float: left;
-    height: auto;
-    margin-left: 45px;
-    overflow: auto;
-    width: auto; }
-  .widget.projects > #widget-code {
-    float: left;
-    margin: 0 0 0 20px;
-    width: 350px; }
-    .widget.projects > #widget-code .wc-embed {
-      background: url("/view/m/images/social/embed.png") no-repeat;
-      height: 20px;
-      padding: 3px 0 0 25px; }
-    .widget.projects > #widget-code textarea {
-      background: #E7E7E7;
-      border: none;
-      font-size: 12px;
-      margin: 10px 0;
-      padding: 10px;
-      resize: none;
-      width: 200px; }
-  .widget.project {
-    overflow: visible;
-    position: relative; }
-    .widget.project > * {
-      margin: 0;
-      padding: 12px; }
-    .widget.project.active div.image {
-      opacity: 0.85; }
-    .widget.project.active > .title a {
-      color: #c5da4d !important; }
-    .widget.project .image {
-      background-color: #deddde;
-      margin: 0 0 10px 0;
-      min-height: 180px;
-      overflow: hidden;
-      padding: 0 !important;
-      position: relative;
-      text-align: center;
-      width: 100%; }
-      .widget.project .image a img {
-        display: block;
-        width: 100vw;
-        height: auto; }
-      .widget.project .image span.cf-icon {
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        width: 60px;
-        height: 60px;
-        background-image: url("/view/m/images/lg-project-cf.png");
-        background-size: 60px 60px; }
-      .widget.project .image span.sm-icon {
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        width: 60px;
-        height: 60px;
-        background-image: url("/view/m/images/lg-project-sm.png");
-        background-size: 60px 60px; }
-      .widget.project .image .investor {
-        position: absolute;
-        z-index: 899;
-        background-color: #f3f3f3;
-        margin-top: 70px;
-        margin-left: 3px; }
-        .widget.project .image .investor img {
-          width: 34px !important;
-          height: 34px !important;
-          margin: 3px;
-          float: left; }
-        .widget.project .image .investor .invest {
-          text-align: left;
-          font-size: 12px;
-          line-height: 9px;
-          color: #faf8f8;
-          float: left;
-          padding-top: 12px;
-          padding-left: 2px;
-          padding-right: 4px; }
-          .widget.project .image .investor .invest span.amount {
-            color: #cc6600;
-            font-weight: 600;
-            font-size: 16px;
-            line-height: 18px;
-            padding-right: 19px; }
-      .widget.project .image .categories {
-        text-align: left;
-        color: #ffffff;
-        background-color: rgba(25, 181, 179, 0.8);
-        font-size: 0.8em;
-        padding: 2px 8px;
-        cursor: default;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        left: 0; }
-    .widget.project > .title {
-      font-size: 14px;
-      padding: 0;
-      margin: 10px; }
-      .widget.project > .title a {
-        font-size: 14px;
-        font-weight: 600;
-        text-decoration: none;
-        position: relative;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 900; }
-        .widget.project > .title a:hover {
-          color: #c5da4d; }
-    .widget.project .title {
-      background: none; }
-    .widget.project .balloon {
-      background: #cae4e6 url("/view/m/images/balloonbeak.png") no-repeat bottom left;
+    text-align: center;
+    width: 100%; }
+    .widget.project .image a img {
+      display: block;
+      width: 100vw;
       height: auto; }
-      .widget.project .balloon > .title a {
-        position: relative;
-        z-index: 99;
-        line-height: 1.5em;
-        font-size: 18px;
-        color: #0098c4; }
-      .widget.project .balloon > blockquote {
+    .widget.project .image span.cf-icon {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 60px;
+      height: 60px;
+      background-image: url("/view/m/images/lg-project-cf.png");
+      background-size: 60px 60px; }
+    .widget.project .image span.sm-icon {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 60px;
+      height: 60px;
+      background-image: url("/view/m/images/lg-project-sm.png");
+      background-size: 60px 60px; }
+    .widget.project .image .investor {
+      position: absolute;
+      z-index: 899;
+      background-color: #f3f3f3;
+      margin-top: 70px;
+      margin-left: 3px; }
+      .widget.project .image .investor img {
+        width: 34px !important;
+        height: 34px !important;
+        margin: 3px;
+        float: left; }
+      .widget.project .image .investor .invest {
+        text-align: left;
         font-size: 12px;
-        margin: 0;
-        overflow: hidden;
-        padding-bottom: 10px; }
-      .widget.project .balloon > h4 {
-        font-size: 14px;
-        font-weight: 600;
-        margin: 0 0 .5em;
-        padding: 0; }
-    .widget.project > .author {
-      padding: 2px 0 0 12px;
-      overflow: hidden; }
-    .widget.project > .author,
-    .widget.project > .author a {
+        line-height: 9px;
+        color: #faf8f8;
+        float: left;
+        padding-top: 12px;
+        padding-left: 2px;
+        padding-right: 4px; }
+        .widget.project .image .investor .invest span.amount {
+          color: #cc6600;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 18px;
+          padding-right: 19px; }
+    .widget.project .image .categories {
+      text-align: left;
+      color: #ffffff;
+      background-color: rgba(25, 181, 179, 0.8);
+      font-size: 0.8em;
+      padding: 2px 8px;
+      cursor: default;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0; }
+  .widget.project > .title {
+    font-size: 14px;
+    padding: 0;
+    margin: 10px; }
+    .widget.project > .title a {
+      font-size: 14px;
       font-weight: 600;
-      font-size: 12px;
       text-decoration: none;
       position: relative;
-      z-index: 100; }
-    .widget.project .description {
-      padding: 2px 12px;
-      font-size: 12px; }
-    .widget.project .skills {
-      line-height: 16px; }
-      .widget.project .skills a {
-        font-size: 11px; }
-    .widget.project .meter.activable {
-      padding-left: 16px !important;
-      padding-right: 16px !important; }
-    .widget.project .meter dl.amount-bar {
-      display: none; }
-    .widget.project div.rewards h2, .widget.project div.rewards h3, .widget.project div.rewards h4, .widget.project div.rewards h5, .widget.project div.rewards h6 {
-      margin: 0;
-      line-height: 22px;
-      float: left;
-      width: 70px;
-      font-size: 12px; }
-    .widget.project div.rewards ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 900; }
+      .widget.project > .title a:hover {
+        color: #c5da4d; }
+  .widget.project .title {
+    background: none; }
+  .widget.project .balloon {
+    background: #cae4e6 url("/view/m/images/balloonbeak.png") no-repeat bottom left;
+    height: auto; }
+    .widget.project .balloon > .title a {
       position: relative;
-      z-index: 910; }
-      .widget.project div.rewards ul li {
-        display: inline-block;
-        margin-right: 3px;
-        width: 22px;
-        height: 22px;
+      z-index: 99;
+      line-height: 1.5em;
+      font-size: 18px;
+      color: #0098c4; }
+    .widget.project .balloon > blockquote {
+      font-size: 12px;
+      margin: 0;
+      overflow: hidden;
+      padding-bottom: 10px; }
+    .widget.project .balloon > h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0 0 .5em;
+      padding: 0; }
+  .widget.project > .author {
+    padding: 2px 0 0 12px;
+    overflow: hidden; }
+  .widget.project > .author,
+  .widget.project > .author a {
+    font-weight: 600;
+    font-size: 12px;
+    text-decoration: none;
+    position: relative;
+    z-index: 100; }
+  .widget.project .description {
+    padding: 2px 12px;
+    font-size: 12px; }
+  .widget.project .skills {
+    line-height: 16px; }
+    .widget.project .skills a {
+      font-size: 11px; }
+  .widget.project div.rewards h2, .widget.project div.rewards h3, .widget.project div.rewards h4, .widget.project div.rewards h5, .widget.project div.rewards h6 {
+    margin: 0;
+    line-height: 22px;
+    float: left;
+    width: 70px;
+    font-size: 12px; }
+  .widget.project div.rewards ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    z-index: 910; }
+    .widget.project div.rewards ul li {
+      display: inline-block;
+      margin-right: 3px;
+      width: 22px;
+      height: 22px;
+      line-height: 2000px;
+      text-indent: 2000px;
+      overflow: hidden;
+      background-image: url("/view/m/images/icon/s/blank.png");
+      opacity: 0.60; }
+      .widget.project div.rewards ul li.active {
+        opacity: 1 !important; }
+      .widget.project div.rewards ul li a {
+        display: block;
+        width: 21px;
+        height: 21px;
         line-height: 2000px;
         text-indent: 2000px;
-        overflow: hidden;
-        background-image: url("/view/m/images/icon/s/blank.png");
-        opacity: 0.60; }
-        .widget.project div.rewards ul li.active {
-          opacity: 1 !important; }
-        .widget.project div.rewards ul li a {
-          display: block;
-          width: 21px;
-          height: 21px;
-          line-height: 2000px;
-          text-indent: 2000px;
-          position: relative;
-          z-index: 910; }
-        .widget.project div.rewards ul li.food {
-          background-image: url("/view/m/images/icon/s/food.png"); }
-        .widget.project div.rewards ul li.file {
-          background-image: url("/view/m/images/icon/s/file.png"); }
-        .widget.project div.rewards ul li.money {
-          background-image: url("/view/m/images/icon/s/money.png"); }
-        .widget.project div.rewards ul li.code {
-          background-image: url("/view/m/images/icon/s/code.png"); }
-        .widget.project div.rewards ul li.service {
-          background-image: url("/view/m/images/icon/s/service.png"); }
-        .widget.project div.rewards ul li.manual {
-          background-image: url("/view/m/images/icon/s/manual.png"); }
-        .widget.project div.rewards ul li.product {
-          background-image: url("/view/m/images/icon/s/product.png"); }
-        .widget.project div.rewards ul li.design {
-          background-image: url("/view/m/images/icon/s/design.png"); }
-        .widget.project div.rewards ul li.other {
-          background-image: url("/view/m/images/icon/s/other.png"); }
-    .widget.project div.buttons {
-      padding-top: 10px !important; }
-      .widget.project div.buttons a.button {
-        margin: 0;
-        padding-top: 0 !important;
         position: relative;
-        z-index: 900; }
-      .widget.project div.buttons .button + .button {
-        float: right; }
-    .widget.project div.graph .optimum, .widget.project.project-support div.graph > div.optimum {
-      height: 19px;
-      margin-right: -2px;
-      position: absolute;
-      right: 0;
-      margin-top: -6px; }
-  .widget.project-support .supertitle {
-    background-color: #58585a;
-    color: #ffffff;
-    font-size: 12px;
-    height: 40px;
-    line-height: 40px;
-    margin: 0;
-    text-align: center; }
-    .widget.project-support .supertitle .days strong {
-      font-size: 14px; }
-  .widget.project-support .project-widget-box {
-    padding: 15px 20px;
-    position: relative; }
-  .widget.project-support .invest-notice {
-    font-size: 13px;
-    padding: 0 20px 20px; }
-  .widget.project-summary {
-    border-bottom: 1px solid #d9d9d9; }
-    .widget.project-summary h1, .widget.project-summary h2, .widget.project-summary h3, .widget.project-summary h4, .widget.project-summary h5, .widget.project-summary h6 {
-      font-weight: 600;
-      line-height: 1.3em;
-      margin-top: 0; }
-    .widget.project-summary h1, .widget.project-summary h2 {
-      font-size: 20px;
+        z-index: 910; }
+      .widget.project div.rewards ul li.food {
+        background-image: url("/view/m/images/icon/s/food.png"); }
+      .widget.project div.rewards ul li.file {
+        background-image: url("/view/m/images/icon/s/file.png"); }
+      .widget.project div.rewards ul li.money {
+        background-image: url("/view/m/images/icon/s/money.png"); }
+      .widget.project div.rewards ul li.code {
+        background-image: url("/view/m/images/icon/s/code.png"); }
+      .widget.project div.rewards ul li.service {
+        background-image: url("/view/m/images/icon/s/service.png"); }
+      .widget.project div.rewards ul li.manual {
+        background-image: url("/view/m/images/icon/s/manual.png"); }
+      .widget.project div.rewards ul li.product {
+        background-image: url("/view/m/images/icon/s/product.png"); }
+      .widget.project div.rewards ul li.design {
+        background-image: url("/view/m/images/icon/s/design.png"); }
+      .widget.project div.rewards ul li.other {
+        background-image: url("/view/m/images/icon/s/other.png"); }
+  .widget.project div.buttons {
+    padding-top: 10px !important; }
+    .widget.project div.buttons a.button {
+      margin: 0;
+      padding-top: 0 !important;
+      position: relative;
+      z-index: 900; }
+    .widget.project div.buttons .button + .button {
+      float: right; }
+.widget.project-support .supertitle {
+  background-color: #58585a;
+  color: #ffffff;
+  font-size: 12px;
+  height: 40px;
+  line-height: 40px;
+  margin: 0;
+  text-align: center; }
+  .widget.project-support .supertitle .days strong {
+    font-size: 14px; }
+.widget.project-support .project-widget-box {
+  padding: 15px 20px;
+  position: relative; }
+.widget.project-support .invest-notice {
+  font-size: 13px;
+  padding: 0 20px 20px; }
+.widget.project-summary {
+  border-bottom: 1px solid #d9d9d9; }
+  .widget.project-summary h1, .widget.project-summary h2, .widget.project-summary h3, .widget.project-summary h4, .widget.project-summary h5, .widget.project-summary h6 {
+    font-weight: 600;
+    line-height: 1.3em;
+    margin-top: 0; }
+  .widget.project-summary h1, .widget.project-summary h2 {
+    font-size: 20px;
+    font-weight: 300; }
+  .widget.project-summary h4 {
+    font-size: 18px; }
+  .widget.project-summary h5, .widget.project-summary h6 {
+    font-size: 16px; }
+  .widget.project-summary > div {
+    margin-bottom: 1em;
+    font-size: 14px; }
+    .widget.project-summary > div:last-child {
+      margin-bottom: 0; }
+  .widget.project-summary.h_ttl {
+    background: none;
+    border-bottom: none;
+    padding: 20px; }
+    .widget.project-summary.h_ttl h3 {
+      margin: 0 0 15px 0;
+      font-size: 18px;
       font-weight: 300; }
-    .widget.project-summary h4 {
-      font-size: 18px; }
-    .widget.project-summary h5, .widget.project-summary h6 {
-      font-size: 16px; }
-    .widget.project-summary > div {
-      margin-bottom: 1em;
-      font-size: 14px; }
-      .widget.project-summary > div:last-child {
-        margin-bottom: 0; }
-    .widget.project-summary.h_ttl {
-      background: none;
-      border-bottom: none;
-      padding: 20px; }
-      .widget.project-summary.h_ttl h3 {
-        margin: 0 0 15px 0;
-        font-size: 18px;
-        font-weight: 300; }
-      .widget.project-summary.h_ttl .project-subtitle {
-        font-size: 13px; }
-      .widget.project-summary.h_ttl .wants-skills,
-      .widget.project-summary.h_ttl .wants-skills a,
-      .widget.project-summary.h_ttl .categories > h3,
-      .widget.project-summary.h_ttl .categories > a {
-        font-size: 11px; }
-      .widget.project-summary.h_ttl .wants-skills {
-        margin-bottom: 8px; }
-      .widget.project-summary.h_ttl .categories {
-        background: url("/view/m/images/icon_tag@2x.png") no-repeat left 50%/12px;
-        margin-bottom: 0;
-        padding-left: 16px; }
-        .widget.project-summary.h_ttl .categories h3 {
-          display: none; }
-        .widget.project-summary.h_ttl .categories a {
-          color: #58595B;
-          display: inline-block;
-          text-decoration: none; }
-          .widget.project-summary.h_ttl .categories a:hover {
-            color: #20B3B2; }
-    .widget.project-summary > div {
-      font-size: 14px;
-      margin-bottom: 1em; }
-    .widget.project-summary > .wants-skills .matched_skill {
-      background-color: #f99;
+    .widget.project-summary.h_ttl .project-subtitle {
+      font-size: 13px; }
+    .widget.project-summary.h_ttl .wants-skills,
+    .widget.project-summary.h_ttl .wants-skills a,
+    .widget.project-summary.h_ttl .categories > h3,
+    .widget.project-summary.h_ttl .categories > a {
       font-size: 11px; }
-    .widget.project-summary img {
-      height: auto;
-      width: 100% !important; }
-    .widget.project-summary .description {
-      margin: 0 0 20px 0; }
-    .widget.project-summary .about,
-    .widget.project-summary .motivation,
-    .widget.project-summary .goal,
-    .widget.project-summary .related {
-      margin: 0 0 10px 0; }
-      .widget.project-summary .about h4,
-      .widget.project-summary .motivation h4,
-      .widget.project-summary .goal h4,
-      .widget.project-summary .related h4 {
-        font-size: 16px;
-        margin: 0 0 1em 0;
-        padding: 0; }
-  .widget.project-support_btn {
-    border-bottom: 1px solid #d9d9d9;
-    padding: 40px 0; }
-    .widget.project-support_btn a.button {
-      background-color: #E08E22; }
-  .widget.project-share {
-    padding: 26px 20px 50px;
-    position: relative; }
-    .widget.project-share .title {
-      border: none;
-      margin: 0 0 26px;
-      text-align: center; }
-    .widget.project-share .social_bookmark {
-      left: 0;
-      margin: auto;
-      max-width: 500px;
-      top: 75px;
-      width: 340px; }
+    .widget.project-summary.h_ttl .wants-skills {
+      margin-bottom: 8px; }
+    .widget.project-summary.h_ttl .categories {
+      background: url("/view/m/images/icon_tag@2x.png") no-repeat left 50%/12px;
+      margin-bottom: 0;
+      padding-left: 16px; }
+      .widget.project-summary.h_ttl .categories h3 {
+        display: none; }
+      .widget.project-summary.h_ttl .categories a {
+        color: #58595B;
+        display: inline-block;
+        text-decoration: none; }
+        .widget.project-summary.h_ttl .categories a:hover {
+          color: #20B3B2; }
+  .widget.project-summary > div {
+    font-size: 14px;
+    margin-bottom: 1em; }
+  .widget.project-summary > .wants-skills .matched_skill {
+    background-color: #f99;
+    font-size: 11px; }
+  .widget.project-summary img {
+    height: auto;
+    width: 100% !important; }
+  .widget.project-summary .description {
+    margin: 0 0 20px 0; }
+  .widget.project-summary .about,
+  .widget.project-summary .motivation,
+  .widget.project-summary .goal,
+  .widget.project-summary .related {
+    margin: 0 0 10px 0; }
+    .widget.project-summary .about h4,
+    .widget.project-summary .motivation h4,
+    .widget.project-summary .goal h4,
+    .widget.project-summary .related h4 {
+      font-size: 16px;
+      margin: 0 0 1em 0;
+      padding: 0; }
+.widget.project-support_btn {
+  border-bottom: 1px solid #d9d9d9;
+  padding: 40px 0; }
+  .widget.project-support_btn a.button {
+    background-color: #E08E22; }
+.widget.project-share {
+  padding: 26px 20px 50px;
+  position: relative; }
+  .widget.project-share .title {
+    border: none;
+    margin: 0 0 26px;
+    text-align: center; }
+  .widget.project-share .social_bookmark {
+    left: 0;
+    margin: auto;
+    max-width: 500px;
+    top: 75px;
+    width: 340px; }
+.widget.user {
+  background-color: #fff; }
   .widget.user .supertitle {
     display: none; }
+  .widget.user h3.supertitle {
+    background-color: #669900;
+    border-bottom: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 300;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    padding-left: 20px; }
   .widget.user .project-widget-box {
-    padding: 15px 20px; }
-  .widget.user .user-head {
-    margin-bottom: 20px; }
-    .widget.user .user-head .image {
-      border-radius: 50%;
-      display: inline-block;
-      height: 65px;
-      overflow: hidden;
-      position: relative;
-      text-align: center;
-      vertical-align: middle;
-      width: 65px; }
-      .widget.user .user-head .image img {
-        bottom: 0;
-        height: auto;
-        left: 0;
-        margin: auto;
-        position: absolute;
-        right: 0;
-        top: 0;
-        vertical-align: middle;
-        width: 100%; }
-    .widget.user .user-head-right {
-      display: inline-block;
-      padding-left: 20px;
-      vertical-align: middle;
-      width: 200px; }
-      .widget.user .user-head-right .title {
-        margin: 0 0 4px; }
-      .widget.user .user-head-right .location {
-        background: url(/view/images/location/s.png) no-repeat left center;
-        padding-left: 18px; }
-        .widget.user .user-head-right .location a {
-          color: #828282;
+    margin: 0;
+    padding: 16px;
+    position: relative; }
+    .widget.user .project-widget-box blockquote.about {
+      font-size: 12px;
+      line-height: 1.4em;
+      margin: 10px 0 0 0; }
+    .widget.user .project-widget-box dl {
+      border: 1px solid #d9d9d9;
+      border-radius: 6px;
+      font-size: 13px;
+      margin: 20px 0;
+      padding: 0; }
+      .widget.user .project-widget-box dl dt {
+        display: none; }
+      .widget.user .project-widget-box dl dd {
+        border: none;
+        border-bottom: 1px solid #d9d9d9;
+        line-height: 1.4em;
+        margin-left: 0;
+        padding: 0.8em 1.5em 0.8em 50px;
+        text-align: left;
+        text-indent: 0; }
+        .widget.user .project-widget-box dl dd a {
           text-decoration: none; }
+        .widget.user .project-widget-box dl dd:last-child {
+          border: none; }
+        .widget.user .project-widget-box dl dd.location {
+          background: url("/view/m/images/location/s.png") no-repeat 1.5em center; }
+        .widget.user .project-widget-box dl dd.message {
+          background: url("/view/m/images/bocadillo/s.png") no-repeat 1.5em center; }
+          .widget.user .project-widget-box dl dd.message a {
+            color: #666;
+            font-size: 14px;
+            font-weight: 300; }
+        .widget.user .project-widget-box dl dd.links {
+          background: url("/view/m/images/social/url.png") no-repeat 1.5em center; }
+          .widget.user .project-widget-box dl dd.links ul {
+            line-height: 1.2em !important; }
+            .widget.user .project-widget-box dl dd.links ul li a {
+              font-size: 14px;
+              font-weight: 300; }
+        .widget.user .project-widget-box dl dd.profile {
+          background: url("/view/m/images/icon/m/s_task.png") no-repeat 1.1em center; }
   .widget.user .user-head {
     margin-bottom: 20px; }
     .widget.user .user-head .image {
@@ -1196,18 +1010,25 @@ ul#pagination {
     margin-bottom: 20px;
     text-align: right; }
     .widget.user .about-link a {
-      color: #337ab7;
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: #255b7f;
       display: inline-block;
       font-size: 14px;
       line-height: 20px;
       text-decoration: none; }
       .widget.user .about-link a:after {
-        background: url(/view/images/arrow_user_link.png) no-repeat right 50%;
-        content: '';
+        content: "\f105";
+        color: #255b7f;
         display: inline-block;
-        height: 8px;
-        padding: 0 0 4px 4px;
-        width: 6px; }
+        font-weight: bold;
+        margin-left: 4px; }
+      .widget.user .about-link a:after {
+        padding-left: 4px; }
   .widget.user .links {
     line-height: 36px;
     margin: 0 0 20px 0;
@@ -1262,103 +1083,758 @@ ul#pagination {
           background-image: url(/view/images/social/identica.png); }
         .widget.user .widget.user-social ul li.linkedin a {
           background-image: url(/view/images/social/linkedin.png); }
-  .widget.project-collaborations .project-widget-box {
-    background-color: #ffffff; }
-  .widget.project-collaborations h4.supertitle {
-    background-color: #33cc99; }
-  .widget.project-collaborations h5.title {
-    margin-top: 0;
-    margin-bottom: 0;
-    color: #58595b;
-    font-weight: 600; }
-  .widget.project-collaborations ul {
-    margin: 0;
-    padding: 0;
-    list-style: none; }
-    .widget.project-collaborations ul li {
-      line-height: 32px;
-      min-height: 32px; }
-      .widget.project-collaborations ul li > p {
-        font-size: 13px;
-        line-height: 1.7em;
-        margin: 0; }
-  .widget.project-collaborations a.button {
+.widget.project-collaborations .project-widget-box {
+  background-color: #ffffff; }
+.widget.project-collaborations h4.supertitle {
+  background-color: #33cc99; }
+.widget.project-collaborations h5.title {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #58595b;
+  font-weight: 600; }
+.widget.project-collaborations ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  .widget.project-collaborations ul li {
+    line-height: 32px;
+    min-height: 32px; }
+    .widget.project-collaborations ul li > p {
+      font-size: 13px;
+      line-height: 1.7em;
+      margin: 0; }
+.widget.project-collaborations a.button {
+  display: block;
+  width: 200px;
+  height: 50px;
+  margin: 0 auto;
+  padding: 0;
+  background: none;
+  background: #66cc99;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #66cc99 0%, #339966 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #66cc99), color-stop(100%, #339966));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #66cc99 0%, #339966 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #66cc99 0%, #339966 100%);
+  /* Opera 11.10+ */
+  background: linear-gradient(to bottom, #66cc99 0%, #339966 100%);
+  /* W3C */
+  font-size: 12px;
+  line-height: 50px; }
+.widget.project-message {
+  position: relative; }
+  .widget.project-message h3.title {
+    margin: 0 0 12px;
+    padding: 0; }
+  .widget.project-message form {
+    overflow: hidden; }
+  .widget.project-message div#bocadillo {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background: #91c0df;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased; }
+    .widget.project-message div#bocadillo:before {
+      content: "\f075";
+      color: #255b7f;
+      line-height: 30px; }
+  .widget.project-message textarea#message_text {
+    background-color: #ffffff;
+    border: 1px solid #d9d9d9;
+    box-sizing: content-box;
+    border-radius: 3px;
+    clear: right;
     display: block;
-    width: 200px;
+    float: right;
     height: 50px;
-    margin: 0 auto;
-    padding: 0;
+    margin: 0 0 12px;
+    padding: .3em 0;
+    resize: none;
+    width: 85%; }
+  .widget.project-message a.preview {
+    display: inline-block;
+    position: absolute;
+    top: 178px;
+    left: 48px;
+    height: 38px;
+    line-height: 38px;
+    color: #2EAB58;
+    text-decoration: none;
+    font-weight: 300;
+    font-style: normal; }
+  .widget.project-message .button {
+    float: right;
+    margin: 1em 0 0; }
+.widget.project-messages #project-messages > div {
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  margin-left: 50px;
+  overflow: visible;
+  position: relative;
+  padding: 12px 16px; }
+  .widget.project-messages #project-messages > div:before {
     background: none;
-    background: #66cc99;
-    /* Old browsers */
-    background: -moz-linear-gradient(top, #66cc99 0%, #339966 100%);
-    /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #66cc99), color-stop(100%, #339966));
-    /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #66cc99 0%, #339966 100%);
-    /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #66cc99 0%, #339966 100%);
-    /* Opera 11.10+ */
-    background: linear-gradient(to bottom, #66cc99 0%, #339966 100%);
-    /* W3C */
+    border: 10px solid transparent;
+    border-right: 15px solid #f2f2f2;
+    content: '';
+    display: block;
+    height: 0;
+    left: -20px;
+    position: absolute;
+    top: 10px;
+    width: 0; }
+  .widget.project-messages #project-messages > div.child {
+    margin-left: 90px; }
+.widget.project-messages div.message + div.message,
+.widget.project-messages div.child + div.message,
+.widget.project-messages div.child {
+  margin-top: 20px; }
+.widget.project-messages div.message .avatar,
+.widget.project-messages div.child .avatar {
+  border-radius: 50%;
+  display: inline-block;
+  height: 40px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 40px;
+  left: -50px;
+  text-align: left;
+  top: 0;
+  position: absolute; }
+  .widget.project-messages div.message .avatar img,
+  .widget.project-messages div.child .avatar img {
+    bottom: 0;
+    height: auto;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    vertical-align: middle;
+    width: 100%; }
+.widget.project-messages div.message h3.user,
+.widget.project-messages div.child h3.user {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 1em; }
+  .widget.project-messages div.message h3.user a,
+  .widget.project-messages div.child h3.user a {
+    text-decoration: none; }
+    .widget.project-messages div.message h3.user a .user_name,
+    .widget.project-messages div.child h3.user a .user_name {
+      color: #255b7f; }
+.widget.project-messages div.message blockquote,
+.widget.project-messages div.child blockquote {
+  margin: 0 0 16px;
+  padding: 0; }
+.widget.project-messages div.message .actions_date,
+.widget.project-messages div.child .actions_date {
+  margin-top: 1em;
+  padding-top: .4em; }
+  .widget.project-messages div.message .actions_date a,
+  .widget.project-messages div.child .actions_date a {
+    color: #255b7f;
     font-size: 12px;
-    line-height: 50px; }
-  .widget.project-message {
-    position: relative;
-    /*button{
-      float:right;
-      width: 240px;
-      margin-top: 6px;
-      margin-bottom: 0;
-      font-style: normal;
-      font-weight: 300;
-    }*/ }
-    .widget.project-message h3.title {
-      margin: 0 0 12px;
-      padding: 0; }
-    .widget.project-message form {
-      overflow: hidden; }
-    .widget.project-message div#bocadillo {
-      background: url("/view/m/images/bocadillo.jpg") no-repeat;
-      float: left;
-      height: 34px;
-      margin-bottom: 8px;
-      width: 34px; }
-    .widget.project-message textarea#message_text {
-      background-color: #ffffff;
-      border: 1px solid #d9d9d9;
-      box-sizing: content-box;
-      border-radius: 3px;
-      clear: right;
+    text-decoration: none; }
+  .widget.project-messages div.message .actions_date .date,
+  .widget.project-messages div.child .actions_date .date {
+    float: right;
+    font-size: 12px; }
+.widget.project-rewards-summary h4.title {
+  margin: 0 0 16px;
+  padding-left: 0; }
+.widget.project-rewards-summary ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .widget.project-rewards-summary ul li {
+    background-color: #f2f2f2;
+    font-size: 12px;
+    margin-bottom: 12px;
+    min-height: 33px;
+    padding: 12px 16px; }
+    .widget.project-rewards-summary ul li:last-child {
+      margin-bottom: 0; }
+    .widget.project-rewards-summary ul li h5.name {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0 0 6px; }
+    .widget.project-rewards-summary ul li > p {
+      margin: 0 0 1em; }
+.widget.project-rewards-summary div.individual {
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  padding: 20px; }
+  .widget.project-rewards-summary div.individual ul li dl {
+    zoom: 1;
+    margin: 0; }
+    .widget.project-rewards-summary div.individual ul li dl:after {
+      content: '';
       display: block;
-      float: right;
-      height: 50px;
-      margin: 0 0 12px;
-      padding: .3em 0;
-      resize: none;
-      width: 85%; }
-    .widget.project-message a.preview {
-      display: inline-block;
-      position: absolute;
-      top: 178px;
-      left: 48px;
-      height: 38px;
-      line-height: 38px;
-      color: #2EAB58;
-      text-decoration: none;
+      clear: both; }
+    .widget.project-rewards-summary div.individual ul li dl dt {
+      float: left;
+      font-size: 13px;
+      line-height: 22px;
+      width: 70px; }
+    .widget.project-rewards-summary div.individual ul li dl dd {
+      color: #454545;
+      float: left;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 22px;
+      margin-left: 0; }
+    .widget.project-rewards-summary div.individual ul li dl.remain {
+      margin-bottom: 12px; }
+  .widget.project-rewards-summary div.individual ul li img {
+    width: 100%;
+    height: auto;
+    min-height: 200px; }
+.widget.project-rewards-summary div.social {
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  padding: 20px; }
+  .widget.project-rewards-summary div.social ul {
+    margin-top: 0; }
+    .widget.project-rewards-summary div.social ul li.active {
+      background-color: #d5ebd7; }
+    .widget.project-rewards-summary div.social ul li.money h4.name {
+      line-height: 1em; }
+    .widget.project-rewards-summary div.social ul li.file h5.name {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0 0 6px; }
+    .widget.project-rewards-summary div.social ul li.service > h5.name, .widget.project-rewards-summary div.social ul li.file > h5.name {
+      padding-top: 0;
+      margin-bottom: .4em; }
+    .widget.project-rewards-summary div.social ul li span.name {
+      font-size: 13px;
+      font-weight: 600;
+      margin: 0 0 .4em; }
+    .widget.project-rewards-summary div.social ul li span.taken {
+      border: #313B96 1px solid;
+      color: #313B96;
+      margin-left: 6px;
+      margin-right: 5px;
+      padding: 2px 6px; }
+    .widget.project-rewards-summary div.social ul li span.left {
+      color: #EE4843;
+      font-weight: 600; }
+    .widget.project-rewards-summary div.social ul li div.investors {
+      color: #313B96;
+      padding: 2px 6px 2px 3px;
+      margin-top: 10px; }
+    .widget.project-rewards-summary div.social ul li div.license {
+      font-size: 12px; }
+      .widget.project-rewards-summary div.social ul li div.license h6 {
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0;
+        padding: 0; }
+      .widget.project-rewards-summary div.social ul li div.license p {
+        margin: .2em 0; }
+      .widget.project-rewards-summary div.social ul li div.license a {
+        text-decoration: none; }
+      .widget.project-rewards-summary div.social ul li div.license > a strong {
+        background: url("/view/m/images/license/license.png") no-repeat left 4px;
+        display: block;
+        padding-top: 40px; }
+      .widget.project-rewards-summary div.social ul li div.license.agpl > a strong {
+        background-image: url("/view/m/images/license/agpl.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.apache > a strong {
+        background-image: url("/view/m/images/license/apache.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.balloon > a strong {
+        background-image: url("/view/m/images/license/balloon.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.bsd > a strong {
+        background-image: url("/view/m/images/license/bsd.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.cc0 > a strong {
+        background-image: url("/view/m/images/license/cc0.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.ccby > a strong {
+        background-image: url("/view/m/images/license/ccby.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.ccbync > a strong {
+        background-image: url("/view/m/images/license/ccbync.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.ccbyncnd > a strong {
+        background-image: url("/view/m/images/license/ccbyncnd.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.ccbyncsa > a strong {
+        background-image: url("/view/m/images/license/ccbyncsa.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.ccbynd > a strong {
+        background-image: url("/view/m/images/license/ccbynd.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.ccbysa > a strong {
+        background-image: url("/view/m/images/license/ccbysa.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.fal > a strong {
+        background-image: url("/view/m/images/license/fal.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.fdl > a strong {
+        background-image: url("/view/m/images/license/fdl.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.freebsd > a strong {
+        background-image: url("/view/m/images/license/freebsd.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.gpl > a strong {
+        background-image: url("/view/m/images/license/gpl.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.gpl2 > a strong {
+        background-image: url("/view/m/images/license/gpl2.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.lgpl > a strong {
+        background-image: url("/view/m/images/license/lgpl.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.mit > a strong {
+        background-image: url("/view/m/images/license/mit.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.mpl > a strong {
+        background-image: url("/view/m/images/license/mpl.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.odbl > a strong {
+        background-image: url("/view/m/images/license/odbl.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.odcby > a strong {
+        background-image: url("/view/m/images/license/odcby.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.oshw > a strong {
+        background-image: url("/view/m/images/license/oshw.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.pd > a strong {
+        background-image: url("/view/m/images/license/pd.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.php > a strong {
+        background-image: url("/view/m/images/license/php.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.tapr > a strong {
+        background-image: url("/view/m/images/license/tapr.png"); }
+      .widget.project-rewards-summary div.social ul li div.license.xoln > a strong {
+        background-image: url("/view/m/images/license/xoln.png"); }
+.widget.project-rewards-summary a.button {
+  background: linear-gradient(to bottom, #f2bb67 0%, #ff9900 100%);
+  display: block;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2bb67', endColorstr='#ff9900',GradientType=0 );
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  margin: 10px auto;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  width: 160px; }
+.widget.project-needs {
+  padding: 0 0 20px; }
+  .widget.project-needs h4 {
+    background-color: #666666;
+    color: #f5f5f5;
+    font-weight: 300;
+    margin: 0; }
+  .widget.project-needs div#legend {
+    background-color: #ffffff;
+    margin-bottom: 20px; }
+    .widget.project-needs div#legend div.min,
+    .widget.project-needs div#legend div.max {
+      font-size: 13px;
+      line-height: 20px;
+      margin-bottom: 8px; }
+      .widget.project-needs div#legend div.min span,
+      .widget.project-needs div#legend div.max span {
+        background-color: #f2f2f2;
+        display: inline-block;
+        height: 20px;
+        margin-right: 4px;
+        width: 20px; }
+  .widget.project-needs .summary {
+    font-size: 18px;
+    font-weight: 600;
+    padding-left: 16px;
+    text-align: left; }
+  .widget.project-needs p.click {
+    margin: 0 0 12px; }
+    .widget.project-needs p.click span.text {
+      clear: left;
+      font-size: 14px;
       font-weight: 300;
-      font-style: normal; }
-    .widget.project-message .button {
-      float: right;
-      margin: 1em 0 0; }
-  .widget.project-messages #project-messages > div {
+      margin: 3px 0 0 10px;
+      padding: 0; }
+  .widget.project-needs .needs_list {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 230px; }
+    .widget.project-needs .needs_list dt,
+    .widget.project-needs .needs_list dd {
+      display: inline-block;
+      height: 24px;
+      line-height: 24px;
+      margin-right: 4px;
+      width: 90px; }
+      .widget.project-needs .needs_list dt.min span,
+      .widget.project-needs .needs_list dd.min span {
+        background: #ffffff; }
+      .widget.project-needs .needs_list dt.max,
+      .widget.project-needs .needs_list dd.max {
+        line-height: 20px; }
+        .widget.project-needs .needs_list dt.max span,
+        .widget.project-needs .needs_list dd.max span {
+          background: #ffffff; }
+    .widget.project-needs .needs_list dd {
+      font-weight: 600;
+      margin-left: 0;
+      width: 120px; }
+      .widget.project-needs .needs_list dd.max {
+        padding-right: 0; }
+  .widget.project-needs .req,
+  .widget.project-needs .noreq {
+    margin-bottom: 20px; }
+    .widget.project-needs .req:last-child,
+    .widget.project-needs .noreq:last-child {
+      margin-bottom: 0; }
+    .widget.project-needs .req .inner,
+    .widget.project-needs .noreq .inner {
+      background-color: #f2f2f2;
+      padding: 20px; }
+  .widget.project-needs .structure #legend dd.min {
+    margin-right: 0; }
+  .widget.project-needs h5.summary {
+    background: no-repeat 16px 50%;
+    margin: 0;
+    min-height: 32px;
+    padding-left: 0; }
+  .widget.project-needs .task h5.summary {
+    display: table;
+    font-size: 18px;
+    margin: 0; }
+    .widget.project-needs .task h5.summary span {
+      display: table-cell;
+      vertical-align: middle; }
+.widget.project-needs table {
+  border-collapse: collapse; }
+  .widget.project-needs table thead th.summary {
+    padding: 3px 8px 3px 0; }
+  .widget.project-needs table thead th {
+    background-position: left 50%;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    font-weight: 700;
+    min-height: 32px;
+    padding-bottom: 16px;
+    padding-left: 40px; }
+  .widget.project-needs table tbody {
+    background: #ffffff; }
+    .widget.project-needs table tbody th.summary {
+      padding: 16px 20px; }
+  .widget.project-needs table tr:not(:last-child) {
+    border-bottom: 1px solid #d9d9d9; }
+  .widget.project-needs table tr.req {
+    background: #ffffff; }
+  .widget.project-needs table tr.noreq {
+    background: #ffffff; }
+  .widget.project-needs table tr.sum th {
+    padding: 12px 20px 10px 0;
+    text-align: right; }
+  .widget.project-needs table th {
+    padding: 3px 20px; }
+    .widget.project-needs table th.summary {
+      padding-right: 20px;
+      text-align: left; }
+      .widget.project-needs table th.summary .click {
+        margin-left: 5px; }
+        .widget.project-needs table th.summary .click span {
+          display: block;
+          margin-bottom: 12px;
+          max-width: 360px; }
+        .widget.project-needs table th.summary .click blockquote {
+          font-size: 14px;
+          font-weight: 400;
+          margin: 0;
+          padding: 0; }
+    .widget.project-needs table th.min, .widget.project-needs table th.max {
+      font-size: 14px;
+      padding: 3px 7px;
+      vertical-align: middle;
+      width: 120px;
+      word-wrap: break-word; }
+  .widget.project-needs table td {
+    font-size: 14px;
+    padding: 16px 20px 16px 0;
+    text-align: right;
+    vertical-align: top;
+    word-wrap: break-word; }
+.widget.project-needs table thead + tbody + thead th.min, .widget.project-needs table thead + tbody + thead th.max {
+  font-size: 0; }
+.widget.project-schedule h3.title {
+  margin: 0 0 8px;
+  padding: 0; }
+.widget.project-schedule table {
+  border-collapse: separate;
+  width: 100%; }
+  .widget.project-schedule table td,
+  .widget.project-schedule table th {
+    box-sizing: content-box;
+    font-size: 12px; }
+  .widget.project-schedule table thead.days, .widget.project-schedule table thead.weeks {
+    display: none; }
+  .widget.project-schedule table thead.months tr th {
+    font-size: 14px; }
+    .widget.project-schedule table thead.months tr th:first-child span {
+      display: none; }
+  .widget.project-schedule table tbody th,
+  .widget.project-schedule table tbody td {
+    border-bottom: 8px solid #fff;
+    box-sizing: content-box;
+    height: 30px;
+    padding: 0 8px;
+    vertical-align: middle; }
+  .widget.project-schedule table tbody th {
+    font-weight: 300;
+    text-align: left;
+    width: 150px; }
+  .widget.project-schedule table tbody td.on {
+    background-color: #255B80; }
+.widget.project-supporters {
+  zoom: 1; }
+  .widget.project-supporters:after {
+    content: '';
+    display: block;
+    clear: both; }
+  .widget.project-supporters .supporters ul {
+    background-color: #ffffff;
+    list-style: none;
+    margin: -20px 0 0 0;
+    overflow: hidden;
+    padding: 0; }
+    .widget.project-supporters .supporters ul li {
+      border-bottom: 1px solid #d9d9d9;
+      border-right: 1px solid #d9d9d9;
+      float: left;
+      height: 110px;
+      position: relative;
+      width: 50%; }
+      .widget.project-supporters .supporters ul li:nth-child(2n+2) {
+        border-right: none; }
+      .widget.project-supporters .supporters ul li.active {
+        background-color: #f3f3f3; }
+        .widget.project-supporters .supporters ul li.active h3, .widget.project-supporters .supporters ul li.active h4, .widget.project-supporters .supporters ul li.active h5, .widget.project-supporters .supporters ul li.active h6 {
+          color: #20B3B2; }
+      .widget.project-supporters .supporters ul li .supporterContainer {
+        padding: 6px; }
+      .widget.project-supporters .supporters ul li a.expand {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        text-decoration: none;
+        z-index: 999; }
+      .widget.project-supporters .supporters ul li > div.supporter h4 {
+        padding-bottom: 3px;
+        border-bottom: #D5D5D6 1px solid;
+        overflow: hidden;
+        margin-bottom: 6px; }
+        .widget.project-supporters .supporters ul li > div.supporter h4 > a {
+          max-height: 6px;
+          max-width: 175px;
+          overflow: hidden; }
+      .widget.project-supporters .supporters ul li .avatar {
+        width: auto;
+        height: 44px;
+        text-align: center;
+        display: block;
+        left: 6px; }
+        .widget.project-supporters .supporters ul li .avatar img {
+          background-color: white; }
+      .widget.project-supporters .supporters ul li h3, .widget.project-supporters .supporters ul li h4, .widget.project-supporters .supporters ul li h5, .widget.project-supporters .supporters ul li h6 {
+        font-size: 12px;
+        font-weight: 600;
+        margin: 0 0 .5em; }
+        .widget.project-supporters .supporters ul li h3 a, .widget.project-supporters .supporters ul li h4 a, .widget.project-supporters .supporters ul li h5 a, .widget.project-supporters .supporters ul li h6 a {
+          font-size: 12px !important;
+          text-decoration: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          padding: 10px 10px 10px 70px;
+          z-index: 9999;
+          display: block; }
+      .widget.project-supporters .supporters ul li h4 {
+        font-size: 16px;
+        line-height: 16px;
+        margin: 8px 0 4px;
+        overflow: hidden;
+        text-align: center;
+        word-wrap: break-word; }
+      .widget.project-supporters .supporters ul li a:hover {
+        color: #20B3B2; }
+      .widget.project-supporters .supporters ul li dl,
+      .widget.project-supporters .supporters ul li dl dt,
+      .widget.project-supporters .supporters ul li dl dd {
+        margin: 0;
+        font-size: 12px;
+        text-align: center; }
+      .widget.project-supporters .supporters ul li dl dt {
+        display: none; }
+      .widget.project-supporters .supporters ul li dl dd.date {
+        color: #a6a8ab;
+        font-size: 10px;
+        width: 100%; }
+  .widget.project-supporters ul#pagination {
+    clear: both; }
+    .widget.project-supporters ul#pagination li {
+      margin-top: 10px; }
+.widget.project-spread > h3.title {
+  padding-left: 46px; }
+.widget.project-spread > div.widget.projects > div.left {
+  float: left;
+  width: 280px;
+  border-right: #000 1px solid; }
+.widget.project-spread > div.widget.projects > div.right {
+  float: left;
+  width: 245px;
+  margin-left: 12px; }
+.widget.project-spread div.subtitle {
+  width: 245px;
+  margin: 0 0 10px 7px; }
+  .widget.project-spread div.subtitle > span {
+    display: block; }
+    .widget.project-spread div.subtitle > span.primero {
+      margin-bottom: 3px; }
+    .widget.project-spread div.subtitle > span.segundo {
+      color: #28ACAB;
+      font-weight: 600; }
+.widget.post {
+  line-height: 18px;
+  margin: 0; }
+  .widget.post h4 {
+    margin: 0 0 16px;
+    line-height: 32px; }
+    .widget.post h4 a {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 0 0 5px;
+      text-decoration: none; }
+  .widget.post .date {
+    display: block;
+    color: #828282;
+    font-size: 12px; }
+  .widget.post blockquote {
+    font-size: 13px;
+    line-height: 1.7em;
+    margin: 8px 0 12px; }
+  .widget.post .read_more {
+    margin-top: 12px; }
+    .widget.post .read_more a {
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: #255b7f;
+      display: inline-block;
+      font-size: 12px;
+      line-height: 2;
+      position: relative;
+      text-decoration: none; }
+      .widget.post .read_more a:after {
+        content: "\f105";
+        color: #009acb;
+        display: inline-block;
+        font-weight: bold;
+        margin-left: 4px; }
+      .widget.post .read_more a:after {
+        padding-left: 4px; }
+      .widget.post .read_more a:hover {
+        color: #009acb; }
+  .widget.post .categories {
+    display: block;
+    color: #828282;
+    margin: 0 0 8px 0; }
+  .widget.post .gallery-image {
+    text-align: center;
+    margin: 0 auto; }
+    .widget.post .gallery-image img {
+      margin: 0 auto;
+      width: auto;
+      max-height: 240px; }
+  .widget.post .embed {
+    width: 500px;
+    height: 285px;
+    margin: 10px  18px; }
+  .widget.post .embed-legend {
+    border-left: 2px solid #58595B;
+    color: #9B9B9D;
+    font-size: 0.9em;
+    margin-left: 16px;
+    width: 495px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    font-style: oblique; }
+  .widget.post .comments-num {
+    float: none;
+    background: transparent url("/view/m/images/ico-blogcomment.png") scroll no-repeat 10px 0;
+    background-color: #fff;
+    padding: 0 0 0 40px;
+    height: 40px;
+    width: auto;
+    margin: 0;
+    line-height: 24px; }
+    .widget.post .comments-num a {
+      color: #00ad4e;
+      font-size: 12px;
+      text-decoration: none;
+      line-height: 16px; }
+  .widget.post .post-gallery-container {
+    width: 580px;
+    height: 300px;
+    display: none; }
+  .widget.post .post-gallery ul.slderpag {
+    margin: 8px 0 0 0;
+    list-style: none;
+    padding: 0;
+    float: left;
+    height: auto; }
+    .widget.post .post-gallery ul.slderpag li {
+      cursor: pointer;
+      display: block;
+      float: left;
+      overflow: hidden;
+      margin: 0 4px 5px 4px; }
+      .widget.post .post-gallery ul.slderpag li a {
+        width: 12px;
+        height: 12px;
+        margin-top: 2px;
+        background-color: #cdcdce;
+        color: #cdcdce;
+        display: block; }
+        .widget.post .post-gallery ul.slderpag li a:hover {
+          background-color: #20b3b2;
+          color: #20b3b2; }
+      .widget.post .post-gallery ul.slderpag li.current a {
+        background-color: #808184 !important;
+        color: #808184 !important; }
+  .widget.post .post-gallery a.next, .widget.post .post-gallery a.prev {
+    width: 16px;
+    height: 16px;
+    line-height: 2000px;
+    overflow: hidden;
+    float: left;
+    margin: 8px 0 0 0;
+    cursor: pointer; }
+  .widget.post .post-gallery a.prev {
+    background: url("/view/m/images/small_arrowslider-sprt.png") scroll no-repeat 0 0; }
+    .widget.post .post-gallery a.prev:hover {
+      background: url("/view/m/images/small_arrowslider-sprt.png") scroll no-repeat 0 -32px; }
+  .widget.post .post-gallery a.next {
+    background: url("/view/m/images/small_arrowslider-sprt.png") scroll no-repeat 0 -16px; }
+    .widget.post .post-gallery a.next:hover {
+      background: url("/view/m/images/small_arrowslider-sprt.png") scroll no-repeat 0 -48px; }
+.widget.post-comments {
+  background-color: #ffffff;
+  margin: 0;
+  padding: 20px 10px 10px; }
+  .widget.post-comments #post-comments > div {
     background-color: #f2f2f2;
     border-radius: 8px;
     margin-left: 50px;
     overflow: visible;
     position: relative;
     padding: 12px 16px; }
-    .widget.project-messages #project-messages > div:before {
+    .widget.post-comments #post-comments > div:before {
       background: none;
       border: 10px solid transparent;
       border-right: 15px solid #f2f2f2;
@@ -1367,902 +1843,283 @@ ul#pagination {
       height: 0;
       left: -20px;
       position: absolute;
-      top: 20px;
+      top: 10px;
       width: 0; }
-  .widget.project-messages div.message + div.message,
-  .widget.project-messages div.child + div.message,
-  .widget.project-messages div.child {
-    margin-top: 20px; }
-  .widget.project-messages div.message .avatar,
-  .widget.project-messages div.child .avatar {
-    display: block;
-    height: 40px;
-    left: -50px;
-    text-align: left;
-    top: 0;
-    position: absolute;
-    width: 40px; }
-  .widget.project-messages div.message h3.user,
-  .widget.project-messages div.child h3.user {
-    font-size: 14px;
-    font-weight: 600;
-    margin: 0 0 1em; }
-    .widget.project-messages div.message h3.user a,
-    .widget.project-messages div.child h3.user a {
-      text-decoration: none; }
-      .widget.project-messages div.message h3.user a .user_name,
-      .widget.project-messages div.child h3.user a .user_name {
-        color: #337ab7; }
-  .widget.project-messages div.message blockquote,
-  .widget.project-messages div.child blockquote {
-    margin: 0 0 16px;
-    padding: 0; }
-  .widget.project-messages div.message .actions_date,
-  .widget.project-messages div.child .actions_date {
-    margin-top: 1em;
-    padding-top: .4em; }
-    .widget.project-messages div.message .actions_date a,
-    .widget.project-messages div.child .actions_date a {
-      color: #337ab7;
-      font-size: 12px;
-      text-decoration: none; }
-    .widget.project-messages div.message .actions_date .date,
-    .widget.project-messages div.child .actions_date .date {
-      float: right;
-      font-size: 12px; }
-  .widget.project-rewards-summary h4.title {
-    margin: 0 0 16px;
-    padding-left: 0; }
-  .widget.project-rewards-summary ul {
-    list-style: none;
-    margin: 0;
-    padding: 0; }
-    .widget.project-rewards-summary ul li {
-      background-color: #f2f2f2;
-      font-size: 12px;
-      margin-bottom: 12px;
-      min-height: 33px;
-      padding: 12px 16px; }
-      .widget.project-rewards-summary ul li:last-child {
-        margin-bottom: 0; }
-      .widget.project-rewards-summary ul li h5.name {
-        font-size: 14px;
-        font-weight: 600;
-        margin: 0 0 6px; }
-      .widget.project-rewards-summary ul li > p {
-        margin: 0 0 1em; }
-  .widget.project-rewards-summary div.individual {
-    background-color: #ffffff;
-    margin-bottom: 20px;
-    padding: 20px; }
-    .widget.project-rewards-summary div.individual ul li dl {
-      zoom: 1;
-      margin: 0; }
-      .widget.project-rewards-summary div.individual ul li dl:after {
-        content: '';
-        display: block;
-        clear: both; }
-      .widget.project-rewards-summary div.individual ul li dl dt {
-        float: left;
-        font-size: 13px;
-        line-height: 22px;
-        width: 70px; }
-      .widget.project-rewards-summary div.individual ul li dl dd {
-        color: #454545;
-        float: left;
-        font-size: 14px;
-        font-weight: 600;
-        line-height: 22px;
-        margin-left: 0; }
-      .widget.project-rewards-summary div.individual ul li dl.remain {
-        margin-bottom: 12px; }
-    .widget.project-rewards-summary div.individual ul li img {
-      width: 100%;
-      height: auto;
-      min-height: 200px; }
-  .widget.project-rewards-summary div.social {
-    background-color: #ffffff;
-    margin-bottom: 20px;
-    padding: 20px; }
-    .widget.project-rewards-summary div.social ul {
-      margin-top: 0; }
-      .widget.project-rewards-summary div.social ul li.active {
-        background-color: #d5ebd7; }
-      .widget.project-rewards-summary div.social ul li.money h4.name {
-        line-height: 1em; }
-      .widget.project-rewards-summary div.social ul li.file h5.name {
-        font-size: 14px;
-        font-weight: 600;
-        margin: 0 0 6px; }
-      .widget.project-rewards-summary div.social ul li.service > h5.name, .widget.project-rewards-summary div.social ul li.file > h5.name {
-        padding-top: 0;
-        margin-bottom: .4em; }
-      .widget.project-rewards-summary div.social ul li span.name {
-        font-size: 13px;
-        font-weight: 600;
-        margin: 0 0 .4em; }
-      .widget.project-rewards-summary div.social ul li span.taken {
-        border: #313B96 1px solid;
-        color: #313B96;
-        margin-left: 6px;
-        margin-right: 5px;
-        padding: 2px 6px; }
-      .widget.project-rewards-summary div.social ul li span.left {
-        color: #EE4843;
-        font-weight: 600; }
-      .widget.project-rewards-summary div.social ul li div.investors {
-        color: #313B96;
-        padding: 2px 6px 2px 3px;
-        margin-top: 10px; }
-      .widget.project-rewards-summary div.social ul li div.license {
-        font-size: 12px; }
-        .widget.project-rewards-summary div.social ul li div.license h6 {
-          font-size: 14px;
-          font-weight: 600;
-          margin: 0;
-          padding: 0; }
-        .widget.project-rewards-summary div.social ul li div.license p {
-          margin: .2em 0; }
-        .widget.project-rewards-summary div.social ul li div.license a {
-          text-decoration: none; }
-        .widget.project-rewards-summary div.social ul li div.license > a strong {
-          background: url("/view/m/images/license/license.png") no-repeat left 4px;
-          display: block;
-          padding-top: 40px; }
-        .widget.project-rewards-summary div.social ul li div.license.agpl > a strong {
-          background-image: url("/view/m/images/license/agpl.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.apache > a strong {
-          background-image: url("/view/m/images/license/apache.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.balloon > a strong {
-          background-image: url("/view/m/images/license/balloon.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.bsd > a strong {
-          background-image: url("/view/m/images/license/bsd.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.cc0 > a strong {
-          background-image: url("/view/m/images/license/cc0.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.ccby > a strong {
-          background-image: url("/view/m/images/license/ccby.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.ccbync > a strong {
-          background-image: url("/view/m/images/license/ccbync.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.ccbyncnd > a strong {
-          background-image: url("/view/m/images/license/ccbyncnd.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.ccbyncsa > a strong {
-          background-image: url("/view/m/images/license/ccbyncsa.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.ccbynd > a strong {
-          background-image: url("/view/m/images/license/ccbynd.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.ccbysa > a strong {
-          background-image: url("/view/m/images/license/ccbysa.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.fal > a strong {
-          background-image: url("/view/m/images/license/fal.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.fdl > a strong {
-          background-image: url("/view/m/images/license/fdl.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.freebsd > a strong {
-          background-image: url("/view/m/images/license/freebsd.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.gpl > a strong {
-          background-image: url("/view/m/images/license/gpl.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.gpl2 > a strong {
-          background-image: url("/view/m/images/license/gpl2.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.lgpl > a strong {
-          background-image: url("/view/m/images/license/lgpl.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.mit > a strong {
-          background-image: url("/view/m/images/license/mit.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.mpl > a strong {
-          background-image: url("/view/m/images/license/mpl.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.odbl > a strong {
-          background-image: url("/view/m/images/license/odbl.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.odcby > a strong {
-          background-image: url("/view/m/images/license/odcby.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.oshw > a strong {
-          background-image: url("/view/m/images/license/oshw.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.pd > a strong {
-          background-image: url("/view/m/images/license/pd.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.php > a strong {
-          background-image: url("/view/m/images/license/php.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.tapr > a strong {
-          background-image: url("/view/m/images/license/tapr.png"); }
-        .widget.project-rewards-summary div.social ul li div.license.xoln > a strong {
-          background-image: url("/view/m/images/license/xoln.png"); }
-  .widget.project-rewards-summary a.button {
-    background: linear-gradient(to bottom, #f2bb67 0%, #ff9900 100%);
-    display: block;
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2bb67', endColorstr='#ff9900',GradientType=0 );
-    font-size: 14px;
-    height: 30px;
-    line-height: 30px;
-    margin: 10px auto;
-    padding-left: 8px !important;
-    padding-right: 8px !important;
-    width: 160px; }
-  .widget.project-needs {
-    padding: 0 0 20px; }
-    .widget.project-needs h4 {
-      background-color: #666666;
-      color: #f5f5f5;
-      font-weight: 300;
-      margin: 0; }
-    .widget.project-needs div#legend {
-      background-color: #ffffff;
-      margin-bottom: 20px; }
-      .widget.project-needs div#legend div.min,
-      .widget.project-needs div#legend div.max {
-        font-size: 13px;
-        line-height: 20px;
-        margin-bottom: 8px; }
-        .widget.project-needs div#legend div.min span,
-        .widget.project-needs div#legend div.max span {
-          background-color: #f2f2f2;
-          display: inline-block;
-          height: 20px;
-          margin-right: 4px;
-          width: 20px; }
-    .widget.project-needs .summary {
-      font-size: 18px;
-      font-weight: 600;
-      padding-left: 16px;
-      text-align: left; }
-    .widget.project-needs p.click {
-      margin: 0 0 12px; }
-      .widget.project-needs p.click span.text {
-        clear: left;
-        font-size: 14px;
-        font-weight: 300;
-        margin: 3px 0 0 10px;
-        padding: 0; }
-    .widget.project-needs .needs_list {
-      margin: 0 auto;
+    .widget.post-comments #post-comments > div.child {
+      margin-left: 90px; }
+    .widget.post-comments #post-comments > div.message .avatar {
+      border-radius: 50%;
+      display: inline-block;
+      height: 40px;
       overflow: hidden;
-      width: 230px; }
-      .widget.project-needs .needs_list dt,
-      .widget.project-needs .needs_list dd {
-        display: inline-block;
-        height: 24px;
-        line-height: 24px;
-        margin-right: 4px;
-        width: 90px; }
-        .widget.project-needs .needs_list dt.min span,
-        .widget.project-needs .needs_list dd.min span {
-          background: #ffffff; }
-        .widget.project-needs .needs_list dt.max,
-        .widget.project-needs .needs_list dd.max {
-          line-height: 20px; }
-          .widget.project-needs .needs_list dt.max span,
-          .widget.project-needs .needs_list dd.max span {
-            background: #ffffff; }
-      .widget.project-needs .needs_list dd {
-        font-weight: 600;
-        margin-left: 0;
-        width: 120px; }
-        .widget.project-needs .needs_list dd.max {
-          padding-right: 0; }
-    .widget.project-needs .req,
-    .widget.project-needs .noreq {
-      margin-bottom: 20px; }
-      .widget.project-needs .req:last-child,
-      .widget.project-needs .noreq:last-child {
-        margin-bottom: 0; }
-      .widget.project-needs .req .inner,
-      .widget.project-needs .noreq .inner {
-        background-color: #f2f2f2;
-        padding: 20px; }
-    .widget.project-needs .structure #legend dd.min {
-      margin-right: 0; }
-    .widget.project-needs h5.summary {
-      background: no-repeat 16px 50%;
-      margin: 0;
-      min-height: 32px;
-      padding-left: 0; }
-    .widget.project-needs .task h5.summary {
-      display: table;
-      font-size: 18px;
-      margin: 0; }
-      .widget.project-needs .task h5.summary span {
-        display: table-cell;
-        vertical-align: middle; }
-  .widget.project-needs table {
-    border-collapse: collapse; }
-    .widget.project-needs table thead th.summary {
-      padding: 3px 8px 3px 0; }
-    .widget.project-needs table thead th {
-      background-position: left 50%;
-      background-repeat: no-repeat;
-      font-size: 16px;
-      font-weight: 700;
-      min-height: 32px;
-      padding-bottom: 16px;
-      padding-left: 40px; }
-    .widget.project-needs table tbody {
-      background: #ffffff; }
-      .widget.project-needs table tbody th.summary {
-        padding: 16px 20px; }
-    .widget.project-needs table tr:not(:last-child) {
-      border-bottom: 1px solid #d9d9d9; }
-    .widget.project-needs table tr.req {
-      background: #ffffff; }
-    .widget.project-needs table tr.noreq {
-      background: #ffffff; }
-    .widget.project-needs table tr.sum th {
-      padding: 12px 20px 10px 0;
-      text-align: right; }
-    .widget.project-needs table th {
-      padding: 3px 20px; }
-      .widget.project-needs table th.summary {
-        padding-right: 20px;
-        text-align: left; }
-        .widget.project-needs table th.summary .click {
-          margin-left: 5px; }
-          .widget.project-needs table th.summary .click span {
-            display: block;
-            margin-bottom: 12px;
-            max-width: 360px; }
-          .widget.project-needs table th.summary .click blockquote {
-            font-size: 14px;
-            font-weight: 400;
-            margin: 0;
-            padding: 0; }
-      .widget.project-needs table th.min, .widget.project-needs table th.max {
-        font-size: 14px;
-        padding: 3px 7px;
+      position: relative;
+      text-align: center;
+      vertical-align: middle;
+      width: 40px;
+      position: absolute;
+      left: -50px;
+      top: 0; }
+      .widget.post-comments #post-comments > div.message .avatar img {
+        bottom: 0;
+        height: auto;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
         vertical-align: middle;
-        width: 120px;
-        word-wrap: break-word; }
-    .widget.project-needs table td {
+        width: 100%; }
+    .widget.post-comments #post-comments > div.message .user {
       font-size: 14px;
-      padding: 16px 20px 16px 0;
-      text-align: right;
-      vertical-align: top;
-      word-wrap: break-word; }
-  .widget.project-needs table thead + tbody + thead th.min, .widget.project-needs table thead + tbody + thead th.max {
-    font-size: 0; }
-  .widget.project-schedule h3.title {
-    margin: 0 0 8px;
-    padding: 0; }
-  .widget.project-schedule table {
-    border-collapse: separate;
-    width: 100%; }
-    .widget.project-schedule table td,
-    .widget.project-schedule table th {
-      box-sizing: content-box;
+      font-weight: 600;
+      margin: 0 0 1em;
+      float: left; }
+    .widget.post-comments #post-comments > div.message .date {
+      float: right;
+      color: #808080;
       font-size: 12px; }
-    .widget.project-schedule table thead.days, .widget.project-schedule table thead.weeks {
-      display: none; }
-    .widget.project-schedule table thead.months tr th {
-      font-size: 14px; }
-      .widget.project-schedule table thead.months tr th:first-child span {
-        display: none; }
-    .widget.project-schedule table tbody th,
-    .widget.project-schedule table tbody td {
-      border-bottom: 8px solid #fff;
-      box-sizing: content-box;
-      height: 30px;
-      padding: 0 8px;
-      vertical-align: middle; }
-    .widget.project-schedule table tbody th {
-      font-weight: 300;
-      text-align: left;
-      width: 150px; }
-    .widget.project-schedule table tbody td.on {
-      background-color: #255B80; }
-  .widget.project-supporters {
+    .widget.post-comments #post-comments > div.message blockquote {
+      margin: 0;
+      padding: 0;
+      clear: both; }
+  .widget.post-comments div.message + div.message {
+    margin-top: 20px; }
+.widget.blog-comment {
+  background-color: #ffffff;
+  margin: 0;
+  overflow: hidden;
+  padding: 10px 0;
+  position: relative; }
+  .widget.blog-comment form {
     zoom: 1; }
-    .widget.project-supporters:after {
+    .widget.blog-comment form:after {
       content: '';
       display: block;
       clear: both; }
-    .widget.project-supporters .supporters ul {
-      background-color: #ffffff;
-      list-style: none;
-      margin: -20px 0 0 0;
-      overflow: hidden;
-      padding: 0; }
-      .widget.project-supporters .supporters ul li {
-        border-bottom: 1px solid #d9d9d9;
-        border-right: 1px solid #d9d9d9;
-        float: left;
-        height: 110px;
-        position: relative;
-        width: 50%; }
-        .widget.project-supporters .supporters ul li:nth-child(2n+2) {
-          border-right: none; }
-        .widget.project-supporters .supporters ul li.active {
-          background-color: #f3f3f3; }
-          .widget.project-supporters .supporters ul li.active h3, .widget.project-supporters .supporters ul li.active h4, .widget.project-supporters .supporters ul li.active h5, .widget.project-supporters .supporters ul li.active h6 {
-            color: #20B3B2; }
-        .widget.project-supporters .supporters ul li .supporterContainer {
-          padding: 6px; }
-        .widget.project-supporters .supporters ul li a.expand {
-          bottom: 0;
-          left: 0;
-          position: absolute;
-          right: 0;
-          top: 0;
-          text-decoration: none;
-          z-index: 999; }
-        .widget.project-supporters .supporters ul li > div.supporter h4 {
-          padding-bottom: 3px;
-          border-bottom: #D5D5D6 1px solid;
-          overflow: hidden;
-          margin-bottom: 6px; }
-          .widget.project-supporters .supporters ul li > div.supporter h4 > a {
-            max-height: 6px;
-            max-width: 175px;
-            overflow: hidden; }
-        .widget.project-supporters .supporters ul li .avatar {
-          width: auto;
-          height: 44px;
-          text-align: center;
-          display: block;
-          left: 6px; }
-          .widget.project-supporters .supporters ul li .avatar img {
-            background-color: white; }
-        .widget.project-supporters .supporters ul li h3, .widget.project-supporters .supporters ul li h4, .widget.project-supporters .supporters ul li h5, .widget.project-supporters .supporters ul li h6 {
-          font-size: 12px;
-          font-weight: 600;
-          margin: 0 0 .5em; }
-          .widget.project-supporters .supporters ul li h3 a, .widget.project-supporters .supporters ul li h4 a, .widget.project-supporters .supporters ul li h5 a, .widget.project-supporters .supporters ul li h6 a {
-            font-size: 12px !important;
-            text-decoration: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            padding: 10px 10px 10px 70px;
-            z-index: 9999;
-            display: block; }
-        .widget.project-supporters .supporters ul li h4 {
-          font-size: 16px;
-          line-height: 16px;
-          margin: 8px 0 4px;
-          overflow: hidden;
-          text-align: center;
-          word-wrap: break-word; }
-        .widget.project-supporters .supporters ul li a:hover {
-          color: #20B3B2; }
-        .widget.project-supporters .supporters ul li dl,
-        .widget.project-supporters .supporters ul li dl dt,
-        .widget.project-supporters .supporters ul li dl dd {
-          margin: 0;
-          font-size: 12px;
-          text-align: center; }
-        .widget.project-supporters .supporters ul li dl dt {
-          display: none; }
-        .widget.project-supporters .supporters ul li dl dd.date {
-          color: #a6a8ab;
-          font-size: 10px;
-          width: 100%; }
-    .widget.project-supporters ul#pagination {
-      clear: both; }
-      .widget.project-supporters ul#pagination li {
-        margin-top: 10px; }
-  .widget.project-spread > h3.title {
-    padding-left: 46px; }
-  .widget.project-spread > div.widget.projects > div.left {
-    float: left;
-    width: 280px;
-    border-right: #000 1px solid; }
-  .widget.project-spread > div.widget.projects > div.right {
-    float: left;
-    width: 245px;
-    margin-left: 12px; }
-  .widget.project-spread div.subtitle {
-    width: 245px;
-    margin: 0 0 10px 7px; }
-    .widget.project-spread div.subtitle > span {
-      display: block; }
-      .widget.project-spread div.subtitle > span.primero {
-        margin-bottom: 3px; }
-      .widget.project-spread div.subtitle > span.segundo {
-        color: #28ACAB;
-        font-weight: 600; }
-  .widget.post {
-    line-height: 18px;
-    margin: 0; }
-    .widget.post h4 {
-      margin: 0 0 16px;
-      line-height: 32px; }
-      .widget.post h4 a {
-        font-size: 15px;
-        font-weight: 600;
-        margin: 0 0 5px;
-        text-decoration: none; }
-    .widget.post .date {
-      display: block;
-      color: #828282;
-      font-size: 12px; }
-    .widget.post blockquote {
-      font-size: 13px;
-      line-height: 1.7em;
-      margin: 8px 0 12px; }
-    .widget.post .read_more {
-      margin-top: 12px; }
-      .widget.post .read_more a {
-        color: #255b7f;
-        display: inline-block;
-        font-size: 12px;
-        line-height: 2;
-        padding-right: 10px;
-        position: relative;
-        text-decoration: none; }
-        .widget.post .read_more a:after {
-          background: url("/view/m/images/arrow-link.png") no-repeat 50%;
-          background-size: 6px auto;
-          bottom: 0;
-          content: '';
-          display: block;
-          height: 8px;
-          margin: auto;
-          right: 0;
-          position: absolute;
-          top: 0;
-          width: 6px; }
-        .widget.post .read_more a:hover {
-          color: #009acb; }
-    .widget.post .categories {
-      display: block;
-      color: #828282;
-      margin: 0 0 8px 0; }
-    .widget.post .gallery-image {
-      text-align: center;
-      margin: 0 auto; }
-      .widget.post .gallery-image img {
-        margin: 0 auto;
-        width: auto;
-        max-height: 240px; }
-    .widget.post .embed {
-      width: 500px;
-      height: 285px;
-      margin: 10px  18px; }
-    .widget.post .embed-legend {
-      border-left: 2px solid #58595B;
-      color: #9B9B9D;
-      font-size: 0.9em;
-      margin-left: 16px;
-      width: 495px;
-      padding-left: 10px;
-      margin-bottom: 10px;
-      font-style: oblique; }
-    .widget.post .comments-num {
-      float: none;
-      background: transparent url("/view/m/images/ico-blogcomment.png") scroll no-repeat 10px 0;
-      background-color: #fff;
-      padding: 0 0 0 40px;
-      height: 40px;
-      width: auto;
-      margin: 0;
-      line-height: 24px; }
-      .widget.post .comments-num a {
-        color: #00ad4e;
-        font-size: 12px;
-        text-decoration: none;
-        line-height: 16px; }
-    .widget.post .post-gallery-container {
-      width: 580px;
-      height: 300px;
-      display: none; }
-    .widget.post .post-gallery ul.slderpag {
-      margin: 8px 0 0 0;
-      list-style: none;
-      padding: 0;
-      float: left;
-      height: auto; }
-      .widget.post .post-gallery ul.slderpag li {
-        cursor: pointer;
-        display: block;
-        float: left;
-        overflow: hidden;
-        margin: 0 4px 5px 4px; }
-        .widget.post .post-gallery ul.slderpag li a {
-          width: 12px;
-          height: 12px;
-          margin-top: 2px;
-          background-color: #cdcdce;
-          color: #cdcdce;
-          display: block; }
-          .widget.post .post-gallery ul.slderpag li a:hover {
-            background-color: #20b3b2;
-            color: #20b3b2; }
-        .widget.post .post-gallery ul.slderpag li.current a {
-          background-color: #808184 !important;
-          color: #808184 !important; }
-    .widget.post .post-gallery a.next, .widget.post .post-gallery a.prev {
-      width: 16px;
-      height: 16px;
-      line-height: 2000px;
-      overflow: hidden;
-      float: left;
-      margin: 8px 0 0 0;
-      cursor: pointer; }
-    .widget.post .post-gallery a.prev {
-      background: url("/view/m/images/small_arrowslider-sprt.png") scroll no-repeat 0 0; }
-      .widget.post .post-gallery a.prev:hover {
-        background: url("/view/m/images/small_arrowslider-sprt.png") scroll no-repeat 0 -32px; }
-    .widget.post .post-gallery a.next {
-      background: url("/view/m/images/small_arrowslider-sprt.png") scroll no-repeat 0 -16px; }
-      .widget.post .post-gallery a.next:hover {
-        background: url("/view/m/images/small_arrowslider-sprt.png") scroll no-repeat 0 -48px; }
-  .widget.post-comments {
+  .widget.blog-comment textarea#send_message {
     background-color: #ffffff;
-    margin: 0;
-    padding: 10px; }
-    .widget.post-comments div.message {
-      background: #e7e7e7 url("/view/m/images/message/beak/1.png") no-repeat left top;
-      margin-left: 60px;
-      padding: .5em 1em .5em 1.5em;
-      overflow: visible;
-      position: relative; }
-      .widget.post-comments div.message .avatar {
-        position: absolute;
-        left: -60px;
-        top: 0;
-        display: block;
-        width: 50px;
-        height: 50px; }
-      .widget.post-comments div.message .user {
-        font-size: 14px;
-        font-weight: 600;
-        margin: 0 0 1em;
-        float: left; }
-      .widget.post-comments div.message .date {
-        float: right;
-        color: #808080;
-        font-size: 12px; }
-      .widget.post-comments div.message blockquote {
-        margin: 0;
-        padding: 0;
-        clear: both; }
-    .widget.post-comments div.message + div.message {
-      margin-top: 20px; }
-    .widget.post-comments div.owner {
-      background: #e9f4ea url("/view/m/images/message/beak/2.png") no-repeat left top !important; }
-  .widget.blog-comment {
-    background-color: #ffffff;
-    margin: 0;
-    overflow: hidden;
-    padding: 10px 0;
-    position: relative; }
-    .widget.blog-comment form {
-      zoom: 1; }
-      .widget.blog-comment form:after {
-        content: '';
-        display: block;
-        clear: both; }
-    .widget.blog-comment textarea#send_message {
-      background-color: #ffffff;
-      border: 1px solid #d9d9d9;
-      box-sizing: content-box;
-      border-radius: 3px;
-      clear: right;
-      display: block;
-      float: right;
-      height: 50px;
-      margin: 0 0 12px;
-      padding: .3em 0;
-      resize: none;
-      width: 85%; }
-    .widget.blog-comment a.preview {
-      color: #2EAB58;
-      font-weight: 300;
-      left: 60px;
-      position: absolute;
-      text-decoration: none;
-      top: 194px;
-      font-style: normal;
-      display: block;
-      width: 60px;
-      font-size: 12px; }
-    .widget.blog-comment button.green {
-      display: block;
-      float: right;
-      margin: 0 10px 10px 10px;
-      text-align: center; }
-    .widget.blog-comment div#bocadillo {
-      background: url("/view/m/images/bocadillo.jpg") no-repeat;
-      height: 50px;
-      margin-top: 8px;
-      position: absolute;
-      width: 50px; }
-  .widget.project-evaluation {
-    padding: 10px 0;
-    /*.evaluation_content {
-      padding: 16px;
-    }*/ }
-    .widget.project-evaluation h3.title {
-      margin-top: 0;
-      padding-left: 0; }
-  .widget.worthcracy {
+    border: 1px solid #d9d9d9;
+    box-sizing: content-box;
+    border-radius: 3px;
+    clear: right;
+    display: block;
+    float: right;
+    height: 50px;
+    margin: 0 0 12px;
+    padding: .3em 0;
+    resize: none;
+    width: 85%; }
+  .widget.blog-comment a.preview {
+    color: #2EAB58;
+    font-weight: 300;
+    left: 60px;
+    position: absolute;
+    text-decoration: none;
+    top: 194px;
+    font-style: normal;
+    display: block;
+    width: 60px;
+    font-size: 12px; }
+  .widget.blog-comment button.green {
+    display: block;
+    float: right;
+    margin: 0 10px 10px 10px;
     text-align: center; }
-    .widget.worthcracy .title {
-      text-align: left !important; }
-    .widget.worthcracy ul {
-      padding: 3em 52px 3em 0;
-      margin: 0;
-      list-style: none;
-      position: relative;
+  .widget.blog-comment div#bocadillo {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background: #91c0df;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased; }
+    .widget.blog-comment div#bocadillo:before {
+      content: "\f075";
+      color: #255b7f;
+      line-height: 30px; }
+.widget.project-evaluation {
+  padding: 10px 0; }
+  .widget.project-evaluation h3.title {
+    margin-top: 0;
+    padding-left: 0; }
+.widget.worthcracy {
+  text-align: center; }
+  .widget.worthcracy .title {
+    text-align: left !important; }
+  .widget.worthcracy ul {
+    padding: 3em 52px 3em 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    display: inline-block;
+    background: url("yen/xl.png") no-repeat right center; }
+    .widget.worthcracy ul li {
       display: inline-block;
-      background: url("yen/xl.png") no-repeat right center; }
-      .widget.worthcracy ul li {
-        display: inline-block;
+      width: 92px;
+      height: 8px;
+      overflow: visible;
+      background-color: #e7e7e7;
+      position: relative; }
+      .widget.worthcracy ul li > span.threshold,
+      .widget.worthcracy ul li > strong,
+      .widget.worthcracy ul li > em {
+        display: block;
         width: 92px;
-        height: 8px;
-        overflow: visible;
-        background-color: #e7e7e7;
-        position: relative; }
-        .widget.worthcracy ul li > span.threshold,
-        .widget.worthcracy ul li > strong,
-        .widget.worthcracy ul li > em {
-          display: block;
-          width: 92px;
-          position: absolute;
-          text-align: center; }
-        .widget.worthcracy ul li > span.threshold {
-          top: -25px;
-          font-size: 16px; }
-        .widget.worthcracy ul li > em,
-        .widget.worthcracy ul li > strong {
-          top: 12px;
-          width: 300px;
-          left: 50%;
-          margin-left: -150px;
-          color: #828282; }
-        .widget.worthcracy ul li > em {
-          font-style: normal;
-          font-size: 12px; }
-        .widget.worthcracy ul li.done.worth-1, .widget.worthcracy ul li.done.active {
-          background-color: #B6CAE0 !important;
-          color: #B6CAE0; }
-        .widget.worthcracy ul li.done.worth-2, .widget.worthcracy ul li.done.worth-2.active {
-          background-color: #92AFD1 !important;
-          color: #92AFD1; }
-        .widget.worthcracy ul li.done.worth-3, .widget.worthcracy ul li.done.worth-3.active {
-          background-color: #799EC7 !important;
-          color: #799EC7; }
-        .widget.worthcracy ul li.done.worth-4, .widget.worthcracy ul li.done.worth-4.active {
-          background-color: #3C71AE !important;
-          color: #3C71AE; }
-        .widget.worthcracy ul li.done.worth-5, .widget.worthcracy ul li.done.worth-5.active {
-          background-color: #0C4E99 !important;
-          color: #0C4E99; }
-    .widget.worthcracy.user-worthcracy h3.title {
-      padding-left: 20px; }
-    .widget.worthcracy.user-worthcracy ul li > strong {
-      font-weight: 600;
-      font-size: 18px;
-      top: 15px;
-      padding-top: 9px;
-      background: url("/view/m/images/worth/beak.png") no-repeat top center; }
-    .widget.worthcracy.user-worthcracy div.worth-amount {
-      display: inline;
-      float: left;
-      color: #990033;
-      font-weight: 600;
-      font-size: 30px;
-      position: relative;
-      top: -10px;
-      left: 35px;
-      line-height: 33px;
-      padding-right: 30px;
-      background: url("/view/m/images/yen/violet/l.png") no-repeat center right;
-      border-bottom: 1px solid #990033; }
+        position: absolute;
+        text-align: center; }
+      .widget.worthcracy ul li > span.threshold {
+        top: -25px;
+        font-size: 16px; }
+      .widget.worthcracy ul li > em,
+      .widget.worthcracy ul li > strong {
+        top: 12px;
+        width: 300px;
+        left: 50%;
+        margin-left: -150px;
+        color: #828282; }
+      .widget.worthcracy ul li > em {
+        font-style: normal;
+        font-size: 12px; }
+      .widget.worthcracy ul li.done.worth-1, .widget.worthcracy ul li.done.active {
+        background-color: #B6CAE0 !important;
+        color: #B6CAE0; }
+      .widget.worthcracy ul li.done.worth-2, .widget.worthcracy ul li.done.worth-2.active {
+        background-color: #92AFD1 !important;
+        color: #92AFD1; }
+      .widget.worthcracy ul li.done.worth-3, .widget.worthcracy ul li.done.worth-3.active {
+        background-color: #799EC7 !important;
+        color: #799EC7; }
+      .widget.worthcracy ul li.done.worth-4, .widget.worthcracy ul li.done.worth-4.active {
+        background-color: #3C71AE !important;
+        color: #3C71AE; }
+      .widget.worthcracy ul li.done.worth-5, .widget.worthcracy ul li.done.worth-5.active {
+        background-color: #0C4E99 !important;
+        color: #0C4E99; }
+  .widget.worthcracy.user-worthcracy h3.title {
+    padding-left: 20px; }
+  .widget.worthcracy.user-worthcracy ul li > strong {
+    font-weight: 600;
+    font-size: 18px;
+    top: 15px;
+    padding-top: 9px;
+    background: url("/view/m/images/worth/beak.png") no-repeat top center; }
+  .widget.worthcracy.user-worthcracy div.worth-amount {
+    display: inline;
+    float: left;
+    color: #990033;
+    font-weight: 600;
+    font-size: 30px;
+    position: relative;
+    top: -10px;
+    left: 35px;
+    line-height: 33px;
+    padding-right: 30px;
+    background: url("/view/m/images/yen/violet/l.png") no-repeat center right;
+    border-bottom: 1px solid #990033; }
 
-h4.author:hover a {
-  color: #c5da4d; }
-
-/*----------------------------------------------------------------------
-  meter.css
-----------------------------------------------------------------------*/
 .meter {
   margin: 0 16px;
-  padding: 4px 0 148px;
-  position: relative;
-  height: 20px; }
-  .meter h3.title.obtained {
-    display: none;
-    padding-left: 5px; }
-  .meter h3.title.investment {
-    color: #336633; }
-  .meter div.graph {
-    background-color: #d9d9d9;
-    border-radius: 9px;
-    height: 20px;
-    margin: 24px 0 20px;
-    position: relative; }
-    .meter div.graph * strong,
-    .meter div.graph * span {
-      display: none; }
-    .meter div.graph .minimum {
-      background-color: #0093c4;
-      border-radius: 9px 0 0 9px;
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0; }
-      .meter div.graph .minimum .done {
-        background-color: #c5da4d;
-        height: 20px;
-        left: 0;
-        max-width: 288px;
-        position: absolute;
-        top: 0; }
-        .meter div.graph .minimum .done strong {
-          background: url("/view/m/images/project/widget/project/project_marker.png") no-repeat;
-          background-size: 9px auto;
-          display: block;
-          height: 16px;
-          line-height: 2000px;
-          margin-right: -10px;
-          margin-top: -5px;
-          overflow: hidden;
-          position: absolute;
-          right: 0;
-          text-indent: 2000px;
-          width: 17px; }
-      .meter div.graph .minimum .left {
-        float: right;
-        height: 19px;
-        margin-right: -2px;
-        margin-top: -6px; }
-  .meter span.percent {
-    color: #a7a9ac;
-    font-size: 26px;
-    font-weight: 600;
-    padding-left: 15px; }
-  .meter dl {
-    margin: 0; }
-    .meter dl dt,
-    .meter dl dd {
-      margin: 0; }
-    .meter dl.reached-bar {
-      margin-bottom: 14px; }
-      .meter dl.reached-bar .reached,
-      .meter dl.reached-bar .supporters {
-        color: #000;
-        display: inline-block; }
-        .meter dl.reached-bar .reached strong,
-        .meter dl.reached-bar .supporters strong {
-          color: #000;
-          font-size: 16px; }
-      .meter dl.reached-bar dt.reached {
-        font-size: 14px;
-        font-weight: 300;
-        padding-top: 0; }
-      .meter dl.reached-bar dt.supporters:before {
-        content: '/';
-        display: inline-block; }
-    .meter dl.amount-bar {
-      margin: 0 0 20px;
-      position: relative; }
-      .meter dl.amount-bar .optimum,
-      .meter dl.amount-bar .minimum {
-        display: inline-block;
-        line-height: 1.8; }
-      .meter dl.amount-bar dt.reached, .meter dl.amount-bar dd.reached {
-        margin-top: 16px; }
-      .meter dl.amount-bar dt.optimum, .meter dl.amount-bar dt.minimum {
-        width: 110px; }
-      .meter dl.amount-bar dd.optimum, .meter dl.amount-bar dd.minimum {
-        width: 130px; }
-      .meter dl.amount-bar dd.days {
-        width: 118px; }
-        .meter dl.amount-bar dd.days strong {
-          color: #82656f; }
-    .meter dl.percent {
-      text-shadow: 1px 1px 1px #454545;
-      color: #FFF;
-      font-size: 12px;
-      line-height: 18px;
-      margin-left: 16px;
-      position: absolute;
-      top: 42px; }
-      .meter dl.percent dt, .meter dl.percent dd {
-        display: inline-block; }
+  position: relative; }
   .meter h2, .meter h3, .meter h4, .meter h5, .meter h6 {
     font-size: 12px;
     font-weight: 600;
     margin: 0;
     padding: 2px 0 0; }
+  .meter dl {
+    margin: 0; }
+    .meter dl dt,
+    .meter dl dd {
+      margin: 0; }
+  .meter dl.reached-bar {
+    margin-bottom: 14px;
+    /*dt.reached {
+      font-size: 14px;
+      font-weight: 300;
+      padding-top: 0;
+    }*/ }
+    .meter dl.reached-bar .reached {
+      color: #000;
+      display: inline-block; }
+    .meter dl.reached-bar .supporters {
+      display: none; }
+  .meter h3.title.obtained {
+    display: none; }
+  .meter div.graph {
+    background-color: #d9d9d9;
+    border-radius: 9px;
+    height: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative; }
+    .meter div.graph .done {
+      background-color: #009acb;
+      border-radius: 9px;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0; }
+      .meter div.graph .done strong {
+        background: url("/view/images/project/widget/project_marker.png") no-repeat;
+        display: block;
+        height: 11px;
+        line-height: 2000px;
+        margin-right: -5px;
+        margin-top: -11px;
+        position: absolute;
+        right: 0;
+        text-indent: 2000px;
+        width: 10px; }
+    .meter div.graph .minimum {
+      border-radius: 9px;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0; }
+      .meter div.graph .minimum .left {
+        float: right;
+        height: 100%;
+        padding-left: 16px; }
+    .meter div.graph .optimum {
+      height: 100%;
+      position: absolute;
+      right: 0; }
+  .meter dl.percent {
+    color: #FFF;
+    font-size: 12px;
+    line-height: 20px;
+    margin-left: 16px;
+    position: absolute;
+    top: 35px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7); }
+    .meter dl.percent dt, .meter dl.percent dd {
+      display: inline-block; }
+  .meter dl.amount-bar {
+    position: relative; }
+    .meter dl.amount-bar .optimum,
+    .meter dl.amount-bar .minimum {
+      display: inline-block;
+      line-height: 1.8; }
+    .meter dl.amount-bar .days {
+      display: none; }
+    .meter dl.amount-bar dt.optimum, .meter dl.amount-bar dd.optimum {
+      color: #454545; }
+    .meter dl.amount-bar dt.minimum, .meter dl.amount-bar dd.minimum {
+      color: #454545; }
+    .meter dl.amount-bar dt.reached, .meter dl.amount-bar dd.reached {
+      margin-top: 16px; }
+    .meter dl.amount-bar dt.optimum, .meter dl.amount-bar dt.minimum {
+      width: 100px; }
+    .meter dl.amount-bar dd.optimum, .meter dl.amount-bar dd.minimum {
+      width: 110px; }
   .meter.activable {
-    padding-left: 16px;
-    padding-right: 16px;
-    width: 90vw;
+    padding-left: 0;
+    padding-right: 0;
     z-index: 999; }
   .meter.skillmatching {
     padding: 4px 0 78px; }
@@ -2280,13 +2137,6 @@ h4.author:hover a {
         content: '/';
         display: inline-block; }
 
-div.datepicker {
-  position: absolute;
-  cursor: default;
-  top: 0;
-  left: 0;
-  display: none; }
-
 .datepickerContainer {
   background: white;
   box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2);
@@ -2297,42 +2147,61 @@ div.datepicker {
 .datepickerBorderT, .datepickerBorderB, .datepickerBorderL, .datepickerBorderR, .datepickerBorderTL, .datepickerBorderTR, .datepickerBorderBL, .datepickerBorderBR, .datepickerHidden {
   display: none; }
 
-div.datepicker table {
-  border-collapse: collapse;
-  width: 100%; }
-div.datepicker a {
-  outline: none; }
-div.datepicker table td {
-  text-align: right;
-  margin: 0;
-  font-size: 12px;
-  border: none; }
-div.datepicker table tbody td a {
-  text-decoration: none;
-  color: #1fb0b0;
-  font-size: 12px !important; }
-div.datepicker table td div.datepicker th {
-  text-align: center;
-  color: #999;
-  font-weight: 300; }
-div.datepicker tbody th {
-  text-align: left; }
-div.datepicker tbody a {
-  display: block; }
+div.datepicker {
+  position: absolute;
+  cursor: default;
+  top: 0;
+  left: 0;
+  display: none; }
+  div.datepicker a {
+    outline: none; }
+    div.datepicker a :hover {
+      color: white;
+      background-color: #1FB0B0; }
+  div.datepicker table {
+    border-collapse: collapse;
+    width: 100%; }
+    div.datepicker table td {
+      text-align: right;
+      margin: 0;
+      font-size: 12px;
+      border: none; }
+    div.datepicker table tbody td a {
+      text-decoration: none;
+      color: #1fb0b0;
+      font-size: 12px !important; }
+    div.datepicker table td div.datepicker th {
+      text-align: center;
+      color: #999;
+      font-weight: 300; }
+  div.datepicker tbody th {
+    text-align: left; }
+  div.datepicker tbody a {
+    display: block; }
 
-table.datepickerViewDays tr.datepickerDoW th {
-  padding: .6em .4em;
-  font-weight: 300;
-  color: #666;
-  text-align: center;
-  font-size: 12px; }
-
-.datepickerDays td, .datepickerDays th {
-  padding: .1em; }
+td.datepickerNotInMonth a {
+  color: #68c9c9 !important; }
 
 tbody.datepickerMonths td, tbody.datepickerYears td {
   padding: .1em; }
+  tbody.datepickerMonths td a, tbody.datepickerYears td a {
+    padding: .4em;
+    background-color: #dff2f3;
+    border: 1px solid #1fb0b0;
+    width: 3.15em;
+    height: 3.9em;
+    line-height: 3.9em;
+    text-align: center; }
+  tbody.datepickerMonths td.datepickerSelected, tbody.datepickerYears td.datepickerSelected {
+    background: #17384d; }
+tbody.datepickerDays td.datepickerSelected a {
+  color: white;
+  background-color: #1FB0B0; }
+tbody.datepickerDays td.datepickerNotInMonth.datepickerSelected {
+  background: #17384d; }
 
+.datepickerDays td, .datepickerDays th {
+  padding: .1em; }
 .datepickerDays a {
   line-height: 1em;
   width: 1.3em;
@@ -2341,45 +2210,18 @@ tbody.datepickerMonths td, tbody.datepickerYears td {
   background-color: #dff2f3;
   border: 1px solid #1fb0b0; }
 
-tbody.datepickerMonths td a, tbody.datepickerYears td a {
-  line-height: 1em;
-  width: 1.3em;
-  height: 1em;
-  padding: .4em;
-  background-color: #dff2f3;
-  border: 1px solid #1fb0b0; }
-tbody.datepickerMonths td a, tbody.datepickerYears td a {
-  width: 3.15em;
-  height: 3.9em;
-  line-height: 3.9em;
-  text-align: center; }
-tbody.datepickerDays td.datepickerSelected a {
-  color: white;
-  background-color: #1FB0B0; }
-tbody.datepickerDays td.datepickerNotInMonth.datepickerSelected {
-  background: #17384d; }
-tbody.datepickerYears td.datepickerSelected, tbody.datepickerMonths td.datepickerSelected {
-  background: #17384d; }
-
-div.datepicker a:hover {
-  color: white;
-  background-color: #1FB0B0; }
-
-td.datepickerNotInMonth a {
-  color: #68c9c9 !important; }
-
-div.datepicker tbody th {
-  text-align: left; }
-
-.datepickerGoNext a, .datepickerGoPrev a, .datepickerMonth a {
-  text-align: center;
-  color: white !important; }
-
-.datepickerGoNext, .datepickerGoPrev, .datepickerMonth {
+.datepickerGoNext,
+.datepickerGoPrev,
+.datepickerMonth {
   height: 2em;
   padding: .2em;
   line-height: 2em;
   background-color: #1FB0B0; }
+  .datepickerGoNext a,
+  .datepickerGoPrev a,
+  .datepickerMonth a {
+    text-align: center;
+    color: white !important; }
 
 .datepickerGoNext a {
   float: right;
@@ -2391,6 +2233,12 @@ div.datepicker tbody th {
 
 table.datepickerViewDays tbody.datepickerMonths, table.datepickerViewDays tbody.datepickerYears {
   display: none; }
+table.datepickerViewDays tr.datepickerDoW th {
+  padding: .6em .4em;
+  font-weight: 300;
+  color: #666;
+  text-align: center;
+  font-size: 12px; }
 table.datepickerViewMonths tbody.datepickerDays, table.datepickerViewMonths tbody.datepickerYears {
   display: none; }
 table.datepickerViewMonths tr.datepickerDoW {
@@ -2408,97 +2256,9 @@ td.datepickerDisabled a, td.datepickerDisabled.datepickerNotInMonth a, td.datepi
 ----------------------------------------------------------------------*/
 body.js div.superform .jshidden {
   display: none; }
-
-div.superform fieldset {
-  border: 1px solid #99a2a5; }
-  div.superform fieldset legend {
-    color: #6d7375; }
-div.superform h3 {
-  font-size: 30px; }
-div.superform li.element > h4, div.superform li.element > h5, div.superform li.element > h6 {
-  margin: 0 0 .6em;
-  font-size: 14px; }
-div.superform li.element > h4 {
-  font-size: 16px;
-  padding: 0;
-  line-height: 1.2em;
-  margin: 1em 0; }
-div.superform li.element > h5 {
-  font-weight: 600;
-  margin: 0 0 .4em 0;
-  color: #1DB3B2; }
-div.superform li.element > label {
-  font-weight: 600;
-  margin: 1em 0;
-  display: block; }
-div.superform > div.hint, div.superform > div.elements {
-  overflow: visible; }
-div.superform > div.hint {
-  color: #7f8183;
-  overflow: hidden;
-  margin-top: 10px; }
-
 body.js div.superform > div.hint {
   background: url("/view/m/images/superform/wizard.png") no-repeat right top;
   border-right: 1px dashed #b7c2c5; }
-
-div.superform > div.elements {
-  position: relative; }
-div.superform > div.hint h4, div.superform > div.hint blockquote {
-  background-color: #ffffff;
-  padding: 10px;
-  vertical-align: top;
-  border-width: 1px 0 0;
-  margin: 0; }
-div.superform > div.hint h4 {
-  font-size: 30px;
-  float: left; }
-div.superform > div.hint blockquote {
-  font-size: 14px;
-  border-top: none;
-  padding-left: 0; }
-  div.superform > div.hint blockquote p {
-    margin: 0; }
-div.superform div.elements > ol {
-  padding: 0;
-  margin: 0;
-  list-style: none; }
-div.superform > div.elements div.elements > ol {
-  padding-left: 0; }
-div.superform ol #interests div.contents > ul {
-  border-left: 1px dashed #B7C2C5; }
-div.superform li.element {
-  position: relative;
-  padding: 1em 0;
-  clear: both; }
-  div.superform li.element > div.contents + div.children > div.elements > ol, div.superform li.element > div.contents + div.feedback + div.children > div.elements > ol {
-    margin-top: 1em; }
-
-body.dashboard.project-edit div#main.profile div.superform li.element.web div.title {
-  font-size: 12px;
-  width: 100%;
-  word-wrap: break-word;
-  float: none;
-  margin: 0 0 10px 0; }
-
-div.superform li.element:last-child {
-  padding-bottom: 0; }
-div.superform > div.elements > ol > li.element {
-  padding: 0;
-  overflow: hidden;
-  margin: 0 0 16px 0; }
-div#main.profile div.superform > div.elements > ol > li.element {
-  padding: 0; }
-div.superform > div.elements > ol > li.element.inline {
-  border-top: none;
-  padding: 0 2em 2em 0; }
-div.superform li.element > * + div.contents {
-  /*margin-top: 1em;*/
-  margin-top: 6px; }
-  div.superform li.element > * + div.contents p {
-    font-weight: 600;
-    margin: 1.2em 0 .4em 0;
-    color: #1DB3B2; }
 
 body.js div.superform > div.elements > ol > li.element div.contents {
   font-size: 14px; }
@@ -2537,12 +2297,97 @@ body div.superform div.elements li.element.inline#avatar-image .contents {
   border-radius: 6px;
   margin: 6px; }
 
+div.superform fieldset {
+  border: 1px solid #99a2a5; }
+  div.superform fieldset legend {
+    color: #6d7375; }
+div.superform h3 {
+  font-size: 30px; }
+div.superform li.element > h4, div.superform li.element > h5, div.superform li.element > h6 {
+  margin: 0 0 .6em;
+  font-size: 14px; }
+div.superform li.element > h4 {
+  font-size: 16px;
+  padding: 0;
+  line-height: 1.2em;
+  margin: 1em 0; }
+div.superform li.element > h5 {
+  font-weight: 600;
+  margin: 0 0 .4em 0; }
+div.superform li.element > label {
+  font-weight: 600;
+  margin: 1em 0;
+  display: block; }
+div.superform > div {
+  position: relative; }
+  div.superform > div.hint, div.superform > div.elements {
+    overflow: visible; }
+div.superform.hint {
+  color: #7f8183;
+  overflow: hidden;
+  margin-top: 10px; }
+  div.superform.hint h4, div.superform.hint blockquote {
+    background-color: #ffffff;
+    padding: 10px;
+    vertical-align: top;
+    border-width: 1px 0 0;
+    margin: 0; }
+  div.superform.hint h4 {
+    font-size: 30px;
+    float: left; }
+  div.superform.hint blockquote {
+    font-size: 14px;
+    border-top: none;
+    padding-left: 0; }
+    div.superform.hint blockquote p {
+      margin: 0; }
+div.superform div.elements > ol {
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+div.superform > div.elements div.elements > ol {
+  padding-left: 0; }
+div.superform ol #interests div.contents > ul {
+  border-left: 1px dashed #B7C2C5; }
+div.superform li.element {
+  position: relative;
+  padding: 1em 0;
+  clear: both; }
+  div.superform li.element > div.contents + div.children > div.elements > ol, div.superform li.element > div.contents + div.feedback + div.children > div.elements > ol {
+    margin-top: 1em; }
+div.superform li.element:last-child {
+  padding-bottom: 0; }
+div.superform > div.elements > ol > li.element {
+  padding: 0;
+  overflow: hidden;
+  margin: 0 0 16px 0; }
+div.superform > div.elements > ol > li.element.inline {
+  border-top: none;
+  padding: 0 2em 2em 0; }
+div.superform li.element > * + div.contents {
+  /*margin-top: 1em;*/
+  margin-top: 6px; }
+  div.superform li.element > * + div.contents p {
+    font-weight: 600;
+    margin: 1.2em 0 .4em 0; }
+
+body.dashboard.project-edit div#main.profile div.superform li.element.web div.title {
+  font-size: 12px;
+  width: 100%;
+  word-wrap: break-word;
+  float: none;
+  margin: 0 0 10px 0; }
+
+div#main.profile div.superform > div.elements > ol > li.element {
+  padding: 0; }
+
 div.superform div.elements > ol > li div.element {
   display: inline; }
 div.superform div.elements > ol > li > div.contents + div.children > div.elements {
   margin-top: 1em; }
 div.superform input[type='text'], div.superform input[type='password'] {
   padding: .4em;
+  margin: 0 0 10px 0;
   min-height: 27px;
   background-color: #eeeeee;
   border: 1px solid #cccccc;
@@ -2887,8 +2732,6 @@ div.superform li.element {
     margin: 0 0 10px 0; }
   div.superform li.element.textarea > div.contents > textarea {
     margin: 0 0 10px 0; }
-div.superform input[type='text'], div.superform input[type='password'] {
-  margin: 0 0 10px 0; }
 div.superform textarea {
   margin: 0 0 10px 0; }
 div.superform > div.elements > ol > li.element {
@@ -2996,12 +2839,10 @@ body.home {
       margin-bottom: 20px; }
 
 .discover #sub-header div {
-  background-color: #dae121;
   padding: 0;
   margin: 0; }
 .discover #main div.widget {
-  overflow: hidden;
-  padding-bottom: 120px; }
+  overflow: hidden; }
 .discover .searcher {
   background-color: #fff;
   padding-bottom: 0;
@@ -3030,16 +2871,16 @@ body.home {
     height: 33px;
     position: absolute;
     right: 8px;
-    top: 36px;
+    top: 34px;
     width: 25%; }
     .discover .searcher .searcher-btn #searcher {
-      background: url("/view/m/images/lupa.png") no-repeat;
+      background-color: #009480;
       height: 33px;
       line-height: 33px;
       margin: 0;
-      text-indent: -9999px;
       width: 100%; }
   .discover .searcher .filter {
+    box-sizing: content-box;
     margin: 0 auto 8px;
     padding: 4px 8px;
     position: relative;
@@ -3070,16 +2911,24 @@ body.home {
           color: #58595B;
           font-size: 1em;
           font-weight: 600; }
-.discover .widget.projects > .title {
-  background-color: #666666;
-  color: #f5f5f5;
-  margin: 0;
-  padding: 16px; }
+.discover .widget.projects {
+  background-color: #ffffff;
+  margin: 20px 0;
+  padding-top: 20px; }
+  .discover .widget.projects h2.title {
+    padding-top: 0; }
+  .discover .widget.projects .project {
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    margin: 0 auto 20px;
+    padding-bottom: 20px;
+    width: 92%; }
 .discover .navi-bar {
   background-color: #ffffff;
-  border-top: 1px dashed #d9d9d9;
+  border-top: 1px solid #d9d9d9;
   text-align: center; }
   .discover .navi-bar a.all {
+    box-sizing: content-box;
     display: block;
     height: 30px;
     line-height: 30px;
@@ -3173,17 +3022,16 @@ body.review div#main div.widget {
       /* Optional: When heavy at iOS6+ */
       width: 100vw; }
     .project-show #sub-header .project-menu .flipsnap_projectnav {
-      background-color: #ffffff;
+      zoom: 1;
       font-size: 0;
       list-style: none;
       margin: 0 5%;
       padding: 0;
       width: 720px; }
       .project-show #sub-header .project-menu .flipsnap_projectnav:after {
-        clear: both;
         content: '';
         display: block;
-        height: 0; }
+        clear: both; }
       .project-show #sub-header .project-menu .flipsnap_projectnav .item {
         border: none;
         border-right: 1px solid #d9d9d9;
@@ -3192,14 +3040,12 @@ body.review div#main div.widget {
           border-right: none; }
         .project-show #sub-header .project-menu .flipsnap_projectnav .item a {
           color: #454545;
-          display: inline-block;
+          display: block;
           font-size: 12px;
           height: 40px;
           line-height: 40px;
-          margin: 0 auto;
           padding: 0 8px;
-          text-decoration: none;
-          text-align: center; }
+          text-decoration: none; }
         .project-show #sub-header .project-menu .flipsnap_projectnav .item.active a, .project-show #sub-header .project-menu .flipsnap_projectnav .item.show a {
           border-bottom: 4px solid #e08e22; }
         .project-show #sub-header .project-menu .flipsnap_projectnav .item span.digits {
@@ -3314,7 +3160,7 @@ body.review div#main div.widget {
   .project-show #main .center .gallery-image {
     background-color: #ffffff;
     display: block;
-    margin: 0 auto 40px;
+    margin: 0 auto;
     max-height: 240px;
     overflow: hidden;
     text-align: center;
@@ -3396,6 +3242,7 @@ body.review div#main div.widget {
     border-bottom: 1px dashed #d9d9d9; }
   .project-show #main .center.updates .project-updates {
     background: none;
+    margin-bottom: 12px;
     padding: 0; }
     .project-show #main .center.updates .project-updates .widget.post {
       background-color: #ffffff;
@@ -3411,7 +3258,7 @@ body.review div#main div.widget {
         font-weight: 600;
         margin: 12px 0; }
     .project-show #main .center.updates .project-updates .blog-share {
-      margin-bottom: 20px; }
+      padding-top: 20px; }
       .project-show #main .center.updates .project-updates .blog-share .social_bookmark {
         margin-bottom: 12px;
         margin-left: 0;
@@ -3424,65 +3271,7 @@ body.review div#main div.widget {
     background-color: #fff; }
 .project-show .widget.project-spread .obtained {
   display: none; }
-.project-show .widget.user {
-  background-color: #fff; }
-  .project-show .widget.user h3.supertitle {
-    background-color: #669900;
-    border-bottom: none;
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 300;
-    height: 40px;
-    line-height: 40px;
-    padding: 0;
-    padding-left: 20px; }
-  .project-show .widget.user .project-widget-box {
-    margin: 0;
-    padding: 16px;
-    position: relative; }
-    .project-show .widget.user .project-widget-box blockquote.about {
-      font-size: 12px;
-      line-height: 1.4em;
-      margin: 10px 0 0 0; }
-    .project-show .widget.user .project-widget-box dl {
-      border: 1px solid #d9d9d9;
-      border-radius: 6px;
-      font-size: 13px;
-      margin: 20px 0;
-      padding: 0; }
-      .project-show .widget.user .project-widget-box dl dt {
-        display: none; }
-      .project-show .widget.user .project-widget-box dl dd {
-        border: none;
-        border-bottom: 1px solid #d9d9d9;
-        line-height: 1.4em;
-        margin-left: 0;
-        padding: 0.8em 1.5em 0.8em 50px;
-        text-align: left;
-        text-indent: 0; }
-        .project-show .widget.user .project-widget-box dl dd a {
-          text-decoration: none; }
-        .project-show .widget.user .project-widget-box dl dd:last-child {
-          border: none; }
-        .project-show .widget.user .project-widget-box dl dd.location {
-          background: url("/view/m/images/location/s.png") no-repeat 1.5em center; }
-        .project-show .widget.user .project-widget-box dl dd.message {
-          background: url("/view/m/images/bocadillo/s.png") no-repeat 1.5em center; }
-          .project-show .widget.user .project-widget-box dl dd.message a {
-            color: #666;
-            font-size: 14px;
-            font-weight: 300; }
-        .project-show .widget.user .project-widget-box dl dd.links {
-          background: url("/view/m/images/social/url.png") no-repeat 1.5em center; }
-          .project-show .widget.user .project-widget-box dl dd.links ul {
-            line-height: 1.2em !important; }
-            .project-show .widget.user .project-widget-box dl dd.links ul li a {
-              font-size: 14px;
-              font-weight: 300; }
-        .project-show .widget.user .project-widget-box dl dd.profile {
-          background: url("/view/m/images/icon/m/s_task.png") no-repeat 1.1em center; }
 .project-show .widget.project-support .meter {
-  padding-bottom: 134px;
   padding-left: 16px;
   padding-right: 16px; }
   .project-show .widget.project-support .meter.skillmatching {
@@ -3652,480 +3441,348 @@ div.widge dl {
 ul.sf-footer-errors li {
   list-style-image: url("/view/m/images/project/bg-li-error.png"); }
 
-.dashboard #sub-header {
-  margin-bottom: 0; }
-  .dashboard #sub-header .dashboard-header h2 {
-    display: table;
-    float: left;
-    width: 77%;
-    height: 56px;
-    padding-left: 5%; }
-    .dashboard #sub-header .dashboard-header h2 span,
-    .dashboard #sub-header .dashboard-header h2 span.leave {
-      display: table-cell;
-      font-size: 18px;
-      font-weight: 600;
-      color: #666666;
-      vertical-align: middle;
-      line-height: 22px; }
-  .dashboard #sub-header img {
-    float: left; }
-.dashboard #dashboard-menu {
-  display: block;
-  font-size: 13px; }
-  .dashboard #dashboard-menu .viewport_dashboard {
-    margin: 0 auto;
-    margin-left: 0;
-    overflow: hidden;
-    -webkit-transform: translateZ(0);
-    /* Optional: When heavy at iOS6+ */
-    width: 100vw; }
-    .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard {
-      zoom: 1;
-      background-color: #3399cc;
-      margin: 0 5%;
-      width: 132.8125%; }
-      .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard:after {
-        content: '';
-        display: block;
-        clear: both; }
-      .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard:last-child li.option {
-        border-right: none;
-        padding-right: 0; }
-      .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard:after {
-        clear: both;
-        content: '';
-        display: block;
-        height: 0; }
-      .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard li.option {
-        border: none;
-        border-right: 1px dashed #d9d9d9;
-        color: #666;
-        float: left;
-        height: 34px;
-        padding: 4px 8px; }
-        .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard li.option a {
-          height: 18px;
-          line-height: 35px; }
-    .dashboard #dashboard-menu .viewport_dashboard .db_prev,
-    .dashboard #dashboard-menu .viewport_dashboard .db_next {
+.dashboard {
+  /*.discover-arrow-right,
+  .discover-arrow-left {
+    display: none;
+  }*/ }
+  .dashboard #sub-header .dashboard-header {
+    zoom: 1;
+    padding: 8px; }
+    .dashboard #sub-header .dashboard-header:after {
+      content: '';
       display: block;
-      position: absolute;
-      top: 0;
-      width: 5%;
-      height: 42px;
-      color: #3399cc;
-      font-size: 12px;
-      text-align: center;
-      line-height: 42px;
-      background: #ccffff; }
-    .dashboard #dashboard-menu .viewport_dashboard .db_prev {
-      left: 0; }
-    .dashboard #dashboard-menu .viewport_dashboard .db_next {
-      right: 0; }
-  .dashboard #dashboard-menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    position: relative; }
-    .dashboard #dashboard-menu ul li {
+      clear: both; }
+    .dashboard #sub-header .dashboard-header h2 {
+      float: left;
+      padding-left: 5%;
+      width: 80%; }
+      .dashboard #sub-header .dashboard-header h2 span,
+      .dashboard #sub-header .dashboard-header h2 span.leave {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 22px;
+        vertical-align: middle; }
+    .dashboard #sub-header .dashboard-header > a {
+      border-radius: 50%;
       display: inline-block;
-      text-decoration: none; }
-      .dashboard #dashboard-menu ul li a {
-        text-decoration: none;
-        height: 40px;
-        line-height: 40px;
-        display: inline-block; }
-      .dashboard #dashboard-menu ul li.section ul {
-        display: none; }
-      .dashboard #dashboard-menu ul li.section.current ul {
-        display: block; }
-      .dashboard #dashboard-menu ul li.section.active {
-        margin-bottom: 2.6em; }
-      .dashboard #dashboard-menu ul li.section.current {
-        margin-bottom: 2.6em; }
-        .dashboard #dashboard-menu ul li.section.current ul {
+      height: 50px;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+      vertical-align: middle;
+      width: 50px;
+      float: left; }
+      .dashboard #sub-header .dashboard-header > a img {
+        bottom: 0;
+        height: auto;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+        vertical-align: middle;
+        width: 100%; }
+  .dashboard #dashboard-menu {
+    display: block;
+    font-size: 13px; }
+    .dashboard #dashboard-menu .viewport_dashboard {
+      background-color: #ffffff;
+      border-bottom: 1px solid #d9d9d9;
+      margin: 0 auto;
+      margin-left: 0;
+      overflow: hidden;
+      -webkit-transform: translateZ(0);
+      /* Optional: When heavy at iOS6+ */
+      width: 100vw; }
+      .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard {
+        zoom: 1;
+        margin: 0 5%;
+        padding-left: 0;
+        width: 400px; }
+        .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard:after {
+          content: '';
+          display: block;
+          clear: both; }
+        .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard li.option {
+          border-right: 1px solid #d9d9d9;
+          float: left;
+          list-style-type: none; }
+          .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard li.option:last-child {
+            border-right: none; }
+          .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard li.option a {
+            color: #454545;
+            display: block;
+            font-size: 12px;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 8px;
+            text-decoration: none; }
+          .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard li.option.current a, .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard li.option.active a {
+            border-bottom: 4px solid #255b7f; }
+      .dashboard #dashboard-menu .viewport_dashboard .controls {
+        margin: 0; }
+        .dashboard #dashboard-menu .viewport_dashboard .controls .db_prev,
+        .dashboard #dashboard-menu .viewport_dashboard .controls .db_next {
+          background-color: #ffffff;
           display: block;
           position: absolute;
-          bottom: 0;
+          top: 0;
+          width: 5%;
+          height: 42px;
+          font-size: 12px;
+          text-align: center;
+          line-height: 42px; }
+        .dashboard #dashboard-menu .viewport_dashboard .controls .db_prev {
           left: 0;
-          height: 2.6em;
+          border-right: 1px solid #d9d9d9; }
+        .dashboard #dashboard-menu .viewport_dashboard .controls .db_next {
           right: 0;
-          z-index: 0; }
-      .dashboard #dashboard-menu ul li.section.active ul {
-        display: block;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 2.6em;
-        right: 0;
-        z-index: 9; }
-      .dashboard #dashboard-menu ul li.section a.section {
-        min-width: 150px !important;
-        background: #ccf4ff;
-        /* Old browsers */
-        background: -moz-linear-gradient(top, #ccf4ff 0%, #c0e4ed 60%, #b1cfd3 100%);
-        /* FF3.6+ */
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ccf4ff), color-stop(60%, #c0e4ed), color-stop(100%, #b1cfd3));
-        /* Chrome,Safari4+ */
-        background: -webkit-linear-gradient(top, #ccf4ff 0%, #c0e4ed 60%, #b1cfd3 100%);
-        /* Chrome10+,Safari5.1+ */
-        background: -o-linear-gradient(top, #ccf4ff 0%, #c0e4ed 60%, #b1cfd3 100%);
-        /* Opera 11.10+ */
-        background: linear-gradient(to bottom, #ccf4ff 0%, #c0e4ed 60%, #b1cfd3 100%);
-        /* W3C */
-        height: 40px;
-        line-height: 40px;
-        border-top: 1px solid #d9d9d9;
-        border-left: 1px solid #d9d9d9;
-        border-right: 1px solid #d9d9d9;
-        color: #669999;
-        text-align: center;
-        font-weight: 300;
-        font-size: 14px; }
-      .dashboard #dashboard-menu ul li.section.active a.section {
-        color: #f5f5f5;
-        background: none;
-        background-color: #3399cc; }
-      .dashboard #dashboard-menu ul li.section.current a.section {
-        color: #f5f5f5;
-        background: none;
-        background-color: #3399cc;
-        background-color: #3399cc;
-        color: #f5f5f5;
-        font-weight: 300; }
-      .dashboard #dashboard-menu ul li.section.current ul {
-        background-color: #3399cc;
-        color: #f5f5f5;
-        font-weight: 300; }
-      .dashboard #dashboard-menu ul li.section.active a.section, .dashboard #dashboard-menu ul li.section.active ul {
-        background-color: #3399cc;
-        color: #f5f5f5;
-        font-weight: 300; }
-      .dashboard #dashboard-menu ul li.section a:hover.section, .dashboard #dashboard-menu ul li.section ul:hover {
-        background-color: #3399cc; }
-  .dashboard #dashboard-menu > ul {
-    width: 308px;
-    margin: 0 auto;
-    top: 34px; }
-  .dashboard #dashboard-menu li.option a {
-    color: #ccffff;
-    height: 25px;
-    line-height: 25px;
-    font-size: 12px;
-    font-weight: 300; }
-  .dashboard #dashboard-menu li.option.current a, .dashboard #dashboard-menu li.option.active a {
-    height: 18px;
-    padding-bottom: 15px;
-    color: #f5f5f5;
-    border-bottom: 5px solid #d9d9d9;
-    line-height: 35px; }
-.dashboard .discover-arrow-right,
-.dashboard .discover-arrow-left {
-  display: none; }
-.dashboard .footer {
-  margin-top: 60px; }
-.dashboard > .widget > p > strong {
-  font-size: 16px; }
-.dashboard .superform {
-  background-color: #ffffff !important;
-  padding: 10px 20px !important;
-  border: none !important; }
-.dashboard #main {
-  overflow: visible; }
-  .dashboard #main hr {
-    display: none; }
-  .dashboard #main div.widget {
-    margin-bottom: 20px; }
-  .dashboard #main div.status {
-    float: left;
-    color: #bcbdbd;
-    border: none !important;
-    padding: 0 !important;
-    margin-right: 20px; }
-    .dashboard #main div.status #project-status h3 {
-      font-size: 20px; }
-  .dashboard #main.summary .widget.user-worthcracy {
-    padding-bottom: 60px; }
-    .dashboard #main.summary .widget.user-worthcracy div.worth-amount {
-      top: 25px; }
-  .dashboard #main.summary.widget.projects h2.title {
-    color: #f5f5f5;
-    background-color: #666666;
-    font-weight: 300;
-    line-height: 22px;
-    margin: 0;
-    padding: 8px 0 8px 20px; }
-  .dashboard #main.summary.widget.projects ul {
-    float: left; }
-  .dashboard #main.summary.widget.projects .widget.project .meter dl dd.optimum span {
-    height: auto;
-    position: relative; }
-  .dashboard #main.summary.widget.projects .widget.project .meter.activable dl dd.minimum > span {
-    right: -54px; }
-  .dashboard #main.profile .footer {
-    padding: 0 20px 20px 0;
-    margin: 0; }
-  .dashboard #main.profile div.superform li.element.user_avatar > div.children > div.elements > ol > li.element {
-    display: inline-block;
-    vertical-align: top; }
-  .dashboard #main.profile div.superform li.element.user_avatar ol {
-    padding: 0; }
-  .dashboard #main.profile div.superform li.element.user_avatar li.element.avatar-image {
-    padding: 0 2em;
-    margin: 0 !important; }
-  .dashboard #main.profile div.superform li.element.user_avatar li.element.avatar img {
-    width: 128px;
-    height: 128px; }
-  .dashboard #main.profile div.superform li.element.user_avatar li.element .title {
-    display: none; }
-  .dashboard #main.profile div.superform li.element.web div.title {
-    font-size: 14px;
-    width: 70%;
-    float: left; }
-  .dashboard #main.profile div.superform li.element.web input.edit {
-    margin-top: -1em; }
-  .dashboard #main.profile div.superform li.element.web input.remove {
-    margin-bottom: 1em;
-    margin-top: 0; }
-  .dashboard #main.profile div.superform li.element.editweb li.element.web-accept input, .dashboard #main.profile div.superform li.element.editweb li.element.web-remove input {
-    margin: 0;
-    margin-right: 3px; }
-  .dashboard #main.profile div.superform li.element.editweb li.buttons div.contents {
-    margin: 0 !important;
-    padding: 0 !important; }
-  .dashboard #main.profile div.superform li.element.editweb li.buttons ol {
-    margin: 0 !important;
-    padding: 0 !important;
-    text-align: right; }
-  .dashboard #main.profile div.superform li.element.editweb li.buttons li {
-    display: inline-block;
-    padding: 0;
-    margin: 0; }
-  .dashboard #main.profile div.superform li.element.editweb li.buttons input {
-    width: auto;
-    float: left;
-    margin: 0 10px 0 0; }
-  .dashboard #main.access a.button {
-    margin-bottom: 20px; }
-
-.community {
-  /*widget スマホ*/ }
-  .community .widget.categorylist {
-    overflow: hidden;
-    margin-bottom: 15px; }
-    .community .widget.categorylist ul {
-      display: inline-block;
-      list-style: none;
-      margin: 0;
-      padding-left: 0; }
-      .community .widget.categorylist ul li {
-        display: inline-block;
-        margin-left: 0;
-        padding-left: 0; }
-        .community .widget.categorylist ul li a {
-          text-decoration: none; }
-          .community .widget.categorylist ul li a.active, .community .widget.categorylist ul li a:hover {
-            color: #19B4B2; }
-    .community .widget.categorylist > h3.title {
-      color: #ffffff;
-      background-color: #19B4B2;
-      border-bottom: none;
-      font-weight: 300;
-      line-height: 40px;
-      height: 40px;
-      margin: 0;
-      padding: 0 0 0 20px; }
-    .community .widget.categorylist > div.filters {
-      border-bottom: 1px solid #d9d9d9;
-      border-top: 1px solid #d9d9d9;
-      padding: 5px; }
-      .community .widget.categorylist > div.filters > span {
-        font-size: 12px; }
-      .community .widget.categorylist > div.filters > ul {
-        margin-left: 1em; }
-        .community .widget.categorylist > div.filters > ul > li {
-          margin-right: 5px; }
-          .community .widget.categorylist > div.filters > ul > li > a {
-            display: inline-block;
-            background: url("/view/m/images/user/grey-triangle-down.png") no-repeat left;
-            padding-left: 15px;
-            font-size: 12px; }
-            .community .widget.categorylist > div.filters > ul > li > a.active {
-              background: url("/view/m/images/user/blue-triangle-down.png") no-repeat left; }
-    .community .widget.categorylist > div.list {
-      background-color: #e5e5e5;
-      line-height: 27px;
-      padding-left: 20px; }
-      .community .widget.categorylist > div.list > ul > li {
-        margin-right: 0.5em; }
-        .community .widget.categorylist > div.list > ul > li > a {
-          font-size: 12px; }
-  .community .widget.user-mates {
-    background-color: #fff;
-    padding-bottom: 0; }
-    .community .widget.user-mates > h3.title {
-      padding: 4px 0 4px 20px;
-      font-size: 14px;
-      font-weight: 300;
-      background-color: #666666;
+          border-left: 1px solid #d9d9d9; }
+  .dashboard .footer {
+    margin-top: 60px; }
+  .dashboard > .widget > p > strong {
+    font-size: 16px; }
+  .dashboard .superform {
+    background-color: #ffffff !important;
+    padding: 10px 20px !important;
+    border: none !important; }
+  .dashboard #main {
+    overflow: visible; }
+    .dashboard #main hr {
+      display: none; }
+    .dashboard #main div.widget {
+      margin-bottom: 20px; }
+    .dashboard #main div.status {
+      float: left;
+      color: #bcbdbd;
+      border: none !important;
+      padding: 0 !important;
+      margin-right: 20px; }
+      .dashboard #main div.status #project-status h3 {
+        font-size: 20px; }
+    .dashboard #main.summary .widget.user-worthcracy {
+      padding-bottom: 60px; }
+      .dashboard #main.summary .widget.user-worthcracy div.worth-amount {
+        top: 25px; }
+    .dashboard #main.summary.widget.projects h2.title {
       color: #f5f5f5;
+      background-color: #666666;
+      font-weight: 300;
+      line-height: 22px;
+      margin: 0;
+      padding: 8px 0 8px 20px; }
+    .dashboard #main.summary.widget.projects ul {
+      float: left; }
+    .dashboard #main.summary.widget.projects .widget.project .meter dl dd.optimum span {
+      height: auto;
+      position: relative; }
+    .dashboard #main.summary.widget.projects .widget.project .meter.activable dl dd.minimum > span {
+      right: -54px; }
+    .dashboard #main.profile .footer {
+      padding: 0 20px 20px 0;
       margin: 0; }
-    .community .widget.user-mates .users {
-      clear: both; }
-      .community .widget.user-mates .users .categories {
-        height: auto;
-        overflow: visible;
-        padding-left: 20px;
-        line-height: 27px;
-        background-color: #e5e5e5; }
-      .community .widget.user-mates .users ul {
-        height: auto;
-        list-style: none;
-        margin: 0;
-        overflow: hidden;
-        padding: 0; }
-        .community .widget.user-mates .users ul li {
+    .dashboard #main.profile div.superform li.element.user_avatar > div.children > div.elements > ol > li.element {
+      display: inline-block;
+      vertical-align: top; }
+    .dashboard #main.profile div.superform li.element.user_avatar ol {
+      padding: 0; }
+    .dashboard #main.profile div.superform li.element.user_avatar li.element.avatar-image {
+      padding: 0 2em;
+      margin: 0 !important; }
+    .dashboard #main.profile div.superform li.element.user_avatar li.element.avatar img {
+      width: 128px;
+      height: 128px; }
+    .dashboard #main.profile div.superform li.element.user_avatar li.element .title {
+      display: none; }
+    .dashboard #main.profile div.superform li.element.web div.title {
+      font-size: 14px;
+      width: 70%;
+      float: left; }
+    .dashboard #main.profile div.superform li.element.web input.edit {
+      margin-top: -1em; }
+    .dashboard #main.profile div.superform li.element.web input.remove {
+      margin-bottom: 1em;
+      margin-top: 0; }
+    .dashboard #main.profile div.superform li.element.editweb li.element.web-accept input, .dashboard #main.profile div.superform li.element.editweb li.element.web-remove input {
+      margin: 0;
+      margin-right: 3px; }
+    .dashboard #main.profile div.superform li.element.editweb li.buttons div.contents {
+      margin: 0 !important;
+      padding: 0 !important; }
+    .dashboard #main.profile div.superform li.element.editweb li.buttons ol {
+      margin: 0 !important;
+      padding: 0 !important;
+      text-align: right; }
+    .dashboard #main.profile div.superform li.element.editweb li.buttons li {
+      display: inline-block;
+      padding: 0;
+      margin: 0; }
+    .dashboard #main.profile div.superform li.element.editweb li.buttons input {
+      width: auto;
+      float: left;
+      margin: 0 10px 0 0; }
+    .dashboard #main.access a.button {
+      margin-bottom: 20px; }
+
+.community .widget.categorylist {
+  overflow: hidden;
+  margin-bottom: 15px; }
+  .community .widget.categorylist ul {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding-left: 0; }
+    .community .widget.categorylist ul li {
+      display: inline-block;
+      margin-left: 0;
+      padding-left: 0; }
+      .community .widget.categorylist ul li a {
+        text-decoration: none; }
+        .community .widget.categorylist ul li a.active, .community .widget.categorylist ul li a:hover {
+          color: #009acb; }
+  .community .widget.categorylist > h3.title {
+    background-color: #255b7f;
+    color: #f2f2f2;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 0 0 0 20px; }
+  .community .widget.categorylist > div.filters {
+    border-bottom: 1px solid #d9d9d9;
+    border-top: 1px solid #d9d9d9;
+    padding: 5px; }
+    .community .widget.categorylist > div.filters > span {
+      font-size: 12px; }
+    .community .widget.categorylist > div.filters > ul {
+      margin-left: 1em; }
+      .community .widget.categorylist > div.filters > ul > li {
+        margin-right: 5px; }
+        .community .widget.categorylist > div.filters > ul > li > a {
           display: inline-block;
-          margin-bottom: 5px;
-          margin-right: 5px; }
-          .community .widget.user-mates .users ul li a {
-            color: #636466;
-            font-size: 12px !important;
-            text-decoration: none; }
-            .community .widget.user-mates .users ul li a:hover {
-              color: #20B3B2; }
-          .community .widget.user-mates .users ul li div.user h4 {
-            margin-top: 4px; }
-            .community .widget.user-mates .users ul li div.user h4 a {
-              font-weight: 600;
-              display: inline-block; }
-        .community .widget.user-mates .users ul > li,
-        .community .widget.user-mates .users ul > li.nomarginright {
-          margin-right: 0; }
-        .community .widget.user-mates .users ul > li:hover > div.user > h4 > a {
-          color: #19B4B2; }
-        .community .widget.user-mates .users ul > li.active {
-          background-color: #f3f3f3 !important; }
-        .community .widget.user-mates .users ul > li .user {
-          padding: 3px 6px 3px 57px;
+          background: url("/view/m/images/user/grey-triangle-down.png") no-repeat left;
+          padding-left: 15px;
+          font-size: 12px; }
+          .community .widget.categorylist > div.filters > ul > li > a.active {
+            background: url("/view/m/images/user/blue-triangle-down.png") no-repeat left; }
+  .community .widget.categorylist > div.list {
+    background-color: #e5e5e5;
+    line-height: 27px;
+    padding-left: 20px; }
+    .community .widget.categorylist > div.list > ul > li {
+      margin-right: 0.5em; }
+      .community .widget.categorylist > div.list > ul > li > a {
+        font-size: 12px; }
+.community .widget.user-mates {
+  background-color: #ffffff;
+  margin-bottom: 16px;
+  padding-bottom: 0; }
+  .community .widget.user-mates > h3.title {
+    background-color: #454545;
+    color: #f2f2f2;
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0;
+    padding: 4px 0 4px 20px; }
+  .community .widget.user-mates .users {
+    margin: 0;
+    padding: 0; }
+    .community .widget.user-mates .users .categories {
+      height: auto;
+      overflow: visible;
+      padding-left: 20px;
+      line-height: 27px;
+      background-color: #e5e5e5; }
+    .community .widget.user-mates .users ul {
+      margin: 0;
+      padding: 0; }
+      .community .widget.user-mates .users ul li {
+        display: inline-block;
+        border-bottom: 1px solid #d9d9d9;
+        padding: 14px 8px 0;
+        width: 100%; }
+        .community .widget.user-mates .users ul li a {
+          font-size: 12px;
+          text-decoration: none; }
+        .community .widget.user-mates .users ul li h3, .community .widget.user-mates .users ul li h4, .community .widget.user-mates .users ul li h5, .community .widget.user-mates .users ul li h6 {
+          font-size: 12px;
+          line-height: 1em;
+          margin: 0; }
+          .community .widget.user-mates .users ul li h3 a, .community .widget.user-mates .users ul li h4 a, .community .widget.user-mates .users ul li h5 a, .community .widget.user-mates .users ul li h6 a {
+            font-size: 14px !important;
+            font-weight: 300; }
+        .community .widget.user-mates .users ul li div.user {
+          padding: 0 0 0 80px;
           position: relative; }
-          .community .widget.user-mates .users ul > li .user > a.expand {
+          .community .widget.user-mates .users ul li div.user > a.expand {
             position: absolute;
             top: 0;
             bottom: 0;
             left: 0;
             right: 0;
             z-index: 99; }
-        .community .widget.user-mates .users ul > li .avatar {
-          height: 50px;
-          left: 4px;
-          position: absolute;
-          text-align: center;
-          top: 8px;
-          width: 50px; }
-        .community .widget.user-mates .users ul > li h3, .community .widget.user-mates .users ul > li h4, .community .widget.user-mates .users ul > li h5, .community .widget.user-mates .users ul > li h6 {
-          font-size: 12px;
-          line-height: 1em;
-          margin: 0; }
-          .community .widget.user-mates .users ul > li h3 a, .community .widget.user-mates .users ul > li h4 a, .community .widget.user-mates .users ul > li h5 a, .community .widget.user-mates .users ul > li h6 a {
-            font-size: 14px !important;
-            font-weight: 300; }
-        .community .widget.user-mates .users ul > li span {
-          display: block;
-          font-size: 12px;
-          padding-top: 4px; }
-          .community .widget.user-mates .users ul > li span.projects {
-            color: #20b3b2; }
-          .community .widget.user-mates .users ul > li span.invests {
-            color: #313b96; }
-      .community .widget.user-mates .users h3.supertitle {
-        border-bottom: 1px dashed #d9d9d9;
-        border-top: 1px solid #d9d9d9;
-        color: #20B3B2;
-        font-size: 12px;
-        margin-bottom: 8px;
-        padding: 5px 0 5px 5px; }
-    .community .widget.user-mates a:hover.more {
-      color: #20b3b2; }
-  .community.about .widget.user-mates {
-    margin-bottom: 15px; }
-    .community.about .widget.user-mates .users {
-      margin: 0;
-      padding: 0; }
-      .community.about .widget.user-mates .users ul li .user {
-        padding: 0 0 0 80px;
-        position: relative; }
-      .community.about .widget.user-mates .users ul li span.profile,
-      .community.about .widget.user-mates .users ul li span.contact {
-        display: block;
-        clear: both;
-        text-align: left;
-        position: relative;
-        top: -20px;
-        left: 0px;
-        width: auto;
-        margin-right: 10px; }
-      .community.about .widget.user-mates .users ul li span.profile a {
-        float: none;
-        background: url("/view/m/images/user/plus.png") left no-repeat;
-        padding-left: 15px;
-        color: #828282; }
-      .community.about .widget.user-mates .users ul li span.contact {
-        clear: both; }
-      .community.about .widget.user-mates .users ul li,
-      .community.about .widget.user-mates .users ul li:nth-child(odd) {
-        width: 100% !important;
-        max-width: 100% !important;
-        clear: both;
-        float: none;
-        border: none;
-        border-bottom: 1px dashed #d9d9d9;
-        height: auto;
-        margin: 0;
-        padding: 10px 0 0 0; }
-    .community.about .widget.user-mates a.more {
-      border-top: none; }
-    .community.about .widget.user-mates .avatar {
-      position: absolute;
-      left: 14px;
-      top: 0;
-      width: 50px;
-      height: 50px;
-      text-align: center; }
-  .community div.center div.widget.user-message {
-    overflow: hidden;
-    position: relative;
-    z-index: 99; }
-  .community div.center div.widget.user-message form {
-    padding: 8px; }
-  .community div.center div.widget.user-message form label[for="message"] {
-    position: absolute;
-    left: 8px;
-    top: 90px; }
-  .community div.center div.widget.user-message textarea {
-    display: block;
-    margin-left: 50px;
-    width: 220px; }
-  .community div.center div.widget.user-message #bocadillo {
-    background: url("/view/m/images/bocadillo.jpg") no-repeat;
-    position: absolute;
-    width: 56px;
-    height: 51px;
-    z-index: 100; }
-  .community div.center div.widget.user-message #a-preview {
-    color: #2EAB58;
-    font-weight: 600;
-    left: 52px;
-    position: relative;
-    text-decoration: none;
-    top: 10px; }
-  .community div.center div.widget.user-message button {
-    float: right;
-    margin-right: 8px; }
-  .community body.user-profile div#main div.discover-group div.widget.project {
-    margin: 0 auto 0 !important;
-    border: none; }
+          .community .widget.user-mates .users ul li div.user .avatar {
+            left: 4px;
+            position: absolute;
+            top: 8px; }
+            .community .widget.user-mates .users ul li div.user .avatar a {
+              display: block;
+              border-radius: 50%;
+              display: inline-block;
+              height: 50px;
+              overflow: hidden;
+              position: relative;
+              text-align: center;
+              vertical-align: middle;
+              width: 50px;
+              box-sizing: content-box; }
+              .community .widget.user-mates .users ul li div.user .avatar a img {
+                bottom: 0;
+                height: auto;
+                left: 0;
+                margin: auto;
+                position: absolute;
+                right: 0;
+                top: 0;
+                vertical-align: middle;
+                width: 100%; }
+          .community .widget.user-mates .users ul li div.user h4 {
+            margin-top: 4px; }
+            .community .widget.user-mates .users ul li div.user h4 a {
+              font-weight: 600; }
+          .community .widget.user-mates .users ul li div.user span {
+            color: #255b7f;
+            display: block;
+            font-size: 12px;
+            padding-top: 4px; }
+          .community .widget.user-mates .users ul li div.user span.profile,
+          .community .widget.user-mates .users ul li div.user span.contact {
+            position: relative;
+            top: -20px; }
+          .community .widget.user-mates .users ul li div.user span.profile a {
+            background: url("/view/m/images/user/plus.png") left no-repeat;
+            padding-left: 15px; }
+  .community .widget.user-mates a.more {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 38px;
+    min-height: 38px;
+    padding: 0;
+    width: 100%; }
+    .community .widget.user-mates a.more:after {
+      content: "\f105";
+      color: #255b7f;
+      display: inline-block;
+      font-weight: bold;
+      margin-left: 4px; }
+    .community .widget.user-mates a.more:hover {
+      color: #009acb; }
 
 /* Custom checkbox in investors list*/
 input[type=checkbox]:disabled + label:hover,
@@ -4144,18 +3801,14 @@ input[type=checkbox]:disabled:checked + label, input[type=checkbox]:hover:disabl
   background-position: 0 -141px; }
 
 .user-profile #sub-header h2 {
+  align-items: center;
+  display: flex;
   font-size: 18px;
   font-weight: normal;
   line-height: 1.2em;
   min-height: 55px;
-  padding-left: 72px;
-  position: relative;
-  /*img {
-    height: 55px;
-    left: 0;
-    position: absolute;
-    width: 55px;
-  }*/ }
+  padding: 8px 16px;
+  position: relative; }
   .user-profile #sub-header h2 a {
     border-radius: 50%;
     display: inline-block;
@@ -4164,7 +3817,8 @@ input[type=checkbox]:disabled:checked + label, input[type=checkbox]:hover:disabl
     position: relative;
     text-align: center;
     vertical-align: middle;
-    width: 55px; }
+    width: 55px;
+    margin-right: 8px; }
     .user-profile #sub-header h2 a img {
       bottom: 0;
       height: auto;
@@ -4175,61 +3829,63 @@ input[type=checkbox]:disabled:checked + label, input[type=checkbox]:hover:disabl
       top: 0;
       vertical-align: middle;
       width: 100%; }
+  .user-profile #sub-header h2 span {
+    line-height: 1.3; }
   .user-profile #sub-header h2 em {
-    display: block;
     font-size: 24px;
     font-weight: bold;
     font-style: normal; }
-.user-profile .user-message {
-  overflow: hidden;
+.user-profile .widget.user-message label {
+  display: block; }
+.user-profile .widget.user-message input#contact-subject {
+  margin: 0 0 10px 0; }
+.user-profile .widget.user-message textarea,
+.user-profile .widget.user-message input {
+  width: 100%;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background: #FFF; }
+.user-profile .widget.user-message a.preview {
+  display: none; }
+.user-profile .widget.user-message {
+  background-color: #ffffff;
+  padding: 16px;
   position: relative;
   z-index: 99; }
-  .user-profile .user-message form {
+  .user-profile .widget.user-message h3.title {
+    margin: 0 0 16px 0;
+    padding-left: 0; }
+  .user-profile .widget.user-message form {
     padding: 8px; }
-    .user-profile .user-message form label[for="message_user"] {
-      left: 8px;
-      position: absolute;
-      top: 90px; }
-  .user-profile .user-message textarea#message_user {
-    display: block;
-    margin-left: 50px;
-    width: 220px; }
-  .user-profile .user-message #bocadillo {
+  .user-profile .widget.user-message textarea#message_user {
+    display: block; }
+  .user-profile .widget.user-message #bocadillo {
     background: url("/view/m/images/bocadillo.jpg") no-repeat;
     height: 51px;
     position: absolute;
     width: 56px;
     z-index: 100; }
-  .user-profile .user-message #a-preview {
+  .user-profile .widget.user-message #a-preview {
     color: #2EAB58;
     font-weight: bold;
     left: 52px;
     position: relative;
     text-decoration: none;
     top: 10px; }
-  .user-profile .user-message button {
+  .user-profile .widget.user-message button {
     float: right;
     margin-right: 8px; }
-.user-profile .user-worthcracy h3.title {
-  height: 50px;
-  padding: 0;
-  border-bottom: none;
-  line-height: 50px;
-  color: #ffffff;
-  margin: 0;
-  font-size: 18px;
-  font-weight: normal;
-  text-align: center !important;
-  background-color: #669900; }
 .user-profile .widget.user-about {
-  background-color: #fff;
+  background-color: #ffffff;
   border-bottom: 1px solid #d9d9d9;
   line-height: 16px;
-  padding-bottom: 0; }
+  margin-bottom: 20px;
+  padding: 16px; }
   .user-profile .widget.user-about > div {
-    border-top: 1px dashed #c0c0c0;
+    border-top: 1px solid #d9d9d9;
     clear: both;
-    padding: 16px 16px 0; }
+    padding-top: 16px; }
     .user-profile .widget.user-about > div:nth-child(1) {
       border-top: none; }
     .user-profile .widget.user-about > div.webs ul {
@@ -4238,9 +3894,9 @@ input[type=checkbox]:disabled:checked + label, input[type=checkbox]:hover:disabl
       overflow: visible;
       padding: 0 0 10px; }
       .user-profile .widget.user-about > div.webs ul li {
-        background: url("/view/m/images/social/url.png") no-repeat left center;
+        background: url("/view/m/images/social/url.png") no-repeat left top;
         display: block;
-        line-height: 2em;
+        line-height: 1.4;
         margin: 0 0 10px;
         min-height: 2em;
         padding-left: 30px;
@@ -4269,6 +3925,7 @@ input[type=checkbox]:disabled:checked + label, input[type=checkbox]:hover:disabl
     .user-profile .widget.user-about > div.message p {
       background: url("/view/m/images/bocadillo/s.png") no-repeat left center;
       line-height: 22px;
+      margin-bottom: 0;
       min-height: 22px;
       padding-left: 26px; }
       .user-profile .widget.user-about > div.message p a {
@@ -4280,7 +3937,6 @@ input[type=checkbox]:disabled:checked + label, input[type=checkbox]:hover:disabl
           text-decoration: underline; }
   .user-profile .widget.user-about h4 {
     font-size: 15px;
-    font-weight: bolder;
     margin: 0 0 12px; }
   .user-profile .widget.user-about p {
     margin: 0 0 16px; }
@@ -4290,5 +3946,201 @@ input[type=checkbox]:disabled:checked + label, input[type=checkbox]:hover:disabl
     .user-profile .widget.user-about .improper_report a {
       color: #808080;
       font-size: 11px; }
+.user-profile .widget.projects {
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  padding: 16px; }
+  .user-profile .widget.projects:last-child {
+    margin-bottom: 0; }
+  .user-profile .widget.projects h2.title {
+    margin-bottom: 16px;
+    padding: 0; }
+  .user-profile .widget.projects .widget.project {
+    border: 1px solid #d9d9d9;
+    box-sizing: content-box;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    padding-bottom: 16px; }
+    .user-profile .widget.projects .widget.project:last-child {
+      margin-bottom: 0; }
+.user-profile .widget.user-mates {
+  padding: 0;
+  position: relative;
+  margin: 0 0 20px; }
+  .user-profile .widget.user-mates h3.supertitle {
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+    height: 24px;
+    line-height: 24px;
+    margin: 0 0 8px; }
+  .user-profile .widget.user-mates h4.supertitle {
+    background: url(/view/m/images/icon_tag_b@2x.png) #ffffff no-repeat 8px 50%;
+    background-size: 14px auto;
+    border-bottom: 1px solid #d9d9d9;
+    color: #454545;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+    padding-left: 24px; }
+  .user-profile .widget.user-mates div.categories ul {
+    list-style: none;
+    margin: 0; }
+    .user-profile .widget.user-mates div.categories ul li {
+      display: inline-block;
+      margin: 0 5px 5px 0; }
+      .user-profile .widget.user-mates div.categories ul li a {
+        color: #828282;
+        font-size: 12px;
+        text-decoration: none;
+        text-transform: uppercase; }
+        .user-profile .widget.user-mates div.categories ul li a:hover {
+          color: #009acb; }
+  .user-profile .widget.user-mates div.users {
+    border-bottom: none;
+    clear: both;
+    position: relative; }
+    .user-profile .widget.user-mates div.users ul {
+      display: flex;
+      flex-wrap: wrap;
+      -webkit-align-items: stretch;
+      /* Safari */
+      align-items: stretch;
+      background-color: #fff;
+      height: auto;
+      list-style: none;
+      margin: 0;
+      overflow: auto;
+      padding: 0; }
+      .user-profile .widget.user-mates div.users ul.is-archive-all li:nth-child(5n),
+      .user-profile .widget.user-mates div.users ul.is-archive-all li:nth-child(6n) {
+        border-bottom: none; }
+      .user-profile .widget.user-mates div.users ul li {
+        border-right: 1px solid #d9d9d9;
+        min-height: 80px;
+        padding: 10px 5px;
+        position: relative;
+        width: 50%;
+        border-bottom: 1px solid #d9d9d9; }
+        .user-profile .widget.user-mates div.users ul li:nth-child(2n+2) {
+          border-right: none; }
+        .user-profile .widget.user-mates div.users ul li .user {
+          zoom: 1;
+          position: relative; }
+          .user-profile .widget.user-mates div.users ul li .user:after {
+            content: '';
+            display: block;
+            clear: both; }
+          .user-profile .widget.user-mates div.users ul li .user > a.expand {
+            bottom: 0;
+            font-size: 12px;
+            left: 0;
+            position: absolute;
+            right: 0;
+            text-decoration: none;
+            top: 0;
+            z-index: 99; }
+            .user-profile .widget.user-mates div.users ul li .user > a.expand:hover {
+              color: #009acb; }
+          .user-profile .widget.user-mates div.users ul li .user .avatar {
+            float: left;
+            border-radius: 50%;
+            display: inline-block;
+            height: 43px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            vertical-align: middle;
+            width: 43px; }
+            .user-profile .widget.user-mates div.users ul li .user .avatar img {
+              bottom: 0;
+              height: auto;
+              left: 0;
+              margin: auto;
+              position: absolute;
+              right: 0;
+              top: 0;
+              vertical-align: middle;
+              width: 100%; }
+          .user-profile .widget.user-mates div.users ul li .user .user-right {
+            float: left;
+            padding-left: 8px;
+            width: calc(100% - 43px); }
+            .user-profile .widget.user-mates div.users ul li .user .user-right h4 {
+              line-height: 1.2;
+              margin-bottom: 10px; }
+              .user-profile .widget.user-mates div.users ul li .user .user-right h4 a {
+                font-weight: 700; }
+            .user-profile .widget.user-mates div.users ul li .user .user-right .invests,
+            .user-profile .widget.user-mates div.users ul li .user .user-right .projects,
+            .user-profile .widget.user-mates div.users ul li .user .user-right .profile a {
+              color: #255b7f;
+              font-size: 10px; }
+        .user-profile .widget.user-mates div.users ul li h3, .user-profile .widget.user-mates div.users ul li h4, .user-profile .widget.user-mates div.users ul li h5, .user-profile .widget.user-mates div.users ul li h6 {
+          font-size: 12px;
+          line-height: 1em;
+          margin: 0; }
+          .user-profile .widget.user-mates div.users ul li h3 a, .user-profile .widget.user-mates div.users ul li h4 a, .user-profile .widget.user-mates div.users ul li h5 a, .user-profile .widget.user-mates div.users ul li h6 a {
+            font-size: 12px !important;
+            font-weight: 400; }
+  .user-profile .widget.user-mates a.more {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 38px;
+    margin: 0;
+    min-height: 38px;
+    padding: 0;
+    text-decoration: none;
+    width: 100%; }
+    .user-profile .widget.user-mates a.more:after {
+      content: "\f105";
+      color: #255b7f;
+      display: inline-block;
+      font-weight: bold;
+      margin-left: 4px; }
+    .user-profile .widget.user-mates a.more:hover {
+      color: #009acb; }
+  .user-profile .widget.user-mates .project-widget-box {
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0; }
+  .user-profile .widget.user-mates div.categories {
+    background-color: #fff;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 5px 0; }
+    .user-profile .widget.user-mates div.categories ul {
+      background: url(/view/m/images/icon_tag@2x.png) no-repeat 8px 5px;
+      background-size: 14px auto;
+      padding-left: 28px; }
+.user-profile .widget.user h3.supertitle {
+  font-weight: normal;
+  margin: 0;
+  padding: .5em 2px;
+  border-bottom: 1px solid #255b7f;
+  font-size: 18px;
+  background-color: #255b7f;
+  color: #f2f2f2;
+  padding-left: 8px; }
+.user-profile .side {
+  padding-bottom: 16px; }
+  .user-profile .side .widget.user-mates {
+    padding: 16px; }
+    .user-profile .side .widget.user-mates div.users {
+      margin-bottom: 16px; }
+.user-profile .center .widget.user-mates:first-child {
+  margin-bottom: 0; }
+.user-profile .center .widget.user-mates .categories {
+  padding: 16px; }
+  .user-profile .center .widget.user-mates .categories h3.title {
+    margin: 0 0 16px 0;
+    padding-left: 0; }
+.user-profile .center .widget.user-mates div.users ul li .invests,
+.user-profile .center .widget.user-mates div.users ul li .projects,
+.user-profile .center .widget.user-mates div.users ul li .profile {
+  display: block; }
 
 /*# sourceMappingURL=styles-m.css.map */

@@ -166,6 +166,28 @@ input.edit[type="submit"] {
 input[value='削除'] {
   background: #e02d22 !important; }
 
+input[type="button"].back {
+  background: none;
+  background: #828282;
+  box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 14px;
+  font-weight: 300;
+  height: 45px;
+  line-height: 45px;
+  margin: 10px 0;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  width: 200px; }
+  input[type="button"].back:hover {
+    opacity: 0.75;
+    color: #FFF; }
+
 /*a.button.red,
 a.button.weak {
   font-size:12px;
@@ -912,10 +934,14 @@ body.project-embed {
     content: '/';
     display: inline-block; }
   .widget.project-support .meter dl.percent {
-    top: 38px; }
+    top: 59px; }
   .widget.project-support .invest-notice {
     font-size: 13px;
     padding: 0 20px 20px; }
+    .widget.project-support .invest-notice dt {
+      font-weight: bold; }
+    .widget.project-support .invest-notice dd {
+      margin: 0 0 10px 0; }
   .widget.project-investors {
     background: none; }
     .widget.project-investors .project-widget-box {
@@ -983,6 +1009,7 @@ body.project-embed {
               margin-bottom: 0;
               font-size: 12px; }
               .widget.project-investors .project-widget-box ul li .supporter dl dt {
+                display: none;
                 width: 25%; }
               .widget.project-investors .project-widget-box ul li .supporter dl dd {
                 width: 74%;
@@ -1083,7 +1110,7 @@ body.project-embed {
           font-weight: 600;
           text-decoration: none; }
     .widget.user .widget.user-social {
-      margin-bottom: 30px;
+      margin: 10px 0;
       padding: 0; }
       .widget.user .widget.user-social .title {
         display: none; }
@@ -1141,98 +1168,24 @@ body.project-embed {
           font-size: 14px;
           font-weight: 600;
           line-height: 24px;
-          margin: 0 0 16px;
-          text-align: center; }
+          margin: 0 0 16px; }
         .widget.project-rewards ul li p {
           line-height: 24px;
           margin: 0 0 24px;
           word-wrap: break-word; }
-    .widget.project-rewards .license {
-      /*&.agpl > a strong {
-       background-image: url(/view/images/license/agpl.png);
-      }
-      &.apache > a strong {
-       background-image: url(/view/images/license/apache.png);
-      }
-      &.balloon > a strong {
-       background-image: url(/view/images/license/balloon.png);
-      }
-      &.bsd > a strong {
-       background-image: url(/view/images/license/bsd.png);
-      }
-      &.cc0 > a strong {
-       background-image: url(/view/images/license/cc0.png);
-      }
-      &.ccby > a strong {
-       background-image: url(/view/images/license/ccby.png);
-      }
-      &.ccbync > a strong {
-       background-image: url(/view/images/license/ccbync.png);
-      }
-      &.ccbyncnd > a strong {
-       background-image: url(/view/images/license/ccbyncnd.png);
-      }
-      &.ccbyncsa > a strong {
-       background-image: url(/view/images/license/ccbyncsa.png);
-      }
-      &.fal > a strong {
-       background-image: url(/view/images/license/fal.png);
-      }
-      &.fdl > a strong {
-       background-image: url(/view/images/license/fdl.png);
-      }
-      &.freebsd > a strong {
-       background-image: url(/view/images/license/freebsd.png);
-      }
-      &.gpl > a strong {
-       background-image: url(/view/images/license/gpl.png);
-      }
-      &.gpl2 > a strong {
-       background-image: url(/view/images/license/gpl2.png);
-      }
-      &.lgpl > a strong {
-       background-image: url(/view/images/license/lgpl.png);
-      }
-      &.mit > a strong {
-       background-image: url(/view/images/license/mit.png);
-      }
-      &.mpl > a strong {
-       background-image: url(/view/images/license/mpl.png);
-      }
-      &.odbl > a strong {
-       background-image: url(/view/images/license/odbl.png);
-      }
-      &.odcby > a strong {
-       background-image: url(/view/images/license/odcby.png);
-      }
-      &.license.oshw > a strong {
-       background-image: url(/view/images/license/oshw.png);
-      }
-      &.pd > a strong {
-       background-image: url(/view/images/license/pd.png);
-      }
-      &.php > a strong {
-       background-image: url(/view/images/license/php.png);
-      }
-      &.tapr > a strong {
-       background-image: url(/view/images/license/tapr.png);
-      }
-      &.xoln > a strong {
-       background-image: url(/view/images/license/xoln.png);
-      }*/ }
-      .widget.project-rewards .license h5 {
-        border-bottom: none;
-        font-size: 14px;
-        font-weight: 600;
-        margin: 0; }
-      .widget.project-rewards .license > a {
-        text-decoration: none; }
-        .widget.project-rewards .license > a strong {
-          background-repeat: no-repeat;
-          display: block;
-          padding-top: 40px; }
-        .widget.project-rewards .license > a p {
-          margin: 3px 0; }
+    .widget.project-rewards .license h5 {
+      border-bottom: none;
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0; }
+    .widget.project-rewards .license > a {
+      text-decoration: none; }
+      .widget.project-rewards .license > a strong {
+        display: block;
+        padding-top: 40px;
+        background: url("/view/images/license/ccbyncnd.png") no-repeat; }
+      .widget.project-rewards .license > a p {
+        margin: 3px 0; }
     .widget.project-rewards .individual,
     .widget.project-rewards .social {
       padding: 15px 20px; }
@@ -1287,13 +1240,21 @@ body.project-embed {
         padding: 20px 20px 10px; }
         .widget.project-collaborations ul li:not(:last-child) {
           margin-bottom: 20px; }
+        .widget.project-collaborations ul li .title--flex {
+          display: -webkit-flex;
+          display: flex; }
         .widget.project-collaborations ul li .name {
           font-size: 14px;
           font-weight: 600;
           line-height: 24px;
           margin: 0 0 16px;
-          min-height: 32px;
-          text-align: center; }
+          min-height: 32px; }
+        .widget.project-collaborations ul li .support_image {
+          width: 60px;
+          margin: 0 10px 0 0; }
+          .widget.project-collaborations ul li .support_image img {
+            width: 100%;
+            height: auto; }
         .widget.project-collaborations ul li p {
           line-height: 24px;
           margin: 0 0 24px;
@@ -1710,7 +1671,8 @@ body.project-embed {
       height: 100%;
       left: 0;
       position: absolute;
-      top: 0; }
+      top: 0;
+      overflow: hidden; }
       .meter div.graph .minimum .left {
         float: right;
         height: 18px;
@@ -2271,8 +2233,7 @@ body.js .superform .is_public {
   padding: 0 8px;
   color: #ffffff; }
 body.js .superform div.children > div.elements > ol > li.element > div.feedback {
-  left: 100%;
-  margin-left: 2em;
+  left: calc(100% + 80px);
   margin-top: 0; }
 body.js .superform > div.elements ol li.element.html div.contents {
   font-size: 14px;
@@ -2527,7 +2488,8 @@ body.js .superform > div.elements ol li.element div.contents p {
   float: left;
   width: 620px; }
 .project-show .project-message {
-  position: relative; }
+  position: relative;
+  margin: 20px 0 0 0; }
   .project-show .project-message div#bocadillo {
     position: absolute;
     width: 30px;
@@ -2600,11 +2562,12 @@ body.js .superform > div.elements ol li.element div.contents p {
           display: block;
           clear: both; }
         .project-show .project-rewards-summary > div ul li .left {
-          float: left;
-          width: 60%; }
+          display: inline-block;
+          min-width: 60%; }
         .project-show .project-rewards-summary > div ul li .right {
-          float: right;
-          width: 40%; }
+          display: inline-block;
+          min-width: 35%;
+          margin: 0 0 0 5%; }
           .project-show .project-rewards-summary > div ul li .right img {
             width: 100%;
             height: auto; }
@@ -2726,6 +2689,19 @@ body.js .superform > div.elements ol li.element div.contents p {
       font-size: 16px;
       font-weight: 600;
       margin: 0 0 8px; }
+    .project-show .side > .widget .title--flex {
+      display: -webkit-flex;
+      display: flex; }
+      .project-show .side > .widget .title--flex .side_image {
+        width: 60px;
+        margin: 0 10px 0 0; }
+        .project-show .side > .widget .title--flex .side_image img {
+          width: 100%;
+          height: auto; }
+      .project-show .side > .widget .title--flex .name {
+        width: calc(100% - 70px); }
+        .project-show .side > .widget .title--flex .name.only {
+          width: 100%; }
     .project-show .side > .widget.project-support .supertitle {
       background-color: #828282;
       color: #fff;
@@ -2822,10 +2798,22 @@ body.js .superform > div.elements ol li.element div.contents p {
 .project-show .center.supporters {
   margin-bottom: 20px; }
   .project-show .center.supporters .invest-message {
-    background: url("/view/images/project/view/invest/message_beak.png") no-repeat left bottom;
+    position: relative;
     background-color: #FFF !important;
     min-height: 70px;
-    padding: 20px 15px 40px; }
+    padding: 20px 15px;
+    margin: 0 0 20px 0;
+    overflow: visible; }
+    .project-show .center.supporters .invest-message:after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 40px;
+      display: block;
+      width: 0;
+      height: 0;
+      border: 10px solid transparent;
+      border-top: 10px solid #FFF; }
     .project-show .center.supporters .invest-message h2 {
       margin: 0 !important; }
       .project-show .center.supporters .invest-message h2 span {
@@ -3639,6 +3627,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     font-weight: 400;
     height: auto;
     line-height: 16px;
+    padding: 0 10px;
     margin-top: 0;
     width: auto; }
     .project-edit .superform ol li.element .contents input.inline {
@@ -3942,7 +3931,11 @@ body.js .superform > div.elements ol li.element div.contents p {
     min-height: 24px; }
   .project-edit div#main.rewards div.superform li.element#social_rewards div.elements ol li.element li.element {
     border-right: none;
-    margin-right: 20px; }
+    margin-right: 20px;
+    overflow: visible !important; }
+    .project-edit div#main.rewards div.superform li.element#social_rewards div.elements ol li.element li.element .contents > .children,
+    .project-edit div#main.rewards div.superform li.element#social_rewards div.elements ol li.element li.element .contents > .jshidden {
+      overflow: visible !important; }
 .project-edit div#main.rewards div.superform li.element.editsocial_reward > .children ol, .project-edit div#main.rewards div.superform li.element.editsocial_reward li.element.editindividual_reward > .children ol {
   margin: 0 !important;
   padding: 0 !important; }
@@ -4070,6 +4063,88 @@ body.js .superform > div.elements ol li.element div.contents p {
   margin: 0;
   padding: 20px !important;
   background: #FFF; }
+  .project-edit div#main .superform > div > ol #preview .contents .title--flex {
+    display: -webkit-flex;
+    display: flex; }
+    .project-edit div#main .superform > div > ol #preview .contents .title--flex .side_image {
+      width: 60px;
+      margin: 0 10px 0 0; }
+      .project-edit div#main .superform > div > ol #preview .contents .title--flex .side_image img {
+        width: 100%;
+        height: auto; }
+    .project-edit div#main .superform > div > ol #preview .contents .title--flex .name {
+      width: calc(100% - 70px); }
+      .project-edit div#main .superform > div > ol #preview .contents .title--flex .name.only {
+        width: 100%; }
+  .project-edit div#main .superform > div > ol #preview .contents p {
+    font-weight: normal; }
+  .project-edit div#main .superform > div > ol #preview .contents .button.violet {
+    background: none;
+    background: #e08e22;
+    box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    font-weight: 300;
+    height: 45px;
+    line-height: 45px;
+    margin: 10px auto;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    width: 200px; }
+    .project-edit div#main .superform > div > ol #preview .contents .button.violet:hover {
+      opacity: 0.75;
+      color: #FFF; }
+  .project-edit div#main .superform > div > ol #preview .contents .button.aqua {
+    background: none;
+    background: #009480;
+    box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    font-weight: 300;
+    height: 45px;
+    line-height: 45px;
+    margin: 10px auto;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    width: 200px; }
+    .project-edit div#main .superform > div > ol #preview .contents .button.aqua:hover {
+      opacity: 0.75;
+      color: #FFF; }
+  .project-edit div#main .superform > div > ol #preview .contents .button.green {
+    background: none;
+    background: #009480;
+    box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    font-weight: 300;
+    height: 45px;
+    line-height: 45px;
+    margin: 10px auto;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    width: 200px; }
+    .project-edit div#main .superform > div > ol #preview .contents .button.green:hover {
+      opacity: 0.75;
+      color: #FFF; }
+.project-edit div#main.preview .superform > div > ol {
+  margin: 0;
+  padding: 0 !important;
+  background: none; }
 
 .dashboard #sub-header {
   height: 145px; }
@@ -4668,6 +4743,9 @@ body.js .superform > div.elements ol li.element div.contents p {
   width: 200px; }
 .dashboard div#main.access div.superform li.element input.inline {
   margin: 0 0 2em; }
+.dashboard .superform div.children > div.elements > ol > li.element > div.feedback {
+  left: 100% !important;
+  margin: 0 0 0 2em; }
 
 .community #main {
   margin-top: 0; }
@@ -5607,19 +5685,21 @@ body.js .superform > div.elements ol li.element div.contents p {
       float: left;
       line-height: 2em;
       min-height: 2em;
-      min-width: 20%;
-      padding-left: 30px; }
+      min-width: 20px; }
       .user-profile .widget.user-social ul li a {
-        text-decoration: none; }
-      .user-profile .widget.user-social ul li.facebook {
+        display: block;
+        min-height: 20px;
+        text-decoration: none;
+        background-repeat: no-repeat; }
+      .user-profile .widget.user-social ul li.facebook a {
         background-image: url(/view/images/social/facebook.png); }
-      .user-profile .widget.user-social ul li.google {
+      .user-profile .widget.user-social ul li.google a {
         background-image: url(/view/images/social/google.png); }
-      .user-profile .widget.user-social ul li.twitter {
+      .user-profile .widget.user-social ul li.twitter a {
         background-image: url(/view/images/social/twitter.png); }
-      .user-profile .widget.user-social ul li.identica {
+      .user-profile .widget.user-social ul li.identica a {
         background-image: url(/view/images/social/identica.png); }
-      .user-profile .widget.user-social ul li.linkedin {
+      .user-profile .widget.user-social ul li.linkedin a {
         background-image: url(/view/images/social/linkedin.png); }
 .user-profile .widget.user-mates {
   padding: 0;
@@ -5749,6 +5829,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: #255b7f;
     font-size: 14px;
     line-height: 58px;
     margin: 0;
@@ -5832,6 +5913,14 @@ body.js .superform > div.elements ol li.element div.contents p {
     padding: 15px 20px;
     margin: 0 0 20px 0;
     background: #FFF; }
+    .user-login .register a,
+    .user-login .external-login a,
+    .user-login .login a {
+      color: #255b7f; }
+      .user-login .register a:hover,
+      .user-login .external-login a:hover,
+      .user-login .login a:hover {
+        color: #009acb; }
     .user-login .register label,
     .user-login .external-login label,
     .user-login .login label {

@@ -1509,21 +1509,9 @@
         display: inline-block;
         font-size: 12px;
         line-height: 2;
-        //padding-right: 10px;
         position: relative;
         text-decoration: none;
         &:after {
-          /*background: url('/view/m/images/arrow-link.png') no-repeat 50%;
-          background-size: 6px auto;
-          bottom: 0;
-          content: '';
-          display: block;
-          height: 8px;
-          margin: auto;
-          right: 0;
-          position: absolute;
-          top: 0;
-          width: 6px;*/
           padding-left: 4px;
         }
         &:hover{
@@ -1838,77 +1826,4 @@
     }
   }
 
-  //todo: investorsらしい
-  /*.side-worthcracy {
-    ul {
-      margin: 0 0 10px 4px;
-      list-style: none;
-      position: relative;
-      display: inline-block;
-      background: url('/view/m/images/yen/s.png') no-repeat right 25px;
-      padding: 2em 25px 1em 0;
-      li {
-        display: inline-block;
-        width: 44px;
-        height: 6px;
-        overflow: visible;
-        background-color: #e7e7e7;
-        position: relative;
-        > span.threshold,
-        > strong,
-        > em {
-          display: block;
-          width: 44px;
-          position: absolute;
-          text-align: center;
-        }
-        > span.threshold {
-          top: -14px;
-          font-size: 12px;
-          line-height: 18px;
-        }
-        > em,
-        > strong {
-          top: 10px;
-          width: 301px;
-          left: 50%;
-          margin-top: 6px;
-          margin-left: -150px;
-          color: $grayCol02;
-        }
-        > em {
-          font-style: normal;
-          font-size: 12px;
-        }
-        &.done {
-          &.worth-1 {
-            background-color: #B6CAE0;
-            color: #B6CAE0;
-          }
-          &.worth-2 {
-            background-color: #92AFD1;
-            color: #92AFD1;
-          }
-          &.worth-3 {
-            background-color: #799EC7;
-            color: #799EC7;
-          }
-          &.worth-4 {
-            background-color: #3C71AE;
-            color: #3C71AE;
-          }
-          &.worth-5 {
-            background-color: #0C4E99;
-            color: #0C4E99;
-          }
-        }
-      }
-    }
-  }*/
-
 }
-
-
-/*h4.author:hover a{
-  color:#c5da4d;
-}*/

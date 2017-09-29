@@ -138,6 +138,29 @@ input[value='削除']{
   background: $alertCol!important;
 }
 
+input[type="button"].back{
+  background: none;
+  background: $grayCol02;
+  box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 14px;
+  font-weight: 300;
+  height: 45px;
+  line-height: 45px;
+  margin: 10px 0;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  width: 200px;
+  &:hover {
+    opacity: 0.75;
+    color: #FFF;
+  }
+}
 
 /*a.button.red,
 a.button.weak {

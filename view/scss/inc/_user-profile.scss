@@ -438,7 +438,6 @@
           background: lighten($mainCol01,40%);
         }
         p {
-          //background:url(/view/images/bocadillo/s.png) no-repeat left center;
           display: inline-block;
           line-height:22px;
           min-height:22px;
@@ -568,25 +567,53 @@
         float:left;
         line-height:2em;
         min-height:2em;
-        min-width:20%;
-        padding-left:30px;
+        min-width: 20px;
+        //padding-left:30px;
         a {
+          display: block;
+          min-height: 20px;
           text-decoration:none;
+          background-repeat: no-repeat;
         }
+        //&.facebook {
+        //   background-image:url(/view/images/social/facebook.png);
+        // }
+        //&.google {
+        //  background-image:url(/view/images/social/google.png);
+        //}
+        //&.twitter {
+        //  background-image:url(/view/images/social/twitter.png);
+        //}
+        //&.identica {
+        //  background-image:url(/view/images/social/identica.png);
+        //}
+        //&.linkedin {
+        //  background-image:url(/view/images/social/linkedin.png);
+        //}
         &.facebook {
-          background-image:url(/view/images/social/facebook.png);
+          a {
+            background-image:url(/view/images/social/facebook.png);
+          }
         }
         &.google {
-          background-image:url(/view/images/social/google.png);
+          a {
+            background-image:url(/view/images/social/google.png);
+          }
         }
         &.twitter {
-          background-image:url(/view/images/social/twitter.png);
+          a {
+            background-image:url(/view/images/social/twitter.png);
+          }
         }
         &.identica {
-          background-image:url(/view/images/social/identica.png);
+          a {
+            background-image:url(/view/images/social/identica.png);
+          }
         }
         &.linkedin {
-          background-image:url(/view/images/social/linkedin.png);
+          a {
+            background-image:url(/view/images/social/linkedin.png);
+          }
         }
       }
     }
@@ -728,6 +755,7 @@
     }
     a.more {
       @include text_link_arrow($mainCol01);
+      color: $mainCol01;
       font-size:14px;
       line-height: 58px;
       margin:0;
@@ -820,6 +848,7 @@
       }
     }
   }
+
   .register,
   .external-login,
   .login{
@@ -827,6 +856,12 @@
     padding: 15px 20px;
     margin: 0 0 20px 0;
     background: #FFF;
+    a{
+      color: $mainCol01;
+      &:hover{
+        color: $mainCol02;
+      }
+    }
     label{
       display: block;
       &.conditions{

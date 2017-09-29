@@ -84,27 +84,27 @@
 }
 
 .jspArrowUp{
-	background:url(arrow-up.png) no-repeat;	
+	background:url(../images/arrow-up.png) no-repeat;
 }
 
 .jspArrowUp:hover{
-	background:url(arrow-up2.png) no-repeat;		
+	background:url(../images/arrow-up2.png) no-repeat;
 }
 
 .jspArrowUp:hover.jspDisabled{
-	background:url(arrow-up.png) no-repeat;	
+	background:url(../images/arrow-up.png) no-repeat;
 }
 
 .jspArrowDown{
-	background:url(arrow-down.png) no-repeat;	
+	background:url(../images/arrow-down.png) no-repeat;
 }
 
 .jspArrowDown:hover{
-	background:url(arrow-down2.png) no-repeat;		
+	background:url(../images/arrow-down2.png) no-repeat;
 }
 
 .jspArrowDown:hover.jspDisabled{
-	background:url(arrow-down.png) no-repeat;	
+	background:url(../images/arrow-down.png) no-repeat;
 }
 
 

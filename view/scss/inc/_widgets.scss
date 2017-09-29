@@ -120,8 +120,6 @@
       }
 
       .balloon {
-        //background:$grayCol01 url(/view/images/balloonbeak.png) no-repeat bottom left;
-        //border-bottom:15px solid #FFF;
         position: relative;
         margin: 0 0 30px 0;
         background: $grayCol01;
@@ -194,7 +192,6 @@
       &-left {
         float:left;
         a.discover-arrow {
-          //background:url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 0;
           &:before{
             content: '';
             display: block;
@@ -204,7 +201,6 @@
             border-right: 10px solid $grayCol02;
           }
           &:hover {
-            //background:url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 -48px;
             &:before{
               border-right: 10px solid $mainCol02;
             }
@@ -214,7 +210,6 @@
       &-right {
         float:right;
         a.discover-arrow {
-          //background:url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 -24px;
           &:before{
             content: '';
             display: block;
@@ -225,7 +220,6 @@
             border-left: 10px solid $grayCol02;
           }
           &:hover {
-            //background:url(/view/images/arrowslider-sprt.png) scroll no-repeat 0 -72px;
             &:before{
               border-left: 10px solid $mainCol02;
             }
@@ -341,12 +335,18 @@
         }
       }
       dl.percent {
-        top: 38px;
+        top: 59px;
       }
     }
     .invest-notice {
       font-size:13px;
       padding:0 20px 20px;
+      dt{
+        font-weight: bold;
+      }
+      dd{
+        margin: 0 0 10px 0;
+      }
     }
   }
 
@@ -405,6 +405,7 @@
               margin-bottom: 0;
               font-size: 12px;
               dt{
+                display: none;
                 width: 25%;
               }
               dd{
@@ -517,7 +518,8 @@
       }
     }
     .widget.user-social {
-      margin-bottom: 30px;
+      margin: 10px 0;
+      //margin-bottom: 30px;
       padding: 0;
       .title {
         display: none;
@@ -603,7 +605,7 @@
           font-weight: 600;
           line-height: 24px;
           margin: 0 0 16px;
-          text-align: center;
+          //text-align: center;
         }
         p {
           line-height: 24px;
@@ -622,86 +624,14 @@
       > a {
        text-decoration: none;
        strong {
-         background-repeat: no-repeat;
          display: block;
          padding-top: 40px;
+         background: url('/view/images/license/ccbyncnd.png') no-repeat;
        }
        p {
          margin: 3px 0;
        }
       }
-      /*&.agpl > a strong {
-       background-image: url(/view/images/license/agpl.png);
-      }
-      &.apache > a strong {
-       background-image: url(/view/images/license/apache.png);
-      }
-      &.balloon > a strong {
-       background-image: url(/view/images/license/balloon.png);
-      }
-      &.bsd > a strong {
-       background-image: url(/view/images/license/bsd.png);
-      }
-      &.cc0 > a strong {
-       background-image: url(/view/images/license/cc0.png);
-      }
-      &.ccby > a strong {
-       background-image: url(/view/images/license/ccby.png);
-      }
-      &.ccbync > a strong {
-       background-image: url(/view/images/license/ccbync.png);
-      }
-      &.ccbyncnd > a strong {
-       background-image: url(/view/images/license/ccbyncnd.png);
-      }
-      &.ccbyncsa > a strong {
-       background-image: url(/view/images/license/ccbyncsa.png);
-      }
-      &.fal > a strong {
-       background-image: url(/view/images/license/fal.png);
-      }
-      &.fdl > a strong {
-       background-image: url(/view/images/license/fdl.png);
-      }
-      &.freebsd > a strong {
-       background-image: url(/view/images/license/freebsd.png);
-      }
-      &.gpl > a strong {
-       background-image: url(/view/images/license/gpl.png);
-      }
-      &.gpl2 > a strong {
-       background-image: url(/view/images/license/gpl2.png);
-      }
-      &.lgpl > a strong {
-       background-image: url(/view/images/license/lgpl.png);
-      }
-      &.mit > a strong {
-       background-image: url(/view/images/license/mit.png);
-      }
-      &.mpl > a strong {
-       background-image: url(/view/images/license/mpl.png);
-      }
-      &.odbl > a strong {
-       background-image: url(/view/images/license/odbl.png);
-      }
-      &.odcby > a strong {
-       background-image: url(/view/images/license/odcby.png);
-      }
-      &.license.oshw > a strong {
-       background-image: url(/view/images/license/oshw.png);
-      }
-      &.pd > a strong {
-       background-image: url(/view/images/license/pd.png);
-      }
-      &.php > a strong {
-       background-image: url(/view/images/license/php.png);
-      }
-      &.tapr > a strong {
-       background-image: url(/view/images/license/tapr.png);
-      }
-      &.xoln > a strong {
-       background-image: url(/view/images/license/xoln.png);
-      }*/
     }
     .individual,
     .social {
@@ -782,13 +712,25 @@
         &:not(:last-child) {
           margin-bottom: 20px;
         }
+        .title--flex{
+          display: -webkit-flex;
+          display: flex;
+        }
         .name {
           font-size: 14px;
           font-weight: 600;
           line-height: 24px;
           margin: 0 0 16px;
           min-height: 32px;
-          text-align: center;
+          //text-align: center;
+        }
+        .support_image{
+          width: 60px;
+          margin: 0 10px 0 0;
+          img{
+            width: 100%;
+            height: auto;
+          }
         }
         p {
           line-height: 24px;

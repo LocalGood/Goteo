@@ -249,17 +249,6 @@
       width: 960px;
       margin: 0 auto;
       position: relative;
-      //input.message-close {
-      //  background: url('/view/images/message-close.png') no-repeat;
-      //  width: 11px;
-      //  height: 10px;
-      //  border: none;
-      //  position: absolute;
-      //  top: -8px;
-      //  right: 0;
-      //  z-index: 100;
-      //  cursor: pointer;
-      //}
       ul {
         list-style: none;
         margin: 0;
@@ -327,6 +316,7 @@
             font-weight: 400;
             height: auto;
             line-height: 16px;
+            padding: 0 10px;
             margin-top: 0;
             width: auto;
             &.inline {
@@ -651,7 +641,7 @@
                 }
                 &.optimum {
                   display:block;
-                  left:100%;
+                  left: 100%;
                   margin-left:-70px;
                   padding-top:35px;
                   position:absolute;
@@ -777,7 +767,19 @@
                 border-right: none;
                 //margin: 0 20px 0 0;
                 margin-right: 20px;
+                overflow: visible!important;
+                .contents{
+                  > .children,
+                  > .jshidden{
+                    overflow: visible!important;
+                  }
+                }
               }
+            }
+          }
+          &.editsocial_reward {
+            > .children ol,li{
+
             }
           }
           &.editsocial_reward {
@@ -987,6 +989,52 @@
       margin:0;
       padding: 20px !important;
       background: #FFF;
+      #preview {
+        .contents {
+          .title--flex{
+            display: -webkit-flex;
+            display: flex;
+
+            .side_image{
+              width: 60px;
+              margin: 0 10px 0 0;
+              img{
+                width: 100%;
+                height: auto;
+              }
+            }
+
+            .name{
+              width: calc(100% - 70px);
+              &.only{
+                width: 100%;
+              }
+            }
+          }
+          p{
+            font-weight: normal;
+          }
+          .button.violet{
+            @include button($subCol02);
+          }
+
+          .button.aqua{
+            @include button($subCol01);
+          }
+
+          .button.green{
+            @include button($subCol01);
+          }
+        }
+      }
+    }
+
+    &.preview{
+      .superform > div > ol {
+        margin: 0;
+        padding: 0!important;
+        background: none;
+      }
     }
   }
 }

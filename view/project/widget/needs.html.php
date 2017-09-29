@@ -45,11 +45,6 @@ foreach ($project->costs as $cost) {
 ?>
 <div class="widget project-needs">
 
-    <div id="legend">
-        <div class="min"><span>&nbsp;</span><?php echo Text::get('costs-field-required_cost-yes') ?></div>
-        <div class="max"><span>&nbsp;</span><?php echo Text::get('costs-field-required_cost-no') ?></div>
-    </div>
-
     <table width="100%">
         
         <?php foreach ($costs as $type => $list):

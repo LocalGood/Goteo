@@ -51,6 +51,7 @@ $user->about = nl2br(Text::urlink($user->about));
                         <span><?php echo Text::GmapsLink($user->location); ?></span>
                     </div>
                 <?php endif ?>
+	            <?php echo new View('view/user/widget/social.html.php', array('user' => $user)) ?>
             </div>
         </div>
 
@@ -59,9 +60,9 @@ $user->about = nl2br(Text::urlink($user->about));
                 <p>
                     <?php echo $user->about ?>
                 </p>
-                <div class="about-link">
-                    <a class="" href="/user/<?php echo $user->id; ?>"><?php echo Text::get('profile-widget-button'); ?></a>
-                </div>
+<!--                <div class="about-link">-->
+<!--                    <a class="" href="/user/--><?php //echo $user->id; ?><!--">--><?php //echo Text::get('profile-widget-button'); ?><!--</a>-->
+<!--                </div>-->
             </div>
         <?php endif ?>
 
@@ -75,7 +76,6 @@ $user->about = nl2br(Text::urlink($user->about));
             <?php endif ?>
         </div>
 
-        <?php echo new View('view/user/widget/social.html.php', array('user' => $user)) ?>
 
         <a class="button aqua profile" href="/user/profile/<?php echo htmlspecialchars($user->id) ?>/message"><?php echo Text::get('regular-send_message')?></a>
 

@@ -130,7 +130,8 @@
 
   //メッセージ送信ウィジェット
   .project-message {
-    position:relative;
+    position: relative;
+    margin: 20px 0 0 0;
     div#bocadillo {
       @include comment_icon(30px);
       //background:url('/view/images/bocadillo.jpg') no-repeat;
@@ -194,12 +195,15 @@
           margin-bottom: 20px;
           padding: 20px;
           .left {
-            float: left;
-            width: 60%;
+            //float: left;
+            display: inline-block;
+            min-width: 60%;
           }
           .right {
-            float: right;
-            width: 40%;
+            //float: right;
+            display: inline-block;
+            min-width: 35%;
+            margin: 0 0 0 5%;
             img {
               width: 100%;
               height: auto;
@@ -374,6 +378,29 @@
         margin: 0 0 8px;
       }
 
+      .title--flex{
+        display: -webkit-flex;
+        display: flex;
+
+        .side_image{
+          width: 60px;
+          margin: 0 10px 0 0;
+          img{
+            width: 100%;
+            height: auto;
+          }
+        }
+
+        .name{
+          width: calc(100% - 70px);
+          &.only{
+            width: 100%;
+          }
+        }
+
+      }
+
+
       //支援（グラフ）
       &.project-support {
         .supertitle {
@@ -508,10 +535,24 @@
       margin-bottom: 20px;
 
       .invest-message {
-        background:url('/view/images/project/view/invest/message_beak.png') no-repeat left bottom;
+        position: relative;
+        //background:url('/view/images/project/view/invest/message_beak.png') no-repeat left bottom;
         background-color: #FFF!important;
         min-height:70px;
-        padding: 20px 15px 40px;
+        padding: 20px 15px ;
+        margin: 0 0 20px 0;
+        overflow: visible;
+        &:after{
+          content: '';
+          position: absolute;
+          bottom: -20px;
+          left: 40px;
+          display: block;
+          width: 0;
+          height: 0;
+          border: 10px solid transparent;
+          border-top: 10px solid #FFF;
+        }
         h2 {
           margin:0!important;
           span {
@@ -869,7 +910,6 @@
             border: 10px solid transparent;
             border-right: 15px solid $baseCol;
             background: none;
-            //background: url('/view/images/message/beak/arrow_02.png') no-repeat left top;
           }
         }
 

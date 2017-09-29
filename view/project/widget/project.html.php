@@ -79,6 +79,7 @@ $categories = Category::getNames($project->id, 2);
             <div>
                 <h<?php echo $level + 1 ?>>必要な支援</h<?php echo $level + 1 ?>>
                 <img src="<?php echo SRC_URL ?>/view/images/icon_money.png" alt="資金">
+                <img src="<?php echo SRC_URL ?>/view/images/icon_skill.png" alt="スキル">
             </div>
             <div>
                 <h<?php echo $level + 1 ?>>残り</h<?php echo $level + 1 ?>>
