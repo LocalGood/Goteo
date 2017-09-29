@@ -41,6 +41,7 @@ namespace Goteo\Model {
             $issue, // aporte con incidencia
             $anonymous, //no debe aparecer su careto ni su nombre, nivel, etc... pero si aparece en la cuenta de cofinanciadores y de aportes
             $disp_name,
+            $investor_email,
             $resign, //renuncia a cualquier recompensa
             $invested, //fecha en la que se ha iniciado el aporte
             $charged, //fecha en la que se ha cargado el importe del aporte a la cuenta del usuario
@@ -338,6 +339,7 @@ namespace Goteo\Model {
                         invest.amount as amount,
                         invest.anonymous as anonymous,
                         invest.disp_name as disp_name,
+                        invest.investor_email as investor_email,
                         invest.resign as resign,
                         DATE_FORMAT(invest.invested, '%y/%m/%d') as invested,
                         DATE_FORMAT(invest.charged , '%y/%m/%d') as charged,
@@ -401,6 +403,7 @@ namespace Goteo\Model {
                 'status',
                 'anonymous',
                 'disp_name',
+                'investor_email',
                 'resign',
                 'invested',
                 'charged',
@@ -726,6 +729,7 @@ namespace Goteo\Model {
             $sql .= "user.hide as hide,
                      invest.anonymous as anonymous,
                      invest.disp_name as disp_name,
+                     invest.investor_email as investor_email,
                      invest.method as method
                 FROM    invest
                 INNER JOIN user

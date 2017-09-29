@@ -26,14 +26,8 @@ namespace Goteo\Controller\Admin {
 		Goteo\Library\Feed,
 		Goteo\Library\Message,
         Goteo\Model,
-		Goteo\Library\Text,
-
-        PEAR,
-        HTTP_Request2;
-
-    require_once "PEAR.php";
-    require_once "HTTP/Request2.php";
-
+		Goteo\Library\Text
+        ;
 
     class Invests {
 
@@ -199,46 +193,40 @@ namespace Goteo\Controller\Admin {
                     ";
                 }
 
-//                var_dump($sql);
-//                exit;
-
                 $query = \Goteo\Core\Model::query($sql, array($id));
                 $invests = $query->fetchAll(\PDO::FETCH_CLASS, '\Goteo\Model\Invest');
 
-
-				// httpリクエスト用のオプションを指定
-				$http_option = array(
-					"timeout" => "20", // タイムアウトの秒数指定
-					//    "allowRedirects" => true, // リダイレクトの許可設定(true/false)
-					//    "maxRedirects" => 3, // リダイレクトの最大回数
-				);
-
-				// 契約番号(8桁)
+                // 契約番号(8桁)
 				$contract_code = EPSILON_CONTRACT_CODE;
 
 
 
                 foreach ($invests as $key=>$invest) {
 
-					// イプシロンに対して実売上処理を行う
-					$request = new HTTP_Request2(EPSILON_SALSED_URL, HTTP_Request2::METHOD_POST, $http_option);
-					$request->setConfig(array(
-						'ssl_verify_peer' => false,
-					));
-
 					// 注文番号
 					$order_number = $invest->id;
 
-					$request->addPostParameter('contract_code', $contract_code );
-					$request->addPostParameter('order_number', $order_number );
+                    $postdata = array(
+                        'contract_code'  => $contract_code,
+                        'order_number' => $order_number
+                    );
+                    $ch = curl_init();
+                    curl_setopt( $ch,CURLOPT_POST, TRUE);
+                    curl_setopt( $ch, CURLOPT_URL, EPSILON_SALSED_URL );
+                    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+                    curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postdata));
+                    $content = curl_exec( $ch );
+                    $response = curl_getinfo( $ch );
+                    curl_close ( $ch );
 
-					// HTTPリクエスト実行
-					$response = $request->send();
+                    // 応答内容(XML)の解析
+
+                        // HTTPリクエスト実行
 
 					// 応答内容(XML)の解析
-					if (!PEAR::isError($response)) {
-						$res_code = $response->getStatus();
-						$res_content = $response->getBody();
+                    if ($response['http_code'] === 200) {
+						$res_content = $content;
 
 						$resultno = $err_code = $err_detail = "";
 

@@ -581,6 +581,7 @@ CREATE TABLE `invest` (
   `status` int(1) NOT NULL COMMENT '-1 en proceso, 0 pendiente, 1 cobrado, 2 devuelto, 3 pagado al proyecto',
   `anonymous` tinyint(1) DEFAULT NULL,
   `disp_name` varchar(255) DEFAULT NULL,
+  `investor_email` varchar(255) DEFAULT NULL,
   `resign` tinyint(1) DEFAULT NULL,
   `invested` date DEFAULT NULL,
   `charged` date DEFAULT NULL,
