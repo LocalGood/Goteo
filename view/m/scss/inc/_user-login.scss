@@ -44,9 +44,6 @@
   .register {
     label{
       display: block;
-      &.conditions{
-        display: inline-block;
-      }
     }
     input[type="text"],
     input[type="password"] {
@@ -80,16 +77,14 @@
       &[name="userid"],
       &[name='username']{
         display: block;
-        width: 50%;
       }
       &[type='password']{
         display: block;
-        width: 50%;
         margin: 0 0 20px 0;
       }
-      &[type="checkbox"]{
-        display: inline-block;
-      }
+    }
+    .agree {
+      display: flex;
     }
   }
 

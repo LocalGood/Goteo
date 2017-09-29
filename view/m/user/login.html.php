@@ -197,9 +197,11 @@ jQuery(document).ready(function($) {
                     <?php if(isset($errors['rpassword'])) { ?><em><?php echo $errors['rpassword']?></em><?php } ?>
                     </div>
 
+                    <div class="agree">
+                        <input class="checkbox" id="register_accept" name="confirm" type="checkbox" value="true" />
+                        <label class="conditions" for="register_accept"><?php echo Text::html('login-register-conditions'); ?></label>
+                    </div>
 
-                    <input class="checkbox" id="register_accept" name="confirm" type="checkbox" value="true" />
-                    <label class="conditions" for="register_accept"><?php echo Text::html('login-register-conditions'); ?></label><br />
 
                     <button class="disabled" disabled="disabled" id="register_continue" name="register" type="submit" value="register"><?php echo Text::get('login-register-button'); ?></button>
 
