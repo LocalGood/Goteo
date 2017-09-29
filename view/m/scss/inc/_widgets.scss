@@ -28,8 +28,14 @@
   }
 
 
-  //プロジェクトウィジェット（一覧などのコンパクトにまとまったウィジェット）
-  &.projects{
+  //プロジェクト一覧ウィジェット
+  &.projects {
+    background-color: $baseWhite;
+    margin: 20px 0;
+    padding-top: 20px;
+    h2.title {
+      padding-top: 0;
+    }
     #widget-code {
       width: 350px;
       float: left;
@@ -47,20 +53,59 @@
         background: #E7E7E7;
         border: none;
         font-size: 12px;
-        resize: none;
       }
     }
     > .title {
       margin: 0;
       padding: 16px;
     }
-    .project {
-      background-color: #fff;
-      margin: 0 auto;
+    > .more {
+      clear: both;
+      text-align: right;
+      a {
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    .widget-title {
+      padding: 0 0 0 30px;
+    }
+    .widget-porject-legend {
+      margin: 0 0 20px 30px;
+    }
+    > .project-code {
+      float: left;
+      height: auto;
+      margin-left: 45px;
+      overflow: auto;
+      width: auto;
+    }
+    .discover-arrow-left,
+    .discover-arrow-right {
+      display: none;
+    }
+
+    //プロジェクトウィジェット
+    .project{
+      background-color: $baseWhite;
+      border: $solidBorder;
+      border-radius: 4px;
+      margin: 0 auto 20px;
+      padding-bottom: 20px;
+      position: relative;
       overflow: hidden;
-      padding: 0;
-      position:relative;
+      width: 92%;
       z-index:98;
+      &.active{
+        div.image {
+          opacity: 0.85;
+        }
+        > .title a {
+          color: #c5da4d !important;
+        }
+      }
       h3 {
         &.title {
           margin: 0 16px 16px;
@@ -76,282 +121,227 @@
       a.button{
         padding: 0.4em 1em !important;
       }
-    }
-    > .more {
-      clear: both;
-      text-align: right;
-      a {
-        text-decoration: none;
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
-    > .widget-title {
-      padding: 0 0 0 30px;
-    }
-    > .widget-porject-legend {
-      margin: 0 0 20px 30px;
-    }
-    > .project-code {
-      float: left;
-      height: auto;
-      margin-left: 45px;
-      overflow: auto;
-      width: auto;
-    }
-    > #widget-code  {
-      float:left;
-      margin: 0 0 0 20px;
-      width:350px;
-      .wc-embed  {
-        background: url("/view/m/images/social/embed.png") no-repeat;
-        height:20px;
-        padding: 3px 0 0 25px;
-      }
-      textarea  {
-        background:#E7E7E7;
-        border:none;
-        font-size:12px;
-        margin: 10px 0;
-        padding:10px;
-        resize:none;
-        width:200px;
-      }
-    }
-  }
-
-  //
-  &.project{
-    overflow: visible;
-    position: relative;
-    &.active{
-      div.image {
-        opacity: 0.85;
-      }
-      > .title a {
-        color: #c5da4d !important;
-      }
-    }
-    .image {
-      background-color: #deddde;
-      margin-bottom: 16px;
-      min-height: 180px;
-      overflow: hidden;
-      padding: 0 !important;
-      position: relative;
-      text-align: center;
-      width: 100%;
-      a img {
-        display: block;
-        width: 100vw;
-        height: auto;
-      }
-      span.cf-icon {
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        width: 60px;
-        height: 60px;
-        background-image: url('/view/m/images/lg-project-cf.png');
-        background-size:60px 60px;
-      }
-      span.sm-icon {
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        width: 60px;
-        height: 60px;
-        background-image: url('/view/m/images/lg-project-sm.png');
-        background-size: 60px 60px;
-      }
-      .investor {
-        position: absolute;
-        z-index: 899;
-        background-color: #f3f3f3;
-        margin-top: 70px;
-        margin-left: 3px;
-        img {
-          width: 34px !important;
-          height: 34px !important;
-          margin: 3px;
-          float: left;
-        }
-        .invest {
-          text-align: left;
-          font-size: 12px;
-          line-height: 9px;
-          color: #faf8f8;
-          float: left;
-          padding-top: 12px;
-          padding-left: 2px;
-          padding-right: 4px;
-          span.amount {
-            color: #cc6600;
-            font-weight: 600;
-            font-size: 16px;
-            line-height: 18px;
-            padding-right: 19px;
-          }
-        }
-      }
-      .categories {
-        text-align: left;
-        color: #ffffff;
-        background-color: rgba(25,181,179,0.8);
-        font-size: 0.8em;
-        padding: 2px 8px;
-        cursor: default;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        left: 0;
-      }
-    }
-    > .title {
-      font-size: 14px;
-      padding: 0;
-      margin: 10px;
-      a {
-        font-size: 14px;
-        font-weight: 600;
-        text-decoration: none;
-        position: relative;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 900;
-        &:hover{
-          color: #c5da4d;
-        }
-      }
-    }
-    .title {
-      background: none;
-    }
-    .balloon {
-      background: #cae4e6 url('/view/m/images/balloonbeak.png') no-repeat bottom left;
-      height: auto;
-      > .title a {
-        position:relative;
-        z-index:99;
-        line-height: 1.5em;
-        font-size: 18px;
-        color: #0098c4
-      }
-      > blockquote {
-        font-size: 12px;
-        margin: 0;
+      .image {
+        background-color: #deddde;
+        margin-bottom: 16px;
+        min-height: 180px;
         overflow: hidden;
-        padding-bottom: 10px;
+        padding: 0 !important;
+        position: relative;
+        text-align: center;
+        width: 100%;
+        a img {
+          display: block;
+          width: 100vw;
+          height: auto;
+        }
+        span.cf-icon {
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          width: 60px;
+          height: 60px;
+          background-image: url('/view/m/images/lg-project-cf.png');
+          background-size:60px 60px;
+        }
+        span.sm-icon {
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          width: 60px;
+          height: 60px;
+          background-image: url('/view/m/images/lg-project-sm.png');
+          background-size: 60px 60px;
+        }
+        .investor {
+          position: absolute;
+          z-index: 899;
+          background-color: #f3f3f3;
+          margin-top: 70px;
+          margin-left: 3px;
+          img {
+            width: 34px !important;
+            height: 34px !important;
+            margin: 3px;
+            float: left;
+          }
+          .invest {
+            text-align: left;
+            font-size: 12px;
+            line-height: 9px;
+            color: #faf8f8;
+            float: left;
+            padding-top: 12px;
+            padding-left: 2px;
+            padding-right: 4px;
+            span.amount {
+              color: #cc6600;
+              font-weight: 600;
+              font-size: 16px;
+              line-height: 18px;
+              padding-right: 19px;
+            }
+          }
+        }
+        .categories {
+          text-align: left;
+          color: #ffffff;
+          background-color: rgba(25,181,179,0.8);
+          font-size: 0.8em;
+          padding: 2px 8px;
+          cursor: default;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          left: 0;
+        }
       }
-      > h4 {
-        font-size:  14px;
-        font-weight: 600;
-        margin: 0 0 .5em;
+      > .title {
+        font-size: 14px;
         padding: 0;
+        margin: 10px;
+        a {
+          font-size: 14px;
+          font-weight: 600;
+          text-decoration: none;
+          position: relative;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 900;
+          &:hover{
+            color: #c5da4d;
+          }
+        }
       }
-    }
-    > .author {
-      padding: 2px 0 0 12px;
-      overflow:hidden;
-    }
-    > .author,
-    > .author a {
-      font-weight: 600;
-      font-size: 12px;
-      text-decoration: none;
-      position:relative;
-      z-index:100;
-    }
-    .description {
-      padding: 2px 12px;
-      font-size: 12px;
-    }
-    .skills {
-      line-height: 16px;
-      a {
-        font-size: 11px;
+      .title {
+        background: none;
       }
-    }
-    div.rewards{
-      h2, h3, h4, h5, h6 {
-        margin: 0;
-        line-height: 22px;
-        float: left;
-        width: 70px;
+      .balloon {
+        background: #cae4e6 url('/view/m/images/balloonbeak.png') no-repeat bottom left;
+        height: auto;
+        padding: 12px;
+        > .title a {
+          position:relative;
+          z-index:99;
+          line-height: 1.5em;
+          font-size: 18px;
+          color: #0098c4
+        }
+        > blockquote {
+          font-size: 12px;
+          margin: 0;
+          overflow: hidden;
+          padding-bottom: 10px;
+        }
+        > h4 {
+          font-size:  14px;
+          font-weight: 600;
+          margin: 0 0 .5em;
+          padding: 0;
+        }
+      }
+      > .author {
+        padding: 2px 0 0 12px;
+        overflow:hidden;
+      }
+      > .author,
+      > .author a {
+        font-weight: 600;
+        font-size: 12px;
+        text-decoration: none;
+        position:relative;
+        z-index:100;
+      }
+      .description {
+        padding: 2px 12px;
         font-size: 12px;
       }
-      ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        position: relative;
-        z-index: 910;
-        li {
-          display: inline-block;
-          margin-right: 3px;
-          width: 22px;
-          height: 22px;
-          line-height: 2000px;
-          text-indent: 2000px;
-          overflow: hidden;
-          background-image: url('/view/m/images/icon/s/blank.png');
-          opacity:0.60;
-          &.active {
-            opacity: 1 !important;
-          }
-          a {
-            display: block;
-            width: 21px;
-            height: 21px;
+      .skills {
+        line-height: 16px;
+        a {
+          font-size: 11px;
+        }
+      }
+      div.rewards{
+        h2, h3, h4, h5, h6 {
+          margin: 0;
+          line-height: 22px;
+          float: left;
+          width: 70px;
+          font-size: 12px;
+        }
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          position: relative;
+          z-index: 910;
+          li {
+            display: inline-block;
+            margin-right: 3px;
+            width: 22px;
+            height: 22px;
             line-height: 2000px;
             text-indent: 2000px;
-            position: relative;
-            z-index: 910;
-          }
-          &.food  {
-            background-image: url('/view/m/images/icon/s/food.png');
-          }
-          &.file  {
-            background-image: url('/view/m/images/icon/s/file.png');
-          }
-          &.money {
-            background-image: url('/view/m/images/icon/s/money.png');
-          }
-          &.code {
-            background-image: url('/view/m/images/icon/s/code.png');
-          }
-          &.service {
-            background-image: url('/view/m/images/icon/s/service.png');
-          }
-          &.manual  {
-            background-image: url('/view/m/images/icon/s/manual.png');
-          }
-          &.product {
-            background-image: url('/view/m/images/icon/s/product.png');
-          }
-          &.design {
-            background-image: url('/view/m/images/icon/s/design.png');
-          }
-          &.other {
-            background-image: url('/view/m/images/icon/s/other.png');
+            overflow: hidden;
+            background-image: url('/view/m/images/icon/s/blank.png');
+            opacity:0.60;
+            &.active {
+              opacity: 1 !important;
+            }
+            a {
+              display: block;
+              width: 21px;
+              height: 21px;
+              line-height: 2000px;
+              text-indent: 2000px;
+              position: relative;
+              z-index: 910;
+            }
+            &.food  {
+              background-image: url('/view/m/images/icon/s/food.png');
+            }
+            &.file  {
+              background-image: url('/view/m/images/icon/s/file.png');
+            }
+            &.money {
+              background-image: url('/view/m/images/icon/s/money.png');
+            }
+            &.code {
+              background-image: url('/view/m/images/icon/s/code.png');
+            }
+            &.service {
+              background-image: url('/view/m/images/icon/s/service.png');
+            }
+            &.manual  {
+              background-image: url('/view/m/images/icon/s/manual.png');
+            }
+            &.product {
+              background-image: url('/view/m/images/icon/s/product.png');
+            }
+            &.design {
+              background-image: url('/view/m/images/icon/s/design.png');
+            }
+            &.other {
+              background-image: url('/view/m/images/icon/s/other.png');
+            }
           }
         }
       }
-    }
-    div.buttons {
-      padding-top: 10px !important;
-      a.button {
-        margin: 0;
-        padding-top: 0 !important;
-        position: relative;
-        z-index: 900;
-      }
-      .button{
-        + .button {
-          float: right;
+      div.buttons {
+        padding-top: 10px !important;
+        a.button {
+          margin: 0;
+          padding-top: 0 !important;
+          position: relative;
+          z-index: 900;
+        }
+        .button{
+          + .button {
+            float: right;
+          }
         }
       }
     }
@@ -652,18 +642,18 @@
       }
     }
     .widget.user-social {
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       padding: 0;
       .title {
         display: none;
       }
       ul {
+        @include cf;
         list-style:none;
         margin:0;
         overflow:visible;
         padding:0;
         li {
-          display:block;
           float:left;
           margin-right: 10px;
           a {

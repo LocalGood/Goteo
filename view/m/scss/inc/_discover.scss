@@ -100,24 +100,6 @@
     }
   }
 
-  .widget.projects {
-    background-color: $baseWhite;
-    margin: 20px 0;
-    padding-top: 20px;
-
-    h2.title {
-      padding-top: 0;
-    }
-
-    .project {
-      border: $solidBorder;
-      border-radius: 4px;
-      margin: 0 auto 20px;
-      padding-bottom: 20px;
-      width: 92%;
-    }
-  }
-
   .navi-bar {
     background-color: #ffffff;
     border-top: $solidBorder;
