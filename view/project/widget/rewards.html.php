@@ -57,10 +57,19 @@ uasort($project->individual_rewards,
 
 						<?php /* TODO:画像がない時のみ.nameにクラス名onlyを追加してください。*/?>
 							<div class="title--flex">
+                                <?php
+                                    /*TODO: 要デザイン検討 -> お礼画像の表示の仕方  */
+                                    $has_image = !empty($individual->image);
+                                    if ($has_image):
+                                        // https://pbs.twimg.com/profile_images/378800000220029324/fe66faeca20115da8566e51d83447ead_400x400.jpeg
+                                ?>
 								<div class="side_image">
-									<img src="https://pbs.twimg.com/profile_images/378800000220029324/fe66faeca20115da8566e51d83447ead_400x400.jpeg" alt="">
+									<img src="<?php echo $individual->image->getLink(51,51,true) ?>" alt="">
 								</div>
-								<h<?php echo $level + 3 ?> class="name">
+                                <?php
+                                    endif;
+                                ?>
+								<h<?php echo $level + 3 ?> class="name<?php if (!$has_image){ echo ' only'; } ?>">
 									<a href="/project/<?php echo $project->id; ?>/rewards#<? echo 'individual_num' . $count; ?>"><?php echo htmlspecialchars($individual->reward) ?></a></h<?php echo $level + 3 ?>>
 							</div>
                             <dl class="amount">
@@ -76,7 +85,7 @@ uasort($project->individual_rewards,
                             </dl>
                             <?php endif; ?>
                             <?php
-                            if (!empty($individual->image)):
+                            if ($has_image):
                                 $img_src = $individual->image->getLink(200,200,false);
                                 ?>
                                 <div class="image">
@@ -87,7 +96,7 @@ uasort($project->individual_rewards,
                             ?>
                             <p><?php echo nl2br(htmlspecialchars($individual->description))?></p>
                             <div class="buttons">
-                                <a class="button violet supportit" href="/project/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest'); ?></a>
+                                <a class="button violet supportit" href="/project/<?php echo $project->id; ?>/invest<?php echo '?reward=' . $individual->id ?>"><?php echo Text::get('regular-invest'); ?></a>
                             </div>
                         </li>
                         <? $count++; ?>
