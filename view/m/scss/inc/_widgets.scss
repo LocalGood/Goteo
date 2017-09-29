@@ -1909,20 +1909,21 @@
         margin-bottom: 12px;
       }
       label::before{
-        content: '￥';
-        display: inline-block;
-        color: #FFF;
-        width: 25px;
-        height: 25px;
-        font-size: 16px;
-        font-weight: bold;
-        margin: 0 15px 0 0;
-        text-align: center;
-        line-height: 27px;
+        background: $mainCol01;
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
         border-radius: 50%;
-        background: $mainCol01;
+        content: '￥';
+        display: inline-block;
+        color: #FFF;
+        font-size: 16px;
+        font-weight: bold;
+        height: 25px;
+        line-height: 27px;
+        margin-right: 6px;
+        text-align: center;
+        vertical-align: top;
+        width: 25px;
       }
       #amount {
         color: $color10;
@@ -1930,9 +1931,9 @@
         font-weight: 700;
         height: 24px;
         line-height: 40px;
-        margin-right: 20px;
-        padding: 0 10px;
-        width: 150px;
+        margin-right: 8px;
+        padding: 0 8px;
+        width: 140px;
       }
     }
 
