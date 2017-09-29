@@ -248,6 +248,9 @@
             }
           }
         }
+        > div.elements > ol > li.element {
+          padding: 0;
+        }
       }
     }
 
@@ -255,6 +258,9 @@
     &.access {
       a.button {
         margin-bottom: 20px;
+      }
+      div.superform {
+        margin: 0 0 10px 0;
       }
     }
   }
