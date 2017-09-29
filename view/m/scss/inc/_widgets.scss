@@ -1869,42 +1869,32 @@
       padding: 20px;
       text-transform: uppercase!important;
       &::after{
-        content: '';
-        position: absolute;
-        bottom: -20px;
-        left: 20px;
-        display: block;
-        width: 0;
-        height: 0;
         border: 10px solid transparent;
         border-top: 10px solid $mainCol01;
+        bottom: -20px;
+        content: '';
+        display: block;
+        height: 0;
+        left: 20px;
+        position: absolute;
+        width: 0;
+      }
+      span {
+        display: block;
       }
     }
-    .address {
-      margin: 0 auto;
-      padding: 0 0 20px 0;
-      clear: left;
-      background-color: #fff;
-    }
-    &.method input#paymethod {
-      width: 145px;
-      margin: 0 auto;
-      padding-bottom: 25px;
-    }
+    //todo: 多分いらない
+    //.address {
+    //  margin: 0 auto;
+    //  padding: 0 0 20px 0;
+    //  clear: left;
+    //  background-color: #fff;
+    //}
     form {
       padding: 24px 0 24px 8px;
     }
 
-    &.address table {
-      width:100%;
-      tr td label {
-        padding-left:10px;
-        padding-right:5px;
-        text-align:right;
-      }
-    }
-
-    //支援する -> 支援額ウィジェット(.project-investと同時に指定)
+    //支援する -> 支援額(.project-investと同時に指定)
     &.project-invest-amount {
       margin-bottom: 20px;
       h3.title {
@@ -1946,21 +1936,43 @@
       }
     }
 
-    #fullname,#address {
-      width: 266px;
+    //支援する -> 住所部分
+    &.address {
+      table {
+        width:100%;
+        td {
+          padding-bottom: 8px;
+        }
+      }
+      label {
+        padding-right:5px;
+        text-align:right;
+      }
+      #fullname,
+      #address {
+        width: 100%;
+      }
+      #nif,#zipcode {
+        width: 100px;
+      }
     }
-    #nif,#zipcode {
-      width: 100px;
+
+    //支援する -> 支払いボタン部分
+    &.method {
+      h3.beak {
+        &::after {
+          left: 0;
+          right: 0;
+          margin: auto;
+        }
+      }
+      input#paymethod {
+        width: 145px;
+        margin: 0 auto;
+        padding-bottom: 25px;
+      }
     }
-    #location {
-      width: 100px;
-    }
-    #country {
-      width: 100px;
-    }
-    #email {
-      width: 350px;
-    }
+
     div.individual {
       ul {
         border-top: $solidBorder;
