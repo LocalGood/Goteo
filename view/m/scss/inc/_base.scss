@@ -67,6 +67,7 @@ textarea,
 fieldset {
   background-color: #eeeeee;
   border: 1px solid $grayCol01;
+  box-sizing: content-box;
   min-height: 27px;
   padding: .3em;
 }
