@@ -266,6 +266,14 @@
         margin: 0 0 10px 0;
       }
     }
+
+    //マイページ > プロフィール > 通知設定
+    &.preferences {
+      div.superform div.elements > ol > li.element.slider > div.contents > ul > li > label > input[type="radio"] {
+        position: relative;
+        right: auto;
+      }
+    }
   }
 
 }
