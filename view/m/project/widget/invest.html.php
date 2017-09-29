@@ -134,6 +134,8 @@ if ($step == 'start') : ?>
                 <label for="address"><?php echo Text::get('invest-address-address-field') ?></label><br />
                 <input type="text" id="address" name="address" value="<?php echo $personal->address; ?>" />
             </td>
+        </tr>
+        <tr>
             <td>
                 <label for="zipcode"><?php echo Text::get('invest-address-zipcode-field') ?></label><br />
                 <input type="text" id="zipcode" name="zipcode" value="<?php echo $personal->zipcode; ?>" />

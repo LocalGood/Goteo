@@ -1826,4 +1826,276 @@
     }
   }
 
+  //支援するウィジェット
+  //支援する
+  &.project-invest {
+    h1,h2,h3,h4,h5,h6 {
+      font-weight: 700;
+      margin-top: 0;
+      text-transform: none;
+    }
+    h1,h2,h3 {
+      font-size: 24px;
+    }
+    h4 {
+      font-size: 18px;
+    }
+    h5,h6 {
+      font-size: 16px;
+    }
+    h3.title {}
+    > div {
+      margin-bottom: 2em;
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    div.invest-message {
+      background: url('/view/images/project/view/invest/message_beak.png') no-repeat left bottom;
+      min-height:70px;
+      h2 {
+        margin: 0!important;
+        span {
+          color: #000;
+        }
+      }
+      img {
+        float: left;
+        margin-right: 20px;
+      }
+      span.message {
+        color: $grayCol03!important;
+        font-size: .9em!important;
+        font-weight: 400!important;
+        padding: 0;
+        text-transform: none!important;
+      }
+    }
+    h3.beak {
+      position: relative;
+      background: $mainCol01;
+      color: #FFF;
+      font-size: 1em!important;
+      padding: 20px;
+      text-transform: uppercase!important;
+      &::after{
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        left: 20px;
+        display: block;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-top: 10px solid $mainCol01;
+      }
+    }
+    .address {
+      margin: 0 auto;
+      padding: 0 0 20px 0;
+      clear: left;
+      background-color: #fff;
+    }
+    &.method input#paymethod {
+      width: 145px;
+      margin: 0 auto;
+      padding-bottom: 25px;
+    }
+    form {
+      padding: 24px 0 24px 8px;
+    }
+
+    &.address table {
+      width:100%;
+      tr td label {
+        padding-left:10px;
+        padding-right:5px;
+        text-align:right;
+      }
+    }
+
+    //支援する -> 支援額ウィジェット(.project-investと同時に指定)
+    &.project-invest-amount {
+      margin-bottom: 20px;
+      h3.title {
+        font-size: 20px;
+        margin-bottom: 12px;
+        padding-left: 0;
+      }
+      form {
+        padding: 12px 0;
+      }
+      h4 {
+        margin-bottom: 12px;
+      }
+      label::before{
+        content: '￥';
+        display: inline-block;
+        color: #FFF;
+        width: 25px;
+        height: 25px;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0 15px 0 0;
+        text-align: center;
+        line-height: 27px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        background: $mainCol01;
+      }
+      #amount {
+        color: $color10;
+        font-size: 24px;
+        font-weight: 700;
+        height: 24px;
+        line-height: 40px;
+        margin-right: 20px;
+        padding: 0 10px;
+        width: 150px;
+      }
+    }
+
+    #fullname,#address {
+      width: 266px;
+    }
+    #nif,#zipcode {
+      width: 100px;
+    }
+    #location {
+      width: 100px;
+    }
+    #country {
+      width: 100px;
+    }
+    #email {
+      width: 350px;
+    }
+    div.individual {
+      ul {
+        border-top: $solidBorder;
+        li {
+          border-bottom: $solidBorder;
+          padding:0;
+          label {
+            @include cf;
+            padding: 16px 20px;
+            &.amount {
+              color: $color10;
+              cursor: pointer;
+              display: block;
+              font-weight: 700;
+              h1, h2, h3, h4, h5, h6 {
+                color: #000;
+                font-size: 13px;
+                font-weight: 400;
+              }
+              h5 {
+                color: $grayCol03;
+                font-weight: 600;
+                margin-bottom: 8px;
+              }
+              p {
+                color: $grayCol03;
+                font-size: 13px;
+                font-weight: 400;
+                margin: 0;
+              }
+            }
+            &.resign {
+              cursor: pointer;
+              display: block;
+            }
+            .left {
+              display: block;
+              float: left;
+              width: 60%;
+            }
+            .right {
+              display: block;
+              float: right;
+              width: 40%;
+              img {
+                width: 100%;
+                height: auto;
+              }
+            }
+          }
+          &.disabled {
+            background-color: $baseCol;
+            label.amount {
+              color: $grayCol03;
+            }
+          }
+        }
+      }
+    }
+
+    button {
+      &.pay-tpv {
+        background:url('/view/images/button/tpv.gif') no-repeat 0 0 transparent;
+        height: 35px;
+        padding: 3px;
+        text-indent: 2000px;
+        width: 178px;
+      }
+      &.pay-paypal {
+        background:url('/view/images/button/paypal.gif') no-repeat 0 0 transparent;
+        height: 32px;
+        padding: 3px;
+        text-indent: 2000px;
+        width: 145px;
+      }
+      &:hover {
+        border: 1px solid $color06;//#20b2b3
+      }
+    }
+
+    p label {
+      cursor:pointer;
+      line-height:14px;
+      input[type="checkbox"] {
+        opacity:0;
+      }
+      input[type="checkbox"] + span.chkbox {
+        background:url('/view/images/project/widget/checkbox_disabled.png') no-repeat scroll 0 0 transparent;
+        display: block;
+        height: 12px;
+        margin-top: -15px;
+        position: absolute;
+        width: 12px;
+      }
+      input[type="checkbox"]:checked + span.chkbox {
+        background-position: 0 -13px;
+      }
+    }
+  }
+
+
+  //支援メッセージウィジェット
+  &.invest-message {
+    background:url(/view/images/project/view/invest/message_beak.png) no-repeat left bottom;
+    background-color:#cce7e8!important;
+    min-height:70px;
+    h2 {
+      margin:0!important;
+      span {
+        color:#232020;
+        &.message {
+          color:#57595b!important;
+          font-size:.9em!important;
+          font-weight:400!important;
+          padding:0;
+          text-transform:none!important;
+        }
+      }
+    }
+    img {
+      float:left;
+      margin-right:20px;
+    }
+  }
+
 }
