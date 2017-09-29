@@ -112,6 +112,15 @@ a.button {
   text-align: center;
   text-decoration: none;
   width: 250px;
+  &.disabled {
+    background: $grayCol01;
+    box-shadow: none;
+    color: #fff;
+    cursor: default;
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 input.black[type="button"] {
