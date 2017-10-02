@@ -5,13 +5,15 @@
 --------------------------------------------------*/
 
 .main_nav02 {
-  background: #fff;
+  @include cf;
+  background: $baseWhite;
   box-shadow: -1px 2px 2px rgba(9, 9, 9, 0.2);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  font-size: 12px;
   height: 60px;
   left: 0;
+  line-height: 1.6em;
   padding: 16px 19px 16px 13px;
   position: fixed;
   top: 0;
@@ -24,20 +26,21 @@
     }
   }
   .nav_menu-button {
-    background: #fff;
+    background: $baseWhite;
+    box-sizing: content-box;
     float: right;
     height: 23px;
     padding: 7px 0 3px;
     width: 21px;
     span {
-      background: #255b80;
+      background: $mainCol01;
       display: block;
       height: 3px;
       margin-bottom: 3px;
     }
   }
   .main_nav__link-list {
-    background: #fff;
+    background: $baseWhite;
     box-shadow: -1px 2px 2px rgba(9, 9, 9, 0.2);
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -61,33 +64,44 @@
     }
     .list01 {
       list-style: none;
+      margin-top: 0;
       padding: 0;
+      > li > a {
+        color: $grayCol03;
+      }
       li {
         dt {
           display: block;
+          line-height: 21px;  
           margin-top: 14px;
         }
         dd {
+          height: 30px;
           margin: 0;
         }
         .list01__text {
           border-bottom: solid 1px $grayCol01;
-          color: #575757;
           display: block;
-          font-size: 14px !important;
+          font-size: 130%;
           font-weight: 600;
           padding: 20px 0;
         }
         .list02 {
           border-bottom: solid 1px $grayCol01;
+          margin: 0;
           padding-bottom: 20px;
           padding-left: 20px;
           a {
             background: url("/view/m/images/header/s-main_nav-icon.png") no-repeat left;
             display: block;
-            font-size: 13px;
+            font-size: 120%;
             line-height: 2.5em;
             padding-left: 20px;
+            &:link,
+            &:visited,
+            &:active {
+              color: $mainCol01;
+            }
           }
         }
         a {
@@ -97,11 +111,10 @@
     }
   }
   .nav_menu-button .close_button {
-    color: #255b80;
-    font-size: 200%;
+    color: $mainCol01;
+    font-size: 250%;
     font-weight: 600;
     display: none;
-    margin-top: -20px;
   }
 }
 
