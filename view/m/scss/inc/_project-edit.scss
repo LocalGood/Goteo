@@ -33,6 +33,20 @@
         }
       }
     }
+    .project-by {
+      color: #20B3B2;
+      font-size: 12px;
+      a {
+        font-weight: 300;
+        color: #cc6600;
+        font-size: 12px;
+        text-decoration: none;
+        &:hover {
+          color: #58595B;
+        }
+      }
+    }
+
   }
 
   #main {

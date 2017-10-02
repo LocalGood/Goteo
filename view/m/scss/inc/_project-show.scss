@@ -5,10 +5,7 @@
   }
 
   #sub-header {
-    background: #faf8f8;
     height: 40px;
-    margin-bottom: 0;
-    padding: 0;
     position: relative;
 
     > div {
@@ -87,7 +84,7 @@
       }
     }
 
-    .project-subtitle {
+    /*.project-subtitle {
       font-size: 16px;
       font-weight: 300;
       margin: 3px 0;
@@ -99,19 +96,6 @@
       font-size: 12px;
       a {
         font-size: 12px;
-      }
-    }
-    .project-by {
-      color: #20B3B2;
-      font-size: 12px;
-      a {
-        font-weight: 300;
-        color: #cc6600;
-        font-size: 12px;
-        text-decoration: none;
-        &:hover {
-          color: #58595B;
-        }
       }
     }
     .categories {
@@ -135,23 +119,17 @@
           color: #20B3B2;
         }
       }
-    }
+    }*/
   }
 
   .social_bookmark {
-    display: flex;
-    justify-content: space-around;
     letter-spacing: -0.4em;
-    .twitter,
-    .facebook,
-    .gPlus {
-      margin-right: 10px;
-    }
     > div {
       display: inline-block;
       letter-spacing: normal;
       vertical-align: top;
       margin-right: 10px;
+      margin-bottom: 20px;
       &:last-child {
         margin-right: 0;
       }
@@ -167,7 +145,6 @@
     z-index: 0;
 
     &.threecols {
-      background-color: #e7e7e7;
       padding: 0;
     }
 
@@ -198,6 +175,75 @@
           margin: 0 auto;
           height: auto;
           width: 100%;
+        }
+      }
+      #prjct-gallery {
+        float:left;
+        .prjct-gallery-container {
+          display:none;
+          height:210px;
+          .gallery-image {
+            display:block;
+            height:auto;
+            text-align: center;
+            width:100vw;
+          }
+        }
+        ul.slderpag {
+          margin: 8px 0 0 0;
+          list-style:none;
+          padding:0;
+          float:left;
+          height:auto;
+          li{
+            cursor:pointer;
+            display: block;
+            float: left;
+            overflow: hidden;
+            margin: 0 4px 5px 4px;
+            a{
+              width: 12px;
+              height: 12px;
+              margin-top: 2px;
+              background-color: #cdcdce;
+              color: #cdcdce;
+              display:block;
+              &:hover{
+                background-color: #20b3b2;
+                color: #20b3b2;
+              }
+            }
+            &.current {
+              a {
+                background-color: #808184 !important;
+                color: #808184 !important;
+              }
+            }
+          }
+        }
+        a {
+          &.next,
+          &.prev {
+            width: 16px;
+            height: 16px;
+            line-height: 2000px;
+            overflow: hidden;
+            float:left;
+            margin: 8px 0 0 0;
+            cursor:pointer;
+          }
+          &.prev{
+            background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 0;
+            &:hover {
+              background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 -32px;
+            }
+          }
+          &.next{
+            background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 -16px;
+            &:hover{
+              background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 -48px;
+            }
+          }
         }
       }
 
@@ -236,7 +282,7 @@
       //シェアウィジェット
       .widget.project-share {
         margin-bottom: 25px;
-        padding: 20px;
+        padding: 20px 20px 0;
       }
 
       //スキルと物品の募集
@@ -398,55 +444,5 @@
     .disabled {
       color: #cccccc;
     }
-  }
-}
-
-/*----------------------------------------------------------------------
-  project/view.css
-----------------------------------------------------------------------*/
-
-div {
-  .widget {
-  }
-  &#project-support,
-  &#project-investors, &#project-collaborations, &#project-rewards {
-    padding: 0;
-  }
-  &.widget {
-    &.user, &.project-investors, &.user-mates, &.user, &.user-supporters {
-      padding: 0;
-    }
-  }
-  &#project-investors .project-widget-box, &#project-collaborations .project-widget-box {
-    padding: 15px 20px;
-  }
-  &.widget {
-    &.user .project-widget-box, &.project-investors .project-widget-box, &.user-supporters .project-widget-box div.widget.project-needs .project-widget-box {
-      padding: 15px 20px;
-    }
-    &.user-mates .project-widget-box {}
-  }
-  &#project-collaborations .project-widget-box, &#project-support .project-widget-box, &.widget.project-investors .project-widget-box {
-    background-color: #fff;
-    border-bottom: 1px dashed $grayCol01;
-  }
-  &#project-collaborations .project-widget-box {
-    h3.title {
-      color: #666;
-      font-weight: 600;
-    }
-    ul li p {
-      font-size: 12px;
-    }
-  }
-  &.widget.project-support {
-    position: relative;
-  }
-  &.widge dl {
-    margin: 0;
-    padding: 0 0 0 20px;
-    float: left;
-    margin-left: 15px;
-    margin-bottom: 60px;
   }
 }

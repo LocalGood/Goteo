@@ -2,138 +2,23 @@
 
 body.home {
 
-  button.red {
-
-  }
-
-  /* meter */
-  .meter{
-    .obtained {
-      display: none;
-    }
-  }
-
-  #wrapper {
+  /*#wrapper {
     > a.button.red {
       height: 30px;
       line-height: 30px;
       margin: 8px;
     }
-  }
+  }*/
 
   #main {
     div.learn {
       margin-bottom: 16px;
       position: relative;
-      ul.slderpag {
-        float:left;
-        height:auto;
-        list-style:none;
-        margin: 8px 0 0 0;
-        padding:0px;
-        li {
-          cursor:pointer;
-          display: block;
-          float: left;
-          margin: 0 4px 5px 4px;
-          overflow: hidden;
-          a {
-            background-color: #cdcdce;
-            color: #cdcdce;
-            display:block;
-            height: 6px;
-            margin-top: 2px;
-            width: 12px;
-            &:hover {
-              background-color: #20b3b2;
-              color: #20b3b2;
-            }
-          }
-          &.current {
-            a {
-              background-color: #808184 !important;
-              color: #808184 !important;
-            }
-          }
-        }
-      }
-
-      a.next,
-      a.prev {
-        cursor:pointer;
-        float:left;
-        height: 16px;
-        line-height: 2000px;
-        margin: 9px 0 0 0;
-        overflow: hidden;
-        width: 16px;
-      }
-      a.prev {
-        background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 0;
-      }
-      a.prev:hover {
-        background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 -32px;
-      }
-      a.next{
-        background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 -16px;
-      }
-      a.next:hover {
-        background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 -48px;
-      }
-
-      .slder_container {
-        display:none;
-        height:290px;
-        width:900px;
-        .slder_slide {
-          display:block;
-          height:290px;
-          width:900px;
-          div.post {
-            display: none;
-            min-height: 305px;
-            padding-left: 520px;
-            position: relative;
-            div.read_more{
-              bottom: 10px;
-              position: absolute;
-              right: 20px;
-            }
-            h3,
-            div.description {
-              float: left;
-              line-height: 18px;
-              margin: 0 0 10px 20px;
-              width: 380px;
-            }
-            div.embed,
-            div.image {
-              float:left;
-              height: 285px;
-              width: 500px;
-            }
-          }
-        }
-      }
     }
 
     //プロジェクト一覧
     .widget.projects {
-      margin-bottom: 24px;
       overflow: hidden;
-      .title{
-        background-color: #666666;
-        color: #f5f5f5;
-        margin: 0;
-        padding: 16px;
-      }
-      h3.title{
-        margin-left:3px;
-        background: none;
-      }
-      .project {
-        margin-bottom: 20px;
-      }
     }
   }
 }

@@ -6,7 +6,7 @@
   .widget.categorylist {
     overflow: hidden;
     margin-bottom: 15px;
-    ul{
+    /*ul{
       display:inline-block;
       list-style:none;
       margin:0;
@@ -23,7 +23,7 @@
           }
         }
       }
-    }
+    }*/
     > h3.title{
       background-color: $mainCol01;
       color: $baseCol;
@@ -34,7 +34,7 @@
       margin: 0;
       padding: 0 0 0 20px;
     }
-    > div.filters {
+    /*> div.filters {
       border-bottom: 1px solid $grayCol01;
       border-top: 1px solid $grayCol01;
       padding: 5px;
@@ -69,7 +69,7 @@
           }
         }
       }
-    }
+    }*/
   }
 
   //マイページ > みんなの興味 > 選択したカテゴリーに興味があるユーザー一覧ウィジェット
@@ -88,13 +88,13 @@
     .users {
       margin: 0;
       padding: 0;
-      .categories{
+      /*.categories{
         height:auto;
         overflow:visible;
         padding-left: 20px;
         line-height: 27px;
         background-color: #e5e5e5;
-      }
+      }*/
       ul {
         margin: 0;
         padding: 0;

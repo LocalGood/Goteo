@@ -3,8 +3,7 @@
   .title {
     font-size: 18px;
     font-weight: 600;
-    padding-left: 6px;
-    text-decoration: none;
+    //text-decoration: none;
   }
   .supertitle {
     font-size: 18px;
@@ -108,7 +107,7 @@
       }
       h3 {
         &.title {
-          margin: 0 16px 16px;
+          margin: 16px;
         }
       }
       a.expand{
@@ -391,11 +390,7 @@
       font-size: 16px;
     }
     > div {
-      margin-bottom: 1em;
       font-size: 14px;
-      &:last-child {
-        margin-bottom: 0;
-      }
     }
     &.h_ttl {
       background: none;
@@ -434,10 +429,6 @@
           }
         }
       }
-    }
-    > div {
-      font-size: 14px;
-      margin-bottom: 1em;
     }
     > .wants-skills .matched_skill {
       background-color:#f99;
@@ -486,7 +477,6 @@
       margin: auto;
       max-width: 500px;
       top: 75px;
-      width: 340px;
     }
   }
 

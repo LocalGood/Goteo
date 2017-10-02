@@ -102,9 +102,8 @@
   }
 
   .superform {
-    background-color: #ffffff !important;
-    padding: 10px 20px !important;
-    border: none !important;
+    background-color: $baseWhite;
+    padding: 10px 20px;
   }
 
 
@@ -116,19 +115,25 @@
     > div.widget {
       margin-bottom: 20px;
     }
-    div.status {
+    /*div.status {
       float: left;
       color: #bcbdbd;
       border: none !important;
       padding: 0 !important;
       margin-right: 20px;
-      #project-status h3 {
-        font-size: 20px;
+      #project-status {
+        h3 {
+          font-size: 20px;
+        }
       }
-    }
+    }*/
 
     //マイページ > アクティビティ > 概要
     &.summary {
+
+      > .widget.projects {
+        margin-top: 0;
+      }
 
       //マイページ > アクティビティ > 概要 > 累計寄付金額
       /*.widget.user-worthcracy {
@@ -139,7 +144,7 @@
       }*/
 
       //マイページ > アクティビティ > 概要 > あなたのスキルがマッチしたプロジェクト（一覧）
-      .widget.projects {
+      /*.widget.projects {
         background: none;
         margin: 0 auto 20px;
         padding-top: 0;
@@ -171,7 +176,7 @@
             }
           }
         }
-      }
+      }*/
     }
 
     //マイページ > プロフィール > 公開プロフィール編集
