@@ -50,9 +50,7 @@ if (!empty($this['posts'])) {
 
 include 'view/m/prologue.html.php';
 include 'view/m/header.html.php';
-?>
-    <a class="button red" href="/discover"><?php echo Text::get('regular-discover'); ?></a>
-<? /*
+/*
     <script type="text/javascript">
         $(function(){
             $('#sub-header').slides({
@@ -64,15 +62,20 @@ include 'view/m/header.html.php';
 */ ?>
     <div class="contents_wrapper">
 
-        <?php if(isset($_SESSION['messages'])) { include 'view/header/message.html.php'; } ?>
+        <?/*php if(isset($_SESSION['messages'])) { include 'view/header/message.html.php'; } */?>
 
         <div id="main">
 
-            <?php
+            <?/*php
             echo new View("view/m/home/available.html.php", $this);
             foreach ($this['order'] as $item=>$itemData) {
                 if (!empty($this[$item])) echo new View("view/m/home/{$item}.html.php", $this);
-            } ?>
+            }
+            */?>
+
+            <?php
+                echo new View("view/home/available.html.php", $this);
+            ?>
 
         </div>
     </div><!--.contents_wrapper-->
