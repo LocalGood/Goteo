@@ -200,8 +200,8 @@ footer
 --------------------------------------------------*/
 
 footer {
-  background: #255b7f;
-  color: #fff;
+  background: $mainCol01;
+  color: $baseWhite;
   padding: 40px 20px 10px;
   .footer__link-title {
     font-size: 14px;
@@ -219,9 +219,12 @@ footer {
     margin-bottom: 30px;
     padding-left:0;
   }
-  a {
-    color: #fff !important;
-    font-size:12px !important;
+  a,
+  a:link,
+  a:active,
+  a:visited {
+    color: $baseWhite;
+    font-size:12px;
     text-decoration: none;
   }
   .footer_bottom {
@@ -252,7 +255,7 @@ footer {
     .link {
       margin-bottom: 30px;
       span {
-        background: #fff;
+        background: $baseWhite;
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
         border-radius: 50%;
@@ -270,7 +273,7 @@ footer {
 }
 
 .sp_footer_logo-area {
-  background: #fff;
+  background: $baseWhite;
   padding: 25px 25px 10px 25px;
   .cw {
     font-size: 50% !important;
@@ -280,6 +283,7 @@ footer {
     list-style: none;
     padding:0;
     width: 100%;
+    @include cf;
     li {
       display: table;
       float: left;
