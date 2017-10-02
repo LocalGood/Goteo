@@ -102,6 +102,11 @@ use Goteo\Library\Text,
                     3Dマップ
                 </a>
             </li>
+			<li>
+				<a href="http://yokohama.localgood.jp.il3c.com/about/" class="list01__text">
+					Local Good YOKOHAMAについて
+				</a>
+			</li>
             <?php if (empty($_SESSION['user'])) {
                 //ログインしていない
                 ?>
