@@ -419,6 +419,9 @@
         }
         .meter {
           padding-bottom: 0;
+          dl.percent {
+            top: 58px;
+          }
         }
       }
 
