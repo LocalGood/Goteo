@@ -137,14 +137,14 @@
     padding: 10px;
     text-align: center;
   }
-  &.banners {
+  /*&.banners {
     padding: 0;
     > div > div.mod-pojctopen {
       margin-left: 0;
       margin-right: 32px;
       margin-top: 16px;
     }
-  }
+  }*/
   > div {
     &.clearfix {
       min-width: 915px;
@@ -157,33 +157,37 @@
       margin: 0;
       padding: 0;
     }
-    > div.mod-pojctopen {
+    /*> div.mod-pojctopen {
       float: right;
       width: 180px;
       > {
         .modpo-open {
-          color: #ee4843;
-          font: bold 58px/72px Helvetica, Arial, Geneva, sans-serif;
+          color: $alertCol;
+          font-size: 58px;
+          font-weight: 600;
+          line-height: 72px;
           text-align: center;
         }
         .modpo-percent {
           border-bottom: 1px solid $grayCol01;
           color: #908499;
-          font: bold 22px Helvetica, Arial, Geneva, sans-serif;
+          font-size: 22px;
+          font-weight: 600;
           margin: -10px 0 0;
           padding: 4px 0 8px;
           text-align: center;
         }
         .modpo-whyopen {
-          font: bold 14px Helvetica, Arial, Geneva, sans-serif;
+          font-size: 14px;
+          font-weight: 600;
           padding: 6px 0 0 50px;
         }
       }
-    }
+    }*/
   }
 }
 
-.subhead-banner {
+/*.subhead-banner {
   h2.message .greenblue {
     color: #908499;
   }
@@ -192,7 +196,7 @@
     position: absolute;
     right: 20px;
   }
-}
+}*/
 
 
 /*--------------------------------------------------
