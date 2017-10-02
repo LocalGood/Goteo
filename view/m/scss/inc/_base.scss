@@ -2,7 +2,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif;
+  //font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif;
 }
 
 html {
@@ -14,6 +14,7 @@ html {
 body {
   background-color: $baseCol;
   color: $grayCol03;
+  font-family: 'メイリオ', "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
   font-size: 14px;
   margin: 0;
   min-height: 100%;
@@ -60,6 +61,8 @@ a:link{
     color: $mainCol02;
   }
 }
+
+
 
 input[type="text"],
 input[type="password"] {
@@ -140,10 +143,6 @@ button.green {
   width: 140px;
 }
 
-body.project-edit div#main #project-steps button {
-  width: auto;
-}
-
 a.button.red {
   font-size: 16px;
   font-weight: 600;
@@ -163,19 +162,6 @@ a.button.red {
 * html .clearfix { height: 1%; }
 .clearfix { display: block; }
 /* End hide from IE-mac */
-
-
-
-a.up{display:inline-block;padding-left:15px;margin-left:18px; background:url('/view/m/images/arrow-up3.png') no-repeat left; line-height: 20px;
-  font-size: 12px;
-  text-decoration: none;
-  color: #9f9f9f;
-  margin-bottom: 40px;
-  &:hover{background:url('/view/m/images/arrow-up.png') no-repeat left;
-    color: #20b3b2;
-  }
-}
-
 
 /* /user/m/leave */
 textarea#leave-message {
