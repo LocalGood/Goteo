@@ -87,32 +87,6 @@
       }
     }
 
-    .sub-menu {
-      p {
-        &.prev2, &.next2 {
-          position: absolute;
-          top: 0;
-          width: 7px;
-          height: 27px;
-          margin: 0;
-          padding-top: 14px;
-          padding-left: 4px;
-          padding-right: 4px;
-          line-height: 27px;
-          background-color: #e5e5e5;
-          z-index: 1;
-        }
-        &.prev2 {
-          left: 0;
-          border-right: 1px dashed $grayCol01;
-        }
-        &.next2 {
-          right: 0;
-          border-left: 1px dashed $grayCol01;
-        }
-      }
-    }
-
     .project-subtitle {
       font-size: 16px;
       font-weight: 300;
@@ -376,6 +350,14 @@
           }
         }
       }
+
+      //決済システムへのジャンプ画面
+      &.invest-info {
+        form {
+          display: flex;
+        }
+      }
+
 
       form div.widget {
         margin: 0 auto;

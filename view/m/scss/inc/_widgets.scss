@@ -123,7 +123,6 @@
       }
       .image {
         background-color: #deddde;
-        margin-bottom: 16px;
         min-height: 180px;
         overflow: hidden;
         padding: 0 !important;
@@ -135,7 +134,7 @@
           width: 100vw;
           height: auto;
         }
-        span.cf-icon {
+        /*span.cf-icon {
           position: absolute;
           top: 8px;
           right: 8px;
@@ -152,7 +151,7 @@
           height: 60px;
           background-image: url('/view/m/images/lg-project-sm.png');
           background-size: 60px 60px;
-        }
+        }*/
         .investor {
           position: absolute;
           z-index: 899;

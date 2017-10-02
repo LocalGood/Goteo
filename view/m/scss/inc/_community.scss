@@ -171,4 +171,20 @@
     }
   }
 
+
+  #main {
+    &.axes {
+      > .widget {
+        background-color: $baseWhite;
+        margin: 15px;
+        padding: 15px 20px;
+      }
+      input[type="submit"],
+      input[type="button"] {
+        max-width: 250px;
+        width: 100%;
+      }
+    }
+  }
+
 }
