@@ -50,6 +50,28 @@ $categories = Category::getNames($project->id, 2);
             <?php endif ?>
         </div>
 
+	<?php switch ( $project->tagmark ) {
+		case 'onrun': // "en marcha"
+			echo '<div class="tagmark green">' . Text::get( 'regular-onrun_mark' ) . '</div>';
+			break;
+		case 'keepiton': // "aun puedes"
+			echo '<div class="tagmark green">' . Text::get( 'regular-keepiton_mark' ) . '</div>';
+			break;
+		case 'onrun-keepiton': // "en marcha" y "aun puedes"
+			//                echo '<div class="tagmark green">' . Text::get('regular-onrun_mark') . '</div>';
+			echo '<div class="tagmark green twolines"><span class="small"><strong>' . Text::get( 'regular-onrun_mark' ) . '</strong><br />' . Text::get( 'regular-keepiton_mark' ) . '</span></div>';
+			break;
+		case 'gotit': // "financiado"
+			echo '<div class="tagmark violet">' . Text::get( 'regular-gotit_mark' ) . '</div>';
+			break;
+		case 'success': // "exitoso"
+			echo '<div class="tagmark red">' . Text::get( 'regular-success_mark' ) . '</div>';
+			break;
+		case 'fail': // "caducado"
+			echo '<div class="tagmark grey">' . Text::get( 'regular-fail_mark' ) . '</div>';
+			break;
+	} ?>
+
         <div class="project-details">
             <h<?php echo $level ?> class="title">
                 <a class="link" href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>"<?php echo $blank; ?>><?php echo htmlspecialchars(Text::shorten($project->name,50)) ?></a>
