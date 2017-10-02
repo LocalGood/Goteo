@@ -762,26 +762,6 @@
           }
         }
 
-        button {
-          &.pay-tpv {
-            background:url('/view/images/button/tpv.gif') no-repeat 0 0 transparent;
-            height: 35px;
-            padding: 3px;
-            text-indent: 2000px;
-            width: 178px;
-          }
-          &.pay-paypal {
-            background:url('/view/images/button/paypal.gif') no-repeat 0 0 transparent;
-            height: 32px;
-            padding: 3px;
-            text-indent: 2000px;
-            width: 145px;
-          }
-          &:hover {
-            border: 1px solid $color06;//#20b2b3
-          }
-        }
-
         p label {
           cursor:pointer;
           line-height:14px;
