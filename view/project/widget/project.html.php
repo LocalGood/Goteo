@@ -68,7 +68,7 @@ $categories = Category::getNames($project->id, 2);
 			echo '<div class="tagmark red">' . Text::get( 'regular-success_mark' ) . '</div>';
 			break;
 		case 'fail': // "caducado"
-			echo '<div class="tagmark grey">' . Text::get( 'regular-fail_mark' ) . '</div>';
+			echo '<div class="tagmark gray">' . Text::get( 'regular-fail_mark' ) . '</div>';
 			break;
 	} ?>
 

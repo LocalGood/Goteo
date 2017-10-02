@@ -1158,11 +1158,24 @@
   width: 100%;
   color: $grayCol03;
   padding: 0 10px;
-  background: $grayCol01;
+  text-align: center;
   z-index: 100;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  &.gray{
+    background: $grayCol01;
+  }
+  &.red{
+    background: $color07;
+  }
+  &.green{
+    background: $color06;
+  }
+  &.violet{
+    color: #FFF;
+    background: $color10;
+  }
 }
 
 

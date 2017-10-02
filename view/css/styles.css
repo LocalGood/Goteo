@@ -1,20 +1,22 @@
 @charset "UTF-8";
 /*
-base          :リセット、タグに対するベース設定
-mixins        :mixin設定
+palette       :WPで設定した可変カラーの自動生成ファイル
 colors        :カラーコードの変数
+mixins        :mixin設定
+base          :リセット、タグに対するベース設定
 commons       :header,footerなどの共通要素に対する設定
 widgets       :主にプロジェクトウィジェットに対する設定。.widgetが付くものに対する設定も少々
 meter         :メーターの設定
-superform     :.sperformに対する設定。（form要素）
-discover      :
-review        :
-project-show  :
-project-edit  :
-dashboard     :
-community     :
-admin         :
-user-profile  :
+superform     :.superformに対する設定。form要素。プロジェクト作成、編集、プロフィール編集（マイページ内）などに使用。
+discover      :cfのトップ、プロジェクト一覧
+review        :マイメニューのうち、レビューのみ
+project-show  :プロジェクト詳細
+project-edit  :プロジェクト新規・編集
+dashboard     :マイメニュー
+community     :マニメニュー > このユーザーの興味
+admin         :管理者メニュー
+user-profile  :ユーザープロフィール
+user-login    :ログインページに対する設定
 page          :スタイル調整が必要なページ
 */
 /* Main Color */
@@ -37,7 +39,6 @@ page          :スタイル調整が必要なページ
  borders
 ----------------------------------------------------------------------*/
 html {
-  font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif;
   font-size: 14px;
   height: 100%;
   margin: 0;
@@ -48,6 +49,7 @@ html, body {
   padding: 0; }
 
 body {
+  font-family: 'メイリオ', "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
   margin: 0 auto;
   min-height: 100%;
   min-width: 780px;
@@ -132,6 +134,19 @@ a.button {
   a.button:hover {
     opacity: 0.75;
     color: #FFF; }
+  input[type="submit"].disabled,
+  input[type="reset"].disabled,
+  button.disabled,
+  a.button.disabled {
+    background: #d9d9d9;
+    box-shadow: none;
+    color: #fff;
+    cursor: default; }
+    input[type="submit"].disabled:hover,
+    input[type="reset"].disabled:hover,
+    button.disabled:hover,
+    a.button.disabled:hover {
+      opacity: 1; }
 
 input.red[type="submit"],
 input.red[type="reset"],
@@ -611,7 +626,7 @@ div#message {
     position: relative; }
     div#message #message-content input.message-close {
       position: absolute;
-      top: 0;
+      top: -6px;
       right: 0;
       width: 26px;
       height: 100%;
@@ -627,7 +642,7 @@ div#message {
       background: none; }
     div#message #message-content ul {
       list-style: none;
-      margin: 0;
+      margin: 0 30px 0 0;
       padding: 0; }
 
 /*iframe*/
@@ -1564,6 +1579,25 @@ body.project-embed {
       .widget.gestrew .investor .left.username span.date {
         font-size: 12px; }
 
+.tagmark {
+  width: 100%;
+  color: #454545;
+  padding: 0 10px;
+  text-align: center;
+  z-index: 100;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+  .tagmark.gray {
+    background: #d9d9d9; }
+  .tagmark.red {
+    background: #e08e22; }
+  .tagmark.green {
+    background: #0093c4; }
+  .tagmark.violet {
+    color: #FFF;
+    background: #255B80; }
+
 /*----------------------------------------------------------------------
  .meter
 ----------------------------------------------------------------------*/
@@ -2452,8 +2486,12 @@ body.js .superform > div.elements ol li.element div.contents p {
     min-height: 20px;
     position: relative; }
   .project-show .project-header .categories {
+    background: url(/view/images/icon_tag.png) no-repeat left 50%;
+    color: #828282;
+    font-size: 12px;
     line-height: 20px;
-    max-width: 620px; }
+    max-width: 620px;
+    padding-left: 20px; }
     .project-show .project-header .categories a {
       color: #255b7f;
       font-size: 12px;
@@ -2709,19 +2747,12 @@ body.js .superform > div.elements ol li.element div.contents p {
       font-size: 16px;
       font-weight: 600;
       margin: 0 0 8px; }
-    .project-show .side > .widget .title--flex {
-      display: -webkit-flex;
-      display: flex; }
-      .project-show .side > .widget .title--flex .side_image {
-        width: 60px;
-        margin: 0 10px 0 0; }
-        .project-show .side > .widget .title--flex .side_image img {
-          width: 100%;
-          height: auto; }
-      .project-show .side > .widget .title--flex .name {
-        width: calc(100% - 70px); }
-        .project-show .side > .widget .title--flex .name.only {
-          width: 100%; }
+    .project-show .side > .widget .side_image {
+      width: 100%;
+      margin: 0 0 10px 0; }
+      .project-show .side > .widget .side_image img {
+        width: 100%;
+        height: auto; }
     .project-show .side > .widget.project-support .supertitle {
       background-color: #828282;
       color: #fff;
@@ -2734,6 +2765,8 @@ body.js .superform > div.elements ol li.element div.contents p {
         font-size: 14px; }
     .project-show .side > .widget.project-support .meter {
       padding-bottom: 0; }
+      .project-show .side > .widget.project-support .meter dl.percent {
+        top: 58px; }
     .project-show .side > .widget .project-investors {
       background: none;
       padding: 0; }
@@ -3008,20 +3041,6 @@ body.js .superform > div.elements ol li.element div.contents p {
         background-color: #f2f2f2; }
         .project-show .center.supporters .project-invest div.individual ul li.disabled label.amount {
           color: #454545; }
-  .project-show .center.supporters .project-invest button.pay-tpv {
-    background: url("/view/images/button/tpv.gif") no-repeat 0 0 transparent;
-    height: 35px;
-    padding: 3px;
-    text-indent: 2000px;
-    width: 178px; }
-  .project-show .center.supporters .project-invest button.pay-paypal {
-    background: url("/view/images/button/paypal.gif") no-repeat 0 0 transparent;
-    height: 32px;
-    padding: 3px;
-    text-indent: 2000px;
-    width: 145px; }
-  .project-show .center.supporters .project-invest button:hover {
-    border: 1px solid #0093c4; }
   .project-show .center.supporters .project-invest p label {
     cursor: pointer;
     line-height: 14px; }
@@ -3642,6 +3661,8 @@ body.js .superform > div.elements ol li.element div.contents p {
             box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
             margin-right: 0;
             padding: 8px 16px; }
+          .project-edit .superform ol li.element#footer ol li#buttons input[name="nofinish"] {
+            box-shadow: none; }
   .project-edit .superform ol li.element .contents input {
     font-size: 12px;
     font-weight: 400;
