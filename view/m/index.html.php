@@ -74,7 +74,7 @@ include 'view/m/header.html.php';
             */?>
 
             <?php
-                echo new View("view/home/available.html.php", $this);
+                echo new View(VIEW_PATH . "/home/available.html.php", $this);
             ?>
 
         </div>
