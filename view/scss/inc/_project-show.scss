@@ -52,8 +52,12 @@
     }
 
     .categories {
+      background: url(/view/images/icon_tag.png) no-repeat left 50%;
+      color: $grayCol02;
+      font-size:12px;
       line-height: 20px;
       max-width: 620px;
+      padding-left: 20px;
       a {
         color: $mainCol01;
         font-size: 12px;
@@ -63,6 +67,7 @@
         }
       }
     }
+
   }
 
   //プロジェクト詳細画面のサブナビ
