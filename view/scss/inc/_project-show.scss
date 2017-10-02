@@ -383,26 +383,13 @@
         margin: 0 0 8px;
       }
 
-      .title--flex{
-        display: -webkit-flex;
-        display: flex;
-
-        .side_image{
-          width: 60px;
-          margin: 0 10px 0 0;
-          img{
-            width: 100%;
-            height: auto;
-          }
+      .side_image {
+        width: 100%;
+        margin: 0 0 10px 0;
+        img {
+          width: 100%;
+          height: auto;
         }
-
-        .name{
-          width: calc(100% - 70px);
-          &.only{
-            width: 100%;
-          }
-        }
-
       }
 
 

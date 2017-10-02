@@ -38,14 +38,10 @@ $project = $this['project'];
             <?php foreach ($project->supports as $support) : ?>
             <?php if(!empty($support->support)):?>
             <li class="support <?php echo htmlspecialchars($support->type) ?>">
-
-	            <?php /* TODO:画像がない時のみ.nameにクラス名onlyを追加してください。*/?>
-				<div class="title--flex">
-					<div class="side_image">
-						<img src="https://pbs.twimg.com/profile_images/378800000220029324/fe66faeca20115da8566e51d83447ead_400x400.jpeg" alt="">
-					</div>
-					<h6 class="name"><span><?php echo htmlspecialchars($support->support) ?></span></h6>
+				<div class="side_image">
+					<img src="https://pbs.twimg.com/profile_images/378800000220029324/fe66faeca20115da8566e51d83447ead_400x400.jpeg" alt="">
 				</div>
+				<h6 class="name"><span><?php echo htmlspecialchars($support->support) ?></span></h6>
                 <p><?php echo htmlspecialchars($support->description) ?></p>
                 <a class="button green" href="/project/<?php echo $project->id; ?>/messages?msgto=<?php echo $support->id;?>"><?php echo Text::get('regular-collaborate'); ?></a>
             </li>

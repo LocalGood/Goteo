@@ -54,15 +54,11 @@ uasort($project->individual_rewards,
                     <?php foreach ($project->individual_rewards as $individual) : ?>
 
                         <li class="<?php echo $individual->icon ?>">
-
-						<?php /* TODO:画像がない時のみ.nameにクラス名onlyを追加してください。*/?>
-							<div class="title--flex">
-								<div class="side_image">
-									<img src="https://pbs.twimg.com/profile_images/378800000220029324/fe66faeca20115da8566e51d83447ead_400x400.jpeg" alt="">
-								</div>
-								<h<?php echo $level + 3 ?> class="name">
-									<a href="/project/<?php echo $project->id; ?>/rewards#<? echo 'individual_num' . $count; ?>"><?php echo htmlspecialchars($individual->reward) ?></a></h<?php echo $level + 3 ?>>
+							<div class="side_image">
+								<img src="https://pbs.twimg.com/profile_images/378800000220029324/fe66faeca20115da8566e51d83447ead_400x400.jpeg" alt="">
 							</div>
+							<h<?php echo $level + 3 ?> class="name">
+								<a href="/project/<?php echo $project->id; ?>/rewards#<? echo 'individual_num' . $count; ?>"><?php echo htmlspecialchars($individual->reward) ?></a></h<?php echo $level + 3 ?>>
                             <dl class="amount">
                                 <dt><?php echo Text::get('regular-support-amount'); ?></dt>
                                 <dd><?php echo \amount_format($individual->amount); ?>円</dd>

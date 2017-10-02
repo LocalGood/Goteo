@@ -41,7 +41,7 @@ $categories = Category::getNames($project->id, 2);
     <div class="balloon"><?php echo $this['balloon'] ?></div>
     <?php endif ?>
         <div class="image">
-            <span class="cf-icon"></span>
+<!--            <span class="cf-icon"></span>-->
             <?
             $project->gallery = Goteo\Model\Project\Image::getGallery($project->id);
             ?>
