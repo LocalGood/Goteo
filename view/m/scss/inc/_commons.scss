@@ -169,7 +169,7 @@
           text-align: center;
         }
         .modpo-percent {
-          border-bottom: 1px solid $grayCol01;
+          border-bottom: $solidBorder;
           color: #908499;
           font-size: 22px;
           font-weight: 600;
@@ -263,7 +263,7 @@ footer {
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
         border-radius: 50%;
-        color: #255b7f;
+        color: $mainCol01;
         display: inline-block;
         font-size: 80%;
         font-weight: 600;
@@ -367,16 +367,14 @@ ul#pagination {
   padding:0;
   li {
     background: white;
-    -moz-box-shadow: 3px 3px 0 #E2E2E2;
-    -webkit-box-shadow: 3px 3px 0 #E2E2E2;
-    box-shadow: 3px 3px 0 #E2E2E2;
+    box-shadow: 3px 3px 0 $grayCol01;
     display:inline;
     float: left;
     margin: 0 6px 0 0;
     text-align: center;
     width: auto;
     &.selected {
-      background:#cde4e5;
+      background: $baseCol;
       font-weight: 600;
       padding: 6px 20px;
     }

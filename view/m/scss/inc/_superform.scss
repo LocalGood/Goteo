@@ -33,19 +33,17 @@ div.superform {
     position: relative;
   }
 
-
-
-
   div.hint {
-    color: #7f8183;
-    overflow: hidden;
+    color: $grayCol02;
     margin-top: 10px;
-    h4, blockquote {
-      background-color: #ffffff;
-      padding: 10px;
-      vertical-align: top;
+    overflow: hidden;
+    h4,
+    blockquote {
+      background-color: $baseWhite;
       border-width: 1px 0 0;
       margin: 0;
+      padding: 10px;
+      vertical-align: top;
     }
     h4 {
       font-size: 30px;
@@ -90,10 +88,12 @@ div.superform {
       padding-bottom: 0;
     }
     &.textbox {
-      &.facebook > div.contents, &.google > div.contents, &.twitter > div.contents, &.identica > div.contents, &.linkedin > div.contents {
-        padding-left: 39px;
+      &.facebook > div.contents,
+      &.google > div.contents,
+      &.twitter > div.contents {
         background-position: left center;
         background-repeat: no-repeat;
+        padding-left: 39px;
       }
       &.facebook > div.contents {
         background-image: url('/view/m/images/superform/facebook.png');
@@ -104,25 +104,18 @@ div.superform {
       &.twitter > div.contents {
         background-image: url('/view/m/images/superform/twitter.png');
       }
-      &.identica > div.contents {
-        background-image: url('/view/m/images/superform/identica.png');
-      }
-      &.linkedin > div.contents {
-        background-image: url('/view/m/images/superform/linkedin.png');
-      }
       > div.contents {
         padding-right: .6em;
-        > input {
-          &[type="text"], &[type="password"] {
-            display: block;
-            width: 99%;
-            min-width: 99%;
-            max-width: 99%;
-            margin: 0 0 10px 0;
-            background-color: $baseCol;
-            border: 1px solid $grayCol01;
-            min-height: 27px;
-          }
+        > input[type="text"],
+        > input[type="password"] {
+          background-color: $baseCol;
+          border: $solidBorder;
+          display: block;
+          margin: 0 0 10px 0;
+          max-width: 99%;
+          min-height: 27px;
+          min-width: 99%;
+          width: 99%;
         }
         > textarea {
           margin: 0 0 10px 0;
@@ -139,7 +132,7 @@ div.superform {
           max-width: 99%;
           margin: 0;
           background-color: $baseCol;
-          border: 1px solid $grayCol01;
+          border: $solidBorder;
           min-height: 27px;
         }
       }
@@ -172,7 +165,8 @@ div.superform {
       display: block;
     }
     > div.contents + div {
-      &.children > div.elements > ol, &.feedback + div.children > div.elements > ol {
+      &.children > div.elements > ol,
+      &.feedback + div.children > div.elements > ol {
         margin-top: 1em;
       }
     }
@@ -208,13 +202,13 @@ div.superform {
             content: '必須';
             display: inline-block;
             width: 40px;
-            color: #FFF;
+            color: $baseWhite;
             font-size: 12px;
             font-weight: 100;
             padding: 0 10px;
             margin: 0 0 0 10px;
             text-align: center;
-            background: #e08e22;
+            background: $subCol02;
           }
         }
         &.ok > .title {
@@ -347,7 +341,7 @@ div.superform {
     }
     li {
       &#user_avatar .children .elements {
-        border: 1px dashed #bcbdbf;
+        border: $dashedBorder;
         padding: 10px 20px;
         margin: 20px 0 0 0;
         ol li {
@@ -362,8 +356,16 @@ div.superform {
           width: 100%;
         }
       }
+      &#user_webs .children .elements {
+        margin: 20px 0 0 0;
+        ol li div.elements {
+          border: none;
+          margin: 0;
+          padding: 0;
+        }
+      }
       &.element.inline#avatar-image .contents {
-        border: 2px solid #def1f1;
+        border: 2px solid $grayCol01;
         border-radius: 6px;
         margin: 6px;
       }
@@ -372,9 +374,9 @@ div.superform {
 
 
   fieldset {
-    border: 1px solid #99a2a5;
+    border: 1px solid $grayCol01;
     legend {
-      color: #6d7375;
+      color: $grayCol03;
     }
   }
   h3 {
@@ -388,7 +390,7 @@ div.superform {
       margin: 0 0 10px 0;
       min-height: 27px;
       background-color: $baseCol;
-      border: 1px solid $grayCol01;
+      border: $solidBorder;
       font-size: 12px;
     }
     &.edit[type="submit"],
@@ -408,7 +410,7 @@ div.superform {
 
   textarea {
     background-color: $baseCol;
-    border: 1px solid $grayCol01;
+    border: $solidBorder;
     font-size: 12px;
     margin: 0 0 10px 0;
     min-height: 6em;

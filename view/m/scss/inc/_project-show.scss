@@ -17,7 +17,7 @@
       position: relative;
       &.viewport_projectnav {
         background-color: $baseWhite;
-        border-bottom: 1px solid $grayCol01;
+        border-bottom: $solidBorder;
         height: 41px;
         margin: 0 auto;
         margin-left: 0;
@@ -34,7 +34,7 @@
         width: 720px;
         .item {
           border: none;
-          border-right: 1px solid $grayCol01;
+          border-right: $solidBorder;
           float: left;
           &:last-child {
             border-right: none;
@@ -75,11 +75,11 @@
         width: 5%;
       }
       .pj_prev {
-        border-right: 1px solid #d9d9d9;
+        border-right: $solidBorder;
         left: 0;
       }
       .pj_next {
-        border-left: 1px solid #d9d9d9;
+        border-left: $solidBorder;
         right: 0;
       }
     }
@@ -259,9 +259,9 @@
       //支援(グラフ)ウィジェット
       .widget.project-support {
         .project-widget-box {
+          border-bottom: none;
           padding-left: 0;
           padding-right: 0;
-          border-bottom: none;
         }
         .meter {
           > h3.title {
@@ -281,8 +281,8 @@
 
       //支援者ウィジェット
       .widget.project-supporters {
-        padding: 0;
         margin-top: 20px;
+        padding: 0;
         h3.title {
           display: none;
         }
@@ -417,7 +417,7 @@
       form div.widget {
         margin: 0 auto;
         clear: left;
-        background-color: #fff;
+        background-color: $baseWhite;
       }
     }
 
@@ -442,7 +442,7 @@
     }
     .invest-notice {
       margin: 5px 16px 0;
-      border: 1px solid $grayCol01;
+      border: $solidBorder;
       border-radius: 3px;
       padding: 4px;
     }
@@ -451,7 +451,7 @@
   //
   .widget.project-invest {
     .disabled {
-      color: #cccccc;
+      color: $grayCol01;
     }
   }
 }

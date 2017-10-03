@@ -32,7 +32,7 @@
   .login{
     padding: 15px 20px;
     margin: 0 0 20px 0;
-    background: #FFF;
+    background: $baseWhite;
     a{
       color: $mainCol01;
       &:hover{
@@ -71,7 +71,7 @@
       -webkit-border-radius: 3px;
       -moz-border-radius: 3px;
       border-radius: 3px;
-      background: #FFF;
+      background: $baseWhite;
     }
     input {
       &[name="userid"],

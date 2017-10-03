@@ -12,7 +12,7 @@
     padding: .5em 2px .5em 8px;
   }
   h4.supertitle, h3.supertitle {
-    color: #ffffff;
+    color: $baseWhite;
     height: 40px;
     line-height: 40px;
     padding: 0;
@@ -20,7 +20,7 @@
   a.more {
     float: none;
     display: block;
-    background-color: #fff;
+    background-color: $baseWhite;
     padding: 10px;
     text-align: center;
     text-decoration: none;
@@ -183,7 +183,7 @@
         }
         .categories {
           text-align: left;
-          color: #ffffff;
+          color: $baseWhite;
           background-color: rgba(25,181,179,0.8);
           font-size: 0.8em;
           padding: 2px 8px;
@@ -482,14 +482,14 @@
 
   //オーナーウィジェット
   &.user {
-    background-color: #fff;
+    background-color: $baseWhite;
     .supertitle {
       display: none;
     }
     h3.supertitle {
       background-color: #669900;
       border-bottom: none;
-      color: #ffffff;
+      color: $baseWhite;
       font-size: 15px;
       font-weight: 300;
       height: 40px;
@@ -507,7 +507,7 @@
         margin: 10px 0 0 0;
       }
       dl {
-        border: 1px solid $grayCol01;
+        border: $solidBorder;
         border-radius: 6px;
         font-size: 13px;
         margin: 20px 0;
@@ -517,7 +517,7 @@
         }
         dd {
           border: none;
-          border-bottom: 1px solid $grayCol01;
+          border-bottom: $solidBorder;
           line-height: 1.4em;
           margin-left: 0;
           padding: 0.8em 1.5em 0.8em 50px;
@@ -1064,7 +1064,7 @@
       margin: 0;
     }
     div#legend{
-      background-color: #ffffff;
+      background-color: $baseWhite;
       margin-bottom: 20px;
       div.min,
       div.max {
@@ -1188,7 +1188,7 @@
       }
       tr {
         &:not(:last-child) {
-          border-bottom: 1px solid $grayCol01;
+          border-bottom: $solidBorder;
         }
         &.req {
           background: $baseWhite;
@@ -1280,7 +1280,7 @@
       tbody {
         th,
         td {
-          border-bottom: 8px solid #fff;
+          border-bottom: 8px solid $baseWhite;
           box-sizing: content-box;
           height: 30px;
           padding: 0 8px;
@@ -1529,7 +1529,7 @@
     .comments-num {
       float: none;
       background: transparent url('/view/m/images/ico-blogcomment.png') scroll no-repeat 10px 0;
-      background-color: #fff;
+      background-color: $baseWhite;
       padding: 0 0 0 40px;
       height: 40px;
       width: auto;
@@ -1853,7 +1853,7 @@
     h3.beak {
       position: relative;
       background: $mainCol01;
-      color: #FFF;
+      color: $baseWhite;
       font-size: 1em!important;
       padding: 20px;
       text-transform: uppercase!important;
@@ -1877,7 +1877,7 @@
     //  margin: 0 auto;
     //  padding: 0 0 20px 0;
     //  clear: left;
-    //  background-color: #fff;
+    //  background-color: $baseWhite;
     //}
     form {
       padding: 24px 0 24px 8px;
@@ -1904,7 +1904,7 @@
         border-radius: 50%;
         content: '￥';
         display: inline-block;
-        color: #FFF;
+        color: $baseWhite;
         font-size: 16px;
         font-weight: bold;
         height: 25px;

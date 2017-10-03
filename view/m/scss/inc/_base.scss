@@ -73,8 +73,8 @@ input[type="text"],
 input[type="password"],
 textarea,
 fieldset {
-  background-color: #eeeeee;
-  border: 1px solid $grayCol01;
+  background-color: $baseWhite;
+  border: $solidBorder;
   min-height: 27px;
   padding: .3em;
 }
@@ -102,12 +102,8 @@ a.button {
   background: none;
   background-color: $subCol01;
   border: none;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
   border-radius: 3px;
-  -moz-box-shadow: 0 3px 3px 0 #ccc;
-  -webkit-box-shadow: 0 3px 3px 0 #ccc;
-  box-shadow: 0 3px 3px 0 #ccc;
+  box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
   color: white;
   cursor: pointer;
   display: block;
@@ -123,7 +119,7 @@ a.button {
   &.disabled {
     background: $grayCol01;
     box-shadow: none;
-    color: #fff;
+    color: $baseWhite;
     cursor: default;
     &:hover {
       opacity: 1;
