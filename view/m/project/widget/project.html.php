@@ -43,13 +43,13 @@ if (isset($this['investor']) && is_object($this['investor'])) {
 }
 ?>
 <div class="widget project activable<?php if (isset($this['balloon'])) echo ' balloon' ?>">
-	<a href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>" class="expand"></a>
+	<!--<a href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>" class="expand"></a>-->
     <?php if (isset($this['balloon'])): ?>
     <div class="balloon"><?php echo $this['balloon'] ?></div>
     <?php endif ?>
 
     <div class="image">
-        <span class="cf-icon"></span>
+        <!--<span class="cf-icon"></span>-->
         <?
         $project->gallery = Goteo\Model\Project\Image::getGallery($project->id);
         ?>
@@ -80,8 +80,42 @@ if (isset($this['investor']) && is_object($this['investor'])) {
 			break;
 	} ?>
 
-    <h<?php echo $level ?> class="title"><a href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>" target="_parent"><?php echo htmlspecialchars(Text::shorten($project->name,50)) ?></a></h<?php echo $level ?>>
+    <div class="project-details">
+        <h<?php echo $level ?> class="title">
+            <a href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>" target="_parent"><?php echo htmlspecialchars(Text::shorten($project->name,50)) ?></a>
+        </h<?php echo $level ?>>
+
+        <div class="author">
+            <a class="link" href="<?php echo SITE_URL ?>/user/profile/<?php echo htmlspecialchars($project->user->id) ?>"<?php echo $blank; ?>>
+                        <span class="author-img">
+                            <img src="<?php echo $project->user->avatar->getLink(50, 50, true); ?>" alt="<?php echo $project->user->name; ?>">
+                        </span>
+                <span><?php echo htmlspecialchars(Text::shorten($project->user->name,40)) ?></span>
+            </a>
+        </div>
+
+        <?php if (!empty($categories)): ?>
+            <div class="categories">
+                <?php $sep = ''; foreach ($categories as $key=>$value) :
+                    echo $sep.htmlspecialchars($value);
+                    $sep = ', '; endforeach; ?>
+            </div>
+        <?php endif ?>
+    </div>
 
     <?php echo new View('view/m/project/meter_hor.html.php', array('project' => $project)) ?>
+
+    <div class="want-support">
+        <div>
+            <h<?php echo $level + 1 ?>>必要な支援</h<?php echo $level + 1 ?>>
+            <img src="<?php echo SRC_URL ?>/view/images/icon_money.png" alt="資金">
+            <img src="<?php echo SRC_URL ?>/view/images/icon_skill.png" alt="スキル">
+        </div>
+        <div>
+            <h<?php echo $level + 1 ?>>残り</h<?php echo $level + 1 ?>>
+            <div class="days"><strong><?php echo number_format($days) ?></strong><span><?php echo Text::get('regular-days'); ?></span></div>
+        </div>
+
+    </div>
 
 </div>

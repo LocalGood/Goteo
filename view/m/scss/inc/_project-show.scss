@@ -260,6 +260,7 @@
       .widget.project-support {
         .project-widget-box {
           border-bottom: none;
+          padding-bottom: 0;
           padding-left: 0;
           padding-right: 0;
         }
@@ -274,8 +275,11 @@
             padding-top: 0;
           }
           div.graph {
-            margin-top: 0;
+            margin-bottom: 20px;
           }
+        }
+        .buttons {
+          padding-bottom: 8px;
         }
       }
 
@@ -434,8 +438,6 @@
   //プロジェクト詳細　＞　
   .widget.project-support {
     .meter {
-      padding-left: 16px;
-      padding-right: 16px;
       &.skillmatching {
         padding-bottom: 28px;
       }

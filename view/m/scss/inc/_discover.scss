@@ -27,12 +27,11 @@
     }
     .text-filter {
       display: block;
-      margin-bottom: 20px;
+      margin: 0 8px 20px;
       label {
         display: block;
         font-weight: 600;
         font-size: 14px;
-        margin-left: 16px;
         padding-top: 9px;
       }
     }
@@ -42,13 +41,13 @@
       color: $grayCol02;
       float: left;
       font-size: 16px;
-      padding: 4px 5px 4px 10px;
-      width: 65%;
+      padding: 6px;
+      width: 70%;
     }
     .searcher-btn {
       height: 33px;
       position: absolute;
-      right: 8px;
+      right: 12px;
       top: 34px;
       width: 25%;
       #searcher {

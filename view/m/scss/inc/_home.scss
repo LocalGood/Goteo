@@ -2,14 +2,6 @@
 
 body.home {
 
-  /*#wrapper {
-    > a.button.red {
-      height: 30px;
-      line-height: 30px;
-      margin: 8px;
-    }
-  }*/
-
   #main {
     div.learn {
       margin-bottom: 16px;
@@ -19,6 +11,11 @@ body.home {
     //プロジェクト一覧
     .widget.projects {
       overflow: hidden;
+      /*.meter {
+        dl.percent {
+          top: 55px;
+        }
+      }*/
     }
   }
 }
