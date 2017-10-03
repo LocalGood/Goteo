@@ -83,7 +83,7 @@ $categories = Category::getNames($project->id, 2);
             </div>
             <div>
                 <h<?php echo $level + 1 ?>>残り</h<?php echo $level + 1 ?>>
-                <div class="days"><strong><?php echo number_format($days) ?></strong><span><?php echo Text::get('regular-days'); ?></span></div>
+                <div class="days"><strong><?php echo number_format($project->days) ?></strong><span><?php echo Text::get('regular-days'); ?></span></div>
             </div>
 
         </div>
