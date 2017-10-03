@@ -206,8 +206,8 @@ if ($step == 'start') : ?>
 <?php if ( $repeatf != 0) : ?>
 <p><button type="submit" class="process pay-axes" name="method"  value="epsilonrepeat">前回のクレジットカード</button><br />
 <p style="color:#ff3300;margin-bottom: 0;">クレジットカード番号を変更したい場合は、「新規のクレジットカード」にて自動更新されます。</p>
-<?php endif; ?>
 </p>
+<?php endif; ?>
 
 <?php endif; ?>
 
@@ -414,7 +414,7 @@ if ($step == 'start') : ?>
 
 
                     /* Has elegido las siguientes recompensas */
-                    if (!confirm( reward+' <?php echo Text::slash('invest-alert-rewards') ?>')) {
+                    if (!confirm( reward+' <?php echo Text::slash('invest-alert-rewards') ?> ')) {
                         return false;
                     }
                 }

@@ -22,7 +22,7 @@ $item_price = $invest->amount;
 <?php if(isset($_SESSION['messages'])) { include 'view/header/message.html.php'; } ?>
 
     <div class="contents_wrapper">
-        <div id="main" class="axes">
+        <div id="main" class="invest-info--normal">
             <div class="widget">
                 <p><span class="project_name"><?php echo $invest->project_name ?></span>に<span class="amount"><?php echo $invest->amount;?></span>円寄付します。</p>
 
@@ -46,7 +46,7 @@ $item_price = $invest->amount;
                     <br />
                     <h3>【クレジットカード決済に関するご説明】</h3>
                     <p>決済システムは（株）ＧＭＯイプシロンを利用しています。<br />
-                        クレジットカード（Visa、JCB、MasterCard）の一括払いでのお支払となります。クレジットカード番号は弊社に知らされることはございませんのでご安心ください。<br />
+                        クレジットカードの一括払いでのお支払となります。クレジットカード番号はローカルグッドに知らされることはございませんのでご安心ください。<br />
                         <a href="http://www.epsilon.jp/security.html" target="_blank">必ずお読みください</a><br /><br />
                     </p>
                     <h3>【カード決済に関するお問い合わせ】</h3>

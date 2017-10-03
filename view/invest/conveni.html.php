@@ -22,7 +22,7 @@ $item_price = $invest->amount;
 <?php if(isset($_SESSION['messages'])) { include 'view/header/message.html.php'; } ?>
 
     <div class="contents_wrapper">
-        <div id="main" class="axes">
+        <div id="main" class="invest-info--conveni">
             <div class="widget">
                 <p><span class="project_name"><?php echo $invest->project_name ?></span>に<span class="amount"><?php echo $invest->amount;?></span>円寄付します。</p>
 
