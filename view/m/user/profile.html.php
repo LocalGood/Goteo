@@ -24,8 +24,8 @@ use Goteo\Core\View,
     Goteo\Model\User\Interest;
 
 $bodyClass = 'user-profile';
-include 'view/m/prologue.html.php';
-include 'view/m/header.html.php';
+include VIEW_PATH . '/prologue.html.php';
+include VIEW_PATH . '/header.html.php';
 
 $user = $this['user'];
 $worthcracy = Worth::getAll();
@@ -66,19 +66,19 @@ $worthcracy = Worth::getAll();
     });
 </script>
 
-<?php echo new View('view/m/user/widget/header.html.php', array('user'=>$user)) ?>
+<?php echo new View(VIEW_PATH . '/user/widget/header.html.php', array('user'=>$user)) ?>
 
-<?php if(isset($_SESSION['messages'])) { include 'view/m/header/message.html.php'; } ?>
+<?php if(isset($_SESSION['messages'])) { include VIEW_PATH . '/header/message.html.php'; } ?>
 
 <div id="main">
 
     <div class="center profile">
 
-        <?php echo new View('view/m/user/widget/worth.html.php', array('worthcracy' => $worthcracy, 'level' => $user->worth)) ?>
+        <?php echo new View(VIEW_PATH . '/user/widget/worth.html.php', array('worthcracy' => $worthcracy, 'level' => $user->worth)) ?>
 
-        <?php echo new View('view/m/user/widget/about.html.php', array('user' => $user, 'projects' => $this['projects'])) ?>
+        <?php echo new View(VIEW_PATH . '/user/widget/about.html.php', array('user' => $user, 'projects' => $this['projects'])) ?>
 
-        <?php echo new View('view/m/user/widget/social.html.php', array('user' => $user)) ?>
+        <?php echo new View(VIEW_PATH . '/user/widget/social.html.php', array('user' => $user)) ?>
 
 
         <?php foreach ($this['lists'] as $type=>$list) :
@@ -92,9 +92,9 @@ $worthcracy = Worth::getAll();
 
                         <?php foreach ($projects['items'] as $project) :
                             if ($type == 'my_projects')  {
-                                echo new View('view/m/project/widget/project.html.php', array('project' => $project));
+                                echo new View(VIEW_PATH . '/project/widget/project.html.php', array('project' => $project));
                             } else {
-                                echo new View('view/m/project/widget/project.html.php', array('project' => $project, 'investor' => $user));
+                                echo new View(VIEW_PATH . '/project/widget/project.html.php', array('project' => $project, 'investor' => $user));
                             }
                         endforeach; ?>
 
@@ -107,9 +107,9 @@ $worthcracy = Worth::getAll();
 
     </div>
     <div class="side">
-        <?php if (!empty($_SESSION['user'])) echo new View('view/m/user/widget/investors.html.php', $this) ?>
-        <?php echo new View('view/m/user/widget/sharemates.html.php', $this) ?>
+        <?php if (!empty($_SESSION['user'])) echo new View(VIEW_PATH . '/user/widget/investors.html.php', $this) ?>
+        <?php echo new View(VIEW_PATH . '/user/widget/sharemates.html.php', $this) ?>
     </div>
 </div>
-<?php include 'view/m/footer.html.php' ?>
-<?php include 'view/m/epilogue.html.php' ?>
+<?php include VIEW_PATH . '/footer.html.php' ?>
+<?php include VIEW_PATH . '/epilogue.html.php' ?>

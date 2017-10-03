@@ -25,8 +25,8 @@ $bodyClass = 'user-login';
 // para que el prologue ponga el c��digo js para bot��n facebook en el bannerside
 $fbCode = Text::widget(Text::get('social-account-facebook'), 'fb');
 $jscrypt = true;
-include 'view/m/prologue.html.php';
-include 'view/m/header.html.php';
+include VIEW_PATH . '/prologue.html.php';
+include VIEW_PATH . '/header.html.php';
 
 $errors = $this['errors'];
 extract($_POST);
@@ -211,4 +211,4 @@ jQuery(document).ready(function($) {
 
     </div>
 
-<?php include 'view/m/footer.html.php' ?>
+<?php include VIEW_PATH . '/footer.html.php' ?>

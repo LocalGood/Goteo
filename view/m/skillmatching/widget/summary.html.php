@@ -49,7 +49,7 @@ $level = (int) $this['level'] ?: 3;
     <?php endif ?>
 
     <?
-        echo new View('view/m/skillmatching/widget/video.html.php', array('skillmatching' => $skillmatching));
+        echo new View(VIEW_PATH . '/skillmatching/widget/video.html.php', array('skillmatching' => $skillmatching));
     ?>
 
     <?php if (!empty($skillmatching->goal)): ?>
@@ -78,7 +78,7 @@ $level = (int) $this['level'] ?: 3;
     <div class="widget project-share">
         <h<?php echo $level + 1?> class="title"><?php echo Text::get('overview-field-share-head'); ?></h<?php echo $level + 1?>>
         <?
-        echo new View('view/m/skillmatching/widget/share.html.php', array('skillmatching' => $skillmatching));
+        echo new View(VIEW_PATH . '/skillmatching/widget/share.html.php', array('skillmatching' => $skillmatching));
         ?>
     </div>
 <?php endif ?>

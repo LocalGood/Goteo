@@ -104,7 +104,7 @@ if (isset($this['investor']) && is_object($this['investor'])) {
         <?php endif ?>
     </div>
 
-    <?php echo new View('view/m/project/meter_hor.html.php', array('project' => $project)) ?>
+    <?php echo new View(VIEW_PATH . '/project/meter_hor.html.php', array('project' => $project)) ?>
 
     <div class="want-support">
         <div>

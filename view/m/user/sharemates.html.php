@@ -25,8 +25,8 @@ use Goteo\Core\View,
     Goteo\Core\Redirection;
 
 $bodyClass = 'user-profile';
-include 'view/m/prologue.html.php';
-include 'view/m/header.html.php';
+include VIEW_PATH . '/prologue.html.php';
+include VIEW_PATH . '/header.html.php';
 
 $user = $this['user'];
 $worthcracy = Worth::getAll();
@@ -52,7 +52,7 @@ if (empty($shares)) {
 
 ?>
 
-<?php echo new View('view/m/user/widget/header.html.php', array('user'=>$user)) ?>
+<?php echo new View(VIEW_PATH . '/user/widget/header.html.php', array('user'=>$user)) ?>
 
 <?php if(isset($_SESSION['messages'])) { include 'view/header/message.html.php'; } ?>
 
@@ -125,12 +125,12 @@ if (empty($shares)) {
         
     </div>
     <div class="side">
-        <?php if (!empty($_SESSION['user'])) echo new View('view/m/user/widget/investors.html.php', $this) ?>
-        <?php echo new View('view/m/user/widget/user.html.php', $this) ?>
+        <?php if (!empty($_SESSION['user'])) echo new View(VIEW_PATH . '/user/widget/investors.html.php', $this) ?>
+        <?php echo new View(VIEW_PATH . '/user/widget/user.html.php', $this) ?>
     </div>
 
 </div>
 
-<?php include 'view/m/footer.html.php' ?>
+<?php include VIEW_PATH . '/footer.html.php' ?>
 
-<?php include 'view/m/epilogue.html.php' ?>
+<?php include VIEW_PATH . '/epilogue.html.php' ?>

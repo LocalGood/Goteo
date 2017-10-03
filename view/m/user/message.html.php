@@ -24,8 +24,8 @@ use Goteo\Core\View,
     Goteo\Model\User\Interest;
 
 $bodyClass = 'user-profile';
-include 'view/m/prologue.html.php';
-include 'view/m/header.html.php';
+include VIEW_PATH . '/prologue.html.php';
+include VIEW_PATH . '/header.html.php';
 
 $user = $this['user'];
 $worthcracy = Worth::getAll();
@@ -50,7 +50,7 @@ $_SESSION['msg_token'] = uniqid(rand(), true);
 	});
 </script>
 
-<?php echo new View('view/m/user/widget/header.html.php', array('user'=>$user)) ?>
+<?php echo new View(VIEW_PATH . '/user/widget/header.html.php', array('user'=>$user)) ?>
 
 <div id="main">
 
@@ -85,20 +85,20 @@ $_SESSION['msg_token'] = uniqid(rand(), true);
     </div>
     <?php endif; ?>
 
-        <?php echo new View('view/m/user/widget/worth.html.php', array('worthcracy' => $worthcracy, 'level' => $user->worth)) ?>
+        <?php echo new View(VIEW_PATH . '/user/widget/worth.html.php', array('worthcracy' => $worthcracy, 'level' => $user->worth)) ?>
 
-        <?php echo new View('view/m/user/widget/about.html.php', array('user' => $user)) ?>
+        <?php echo new View(VIEW_PATH . '/user/widget/about.html.php', array('user' => $user)) ?>
 
-        <?php echo new View('view/m/user/widget/social.html.php', array('user' => $user)) ?>
+        <?php echo new View(VIEW_PATH . '/user/widget/social.html.php', array('user' => $user)) ?>
 
     </div>
     <div class="side">
-        <?/*php echo new View('view/m/user/widget/investors.html.php', $this) */?>
-        <?/*php echo new View('view/m/user/widget/sharemates.html.php', $this) */?>
+        <?/*php echo new View(VIEW_PATH . '/user/widget/investors.html.php', $this) */?>
+        <?/*php echo new View(VIEW_PATH . '/user/widget/sharemates.html.php', $this) */?>
     </div>
 
 </div>
 
-<?php include 'view/m/footer.html.php' ?>
+<?php include VIEW_PATH . '/footer.html.php' ?>
 
-<?php include 'view/m/epilogue.html.php' ?>
+<?php include VIEW_PATH . '/epilogue.html.php' ?>

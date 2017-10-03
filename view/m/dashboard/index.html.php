@@ -26,8 +26,8 @@ $bodyClass = 'dashboard';
 $user = $_SESSION['user'];
 
 $option = $this['option'];
-include 'view/m/prologue.html.php';
-include 'view/m/header.html.php'; ?>
+include VIEW_PATH . '/prologue.html.php';
+include VIEW_PATH . '/header.html.php'; ?>
 
         <div id="sub-header">
             <div class="dashboard-header">
@@ -40,18 +40,18 @@ include 'view/m/header.html.php'; ?>
             </div>
             <? if($this['section'] !== 'activity'): ?>
                 <div class="submenu">
-                    <?php  echo new View ('view/m/dashboard/menu.html.php', $this) ?>
+                    <?php  echo new View (VIEW_PATH . '/dashboard/menu.html.php', $this) ?>
                 </div>
             <? endif; ?>
         </div>
 
 
-<?php if(isset($_SESSION['messages'])) { include 'view/m/header/message.html.php'; } ?>
+<?php if(isset($_SESSION['messages'])) { include VIEW_PATH . '/header/message.html.php'; } ?>
 
         <div id="main" class="<?php echo $this['option'] ?>">
 
-<?php if ($this['section'] == 'projects') echo new View ('view/m/dashboard/projects/selector.html.php', $this); ?>
-<?php // if ($this['section'] == 'translates') echo new View ('view/m/dashboard/translates/selector.html.php', $this); ?>
+<?php if ($this['section'] == 'projects') echo new View (VIEW_PATH . '/dashboard/projects/selector.html.php', $this); ?>
+<?php // if ($this['section'] == 'translates') echo new View (VIEW_PATH . '/dashboard/translates/selector.html.php', $this); ?>
 
             <?php if (!empty($this['message'])) : ?>
                 <div class="widget">
@@ -72,9 +72,9 @@ include 'view/m/header.html.php'; ?>
             <?php endif; ?>
 
             <?php if (!empty($this['section']) && !empty($this['option'])) {
-                echo new View ('view/m/dashboard/'.$this['section'].'/'.$this['option'].'.html.php', $this);
+                echo new View (VIEW_PATH . '/dashboard/'.$this['section'].'/'.$this['option'].'.html.php', $this);
             } ?>
         </div>
 <?php
-include 'view/m/footer.html.php';
-include 'view/m/epilogue.html.php';
+include VIEW_PATH . '/footer.html.php';
+include VIEW_PATH . '/epilogue.html.php';

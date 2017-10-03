@@ -49,7 +49,7 @@ $level = (int) $this['level'] ?: 3;
     <?php endif ?>
 
     <?
-        echo new View('view/m/project/widget/video.html.php', array('project' => $project));
+        echo new View(VIEW_PATH . '/project/widget/video.html.php', array('project' => $project));
     ?>
 
     <?php if (!empty($project->goal)): ?>
@@ -78,7 +78,7 @@ $level = (int) $this['level'] ?: 3;
     <div class="widget project-share">
         <h<?php echo $level + 1?> class="title"><?php echo Text::get('overview-field-share-head'); ?></h<?php echo $level + 1?>>
         <?
-        echo new View('view/m/project/widget/share.html.php', array('project' => $project));
+        echo new View(VIEW_PATH . '/project/widget/share.html.php', array('project' => $project));
         ?>
     </div>
 <?php endif ?>

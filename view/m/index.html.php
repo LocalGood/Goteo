@@ -48,8 +48,8 @@ if (!empty($this['posts'])) {
     }
 }
 
-include 'view/m/prologue.html.php';
-include 'view/m/header.html.php';
+include VIEW_PATH . '/prologue.html.php';
+include VIEW_PATH . '/header.html.php';
 /*
     <script type="text/javascript">
         $(function(){
@@ -67,9 +67,9 @@ include 'view/m/header.html.php';
         <div id="main">
 
             <?/*php
-            echo new View("view/m/home/available.html.php", $this);
+            echo new View(VIEW_PATH . "/home/available.html.php", $this);
             foreach ($this['order'] as $item=>$itemData) {
-                if (!empty($this[$item])) echo new View("view/m/home/{$item}.html.php", $this);
+                if (!empty($this[$item])) echo new View(VIEW_PATH . "/home/{$item}.html.php", $this);
             }
             */?>
 
@@ -79,5 +79,5 @@ include 'view/m/header.html.php';
 
         </div>
     </div><!--.contents_wrapper-->
-<?php include 'view/m/footer.html.php'; ?>
-<?php include 'view/m/epilogue.html.php'; ?>
+<?php include VIEW_PATH . '/footer.html.php'; ?>
+<?php include VIEW_PATH . '/epilogue.html.php'; ?>

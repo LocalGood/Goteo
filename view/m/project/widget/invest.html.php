@@ -215,7 +215,7 @@ if ($step == 'start') : ?>
 <?php endif; ?>
 </form>
 
-<?php echo new View('view/m/project/widget/worth.html.php', array('worthcracy' => $worthcracy, 'level' => $_SESSION['user']->worth)) ?>
+<?php echo new View(VIEW_PATH . '/project/widget/worth.html.php', array('worthcracy' => $worthcracy, 'level' => $_SESSION['user']->worth)) ?>
 
 <a name="commons"></a>
 <div class="widget project-invest">
