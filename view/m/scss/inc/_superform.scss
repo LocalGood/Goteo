@@ -25,88 +25,6 @@ body.js {
 
 
 div.superform {
-  &.aqua {
-    div.elements > ol > li.busy > .title {
-      background: url('/view/m/images/superform/badge/busy/aqua.gif') no-repeat right top;
-    }
-    li.element > div.feedback {
-      background-image: url('/view/m/images/superform/tooltip/beak/aqua/n.png');
-      > div {
-        background-color: #35b8b8;
-        color: white;
-      }
-      > div.error + div.hint > blockquote {
-        border-top-color: white;
-      }
-    }
-  }
-
-  &.red {
-    > div.hint {
-      h4, blockquote {
-        background-color: #fdedec;
-        color: #ee4843;
-      }
-    }
-    div.elements > ol > li.busy > .title {
-      background: url('/view/m/images/superform/badge/busy/red.gif') no-repeat right top;
-    }
-    li.element {
-      > div.feedback {
-        > div {
-          background-color: #e13028;
-          color: white;
-        }
-        background-image: url('/view/m/images/superform/tooltip/beak/red/n.png');
-      }
-      > div.error + div.hint > blockquote {
-        border-top-color: white;
-      }
-    }
-    input {
-      &[type="text"], &[type="password"] {
-        background-color: #fdedec;
-        border-color: #ee4843;
-      }
-    }
-    textarea {
-      background-color: #fdedec;
-      border-color: #ee4843;
-    }
-  }
-  &.green {
-    li.element {
-      > div.feedback {
-        > div {
-          background-color: #00b05b;
-          color: white;
-        }
-        background-image: url('/view/m/images/superform/tooltip/beak/green/n.png');
-      }
-    }
-    > div.hint {
-      h4, blockquote {
-        background-color: #e7f3e8;
-        color: #00b05b;
-      }
-    }
-    div.elements > ol > li.busy > .title {
-      background: url('/view/m/images/superform/badge/busy/green.gif') no-repeat right top;
-    }
-    input {
-      &[type="text"], &[type="password"] {
-        background-color: #e7f3e8;
-        border-color: #00b05b;
-      }
-    }
-    textarea {
-      background-color: #e7f3e8;
-      border-color: #00b05b;
-    }
-  }
-
-
-
 
   > div {
     &.hint, &.elements {
@@ -143,8 +61,6 @@ div.superform {
     }
   }
 
-
-
   > div.elements {
     li.element li.element.inline {
       border-top: none;
@@ -163,24 +79,10 @@ div.superform {
     }
   }
 
-
-
   li.element {
     position: relative;
     clear: both;
     padding: 0;
-    &.fullwidth {
-      border-right: none !important;
-      background-color: #e7e7e7 !important;
-      margin-right: -2px !important;
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-      border-bottom: 1px dashed #b7c2c5 !important;
-      margin-bottom: -1px !important;
-      + li.element {
-        border-top: none;
-      }
-    }
     &.hidden {
       display: none;
     }
@@ -280,47 +182,7 @@ div.superform {
         margin: 1.2em 0 .4em 0;
       }
     }
-    > div.feedback {
-      font-size: 14px;
-      z-index: 999;
-      padding-top: 12px;
-      background: url('/view/m/images/superform/tooltip/beak/cyan/n.png') no-repeat 1em 0;
-      display: inline-block;
-      > div {
-        padding: 10px;
-        margin: 0;
-        background-color: #def1f1;
-        color: #7f8183;
-        box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
-        -moz-box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
-        -webkit-box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
-        position: relative;
-        -moz-border-radius: 7px;
-        -webkit-border-radius: 7px;
-        border-radius: 7px;
-        line-height: 16px !important;
-        + div {
-          margin-top: -10px;
-          z-index: 9999;
-          padding-top: .5em;
-        }
-        blockquote {
-          padding: 0;
-          margin: 0;
-          font-size: 13px;
-        }
-        &.error {
-          + div.hint > blockquote {
-            border-top: 1px dashed #b7c2C5;
-            padding-top: 1em;
-          }
-          blockquote {
-            padding-left: 30px;
-            background: url("superform/feedback/error.png") no-repeat left 0.2em;
-          }
-        }
-      }
-    }
+
     div.contents input {
       &.add[type="submit"], &.remove[type="submit"], &.edit[type="submit"], &.erase[type="submit"] {
         width: auto;
@@ -488,20 +350,6 @@ div.superform {
         border: 1px dashed #bcbdbf;
         padding: 10px 20px;
         margin: 20px 0 0 0;
-      }
-      &#user_webs .children .elements {
-        margin: 20px 0 0 0;
-        ol li div.elements {
-          border: none;
-          margin: 0;
-          padding: 0;
-        }
-      }
-      /*&#user_avatar h4, &#user_webs h4 {
-        padding: 0;
-        margin: 0;
-      }*/
-      &#user_avatar .children .elements {
         ol li {
           margin: 0 0 10px 0;
           padding: 0;
@@ -567,7 +415,6 @@ div.superform {
     padding: .4em;
   }
 
-
   button.image-remove {
     position: absolute;
     right: 5px;
@@ -586,64 +433,50 @@ div.superform {
     &#user_avatar li.avatar_upload input[type="submit"] {
       padding: 10px 16px;
     }
-     &#social_rewards h4.title, &#individual_rewards h4.title, &#supports h4.title, &#costs h4.title {
-       padding-left: 25px;
-     }
-     &#supports, &#social_rewards {
-       background-color: #f3f9f2 !important;
-     }
-     &#individual_rewards {
-       background-color: #f8e3e3 !important;
-     }
-     &.editcost {
-       background-color: #fdf3f4;
-     }
-     &.cost.required_cost-yes {
-       background-color: #f2e5f1 !important;
-     }
-     &.editcost {
-       &.required_cost-yes {
-         background-color: #f2e5f1 !important;
-       }
-       li.required_cost-yes {
-         background-color: #e4c9e2 !important;
-       }
-     }
-     &.cost.required_cost-no {
-       background-color: #f3f3f3 !important;
-     }
-     &.editcost {
-       &.required_cost-no {
-         background-color: #f3f3f3 !important;
-       }
-       li.required_cost-no {
-         background-color: #e2e2e2 !important;
-       }
-     }
-     &#gallery div.elements li.gallery-image {
-       margin: 5px 25px !important;
-       display: inline-block !important;
-       width: 153px !important;
-     }
-     &#scope, &#supports, &#social_rewards, &#individual_rewards {
-       border-bottom: 1px dashed #b7c2c5;
-     }
+    &#social_rewards h4.title,
+    &#individual_rewards h4.title,
+    &#supports h4.title,
+    &#costs h4.title {
+      padding-left: 25px;
+    }
+    /*&#supports,
+    &#social_rewards {
+      background-color: #f3f9f2 !important;
+    }
+    &#individual_rewards {
+      background-color: #f8e3e3 !important;
+    }
+    &.editcost {
+      background-color: #fdf3f4;
+      &.required_cost-yes {
+        background-color: #f2e5f1 !important;
+      }
+      li.required_cost-yes {
+        background-color: #e4c9e2 !important;
+      }
+      &.required_cost-no {
+        background-color: #f3f3f3 !important;
+      }
+      li.required_cost-no {
+        background-color: #e2e2e2 !important;
+      }
+    }
+    &.cost.required_cost-yes {
+      background-color: #f2e5f1 !important;
+    }
+    &.cost.required_cost-no {
+     background-color: #f3f3f3 !important;
+    }*/
+    &#gallery div.elements li.gallery-image {
+     margin: 5px 25px !important;
+     display: inline-block !important;
+     width: 153px !important;
+    }
+    &#scope,
+    &#supports,
+    &#social_rewards,
+    &#individual_rewards {
+     border-bottom: $dashedBorder;
+    }
   }
 }
-
-
-
-
-
-
-
-
-
-div.preview div.superform input {
-  &.next, &.confirm, &.retry {
-    padding: 0;
-  }
-}
-
-
-
