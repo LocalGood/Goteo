@@ -57,6 +57,7 @@ uasort($project->individual_rewards,
 			<div class="image">
 				<img src="<?php echo $individual->image->getLink(580, 580) ?>" alt="<?/*php todo: $project->新しく追加されるお礼画像のキャプション　を出す */?>">
 			</div>
+			<h<?php echo $level + 2 ?> id="<? echo 'individual_num' . $count; ?>" class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>>
             <dl class="amount">
                 <dt><?php echo Text::get('regular-support-amount'); ?></dt>
                 <dd><strong><?php echo \amount_format($individual->amount); ?></strong>円</dd>
@@ -70,7 +71,6 @@ uasort($project->individual_rewards,
                 </dl>
             <?php endif; ?>
             <div class="left">
-                <h<?php echo $level + 2 ?> id="<? echo 'individual_num' . $count; ?>" class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>>
                 <p><?php echo htmlspecialchars($individual->description)?></p>
                 <div class="buttons">
                     <a class="button violet supportit" href="/project/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest'); ?></a>
