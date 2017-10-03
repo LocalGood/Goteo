@@ -3056,7 +3056,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       width: 12px; }
     .project-show .center.supporters .project-invest p label input[type="checkbox"]:checked + span.chkbox {
       background-position: 0 -13px; }
-  .project-show .center.supporters .worthcracy {
+  .project-show .center.supporters .project-invest {
     margin-bottom: 20px; }
   .project-show .center.supporters .project-supporters ul li {
     min-height: 80px; }
