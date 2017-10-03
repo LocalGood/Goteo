@@ -2577,6 +2577,11 @@ body.js .superform > div.elements ol li.element div.contents p {
 .project-show .project-rewards-summary {
   background: none;
   padding: 0; }
+  .project-show .project-rewards-summary .image {
+    width: 100%;
+    margin: 0 0 20px 0; }
+    .project-show .project-rewards-summary .image img {
+      width: 100%; }
   .project-show .project-rewards-summary > div {
     background-color: #fff;
     padding: 20px; }

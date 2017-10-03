@@ -178,6 +178,13 @@
   .project-rewards-summary {
     background: none;
     padding: 0;
+    .image{
+      width: 100%;
+      margin: 0 0 20px 0;
+      img{
+        width: 100%;
+      }
+    }
     > div {
       background-color: #fff;
       padding: 20px;
