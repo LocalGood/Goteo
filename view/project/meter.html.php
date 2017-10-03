@@ -22,7 +22,6 @@ use Goteo\Library\Text;
 
 $level = (int) $this['level'] ?: 3;
 
-//todo: horとverのところを直す。全部horで出す。varだったものはwidthではなくheightに値が入ってしまっている（縦のレイアウトは無くなった）→JS
 //$horizontal = !empty($this['horizontal']);
 $horizontal = true;
 $big = !empty($this['big']);
@@ -55,7 +54,6 @@ if ($minimum_done >= 100) {
     $minimum_done = 100;
 }
 
-//todo:hor->widthとvar->heightはmax100%にしたい ex)一覧の「いのちの木」のPJ、.meter.horがはみ出る。
 $more  = $optimum - $minimum;
 $over = $reached - $minimum;
 

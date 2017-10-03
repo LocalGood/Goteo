@@ -47,6 +47,7 @@
         height:135px;
         margin:0;
         overflow:hidden;
+        position: relative;
         img {
           min-height: 135px;
         }
@@ -149,6 +150,22 @@
         }
       }
 
+      .tagmark{
+        width: 100%;
+        color: $grayCol03;
+        padding: 0 10px;
+        text-align: center;
+        z-index: 100;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        background: $grayCol01;
+        position: absolute;
+        bottom: 0;
+        &.green{
+          background: $color07;
+        }
+      }
     }
 
     .skillmatching {
@@ -1152,29 +1169,6 @@
         }
       }
     }
-  }
-}
-.tagmark{
-  width: 100%;
-  color: $grayCol03;
-  padding: 0 10px;
-  text-align: center;
-  z-index: 100;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  &.gray{
-    background: $grayCol01;
-  }
-  &.red{
-    background: $color07;
-  }
-  &.green{
-    background: $color06;
-  }
-  &.violet{
-    color: #FFF;
-    background: $color10;
   }
 }
 
