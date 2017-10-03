@@ -190,33 +190,32 @@
           }
         }
         ul.slderpag {
-          margin: 8px 0 0 0;
-          list-style:none;
-          padding:0;
           float:left;
           height:auto;
+          margin: 8px 0;
+          list-style:none;
+          padding:0;
           li{
             cursor:pointer;
             display: block;
             float: left;
             overflow: hidden;
-            margin: 0 4px 5px 4px;
+            margin: 0 4px;
             a{
-              width: 12px;
-              height: 12px;
-              margin-top: 2px;
-              background-color: #cdcdce;
-              color: #cdcdce;
+              background-color: $grayCol01;
+              color: $grayCol01;
               display:block;
+              height: 16px;
+              width: 16px;
               &:hover{
-                background-color: #20b3b2;
-                color: #20b3b2;
+                background-color: $mainCol02;
+                color: $mainCol02;
               }
             }
             &.current {
               a {
-                background-color: #808184 !important;
-                color: #808184 !important;
+                background-color: $mainCol02;
+                color: $mainCol02;
               }
             }
           }
@@ -224,24 +223,34 @@
         a {
           &.next,
           &.prev {
-            width: 16px;
-            height: 16px;
-            line-height: 2000px;
-            overflow: hidden;
-            float:left;
-            margin: 8px 0 0 0;
             cursor:pointer;
+            float:left;
+            height: 20px;
+            margin: 8px 0 0;
+            overflow: hidden;
+            position: relative;
+            width: 20px;
           }
           &.prev{
-            background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 0;
-            &:hover {
-              background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 -32px;
+            margin-right: 4px;
+            &:before {
+              border: 8px solid transparent;
+              border-right: 12px solid $mainCol02;
+              content: '';
+              display: block;
+              width: 0;
+              height: 0;
             }
           }
           &.next{
-            background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 -16px;
-            &:hover{
-              background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 -48px;
+            margin-left: 4px;
+            &:before {
+              border: 8px solid transparent;
+              border-left: 12px solid $mainCol02;
+              content: '';
+              display: block;
+              width: 0;
+              height: 0;
             }
           }
         }
