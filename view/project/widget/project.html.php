@@ -31,9 +31,7 @@ if ($this['global'] === true) {
 } else {
     $blank = '';
 }
-
 $categories = Category::getNames($project->id, 2);
-
 ?>
 
 <div class="widget project activable heightLine-project<?php if (isset($this['balloon'])) echo ' balloon' ?>">
@@ -64,13 +62,14 @@ $categories = Category::getNames($project->id, 2);
                 </a>
             </div>
 
-            <?php if (!empty($categories)): ?>
-                <div class="categories">
-                    <?php $sep = ''; foreach ($categories as $key=>$value) :
-                        echo $sep.htmlspecialchars($value);
-                        $sep = ', '; endforeach; ?>
-                </div>
-            <?php endif ?>
+	        <?php if (!empty($categories)): ?>
+				<div class="categories">
+			        <?php $sep = ''; foreach ($categories as $key=>$value) :
+				        echo $sep.'<a href="/discover/results/'.$key.'">'.htmlspecialchars($value).'</a>';
+				        $sep = ', '; endforeach; ?>
+				</div>
+	        <?php endif; ?>
+
         </div>
 
         <?php echo new View('view/project/meter_hor.html.php', array('project' => $project)) ?>
