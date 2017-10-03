@@ -10,11 +10,13 @@
   }
 
   #main {
-    div {
-      &.widget {
-        overflow: hidden;
-      }
+    div.widget {
+      overflow: hidden;
     }
+  }
+
+  ul#pagination {
+    margin: 0 20px 20px;
   }
 
   .searcher {

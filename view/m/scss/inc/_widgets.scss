@@ -187,7 +187,6 @@
         border-top: 1px solid $grayCol01;
         bottom: 0;
         letter-spacing: -.4em;
-        min-height: 70px;
         position: absolute;
         text-align: center;
         width: 100%;
@@ -196,6 +195,7 @@
           letter-spacing: normal;
           vertical-align: top;
           width: 50%;
+          min-height: 70px;
           &:first-child {
             border-right: 1px solid $grayCol01;
           }
