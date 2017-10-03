@@ -22,12 +22,21 @@ use Goteo\Core\View,
     Goteo\Core\ACL,
     Goteo\Library\Worth,
     Goteo\Model\User,
-    Goteo\Model\Invest,
     Goteo\Library\Text,
     Goteo\Model\License;
 
 $project = $this['project'];
 $personal = $this['personal'];
+
+$user = $_SESSION['user'];
+if ($user != NULL) {
+    $usedepslion = $user->getUsedEpsilon ();
+    $repeatf = ($usedepslion['usedcnt'] != 0) ? 1 : 0;
+} else {
+    $repeatf = 0;
+}
+
+
 
 // cantidad de aporte
 if (isset($_SESSION['invest-amount'])) {
@@ -49,11 +58,10 @@ $licenses = array();
 foreach (License::getAll() as $l) {
     $licenses[$l->id] = $l;
 }
-
 $action = ($step == 'start') ? '/user/login' : '/invest/' . $project->id;
 ?>
 <div class="widget project-invest project-invest-amount">
-    <h<?php echo $level ?> class="title"><?php echo Text::get('invest-amount') ?></h<?php echo $level ?>>
+    <h<?php echo $level+1 ?> class="title"><?php echo Text::get('invest-amount') ?></h<?php echo $level+1 ?>>
     
     <form method="post" action="<?php echo $action; ?>">
 
@@ -68,37 +76,35 @@ $action = ($step == 'start') ? '/user/login' : '/invest/' . $project->id;
         <div class="individual">
             <h<?php echo $level+1 ?> class="title"><?php echo Text::get('project-rewards-individual_reward-title'); ?></h<?php echo $level+1 ?>>
             <ul>
-                <li><label class="resign"><input class="individual_reward" type="radio" id="resign_reward" name="selected_reward" value="0" amount="0"/><?php echo Text::get('invest-resign') ?></label></li>
-                <!-- <span class="chkbox"></span> -->
+                <li>
+                    <label class="resign">
+                        <input class="individual_reward" type="radio" id="resign_reward" name="selected_reward" value="0" amount="0"/><?php echo Text::get('invest-resign') ?>
+                    </label>
+                </li>
             <?php foreach ($project->individual_rewards as $individual) : ?>
-            <li class="<?php echo $individual->icon ?><?php if ($individual->none) echo ' disabled' ?>">
-                
-                <label class="amount" for="reward_<?php echo $individual->id; ?>">
-                    <input type="radio" name="selected_reward" id="reward_<?php echo $individual->id; ?>" value="<?php echo $individual->id; ?>" amount="<?php echo $individual->amount; ?>" class="individual_reward" title="<?php echo htmlspecialchars($individual->reward) ?>" <?php if ($individual->none) echo 'disabled="disabled"' ?>/>
-                    <span class="amount"><?php echo $individual->amount; ?> 円</span>
-                <!-- <span class="chkbox"></span> -->
-            	<h<?php echo $level + 2 ?> class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>>
-                <?php
-                if (!empty($individual->image)):
-                    $imgsrc = $individual->image->getLink(200,200,false);
-                    ?>
-                    <div class="image">
-                        <img src="<?php echo $imgsrc ?>" alt="<?php echo htmlspecialchars($individual->reward) ?>" />
-                    </div>
-                    <?php
-                endif;
-                ?>
-                <p><?php echo htmlspecialchars($individual->description)?></p>
-                    <?php /* if ($individual->none) : // no quedan ?>
-                    <span class="left"><?php echo Text::get('invest-reward-none') ?></span>
-                    <?php elseif (!empty($individual->units)) : // unidades limitadas ?>
-                    <strong><?php echo Text::get('project-rewards-individual_reward-limited'); ?></strong><br />
+                <li class="<?php echo $individual->icon ?><?php if ($individual->none) echo ' disabled' ?>">
+                    <label class="amount" for="reward_<?php echo $individual->id; ?>">
+                        <input type="radio" name="selected_reward" id="reward_<?php echo $individual->id; ?>" value="<?php echo $individual->id; ?>" amount="<?php echo $individual->amount; ?>" class="individual_reward" title="<?php echo htmlspecialchars($individual->reward) ?>" <?php if ($individual->none) echo 'disabled="disabled"' ?>/>
+                        <span class="amount"><?php echo $individual->amount; ?> 円</span>
+                        <h<?php echo $level + 2 ?> class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>>
+                        <?php
+                        if (!empty($individual->image)):
+                            $img_src = $individual->image->getLink(200,200,false);
+                            ?>
+                            <img src="<?php echo $img_src ?>" alt="<?php echo htmlspecialchars($individual->reward) ?>" />
+                            <?php
+                        endif;
+                        ?>
+                        <p><?php echo htmlspecialchars($individual->description)?></p>
+                        <?php if ($individual->none) : // no quedan ?>
+                            <span class="left"><?php echo Text::get('invest-reward-none') ?></span>
+                        <?php elseif (!empty($individual->units)) : // unidades limitadas ?>
+                        <?/*<strong><?php echo Text::get('project-rewards-individual_reward-limited'); ?></strong><br />
                     <?php $units = ($individual->units - $individual->taken); // resto
-                    echo Text::html('project-rewards-individual_reward-units_left', $units); ?><br />
-                <?php endif; */ ?>
-                </label>
-                
-            </li>
+                    echo Text::html('project-rewards-individual_reward-units_left', $units); ?><br />*/?>
+                        <?php endif; ?>
+                    </label>
+                </li>
             <?php endforeach ?>
             </ul>
         </div>
@@ -115,13 +121,13 @@ if ($step == 'start') : ?>
         <button type="submit" class="button red" name="go-login" value=""><?php echo Text::get('imperative-register'); ?></button>
     </div>
 
-    <div class="reminder"><?php echo Text::get('invest-alert-investing') ?> <span id="amount-reminder"><?php echo $amount ?></span></div>
+    <div class="reminder"><span id="amount-reminder"><?php echo $amount ?></span> <?php echo Text::get('invest-alert-investing') ?></div>
 
 </div>
 <?php else : ?>
 <a name="continue"></a>
 <div class="widget project-invest address">
-    <h<?php echo $level ?> class="beak" id="address-header"><?php echo Text::get('invest-address-header') ?></h<?php echo $level ?>>
+    <h<?php echo $level ?> class="beak" id="address-header"><?php echo Text::get('invest-address-header'); ?></h<?php echo $level ?>>
     <table>
         <tr>
             <td>
@@ -142,25 +148,68 @@ if ($step == 'start') : ?>
             </td>
         </tr>
     </table>
-
     <p>
         <label><input type="checkbox" name="anonymous" value="1" /><span class="chkbox"></span><?php echo Text::get('invest-anonymous') ?></label>
     </p>
 </div>
+<?php if (ACL::check('/admin')) : ?>
+<div class="widget project-invest display-name">
+    <h<?php echo $level ?> class="beak" id="address-header">現金寄付時の表示名および連絡先メールアドレスを記入してください</h<?php echo $level ?>>
 
+    <table>
+        <tr>
+            <td>
+                <label for="disp_name">表示名：</label><br />
+                <input type="text" id="disp_name" name="disp_name" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="disp_name">メールアドレス：</label><br />
+                <input type="text" id="investor_email" name="investor_email" value="" />
+            </td>
+        </tr>
+    </table>
+</div>
+<?php endif; ?>
 
 <div class="widget project-invest method">
+
+<?php if ( defined('AXESON')) : ?>
     <h<?php echo $level ?> class="beak"><?php echo Text::get('project-invest-continue') ?>
-        <p style="color:#ff3300;margin-bottom: 0;">*注意<br />クレジットカードの決済システム上、次ページからの決済申込フォームでは料金が「￥0」と表示されますが、そのまま決済を進めていただくと正常に処理されますのでご安心ください。</p>
-    </h<?php echo $level ?>>
-            
+    <p style="color:#ff3300;margin-bottom: 0;">*注意<br />クレジットカードの決済システム上、次ページからの決済申込フォームでは料金が「￥0」と表示されますが、そのまま決済を進めていただくと正常に処理されますのでご安心ください。</p></h<?php echo $level ?>>
+<?php endif; ?>
+
+<?php if ( defined('EPSILONON')) : ?>
+    <h<?php echo $level ?> class="beak">
+    <p style="color:#ff3300;margin-bottom: 0;">２度目以降のご利用の場合は、「前回のクレジットカード」の利用で、クレジットカード番号の入力が不要となります。<br />なおクレジットカードの番号は、決済システムにのみ情報が保存されていますので安心してご利用いただけます。</p></h<?php echo $level ?>>
+<?php endif; ?>
+
+
+
 <input type="hidden" id="paymethod"  />
 
-    <?php if (ACL::check('/admin')) : ?>
-        <p><button type="submit" class="process pay-cash" name="method" value="cash">現金</button></p>
-    <?php endif; ?>
-    <!--<p><button type="submit" class="process pay-paypal" name="method"  value="paypal">PAYPAL</button></p>-->
-    <p><button type="submit" class="process pay-axes" name="method"  value="axes">クレジットカード</button></p>
+<?php if (ACL::check('/admin')) : ?>
+<p><button type="submit" class="process pay-cash" name="method" value="cash">現金</button></p>
+<?php endif; ?>
+<!--<p><button type="submit" class="process pay-paypal" name="method"  value="paypal">PAYPAL</button></p>-->
+
+<?php if ( defined('AXESON')) : ?>
+<p><button type="submit" class="process pay-axes" name="method"  value="axes">クレジットカード</button></p>
+<?php endif; ?>
+
+<?php if ( defined('EPSILONON')) : ?>
+<p><button type="submit" class="process pay-axes" name="method"  value="epsilon">新規のクレジットカード</button></p>
+<?php if ( $repeatf != 0) : ?>
+<p><button type="submit" class="process pay-axes" name="method"  value="epsilonrepeat">前回のクレジットカード</button><br />
+<p style="color:#ff3300;margin-bottom: 0;">クレジットカード番号を変更したい場合は、「新規のクレジットカード」にて自動更新されます。</p>
+</p>
+<?php endif; ?>
+<?php endif; ?>
+
+<?php if ( defined('EPSILONCONVENI')) : ?>
+    <p><button type="submit" class="process pay-axes" name="method"  value="conveni">コンビニ決済</button></p>
+<?php endif; ?>
 
 </div>
 <?php endif; ?>
@@ -348,8 +397,19 @@ if ($step == 'start') : ?>
                         return false;
                     }
                 } else {
+                    //When the supporter has selected a reward　--add 141030
+                    //var reward = $('#resign_reward').val();
+                    var name = $('#fullname').val();
+                    var add = $('#address').val();
+
+                    if (reward == 0 && (name == '' || add == '')) {
+                        alert('<?php echo Text::slash('invest-recipient-error') ?>');
+                        return false;
+                    }
+
+
                     /* Has elegido las siguientes recompensas */
-                    if (!confirm(reward+'<?php echo Text::slash('invest-alert-rewards') ?> ')) {
+                    if (!confirm( reward+' <?php echo Text::slash('invest-alert-rewards') ?> ')) {
                         return false;
                     }
                 }
@@ -361,7 +421,7 @@ if ($step == 'start') : ?>
                 }
             }
 
-            return confirm(amount+' <?php echo Text::slash('invest-alert-investing') ?>');
+            return confirm(amount+'<?php echo Text::slash('invest-alert-investing') ?>');
         });
 
 /* Seteo inicial por url */
