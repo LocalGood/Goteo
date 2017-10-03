@@ -49,7 +49,7 @@ if (isset($this['investor']) && is_object($this['investor'])) {
     <?php endif ?>
 
     <div class="image">
-        <span class="cf-icon"></span>
+<!--        <span class="cf-icon"></span>-->
         <?
         $project->gallery = Goteo\Model\Project\Image::getGallery($project->id);
         ?>

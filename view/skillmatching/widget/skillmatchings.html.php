@@ -48,7 +48,7 @@ if (isset($this['investor']) && is_object($this['investor'])) {
     <div class="balloon"><?php echo $this['balloon'] ?></div>
     <?php endif ?>
         <div class="image">
-            <span class="sm-icon"></span>
+<!--            <span class="sm-icon"></span>-->
             <?
             $project->gallery = Goteo\Model\Skillmatching\Image::getGallery($project->id);
             ?>

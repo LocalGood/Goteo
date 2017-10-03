@@ -50,7 +50,7 @@ if (isset($this['investor']) && is_object($this['investor'])) {
     <?php endif ?>
 
     <div class="image">
-        <span class="sm-icon"></span>
+<!--        <span class="sm-icon"></span>-->
         <?
         $project->gallery = Goteo\Model\Skillmatching\Image::getGallery($project->id);
         ?>
