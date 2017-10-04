@@ -28,8 +28,8 @@ $level = (int) $this['level'] ?: 3;
 	// Mark DOM as javascript-enabled
 	jQuery(document).ready(function ($) { 
 	    //change div#preview content when textarea lost focus
-		$("#message").blur(function(){
-			$("#preview").html($("#message").val().replace(/\n/g, "<br />"));
+		$("#message-text").blur(function(){
+			$("#preview").html($("#message-text").val().replace(/\n/g, "<br />"));
 		});
 		
 		//add fancybox on #a-preview click
@@ -47,7 +47,7 @@ $level = (int) $this['level'] ?: 3;
         
     <form method="post" action="/message/direct/<?php echo $project->id; ?>">
     	<div id="bocadillo"></div>
-        <textarea id="message" name="message" cols="50" rows="5"></textarea>
+        <textarea id="message-text" name="message" cols="50" rows="5"></textarea>
         
         <a target="_blank" id="a-preview" href="#preview" class="preview"><?php echo Text::get('regular-preview'); ?></a>
         <div style="display:none">

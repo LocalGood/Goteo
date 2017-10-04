@@ -228,14 +228,14 @@ $bodyClass = 'project-show skillmatching-show'; include 'view/prologue.html.php'
                         break;
                 }
                 ?>
+			<?php
+			//            var_dump($printSendMsg);
+			if($printSendMsg){
+				echo new View('view/skillmatching/widget/sendMsg.html.php',array('skillmatching' => $skillmatching));
+			}
+			?>
              </div>
 
-			<?php
-//            var_dump($printSendMsg);
-				if($printSendMsg){
-					 echo new View('view/skillmatching/widget/sendMsg.html.php',array('skillmatching' => $skillmatching));
-				}
-            ?>
 
         </div>
 

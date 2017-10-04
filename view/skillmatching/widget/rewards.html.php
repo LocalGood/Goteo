@@ -45,6 +45,7 @@ uasort($project->individual_rewards,
     );
 ?>
 <div class="widget project-rewards collapsable" id="project-rewards">
+	<h<?php echo $level + 1 ?> class="supertitle"><?php echo Text::get('skillmatching-rewards-individual_reward-title'); ?></h<?php echo $level + 1 ?>>
 
     <div class="project-widget-box">
 
@@ -52,7 +53,7 @@ uasort($project->individual_rewards,
             $count = 1;
         ?>
             <div class="individual">
-                <h<?php echo $level + 2 ?> class="title"><a href="/skillmatching/<?php echo $project->id; ?>/rewards#individual_ttl"><?php echo Text::get('skillmatching-rewards-individual_reward-title'); ?></a></h<?php echo $level + 2 ?>>
+
                 <ul>
                     <?php foreach ($project->individual_rewards as $individual) :?>
 
@@ -124,7 +125,7 @@ uasort($project->individual_rewards,
             $count = 1;
         ?>
         <div class="social">
-            <h<?php echo $level + 2 ?> class="title"><a href="/skillmatching/<?php echo $project->id; ?>/rewards#social_ttl"><?php echo Text::get('skillmatching-rewards-social_reward-title'); ?></a></h<?php echo $level + 2 ?>>
+
             <ul>
             <?php foreach ($project->social_rewards as $social) : ?>
                 <li class="<?php echo $social->icon ?>">
