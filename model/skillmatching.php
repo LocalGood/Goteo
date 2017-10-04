@@ -2335,15 +2335,19 @@ namespace Goteo\Model {
             //el Order
             if (!empty($filters['order'])) {
                 switch ($filters['order']) {
+                    case 'created':
+                        $sqlOrder .= " ORDER BY created DESC";
+                        break;
                     case 'updated':
                         $sqlOrder .= " ORDER BY updated DESC";
-                    break;
+                        break;
                     case 'name':
                         $sqlOrder .= " ORDER BY name ASC";
-                    break;
+                        break;
                     default:
-                        $sqlOrder .= " ORDER BY {$filters['order']}";
-                    break;
+//                        $sqlOrder .= " ORDER BY {$filters['order']}";
+                        $sqlOrder .= " ORDER BY created DESC";
+                        break;
                 }
             }
 

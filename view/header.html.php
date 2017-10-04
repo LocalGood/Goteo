@@ -81,6 +81,7 @@ use Goteo\Library\Text,
                     </div>
                 </li>
                 <li><a href="http://map.yokohama.localgood.jp/" target="_blank">3Dマップ</a>
+                <li><a href="<?= LOCALGOOD_WP_BASE_URL . '/about/'; ?>" >Local Good YOKOHAMAについて</a>
                 </li>
 				<li><a href="http://yokohama.localgood.jp.il3c.com/about/">Local Good YOKOHAMAについて</a></li>
                 <li class="gnav_goteo">

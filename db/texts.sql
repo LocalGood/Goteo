@@ -1278,3 +1278,7 @@ REPLACE INTO `text` VALUES ('wof-join-comunity','ja','プロジェクトを可�
 REPLACE INTO `text` VALUES ('wof-join-group','ja','プロジェクトを可能にするために役立っている人のグループに参加しましょう​​。');
 REPLACE INTO `text` VALUES ('wof-support','ja','サポート');
 REPLACE INTO `text` VALUES ('wof-title','ja','WALL SUPPORT');
+REPLACE INTO `text` VALUES ('admin-projects-list-order_created','ja','作成日');
+REPLACE INTO `text` VALUES ('admin-projects-list-order_name','ja','プロジェクト名');
+REPLACE INTO `text` VALUES ('admin-projects-list-order_updated','ja','更新日');
+

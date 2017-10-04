@@ -85,7 +85,7 @@ $action = ($step == 'start') ? '/user/login' : '/invest/' . $project->id;
                 <li class="<?php echo $individual->icon ?><?php if ($individual->none) echo ' disabled' ?>">
                     <label class="amount" for="reward_<?php echo $individual->id; ?>">
                         <span class="left">
-                            <input type="radio" name="selected_reward" id="reward_<?php echo $individual->id; ?>" value="<?php echo $individual->id; ?>" amount="<?php echo $individual->amount; ?>" class="individual_reward" title="<?php echo htmlspecialchars($individual->reward) ?>" <?php if ($individual->none) echo 'disabled="disabled"' ?>/>
+                            <input type="radio" name="selected_reward" id="reward_<?php echo $individual->id; ?>" value="<?php echo $individual->id; ?>" amount="<?php echo $individual->amount; ?>" class="individual_reward" title="<?php echo htmlspecialchars($individual->reward) ?>" <?php if ($individual->none) echo 'disabled="disabled"' ?> />
                             <span class="amount"><?php echo $individual->amount; ?> 円</span>
                         </span>
                         <span class="right">
@@ -432,6 +432,16 @@ if ($step == 'start') : ?>
 /* Seteo inicial por url */
         reset_amount('<?php echo $amount ?>');
 
-    });    
+        /* 寄付IDを指定して遷移 */
+        var reward_id = 0;
+        var match = location.search.match(/reward=(.*?)(&|$)/);
+        if(match) {
+          reward_id = decodeURIComponent(match[1]);
+          if (reward_id>0){
+            $('input#reward_'+reward_id).trigger('click');
+          }
+        }
+
+    });
     
 </script>
