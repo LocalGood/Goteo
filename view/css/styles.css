@@ -9,15 +9,13 @@ widgets       :主にプロジェクトウィジェットに対する設定。.w
 meter         :メーターの設定
 superform     :.superformに対する設定。form要素。プロジェクト作成、編集、プロフィール編集（マイページ内）などに使用。
 discover      :cfのトップ、プロジェクト一覧
-review        :マイメニューのうち、レビューのみ
 project-show  :プロジェクト詳細
 project-edit  :プロジェクト新規・編集
 dashboard     :マイメニュー
-community     :マニメニュー > このユーザーの興味
 admin         :管理者メニュー
 user-profile  :ユーザープロフィール
 user-login    :ログインページに対する設定
-page          :スタイル調整が必要なページ
+page          :スタイル調整が必要なページ()
 */
 /* Main Color */
 /* Gray Color */
@@ -698,7 +696,8 @@ body.project-embed {
         border-radius: 4px 4px 0 0;
         height: 135px;
         margin: 0;
-        overflow: hidden; }
+        overflow: hidden;
+        position: relative; }
         .widget.projects .project .image img {
           min-height: 135px; }
       .widget.projects .project-details {
@@ -790,6 +789,20 @@ body.project-embed {
           font-weight: 700;
           margin: 0;
           padding: 3px 5px 0; }
+      .widget.projects .project .tagmark {
+        width: 100%;
+        color: #454545;
+        padding: 0 10px;
+        text-align: center;
+        z-index: 100;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        background: #d9d9d9;
+        position: absolute;
+        bottom: 0; }
+        .widget.projects .project .tagmark.green {
+          background: #e08e22; }
     .widget.projects .skillmatching div.image span.sm-icon {
       position: absolute;
       top: 8px;
@@ -1579,25 +1592,6 @@ body.project-embed {
       .widget.gestrew .investor .left.username span.date {
         font-size: 12px; }
 
-.tagmark {
-  width: 100%;
-  color: #454545;
-  padding: 0 10px;
-  text-align: center;
-  z-index: 100;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-  .tagmark.gray {
-    background: #d9d9d9; }
-  .tagmark.red {
-    background: #e08e22; }
-  .tagmark.green {
-    background: #0093c4; }
-  .tagmark.violet {
-    color: #FFF;
-    background: #255B80; }
-
 /*----------------------------------------------------------------------
  .meter
 ----------------------------------------------------------------------*/
@@ -1608,28 +1602,7 @@ body.project-embed {
 .meter {
   margin: 0 16px;
   padding-bottom: 20px;
-  position: relative;
-  /*div.obtained {
-    text-align:center;
-    span.percent {
-    }
-    strong {
-      border-right:1px solid #a7a9ac;
-      color:#c60;
-      font-size:24px;
-      font-weight:700;
-    }
-  }*/
-  /*> h3.investment {
-    color:#363;
-  }*/
-  /*> h3.ronda {
-    color:#990;
-    position:absolute;
-    right:5px;
-    text-transform:lowercase;
-    top:4px;
-  }*/ }
+  position: relative; }
   .meter h2, .meter h3, .meter h4, .meter h5, .meter h6 {
     font-size: 12px;
     font-weight: 700;
@@ -1656,14 +1629,14 @@ body.project-embed {
   .meter div.graph {
     background-color: #d9d9d9;
     border-radius: 9px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
     height: 18px;
     margin-bottom: 20px;
     position: relative;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale; }
+    text-rendering: auto; }
     .meter div.graph:after {
       content: '目標';
       position: absolute;
@@ -1727,65 +1700,13 @@ body.project-embed {
       display: inline-block; }
   .meter dl.amount-bar {
     margin: 0 0 20px;
-    position: relative;
-    /*.optimum,
-    .minimum {
-      line-height:14px;
-      min-width:10%;
-      white-space:nowrap;
-    }
-    .optimum {
-      clear:right;
-      float:right;
-    }*/
-    /*dt {
-      &.days {
-        width:90px;
-      }
-      &.optimum,
-      &.minimum {
-        font-size:12px;
-        text-transform:uppercase;
-      }
-      &.optimum {
-        color:#69c;
-        margin-top:18px;
-      }
-      &.minimum {
-        left:0;
-        position:absolute;
-        top:-36px;
-      }
-    }
-    dd {
-      &.minimum {
-        left:0;
-        position:absolute;
-        top:-21px;
-      }
-      &.optimum {
-        color:#69c;
-      }
-      &.days {
-        color:#ee4843;
-        left:90px;
-        padding-left:10px;
-        right:-40px;
-      }
-    }*/ }
+    position: relative; }
     .meter dl.amount-bar .optimum,
     .meter dl.amount-bar .minimum {
       display: inline-block;
       line-height: 1.8; }
     .meter dl.amount-bar .days {
-      display: none;
-      /*border-top:1px solid #d1d3d4;
-      font-size:12px;
-      font-weight:700;
-      line-height:1.5em;
-      padding:.8em 0;
-      position:absolute;
-      top:90px;*/ }
+      display: none; }
     .meter dl.amount-bar dt.optimum, .meter dl.amount-bar dd.optimum {
       color: #454545; }
     .meter dl.amount-bar dt.minimum, .meter dl.amount-bar dd.minimum {
@@ -2388,65 +2309,6 @@ body.js .superform > div.elements ol li.element div.contents p {
   padding: 0; }
 .discover .widget.projects .project {
   min-height: 400px; }
-
-.review #main {
-  overflow: visible; }
-  .review #main div.widget {
-    margin-bottom: 20px; }
-.review #sub-header {
-  margin-bottom: 0;
-  padding-bottom: 4em; }
-.review #review-menu {
-  background-color: #d9d9d9;
-  display: block;
-  font-size: 13px;
-  margin: -2.6em auto 0;
-  max-width: 940px; }
-  .review #review-menu * {
-    box-sizing: content-box; }
-  .review #review-menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    position: relative; }
-  .review #review-menu ul li {
-    display: inline-block; }
-  .review #review-menu ul li,
-  .review #review-menu ul li a {
-    color: #FFF;
-    text-decoration: none; }
-  .review #review-menu ul li a {
-    display: inline-block;
-    height: 1.4em;
-    line-height: 1.4em;
-    padding: .6em 1em;
-    text-transform: uppercase; }
-  .review #review-menu ul li.section ul {
-    display: none; }
-  .review #review-menu ul li.section.current ul {
-    bottom: 0;
-    display: block;
-    height: 2.6em;
-    left: 0;
-    position: absolute;
-    right: 0;
-    z-index: 0; }
-  .review #review-menu ul li.section.active,
-  .review #review-menu ul li.section.current {
-    margin-bottom: 2.6em; }
-  .review #review-menu ul li.section.active ul {
-    bottom: 0;
-    display: block;
-    height: 2.6em;
-    left: 0;
-    position: absolute;
-    right: 0;
-    z-index: 9; }
-  .review #review-menu ul li.section.active,
-  .review #review-menu ul li.section.active ul,
-  .review #review-menu ul li.section.current,
-  .review #review-menu ul li.section.current ul {
-    background-color: #828282; }
 
 .project-show #main {
   margin: 0 auto; }
@@ -4788,110 +4650,6 @@ body.js .superform > div.elements ol li.element div.contents p {
   left: 100% !important;
   margin: 0 0 0 2em; }
 
-.community #main {
-  margin-top: 0; }
-.community .categorylist {
-  margin: 0 0 20px;
-  padding: 0; }
-  .community .categorylist h3.title {
-    background-color: #255b7f;
-    border-bottom: 1px solid #255b7f;
-    color: #f2f2f2;
-    font-size: 18px;
-    font-weight: 400;
-    margin: 0;
-    padding: .5em 2px .5em 20px; }
-.community .user-mates {
-  margin-bottom: 20px;
-  padding: 0;
-  overflow: hidden; }
-  .community .user-mates h3.title {
-    background-color: #454545;
-    color: #f2f2f2;
-    font-size: 14px;
-    font-weight: 400;
-    margin: 0;
-    padding: 4px 0 4px 20px; }
-  .community .user-mates > h3.title {
-    border-bottom: 1px solid #454545;
-    border-top: 1px solid #454545; }
-  .community .user-mates a.more {
-    background-color: #fff;
-    border-top: 1px dashed #d9d9d9;
-    display: block;
-    float: none;
-    font-size: 14px !important;
-    height: auto;
-    line-height: 1.5em;
-    margin: 0;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none; }
-.community .users {
-  clear: both;
-  padding: 0; }
-  .community .users ul {
-    background-color: #fff;
-    height: auto;
-    list-style: none;
-    margin: 0;
-    overflow: auto;
-    padding: 0; }
-    .community .users ul li {
-      border: none;
-      border-right: 1px dashed #d9d9d9;
-      border-top: 1px dashed #d9d9d9;
-      float: left;
-      margin: -1px 0 0;
-      max-width: 319px !important;
-      overflow: hidden;
-      padding: 10px;
-      position: relative;
-      width: 319px !important; }
-      .community .users ul li:nth-child(3n+3) {
-        border-right: none; }
-      .community .users ul li.active {
-        background-color: #f2f2f2 !important; }
-        .community .users ul li.active .user > h4 > a {
-          color: #255b7f; }
-      .community .users ul li .user {
-        padding: 3px 6px 3px 57px;
-        position: relative; }
-        .community .users ul li .user > a.expand {
-          bottom: 0;
-          left: 0;
-          position: absolute;
-          right: 0;
-          top: 0;
-          z-index: 99; }
-        .community .users ul li .user .avatar {
-          height: 50px;
-          left: 4px;
-          position: absolute;
-          text-align: center;
-          top: 8px;
-          width: 50px; }
-        .community .users ul li .user h4 {
-          margin-top: 4px; }
-          .community .users ul li .user h4 a {
-            display: inline-block;
-            font-weight: 700;
-            height: 26px; }
-      .community .users ul li a {
-        font-size: 12px !important;
-        text-decoration: none;
-        text-transform: none !important; }
-      .community .users ul li .profile {
-        display: inline-block;
-        margin-right: 15px;
-        color: #0093c4; }
-      .community .users ul li .invests {
-        color: #255B80; }
-      .community .users ul li .profile,
-      .community .users ul li .contact {
-        display: block;
-        float: left; }
-
 .admin input[type="text"],
 .admin input[type="password"],
 .admin textarea,
@@ -5911,6 +5669,220 @@ body.js .superform > div.elements ol li.element div.contents p {
   color: #f2f2f2;
   padding-left: 8px; }
 
+.about #main {
+  margin: 0 auto; }
+  .about #main > .widget {
+    margin: 0 0 20px 0; }
+.about div#sub-header div {
+  display: block;
+  max-width: 960px;
+  margin: 0 auto; }
+.about div#sub-header h2 {
+  min-height: 55px;
+  position: relative;
+  line-height: 1.2em;
+  font-size: 18px;
+  font-weight: normal; }
+  .about div#sub-header h2 a {
+    border-radius: 50%;
+    display: inline-block;
+    height: 55px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    width: 55px; }
+    .about div#sub-header h2 a img {
+      bottom: 0;
+      height: auto;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+      vertical-align: middle;
+      width: 100%; }
+  .about div#sub-header h2 em {
+    font-weight: bold;
+    font-size: 24px;
+    font-style: normal; }
+
+.review #sub-header {
+  height: 145px;
+  margin-bottom: 0;
+  padding-bottom: 4em; }
+  .review #sub-header .dashboard-header {
+    margin: 10px auto 0;
+    max-width: 960px;
+    min-height: 100px;
+    position: relative; }
+    .review #sub-header .dashboard-header h2 {
+      display: inline-block;
+      color: #666;
+      font-size: 30px;
+      margin: 0;
+      padding: 0;
+      vertical-align: middle; }
+.review #main {
+  overflow: visible; }
+  .review #main div.widget {
+    margin-bottom: 20px; }
+.review #review-menu {
+  background-color: #d9d9d9;
+  display: block;
+  font-size: 13px;
+  margin: -2.6em auto 0;
+  max-width: 940px; }
+  .review #review-menu * {
+    box-sizing: content-box; }
+  .review #review-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative; }
+  .review #review-menu ul li {
+    display: inline-block; }
+  .review #review-menu ul li,
+  .review #review-menu ul li a {
+    color: #FFF;
+    text-decoration: none; }
+  .review #review-menu ul li a {
+    display: inline-block;
+    height: 1.4em;
+    line-height: 1.4em;
+    padding: .6em 1em;
+    text-transform: uppercase; }
+  .review #review-menu ul li.section ul {
+    display: none; }
+  .review #review-menu ul li.section.current ul {
+    bottom: 0;
+    display: block;
+    height: 2.6em;
+    left: 0;
+    position: absolute;
+    right: 0;
+    z-index: 0; }
+  .review #review-menu ul li.section.active,
+  .review #review-menu ul li.section.current {
+    margin-bottom: 2.6em; }
+  .review #review-menu ul li.section.active ul {
+    bottom: 0;
+    display: block;
+    height: 2.6em;
+    left: 0;
+    position: absolute;
+    right: 0;
+    z-index: 9; }
+  .review #review-menu ul li.section.active,
+  .review #review-menu ul li.section.active ul,
+  .review #review-menu ul li.section.current,
+  .review #review-menu ul li.section.current ul {
+    background-color: #828282; }
+
+.community #main {
+  margin-top: 0; }
+.community .categorylist {
+  margin: 0 0 20px;
+  padding: 0; }
+  .community .categorylist h3.title {
+    background-color: #255b7f;
+    border-bottom: 1px solid #255b7f;
+    color: #f2f2f2;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+    padding: .5em 2px .5em 20px; }
+.community .user-mates {
+  margin-bottom: 20px;
+  padding: 0;
+  overflow: hidden; }
+  .community .user-mates h3.title {
+    background-color: #454545;
+    color: #f2f2f2;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+    padding: 4px 0 4px 20px; }
+  .community .user-mates > h3.title {
+    border-bottom: 1px solid #454545;
+    border-top: 1px solid #454545; }
+  .community .user-mates a.more {
+    background-color: #fff;
+    border-top: 1px dashed #d9d9d9;
+    display: block;
+    float: none;
+    font-size: 14px !important;
+    height: auto;
+    line-height: 1.5em;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none; }
+.community .users {
+  clear: both;
+  padding: 0; }
+  .community .users ul {
+    background-color: #fff;
+    height: auto;
+    list-style: none;
+    margin: 0;
+    overflow: auto;
+    padding: 0; }
+    .community .users ul li {
+      border: none;
+      border-right: 1px dashed #d9d9d9;
+      border-top: 1px dashed #d9d9d9;
+      float: left;
+      margin: -1px 0 0;
+      max-width: 319px !important;
+      overflow: hidden;
+      padding: 10px;
+      position: relative;
+      width: 319px !important; }
+      .community .users ul li:nth-child(3n+3) {
+        border-right: none; }
+      .community .users ul li.active {
+        background-color: #f2f2f2 !important; }
+        .community .users ul li.active .user > h4 > a {
+          color: #255b7f; }
+      .community .users ul li .user {
+        padding: 3px 6px 3px 57px;
+        position: relative; }
+        .community .users ul li .user > a.expand {
+          bottom: 0;
+          left: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
+          z-index: 99; }
+        .community .users ul li .user .avatar {
+          height: 50px;
+          left: 4px;
+          position: absolute;
+          text-align: center;
+          top: 8px;
+          width: 50px; }
+        .community .users ul li .user h4 {
+          margin-top: 4px; }
+          .community .users ul li .user h4 a {
+            display: inline-block;
+            font-weight: 700;
+            height: 26px; }
+      .community .users ul li a {
+        font-size: 12px !important;
+        text-decoration: none;
+        text-transform: none !important; }
+      .community .users ul li .profile {
+        display: inline-block;
+        margin-right: 15px;
+        color: #0093c4; }
+      .community .users ul li .invests {
+        color: #255B80; }
+      .community .users ul li .profile,
+      .community .users ul li .contact {
+        display: block;
+        float: left; }
+
 .user-login {
   min-height: unset; }
   .user-login #main {
@@ -6023,58 +5995,5 @@ body.js .superform > div.elements ol li.element div.contents p {
       .user-login .login textarea[type="checkbox"],
       .user-login .login input:not([type="submit"])[type="checkbox"] {
         display: inline-block; }
-
-.about #main {
-  margin: 0 auto; }
-  .about #main > .widget {
-    margin: 0 0 20px 0; }
-.about div#sub-header div {
-  display: block;
-  max-width: 960px;
-  margin: 0 auto; }
-.about div#sub-header h2 {
-  min-height: 55px;
-  position: relative;
-  line-height: 1.2em;
-  font-size: 18px;
-  font-weight: normal; }
-  .about div#sub-header h2 a {
-    border-radius: 50%;
-    display: inline-block;
-    height: 55px;
-    overflow: hidden;
-    position: relative;
-    text-align: center;
-    vertical-align: middle;
-    width: 55px; }
-    .about div#sub-header h2 a img {
-      bottom: 0;
-      height: auto;
-      left: 0;
-      margin: auto;
-      position: absolute;
-      right: 0;
-      top: 0;
-      vertical-align: middle;
-      width: 100%; }
-  .about div#sub-header h2 em {
-    font-weight: bold;
-    font-size: 24px;
-    font-style: normal; }
-
-.review #sub-header {
-  height: 145px; }
-  .review #sub-header .dashboard-header {
-    margin: 10px auto 0;
-    max-width: 960px;
-    min-height: 100px;
-    position: relative; }
-    .review #sub-header .dashboard-header h2 {
-      display: inline-block;
-      color: #666;
-      font-size: 30px;
-      margin: 0;
-      padding: 0;
-      vertical-align: middle; }
 
 /*# sourceMappingURL=styles.css.map */

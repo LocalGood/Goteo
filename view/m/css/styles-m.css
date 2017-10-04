@@ -1,21 +1,20 @@
 @charset "UTF-8";
 /*
+palette       :WPで設定した可変カラーの自動生成ファイル
 colors        :カラーコードの変数
 mixins        :mixin設定
 base          :リセット、タグに対するベース設定
 commons       :header,footerなどの共通要素に対する設定
 widgets       :主にプロジェクトウィジェットに対する設定。.widgetが付くものに対する設定も少々
 meter         :メーターの設定
-superform     :.superformに対する設定。（form要素）
+superform     :.superformに対する設定。form要素。プロジェクト作成、編集、プロフィール編集（マイページ内）などに使用。
 home          :body.home配下に対する設定
 discover      :cfのトップ、プロジェクト一覧
-review        :マイメニューのうち、レビューのみ
 project-show  :プロジェクト詳細
-project-edit  :プロジェクト新規・編集
 dashboard     :マイメニュー
 community     :マニメニュー > このユーザーの興味
-admin         :
 user-profile  :ユーザープロフィール
+user-login    :ログインページ
 */
 /* Main Color */
 /* Sub Color */
@@ -35,8 +34,7 @@ user-profile  :ユーザープロフィール
  borders
 ----------------------------------------------------------------------*/
 * {
-  box-sizing: border-box;
-  font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif; }
+  box-sizing: border-box; }
 
 html {
   height: 100%;
@@ -46,6 +44,7 @@ html {
 body {
   background-color: #f2f2f2;
   color: #454545;
+  font-family: 'メイリオ', "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
   font-size: 14px;
   margin: 0;
   min-height: 100%;
@@ -85,10 +84,14 @@ a:link {
     color: #009acb; }
 
 input[type="text"],
+input[type="password"] {
+  box-sizing: border-box; }
+
+input[type="text"],
 input[type="password"],
 textarea,
 fieldset {
-  background-color: #eeeeee;
+  background-color: #ffffff;
   border: 1px solid #d9d9d9;
   min-height: 27px;
   padding: .3em; }
@@ -113,12 +116,8 @@ a.button {
   background: none;
   background-color: #009480;
   border: none;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
   border-radius: 3px;
-  -moz-box-shadow: 0 3px 3px 0 #ccc;
-  -webkit-box-shadow: 0 3px 3px 0 #ccc;
-  box-shadow: 0 3px 3px 0 #ccc;
+  box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
   color: white;
   cursor: pointer;
   display: block;
@@ -131,24 +130,31 @@ a.button {
   text-align: center;
   text-decoration: none;
   width: 250px; }
+  input[type="submit"].disabled,
+  input[type="reset"].disabled,
+  input[type="button"].disabled,
+  button.disabled,
+  a.button.disabled {
+    background: #d9d9d9;
+    box-shadow: none;
+    color: #ffffff;
+    cursor: default; }
+    input[type="submit"].disabled:hover,
+    input[type="reset"].disabled:hover,
+    input[type="button"].disabled:hover,
+    button.disabled:hover,
+    a.button.disabled:hover {
+      opacity: 1; }
 
-input.black[type="button"] {
-  background: #58595B;
-  background: -moz-linear-gradient(top, #58595B 0%, #333333 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #58595B), color-stop(100%, #333333));
-  background: -webkit-linear-gradient(top, #58595B 0%, #333333 100%);
-  background: -o-linear-gradient(top, #58595B 0%, #333333 100%);
-  background: -ms-linear-gradient(top, #58595B 0%, #333333 100%);
-  background: linear-gradient(to bottom, #58595B 0%, #333333 100%); }
+input.back[type="button"] {
+  background: none;
+  background: #828282; }
 
 button.green {
   line-height: 38px;
   height: 38px;
   padding: 0;
   width: 140px; }
-
-body.project-edit div#main #project-steps button {
-  width: auto; }
 
 a.button.red {
   font-size: 16px;
@@ -174,20 +180,6 @@ a.button.red {
   display: block; }
 
 /* End hide from IE-mac */
-a.up {
-  display: inline-block;
-  padding-left: 15px;
-  margin-left: 18px;
-  background: url("/view/m/images/arrow-up3.png") no-repeat left;
-  line-height: 20px;
-  font-size: 12px;
-  text-decoration: none;
-  color: #9f9f9f;
-  margin-bottom: 40px; }
-  a.up:hover {
-    background: url("/view/m/images/arrow-up.png") no-repeat left;
-    color: #20b3b2; }
-
 /* /user/m/leave */
 textarea#leave-message {
   width: 100%; }
@@ -196,35 +188,42 @@ textarea#leave-message {
   header
 --------------------------------------------------*/
 .main_nav02 {
-  background: #fff;
+  zoom: 1;
+  background: #ffffff;
   box-shadow: -1px 2px 2px rgba(9, 9, 9, 0.2);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  font-size: 12px;
   height: 60px;
   left: 0;
+  line-height: 1.6em;
   padding: 16px 19px 16px 13px;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 99999; }
+  .main_nav02:after {
+    content: '';
+    display: block;
+    clear: both; }
   .main_nav02 .nav_logo {
     float: left; }
     .main_nav02 .nav_logo img {
       width: 35%; }
   .main_nav02 .nav_menu-button {
-    background: #fff;
+    background: #ffffff;
+    box-sizing: content-box;
     float: right;
     height: 23px;
     padding: 7px 0 3px;
     width: 21px; }
     .main_nav02 .nav_menu-button span {
-      background: #255b80;
+      background: #255b7f;
       display: block;
       height: 3px;
       margin-bottom: 3px; }
   .main_nav02 .main_nav__link-list {
-    background: #fff;
+    background: #ffffff;
     box-shadow: -1px 2px 2px rgba(9, 9, 9, 0.2);
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -243,37 +242,43 @@ textarea#leave-message {
       display: none; }
     .main_nav02 .main_nav__link-list .list01 {
       list-style: none;
+      margin-top: 0;
       padding: 0; }
+      .main_nav02 .main_nav__link-list .list01 > li > a {
+        color: #454545; }
       .main_nav02 .main_nav__link-list .list01 li dt {
         display: block;
+        line-height: 21px;
         margin-top: 14px; }
       .main_nav02 .main_nav__link-list .list01 li dd {
+        height: 30px;
         margin: 0; }
       .main_nav02 .main_nav__link-list .list01 li .list01__text {
         border-bottom: solid 1px #d9d9d9;
-        color: #575757;
         display: block;
-        font-size: 14px !important;
+        font-size: 130%;
         font-weight: 600;
         padding: 20px 0; }
       .main_nav02 .main_nav__link-list .list01 li .list02 {
         border-bottom: solid 1px #d9d9d9;
+        margin: 0;
         padding-bottom: 20px;
         padding-left: 20px; }
         .main_nav02 .main_nav__link-list .list01 li .list02 a {
           background: url("/view/m/images/header/s-main_nav-icon.png") no-repeat left;
           display: block;
-          font-size: 13px;
+          font-size: 120%;
           line-height: 2.5em;
           padding-left: 20px; }
+          .main_nav02 .main_nav__link-list .list01 li .list02 a:link, .main_nav02 .main_nav__link-list .list01 li .list02 a:visited, .main_nav02 .main_nav__link-list .list01 li .list02 a:active {
+            color: #255b7f; }
       .main_nav02 .main_nav__link-list .list01 li a {
         text-decoration: none; }
   .main_nav02 .nav_menu-button .close_button {
-    color: #255b80;
-    font-size: 200%;
+    color: #255b7f;
+    font-size: 250%;
     font-weight: 600;
-    display: none;
-    margin-top: -20px; }
+    display: none; }
 
 #sub-header,
 #sub-header-secondary {
@@ -287,55 +292,71 @@ textarea#leave-message {
 
 /* Sub-header */
 #sub-header {
-  margin-top: 60px; }
+  margin-top: 60px;
+  /*&.banners {
+    padding: 0;
+    > div > div.mod-pojctopen {
+      margin-left: 0;
+      margin-right: 32px;
+      margin-top: 16px;
+    }
+  }*/ }
   #sub-header h2.title {
     padding: 10px;
     text-align: center; }
-  #sub-header.banners {
-    padding: 0; }
-    #sub-header.banners > div > div.mod-pojctopen {
-      margin-left: 0;
-      margin-right: 32px;
-      margin-top: 16px; }
-  #sub-header > div.clearfix {
-    min-width: 915px; }
-    #sub-header > div.clearfix > div {
-      float: left;
-      width: 680px; }
-  #sub-header > div > h2 {
-    margin: 0;
-    padding: 0; }
-  #sub-header > div > div.mod-pojctopen {
-    float: right;
-    width: 180px; }
-    #sub-header > div > div.mod-pojctopen > .modpo-open {
-      color: #ee4843;
-      font: bold 58px/72px Helvetica, Arial, Geneva, sans-serif;
-      text-align: center; }
-    #sub-header > div > div.mod-pojctopen > .modpo-percent {
-      border-bottom: 1px solid #d9d9d9;
-      color: #908499;
-      font: bold 22px Helvetica, Arial, Geneva, sans-serif;
-      margin: -10px 0 0;
-      padding: 4px 0 8px;
-      text-align: center; }
-    #sub-header > div > div.mod-pojctopen > .modpo-whyopen {
-      font: bold 14px Helvetica, Arial, Geneva, sans-serif;
-      padding: 6px 0 0 50px; }
+  #sub-header > div {
+    /*> div.mod-pojctopen {
+      float: right;
+      width: 180px;
+      > {
+        .modpo-open {
+          color: $alertCol;
+          font-size: 58px;
+          font-weight: 600;
+          line-height: 72px;
+          text-align: center;
+        }
+        .modpo-percent {
+          border-bottom: $solidBorder;
+          color: #908499;
+          font-size: 22px;
+          font-weight: 600;
+          margin: -10px 0 0;
+          padding: 4px 0 8px;
+          text-align: center;
+        }
+        .modpo-whyopen {
+          font-size: 14px;
+          font-weight: 600;
+          padding: 6px 0 0 50px;
+        }
+      }
+    }*/ }
+    #sub-header > div.clearfix {
+      min-width: 915px; }
+      #sub-header > div.clearfix > div {
+        float: left;
+        width: 680px; }
+    #sub-header > div > h2 {
+      margin: 0;
+      padding: 0; }
 
-.subhead-banner h2.message .greenblue {
-  color: #908499; }
-.subhead-banner .banner-button {
-  bottom: 10px;
-  position: absolute;
-  right: 20px; }
-
+/*.subhead-banner {
+  h2.message .greenblue {
+    color: #908499;
+  }
+  .banner-button {
+    bottom: 10px;
+    position: absolute;
+    right: 20px;
+  }
+}*/
 /*--------------------------------------------------
 footer
 --------------------------------------------------*/
 footer {
   background: #255b7f;
-  color: #fff;
+  color: #ffffff;
   padding: 40px 20px 10px; }
   footer .footer__link-title {
     font-size: 14px;
@@ -350,9 +371,12 @@ footer {
     list-style: none;
     margin-bottom: 30px;
     padding-left: 0; }
-  footer a {
-    color: #fff !important;
-    font-size: 12px !important;
+  footer a,
+  footer a:link,
+  footer a:active,
+  footer a:visited {
+    color: #ffffff;
+    font-size: 12px;
     text-decoration: none; }
   footer .footer_bottom .footer_logo {
     margin-left: -10px; }
@@ -375,7 +399,7 @@ footer {
   footer .footer_bottom .link {
     margin-bottom: 30px; }
     footer .footer_bottom .link span {
-      background: #fff;
+      background: #ffffff;
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       border-radius: 50%;
@@ -389,7 +413,7 @@ footer {
       width: 15px; }
 
 .sp_footer_logo-area {
-  background: #fff;
+  background: #ffffff;
   padding: 25px 25px 10px 25px; }
   .sp_footer_logo-area .cw {
     font-size: 50% !important;
@@ -397,7 +421,12 @@ footer {
   .sp_footer_logo-area ul {
     list-style: none;
     padding: 0;
-    width: 100%; }
+    width: 100%;
+    zoom: 1; }
+    .sp_footer_logo-area ul:after {
+      content: '';
+      display: block;
+      clear: both; }
     .sp_footer_logo-area ul li {
       display: table;
       float: left;
@@ -418,24 +447,29 @@ footer {
   contents
 --------------------------------------------------*/
 #message {
-  background: none repeat scroll 0 0 #ffa375;
-  color: #333333;
+  background-color: #e02d22;
+  color: #ffffff;
   font-size: 14px;
-  padding: 25px 0;
+  padding: 20px;
   width: 100%; }
   #message #message-content {
     margin: 0 auto;
     position: relative;
     width: 100%; }
     #message #message-content input.message-close {
-      background: url("/view/m/images/message-close.png") no-repeat;
+      background: none;
       border: none;
+      box-shadow: none;
+      color: #ffffff;
       cursor: pointer;
-      height: 10px;
+      font-size: 20px;
+      font-weight: 600;
+      height: 20px;
+      line-height: 100%;
       position: absolute;
-      right: 0;
-      top: -8px;
-      width: 11px;
+      right: -14px;
+      top: -26px;
+      width: 20px;
       z-index: 100; }
     #message #message-content ul {
       list-style: none;
@@ -444,14 +478,6 @@ footer {
 
 #wrapper {
   margin-top: 60px; }
-
-.contents_wrapper {
-  background-color: #f5f3f0;
-  height: auto;
-  margin: 0 auto 0;
-  padding-bottom: 20px;
-  position: relative;
-  width: 100%; }
 
 #main {
   clear: both;
@@ -467,16 +493,14 @@ ul#pagination {
   padding: 0; }
   ul#pagination li {
     background: white;
-    -moz-box-shadow: 3px 3px 0 #E2E2E2;
-    -webkit-box-shadow: 3px 3px 0 #E2E2E2;
-    box-shadow: 3px 3px 0 #E2E2E2;
+    box-shadow: 3px 3px 0 #d9d9d9;
     display: inline;
     float: left;
     margin: 0 6px 0 0;
     text-align: center;
     width: auto; }
     ul#pagination li.selected {
-      background: #cde4e5;
+      background: #f2f2f2;
       font-weight: 600;
       padding: 6px 20px; }
     ul#pagination li.hellip {
@@ -487,48 +511,11 @@ ul#pagination {
       padding: 6px 20px;
       text-decoration: none; }
       ul#pagination li a:hover {
-        background: #F3F3F3; }
+        background: #f2f2f2; }
 
-/*ul.lang {
-  position: absolute;
-  left: 0;
-  top: 25px;
-  z-index: 1000;
-  list-style: none;
-  display: none;
-  background-color: #fff;
-  margin: 0;
-  padding: 0;
-  li {
-    background-color: #59595C;
-    height: 15px;
-    padding: 4px 0;
-    position: relative;
-    width: 70px;
-    text-align: center;
-    &:hover {
-      background: $grayCol02;
-      > a {
-        color: #908499;
-      }
-    }
-    > a {
-      bottom: 0;
-      color: #FFFFFF;
-      font-size: 12px;
-      position: relative;
-      text-decoration: none;
-      top: 0;
-      width: 100%;
-      display: block;
-    }
-  }
-}*/
 .widget .title {
   font-size: 18px;
-  font-weight: 600;
-  padding-left: 6px;
-  text-decoration: none; }
+  font-weight: 600; }
 .widget .supertitle {
   font-size: 18px;
   font-weight: 300;
@@ -542,269 +529,209 @@ ul#pagination {
 .widget a.more {
   float: none;
   display: block;
-  background-color: #fff;
+  background-color: #ffffff;
   padding: 10px;
   text-align: center;
   text-decoration: none; }
-.widget.projects #widget-code {
-  width: 350px;
-  float: left;
-  margin: 0 0 0 20px; }
-  .widget.projects #widget-code .wc-embed {
-    background: url("/view/m/images/social/embed.png") no-repeat;
-    min-height: 20px;
-    padding: 3px 0 0 25px; }
-  .widget.projects #widget-code textarea {
-    width: 200px;
-    height: 130px;
-    margin: 10px 0;
-    padding: 10px;
-    background: #E7E7E7;
-    border: none;
-    font-size: 12px;
-    resize: none; }
-.widget.projects > .title {
-  margin: 0;
-  padding: 16px; }
-.widget.projects .project {
-  background-color: #fff;
-  margin: 0 auto;
-  overflow: hidden;
-  padding: 0;
-  position: relative;
-  z-index: 98; }
-  .widget.projects .project h3.title {
-    margin: 0 16px 16px; }
-  .widget.projects .project a.expand {
-    padding: 0;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    z-index: 99; }
-  .widget.projects .project a.button {
-    padding: 0.4em 1em !important; }
-.widget.projects > .more {
-  clear: both;
-  text-align: right; }
-  .widget.projects > .more a {
-    text-decoration: none; }
-    .widget.projects > .more a:hover {
-      text-decoration: underline; }
-.widget.projects > .widget-title {
-  padding: 0 0 0 30px; }
-.widget.projects > .widget-porject-legend {
-  margin: 0 0 20px 30px; }
-.widget.projects > .project-code {
-  float: left;
-  height: auto;
-  margin-left: 45px;
-  overflow: auto;
-  width: auto; }
-.widget.projects > #widget-code {
-  float: left;
-  margin: 0 0 0 20px;
-  width: 350px; }
-  .widget.projects > #widget-code .wc-embed {
-    background: url("/view/m/images/social/embed.png") no-repeat;
-    height: 20px;
-    padding: 3px 0 0 25px; }
-  .widget.projects > #widget-code textarea {
-    background: #E7E7E7;
-    border: none;
-    font-size: 12px;
-    margin: 10px 0;
-    padding: 10px;
-    resize: none;
-    width: 200px; }
-.widget.project {
-  overflow: visible;
-  position: relative; }
-  .widget.project.active div.image {
-    opacity: 0.85; }
-  .widget.project.active > .title a {
-    color: #c5da4d !important; }
-  .widget.project .image {
-    background-color: #deddde;
-    margin-bottom: 16px;
-    min-height: 180px;
-    overflow: hidden;
-    padding: 0 !important;
-    position: relative;
-    text-align: center;
-    width: 100%; }
-    .widget.project .image a img {
-      display: block;
-      width: 100vw;
-      height: auto; }
-    .widget.project .image span.cf-icon {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      width: 60px;
-      height: 60px;
-      background-image: url("/view/m/images/lg-project-cf.png");
-      background-size: 60px 60px; }
-    .widget.project .image span.sm-icon {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      width: 60px;
-      height: 60px;
-      background-image: url("/view/m/images/lg-project-sm.png");
-      background-size: 60px 60px; }
-    .widget.project .image .investor {
-      position: absolute;
-      z-index: 899;
-      background-color: #f3f3f3;
-      margin-top: 70px;
-      margin-left: 3px; }
-      .widget.project .image .investor img {
-        width: 34px !important;
-        height: 34px !important;
-        margin: 3px;
-        float: left; }
-      .widget.project .image .investor .invest {
-        text-align: left;
-        font-size: 12px;
-        line-height: 9px;
-        color: #faf8f8;
-        float: left;
-        padding-top: 12px;
-        padding-left: 2px;
-        padding-right: 4px; }
-        .widget.project .image .investor .invest span.amount {
-          color: #cc6600;
-          font-weight: 600;
-          font-size: 16px;
-          line-height: 18px;
-          padding-right: 19px; }
-    .widget.project .image .categories {
-      text-align: left;
-      color: #ffffff;
-      background-color: rgba(25, 181, 179, 0.8);
-      font-size: 0.8em;
-      padding: 2px 8px;
-      cursor: default;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      left: 0; }
-  .widget.project > .title {
-    font-size: 14px;
-    padding: 0;
-    margin: 10px; }
-    .widget.project > .title a {
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      position: relative;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 900; }
-      .widget.project > .title a:hover {
-        color: #c5da4d; }
-  .widget.project .title {
-    background: none; }
-  .widget.project .balloon {
-    background: #cae4e6 url("/view/m/images/balloonbeak.png") no-repeat bottom left;
-    height: auto; }
-    .widget.project .balloon > .title a {
-      position: relative;
-      z-index: 99;
-      line-height: 1.5em;
-      font-size: 18px;
-      color: #0098c4; }
-    .widget.project .balloon > blockquote {
-      font-size: 12px;
-      margin: 0;
-      overflow: hidden;
-      padding-bottom: 10px; }
-    .widget.project .balloon > h4 {
-      font-size: 14px;
-      font-weight: 600;
-      margin: 0 0 .5em;
-      padding: 0; }
-  .widget.project > .author {
-    padding: 2px 0 0 12px;
-    overflow: hidden; }
-  .widget.project > .author,
-  .widget.project > .author a {
-    font-weight: 600;
-    font-size: 12px;
-    text-decoration: none;
-    position: relative;
-    z-index: 100; }
-  .widget.project .description {
-    padding: 2px 12px;
-    font-size: 12px; }
-  .widget.project .skills {
-    line-height: 16px; }
-    .widget.project .skills a {
-      font-size: 11px; }
-  .widget.project div.rewards h2, .widget.project div.rewards h3, .widget.project div.rewards h4, .widget.project div.rewards h5, .widget.project div.rewards h6 {
-    margin: 0;
-    line-height: 22px;
+.widget.projects {
+  background-color: #ffffff;
+  margin: 20px 0;
+  padding-top: 20px; }
+  .widget.projects h2.title {
+    padding-top: 0; }
+  .widget.projects #widget-code {
+    width: 350px;
     float: left;
-    width: 70px;
-    font-size: 12px; }
-  .widget.project div.rewards ul {
+    margin: 0 0 0 20px; }
+    .widget.projects #widget-code .wc-embed {
+      background: url("/view/m/images/social/embed.png") no-repeat;
+      min-height: 20px;
+      padding: 3px 0 0 25px; }
+    .widget.projects #widget-code textarea {
+      width: 200px;
+      height: 130px;
+      margin: 10px 0;
+      padding: 10px;
+      background: #E7E7E7;
+      border: none;
+      font-size: 12px; }
+  .widget.projects > .title {
     margin: 0;
-    padding: 0;
-    list-style: none;
+    padding: 16px; }
+  .widget.projects > .more {
+    clear: both;
+    text-align: right; }
+    .widget.projects > .more a {
+      text-decoration: none; }
+      .widget.projects > .more a:hover {
+        text-decoration: underline; }
+  .widget.projects .widget-title {
+    padding: 0 0 0 30px; }
+  .widget.projects .widget-porject-legend {
+    margin: 0 0 20px 30px; }
+  .widget.projects > .project-code {
+    float: left;
+    height: auto;
+    margin-left: 45px;
+    overflow: auto;
+    width: auto; }
+  .widget.projects .discover-arrow-left,
+  .widget.projects .discover-arrow-right {
+    display: none; }
+  .widget.projects .project {
+    background-color: #ffffff;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    margin: 0 auto 20px;
+    padding-bottom: 70px;
     position: relative;
-    z-index: 910; }
-    .widget.project div.rewards ul li {
-      display: inline-block;
-      margin-right: 3px;
-      width: 22px;
-      height: 22px;
-      line-height: 2000px;
-      text-indent: 2000px;
+    overflow: hidden;
+    width: 92%;
+    z-index: 98; }
+    .widget.projects .project.active div.image {
+      opacity: 0.85; }
+    .widget.projects .project.active > .title a {
+      color: #c5da4d !important; }
+    .widget.projects .project a.expand {
+      padding: 0;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 99; }
+    .widget.projects .project .image {
+      background-color: #deddde;
+      min-height: 180px;
       overflow: hidden;
-      background-image: url("/view/m/images/icon/s/blank.png");
-      opacity: 0.60; }
-      .widget.project div.rewards ul li.active {
-        opacity: 1 !important; }
-      .widget.project div.rewards ul li a {
-        display: block;
-        width: 21px;
-        height: 21px;
-        line-height: 2000px;
-        text-indent: 2000px;
-        position: relative;
-        z-index: 910; }
-      .widget.project div.rewards ul li.food {
-        background-image: url("/view/m/images/icon/s/food.png"); }
-      .widget.project div.rewards ul li.file {
-        background-image: url("/view/m/images/icon/s/file.png"); }
-      .widget.project div.rewards ul li.money {
-        background-image: url("/view/m/images/icon/s/money.png"); }
-      .widget.project div.rewards ul li.code {
-        background-image: url("/view/m/images/icon/s/code.png"); }
-      .widget.project div.rewards ul li.service {
-        background-image: url("/view/m/images/icon/s/service.png"); }
-      .widget.project div.rewards ul li.manual {
-        background-image: url("/view/m/images/icon/s/manual.png"); }
-      .widget.project div.rewards ul li.product {
-        background-image: url("/view/m/images/icon/s/product.png"); }
-      .widget.project div.rewards ul li.design {
-        background-image: url("/view/m/images/icon/s/design.png"); }
-      .widget.project div.rewards ul li.other {
-        background-image: url("/view/m/images/icon/s/other.png"); }
-  .widget.project div.buttons {
-    padding-top: 10px !important; }
-    .widget.project div.buttons a.button {
-      margin: 0;
-      padding-top: 0 !important;
+      padding: 0 !important;
       position: relative;
-      z-index: 900; }
-    .widget.project div.buttons .button + .button {
-      float: right; }
+      text-align: center;
+      width: 100%; }
+      .widget.projects .project .image a img {
+        display: block;
+        width: 100vw;
+        height: auto; }
+    .widget.projects .project .tagmark {
+      background: #d9d9d9;
+      bottom: 0;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      color: #454545;
+      padding: 2px 10px;
+      position: absolute;
+      text-align: center;
+      width: 100%; }
+      .widget.projects .project .tagmark.green {
+        background: #e08e22; }
+    .widget.projects .project .project-details {
+      margin: 16px; }
+      .widget.projects .project .project-details h3.title {
+        background: none;
+        font-size: 14px;
+        margin: 0 0 12px;
+        padding: 0; }
+        .widget.projects .project .project-details h3.title a {
+          font-size: 14px;
+          font-weight: 600;
+          text-decoration: none;
+          position: relative;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 900; }
+      .widget.projects .project .project-details .author {
+        margin-bottom: 10px; }
+        .widget.projects .project .project-details .author .link {
+          display: block;
+          font-size: 12px;
+          text-decoration: none;
+          position: relative; }
+        .widget.projects .project .project-details .author .author-img {
+          border-radius: 50%;
+          display: inline-block;
+          height: 30px;
+          overflow: hidden;
+          position: relative;
+          text-align: center;
+          vertical-align: middle;
+          width: 30px; }
+          .widget.projects .project .project-details .author .author-img img {
+            bottom: 0;
+            height: auto;
+            left: 0;
+            margin: auto;
+            position: absolute;
+            right: 0;
+            top: 0;
+            vertical-align: middle;
+            width: 100%; }
+      .widget.projects .project .project-details .categories {
+        background: url(/view/images/icon_tag.png) no-repeat left 50%;
+        color: #828282;
+        font-size: 12px;
+        padding-left: 20px; }
+    .widget.projects .project .meter .amount-bar {
+      display: none; }
+    .widget.projects .project .want-support {
+      border-top: 1px solid #d9d9d9;
+      bottom: 0;
+      letter-spacing: -.4em;
+      position: absolute;
+      text-align: center;
+      width: 100%; }
+      .widget.projects .project .want-support > div {
+        display: inline-block;
+        letter-spacing: normal;
+        vertical-align: top;
+        width: 50%;
+        min-height: 70px; }
+        .widget.projects .project .want-support > div:first-child {
+          border-right: 1px solid #d9d9d9; }
+      .widget.projects .project .want-support h4 {
+        font-size: 12px;
+        line-height: 1;
+        margin: 10px 0 8px; }
+      .widget.projects .project .want-support img {
+        height: 30px; }
+      .widget.projects .project .want-support .days {
+        height: 30px;
+        line-height: 30px; }
+        .widget.projects .project .want-support .days strong {
+          color: #000; }
+    .widget.projects .project .balloon {
+      background: #cae4e6 url("/view/m/images/balloonbeak.png") no-repeat bottom left;
+      height: auto;
+      padding: 12px; }
+      .widget.projects .project .balloon > .title a {
+        position: relative;
+        z-index: 99;
+        line-height: 1.5em;
+        font-size: 18px;
+        color: #0098c4; }
+      .widget.projects .project .balloon > blockquote {
+        font-size: 12px;
+        margin: 0;
+        overflow: hidden;
+        padding-bottom: 10px; }
+      .widget.projects .project .balloon > h4 {
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0 0 .5em;
+        padding: 0; }
+    .widget.projects .project .skillmatching div.image span.sm-icon {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 40px;
+      height: 40px;
+      background-image: url("/view/images/lg-project-sm.png");
+      background-size: 40px 40px; }
+    .widget.projects .project .skillmatching div.meter dl .days {
+      top: 160px; }
 .widget.project-support .supertitle {
   background-color: #58585a;
   color: #ffffff;
@@ -821,6 +748,20 @@ ul#pagination {
 .widget.project-support .invest-notice {
   font-size: 13px;
   padding: 0 20px 20px; }
+.widget.project-support .meter dl.reached-bar .supporters {
+  display: inline-block; }
+  .widget.project-support .meter dl.reached-bar .supporters strong {
+    color: #000;
+    font-size: 16px; }
+.widget.project-support .meter dl.reached-bar dt.supporters :before {
+  content: '/';
+  display: inline-block; }
+.widget.project-support .meter dl.percent {
+  top: 58px; }
+.widget.project-support .meter dl.amount-bar dt {
+  min-width: 90px; }
+.widget.project-support .meter dl.amount-bar dd {
+  min-width: 110px; }
 .widget.project-summary {
   border-bottom: 1px solid #d9d9d9; }
   .widget.project-summary h1, .widget.project-summary h2, .widget.project-summary h3, .widget.project-summary h4, .widget.project-summary h5, .widget.project-summary h6 {
@@ -835,10 +776,7 @@ ul#pagination {
   .widget.project-summary h5, .widget.project-summary h6 {
     font-size: 16px; }
   .widget.project-summary > div {
-    margin-bottom: 1em;
     font-size: 14px; }
-    .widget.project-summary > div:last-child {
-      margin-bottom: 0; }
   .widget.project-summary.h_ttl {
     background: none;
     border-bottom: none;
@@ -868,9 +806,6 @@ ul#pagination {
         text-decoration: none; }
         .widget.project-summary.h_ttl .categories a:hover {
           color: #20B3B2; }
-  .widget.project-summary > div {
-    font-size: 14px;
-    margin-bottom: 1em; }
   .widget.project-summary > .wants-skills .matched_skill {
     background-color: #f99;
     font-size: 11px; }
@@ -907,10 +842,9 @@ ul#pagination {
     left: 0;
     margin: auto;
     max-width: 500px;
-    top: 75px;
-    width: 340px; }
+    top: 75px; }
 .widget.user {
-  background-color: #fff; }
+  background-color: #ffffff; }
   .widget.user .supertitle {
     display: none; }
   .widget.user h3.supertitle {
@@ -1054,17 +988,21 @@ ul#pagination {
         font-weight: 600;
         text-decoration: none; }
   .widget.user .widget.user-social {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     padding: 0; }
     .widget.user .widget.user-social .title {
       display: none; }
     .widget.user .widget.user-social ul {
+      zoom: 1;
       list-style: none;
       margin: 0;
       overflow: visible;
       padding: 0; }
-      .widget.user .widget.user-social ul li {
+      .widget.user .widget.user-social ul:after {
+        content: '';
         display: block;
+        clear: both; }
+      .widget.user .widget.user-social ul li {
         float: left;
         margin-right: 10px; }
         .widget.user .widget.user-social ul li a {
@@ -1160,7 +1098,6 @@ ul#pagination {
     height: 50px;
     margin: 0 0 12px;
     padding: .3em 0;
-    resize: none;
     width: 85%; }
   .widget.project-message a.preview {
     display: inline-block;
@@ -1573,7 +1510,7 @@ ul#pagination {
       display: none; }
   .widget.project-schedule table tbody th,
   .widget.project-schedule table tbody td {
-    border-bottom: 8px solid #fff;
+    border-bottom: 8px solid #ffffff;
     box-sizing: content-box;
     height: 30px;
     padding: 0 8px;
@@ -1767,7 +1704,7 @@ ul#pagination {
   .widget.post .comments-num {
     float: none;
     background: transparent url("/view/m/images/ico-blogcomment.png") scroll no-repeat 10px 0;
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 0 0 0 40px;
     height: 40px;
     width: auto;
@@ -1907,7 +1844,6 @@ ul#pagination {
     height: 50px;
     margin: 0 0 12px;
     padding: .3em 0;
-    resize: none;
     width: 85%; }
   .widget.blog-comment a.preview {
     color: #2EAB58;
@@ -2022,9 +1958,211 @@ ul#pagination {
     padding-right: 30px;
     background: url("/view/m/images/yen/violet/l.png") no-repeat center right;
     border-bottom: 1px solid #990033; }
+.widget.project-invest h1, .widget.project-invest h2, .widget.project-invest h3, .widget.project-invest h4, .widget.project-invest h5, .widget.project-invest h6 {
+  font-weight: 700;
+  margin-top: 0;
+  text-transform: none; }
+.widget.project-invest h1, .widget.project-invest h2, .widget.project-invest h3 {
+  font-size: 24px; }
+.widget.project-invest h4 {
+  font-size: 18px; }
+.widget.project-invest h5, .widget.project-invest h6 {
+  font-size: 16px; }
+.widget.project-invest > div {
+  margin-bottom: 2em; }
+.widget.project-invest ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+.widget.project-invest div.invest-message {
+  background: url("/view/images/project/view/invest/message_beak.png") no-repeat left bottom;
+  min-height: 70px; }
+  .widget.project-invest div.invest-message h2 {
+    margin: 0 !important; }
+    .widget.project-invest div.invest-message h2 span {
+      color: #000; }
+  .widget.project-invest div.invest-message img {
+    float: left;
+    margin-right: 20px; }
+  .widget.project-invest div.invest-message span.message {
+    color: #454545 !important;
+    font-size: 0.9em !important;
+    font-weight: 400 !important;
+    padding: 0;
+    text-transform: none !important; }
+.widget.project-invest h3.beak {
+  position: relative;
+  background: #255b7f;
+  color: #ffffff;
+  font-size: 1em !important;
+  padding: 20px;
+  text-transform: uppercase !important; }
+  .widget.project-invest h3.beak::after {
+    border: 10px solid transparent;
+    border-top: 10px solid #255b7f;
+    bottom: -20px;
+    content: '';
+    display: block;
+    height: 0;
+    left: 20px;
+    position: absolute;
+    width: 0; }
+  .widget.project-invest h3.beak span {
+    display: block; }
+.widget.project-invest form {
+  padding: 24px 0 24px 8px; }
+.widget.project-invest.project-invest-amount {
+  margin-bottom: 20px; }
+  .widget.project-invest.project-invest-amount h3.title {
+    font-size: 20px;
+    margin-bottom: 12px;
+    padding-left: 0; }
+  .widget.project-invest.project-invest-amount form {
+    padding: 12px 0; }
+  .widget.project-invest.project-invest-amount h4 {
+    margin-bottom: 12px; }
+  .widget.project-invest.project-invest-amount label::before {
+    background: #255b7f;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    content: '￥';
+    display: inline-block;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    height: 25px;
+    line-height: 27px;
+    margin-right: 6px;
+    text-align: center;
+    vertical-align: top;
+    width: 25px; }
+  .widget.project-invest.project-invest-amount #amount {
+    color: #255B80;
+    font-size: 24px;
+    font-weight: 700;
+    height: 24px;
+    line-height: 40px;
+    margin-right: 8px;
+    padding: 0 8px;
+    width: 140px; }
+.widget.project-invest.address table {
+  width: 100%; }
+  .widget.project-invest.address table td {
+    padding-bottom: 8px; }
+.widget.project-invest.address label {
+  padding-right: 5px;
+  text-align: right; }
+.widget.project-invest.address #fullname,
+.widget.project-invest.address #address {
+  width: 100%; }
+.widget.project-invest.address #nif, .widget.project-invest.address #zipcode {
+  width: 100px; }
+.widget.project-invest.method h3.beak::after {
+  left: 0;
+  right: 0;
+  margin: auto; }
+.widget.project-invest.method input#paymethod {
+  width: 145px;
+  margin: 0 auto;
+  padding-bottom: 25px; }
+.widget.project-invest div.individual ul {
+  border-top: 1px solid #d9d9d9; }
+  .widget.project-invest div.individual ul li {
+    border-bottom: 1px solid #d9d9d9;
+    padding: 0; }
+    .widget.project-invest div.individual ul li label {
+      zoom: 1;
+      padding: 16px 20px; }
+      .widget.project-invest div.individual ul li label:after {
+        content: '';
+        display: block;
+        clear: both; }
+      .widget.project-invest div.individual ul li label.amount {
+        color: #255B80;
+        cursor: pointer;
+        display: block;
+        font-weight: 700; }
+        .widget.project-invest div.individual ul li label.amount h1, .widget.project-invest div.individual ul li label.amount h2, .widget.project-invest div.individual ul li label.amount h3, .widget.project-invest div.individual ul li label.amount h4, .widget.project-invest div.individual ul li label.amount h5, .widget.project-invest div.individual ul li label.amount h6 {
+          color: #000;
+          font-size: 13px;
+          font-weight: 400; }
+        .widget.project-invest div.individual ul li label.amount h5 {
+          color: #454545;
+          font-weight: 600;
+          margin-bottom: 8px; }
+        .widget.project-invest div.individual ul li label.amount p {
+          color: #454545;
+          font-size: 13px;
+          font-weight: 400;
+          margin: 0; }
+      .widget.project-invest div.individual ul li label.resign {
+        cursor: pointer;
+        display: block; }
+      .widget.project-invest div.individual ul li label .left {
+        display: block;
+        float: left;
+        width: 60%; }
+      .widget.project-invest div.individual ul li label .right {
+        display: block;
+        float: right;
+        width: 40%; }
+        .widget.project-invest div.individual ul li label .right img {
+          width: 100%;
+          height: auto; }
+    .widget.project-invest div.individual ul li.disabled {
+      background-color: #f2f2f2; }
+      .widget.project-invest div.individual ul li.disabled label.amount {
+        color: #454545; }
+.widget.project-invest button.pay-tpv {
+  background: url("/view/images/button/tpv.gif") no-repeat 0 0 transparent;
+  height: 35px;
+  padding: 3px;
+  text-indent: 2000px;
+  width: 178px; }
+.widget.project-invest button.pay-paypal {
+  background: url("/view/images/button/paypal.gif") no-repeat 0 0 transparent;
+  height: 32px;
+  padding: 3px;
+  text-indent: 2000px;
+  width: 145px; }
+.widget.project-invest button:hover {
+  border: 1px solid #0093c4; }
+.widget.project-invest p label {
+  cursor: pointer;
+  line-height: 14px; }
+  .widget.project-invest p label input[type="checkbox"] {
+    opacity: 0; }
+  .widget.project-invest p label input[type="checkbox"] + span.chkbox {
+    background: url("/view/images/project/widget/checkbox_disabled.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 12px;
+    margin-top: -15px;
+    position: absolute;
+    width: 12px; }
+  .widget.project-invest p label input[type="checkbox"]:checked + span.chkbox {
+    background-position: 0 -13px; }
+.widget.invest-message {
+  background: url(/view/images/project/view/invest/message_beak.png) no-repeat left bottom;
+  background-color: #cce7e8 !important;
+  min-height: 70px; }
+  .widget.invest-message h2 {
+    margin: 0 !important; }
+    .widget.invest-message h2 span {
+      color: #232020; }
+      .widget.invest-message h2 span.message {
+        color: #57595b !important;
+        font-size: 0.9em !important;
+        font-weight: 400 !important;
+        padding: 0;
+        text-transform: none !important; }
+  .widget.invest-message img {
+    float: left;
+    margin-right: 20px; }
 
 .meter {
   margin: 0 16px;
+  padding-bottom: 20px;
   position: relative; }
   .meter h2, .meter h3, .meter h4, .meter h5, .meter h6 {
     font-size: 12px;
@@ -2037,12 +2175,7 @@ ul#pagination {
     .meter dl dd {
       margin: 0; }
   .meter dl.reached-bar {
-    margin-bottom: 14px;
-    /*dt.reached {
-      font-size: 14px;
-      font-weight: 300;
-      padding-top: 0;
-    }*/ }
+    margin-bottom: 35px; }
     .meter dl.reached-bar .reached {
       color: #000;
       display: inline-block; }
@@ -2054,9 +2187,30 @@ ul#pagination {
     background-color: #d9d9d9;
     border-radius: 9px;
     height: 20px;
-    margin-bottom: 20px;
-    overflow: hidden;
-    position: relative; }
+    position: relative;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; }
+    .meter div.graph:after {
+      content: '目標';
+      position: absolute;
+      top: -30px;
+      right: -0.9em;
+      display: inline-block;
+      width: 2em;
+      font-size: 11px;
+      background: #FFF;
+      z-index: 101; }
+    .meter div.graph:before {
+      content: '\f175';
+      position: absolute;
+      top: -16px;
+      right: 0;
+      text-align: center;
+      color: #828282;
+      font-size: 15px; }
     .meter div.graph .done {
       background-color: #009acb;
       border-radius: 9px;
@@ -2079,6 +2233,7 @@ ul#pagination {
       border-radius: 9px;
       height: 100%;
       left: 0;
+      overflow: hidden;
       position: absolute;
       top: 0; }
       .meter div.graph .minimum .left {
@@ -2090,12 +2245,12 @@ ul#pagination {
       position: absolute;
       right: 0; }
   .meter dl.percent {
-    color: #FFF;
+    color: #ffffff;
     font-size: 12px;
     line-height: 20px;
     margin-left: 16px;
     position: absolute;
-    top: 35px;
+    top: 55px;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7); }
     .meter dl.percent dt, .meter dl.percent dd {
       display: inline-block; }
@@ -2107,20 +2262,37 @@ ul#pagination {
       line-height: 1.8; }
     .meter dl.amount-bar .days {
       display: none; }
-    .meter dl.amount-bar dt.optimum, .meter dl.amount-bar dd.optimum {
-      color: #454545; }
-    .meter dl.amount-bar dt.minimum, .meter dl.amount-bar dd.minimum {
-      color: #454545; }
-    .meter dl.amount-bar dt.reached, .meter dl.amount-bar dd.reached {
-      margin-top: 16px; }
-    .meter dl.amount-bar dt.optimum, .meter dl.amount-bar dt.minimum {
-      width: 100px; }
-    .meter dl.amount-bar dd.optimum, .meter dl.amount-bar dd.minimum {
-      width: 110px; }
   .meter.activable {
     padding-left: 0;
     padding-right: 0;
     z-index: 999; }
+  .meter__minimum {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: #FFF;
+    z-index: 100;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; }
+    .meter__minimum:after {
+      content: "\f175";
+      position: absolute;
+      top: -16px;
+      left: -2px;
+      text-align: center;
+      color: #828282;
+      font-size: 15px; }
+    .meter__minimum:before {
+      content: '必須';
+      position: absolute;
+      top: -30px;
+      left: -0.9em;
+      width: 2em;
+      font-size: 11px; }
   .meter.skillmatching {
     padding: 4px 0 78px; }
     .meter.skillmatching dl.reached-bar {
@@ -2137,492 +2309,288 @@ ul#pagination {
         content: '/';
         display: inline-block; }
 
-.datepickerContainer {
-  background: white;
-  box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2);
-  position: relative;
-  z-index: 99999; }
-
-.datepickerBorderT, .datepickerBorderB, .datepickerBorderL, .datepickerBorderR, .datepickerBorderTL, .datepickerBorderTR, .datepickerBorderBL, .datepickerBorderBR, .datepickerHidden {
-  display: none; }
-
-div.datepicker {
-  position: absolute;
-  cursor: default;
-  top: 0;
-  left: 0;
-  display: none; }
-  div.datepicker a {
-    outline: none; }
-    div.datepicker a :hover {
-      color: white;
-      background-color: #1FB0B0; }
-  div.datepicker table {
-    border-collapse: collapse;
-    width: 100%; }
-    div.datepicker table td {
-      text-align: right;
-      margin: 0;
-      font-size: 12px;
-      border: none; }
-    div.datepicker table tbody td a {
-      text-decoration: none;
-      color: #1fb0b0;
-      font-size: 12px !important; }
-    div.datepicker table td div.datepicker th {
-      text-align: center;
-      color: #999;
-      font-weight: 300; }
-  div.datepicker tbody th {
-    text-align: left; }
-  div.datepicker tbody a {
-    display: block; }
-
-td.datepickerNotInMonth a {
-  color: #68c9c9 !important; }
-
-tbody.datepickerMonths td, tbody.datepickerYears td {
-  padding: .1em; }
-  tbody.datepickerMonths td a, tbody.datepickerYears td a {
-    padding: .4em;
-    background-color: #dff2f3;
-    border: 1px solid #1fb0b0;
-    width: 3.15em;
-    height: 3.9em;
-    line-height: 3.9em;
-    text-align: center; }
-  tbody.datepickerMonths td.datepickerSelected, tbody.datepickerYears td.datepickerSelected {
-    background: #17384d; }
-tbody.datepickerDays td.datepickerSelected a {
-  color: white;
-  background-color: #1FB0B0; }
-tbody.datepickerDays td.datepickerNotInMonth.datepickerSelected {
-  background: #17384d; }
-
-.datepickerDays td, .datepickerDays th {
-  padding: .1em; }
-.datepickerDays a {
-  line-height: 1em;
-  width: 1.3em;
-  height: 1em;
-  padding: .4em;
-  background-color: #dff2f3;
-  border: 1px solid #1fb0b0; }
-
-.datepickerGoNext,
-.datepickerGoPrev,
-.datepickerMonth {
-  height: 2em;
-  padding: .2em;
-  line-height: 2em;
-  background-color: #1FB0B0; }
-  .datepickerGoNext a,
-  .datepickerGoPrev a,
-  .datepickerMonth a {
-    text-align: center;
-    color: white !important; }
-
-.datepickerGoNext a {
-  float: right;
-  width: 2em; }
-
-.datepickerGoPrev a {
-  float: left;
-  width: 2em; }
-
-table.datepickerViewDays tbody.datepickerMonths, table.datepickerViewDays tbody.datepickerYears {
-  display: none; }
-table.datepickerViewDays tr.datepickerDoW th {
-  padding: .6em .4em;
-  font-weight: 300;
-  color: #666;
-  text-align: center;
-  font-size: 12px; }
-table.datepickerViewMonths tbody.datepickerDays, table.datepickerViewMonths tbody.datepickerYears {
-  display: none; }
-table.datepickerViewMonths tr.datepickerDoW {
-  display: none; }
-table.datepickerViewYears tbody.datepickerDays, table.datepickerViewYears tbody.datepickerMonths {
-  display: none; }
-table.datepickerViewYears tr.datepickerDoW {
-  display: none; }
-
-td.datepickerDisabled a, td.datepickerDisabled.datepickerNotInMonth a, td.datepickerDisabled a:hover {
-  color: #333; }
-
-/*----------------------------------------------------------------------
-  superform.css
-----------------------------------------------------------------------*/
 body.js div.superform .jshidden {
   display: none; }
 body.js div.superform > div.hint {
   background: url("/view/m/images/superform/wizard.png") no-repeat right top;
-  border-right: 1px dashed #b7c2c5; }
-
-body.js div.superform > div.elements > ol > li.element div.contents {
-  font-size: 14px; }
-body.js div.superform > div.elements > ol > li.element li.element {
-  margin-right: 0;
   border-right: none; }
-body div.superform > div.elements li.element li.element.inline {
-  border-top: none; }
-body div.superform div.elements li#user_avatar .children .elements {
-  border: 1px dashed #bcbdbf;
-  padding: 10px 20px;
-  margin: 20px 0 0 0; }
-body div.superform div.elements li#user_webs .children .elements {
-  border: 1px dashed #bcbdbf;
-  padding: 10px 20px;
-  margin: 20px 0 0 0; }
-  body div.superform div.elements li#user_webs .children .elements ol li div.elements {
-    border: none;
-    margin: 0;
-    padding: 0; }
-body div.superform div.elements li#user_avatar h4, body div.superform div.elements li#user_webs h4 {
-  padding: 0;
-  margin: 0; }
-body div.superform div.elements li#user_avatar .children .elements ol li {
-  margin: 0 0 10px 0;
-  padding: 0; }
-body div.superform div.elements li#user_avatar .children .elements input {
-  width: auto;
-  height: auto;
-  font-size: 12px;
-  line-height: 16px;
-  font-weight: 300;
-  width: 100%; }
-body div.superform div.elements li.element.inline#avatar-image .contents {
-  border: 2px solid #def1f1;
-  border-radius: 6px;
-  margin: 6px; }
+body.js div.superform li.element > div.feedback {
+  display: none;
+  position: absolute; }
+body.js div.superform.red li.element > div.feedback {
+  background-image: url("/view/m/images/superform/tooltip/beak/red/w.png"); }
+body.js div.superform.aqua li.element > div.feedback {
+  background-image: url("/view/m/images/superform/tooltip/beak/aqua/w.png"); }
+body.js div.superform.green li.element > div.feedback {
+  background-image: url("/view/m/images/superform/tooltip/beak/green/w.png"); }
 
-div.superform fieldset {
-  border: 1px solid #99a2a5; }
-  div.superform fieldset legend {
-    color: #6d7375; }
-div.superform h3 {
-  font-size: 30px; }
-div.superform li.element > h4, div.superform li.element > h5, div.superform li.element > h6 {
-  margin: 0 0 .6em;
-  font-size: 14px; }
-div.superform li.element > h4 {
-  font-size: 16px;
-  padding: 0;
-  line-height: 1.2em;
-  margin: 1em 0; }
-div.superform li.element > h5 {
-  font-weight: 600;
-  margin: 0 0 .4em 0; }
-div.superform li.element > label {
-  font-weight: 600;
-  margin: 1em 0;
-  display: block; }
 div.superform > div {
   position: relative; }
   div.superform > div.hint, div.superform > div.elements {
     overflow: visible; }
-div.superform.hint {
-  color: #7f8183;
-  overflow: hidden;
-  margin-top: 10px; }
-  div.superform.hint h4, div.superform.hint blockquote {
+div.superform div.hint {
+  color: #828282;
+  margin-top: 10px;
+  overflow: hidden; }
+  div.superform div.hint h4,
+  div.superform div.hint blockquote {
     background-color: #ffffff;
-    padding: 10px;
-    vertical-align: top;
     border-width: 1px 0 0;
-    margin: 0; }
-  div.superform.hint h4 {
+    margin: 0;
+    padding: 10px;
+    vertical-align: top; }
+  div.superform div.hint h4 {
     font-size: 30px;
     float: left; }
-  div.superform.hint blockquote {
+  div.superform div.hint blockquote {
     font-size: 14px;
     border-top: none;
     padding-left: 0; }
-    div.superform.hint blockquote p {
+    div.superform div.hint blockquote p {
       margin: 0; }
+div.superform > div.elements li.element li.element.inline {
+  border-top: none; }
+div.superform > div.elements div.elements > ol {
+  padding-left: 0; }
+div.superform > div.elements > ol > li.element {
+  padding: 0;
+  overflow: hidden;
+  margin: 0; }
+  div.superform > div.elements > ol > li.element.inline {
+    border-top: none;
+    padding: 0 2em 2em 0; }
+div.superform li.element {
+  position: relative;
+  clear: both;
+  padding: 0; }
+  div.superform li.element.hidden {
+    display: none; }
+  div.superform li.element:last-child {
+    padding-bottom: 0; }
+  div.superform li.element.textbox.facebook > div.contents, div.superform li.element.textbox.google > div.contents, div.superform li.element.textbox.twitter > div.contents {
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 39px; }
+  div.superform li.element.textbox.facebook > div.contents {
+    background-image: url("/view/m/images/superform/facebook.png"); }
+  div.superform li.element.textbox.google > div.contents {
+    background-image: url("/view/m/images/superform/google.png"); }
+  div.superform li.element.textbox.twitter > div.contents {
+    background-image: url("/view/m/images/superform/twitter.png"); }
+  div.superform li.element.textbox > div.contents {
+    padding-right: .6em; }
+    div.superform li.element.textbox > div.contents > input[type="text"],
+    div.superform li.element.textbox > div.contents > input[type="password"] {
+      background-color: #f2f2f2;
+      border: 1px solid #d9d9d9;
+      display: block;
+      margin: 0 0 10px 0;
+      max-width: 99%;
+      min-height: 27px;
+      min-width: 99%;
+      width: 99%; }
+    div.superform li.element.textbox > div.contents > textarea {
+      margin: 0 0 10px 0; }
+  div.superform li.element.textarea > div.contents {
+    padding-right: .6em; }
+    div.superform li.element.textarea > div.contents > textarea {
+      display: block;
+      width: 99%;
+      min-width: 99%;
+      max-width: 99%;
+      margin: 0;
+      background-color: #f2f2f2;
+      border: 1px solid #d9d9d9;
+      min-height: 27px; }
+  div.superform li.element.avatar_upload div.contents input[type="submit"] {
+    width: auto;
+    height: auto;
+    line-height: 16px;
+    font-size: 12px;
+    font-weight: 300; }
+  div.superform li.element > h4, div.superform li.element > h5, div.superform li.element > h6 {
+    margin: 0 0 .6em;
+    font-size: 14px; }
+  div.superform li.element > h4 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2em;
+    margin: 1em 0;
+    padding: 0; }
+  div.superform li.element > h5 {
+    font-weight: 600;
+    margin: 0 0 .4em 0; }
+  div.superform li.element > label {
+    font-weight: 600;
+    margin: 1em 0;
+    display: block; }
+  div.superform li.element > div.contents + div.children > div.elements > ol, div.superform li.element > div.contents + div.feedback + div.children > div.elements > ol {
+    margin-top: 1em; }
+  div.superform li.element > * + div.contents p {
+    font-weight: 600;
+    margin: 1.2em 0 .4em 0; }
+  div.superform li.element div.contents input.add[type="submit"], div.superform li.element div.contents input.remove[type="submit"], div.superform li.element div.contents input.edit[type="submit"], div.superform li.element div.contents input.erase[type="submit"] {
+    width: auto;
+    height: auto;
+    line-height: 16px;
+    font-size: 12px;
+    font-weight: 300; }
 div.superform div.elements > ol {
   padding: 0;
   margin: 0;
   list-style: none; }
-div.superform > div.elements div.elements > ol {
-  padding-left: 0; }
-div.superform ol #interests div.contents > ul {
-  border-left: 1px dashed #B7C2C5; }
-div.superform li.element {
-  position: relative;
-  padding: 1em 0;
-  clear: both; }
-  div.superform li.element > div.contents + div.children > div.elements > ol, div.superform li.element > div.contents + div.feedback + div.children > div.elements > ol {
+  div.superform div.elements > ol > li.required > .title:after {
+    content: '必須';
+    display: inline-block;
+    width: 40px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 100;
+    padding: 0 10px;
+    margin: 0 0 0 10px;
+    text-align: center;
+    background: #E08E22; }
+  div.superform div.elements > ol > li.ok > .title {
+    position: relative; }
+    div.superform div.elements > ol > li.ok > .title::before {
+      content: "OK";
+      position: absolute;
+      top: calc(100% - 19px);
+      right: 0;
+      display: block;
+      width: 40px;
+      color: #FFF;
+      font-size: 12px;
+      font-weight: 100;
+      padding: 0 10px;
+      text-align: center;
+      background: #009480; }
+  div.superform div.elements > ol > li.error > .title {
+    position: relative; }
+    div.superform div.elements > ol > li.error > .title::before {
+      content: "エラー";
+      position: absolute;
+      top: calc(100% - 19px);
+      right: 0;
+      display: block;
+      width: 40px;
+      color: #FFF;
+      font-size: 12px;
+      font-weight: 100;
+      padding: 0 10px;
+      text-align: center;
+      background: #e02d22; }
+  div.superform div.elements > ol > li.busy > .title {
+    background: url("/view/m/images/superform/badge/busy/cyan.gif") no-repeat right center; }
+  div.superform div.elements > ol > li div.element {
+    display: inline; }
+  div.superform div.elements > ol > li > div.contents + div.children > div.elements {
     margin-top: 1em; }
-div.superform li.element:last-child {
-  padding-bottom: 0; }
-div.superform > div.elements > ol > li.element {
-  padding: 0;
-  overflow: hidden;
-  margin: 0 0 16px 0; }
-div.superform > div.elements > ol > li.element.inline {
-  border-top: none;
-  padding: 0 2em 2em 0; }
-div.superform li.element > * + div.contents {
-  /*margin-top: 1em;*/
-  margin-top: 6px; }
-  div.superform li.element > * + div.contents p {
-    font-weight: 600;
-    margin: 1.2em 0 .4em 0; }
-
-body.dashboard.project-edit div#main.profile div.superform li.element.web div.title {
-  font-size: 12px;
-  width: 100%;
-  word-wrap: break-word;
-  float: none;
-  margin: 0 0 10px 0; }
-
-div#main.profile div.superform > div.elements > ol > li.element {
-  padding: 0; }
-
-div.superform div.elements > ol > li div.element {
-  display: inline; }
-div.superform div.elements > ol > li > div.contents + div.children > div.elements {
-  margin-top: 1em; }
+  div.superform div.elements > ol > li.element.checkboxes, div.superform div.elements > ol > li.element.checkboxescustom, div.superform div.elements > ol > li.element.radios {
+    padding-bottom: 0; }
+  div.superform div.elements > ol > li.element.checkboxes > div.contents > ul, div.superform div.elements > ol > li.element.checkboxescustom > div.contents > ul, div.superform div.elements > ol > li.element.radios > div.contents > ul, div.superform div.elements > ol > li.element.slider > div.contents > ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow: hidden; }
+    div.superform div.elements > ol > li.element.checkboxes > div.contents > ul > li, div.superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li, div.superform div.elements > ol > li.element.radios > div.contents > ul > li, div.superform div.elements > ol > li.element.slider > div.contents > ul > li {
+      padding: 0; }
+      div.superform div.elements > ol > li.element.checkboxes > div.contents > ul > li > label, div.superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li > label, div.superform div.elements > ol > li.element.radios > div.contents > ul > li > label, div.superform div.elements > ol > li.element.slider > div.contents > ul > li > label {
+        position: relative;
+        padding: .6em .8em;
+        display: block;
+        cursor: pointer; }
+        div.superform div.elements > ol > li.element.checkboxes > div.contents > ul > li > label > input[type="checkbox"],
+        div.superform div.elements > ol > li.element.checkboxes > div.contents > ul > li > label > input[type="radio"], div.superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li > label > input[type="checkbox"],
+        div.superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li > label > input[type="radio"], div.superform div.elements > ol > li.element.radios > div.contents > ul > li > label > input[type="checkbox"],
+        div.superform div.elements > ol > li.element.radios > div.contents > ul > li > label > input[type="radio"], div.superform div.elements > ol > li.element.slider > div.contents > ul > li > label > input[type="checkbox"],
+        div.superform div.elements > ol > li.element.slider > div.contents > ul > li > label > input[type="radio"] {
+          position: absolute;
+          right: .5em;
+          top: 50%;
+          margin-top: -.5em;
+          height: 1em;
+          cursor: pointer; }
+  div.superform div.elements > ol > li.element.checkboxes.inline > div.contents > ul > li, div.superform div.elements > ol > li.element.checkboxescustom.inline > div.contents > ul > li, div.superform div.elements > ol > li.element.radios.inline > div.contents > ul > li, div.superform div.elements > ol > li.element.slider.inline > div.contents > ul > li {
+    margin-bottom: 0; }
+  div.superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li > label {
+    padding-right: 30px;
+    font-size: 13px; }
+  div.superform div.elements > ol > li.element.checkboxes.cols_1 > div.contents > ul > li, div.superform div.elements > ol > li.element.checkboxescustom.cols_1 > div.contents > ul > li, div.superform div.elements > ol > li.element.radios.cols_1 > div.contents > ul > li, div.superform div.elements > ol > li.element.slider.cols_1 > div.contents > ul > li {
+    width: 100%; }
+  div.superform div.elements > ol > li.element.checkboxes.cols_2 > div.contents > ul > li, div.superform div.elements > ol > li.element.checkboxescustom.cols_2 > div.contents > ul > li, div.superform div.elements > ol > li.element.radios.cols_2 > div.contents > ul > li, div.superform div.elements > ol > li.element.slider.cols_2 > div.contents > ul > li {
+    width: 49.5%;
+    float: left; }
+  div.superform div.elements > ol > li.element.checkboxes.cols_4 > div.contents > ul > li, div.superform div.elements > ol > li.element.checkboxescustom.cols_4 > div.contents > ul > li, div.superform div.elements > ol > li.element.radios.cols_4 > div.contents > ul > li, div.superform div.elements > ol > li.element.slider.cols_4 > div.contents > ul > li {
+    width: 24.8%;
+    float: left; }
+  div.superform div.elements > ol > li.element.checkboxes.cols_5 > div.contents > ul > li, div.superform div.elements > ol > li.element.checkboxescustom.cols_5 > div.contents > ul > li, div.superform div.elements > ol > li.element.radios.cols_5 > div.contents > ul > li, div.superform div.elements > ol > li.element.slider.cols_5 > div.contents > ul > li {
+    width: 20%; }
+  div.superform div.elements > ol > li.element.checkboxes.cols_6 > div.contents > ul > li, div.superform div.elements > ol > li.element.checkboxescustom.cols_6 > div.contents > ul > li, div.superform div.elements > ol > li.element.radios.cols_6 > div.contents > ul > li, div.superform div.elements > ol > li.element.slider.cols_6 > div.contents > ul > li {
+    width: 16.66%; }
+  div.superform div.elements > ol > li.element.radio {
+    padding: 0 !important; }
+  div.superform div.elements > ol > li.radio > div.contents > label {
+    position: relative;
+    padding: .6em .8em;
+    display: block;
+    cursor: pointer; }
+    div.superform div.elements > ol > li.radio > div.contents > label > input[type="radio"] {
+      position: absolute;
+      right: .5em;
+      top: 50%;
+      margin-top: -.5em;
+      height: 1em;
+      cursor: pointer; }
+div.superform div.elements li#user_avatar .children .elements {
+  border: 1px dashed #d9d9d9;
+  padding: 10px 20px;
+  margin: 20px 0 0 0; }
+  div.superform div.elements li#user_avatar .children .elements ol li {
+    margin: 0 0 10px 0;
+    padding: 0; }
+  div.superform div.elements li#user_avatar .children .elements input {
+    height: auto;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 300;
+    width: 100%; }
+div.superform div.elements li#user_webs .children .elements {
+  margin: 20px 0 0 0; }
+  div.superform div.elements li#user_webs .children .elements ol li div.elements {
+    border: none;
+    margin: 0;
+    padding: 0; }
+div.superform div.elements li.element.inline#avatar-image .contents {
+  border: 2px solid #d9d9d9;
+  border-radius: 6px;
+  margin: 6px; }
+div.superform fieldset {
+  border: 1px solid #d9d9d9; }
+  div.superform fieldset legend {
+    color: #454545; }
+div.superform h3 {
+  font-size: 30px; }
 div.superform input[type='text'], div.superform input[type='password'] {
   padding: .4em;
   margin: 0 0 10px 0;
   min-height: 27px;
-  background-color: #eeeeee;
-  border: 1px solid #cccccc;
-  font-size: 10px; }
-div.superform textarea {
-  padding: .4em;
-  min-height: 27px;
-  background-color: #eeeeee;
-  border: 1px solid #cccccc;
-  font-size: 10px;
-  min-height: 6em; }
-div.superform li.element.fullwidth {
-  border-right: none !important;
-  background-color: #e7e7e7 !important;
-  margin-right: -2px !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  border-bottom: 1px dashed #b7c2c5 !important;
-  margin-bottom: -1px !important; }
-  div.superform li.element.fullwidth + li.element {
-    border-top: none; }
-div.superform div.elements > ol > li.required > .title {
-  background: url("/view/m/images/superform/badge/required.png") no-repeat right center; }
-div.superform div.elements > ol > li.ok > .title {
-  background: url("/view/m/images/superform/badge/ok.png") no-repeat right center; }
-div.superform div.elements > ol > li.error > .title {
-  background: url("/view/m/images/superform/badge/error.png") no-repeat right center !important; }
-div.superform div.elements > ol > li.busy > .title {
-  background: url("/view/m/images/superform/badge/busy/cyan.gif") no-repeat right center; }
-div.superform li.element.hidden {
-  display: none; }
-div.superform li.element.textbox > div.contents, div.superform li.element.textarea > div.contents {
-  padding-right: .6em; }
-div.superform li.element.textbox > div.contents > input[type="text"], div.superform li.element.textbox > div.contents > input[type="password"] {
-  display: block;
-  width: 99%;
-  min-width: 99%;
-  max-width: 99%;
-  margin: 0;
-  background-color: #eeeeee;
-  border: 1px solid #cccccc;
-  min-height: 27px; }
-div.superform li.element.textarea > div.contents > textarea {
-  display: block;
-  width: 99%;
-  min-width: 99%;
-  max-width: 99%;
-  margin: 0;
-  background-color: #eeeeee;
-  border: 1px solid #cccccc;
-  min-height: 27px; }
-div.superform div.elements li.element.textbox.facebook > div.contents, div.superform div.elements li.element.textbox.google > div.contents, div.superform div.elements li.element.textbox.twitter > div.contents, div.superform div.elements li.element.textbox.identica > div.contents, div.superform div.elements li.element.textbox.linkedin > div.contents {
-  padding-left: 39px;
-  background-position: left center;
-  background-repeat: no-repeat; }
-div.superform div.elements li.element.textbox.facebook > div.contents {
-  background-image: url("/view/m/images/superform/facebook.png"); }
-div.superform div.elements li.element.textbox.google > div.contents {
-  background-image: url("/view/m/images/superform/google.png"); }
-div.superform div.elements li.element.textbox.twitter > div.contents {
-  background-image: url("/view/m/images/superform/twitter.png"); }
-div.superform div.elements li.element.textbox.identica > div.contents {
-  background-image: url("/view/m/images/superform/identica.png"); }
-div.superform div.elements li.element.textbox.linkedin > div.contents {
-  background-image: url("/view/m/images/superform/linkedin.png"); }
-div.superform div.elements > ol > li.element.checkboxes, div.superform div.elements > ol > li.element.checkboxescustom, div.superform div.elements > ol > li.element.radios {
-  padding-bottom: 0; }
-div.superform div.elements > ol > li.element.checkboxes > div.contents > ul, div.superform div.elements > ol > li.element.checkboxescustom > div.contents > ul, div.superform div.elements > ol > li.element.radios > div.contents > ul, div.superform div.elements > ol > li.element.slider > div.contents > ul {
-  padding: 0;
-  border-left: 1px dashed #B7C2C5;
-  margin: 0;
-  list-style: none;
-  overflow: hidden;
-  border-top: 1px dashed #bcbdbf; }
-div.superform div.elements > ol > li.element.checkboxes > div.contents > ul > li, div.superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li, div.superform div.elements > ol > li.element.radios > div.contents > ul > li, div.superform div.elements > ol > li.element.slider > div.contents > ul > li {
-  border-bottom: 1px dashed #bcbdbf;
-  border-right: 1px dashed #bcbdbf;
-  padding: 0; }
-div.superform div.elements > ol > li.element.checkboxes.inline > div.contents > ul > li, div.superform div.elements > ol > li.element.checkboxescustom.inline > div.contents > ul > li, div.superform div.elements > ol > li.element.radios.inline > div.contents > ul > li, div.superform div.elements > ol > li.element.slider.inline > div.contents > ul > li {
-  margin-bottom: 0; }
-div.superform div.elements > ol > li.radio > div.contents > label {
-  position: relative;
-  padding: .6em .8em;
-  display: block;
-  cursor: pointer; }
-div.superform div.elements > ol > li.element.checkboxes > div.contents > ul > li > label, div.superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li > label, div.superform div.elements > ol > li.element.radios > div.contents > ul > li > label, div.superform div.elements > ol > li.element.slider > div.contents > ul > li > label {
-  position: relative;
-  padding: .6em .8em;
-  display: block;
-  cursor: pointer; }
-div.superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li > label {
-  padding-right: 30px;
-  font-size: 13px; }
-div.superform div.elements > ol > li.element.checkboxes.cols_1 > div.contents > ul > li, div.superform div.elements > ol > li.element.checkboxescustom.cols_1 > div.contents > ul > li, div.superform div.elements > ol > li.element.radios.cols_1 > div.contents > ul > li, div.superform div.elements > ol > li.element.slider.cols_1 > div.contents > ul > li {
-  width: 100%; }
-div.superform div.elements > ol > li.element.checkboxes.cols_2 > div.contents > ul > li, div.superform div.elements > ol > li.element.checkboxescustom.cols_2 > div.contents > ul > li, div.superform div.elements > ol > li.element.radios.cols_2 > div.contents > ul > li, div.superform div.elements > ol > li.element.slider.cols_2 > div.contents > ul > li {
-  width: 49.5%;
-  float: left; }
-div.superform div.elements > ol > li.element.checkboxes.cols_4 > div.contents > ul > li, div.superform div.elements > ol > li.element.checkboxescustom.cols_4 > div.contents > ul > li, div.superform div.elements > ol > li.element.radios.cols_4 > div.contents > ul > li, div.superform div.elements > ol > li.element.slider.cols_4 > div.contents > ul > li {
-  width: 24.8%;
-  float: left; }
-div.superform div.elements > ol > li.element.checkboxes.cols_5 > div.contents > ul > li, div.superform div.elements > ol > li.element.checkboxescustom.cols_5 > div.contents > ul > li, div.superform div.elements > ol > li.element.radios.cols_5 > div.contents > ul > li, div.superform div.elements > ol > li.element.slider.cols_5 > div.contents > ul > li {
-  width: 20%; }
-div.superform div.elements > ol > li.element.checkboxes.cols_6 > div.contents > ul > li, div.superform div.elements > ol > li.element.checkboxescustom.cols_6 > div.contents > ul > li, div.superform div.elements > ol > li.element.radios.cols_6 > div.contents > ul > li, div.superform div.elements > ol > li.element.slider.cols_6 > div.contents > ul > li {
-  width: 16.66%; }
-div.superform div.elements > ol > li.radio > div.contents > label > input[type="radio"] {
-  position: absolute;
-  right: .5em;
-  top: 50%;
-  margin-top: -.5em;
-  height: 1em;
-  cursor: pointer; }
-div.superform div.elements > ol > li.element.checkboxes > div.contents > ul > li > label > input[type="checkbox"], div.superform div.elements > ol > li.element.checkboxescustom > div.contents > ul > li > label > input[type="checkbox"], div.superform div.elements > ol > li.element.radios > div.contents > ul > li > label > input[type="radio"], div.superform div.elements > ol > li.element.slider > div.contents > ul > li > label > input[type="radio"] {
-  position: absolute;
-  right: .5em;
-  top: 50%;
-  margin-top: -.5em;
-  height: 1em;
-  cursor: pointer; }
-div.superform div.elements > ol > li.element.radio {
-  padding: 0 !important; }
-div.superform li.element > div.feedback {
-  font-size: 14px;
-  z-index: 999;
-  padding-top: 12px;
-  background: url("/view/m/images/superform/tooltip/beak/cyan/n.png") no-repeat 1em 0;
-  display: inline-block; }
-
-/* Full-width elements */
-/* Element badges. Order is imporant */
-/* Textboxes & Textarea */
-/* Custom textboxes */
-/* Checkboxes & radios */
-/* Feedback */
-body.js div.superform li.element > div.feedback {
-  /* Javascript-enabled */
-  display: none;
-  position: absolute; }
-
-div.superform li.element > div.feedback > div {
-  padding: 10px;
-  margin: 0;
-  background-color: #def1f1;
-  color: #7f8183;
-  box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
-  position: relative;
-  -moz-border-radius: 7px;
-  -webkit-border-radius: 7px;
-  border-radius: 7px;
-  line-height: 16px !important; }
-  div.superform li.element > div.feedback > div + div {
-    margin-top: -10px;
-    z-index: 9999;
-    padding-top: .5em; }
-  div.superform li.element > div.feedback > div blockquote {
-    padding: 0;
-    margin: 0;
-    font-size: 13px; }
-  div.superform li.element > div.feedback > div.error + div.hint > blockquote {
-    border-top: 1px dashed #b7c2C5;
-    padding-top: 1em; }
-  div.superform li.element > div.feedback > div.error blockquote {
-    padding-left: 30px;
-    background: url("superform/feedback/error.png") no-repeat left 0.2em; }
-div.superform.aqua li.element > div.feedback {
-  background-image: url("/view/m/images/superform/tooltip/beak/aqua/n.png"); }
-  div.superform.aqua li.element > div.feedback > div {
-    background-color: #35b8b8;
-    color: white; }
-
-/* Additional color schemes */
-body.js div.superform.aqua li.element > div.feedback {
-  background-image: url("/view/m/images/superform/tooltip/beak/aqua/w.png"); }
-
-div.superform.aqua div.elements > ol > li.busy > .title {
-  background: url("/view/m/images/superform/badge/busy/aqua.gif") no-repeat right top; }
-div.superform.aqua li.element > div.feedback > div.error + div.hint > blockquote {
-  border-top-color: white; }
-div.superform.red li.element > div.feedback {
-  background-image: url("/view/m/images/superform/tooltip/beak/red/n.png"); }
-  div.superform.red li.element > div.feedback > div {
-    background-color: #e13028;
-    color: white; }
-
-body.js div.superform.red li.element > div.feedback {
-  background-image: url("/view/m/images/superform/tooltip/beak/red/w.png"); }
-
-div.superform.red input[type="text"], div.superform.red input[type="password"] {
-  background-color: #fdedec;
-  border-color: #ee4843; }
-div.superform.red textarea {
-  background-color: #fdedec;
-  border-color: #ee4843; }
-div.superform.red > div.hint h4, div.superform.red > div.hint blockquote {
-  background-color: #fdedec;
-  color: #ee4843; }
-div.superform.red div.elements > ol > li.busy > .title {
-  background: url("/view/m/images/superform/badge/busy/red.gif") no-repeat right top; }
-div.superform.red li.element > div.feedback > div.error + div.hint > blockquote {
-  border-top-color: white; }
-div.superform.green li.element > div.feedback {
-  background-image: url("/view/m/images/superform/tooltip/beak/green/n.png"); }
-  div.superform.green li.element > div.feedback > div {
-    background-color: #00b05b;
-    color: white; }
-
-body.js div.superform.green li.element > div.feedback {
-  background-image: url("/view/m/images/superform/tooltip/beak/green/w.png"); }
-
-div.superform.green input[type="text"], div.superform.green input[type="password"] {
-  background-color: #e7f3e8;
-  border-color: #00b05b; }
-div.superform.green textarea {
-  background-color: #e7f3e8;
-  border-color: #00b05b; }
-div.superform.green > div.hint h4, div.superform.green > div.hint blockquote {
-  background-color: #e7f3e8;
-  color: #00b05b; }
-div.superform.green div.elements > ol > li.busy > .title {
-  background: url("/view/m/images/superform/badge/busy/green.gif") no-repeat right top; }
+  background-color: #f2f2f2;
+  border: 1px solid #d9d9d9;
+  font-size: 12px; }
 div.superform input.edit[type="submit"], div.superform input.remove[type="submit"], div.superform input.add[type="submit"] {
   padding: 0.3em 1.2em !important;
   font-weight: 600;
   font-size: 16px; }
-
-/* Estilos especificos*/
-/* botones */
-a.button.red, a.button.weak {
-  font-weight: 600;
-  font-size: 16px; }
-
-div.superform li#user_avatar li.avatar_upload input[type="submit"] {
-  padding: 10px 16px; }
+div.superform input.next, div.superform input.confirm, div.superform input.retry, div.superform input.save {
+  font-size: 15px; }
+div.superform textarea {
+  background-color: #f2f2f2;
+  border: 1px solid #d9d9d9;
+  font-size: 12px;
+  margin: 0 0 10px 0;
+  min-height: 6em;
+  padding: .4em; }
 div.superform button.image-remove {
   position: absolute;
   right: 5px;
@@ -2634,217 +2602,66 @@ div.superform button.image-remove {
   margin: 0 10px 0 0 !important; }
   div.superform button.image-remove:hover {
     background: url("/view/m/images/button/cross-active.png") no-repeat center center !important; }
+div.superform li {
+  /*&#supports,
+  &#social_rewards {
+    background-color: #f3f9f2 !important;
+  }
+  &#individual_rewards {
+    background-color: #f8e3e3 !important;
+  }
+  &.editcost {
+    background-color: #fdf3f4;
+    &.required_cost-yes {
+      background-color: #f2e5f1 !important;
+    }
+    li.required_cost-yes {
+      background-color: #e4c9e2 !important;
+    }
+    &.required_cost-no {
+      background-color: #f3f3f3 !important;
+    }
+    li.required_cost-no {
+      background-color: #e2e2e2 !important;
+    }
+  }
+  &.cost.required_cost-yes {
+    background-color: #f2e5f1 !important;
+  }
+  &.cost.required_cost-no {
+   background-color: #f3f3f3 !important;
+  }*/ }
+  div.superform li#user_avatar li.avatar_upload input[type="submit"] {
+    padding: 10px 16px; }
+  div.superform li#social_rewards h4.title, div.superform li#individual_rewards h4.title, div.superform li#supports h4.title, div.superform li#costs h4.title {
+    padding-left: 25px; }
+  div.superform li#gallery div.elements li.gallery-image {
+    margin: 5px 25px !important;
+    display: inline-block !important;
+    width: 153px !important; }
+  div.superform li#scope, div.superform li#supports, div.superform li#social_rewards, div.superform li#individual_rewards {
+    border-bottom: 1px dashed #d9d9d9; }
 
-body.dashboard.project-edit div#main.profile div.superform .footer {
-  background-color: #fff;
-  padding: 0 20px 20px 0;
-  margin: 0; }
-
-div.superform input.next, div.superform input.confirm, div.superform input.retry, div.superform input.save {
-  font-size: 15px;
-  width: 285px; }
-
-body.project-edit div.preview div.superform input.confirm, body.project-edit div.preview div.superform input.retry {
-  padding: 0; }
-
-div.preview div.superform input.next, div.preview div.superform input.confirm, div.preview div.superform input.retry {
-  padding: 0; }
-
-body.project-edit div.superform ol li.element div.contents input.inline.ok {
-  padding: 0.3em 1.2em; }
-body.project-edit div.superform ol li.element div.project-share li.url input {
-  width: 230px; }
-body.project-edit div.superform ol li.element li.element.group div.contents input.next {
-  width: 200px;
-  height: 50px; }
-body.project-edit li#video-upload, body.project-edit li#media-upload {
-  padding-top: 0;
-  padding-bottom: 0; }
-body.project-edit li#video_usubs, body.project-edit li#media_usubs {
-  position: relative;
-  left: 80px;
-  padding-top: 0;
-  margin-top: -28px;
-  border-right: 0; }
-body.project-edit li#media {
-  padding-bottom: 10px; }
-
-/* titulos */
-div.superform li#social_rewards h4.title, div.superform li#individual_rewards h4.title, div.superform li#supports h4.title, div.superform li#costs h4.title {
-  padding-left: 25px; }
-div.superform li#supports, div.superform li#social_rewards {
-  background-color: #f3f9f2 !important; }
-div.superform li#individual_rewards {
-  background-color: #f8e3e3 !important; }
-div.superform li.editcost {
-  background-color: #fdf3f4; }
-div.superform li.cost.required_cost-yes {
-  background-color: #f2e5f1 !important; }
-div.superform li.editcost.required_cost-yes {
-  background-color: #f2e5f1 !important; }
-div.superform li.editcost li.required_cost-yes {
-  background-color: #e4c9e2 !important; }
-div.superform li.cost.required_cost-no {
-  background-color: #f3f3f3 !important; }
-div.superform li.editcost.required_cost-no {
-  background-color: #f3f3f3 !important; }
-div.superform li.editcost li.required_cost-no {
-  background-color: #e2e2e2 !important; }
-div.superform li#gallery div.elements li.gallery-image {
-  margin: 5px 25px !important;
-  display: inline-block !important;
-  width: 153px !important; }
-div.superform li#scope, div.superform li#supports, div.superform li#social_rewards, div.superform li#individual_rewards {
-  border-bottom: 1px dashed #b7c2c5; }
-div.superform li.element div.contents input.add[type="submit"], div.superform li.element div.contents input.remove[type="submit"], div.superform li.element div.contents input.edit[type="submit"], div.superform li.element div.contents input.erase[type="submit"] {
-  width: auto;
-  height: auto;
-  line-height: 16px;
-  font-size: 12px;
-  font-weight: 300; }
-div.superform li.element.avatar_upload div.contents input[type="submit"] {
-  width: auto;
-  height: auto;
-  line-height: 16px;
-  font-size: 12px;
-  font-weight: 300; }
-
-/* backgrounds */
-/* Imagenes gallery */
-/* bordes */
-/* button size mini */
-a.button.red, a.button.weak {
-  width: auto;
-  height: auto;
-  line-height: 16px;
-  font-size: 12px;
-  font-weight: 300; }
-
-body.js div.superform > div.hint {
-  background: url("/view/m/images/superform/wizard.png") no-repeat right top;
-  border-right: none; }
-
-div.superform li.element {
-  position: relative;
-  padding: 0;
-  clear: both; }
-  div.superform li.element.textbox > div.contents > input[type="text"], div.superform li.element.textbox > div.contents > input[type="password"] {
-    margin: 0 0 10px 0; }
-  div.superform li.element.textarea > div.contents > textarea {
-    margin: 0 0 10px 0; }
-div.superform textarea {
-  margin: 0 0 10px 0; }
-div.superform > div.elements > ol > li.element {
-  margin: 0; }
-
-body.dashboard div#main.access div.superform {
-  margin: 0 0 10px 0; }
-
-body.home {
-  /* meter */ }
-  body.home .meter .obtained {
-    display: none; }
-  body.home #wrapper > a.button.red {
-    height: 30px;
-    line-height: 30px;
-    margin: 8px; }
-  body.home #main div.learn {
-    margin-bottom: 16px;
-    position: relative; }
-    body.home #main div.learn ul.slderpag {
-      float: left;
-      height: auto;
-      list-style: none;
-      margin: 8px 0 0 0;
-      padding: 0px; }
-      body.home #main div.learn ul.slderpag li {
-        cursor: pointer;
-        display: block;
-        float: left;
-        margin: 0 4px 5px 4px;
-        overflow: hidden; }
-        body.home #main div.learn ul.slderpag li a {
-          background-color: #cdcdce;
-          color: #cdcdce;
-          display: block;
-          height: 6px;
-          margin-top: 2px;
-          width: 12px; }
-          body.home #main div.learn ul.slderpag li a:hover {
-            background-color: #20b3b2;
-            color: #20b3b2; }
-        body.home #main div.learn ul.slderpag li.current a {
-          background-color: #808184 !important;
-          color: #808184 !important; }
-    body.home #main div.learn a.next,
-    body.home #main div.learn a.prev {
-      cursor: pointer;
-      float: left;
-      height: 16px;
-      line-height: 2000px;
-      margin: 9px 0 0 0;
-      overflow: hidden;
-      width: 16px; }
-    body.home #main div.learn a.prev {
-      background: url("/view/m/images/small_arrowslider-sprt.png") scroll no-repeat 0 0; }
-    body.home #main div.learn a.prev:hover {
-      background: url("/view/m/images/small_arrowslider-sprt.png") scroll no-repeat 0 -32px; }
-    body.home #main div.learn a.next {
-      background: url("/view/m/images/small_arrowslider-sprt.png") scroll no-repeat 0 -16px; }
-    body.home #main div.learn a.next:hover {
-      background: url("/view/m/images/small_arrowslider-sprt.png") scroll no-repeat 0 -48px; }
-    body.home #main div.learn .slder_container {
-      display: none;
-      height: 290px;
-      width: 900px; }
-      body.home #main div.learn .slder_container .slder_slide {
-        display: block;
-        height: 290px;
-        width: 900px; }
-        body.home #main div.learn .slder_container .slder_slide div.post {
-          display: none;
-          min-height: 305px;
-          padding-left: 520px;
-          position: relative; }
-          body.home #main div.learn .slder_container .slder_slide div.post div.read_more {
-            bottom: 10px;
-            position: absolute;
-            right: 20px; }
-          body.home #main div.learn .slder_container .slder_slide div.post h3,
-          body.home #main div.learn .slder_container .slder_slide div.post div.description {
-            float: left;
-            line-height: 18px;
-            margin: 0 0 10px 20px;
-            width: 380px; }
-          body.home #main div.learn .slder_container .slder_slide div.post div.embed,
-          body.home #main div.learn .slder_container .slder_slide div.post div.image {
-            float: left;
-            height: 285px;
-            width: 500px; }
-  body.home #main .widget.projects {
-    margin-bottom: 24px;
-    overflow: hidden; }
-    body.home #main .widget.projects .title {
-      background-color: #666666;
-      color: #f5f5f5;
-      margin: 0;
-      padding: 16px; }
-    body.home #main .widget.projects h3.title {
-      margin-left: 3px;
-      background: none; }
-      body.home #main .widget.projects h3.title a {
-        color: #0098c4;
-        font-size: 18px; }
-    body.home #main .widget.projects .project {
-      margin-bottom: 20px; }
+body.home #main div.learn {
+  margin-bottom: 16px;
+  position: relative; }
+body.home #main .widget.projects {
+  overflow: hidden;
+  /*.meter {
+    dl.percent {
+      top: 55px;
+    }
+  }*/ }
 
 .discover #sub-header div {
   padding: 0;
   margin: 0; }
 .discover #main div.widget {
   overflow: hidden; }
+.discover ul#pagination {
+  margin: 0 20px 20px; }
 .discover .searcher {
-  background-color: #fff;
+  background-color: #ffffff;
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0; }
@@ -2852,25 +2669,24 @@ body.home {
     padding: 4px 8px; }
   .discover .searcher .text-filter {
     display: block;
-    margin-bottom: 20px; }
+    margin: 0 8px 20px; }
     .discover .searcher .text-filter label {
       display: block;
       font-weight: 600;
       font-size: 14px;
-      margin-left: 16px;
       padding-top: 9px; }
   .discover .searcher #text-query {
     background-color: #ffffff;
     border: 1px solid #d9d9d9;
-    color: #808184;
+    color: #828282;
     float: left;
     font-size: 16px;
-    padding: 4px 5px 4px 10px;
-    width: 65%; }
+    padding: 6px;
+    width: 70%; }
   .discover .searcher .searcher-btn {
     height: 33px;
     position: absolute;
-    right: 8px;
+    right: 12px;
     top: 34px;
     width: 25%; }
     .discover .searcher .searcher-btn #searcher {
@@ -2889,40 +2705,21 @@ body.home {
       margin-right: 0; }
     .discover .searcher .filter label {
       border-bottom: 1px solid #d9d9d9;
-      color: #58595B;
       display: block;
-      font-size: 14px;
       font-weight: 600;
       padding: 5px 5px 6px 0; }
     .discover .searcher .filter select {
-      background-color: #e7e7e7;
+      background-color: #f2f2f2;
       border: 1px solid #d9d9d9;
-      color: #58595B;
       font-size: 1.5em;
       height: 35px;
       margin: 10px 0 0;
       width: 100%; }
-      .discover .searcher .filter select option {
-        color: #58595B; }
-        .discover .searcher .filter select option[selected="selected"] {
-          background-color: #d5d5d6;
-          color: #58595B; }
-        .discover .searcher .filter select option.all {
-          color: #58595B;
-          font-size: 1em;
-          font-weight: 600; }
-.discover .widget.projects {
-  background-color: #ffffff;
-  margin: 20px 0;
-  padding-top: 20px; }
-  .discover .widget.projects h2.title {
-    padding-top: 0; }
-  .discover .widget.projects .project {
-    border: 1px solid #d9d9d9;
-    border-radius: 4px;
-    margin: 0 auto 20px;
-    padding-bottom: 20px;
-    width: 92%; }
+      .discover .searcher .filter select option[selected="selected"] {
+        background-color: #f2f2f2; }
+      .discover .searcher .filter select option.all {
+        font-size: 1em;
+        font-weight: 600; }
 .discover .navi-bar {
   background-color: #ffffff;
   border-top: 1px solid #d9d9d9;
@@ -2935,77 +2732,49 @@ body.home {
     padding: 8px;
     text-decoration: none; }
     .discover .navi-bar a.all:hover {
-      color: #20B3B2; }
-
-body.review div#main {
-  overflow: visible; }
-body.review div#sub-header {
-  padding-bottom: 4em;
-  margin-bottom: 0; }
-body.review div#review-menu {
-  display: block;
-  max-width: 940px;
-  font-size: 13px;
-  margin: -2.6em auto 0;
-  background-color: #78d1d1; }
-  body.review div#review-menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    position: relative; }
-    body.review div#review-menu ul li {
-      display: inline-block;
-      color: white;
-      text-decoration: none; }
-      body.review div#review-menu ul li a {
-        color: white;
-        text-decoration: none;
-        padding: .6em 1em;
-        height: 1.4em;
-        line-height: 1.4em;
-        display: inline-block; }
-      body.review div#review-menu ul li.section ul {
-        display: none; }
-      body.review div#review-menu ul li.section.current ul {
-        display: block; }
-      body.review div#review-menu ul li.section.active {
-        margin-bottom: 2.6em; }
-      body.review div#review-menu ul li.section.current {
-        margin-bottom: 2.6em; }
-        body.review div#review-menu ul li.section.current ul {
-          display: block;
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          height: 2.6em;
-          right: 0;
-          z-index: 0; }
-      body.review div#review-menu ul li.section.active {
-        background-color: #828282; }
-        body.review div#review-menu ul li.section.active ul {
-          display: block;
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          height: 2.6em;
-          right: 0;
-          z-index: 9;
-          background-color: #828282; }
-      body.review div#review-menu ul li.section.current {
-        background-color: #828282; }
-        body.review div#review-menu ul li.section.current ul {
-          background-color: #828282; }
-body.review div#main div.widget {
-  margin-bottom: 20px; }
+      color: #009480; }
 
 .project-show .button.supportit {
   background: #E08E22; }
 .project-show #sub-header {
-  background: #faf8f8;
   height: 40px;
-  margin-bottom: 0;
-  padding: 0;
-  position: relative; }
+  position: relative;
+  /*.project-subtitle {
+    font-size: 16px;
+    font-weight: 300;
+    margin: 3px 0;
+    max-width: 620px;
+    font-style: normal;
+  }
+  .wants-skills {
+    margin-bottom: 8px;
+    font-size: 12px;
+    a {
+      font-size: 12px;
+    }
+  }
+  .categories {
+    position: absolute;
+    text-align: right;
+    top: 90px;
+    width: 100%;
+    h3 {
+      font-weight: 300;
+      color: #20B3B2;
+      margin: 0;
+      display: inline-block;
+    }
+    * {
+      font-size: 12px;
+    }
+    a {
+      color: #58595B;
+      text-decoration: none;
+      &:hover {
+        color: #20B3B2;
+      }
+    }
+  }*/ }
   .project-show #sub-header > div {
     position: fixed;
     z-index: 1; }
@@ -3069,75 +2838,14 @@ body.review div#main div.widget {
     .project-show #sub-header .project-menu .pj_next {
       border-left: 1px solid #d9d9d9;
       right: 0; }
-  .project-show #sub-header .sub-menu p.prev2, .project-show #sub-header .sub-menu p.next2 {
-    position: absolute;
-    top: 0;
-    width: 7px;
-    height: 27px;
-    margin: 0;
-    padding-top: 14px;
-    padding-left: 4px;
-    padding-right: 4px;
-    line-height: 27px;
-    background-color: #e5e5e5;
-    z-index: 1; }
-  .project-show #sub-header .sub-menu p.prev2 {
-    left: 0;
-    border-right: 1px dashed #d9d9d9; }
-  .project-show #sub-header .sub-menu p.next2 {
-    right: 0;
-    border-left: 1px dashed #d9d9d9; }
-  .project-show #sub-header .project-subtitle {
-    font-size: 16px;
-    font-weight: 300;
-    margin: 3px 0;
-    max-width: 620px;
-    font-style: normal; }
-  .project-show #sub-header .wants-skills {
-    margin-bottom: 8px;
-    font-size: 12px; }
-    .project-show #sub-header .wants-skills a {
-      font-size: 12px; }
-  .project-show #sub-header .project-by {
-    color: #20B3B2;
-    font-size: 12px; }
-    .project-show #sub-header .project-by a {
-      font-weight: 300;
-      color: #cc6600;
-      font-size: 12px;
-      text-decoration: none; }
-      .project-show #sub-header .project-by a:hover {
-        color: #58595B; }
-  .project-show #sub-header .categories {
-    position: absolute;
-    text-align: right;
-    top: 90px;
-    width: 100%; }
-    .project-show #sub-header .categories h3 {
-      font-weight: 300;
-      color: #20B3B2;
-      margin: 0;
-      display: inline-block; }
-    .project-show #sub-header .categories * {
-      font-size: 12px; }
-    .project-show #sub-header .categories a {
-      color: #58595B;
-      text-decoration: none; }
-      .project-show #sub-header .categories a:hover {
-        color: #20B3B2; }
 .project-show .social_bookmark {
-  display: flex;
-  justify-content: space-around;
   letter-spacing: -0.4em; }
-  .project-show .social_bookmark .twitter,
-  .project-show .social_bookmark .facebook,
-  .project-show .social_bookmark .gPlus {
-    margin-right: 10px; }
   .project-show .social_bookmark > div {
     display: inline-block;
     letter-spacing: normal;
     vertical-align: top;
-    margin-right: 10px; }
+    margin-right: 10px;
+    margin-bottom: 20px; }
     .project-show .social_bookmark > div:last-child {
       margin-right: 0; }
 .project-show #main {
@@ -3148,7 +2856,6 @@ body.review div#main div.widget {
   position: relative;
   z-index: 0; }
   .project-show #main.threecols {
-    background-color: #e7e7e7;
     padding: 0; }
   .project-show #main .center > .widget {
     background-color: #ffffff;
@@ -3170,10 +2877,71 @@ body.review div#main div.widget {
       margin: 0 auto;
       height: auto;
       width: 100%; }
+  .project-show #main .center #prjct-gallery {
+    float: left; }
+    .project-show #main .center #prjct-gallery .prjct-gallery-container {
+      display: none;
+      height: 210px; }
+      .project-show #main .center #prjct-gallery .prjct-gallery-container .gallery-image {
+        display: block;
+        height: auto;
+        text-align: center;
+        width: 100vw; }
+    .project-show #main .center #prjct-gallery ul.slderpag {
+      float: left;
+      height: auto;
+      margin: 8px 0;
+      list-style: none;
+      padding: 0; }
+      .project-show #main .center #prjct-gallery ul.slderpag li {
+        cursor: pointer;
+        display: block;
+        float: left;
+        overflow: hidden;
+        margin: 0 4px; }
+        .project-show #main .center #prjct-gallery ul.slderpag li a {
+          background-color: #d9d9d9;
+          color: #d9d9d9;
+          display: block;
+          height: 16px;
+          width: 16px; }
+          .project-show #main .center #prjct-gallery ul.slderpag li a:hover {
+            background-color: #009acb;
+            color: #009acb; }
+        .project-show #main .center #prjct-gallery ul.slderpag li.current a {
+          background-color: #009acb;
+          color: #009acb; }
+    .project-show #main .center #prjct-gallery a.next, .project-show #main .center #prjct-gallery a.prev {
+      cursor: pointer;
+      float: left;
+      height: 20px;
+      margin: 8px 0 0;
+      overflow: hidden;
+      position: relative;
+      width: 20px; }
+    .project-show #main .center #prjct-gallery a.prev {
+      margin-right: 4px; }
+      .project-show #main .center #prjct-gallery a.prev:before {
+        border: 8px solid transparent;
+        border-right: 12px solid #009acb;
+        content: '';
+        display: block;
+        width: 0;
+        height: 0; }
+    .project-show #main .center #prjct-gallery a.next {
+      margin-left: 4px; }
+      .project-show #main .center #prjct-gallery a.next:before {
+        border: 8px solid transparent;
+        border-left: 12px solid #009acb;
+        content: '';
+        display: block;
+        width: 0;
+        height: 0; }
   .project-show #main .center .widget.project-support .project-widget-box {
+    border-bottom: none;
+    padding-bottom: 0;
     padding-left: 0;
-    padding-right: 0;
-    border-bottom: none; }
+    padding-right: 0; }
   .project-show #main .center .widget.project-support .meter > h3.title {
     background-color: #454545;
     color: #ffffff;
@@ -3183,26 +2951,17 @@ body.review div#main div.widget {
     line-height: 30px;
     padding-top: 0; }
   .project-show #main .center .widget.project-support .meter div.graph {
-    margin-top: 0; }
+    margin-bottom: 20px; }
+  .project-show #main .center .widget.project-support .buttons {
+    padding-bottom: 8px; }
   .project-show #main .center .widget.project-supporters {
-    padding: 0;
-    margin-top: 20px; }
+    margin-top: 20px;
+    padding: 0; }
     .project-show #main .center .widget.project-supporters h3.title {
       display: none; }
   .project-show #main .center .widget.project-share {
     margin-bottom: 25px;
-    padding: 20px; }
-  .project-show #main .center .widget.project-invest .address {
-    margin: 0 auto;
-    padding: 0 0 20px 0;
-    clear: left;
-    background-color: #fff; }
-  .project-show #main .center .widget.project-invest.method input#paymethod {
-    width: 145px;
-    margin: 0 auto;
-    padding-bottom: 25px; }
-  .project-show #main .center .widget.project-invest form {
-    padding: 24px 0 24px 8px; }
+    padding: 20px 20px 0; }
   .project-show #main .center .widget.project-collaborations {
     background: none;
     padding: 0; }
@@ -3268,379 +3027,290 @@ body.review div#main div.widget {
   .project-show #main .center form div.widget {
     margin: 0 auto;
     clear: left;
-    background-color: #fff; }
+    background-color: #ffffff; }
 .project-show .widget.project-spread .obtained {
   display: none; }
-.project-show .widget.project-support .meter {
-  padding-left: 16px;
-  padding-right: 16px; }
-  .project-show .widget.project-support .meter.skillmatching {
-    padding-bottom: 28px; }
+.project-show .widget.project-support .meter.skillmatching {
+  padding-bottom: 28px; }
 .project-show .widget.project-support .invest-notice {
   margin: 5px 16px 0;
   border: 1px solid #d9d9d9;
   border-radius: 3px;
   padding: 4px; }
 .project-show .widget.project-invest .disabled {
-  color: #cccccc; }
+  color: #d9d9d9; }
 
-/*----------------------------------------------------------------------
-  project/view.css
-----------------------------------------------------------------------*/
-div#project-support, div#project-investors, div#project-collaborations, div#project-rewards {
-  padding: 0; }
-div.widget.user, div.widget.project-investors, div.widget.user-mates, div.widget.user, div.widget.user-supporters {
-  padding: 0; }
-div#project-investors .project-widget-box, div#project-collaborations .project-widget-box {
-  padding: 15px 20px; }
-div.widget.user .project-widget-box, div.widget.project-investors .project-widget-box, div.widget.user-supporters .project-widget-box div.widget.project-needs .project-widget-box {
-  padding: 15px 20px; }
-div#project-collaborations .project-widget-box, div#project-support .project-widget-box, div.widget.project-investors .project-widget-box {
-  background-color: #fff;
-  border-bottom: 1px dashed #d9d9d9; }
-div#project-collaborations .project-widget-box h3.title {
-  color: #666;
-  font-weight: 600; }
-div#project-collaborations .project-widget-box ul li p {
-  font-size: 12px; }
-div.widget.project-support {
-  position: relative; }
-div.widge dl {
-  margin: 0;
-  padding: 0 0 0 20px;
-  float: left;
-  margin-left: 15px;
-  margin-bottom: 60px; }
-
-/*----------------------------------------------------------------------
-  project/edit.css
-----------------------------------------------------------------------*/
-.project-edit #sub-header {
-  padding-bottom: 0; }
-  .project-edit #sub-header div.project-header {
-    min-height: 75px; }
-  .project-edit #sub-header img {
-    float: left; }
-  .project-edit #sub-header div.project-subtitle {
-    font-size: 14px;
-    font-weight: 600;
-    margin: 0 0 .5em; }
-  .project-edit #sub-header div.project-by {
-    color: #20B3B2;
-    font-size: 12px;
-    margin: 0 0 .5em; }
-    .project-edit #sub-header div.project-by a {
-      font-weight: 300;
-      color: #20B3B2;
-      font-size: 12px;
-      text-decoration: none; }
-      .project-edit #sub-header div.project-by a:hover {
-        color: #58595B; }
-.project-edit #main div.status {
-  color: #bcbdbd;
-  padding-bottom: 30px;
-  padding-top: 20px;
-  border-bottom: 3px solid #d9d9d9; }
-.project-edit #main .status #project-status, .project-edit #main .status #project-score {
-  display: table-cell;
-  width: 50%;
-  padding: 0 30px; }
-.project-edit #main .status #project-status {
-  padding-right: 50px; }
-.project-edit #main .status #project-score {
-  border-left: 1px dashed #d9d9d9;
-  padding-left: 50px; }
-.project-edit #main .status h3 {
-  font-size: 26px;
-  font-weight: 300;
-  color: #9B9B9D;
-  margin: 0 0 .6em; }
-.project-edit #main .status #project-status ul {
-  padding: 0 0 0 16px;
-  margin: 0 0  0 6px;
-  list-style: none;
-  font-size: 16px;
-  line-height: 1.5em;
-  border-left: 1px solid #d9d9d9; }
-  .project-edit #main .status #project-status ul li strong {
-    font-size: 22px;
-    color: #58595b;
-    font-weight: 600;
-    line-height: 1.6em;
-    padding-left: 20px;
+.dashboard #sub-header .dashboard-header {
+  zoom: 1;
+  padding: 8px; }
+  .dashboard #sub-header .dashboard-header:after {
+    content: '';
     display: block;
-    background: url("project/statusmarker.png") no-repeat left center;
-    margin-left: -22px;
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25); }
-.project-edit #main .status #project-score p {
-  margin-top: 0;
-  width: 80%;
-  font-size: 12px;
-  color: #8A8B8C; }
-.project-edit #main .status #project-score .meter {
-  height: 117px;
-  width: 369px;
-  margin-top: -2em;
-  position: relative; }
-  .project-edit #main .status #project-score .meter .done {
-    background: url("project/scoremeter.png") no-repeat left top;
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0; }
-  .project-edit #main .status #project-score .meter .left {
-    background: url("project/scoremeter.png") no-repeat right bottom;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0; }
-.project-edit .superform {
-  border: solid #d9d9d9;
-  border-width: 3px 0; }
-  .project-edit .superform > .elements > ol > li#errors {
-    border: none;
-    position: absolute;
-    top: 100%;
-    margin-top: 54px;
-    padding: 10px; }
-
-.sp_footer_logo-area {
-  padding: 25px 25px 10px 25px;
-  background: #fff; }
-  .sp_footer_logo-area .cw {
-    font-size: 50% !important;
-    text-align: center; }
-  .sp_footer_logo-area ul {
-    width: 100%;
-    padding: 0;
-    list-style: none; }
-    .sp_footer_logo-area ul li {
-      width: 50%;
-      float: left;
-      text-align: center;
-      vertical-align: middle;
-      display: table;
-      height: 67px; }
-      .sp_footer_logo-area ul li a {
-        display: table-cell;
-        vertical-align: middle; }
-      .sp_footer_logo-area ul li img {
-        width: auto;
-        height: auto;
-        max-height: 60px;
-        max-width: 80%; }
-
-.sp_content {
-  background: #fff; }
-
-.platoniq {
-  display: none; }
-
-/* = lista de errores
-************************************************/
-ul.sf-footer-errors li {
-  list-style-image: url("/view/m/images/project/bg-li-error.png"); }
-
-.dashboard {
-  /*.discover-arrow-right,
-  .discover-arrow-left {
-    display: none;
-  }*/ }
-  .dashboard #sub-header .dashboard-header {
-    zoom: 1;
-    padding: 8px; }
-    .dashboard #sub-header .dashboard-header:after {
-      content: '';
-      display: block;
-      clear: both; }
-    .dashboard #sub-header .dashboard-header h2 {
-      float: left;
-      padding-left: 5%;
-      width: 80%; }
-      .dashboard #sub-header .dashboard-header h2 span,
-      .dashboard #sub-header .dashboard-header h2 span.leave {
-        font-size: 18px;
-        font-weight: 600;
-        line-height: 22px;
-        vertical-align: middle; }
-    .dashboard #sub-header .dashboard-header > a {
-      border-radius: 50%;
-      display: inline-block;
-      height: 50px;
-      overflow: hidden;
-      position: relative;
-      text-align: center;
-      vertical-align: middle;
-      width: 50px;
-      float: left; }
-      .dashboard #sub-header .dashboard-header > a img {
-        bottom: 0;
-        height: auto;
-        left: 0;
-        margin: auto;
-        position: absolute;
-        right: 0;
-        top: 0;
-        vertical-align: middle;
-        width: 100%; }
-  .dashboard #dashboard-menu {
-    display: block;
-    font-size: 13px; }
-    .dashboard #dashboard-menu .viewport_dashboard {
-      background-color: #ffffff;
-      border-bottom: 1px solid #d9d9d9;
-      margin: 0 auto;
-      margin-left: 0;
-      overflow: hidden;
-      -webkit-transform: translateZ(0);
-      /* Optional: When heavy at iOS6+ */
-      width: 100vw; }
-      .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard {
-        zoom: 1;
-        margin: 0 5%;
-        padding-left: 0;
-        width: 400px; }
-        .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard:after {
-          content: '';
-          display: block;
-          clear: both; }
-        .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard li.option {
-          border-right: 1px solid #d9d9d9;
-          float: left;
-          list-style-type: none; }
-          .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard li.option:last-child {
-            border-right: none; }
-          .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard li.option a {
-            color: #454545;
-            display: block;
-            font-size: 12px;
-            height: 40px;
-            line-height: 40px;
-            padding: 0 8px;
-            text-decoration: none; }
-          .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard li.option.current a, .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard li.option.active a {
-            border-bottom: 4px solid #255b7f; }
-      .dashboard #dashboard-menu .viewport_dashboard .controls {
-        margin: 0; }
-        .dashboard #dashboard-menu .viewport_dashboard .controls .db_prev,
-        .dashboard #dashboard-menu .viewport_dashboard .controls .db_next {
-          background-color: #ffffff;
-          display: block;
-          position: absolute;
-          top: 0;
-          width: 5%;
-          height: 42px;
-          font-size: 12px;
-          text-align: center;
-          line-height: 42px; }
-        .dashboard #dashboard-menu .viewport_dashboard .controls .db_prev {
-          left: 0;
-          border-right: 1px solid #d9d9d9; }
-        .dashboard #dashboard-menu .viewport_dashboard .controls .db_next {
-          right: 0;
-          border-left: 1px solid #d9d9d9; }
-  .dashboard .footer {
-    margin-top: 60px; }
-  .dashboard > .widget > p > strong {
-    font-size: 16px; }
-  .dashboard .superform {
-    background-color: #ffffff !important;
-    padding: 10px 20px !important;
-    border: none !important; }
-  .dashboard #main {
-    overflow: visible; }
-    .dashboard #main hr {
-      display: none; }
-    .dashboard #main div.widget {
-      margin-bottom: 20px; }
-    .dashboard #main div.status {
-      float: left;
-      color: #bcbdbd;
-      border: none !important;
-      padding: 0 !important;
-      margin-right: 20px; }
-      .dashboard #main div.status #project-status h3 {
-        font-size: 20px; }
-    .dashboard #main.summary .widget.user-worthcracy {
-      padding-bottom: 60px; }
-      .dashboard #main.summary .widget.user-worthcracy div.worth-amount {
-        top: 25px; }
-    .dashboard #main.summary.widget.projects h2.title {
-      color: #f5f5f5;
-      background-color: #666666;
-      font-weight: 300;
+    clear: both; }
+  .dashboard #sub-header .dashboard-header h2 {
+    float: left;
+    padding-left: 5%;
+    width: 80%; }
+    .dashboard #sub-header .dashboard-header h2 span,
+    .dashboard #sub-header .dashboard-header h2 span.leave {
+      font-size: 18px;
+      font-weight: 600;
       line-height: 22px;
-      margin: 0;
-      padding: 8px 0 8px 20px; }
-    .dashboard #main.summary.widget.projects ul {
-      float: left; }
-    .dashboard #main.summary.widget.projects .widget.project .meter dl dd.optimum span {
+      vertical-align: middle; }
+  .dashboard #sub-header .dashboard-header > a {
+    border-radius: 50%;
+    display: inline-block;
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    width: 50px;
+    float: left; }
+    .dashboard #sub-header .dashboard-header > a img {
+      bottom: 0;
       height: auto;
-      position: relative; }
-    .dashboard #main.summary.widget.projects .widget.project .meter.activable dl dd.minimum > span {
-      right: -54px; }
-    .dashboard #main.profile .footer {
-      padding: 0 20px 20px 0;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+      vertical-align: middle;
+      width: 100%; }
+.dashboard #dashboard-menu {
+  display: block;
+  font-size: 13px; }
+  .dashboard #dashboard-menu .viewport_dashboard {
+    background-color: #ffffff;
+    border-bottom: 1px solid #d9d9d9;
+    margin: 0 auto;
+    margin-left: 0;
+    overflow: hidden;
+    -webkit-transform: translateZ(0);
+    /* Optional: When heavy at iOS6+ */
+    width: 100vw; }
+    .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard {
+      zoom: 1;
+      margin: 0 5%;
+      padding-left: 0;
+      width: 400px; }
+      .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard:after {
+        content: '';
+        display: block;
+        clear: both; }
+      .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard li.option {
+        border-right: 1px solid #d9d9d9;
+        float: left;
+        list-style-type: none; }
+        .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard li.option:last-child {
+          border-right: none; }
+        .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard li.option a {
+          color: #454545;
+          display: block;
+          font-size: 12px;
+          height: 40px;
+          line-height: 40px;
+          padding: 0 8px;
+          text-decoration: none; }
+        .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard li.option.current a, .dashboard #dashboard-menu .viewport_dashboard .flipsnap_dashboard li.option.active a {
+          border-bottom: 4px solid #255b7f; }
+    .dashboard #dashboard-menu .viewport_dashboard .controls {
       margin: 0; }
-    .dashboard #main.profile div.superform li.element.user_avatar > div.children > div.elements > ol > li.element {
-      display: inline-block;
-      vertical-align: top; }
-    .dashboard #main.profile div.superform li.element.user_avatar ol {
-      padding: 0; }
-    .dashboard #main.profile div.superform li.element.user_avatar li.element.avatar-image {
-      padding: 0 2em;
-      margin: 0 !important; }
-    .dashboard #main.profile div.superform li.element.user_avatar li.element.avatar img {
-      width: 128px;
-      height: 128px; }
-    .dashboard #main.profile div.superform li.element.user_avatar li.element .title {
-      display: none; }
-    .dashboard #main.profile div.superform li.element.web div.title {
-      font-size: 14px;
-      width: 70%;
-      float: left; }
-    .dashboard #main.profile div.superform li.element.web input.edit {
-      margin-top: -1em; }
-    .dashboard #main.profile div.superform li.element.web input.remove {
-      margin-bottom: 1em;
+      .dashboard #dashboard-menu .viewport_dashboard .controls .db_prev,
+      .dashboard #dashboard-menu .viewport_dashboard .controls .db_next {
+        background-color: #ffffff;
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 5%;
+        height: 42px;
+        font-size: 12px;
+        text-align: center;
+        line-height: 42px; }
+      .dashboard #dashboard-menu .viewport_dashboard .controls .db_prev {
+        left: 0;
+        border-right: 1px solid #d9d9d9; }
+      .dashboard #dashboard-menu .viewport_dashboard .controls .db_next {
+        right: 0;
+        border-left: 1px solid #d9d9d9; }
+.dashboard .footer {
+  margin-top: 60px; }
+.dashboard > .widget > p > strong {
+  font-size: 16px; }
+.dashboard .superform {
+  background-color: #ffffff;
+  padding: 10px 20px; }
+.dashboard #main {
+  overflow: visible;
+  /*div.status {
+    float: left;
+    color: #bcbdbd;
+    border: none !important;
+    padding: 0 !important;
+    margin-right: 20px;
+    #project-status {
+      h3 {
+        font-size: 20px;
+      }
+    }
+  }*/ }
+  .dashboard #main hr {
+    display: none; }
+  .dashboard #main > div.widget {
+    margin-bottom: 20px; }
+  .dashboard #main.summary {
+    /*.widget.user-worthcracy {
+      padding-bottom: 60px;
+      div.worth-amount {
+        top: 25px;
+      }
+    }*/
+      /*.widget.projects {
+        background: none;
+        margin: 0 auto 20px;
+        padding-top: 0;
+        h2.title {
+          background-color: $baseWhite;
+          padding-top: 20px;
+        }
+        .discover-group {
+          background-color: $baseWhite;
+          padding-bottom: 20px;
+          &.discover-group-matched_projects {
+            .project:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+
+        //プロジェクトウィジェット
+        .widget.project {
+          .meter {
+            dl dd.optimum span {
+              height: auto;
+              position: relative;
+            }
+            &.activable {
+              dl dd.minimum > span {
+                right: -54px;
+              }
+            }
+          }
+        }
+      }*/ }
+    .dashboard #main.summary > .widget.projects {
       margin-top: 0; }
-    .dashboard #main.profile div.superform li.element.editweb li.element.web-accept input, .dashboard #main.profile div.superform li.element.editweb li.element.web-remove input {
-      margin: 0;
-      margin-right: 3px; }
-    .dashboard #main.profile div.superform li.element.editweb li.buttons div.contents {
-      margin: 0 !important;
-      padding: 0 !important; }
-    .dashboard #main.profile div.superform li.element.editweb li.buttons ol {
-      margin: 0 !important;
-      padding: 0 !important;
-      text-align: right; }
-    .dashboard #main.profile div.superform li.element.editweb li.buttons li {
-      display: inline-block;
-      padding: 0;
-      margin: 0; }
-    .dashboard #main.profile div.superform li.element.editweb li.buttons input {
-      width: auto;
-      float: left;
-      margin: 0 10px 0 0; }
-    .dashboard #main.access a.button {
-      margin-bottom: 20px; }
+  .dashboard #main.profile .footer {
+    padding-bottom: 20px;
+    margin: 0; }
+  .dashboard #main.profile div.superform li.element.user_avatar > div.children > div.elements > ol > li.element {
+    display: inline-block;
+    vertical-align: top; }
+  .dashboard #main.profile div.superform li.element.user_avatar ol {
+    padding: 0; }
+  .dashboard #main.profile div.superform li.element.user_avatar li.element.avatar-image {
+    padding: 0 2em;
+    margin: 0 !important; }
+  .dashboard #main.profile div.superform li.element.user_avatar li.element.avatar img {
+    width: 128px;
+    height: 128px; }
+  .dashboard #main.profile div.superform li.element.user_avatar li.element .title {
+    display: none; }
+  .dashboard #main.profile div.superform li.element.web div.title {
+    font-size: 14px;
+    width: 70%;
+    float: left; }
+  .dashboard #main.profile div.superform li.element.web input.edit {
+    margin-top: -1em; }
+  .dashboard #main.profile div.superform li.element.web input.remove {
+    margin-bottom: 1em;
+    margin-top: 0; }
+  .dashboard #main.profile div.superform li.element.editweb li.element.web-accept input, .dashboard #main.profile div.superform li.element.editweb li.element.web-remove input {
+    margin: 0;
+    margin-right: 3px; }
+  .dashboard #main.profile div.superform li.element.editweb li.buttons div.contents {
+    margin: 0 !important;
+    padding: 0 !important; }
+  .dashboard #main.profile div.superform li.element.editweb li.buttons ol {
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: right; }
+  .dashboard #main.profile div.superform li.element.editweb li.buttons li {
+    display: inline-block;
+    padding: 0;
+    margin: 0; }
+  .dashboard #main.profile div.superform li.element.editweb li.buttons input {
+    width: auto;
+    float: left;
+    margin: 0 10px 0 0; }
+  .dashboard #main.profile div.superform > div.elements > ol > li.element {
+    padding: 0; }
+  .dashboard #main.access a.button {
+    line-height: 40px;
+    margin-bottom: 20px; }
+  .dashboard #main.access div.superform {
+    margin: 0 0 10px 0; }
+  .dashboard #main.preferences div.superform div.elements > ol > li.element.slider > div.contents > ul > li > label > input[type="radio"] {
+    position: relative;
+    right: auto; }
 
 .community .widget.categorylist {
   overflow: hidden;
-  margin-bottom: 15px; }
-  .community .widget.categorylist ul {
-    display: inline-block;
-    list-style: none;
-    margin: 0;
-    padding-left: 0; }
-    .community .widget.categorylist ul li {
-      display: inline-block;
-      margin-left: 0;
-      padding-left: 0; }
-      .community .widget.categorylist ul li a {
-        text-decoration: none; }
-        .community .widget.categorylist ul li a.active, .community .widget.categorylist ul li a:hover {
-          color: #009acb; }
+  margin-bottom: 15px;
+  /*ul{
+    display:inline-block;
+    list-style:none;
+    margin:0;
+    padding-left:0;
+    li{
+      display:inline-block;
+      margin-left:0;
+      padding-left:0;
+      a{
+        text-decoration:none;
+        &.active,
+        &:hover{
+          color:$mainCol02
+        }
+      }
+    }
+  }*/
+  /*> div.filters {
+    border-bottom: $solidBorder;
+    border-top: $solidBorder;
+    padding: 5px;
+    > span {
+      font-size:12px;
+    }
+    > ul {
+      margin-left:1em;
+      > li {
+        margin-right:5px;
+        > a {
+          display: inline-block;
+          background:url('/view/m/images/user/grey-triangle-down.png') no-repeat left;
+          padding-left:15px;
+          font-size:12px;
+          &.active {
+            background:url('/view/m/images/user/blue-triangle-down.png') no-repeat left;
+          }
+        }
+      }
+    }
+  }
+  > div.list{
+    background-color: #e5e5e5;
+    line-height: 27px;
+    padding-left: 20px;
+    > ul {
+      > li{
+        margin-right:0.5em;
+        > a {
+          font-size:12px;
+        }
+      }
+    }
+  }*/ }
   .community .widget.categorylist > h3.title {
     background-color: #255b7f;
     color: #f2f2f2;
@@ -3650,31 +3320,6 @@ ul.sf-footer-errors li {
     height: 40px;
     margin: 0;
     padding: 0 0 0 20px; }
-  .community .widget.categorylist > div.filters {
-    border-bottom: 1px solid #d9d9d9;
-    border-top: 1px solid #d9d9d9;
-    padding: 5px; }
-    .community .widget.categorylist > div.filters > span {
-      font-size: 12px; }
-    .community .widget.categorylist > div.filters > ul {
-      margin-left: 1em; }
-      .community .widget.categorylist > div.filters > ul > li {
-        margin-right: 5px; }
-        .community .widget.categorylist > div.filters > ul > li > a {
-          display: inline-block;
-          background: url("/view/m/images/user/grey-triangle-down.png") no-repeat left;
-          padding-left: 15px;
-          font-size: 12px; }
-          .community .widget.categorylist > div.filters > ul > li > a.active {
-            background: url("/view/m/images/user/blue-triangle-down.png") no-repeat left; }
-  .community .widget.categorylist > div.list {
-    background-color: #e5e5e5;
-    line-height: 27px;
-    padding-left: 20px; }
-    .community .widget.categorylist > div.list > ul > li {
-      margin-right: 0.5em; }
-      .community .widget.categorylist > div.list > ul > li > a {
-        font-size: 12px; }
 .community .widget.user-mates {
   background-color: #ffffff;
   margin-bottom: 16px;
@@ -3688,13 +3333,14 @@ ul.sf-footer-errors li {
     padding: 4px 0 4px 20px; }
   .community .widget.user-mates .users {
     margin: 0;
-    padding: 0; }
-    .community .widget.user-mates .users .categories {
-      height: auto;
-      overflow: visible;
+    padding: 0;
+    /*.categories{
+      height:auto;
+      overflow:visible;
       padding-left: 20px;
       line-height: 27px;
-      background-color: #e5e5e5; }
+      background-color: #e5e5e5;
+    }*/ }
     .community .widget.user-mates .users ul {
       margin: 0;
       padding: 0; }
@@ -3783,22 +3429,14 @@ ul.sf-footer-errors li {
       margin-left: 4px; }
     .community .widget.user-mates a.more:hover {
       color: #009acb; }
-
-/* Custom checkbox in investors list*/
-input[type=checkbox]:disabled + label:hover,
-body.dashboard div#invests-list div.investor div.recompensas input[type=checkbox]:disabled + label:hover:active {
-  background-position: 0 -61px; }
-
-input[type=checkbox]:disabled:checked + label, input[type=checkbox]:hover:disabled:checked + label, input[type=checkbox]:focus:disabled:checked + label, input[type=checkbox]:disabled:checked + label:hover {
-  background-position: 0 -141px; }
-
-/* Custom checkbox in comment box*/
-input[type=checkbox]:disabled + label:hover,
-body.dashboard div#colective-messages input[type=checkbox]:disabled + label:hover:active {
-  background-position: 0 -61px; }
-
-input[type=checkbox]:disabled:checked + label, input[type=checkbox]:hover:disabled:checked + label, input[type=checkbox]:focus:disabled:checked + label, input[type=checkbox]:disabled:checked + label:hover {
-  background-position: 0 -141px; }
+.community #main.axes > .widget {
+  background-color: #ffffff;
+  margin: 15px;
+  padding: 15px 20px; }
+.community #main.axes input[type="submit"],
+.community #main.axes input[type="button"] {
+  max-width: 250px;
+  width: 100%; }
 
 .user-profile #sub-header h2 {
   align-items: center;
@@ -3845,14 +3483,29 @@ input[type=checkbox]:disabled:checked + label, input[type=checkbox]:hover:disabl
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  background: #FFF; }
+  background: #ffffff; }
 .user-profile .widget.user-message a.preview {
   display: none; }
 .user-profile .widget.user-message {
   background-color: #ffffff;
   padding: 16px;
   position: relative;
-  z-index: 99; }
+  z-index: 99;
+  /*#bocadillo{
+    background:url('/view/m/images/bocadillo.jpg') no-repeat;
+    height:51px;
+    position:absolute;
+    width:56px;
+    z-index:100;
+  }
+  #a-preview{
+    color: #2EAB58;
+    font-weight: bold;
+    left: 52px;
+    position: relative;
+    text-decoration: none;
+    top: 10px;
+  }*/ }
   .user-profile .widget.user-message h3.title {
     margin: 0 0 16px 0;
     padding-left: 0; }
@@ -3860,19 +3513,6 @@ input[type=checkbox]:disabled:checked + label, input[type=checkbox]:hover:disabl
     padding: 8px; }
   .user-profile .widget.user-message textarea#message_user {
     display: block; }
-  .user-profile .widget.user-message #bocadillo {
-    background: url("/view/m/images/bocadillo.jpg") no-repeat;
-    height: 51px;
-    position: absolute;
-    width: 56px;
-    z-index: 100; }
-  .user-profile .widget.user-message #a-preview {
-    color: #2EAB58;
-    font-weight: bold;
-    left: 52px;
-    position: relative;
-    text-decoration: none;
-    top: 10px; }
   .user-profile .widget.user-message button {
     float: right;
     margin-right: 8px; }
@@ -3904,8 +3544,6 @@ input[type=checkbox]:disabled:checked + label, input[type=checkbox]:hover:disabl
         .user-profile .widget.user-about > div.webs ul li a {
           font-size: 12px;
           text-decoration: none; }
-          .user-profile .widget.user-about > div.webs ul li a:hover {
-            color: #20B3B2; }
     .user-profile .widget.user-about > div.location h4 {
       display: none; }
     .user-profile .widget.user-about > div.location p {
@@ -3913,28 +3551,38 @@ input[type=checkbox]:disabled:checked + label, input[type=checkbox]:hover:disabl
       line-height: 20px;
       min-height: 22px;
       padding-left: 28px; }
-      .user-profile .widget.user-about > div.location p a:hover,
-      .user-profile .widget.user-about > div.location p a:hover * {
-        color: #20B3B2; }
     .user-profile .widget.user-about > div.location p,
     .user-profile .widget.user-about > div.location p * {
       font-size: 12px;
       font-weight: normal;
-      text-decoration: none;
-      font-style: normal; }
-    .user-profile .widget.user-about > div.message p {
-      background: url("/view/m/images/bocadillo/s.png") no-repeat left center;
-      line-height: 22px;
-      margin-bottom: 0;
-      min-height: 22px;
-      padding-left: 26px; }
-      .user-profile .widget.user-about > div.message p a {
-        color: #28B258;
-        font-size: 14px;
-        font-weight: bold;
-        text-decoration: none; }
-        .user-profile .widget.user-about > div.message p a:hover {
-          text-decoration: underline; }
+      font-style: normal;
+      text-decoration: none; }
+    .user-profile .widget.user-about > div.message {
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased; }
+      .user-profile .widget.user-about > div.message:before {
+        background: #91c0df;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        color: #255b7f;
+        content: "\f075";
+        display: inline-block;
+        height: 25px;
+        line-height: 25px;
+        text-align: center;
+        width: 25px; }
+      .user-profile .widget.user-about > div.message p {
+        display: inline-block;
+        line-height: 22px;
+        margin-bottom: 0;
+        min-height: 22px; }
+        .user-profile .widget.user-about > div.message p a {
+          color: #255b7f;
+          font-weight: bold;
+          text-decoration: none; }
   .user-profile .widget.user-about h4 {
     font-size: 15px;
     margin: 0 0 12px; }
@@ -3944,7 +3592,7 @@ input[type=checkbox]:disabled:checked + label, input[type=checkbox]:hover:disabl
     padding: 16px;
     text-align: right; }
     .user-profile .widget.user-about .improper_report a {
-      color: #808080;
+      color: #828282;
       font-size: 11px; }
 .user-profile .widget.projects {
   background-color: #ffffff;
@@ -3957,12 +3605,9 @@ input[type=checkbox]:disabled:checked + label, input[type=checkbox]:hover:disabl
     padding: 0; }
   .user-profile .widget.projects .widget.project {
     border: 1px solid #d9d9d9;
-    box-sizing: content-box;
     border-radius: 4px;
-    margin-bottom: 12px;
+    box-sizing: content-box;
     padding-bottom: 16px; }
-    .user-profile .widget.projects .widget.project:last-child {
-      margin-bottom: 0; }
 .user-profile .widget.user-mates {
   padding: 0;
   position: relative;
@@ -4006,7 +3651,7 @@ input[type=checkbox]:disabled:checked + label, input[type=checkbox]:hover:disabl
       -webkit-align-items: stretch;
       /* Safari */
       align-items: stretch;
-      background-color: #fff;
+      background-color: #ffffff;
       height: auto;
       list-style: none;
       margin: 0;
@@ -4109,7 +3754,7 @@ input[type=checkbox]:disabled:checked + label, input[type=checkbox]:hover:disabl
     margin: 0;
     padding: 0; }
   .user-profile .widget.user-mates div.categories {
-    background-color: #fff;
+    background-color: #ffffff;
     border-bottom: 1px solid #d9d9d9;
     padding: 5px 0; }
     .user-profile .widget.user-mates div.categories ul {
@@ -4142,5 +3787,89 @@ input[type=checkbox]:disabled:checked + label, input[type=checkbox]:hover:disabl
 .user-profile .center .widget.user-mates div.users ul li .projects,
 .user-profile .center .widget.user-mates div.users ul li .profile {
   display: block; }
+
+.user-login {
+  min-height: unset; }
+  .user-login #main {
+    margin: 0 auto; }
+  .user-login div#sub-header div {
+    display: block;
+    max-width: 960px;
+    margin: 0 auto; }
+  .user-login div#sub-header h2 {
+    min-height: 55px;
+    position: relative;
+    line-height: 1.2em;
+    font-size: 18px;
+    font-weight: normal; }
+    .user-login div#sub-header h2 a {
+      border-radius: 50%;
+      display: inline-block;
+      height: 55px;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+      vertical-align: middle;
+      width: 55px; }
+      .user-login div#sub-header h2 a img {
+        bottom: 0;
+        height: auto;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+        vertical-align: middle;
+        width: 100%; }
+    .user-login div#sub-header h2 em {
+      font-weight: bold;
+      font-size: 24px;
+      font-style: normal; }
+  .user-login .register,
+  .user-login .external-login,
+  .user-login .login {
+    padding: 15px 20px;
+    margin: 0 0 20px 0;
+    background: #ffffff; }
+    .user-login .register a,
+    .user-login .external-login a,
+    .user-login .login a {
+      color: #255b7f; }
+      .user-login .register a:hover,
+      .user-login .external-login a:hover,
+      .user-login .login a:hover {
+        color: #009acb; }
+  .user-login .login label,
+  .user-login .register label {
+    display: block; }
+  .user-login .login input[type="text"],
+  .user-login .login input[type="password"],
+  .user-login .register input[type="text"],
+  .user-login .register input[type="password"] {
+    display: block;
+    width: 100%;
+    margin: 0 0 20px 0; }
+  .user-login .login input[name="username"],
+  .user-login .login input[name="password"] {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    width: 100%; }
+  .user-login .register textarea {
+    width: 100%;
+    margin: 0 0 20px 0; }
+  .user-login .register textarea,
+  .user-login .register input:not([type="submit"]) {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: #ffffff; }
+  .user-login .register input[name="userid"], .user-login .register input[name='username'] {
+    display: block; }
+  .user-login .register input[type='password'] {
+    display: block;
+    margin: 0 0 20px 0; }
+  .user-login .register .agree {
+    display: flex; }
 
 /*# sourceMappingURL=styles-m.css.map */
