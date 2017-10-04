@@ -546,15 +546,17 @@ namespace Goteo\Library {
                 // si imagen -> segun enlace:
                 if (!empty($item->image)) {
 
+                    $image = \Goteo\Model\Image::get($item->image);
+
                     if (substr($item->url, 0, 5) == '/user') {
                         $content .= '<div class="content-avatar">
-                        <a href="'.$item->url.'" class="avatar"><img src="'.SRC_URL.'/image/'.$item->image.'/32/32/1" /></a>
+                        <a href="'.$item->url.'" class="avatar"><img src="'. $image->getLink(32,32,true) . '" /></a>
                         <a href="'.$item->url.'" class="username">'.$item->title.'</a>
                         <span class="datepub">'.$pub_timeago.'</span>
                         </div>';
                     } else {
                         $content .= '<div class="content-image">
-                        <a href="'.$item->url.'" class="image"><img src="'.SRC_URL.'/image/'.$item->image.'/90/60/1" /></a>
+                        <a href="'.$item->url.'" class="image"><img src="' . $image->getLink(90,60,true) . '" /></a>
                         <a href="'.$item->url.'" class="project light-blue">'.$item->title.'</a>
                         <span class="datepub">'.$pub_timeago.'</span>
                         </div>';

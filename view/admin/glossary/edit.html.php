@@ -35,7 +35,7 @@ foreach ($post->gallery as $image) {
         'type'  => 'html',
         'class' => 'inline gallery-image',
         'html'  => is_object($image) ?
-                       $image . '<img src="'.SRC_URL.'/image/'.$image->id.'/128/128" alt="'.Text::_("Imagen").'" /><button class="image-remove weak" type="submit" name="gallery-'.$image->id.'-remove" title="'.Text::_("Quitar imagen").'" value="'.Text::_("remove").'"></button>' :
+                       $image . '<img src="'. $image->getLink(128,128) . '" alt="'.Text::_("Imagen").'" /><button class="image-remove weak" type="submit" name="gallery-'.$image->id.'-remove" title="'.Text::_("Quitar imagen").'" value="'.Text::_("remove").'"></button>' :
                    ''
     );
 

@@ -98,10 +98,11 @@ namespace Goteo\Library {
 				$w = $this->w_size;
 				$h = $this->h_size;
 
-                $src = $URL . '/image/2/'."$w/$h";
+                $src = \Goteo\Model\Image::get(1);
+//                $src = $URL . '/image/2/'."$w/$h";
                 if($this->investors[$user]->avatar instanceof \Goteo\Model\Image) {
                     if ($this->investors[$user]->avatar->id == 1) {
-                        $noface = \Goteo\Model\Image::get(2);
+                        $noface = \Goteo\Model\Image::get(1);
                         $src = $noface->getLink($w,$h, true);
                     } else {
                         $src = $this->investors[$user]->avatar->getLink($w,$h, true);
@@ -245,7 +246,7 @@ namespace Goteo\Library {
 
 			//impulsores, nom, desc
 			$info .= '<div class="c i">';
-			$info .= '<div class="c1"><p><a href="'.$URL.'/user/'.$this->project->owner.'"'.$target.'><img src="'.$URL.'/image/'.$this->project->user->avatar->id.'/56/56/1" alt="'.$this->project->user->name.'" title="'.$this->project->user->name.'"><br />' . Text::get('regular-by') . ' '  . $this->project->user->name . '</a></p></div>';
+			$info .= '<div class="c1"><p><a href="'.$URL.'/user/'.$this->project->owner.'"'.$target.'><img src="'. $this->project->user->avatar->getLink(56,56,true) . '" alt="'.$this->project->user->name.'" title="'.$this->project->user->name.'"><br />' . Text::get('regular-by') . ' '  . $this->project->user->name . '</a></p></div>';
 			$info .= '<div class="c2"><h3><a href="'.$URL.'/project/'.$this->project->id.'"'.$target.'>' . $this->project->name . '</a></h3><p><a href="'.$URL.'/project/'.$this->project->id.'"'.$target.'>'.$this->project->subtitle.'</a></p></div>';
 			$info .= '</div>';
 

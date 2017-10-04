@@ -110,7 +110,7 @@ uasort($project->individual_rewards,
         </div>
         <?php endif; */ ?>
 
-        <a class="more" href="/skillmatching/<?php echo $project->id; ?>/rewards"><?php echo Text::get('regular-see_more'); ?></a>
+<!--        <a class="more" href="/skillmatching/--><?php //echo $project->id; ?><!--/rewards">--><?php //echo Text::get('regular-see_more'); ?><!--</a>-->
     </div>
     
 </div>
@@ -150,7 +150,7 @@ uasort($project->individual_rewards,
         </div>
         <?php endif; ?>
 
-        <a class="more" href="/skillmatching/<?php echo $project->id; ?>/rewards"><?php echo Text::get('regular-see_more'); ?></a>
+<!--        <a class="more" href="/skillmatching/--><?php //echo $project->id; ?><!--/rewards">--><?php //echo Text::get('regular-see_more'); ?><!--</a>-->
     </div>
 
 </div>
