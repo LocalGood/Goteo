@@ -1,29 +1,35 @@
 @charset "utf-8";
 
+//body.home配下に対する設定
+body.home {
+
+  #main {
+    div.learn {
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    //プロジェクト一覧
+    .widget.projects {
+      overflow: hidden;
+      /*.meter {
+        dl.percent {
+          top: 55px;
+        }
+      }*/
+    }
+  }
+}
+
+
+//マニメニュー > このユーザーの興味
 .community {
 
   //マイページ > みんなの興味
   .widget.categorylist {
     overflow: hidden;
     margin-bottom: 15px;
-    /*ul{
-      display:inline-block;
-      list-style:none;
-      margin:0;
-      padding-left:0;
-      li{
-        display:inline-block;
-        margin-left:0;
-        padding-left:0;
-        a{
-          text-decoration:none;
-          &.active,
-          &:hover{
-            color:$mainCol02
-          }
-        }
-      }
-    }*/
+
     > h3.title{
       background-color: $mainCol01;
       color: $baseCol;
@@ -34,42 +40,6 @@
       margin: 0;
       padding: 0 0 0 20px;
     }
-    /*> div.filters {
-      border-bottom: $solidBorder;
-      border-top: $solidBorder;
-      padding: 5px;
-      > span {
-        font-size:12px;
-      }
-      > ul {
-        margin-left:1em;
-        > li {
-          margin-right:5px;
-          > a {
-            display: inline-block;
-            background:url('/view/m/images/user/grey-triangle-down.png') no-repeat left;
-            padding-left:15px;
-            font-size:12px;
-            &.active {
-              background:url('/view/m/images/user/blue-triangle-down.png') no-repeat left;
-            }
-          }
-        }
-      }
-    }
-    > div.list{
-      background-color: #e5e5e5;
-      line-height: 27px;
-      padding-left: 20px;
-      > ul {
-        > li{
-          margin-right:0.5em;
-          > a {
-            font-size:12px;
-          }
-        }
-      }
-    }*/
   }
 
   //マイページ > みんなの興味 > 選択したカテゴリーに興味があるユーザー一覧ウィジェット
@@ -88,13 +58,6 @@
     .users {
       margin: 0;
       padding: 0;
-      /*.categories{
-        height:auto;
-        overflow:visible;
-        padding-left: 20px;
-        line-height: 27px;
-        background-color: #e5e5e5;
-      }*/
       ul {
         margin: 0;
         padding: 0;
@@ -186,5 +149,96 @@
       }
     }
   }
+}
 
+
+//ログインページ
+.user-login{
+  min-height: unset;
+  #main{
+    margin: 0 auto;
+  }
+  div#sub-header {
+    div {
+      display: block;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    h2 {
+      min-height: 55px;
+      position: relative;
+      line-height: 1.2em;
+      font-size: 18px;
+      font-weight: normal;
+      a {
+        @include circleAvatar(55px);
+      }
+      em {
+        font-weight: bold;
+        font-size: 24px;
+        font-style: normal;
+      }
+    }
+  }
+
+  .register,
+  .external-login,
+  .login{
+    padding: 15px 20px;
+    margin: 0 0 20px 0;
+    background: $baseWhite;
+    a{
+      color: $mainCol01;
+      &:hover{
+        color: $mainCol02;
+      }
+    }
+  }
+  .login,
+  .register {
+    label{
+      display: block;
+    }
+    input[type="text"],
+    input[type="password"] {
+      display: block;
+      width: 100%;
+      margin: 0 0 20px 0;
+    }
+  }
+  .login {
+    input[name="username"],
+    input[name="password"] {
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      width: 100%;
+    }
+  }
+  .register {
+    textarea{
+      width: 100%;
+      margin: 0 0 20px 0;
+    }
+    textarea,
+    input:not([type="submit"]) {
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      background: $baseWhite;
+    }
+    input {
+      &[name="userid"],
+      &[name='username']{
+        display: block;
+      }
+      &[type='password']{
+        display: block;
+        margin: 0 0 20px 0;
+      }
+    }
+    .agree {
+      display: flex;
+    }
+  }
 }
