@@ -30,9 +30,9 @@ $pagedResults = new \Paginated($this['list'], 9, isset($_GET['page']) ? $_GET['p
 
 $bodyClass = 'discover';
 
-include 'view/m/prologue.html.php';
+include VIEW_PATH . '/prologue.html.php';
 
-include 'view/m/header.html.php' ?>
+include VIEW_PATH . '/header.html.php' ?>
 
 
         <div id="sub-header">
@@ -46,12 +46,12 @@ include 'view/m/header.html.php' ?>
             <div class="widget projects">
                 <?php while ($project = $pagedResults->fetchPagedRow()) :
                     if (get_class($project) == 'Goteo\Model\Skillmatching'){
-                        echo new View('view/m/skillmatching/widget/skillmatchings.html.php', array('skillmatching' => $project));
+                        echo new View(VIEW_PATH . '/skillmatching/widget/skillmatchings.html.php', array('skillmatching' => $project));
                     } else {
-                        echo new View('view/m/project/widget/project.html.php', array('project' => $project));
+                        echo new View(VIEW_PATH . '/project/widget/project.html.php', array('project' => $project));
                     }
 /*
-                        echo new View('view/m/project/widget/project.html.php', array(
+                        echo new View(VIEW_PATH . '/project/widget/project.html.php', array(
                             'project' => $project
                             ));
 */
@@ -65,6 +65,6 @@ include 'view/m/header.html.php' ?>
 
         </div>        
 
-        <?php include 'view/m/footer.html.php' ?>
+        <?php include VIEW_PATH . '/footer.html.php' ?>
     
-<?php include 'view/m/epilogue.html.php' ?>
+<?php include VIEW_PATH . '/epilogue.html.php' ?>

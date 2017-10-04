@@ -3,8 +3,7 @@
   .title {
     font-size: 18px;
     font-weight: 600;
-    padding-left: 6px;
-    text-decoration: none;
+    //text-decoration: none;
   }
   .supertitle {
     font-size: 18px;
@@ -13,7 +12,7 @@
     padding: .5em 2px .5em 8px;
   }
   h4.supertitle, h3.supertitle {
-    color: #ffffff;
+    color: $baseWhite;
     height: 40px;
     line-height: 40px;
     padding: 0;
@@ -21,15 +20,21 @@
   a.more {
     float: none;
     display: block;
-    background-color: #fff;
+    background-color: $baseWhite;
     padding: 10px;
     text-align: center;
     text-decoration: none;
   }
 
 
-  //プロジェクトウィジェット（一覧などのコンパクトにまとまったウィジェット）
-  &.projects{
+  //プロジェクト一覧ウィジェット
+  &.projects {
+    background-color: $baseWhite;
+    margin: 20px 0;
+    padding-top: 20px;
+    h2.title {
+      padding-top: 0;
+    }
     #widget-code {
       width: 350px;
       float: left;
@@ -47,35 +52,11 @@
         background: #E7E7E7;
         border: none;
         font-size: 12px;
-        resize: none;
       }
     }
     > .title {
       margin: 0;
       padding: 16px;
-    }
-    .project {
-      background-color: #fff;
-      margin: 0 auto;
-      overflow: hidden;
-      padding: 0;
-      position:relative;
-      z-index:98;
-      h3 {
-        &.title {
-          margin: 0 16px 16px;
-        }
-      }
-      a.expand{
-        padding: 0;
-        position:absolute;
-        top:0;bottom:0;left:0;right:0;
-        width:100%;
-        z-index:99;
-      }
-      a.button{
-        padding: 0.4em 1em !important;
-      }
     }
     > .more {
       clear: both;
@@ -87,10 +68,10 @@
         }
       }
     }
-    > .widget-title {
+    .widget-title {
       padding: 0 0 0 30px;
     }
-    > .widget-porject-legend {
+    .widget-porject-legend {
       margin: 0 0 20px 30px;
     }
     > .project-code {
@@ -100,260 +81,182 @@
       overflow: auto;
       width: auto;
     }
-    > #widget-code  {
-      float:left;
-      margin: 0 0 0 20px;
-      width:350px;
-      .wc-embed  {
-        background: url("/view/m/images/social/embed.png") no-repeat;
-        height:20px;
-        padding: 3px 0 0 25px;
-      }
-      textarea  {
-        background:#E7E7E7;
-        border:none;
-        font-size:12px;
-        margin: 10px 0;
-        padding:10px;
-        resize:none;
-        width:200px;
-      }
+    .discover-arrow-left,
+    .discover-arrow-right {
+      display: none;
     }
-  }
 
-  //
-  &.project{
-    overflow: visible;
-    position: relative;
-    &.active{
-      div.image {
-        opacity: 0.85;
-      }
-      > .title a {
-        color: #c5da4d !important;
-      }
-    }
-    .image {
-      background-color: #deddde;
-      margin-bottom: 16px;
-      min-height: 180px;
-      overflow: hidden;
-      padding: 0 !important;
+    //プロジェクトウィジェット
+    .project{
+      background-color: $baseWhite;
+      border: $solidBorder;
+      border-radius: 4px;
+      margin: 0 auto 20px;
+      padding-bottom: 70px;
       position: relative;
-      text-align: center;
-      width: 100%;
-      a img {
-        display: block;
-        width: 100vw;
-        height: auto;
-      }
-      span.cf-icon {
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        width: 60px;
-        height: 60px;
-        background-image: url('/view/m/images/lg-project-cf.png');
-        background-size:60px 60px;
-      }
-      span.sm-icon {
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        width: 60px;
-        height: 60px;
-        background-image: url('/view/m/images/lg-project-sm.png');
-        background-size: 60px 60px;
-      }
-      .investor {
-        position: absolute;
-        z-index: 899;
-        background-color: #f3f3f3;
-        margin-top: 70px;
-        margin-left: 3px;
-        img {
-          width: 34px !important;
-          height: 34px !important;
-          margin: 3px;
-          float: left;
+      overflow: hidden;
+      width: 92%;
+      z-index:98;
+      &.active{
+        div.image {
+          opacity: 0.85;
         }
-        .invest {
-          text-align: left;
-          font-size: 12px;
-          line-height: 9px;
-          color: #faf8f8;
-          float: left;
-          padding-top: 12px;
-          padding-left: 2px;
-          padding-right: 4px;
-          span.amount {
-            color: #cc6600;
-            font-weight: 600;
-            font-size: 16px;
-            line-height: 18px;
-            padding-right: 19px;
-          }
+        > .title a {
+          color: #c5da4d !important;
         }
       }
-      .categories {
-        text-align: left;
-        color: #ffffff;
-        background-color: rgba(25,181,179,0.8);
-        font-size: 0.8em;
-        padding: 2px 8px;
-        cursor: default;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        left: 0;
-      }
-    }
-    > .title {
-      font-size: 14px;
-      padding: 0;
-      margin: 10px;
-      a {
-        font-size: 14px;
-        font-weight: 600;
-        text-decoration: none;
-        position: relative;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 900;
-        &:hover{
-          color: #c5da4d;
-        }
-      }
-    }
-    .title {
-      background: none;
-    }
-    .balloon {
-      background: #cae4e6 url('/view/m/images/balloonbeak.png') no-repeat bottom left;
-      height: auto;
-      > .title a {
-        position:relative;
+      a.expand{
+        padding: 0;
+        position:absolute;
+        top:0;bottom:0;left:0;right:0;
+        width:100%;
         z-index:99;
-        line-height: 1.5em;
-        font-size: 18px;
-        color: #0098c4
       }
-      > blockquote {
-        font-size: 12px;
-        margin: 0;
+      .image {
+        background-color: #deddde;
+        min-height: 180px;
         overflow: hidden;
-        padding-bottom: 10px;
-      }
-      > h4 {
-        font-size:  14px;
-        font-weight: 600;
-        margin: 0 0 .5em;
-        padding: 0;
-      }
-    }
-    > .author {
-      padding: 2px 0 0 12px;
-      overflow:hidden;
-    }
-    > .author,
-    > .author a {
-      font-weight: 600;
-      font-size: 12px;
-      text-decoration: none;
-      position:relative;
-      z-index:100;
-    }
-    .description {
-      padding: 2px 12px;
-      font-size: 12px;
-    }
-    .skills {
-      line-height: 16px;
-      a {
-        font-size: 11px;
-      }
-    }
-    div.rewards{
-      h2, h3, h4, h5, h6 {
-        margin: 0;
-        line-height: 22px;
-        float: left;
-        width: 70px;
-        font-size: 12px;
-      }
-      ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
+        padding: 0 !important;
         position: relative;
-        z-index: 910;
-        li {
-          display: inline-block;
-          margin-right: 3px;
-          width: 22px;
-          height: 22px;
-          line-height: 2000px;
-          text-indent: 2000px;
-          overflow: hidden;
-          background-image: url('/view/m/images/icon/s/blank.png');
-          opacity:0.60;
-          &.active {
-            opacity: 1 !important;
-          }
+        text-align: center;
+        width: 100%;
+        a img {
+          display: block;
+          width: 100vw;
+          height: auto;
+        }
+      }
+      .tagmark{
+        background: $grayCol01;
+        bottom: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        color: $grayCol03;
+        padding: 2px 10px;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        &.green{
+          background: $color07;
+        }
+      }
+      .project-details {
+        margin: 16px;
+        h3.title {
+          background: none;
+          font-size: 14px;
+          margin: 0 0 12px;
+          padding: 0;
           a {
-            display: block;
-            width: 21px;
-            height: 21px;
-            line-height: 2000px;
-            text-indent: 2000px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
             position: relative;
-            z-index: 910;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 900;
           }
-          &.food  {
-            background-image: url('/view/m/images/icon/s/food.png');
+        }
+        .author {
+          margin-bottom: 10px;
+          .link {
+            display: block;
+            font-size: 12px;
+            text-decoration: none;
+            position:relative;
           }
-          &.file  {
-            background-image: url('/view/m/images/icon/s/file.png');
+          .author-img {
+            @include circleAvatar(30px);
           }
-          &.money {
-            background-image: url('/view/m/images/icon/s/money.png');
+        }
+        .categories {
+          background: url(/view/images/icon_tag.png) no-repeat left 50%;
+          color: $grayCol02;
+          font-size:12px;
+          padding-left: 20px;
+        }
+      }
+      .meter {
+        .amount-bar {
+          display: none;
+        }
+      }
+      .want-support {
+        border-top: 1px solid $grayCol01;
+        bottom: 0;
+        letter-spacing: -.4em;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        > div {
+          display: inline-block;
+          letter-spacing: normal;
+          vertical-align: top;
+          width: 50%;
+          min-height: 70px;
+          &:first-child {
+            border-right: 1px solid $grayCol01;
           }
-          &.code {
-            background-image: url('/view/m/images/icon/s/code.png');
-          }
-          &.service {
-            background-image: url('/view/m/images/icon/s/service.png');
-          }
-          &.manual  {
-            background-image: url('/view/m/images/icon/s/manual.png');
-          }
-          &.product {
-            background-image: url('/view/m/images/icon/s/product.png');
-          }
-          &.design {
-            background-image: url('/view/m/images/icon/s/design.png');
-          }
-          &.other {
-            background-image: url('/view/m/images/icon/s/other.png');
+        }
+        h4 {
+          font-size: 12px;
+          line-height: 1;
+          margin: 10px 0 8px;
+        }
+        img {
+          height: 30px;
+        }
+        .days {
+          height: 30px;
+          line-height: 30px;
+          strong {
+            color: #000;
           }
         }
       }
-    }
-    div.buttons {
-      padding-top: 10px !important;
-      a.button {
-        margin: 0;
-        padding-top: 0 !important;
-        position: relative;
-        z-index: 900;
-      }
-      .button{
-        + .button {
-          float: right;
+      .balloon {
+        background: #cae4e6 url('/view/m/images/balloonbeak.png') no-repeat bottom left;
+        height: auto;
+        padding: 12px;
+        > .title a {
+          position:relative;
+          z-index:99;
+          line-height: 1.5em;
+          font-size: 18px;
+          color: #0098c4
+        }
+        > blockquote {
+          font-size: 12px;
+          margin: 0;
+          overflow: hidden;
+          padding-bottom: 10px;
+        }
+        > h4 {
+          font-size:  14px;
+          font-weight: 600;
+          margin: 0 0 .5em;
+          padding: 0;
         }
       }
+
+      .skillmatching {
+        div.image span.sm-icon {
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          width: 40px;
+          height: 40px;
+          background-image: url('/view/images/lg-project-sm.png');
+          background-size:40px 40px;
+        }
+        div.meter dl .days{
+          top:160px;
+        }
+      }
+
     }
   }
 
@@ -381,6 +284,34 @@
       font-size:13px;
       padding:0 20px 20px;
     }
+    .meter {
+      dl.reached-bar {
+        .supporters {
+          display: inline-block;
+          strong {
+            color: #000;
+            font-size: 16px;
+          }
+        }
+        dt.supporters {
+          :before {
+            content: '/';
+            display: inline-block;
+          }
+        }
+      }
+      dl.percent {
+        top: 58px;
+      }
+      dl.amount-bar {
+        dt {
+          min-width: 90px;
+        }
+        dd {
+            min-width: 110px;
+        }
+      }
+    }
   }
 
   //プロジェクト概要
@@ -402,11 +333,7 @@
       font-size: 16px;
     }
     > div {
-      margin-bottom: 1em;
       font-size: 14px;
-      &:last-child {
-        margin-bottom: 0;
-      }
     }
     &.h_ttl {
       background: none;
@@ -445,10 +372,6 @@
           }
         }
       }
-    }
-    > div {
-      font-size: 14px;
-      margin-bottom: 1em;
     }
     > .wants-skills .matched_skill {
       background-color:#f99;
@@ -497,20 +420,19 @@
       margin: auto;
       max-width: 500px;
       top: 75px;
-      width: 340px;
     }
   }
 
   //オーナーウィジェット
   &.user {
-    background-color: #fff;
+    background-color: $baseWhite;
     .supertitle {
       display: none;
     }
     h3.supertitle {
       background-color: #669900;
       border-bottom: none;
-      color: #ffffff;
+      color: $baseWhite;
       font-size: 15px;
       font-weight: 300;
       height: 40px;
@@ -528,7 +450,7 @@
         margin: 10px 0 0 0;
       }
       dl {
-        border: 1px solid $grayCol01;
+        border: $solidBorder;
         border-radius: 6px;
         font-size: 13px;
         margin: 20px 0;
@@ -538,7 +460,7 @@
         }
         dd {
           border: none;
-          border-bottom: 1px solid $grayCol01;
+          border-bottom: $solidBorder;
           line-height: 1.4em;
           margin-left: 0;
           padding: 0.8em 1.5em 0.8em 50px;
@@ -652,18 +574,18 @@
       }
     }
     .widget.user-social {
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       padding: 0;
       .title {
         display: none;
       }
       ul {
+        @include cf;
         list-style:none;
         margin:0;
         overflow:visible;
         padding:0;
         li {
-          display:block;
           float:left;
           margin-right: 10px;
           a {
@@ -773,7 +695,6 @@
       height: 50px;
       margin: 0 0 12px;
       padding: .3em 0;
-      resize: none;
       width: 85%;
     }
     a.preview{
@@ -1086,7 +1007,7 @@
       margin: 0;
     }
     div#legend{
-      background-color: #ffffff;
+      background-color: $baseWhite;
       margin-bottom: 20px;
       div.min,
       div.max {
@@ -1210,7 +1131,7 @@
       }
       tr {
         &:not(:last-child) {
-          border-bottom: 1px solid $grayCol01;
+          border-bottom: $solidBorder;
         }
         &.req {
           background: $baseWhite;
@@ -1302,7 +1223,7 @@
       tbody {
         th,
         td {
-          border-bottom: 8px solid #fff;
+          border-bottom: 8px solid $baseWhite;
           box-sizing: content-box;
           height: 30px;
           padding: 0 8px;
@@ -1551,7 +1472,7 @@
     .comments-num {
       float: none;
       background: transparent url('/view/m/images/ico-blogcomment.png') scroll no-repeat 10px 0;
-      background-color: #fff;
+      background-color: $baseWhite;
       padding: 0 0 0 40px;
       height: 40px;
       width: auto;
@@ -1689,7 +1610,6 @@
       height: 50px;
       margin: 0 0 12px;
       padding: .3em 0;
-      resize: none;
       width: 85%;
     }
     a.preview{
@@ -1823,6 +1743,291 @@
         background: url('/view/m/images/yen/violet/l.png') no-repeat center right;
         border-bottom: 1px solid #990033;
       }
+    }
+  }
+
+  //支援するウィジェット
+  //支援する
+  &.project-invest {
+    h1,h2,h3,h4,h5,h6 {
+      font-weight: 700;
+      margin-top: 0;
+      text-transform: none;
+    }
+    h1,h2,h3 {
+      font-size: 24px;
+    }
+    h4 {
+      font-size: 18px;
+    }
+    h5,h6 {
+      font-size: 16px;
+    }
+    h3.title {}
+    > div {
+      margin-bottom: 2em;
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    div.invest-message {
+      background: url('/view/images/project/view/invest/message_beak.png') no-repeat left bottom;
+      min-height:70px;
+      h2 {
+        margin: 0!important;
+        span {
+          color: #000;
+        }
+      }
+      img {
+        float: left;
+        margin-right: 20px;
+      }
+      span.message {
+        color: $grayCol03!important;
+        font-size: .9em!important;
+        font-weight: 400!important;
+        padding: 0;
+        text-transform: none!important;
+      }
+    }
+    h3.beak {
+      position: relative;
+      background: $mainCol01;
+      color: $baseWhite;
+      font-size: 1em!important;
+      padding: 20px;
+      text-transform: uppercase!important;
+      &::after{
+        border: 10px solid transparent;
+        border-top: 10px solid $mainCol01;
+        bottom: -20px;
+        content: '';
+        display: block;
+        height: 0;
+        left: 20px;
+        position: absolute;
+        width: 0;
+      }
+      span {
+        display: block;
+      }
+    }
+    //todo: 多分いらない
+    //.address {
+    //  margin: 0 auto;
+    //  padding: 0 0 20px 0;
+    //  clear: left;
+    //  background-color: $baseWhite;
+    //}
+    form {
+      padding: 24px 0 24px 8px;
+    }
+
+    //支援する -> 支援額(.project-investと同時に指定)
+    &.project-invest-amount {
+      margin-bottom: 20px;
+      h3.title {
+        font-size: 20px;
+        margin-bottom: 12px;
+        padding-left: 0;
+      }
+      form {
+        padding: 12px 0;
+      }
+      h4 {
+        margin-bottom: 12px;
+      }
+      label::before{
+        background: $mainCol01;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        content: '￥';
+        display: inline-block;
+        color: $baseWhite;
+        font-size: 16px;
+        font-weight: bold;
+        height: 25px;
+        line-height: 27px;
+        margin-right: 6px;
+        text-align: center;
+        vertical-align: top;
+        width: 25px;
+      }
+      #amount {
+        color: $color10;
+        font-size: 24px;
+        font-weight: 700;
+        height: 24px;
+        line-height: 40px;
+        margin-right: 8px;
+        padding: 0 8px;
+        width: 140px;
+      }
+    }
+
+    //支援する -> 住所部分
+    &.address {
+      table {
+        width:100%;
+        td {
+          padding-bottom: 8px;
+        }
+      }
+      label {
+        padding-right:5px;
+        text-align:right;
+      }
+      #fullname,
+      #address {
+        width: 100%;
+      }
+      #nif,#zipcode {
+        width: 100px;
+      }
+    }
+
+    //支援する -> 支払いボタン部分
+    &.method {
+      h3.beak {
+        &::after {
+          left: 0;
+          right: 0;
+          margin: auto;
+        }
+      }
+      input#paymethod {
+        width: 145px;
+        margin: 0 auto;
+        padding-bottom: 25px;
+      }
+    }
+
+    div.individual {
+      ul {
+        border-top: $solidBorder;
+        li {
+          border-bottom: $solidBorder;
+          padding:0;
+          label {
+            @include cf;
+            padding: 16px 20px;
+            &.amount {
+              color: $color10;
+              cursor: pointer;
+              display: block;
+              font-weight: 700;
+              h1, h2, h3, h4, h5, h6 {
+                color: #000;
+                font-size: 13px;
+                font-weight: 400;
+              }
+              h5 {
+                color: $grayCol03;
+                font-weight: 600;
+                margin-bottom: 8px;
+              }
+              p {
+                color: $grayCol03;
+                font-size: 13px;
+                font-weight: 400;
+                margin: 0;
+              }
+            }
+            &.resign {
+              cursor: pointer;
+              display: block;
+            }
+            .left {
+              display: block;
+              float: left;
+              width: 60%;
+            }
+            .right {
+              display: block;
+              float: right;
+              width: 40%;
+              img {
+                width: 100%;
+                height: auto;
+              }
+            }
+          }
+          &.disabled {
+            background-color: $baseCol;
+            label.amount {
+              color: $grayCol03;
+            }
+          }
+        }
+      }
+    }
+
+    button {
+      &.pay-tpv {
+        background:url('/view/images/button/tpv.gif') no-repeat 0 0 transparent;
+        height: 35px;
+        padding: 3px;
+        text-indent: 2000px;
+        width: 178px;
+      }
+      &.pay-paypal {
+        background:url('/view/images/button/paypal.gif') no-repeat 0 0 transparent;
+        height: 32px;
+        padding: 3px;
+        text-indent: 2000px;
+        width: 145px;
+      }
+      &:hover {
+        border: 1px solid $color06;//#20b2b3
+      }
+    }
+
+    p label {
+      cursor:pointer;
+      line-height:14px;
+      input[type="checkbox"] {
+        opacity:0;
+      }
+      input[type="checkbox"] + span.chkbox {
+        background:url('/view/images/project/widget/checkbox_disabled.png') no-repeat scroll 0 0 transparent;
+        display: block;
+        height: 12px;
+        margin-top: -15px;
+        position: absolute;
+        width: 12px;
+      }
+      input[type="checkbox"]:checked + span.chkbox {
+        background-position: 0 -13px;
+      }
+    }
+  }
+
+
+  //支援メッセージウィジェット
+  &.invest-message {
+    background:url(/view/images/project/view/invest/message_beak.png) no-repeat left bottom;
+    background-color:#cce7e8!important;
+    min-height:70px;
+    h2 {
+      margin:0!important;
+      span {
+        color:#232020;
+        &.message {
+          color:#57595b!important;
+          font-size:.9em!important;
+          font-weight:400!important;
+          padding:0;
+          text-transform:none!important;
+        }
+      }
+    }
+    img {
+      float:left;
+      margin-right:20px;
     }
   }
 

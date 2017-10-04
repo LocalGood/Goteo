@@ -43,7 +43,7 @@ $project = $this['project'];
     </h<?php echo $level + 1 ?>>
 
     <div class="project-widget-box<?php echo $status = $project->round ? '' : ' end'; ?>">
-    <?php echo new View('view/m/project/meter.html.php', array('project' => $project, 'level' => $level) ) ?>
+    <?php echo new View(VIEW_PATH . '/project/meter.html.php', array('project' => $project, 'level' => $level) ) ?>
     
         <div class="buttons">
             <?php if ($project->status == 3) : // boton apoyar solo si esta en campaña ?>

@@ -18,4 +18,4 @@
  *
  */
 
-include 'view/m/skillmatching/view.html.php';
+include VIEW_PATH . '/skillmatching/view.html.php';

@@ -31,7 +31,6 @@ if ($_GET['type'] == 'p'){
 ?>
 <div class="widget projects">
 
-    <h2 class="title">支援募集中のプロジェクト<?php //echo Text::get('home-projects-header'); ?></h2>
     <?php foreach ($allpjsm as $pj) :
         if (get_class($pj) == 'Goteo\Model\Skillmatching'){
             echo new View(VIEW_PATH . '/skillmatching/widget/skillmatchings.html.php', array('skillmatching' => $pj));

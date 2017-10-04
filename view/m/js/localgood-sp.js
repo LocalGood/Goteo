@@ -80,6 +80,53 @@ $(function () {
         });
     }
 
+    //Navi開閉
+  var linkList = $('.main_nav__link-list');
+  $(linkList).slideUp();
+  $('.nav_menu-button').click(function(){
+    if($(linkList).hasClass('on')){
+      $(linkList).slideUp();
+      $(linkList).removeClass('on');
+      $('.main_nav').css({"display":"none","position":"none"});
+      $('body').css({
+        'overflow': 'visible'
+      });
+      $('.list_open').removeClass('on');
+      $('.list_open dl').slideUp();
+      $('nav .close_button').css({
+        "display": "none"
+      });
+      $('.nav_menu-button span').css({
+        "display": "block"
+      });
+    }else{
+      $(linkList).slideDown();
+      $(linkList).addClass('on');
+      $(linkList).css({'position':'fixed','top':'60px','left':'0'});
+      $('.main_nav').css({"display":"block","position":"fixed","top":"0","left":"0","z-index":"99999"});
+      $('body').css({
+        'overflow': 'hidden'
+      });
+      $('nav .close_button').css({
+        "display": "block"
+      });
+      $('.nav_menu-button span').css({
+        "display": "none"
+      });
+    }
+  });
+
+  $('.list_open dl').slideUp();
+  $('.list_open').click(function(){
+    if($(this).hasClass('on')){
+      $(this).children('dl').slideUp();
+      $(this).removeClass('on');
+    }else{
+      $(this).children('dl').slideDown();
+      $(this).addClass('on');
+    }
+  });
+
 
 });
 

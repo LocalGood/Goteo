@@ -2,7 +2,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif;
+  //font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif;
 }
 
 html {
@@ -14,6 +14,7 @@ html {
 body {
   background-color: $baseCol;
   color: $grayCol03;
+  font-family: 'メイリオ', "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
   font-size: 14px;
   margin: 0;
   min-height: 100%;
@@ -61,12 +62,19 @@ a:link{
   }
 }
 
+
+
+input[type="text"],
+input[type="password"] {
+  box-sizing: border-box;
+}
+
 input[type="text"],
 input[type="password"],
 textarea,
 fieldset {
-  background-color: #eeeeee;
-  border: 1px solid $grayCol01;
+  background-color: $baseWhite;
+  border: $solidBorder;
   min-height: 27px;
   padding: .3em;
 }
@@ -94,12 +102,8 @@ a.button {
   background: none;
   background-color: $subCol01;
   border: none;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
   border-radius: 3px;
-  -moz-box-shadow: 0 3px 3px 0 #ccc;
-  -webkit-box-shadow: 0 3px 3px 0 #ccc;
-  box-shadow: 0 3px 3px 0 #ccc;
+  box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
   color: white;
   cursor: pointer;
   display: block;
@@ -112,16 +116,20 @@ a.button {
   text-align: center;
   text-decoration: none;
   width: 250px;
+  &.disabled {
+    background: $grayCol01;
+    box-shadow: none;
+    color: $baseWhite;
+    cursor: default;
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
-input.black[type="button"] {
-  background: #58595B;
-  background: -moz-linear-gradient(top, #58595B 0%, #333333 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#58595B), color-stop(100%,#333333));
-  background: -webkit-linear-gradient(top, #58595B 0%,#333333 100%);
-  background: -o-linear-gradient(top, #58595B 0%,#333333 100%);
-  background: -ms-linear-gradient(top, #58595B 0%,#333333 100%);
-  background: linear-gradient(to bottom, #58595B 0%,#333333 100%);
+input.back[type="button"] {
+  background: none;
+  background: $grayCol02;
 }
 
 button.green {
@@ -129,10 +137,6 @@ button.green {
   height: 38px;
   padding: 0;
   width: 140px;
-}
-
-body.project-edit div#main #project-steps button {
-  width: auto;
 }
 
 a.button.red {
@@ -154,19 +158,6 @@ a.button.red {
 * html .clearfix { height: 1%; }
 .clearfix { display: block; }
 /* End hide from IE-mac */
-
-
-
-a.up{display:inline-block;padding-left:15px;margin-left:18px; background:url('/view/m/images/arrow-up3.png') no-repeat left; line-height: 20px;
-  font-size: 12px;
-  text-decoration: none;
-  color: #9f9f9f;
-  margin-bottom: 40px;
-  &:hover{background:url('/view/m/images/arrow-up.png') no-repeat left;
-    color: #20b3b2;
-  }
-}
-
 
 /* /user/m/leave */
 textarea#leave-message {

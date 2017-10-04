@@ -23,8 +23,8 @@ use Goteo\Library\Text,
 
 $bodyClass = 'community about';
 
-include 'view/m/prologue.html.php';
-include 'view/m/header.html.php';
+include VIEW_PATH . '/prologue.html.php';
+include VIEW_PATH . '/header.html.php';
 ?>
 
 <?/*
@@ -38,19 +38,19 @@ include 'view/m/header.html.php';
     <div id="main">
 
     <?php if ($this['show'] == 'activity') : /* ahora el feed*/ ?>
-        <?php echo new View('view/community/feed.html.php', $this) ?>
+        <?php echo new View(VIEW_PATH . '/community/feed.html.php', $this) ?>
     <?php /* Hasta aqui el feed*/ else : /*a ahora sharemates global*/ ?>
         <div class="center">
-            <?php echo new View('view/community/sharemates.html.php', $this) ?>
+            <?php echo new View(VIEW_PATH . '/community/sharemates.html.php', $this) ?>
         </div>
 <?/*
         <div class="side">
-            <?php echo new View('view/community/investors.html.php', $this) ?>
+            <?php echo new View(VIEW_PATH . '/community/investors.html.php', $this) ?>
         </div>
 */?>
     <?php /* Hasta qui sharemates global */ endif; ?>
 
     </div>
 
-<?php include 'view/m/footer.html.php' ?>
-<?php include 'view/m/epilogue.html.php' ?>
+<?php include VIEW_PATH . '/footer.html.php' ?>
+<?php include VIEW_PATH . '/epilogue.html.php' ?>

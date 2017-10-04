@@ -26,8 +26,8 @@ $user = $_SESSION['user'];
 $bodyClass = 'user-login';
 // para que el prologue ponga el c�digo js para bot�n facebook en el bannerside
 $fbCode = Text::widget(Text::get('social-account-facebook'), 'fb');
-include 'view/m/prologue.html.php';
-include 'view/m/header.html.php';
+include VIEW_PATH . '/prologue.html.php';
+include VIEW_PATH . '/header.html.php';
 
 $error = $this['error'];
 $message = $this['message'];
@@ -88,4 +88,4 @@ if (!isset($_POST['email']) && isset($_GET['email'])) {
 
     </div>
 
-<?php include 'view/m/footer.html.php' ?>
+<?php include VIEW_PATH . '/footer.html.php' ?>

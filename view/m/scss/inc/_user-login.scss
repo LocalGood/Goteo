@@ -1,0 +1,91 @@
+@charset "utf-8";
+.user-login{
+  min-height: unset;
+  #main{
+    margin: 0 auto;
+  }
+  div#sub-header {
+    div {
+      display: block;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    h2 {
+      min-height: 55px;
+      position: relative;
+      line-height: 1.2em;
+      font-size: 18px;
+      font-weight: normal;
+      a {
+        @include circleAvatar(55px);
+      }
+      em {
+        font-weight: bold;
+        font-size: 24px;
+        font-style: normal;
+      }
+    }
+  }
+
+  .register,
+  .external-login,
+  .login{
+    padding: 15px 20px;
+    margin: 0 0 20px 0;
+    background: $baseWhite;
+    a{
+      color: $mainCol01;
+      &:hover{
+        color: $mainCol02;
+      }
+    }
+  }
+  .login,
+  .register {
+    label{
+      display: block;
+    }
+    input[type="text"],
+    input[type="password"] {
+      display: block;
+      width: 100%;
+      margin: 0 0 20px 0;
+    }
+  }
+  .login {
+    input[name="username"],
+    input[name="password"] {
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      width: 100%;
+    }
+  }
+  .register {
+    textarea{
+      width: 100%;
+      margin: 0 0 20px 0;
+    }
+    textarea,
+    input:not([type="submit"]) {
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      background: $baseWhite;
+    }
+    input {
+      &[name="userid"],
+      &[name='username']{
+        display: block;
+      }
+      &[type='password']{
+        display: block;
+        margin: 0 0 20px 0;
+      }
+    }
+    .agree {
+      display: flex;
+    }
+  }
+
+}

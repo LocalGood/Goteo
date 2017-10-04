@@ -22,8 +22,8 @@ use Goteo\Core\View,
 	Goteo\Library\Text;
 
 $bodyClass = 'discover';
-include 'view/m/prologue.html.php';
-include 'view/m/header.html.php' ?>
+include VIEW_PATH . '/prologue.html.php';
+include VIEW_PATH . '/header.html.php' ?>
 
 <script type="text/javascript">	
     jQuery(document).ready(function ($) {
@@ -58,7 +58,7 @@ include 'view/m/header.html.php' ?>
     });
 </script>
     <div id="main">
-        <?php echo new View('view/m/discover/searcher.html.php',
+        <?php echo new View(VIEW_PATH . '/discover/searcher.html.php',
                             array(
                                 'categories' => $categories,
                                 'locations'  => $locations,
@@ -81,9 +81,9 @@ include 'view/m/header.html.php' ?>
 
                 <?php foreach ($projects['items'] as $project) :
                     if (get_class($project) == 'Goteo\Model\Skillmatching'){
-                        echo new View('view/m/skillmatching/widget/skillmatchings.html.php', array('skillmatching' => $project));
+                        echo new View(VIEW_PATH . '/skillmatching/widget/skillmatchings.html.php', array('skillmatching' => $project));
                     } else {
-                        echo new View('view/m/project/widget/project.html.php', array('project' => $project));
+                        echo new View(VIEW_PATH . '/project/widget/project.html.php', array('project' => $project));
                     }
                 endforeach; ?>
 
@@ -103,6 +103,6 @@ include 'view/m/header.html.php' ?>
 
     </div>
 
-    <?php include 'view/m/footer.html.php' ?>
+    <?php include VIEW_PATH . '/footer.html.php' ?>
 
-<?php include 'view/m/epilogue.html.php' ?>
+<?php include VIEW_PATH . '/epilogue.html.php' ?>

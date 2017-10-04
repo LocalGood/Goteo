@@ -83,7 +83,7 @@ if(strstr($_url,$_value) && preg_match('/^\/skillmatching\/(.*)$/',$_url)): ?>
                 <div id="proyecto" class="widget projects" style="width:600px;height:600px;overflow:hidden;padding:0;">
                     <h2 class="widget-title"><?php echo Text::get('project-spread-widget_title'); ?></h2>
                     <div class="widget-porject-legend"><?php echo Text::get('project-spread-widget_legend'); ?></div>
-                    <?php echo new View('view/m/skillmatching/widget/embed.html.php', array('skillmatching'=>$skillmatching)) ?>
+                    <?php echo new View(VIEW_PATH . '/skillmatching/widget/embed.html.php', array('skillmatching'=>$skillmatching)) ?>
                 </div>
             </div>
         </div>

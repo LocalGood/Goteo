@@ -44,7 +44,7 @@ $skillmatching = $this['skillmatching'];
 
 
     <div class="project-widget-box">
-    <?php echo new View('view/m/skillmatching/meter.html.php', array('skillmatching' => $skillmatching, 'level' => $level) ) ?>
+    <?php echo new View(VIEW_PATH . '/skillmatching/meter.html.php', array('skillmatching' => $skillmatching, 'level' => $level) ) ?>
     
         <div class="buttons">
             <?php if ($skillmatching->status == 3) : // boton apoyar solo si esta en campaña ?>

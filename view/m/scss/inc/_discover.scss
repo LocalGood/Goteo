@@ -10,15 +10,17 @@
   }
 
   #main {
-    div {
-      &.widget {
-        overflow: hidden;
-      }
+    div.widget {
+      overflow: hidden;
     }
   }
 
+  ul#pagination {
+    margin: 0 20px 20px;
+  }
+
   .searcher {
-    background-color: #fff;
+    background-color: $baseWhite;
     padding-bottom: 0;
     padding-left: 0;
     padding-right: 0;
@@ -27,28 +29,27 @@
     }
     .text-filter {
       display: block;
-      margin-bottom: 20px;
+      margin: 0 8px 20px;
       label {
         display: block;
         font-weight: 600;
         font-size: 14px;
-        margin-left: 16px;
         padding-top: 9px;
       }
     }
     #text-query {
-      background-color: #ffffff;
-      border: 1px solid $grayCol01;
-      color: #808184;
+      background-color: $baseWhite;
+      border: $solidBorder;
+      color: $grayCol02;
       float: left;
       font-size: 16px;
-      padding: 4px 5px 4px 10px;
-      width: 65%;
+      padding: 6px;
+      width: 70%;
     }
     .searcher-btn {
       height: 33px;
       position: absolute;
-      right: 8px;
+      right: 12px;
       top: 34px;
       width: 25%;
       #searcher {
@@ -69,29 +70,23 @@
         margin-right: 0;
       }
       label {
-        border-bottom: 1px solid $grayCol01;
-        color: #58595B;
+        border-bottom: $solidBorder;
         display: block;
-        font-size: 14px;
         font-weight: 600;
         padding: 5px 5px 6px 0;
       }
       select {
-        background-color: #e7e7e7;
-        border: 1px solid $grayCol01;
-        color: #58595B;
+        background-color: $baseCol;
+        border: $solidBorder;
         font-size: 1.5em;
         height: 35px;
         margin: 10px 0 0;
         width: 100%;
         option {
-          color: #58595B;
           &[selected="selected"] {
-            background-color: #d5d5d6;
-            color: #58595B;
+            background-color: $baseCol;
           }
           &.all {
-            color: #58595B;
             font-size: 1em;
             font-weight: 600;
           }
@@ -100,26 +95,8 @@
     }
   }
 
-  .widget.projects {
-    background-color: $baseWhite;
-    margin: 20px 0;
-    padding-top: 20px;
-
-    h2.title {
-      padding-top: 0;
-    }
-
-    .project {
-      border: $solidBorder;
-      border-radius: 4px;
-      margin: 0 auto 20px;
-      padding-bottom: 20px;
-      width: 92%;
-    }
-  }
-
   .navi-bar {
-    background-color: #ffffff;
+    background-color: $baseWhite;
     border-top: $solidBorder;
     text-align: center;
     a.all {
@@ -130,7 +107,7 @@
       padding: 8px;
       text-decoration: none;
       &:hover {
-        color: #20B3B2;
+        color: $subCol01;
       }
     }
   }

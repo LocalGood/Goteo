@@ -40,7 +40,7 @@
       -webkit-border-radius: 3px;
       -moz-border-radius: 3px;
       border-radius: 3px;
-      background: #FFF;
+      background: $baseWhite;
     }
     a.preview{
       display: none;
@@ -63,7 +63,7 @@
     textarea#message_user{
       display:block;
     }
-    #bocadillo{
+    /*#bocadillo{
       background:url('/view/m/images/bocadillo.jpg') no-repeat;
       height:51px;
       position:absolute;
@@ -77,7 +77,7 @@
       position: relative;
       text-decoration: none;
       top: 10px;
-    }
+    }*/
     button{
       float:right;
       margin-right:8px;
@@ -115,9 +115,6 @@
             a {
               font-size: 12px;
               text-decoration: none;
-              &:hover {
-                color: #20B3B2;
-              }
             }
           }
         }
@@ -131,35 +128,43 @@
           line-height: 20px;
           min-height: 22px;
           padding-left: 28px;
-          a:hover,
-          a:hover * {
-            color: #20B3B2;
-          }
         }
         p,
         p * {
           font-size: 12px;
           font-weight: normal;
-          text-decoration: none;
           font-style: normal;
+          text-decoration: none;
         }
       }
       &.message {
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        &:before{
+          background: lighten($mainCol01,40%);
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%;
+          color: $mainCol01;
+          content: "\f075";
+          display: inline-block;
+          height: 25px;
+          line-height: 25px;
+          text-align: center;
+          width: 25px;
+        }
         p {
-          background: url("/view/m/images/bocadillo/s.png") no-repeat left center;
+          display: inline-block;
           line-height: 22px;
           margin-bottom: 0;
           min-height: 22px;
-          padding-left: 26px;
           a {
-            color: #28B258;
-            font-size: 14px;
+            color: $mainCol01;
             font-weight: bold;
             text-decoration: none;
-            &:hover {
-              text-decoration: underline;
             }
-          }
         }
       }
     }
@@ -174,13 +179,13 @@
       padding: 16px;
       text-align: right;
       a {
-        color: #808080;
+        color: $grayCol02;
         font-size: 11px;
       }
     }
   }
 
-  //ユーザープロフィール下部
+  //ユーザープロフィール下部　プロジェクト一覧
   .widget.projects {
     background-color: $baseWhite;
     margin-bottom: 20px;
@@ -193,14 +198,10 @@
       padding: 0;
     }
     .widget.project {
-      border: 1px solid #d9d9d9;
-      box-sizing: content-box;
+      border: $solidBorder;
       border-radius: 4px;
-      margin-bottom: 12px;
+      box-sizing: content-box;
       padding-bottom: 16px;
-      &:last-child {
-        margin-bottom: 0;
-      }
     }
   }
 
@@ -255,7 +256,7 @@
         flex-wrap: wrap;
         -webkit-align-items: stretch; /* Safari */
         align-items: stretch;
-        background-color:#fff;
+        background-color:$baseWhite;
         height:auto;
         list-style:none;
         margin:0;
@@ -346,7 +347,7 @@
       padding:0;
     }
     div.categories {
-      background-color: #fff;
+      background-color: $baseWhite;
       border-bottom:$solidBorder;
       padding: 5px 0;
       ul {

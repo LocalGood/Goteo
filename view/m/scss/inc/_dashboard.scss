@@ -91,11 +91,6 @@
     }
   }
 
-  /*.discover-arrow-right,
-  .discover-arrow-left {
-    display: none;
-  }*/
-
   .footer {
     margin-top: 60px;
   }
@@ -107,9 +102,8 @@
   }
 
   .superform {
-    background-color: #ffffff !important;
-    padding: 10px 20px !important;
-    border: none !important;
+    background-color: $baseWhite;
+    padding: 10px 20px;
   }
 
 
@@ -118,44 +112,57 @@
     hr {
       display: none;
     }
-    div.widget {
+    > div.widget {
       margin-bottom: 20px;
     }
-    div.status {
+    /*div.status {
       float: left;
       color: #bcbdbd;
       border: none !important;
       padding: 0 !important;
       margin-right: 20px;
-      #project-status h3 {
-        font-size: 20px;
+      #project-status {
+        h3 {
+          font-size: 20px;
+        }
       }
-    }
+    }*/
 
     //マイページ > アクティビティ > 概要
     &.summary {
 
+      > .widget.projects {
+        margin-top: 0;
+      }
+
       //マイページ > アクティビティ > 概要 > 累計寄付金額
-      .widget.user-worthcracy {
+      /*.widget.user-worthcracy {
         padding-bottom: 60px;
         div.worth-amount {
           top: 25px;
         }
-      }
+      }*/
 
-      //マイページ > アクティビティ > 概要 > あなたのスキルがマッチしたプロジェクト
-      &.widget.projects {
+      //マイページ > アクティビティ > 概要 > あなたのスキルがマッチしたプロジェクト（一覧）
+      /*.widget.projects {
+        background: none;
+        margin: 0 auto 20px;
+        padding-top: 0;
         h2.title {
-          color: #f5f5f5;
-          background-color: #666666;
-          font-weight: 300;
-          line-height: 22px;
-          margin: 0;
-          padding: 8px 0 8px 20px;
+          background-color: $baseWhite;
+          padding-top: 20px;
         }
-        ul {
-          float: left;
+        .discover-group {
+          background-color: $baseWhite;
+          padding-bottom: 20px;
+          &.discover-group-matched_projects {
+            .project:last-child {
+              margin-bottom: 0;
+            }
+          }
         }
+
+        //プロジェクトウィジェット
         .widget.project {
           .meter {
             dl dd.optimum span {
@@ -169,13 +176,13 @@
             }
           }
         }
-      }
+      }*/
     }
 
     //マイページ > プロフィール > 公開プロフィール編集
     &.profile {
       .footer {
-        padding: 0 20px 20px 0;
+        padding-bottom: 20px;
         margin: 0;
       }
       div.superform {
@@ -248,13 +255,28 @@
             }
           }
         }
+        > div.elements > ol > li.element {
+          padding: 0;
+        }
       }
     }
 
     //マイページ > プロフィール > アカウント設定
     &.access {
       a.button {
+        line-height: 40px;
         margin-bottom: 20px;
+      }
+      div.superform {
+        margin: 0 0 10px 0;
+      }
+    }
+
+    //マイページ > プロフィール > 通知設定
+    &.preferences {
+      div.superform div.elements > ol > li.element.slider > div.contents > ul > li > label > input[type="radio"] {
+        position: relative;
+        right: auto;
       }
     }
   }

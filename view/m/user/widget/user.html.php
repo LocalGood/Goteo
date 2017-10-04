@@ -76,7 +76,7 @@ $user->about = nl2br(Text::urlink($user->about));
             <?php endif ?>
         </div>
 
-        <?php echo new View('view/m/user/widget/social.html.php', array('user' => $user)) ?>
+        <?php echo new View(VIEW_PATH . '/user/widget/social.html.php', array('user' => $user)) ?>
 
         <a class="button aqua profile" href="/user/profile/<?php echo htmlspecialchars($user->id) ?>/message"><?php echo Text::get('regular-send_message')?></a>
 

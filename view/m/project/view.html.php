@@ -65,13 +65,13 @@ if (!empty($evaluation->content)){
 }
 
 
-$bodyClass = 'project-show'; include 'view/m/prologue.html.php' ?>
+$bodyClass = 'project-show'; include VIEW_PATH . '/prologue.html.php' ?>
 
-<?php include 'view/m/header.html.php' ?>
+<?php include VIEW_PATH . '/header.html.php' ?>
 
         <div id="sub-header">
             <div class="sub-menu">
-                <?php echo new View('view/m/project/view/menu.html.php',
+                <?php echo new View(VIEW_PATH . '/project/view/menu.html.php',
                     array(
                         'project' => $project,
                         'show' => $show,
@@ -85,7 +85,7 @@ $bodyClass = 'project-show'; include 'view/m/prologue.html.php' ?>
             </div>
         </div>
 
-<?php if(isset($_SESSION['messages'])) { include 'view/m/header/message.html.php'; } ?>
+<?php if(isset($_SESSION['messages'])) { include VIEW_PATH . '/header/message.html.php'; } ?>
 
 
         <div id="main" class="threecols">
@@ -98,22 +98,22 @@ $bodyClass = 'project-show'; include 'view/m/prologue.html.php' ?>
                 // los modulos centrales son diferentes segun el show
                 switch ($show) {
                     case 'needs':
-                        echo new View('view/m/project/widget/summary.h_ttl.html.php', array('project' => $project));
+                        echo new View(VIEW_PATH . '/project/widget/summary.h_ttl.html.php', array('project' => $project));
                         if ($this['non-economic']) {
                             echo
-                                new View('view/m/project/widget/non-needs.html.php',
+                                new View(VIEW_PATH . '/project/widget/non-needs.html.php',
                                     array('project' => $project, 'types' => Support::types()));
                             $non_flug = 1;
                         } else {
                         echo
-                            new View('view/m/project/widget/needs.html.php', array('project' => $project, 'types' => Cost::types())),
-                            new View('view/m/project/widget/schedule.html.php', array('project' => $project)),
-                            new View('view/m/project/widget/sendMsg.html.php', array('project' => $project));
+                            new View(VIEW_PATH . '/project/widget/needs.html.php', array('project' => $project, 'types' => Cost::types())),
+                            new View(VIEW_PATH . '/project/widget/schedule.html.php', array('project' => $project)),
+                            new View(VIEW_PATH . '/project/widget/sendMsg.html.php', array('project' => $project));
                         }
                         break;
                         
                     case 'supporters':
-                        echo new View('view/m/project/widget/summary.h_ttl.html.php', array('project' => $project));
+                        echo new View(VIEW_PATH . '/project/widget/summary.h_ttl.html.php', array('project' => $project));
 
                         // segun el paso de aporte
                         if (!empty($step) && in_array($step, array('start', 'login', 'confirm', 'continue', 'ok', 'fail'))) {
@@ -121,68 +121,68 @@ $bodyClass = 'project-show'; include 'view/m/prologue.html.php' ?>
                             switch ($step) {
                                 case 'continue':
                                     echo
-                                        new View('view/m/project/widget/investMsg.html.php', array('message' => $step, 'user' => $user)),
-                                        new View('view/m/project/widget/invest_redirect.html.php', array('project' => $project, 'personal' => $personalData, 'step' => $step, 'allowpp'=> $this['allowpp']));
+                                        new View(VIEW_PATH . '/project/widget/investMsg.html.php', array('message' => $step, 'user' => $user)),
+                                        new View(VIEW_PATH . '/project/widget/invest_redirect.html.php', array('project' => $project, 'personal' => $personalData, 'step' => $step, 'allowpp'=> $this['allowpp']));
                                     break;
                                     
                                 case 'ok':
                                     echo
-                                        new View('view/m/project/widget/investMsg.html.php', array('message' => $step, 'user' => $user)), new View('view/project/widget/spread.html.php',array('project' => $project));
+                                        new View(VIEW_PATH . '/project/widget/investMsg.html.php', array('message' => $step, 'user' => $user)), new View('view/project/widget/spread.html.php',array('project' => $project));
                                         //sacarlo de div#center
                                         $printSendMsg=true;
                                     break;
                                     
                                 case 'fail':
                                     echo
-                                        new View('view/m/project/widget/investMsg.html.php', array('message' => $step, 'user' => User::get($_SESSION['user']->id))),
-                                        new View('view/m/project/widget/invest.html.php', array('project' => $project, 'personal' => User::getPersonal($_SESSION['user']->id), 'allowpp'=> $this['allowpp']));
+                                        //new View(VIEW_PATH . '/project/widget/investMsg.html.php', array('message' => $step, 'user' => User::get($_SESSION['user']->id))),
+                                        new View(VIEW_PATH . '/project/widget/invest.html.php', array('project' => $project, 'personal' => User::getPersonal($_SESSION['user']->id), 'allowpp'=> $this['allowpp']));
                                     break;
                                 default:
                                     echo
-                                        new View('view/m/project/widget/investMsg.html.php', array('message' => $step, 'user' => $user)),
-                                        new View('view/m/project/widget/invest.html.php', array('project' => $project, 'personal' => $personalData, 'step' => $step, 'allowpp'=> $this['allowpp']));
+                                        //new View(VIEW_PATH . '/project/widget/investMsg.html.php', array('message' => $step, 'user' => $user)),
+                                        new View(VIEW_PATH . '/project/widget/invest.html.php', array('project' => $project, 'personal' => $personalData, 'step' => $step, 'allowpp'=> $this['allowpp']));
                                     break;
                             }
                         } else {
                             echo
-                                new View('view/m/project/widget/supporters.html.php', $this),
-                                new View('view/m/worth/legend.html.php');
+                                new View(VIEW_PATH . '/project/widget/supporters.html.php', $this),
+                                new View(VIEW_PATH . '/worth/legend.html.php');
                         }
                         break;
                         
                     case 'messages':
                         echo
-                            new View('view/m/project/widget/summary.h_ttl.html.php', array('project' => $project)),
-                            new View('view/m/project/widget/collaborations_message.html.php', array('project' => $project,'thread' => $thread)),
-                            new View('view/m/project/widget/messages.html.php', array('project' => $project,'thread' => $thread));
+                            new View(VIEW_PATH . '/project/widget/summary.h_ttl.html.php', array('project' => $project)),
+                            new View(VIEW_PATH . '/project/widget/collaborations_message.html.php', array('project' => $project,'thread' => $thread)),
+                            new View(VIEW_PATH . '/project/widget/messages.html.php', array('project' => $project,'thread' => $thread));
                         break;
                    
                     case 'rewards':
                         echo
-                            new View('view/m/project/widget/summary.h_ttl.html.php', array('project' => $project)),
-                            new View('view/m/project/widget/rewards-summary.html.php', array('project' => $project));
+                            new View(VIEW_PATH . '/project/widget/summary.h_ttl.html.php', array('project' => $project)),
+                            new View(VIEW_PATH . '/project/widget/rewards-summary.html.php', array('project' => $project));
                         break;
                     
                     case 'updates':
                         echo
-                            new View('view/m/project/widget/summary.h_ttl.html.php', array('project' => $project)),
-                            new View('view/m/project/widget/updates.html.php', array('project' => $project, 'blog' => $blog, 'post' => $post));
+                            new View(VIEW_PATH . '/project/widget/summary.h_ttl.html.php', array('project' => $project)),
+                            new View(VIEW_PATH . '/project/widget/updates.html.php', array('project' => $project, 'blog' => $blog, 'post' => $post));
                         break;
 
                     case 'evaluation':
                         echo
-                            new View('view/m/project/widget/summary.h_ttl.html.php', array('project' => $project)),
-                            new View('view/m/project/widget/evaluation.html.php', array('project' => $project, 'evaluation' => $evaluation));
+                            new View(VIEW_PATH . '/project/widget/summary.h_ttl.html.php', array('project' => $project)),
+                            new View(VIEW_PATH . '/project/widget/evaluation.html.php', array('project' => $project, 'evaluation' => $evaluation));
                         break;
 
                     case 'home':
                     
                     default:
                         echo
-                            new View('view/m/project/widget/summary.h_ttl.html.php', array('project' => $project)),
-                            new View('view/m/project/widget/support.html.php', array('project' => $project)),
-                        new View('view/m/project/widget/gallery.html.php', array('project' => $project)),
-                            new View('view/m/project/widget/summary.html.php', array('project' => $project));
+                            new View(VIEW_PATH . '/project/widget/summary.h_ttl.html.php', array('project' => $project)),
+                            new View(VIEW_PATH . '/project/widget/support.html.php', array('project' => $project)),
+                        new View(VIEW_PATH . '/project/widget/gallery.html.php', array('project' => $project)),
+                            new View(VIEW_PATH . '/project/widget/summary.html.php', array('project' => $project));
                         break;
                 }
                 ?>
@@ -190,18 +190,18 @@ $bodyClass = 'project-show'; include 'view/m/prologue.html.php' ?>
              </div>
 
             <div class="side">
-            <?php echo new View('view/m/user/widget/user.html.php', array('user' => $project->user)); ?>
+            <?php echo new View(VIEW_PATH . '/user/widget/user.html.php', array('user' => $project->user)); ?>
             </div>
 
             <?php $printSendMsg = false; ?>
 
 			<?php
 				if($printSendMsg){
-					 echo new View('view/m/project/widget/sendMsg.html.php',array('project' => $project));
+					 echo new View(VIEW_PATH . '/project/widget/sendMsg.html.php',array('project' => $project));
 				}
             ?>
 
         </div>
 
-        <?php include 'view/m/footer.html.php' ?>
-		<?php include 'view/m/epilogue.html.php' ?>
+        <?php include VIEW_PATH . '/footer.html.php' ?>
+		<?php include VIEW_PATH . '/epilogue.html.php' ?>

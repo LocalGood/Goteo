@@ -5,13 +5,15 @@
 --------------------------------------------------*/
 
 .main_nav02 {
-  background: #fff;
+  @include cf;
+  background: $baseWhite;
   box-shadow: -1px 2px 2px rgba(9, 9, 9, 0.2);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  font-size: 12px;
   height: 60px;
   left: 0;
+  line-height: 1.6em;
   padding: 16px 19px 16px 13px;
   position: fixed;
   top: 0;
@@ -24,20 +26,21 @@
     }
   }
   .nav_menu-button {
-    background: #fff;
+    background: $baseWhite;
+    box-sizing: content-box;
     float: right;
     height: 23px;
     padding: 7px 0 3px;
     width: 21px;
     span {
-      background: #255b80;
+      background: $mainCol01;
       display: block;
       height: 3px;
       margin-bottom: 3px;
     }
   }
   .main_nav__link-list {
-    background: #fff;
+    background: $baseWhite;
     box-shadow: -1px 2px 2px rgba(9, 9, 9, 0.2);
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -61,33 +64,44 @@
     }
     .list01 {
       list-style: none;
+      margin-top: 0;
       padding: 0;
+      > li > a {
+        color: $grayCol03;
+      }
       li {
         dt {
           display: block;
+          line-height: 21px;
           margin-top: 14px;
         }
         dd {
+          height: 30px;
           margin: 0;
         }
         .list01__text {
           border-bottom: solid 1px $grayCol01;
-          color: #575757;
           display: block;
-          font-size: 14px !important;
+          font-size: 130%;
           font-weight: 600;
           padding: 20px 0;
         }
         .list02 {
           border-bottom: solid 1px $grayCol01;
+          margin: 0;
           padding-bottom: 20px;
           padding-left: 20px;
           a {
             background: url("/view/m/images/header/s-main_nav-icon.png") no-repeat left;
             display: block;
-            font-size: 13px;
+            font-size: 120%;
             line-height: 2.5em;
             padding-left: 20px;
+            &:link,
+            &:visited,
+            &:active {
+              color: $mainCol01;
+            }
           }
         }
         a {
@@ -97,11 +111,10 @@
     }
   }
   .nav_menu-button .close_button {
-    color: #255b80;
-    font-size: 200%;
+    color: $mainCol01;
+    font-size: 250%;
     font-weight: 600;
     display: none;
-    margin-top: -20px;
   }
 }
 
@@ -119,20 +132,19 @@
 
 /* Sub-header */
 #sub-header {
-  //margin-bottom: 0;
   margin-top: 60px;
   h2.title {
     padding: 10px;
     text-align: center;
   }
-  &.banners {
+  /*&.banners {
     padding: 0;
     > div > div.mod-pojctopen {
       margin-left: 0;
       margin-right: 32px;
       margin-top: 16px;
     }
-  }
+  }*/
   > div {
     &.clearfix {
       min-width: 915px;
@@ -145,33 +157,37 @@
       margin: 0;
       padding: 0;
     }
-    > div.mod-pojctopen {
+    /*> div.mod-pojctopen {
       float: right;
       width: 180px;
       > {
         .modpo-open {
-          color: #ee4843;
-          font: bold 58px/72px Helvetica, Arial, Geneva, sans-serif;
+          color: $alertCol;
+          font-size: 58px;
+          font-weight: 600;
+          line-height: 72px;
           text-align: center;
         }
         .modpo-percent {
-          border-bottom: 1px solid $grayCol01;
+          border-bottom: $solidBorder;
           color: #908499;
-          font: bold 22px Helvetica, Arial, Geneva, sans-serif;
+          font-size: 22px;
+          font-weight: 600;
           margin: -10px 0 0;
           padding: 4px 0 8px;
           text-align: center;
         }
         .modpo-whyopen {
-          font: bold 14px Helvetica, Arial, Geneva, sans-serif;
+          font-size: 14px;
+          font-weight: 600;
           padding: 6px 0 0 50px;
         }
       }
-    }
+    }*/
   }
 }
 
-.subhead-banner {
+/*.subhead-banner {
   h2.message .greenblue {
     color: #908499;
   }
@@ -180,7 +196,7 @@
     position: absolute;
     right: 20px;
   }
-}
+}*/
 
 
 /*--------------------------------------------------
@@ -188,8 +204,8 @@ footer
 --------------------------------------------------*/
 
 footer {
-  background: #255b7f;
-  color: #fff;
+  background: $mainCol01;
+  color: $baseWhite;
   padding: 40px 20px 10px;
   .footer__link-title {
     font-size: 14px;
@@ -207,9 +223,12 @@ footer {
     margin-bottom: 30px;
     padding-left:0;
   }
-  a {
-    color: #fff !important;
-    font-size:12px !important;
+  a,
+  a:link,
+  a:active,
+  a:visited {
+    color: $baseWhite;
+    font-size:12px;
     text-decoration: none;
   }
   .footer_bottom {
@@ -240,11 +259,11 @@ footer {
     .link {
       margin-bottom: 30px;
       span {
-        background: #fff;
+        background: $baseWhite;
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
         border-radius: 50%;
-        color: #255b7f;
+        color: $mainCol01;
         display: inline-block;
         font-size: 80%;
         font-weight: 600;
@@ -258,7 +277,7 @@ footer {
 }
 
 .sp_footer_logo-area {
-  background: #fff;
+  background: $baseWhite;
   padding: 25px 25px 10px 25px;
   .cw {
     font-size: 50% !important;
@@ -268,6 +287,7 @@ footer {
     list-style: none;
     padding:0;
     width: 100%;
+    @include cf;
     li {
       display: table;
       float: left;
@@ -294,24 +314,29 @@ footer {
   contents
 --------------------------------------------------*/
 #message{
-  background: none repeat scroll 0 0 #ffa375;
-  color: #333333;
+  background-color: $alertCol;
+  color: $baseWhite;
   font-size: 14px;
-  padding: 25px 0;
+  padding: 20px;
   width: 100%;
   #message-content{
     margin:0 auto;
     position:relative;
     width: 100%;
     input.message-close{
-      background:url('/view/m/images/message-close.png') no-repeat;
+      background: none;
       border:none;
+      box-shadow: none;
+      color: $baseWhite;
       cursor:pointer;
-      height:10px;
+      font-size: 20px;
+      font-weight: 600;
+      height:20px;
+      line-height: 100%;
       position:absolute;
-      right:0;
-      top:-8px;
-      width:11px;
+      right: -14px;
+      top: -26px;
+      width:20px;
       z-index:100;
     }
     ul{
@@ -324,15 +349,6 @@ footer {
 
 #wrapper {
   margin-top: 60px;
-}
-
-.contents_wrapper {
-  background-color: #f5f3f0;
-  height: auto;
-  margin: 0 auto 0;
-  padding-bottom: 20px;
-  position: relative;
-  width: 100%;
 }
 
 #main {
@@ -351,16 +367,14 @@ ul#pagination {
   padding:0;
   li {
     background: white;
-    -moz-box-shadow: 3px 3px 0 #E2E2E2;
-    -webkit-box-shadow: 3px 3px 0 #E2E2E2;
-    box-shadow: 3px 3px 0 #E2E2E2;
+    box-shadow: 3px 3px 0 $grayCol01;
     display:inline;
     float: left;
     margin: 0 6px 0 0;
     text-align: center;
     width: auto;
     &.selected {
-      background:#cde4e5;
+      background: $baseCol;
       font-weight: 600;
       padding: 6px 20px;
     }
@@ -373,44 +387,8 @@ ul#pagination {
       padding: 6px 20px;
       text-decoration:none;
       &:hover {
-        background:#F3F3F3;
+        background: $baseCol;
       }
     }
   }
 }
-
-/*ul.lang {
-  position: absolute;
-  left: 0;
-  top: 25px;
-  z-index: 1000;
-  list-style: none;
-  display: none;
-  background-color: #fff;
-  margin: 0;
-  padding: 0;
-  li {
-    background-color: #59595C;
-    height: 15px;
-    padding: 4px 0;
-    position: relative;
-    width: 70px;
-    text-align: center;
-    &:hover {
-      background: $grayCol02;
-      > a {
-        color: #908499;
-      }
-    }
-    > a {
-      bottom: 0;
-      color: #FFFFFF;
-      font-size: 12px;
-      position: relative;
-      text-decoration: none;
-      top: 0;
-      width: 100%;
-      display: block;
-    }
-  }
-}*/

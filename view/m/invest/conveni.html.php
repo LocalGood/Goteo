@@ -16,10 +16,10 @@ $item_price = $invest->amount;
 
 ?>
 
-<?php include 'view/prologue.html.php';?>
-<?php include 'view/header.html.php' ?>
+<?php include VIEW_PATH . '/prologue.html.php';?>
+<?php include VIEW_PATH . '/header.html.php' ?>
 
-<?php if(isset($_SESSION['messages'])) { include 'view/header/message.html.php'; } ?>
+<?php if(isset($_SESSION['messages'])) { include VIEW_PATH . '/header/message.html.php'; } ?>
 
     <div class="contents_wrapper">
         <div id="main" class="invest-info--conveni">
@@ -61,5 +61,5 @@ $item_price = $invest->amount;
 FORM1;
 ?>
 
-<?php include 'view/footer.html.php' ?>
-<?php include 'view/epilogue.html.php' ?>
+<?php include VIEW_PATH . '/footer.html.php' ?>
+<?php include VIEW_PATH . '/epilogue.html.php' ?>

@@ -47,7 +47,7 @@
 <div id="project-code">
     <?php
         // el proyecto de trabajo
-        echo new View('view/m/project/widget/project.html.php', $this);
+        echo new View(VIEW_PATH . '/project/widget/project.html.php', $this);
     ?>
 </div>
 <div id="widget-code">

@@ -1,22 +1,21 @@
 @charset "utf-8";
 
 /*
+palette       :WPで設定した可変カラーの自動生成ファイル
 colors        :カラーコードの変数
 mixins        :mixin設定
 base          :リセット、タグに対するベース設定
 commons       :header,footerなどの共通要素に対する設定
 widgets       :主にプロジェクトウィジェットに対する設定。.widgetが付くものに対する設定も少々
 meter         :メーターの設定
-superform     :.superformに対する設定。（form要素）
+superform     :.superformに対する設定。form要素。プロジェクト作成、編集、プロフィール編集（マイページ内）などに使用。
 home          :body.home配下に対する設定
 discover      :cfのトップ、プロジェクト一覧
-review        :マイメニューのうち、レビューのみ
 project-show  :プロジェクト詳細
-project-edit  :プロジェクト新規・編集
 dashboard     :マイメニュー
 community     :マニメニュー > このユーザーの興味
-admin         :
 user-profile  :ユーザープロフィール
+user-login    :ログインページ
 */
 
 //@import "inc/pallete";
@@ -29,12 +28,10 @@ user-profile  :ユーザープロフィール
 @import "inc/_superform.scss";
 @import "inc/_home.scss";
 @import "inc/_discover.scss";
-@import "inc/_review.scss";
 @import "inc/_project-show.scss";
-@import "inc/_project-edit.scss";
 @import "inc/_dashboard.scss";
 @import "inc/_community.scss";
-@import "inc/_admin.scss"; //todo:多分これいらない。spに管理者画面がないから。
 @import "inc/_user-profile.scss";
+@import "inc/_user-login.scss";
 
 //todo:各ファイルに、htmlに絡む変更と、どのファイルに書くか迷ったものをtodoで書いてあるので、追って対応する

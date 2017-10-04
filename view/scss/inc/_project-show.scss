@@ -52,8 +52,12 @@
     }
 
     .categories {
+      background: url(/view/images/icon_tag.png) no-repeat left 50%;
+      color: $grayCol02;
+      font-size:12px;
       line-height: 20px;
       max-width: 620px;
+      padding-left: 20px;
       a {
         color: $mainCol01;
         font-size: 12px;
@@ -63,6 +67,7 @@
         }
       }
     }
+
   }
 
   //プロジェクト詳細画面のサブナビ
@@ -385,26 +390,13 @@
         margin: 0 0 8px;
       }
 
-      .title--flex{
-        display: -webkit-flex;
-        display: flex;
-
-        .side_image{
-          width: 60px;
-          margin: 0 10px 0 0;
-          img{
-            width: 100%;
-            height: auto;
-          }
+      .side_image {
+        width: 100%;
+        margin: 0 0 10px 0;
+        img {
+          width: 100%;
+          height: auto;
         }
-
-        .name{
-          width: calc(100% - 70px);
-          &.only{
-            width: 100%;
-          }
-        }
-
       }
 
 
@@ -426,6 +418,9 @@
         }
         .meter {
           padding-bottom: 0;
+          dl.percent {
+            top: 58px;
+          }
         }
       }
 
@@ -763,26 +758,6 @@
                 }
               }
             }
-          }
-        }
-
-        button {
-          &.pay-tpv {
-            background:url('/view/images/button/tpv.gif') no-repeat 0 0 transparent;
-            height: 35px;
-            padding: 3px;
-            text-indent: 2000px;
-            width: 178px;
-          }
-          &.pay-paypal {
-            background:url('/view/images/button/paypal.gif') no-repeat 0 0 transparent;
-            height: 32px;
-            padding: 3px;
-            text-indent: 2000px;
-            width: 145px;
-          }
-          &:hover {
-            border: 1px solid $color06;//#20b2b3
           }
         }
 

@@ -52,6 +52,21 @@ $fz15px: 1.0714285rem;
   }
 }
 
+//form icon
+@mixin form_icon($text,$t-position,$r-position,$bk){
+  content: $text;
+  position: absolute;
+  top: $t-position;
+  right: $r-position;
+  display: block;
+  width: 40px;
+  color: #FFF;
+  font-size: 12px;
+  font-weight: 100;
+  padding: 0 10px;
+  text-align: center;
+  background: $bk;
+}
 @mixin comment_icon($size){
   position: absolute;
   width: $size;

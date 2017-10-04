@@ -39,7 +39,6 @@ page          :スタイル調整が必要なページ
  borders
 ----------------------------------------------------------------------*/
 html {
-  font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif;
   font-size: 14px;
   height: 100%;
   margin: 0;
@@ -50,6 +49,7 @@ html, body {
   padding: 0; }
 
 body {
+  font-family: 'メイリオ', "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
   margin: 0 auto;
   min-height: 100%;
   min-width: 780px;
@@ -626,7 +626,7 @@ div#message {
     position: relative; }
     div#message #message-content input.message-close {
       position: absolute;
-      top: 0;
+      top: -6px;
       right: 0;
       width: 26px;
       height: 100%;
@@ -642,7 +642,7 @@ div#message {
       background: none; }
     div#message #message-content ul {
       list-style: none;
-      margin: 0;
+      margin: 0 30px 0 0;
       padding: 0; }
 
 /*iframe*/
@@ -1579,6 +1579,25 @@ body.project-embed {
       .widget.gestrew .investor .left.username span.date {
         font-size: 12px; }
 
+.tagmark {
+  width: 100%;
+  color: #454545;
+  padding: 0 10px;
+  text-align: center;
+  z-index: 100;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+  .tagmark.gray {
+    background: #d9d9d9; }
+  .tagmark.red {
+    background: #e08e22; }
+  .tagmark.green {
+    background: #0093c4; }
+  .tagmark.violet {
+    color: #FFF;
+    background: #255B80; }
+
 /*----------------------------------------------------------------------
  .meter
 ----------------------------------------------------------------------*/
@@ -2467,8 +2486,12 @@ body.js .superform > div.elements ol li.element div.contents p {
     min-height: 20px;
     position: relative; }
   .project-show .project-header .categories {
+    background: url(/view/images/icon_tag.png) no-repeat left 50%;
+    color: #828282;
+    font-size: 12px;
     line-height: 20px;
-    max-width: 620px; }
+    max-width: 620px;
+    padding-left: 20px; }
     .project-show .project-header .categories a {
       color: #255b7f;
       font-size: 12px;
@@ -2729,19 +2752,12 @@ body.js .superform > div.elements ol li.element div.contents p {
       font-size: 16px;
       font-weight: 600;
       margin: 0 0 8px; }
-    .project-show .side > .widget .title--flex {
-      display: -webkit-flex;
-      display: flex; }
-      .project-show .side > .widget .title--flex .side_image {
-        width: 60px;
-        margin: 0 10px 0 0; }
-        .project-show .side > .widget .title--flex .side_image img {
-          width: 100%;
-          height: auto; }
-      .project-show .side > .widget .title--flex .name {
-        width: calc(100% - 70px); }
-        .project-show .side > .widget .title--flex .name.only {
-          width: 100%; }
+    .project-show .side > .widget .side_image {
+      width: 100%;
+      margin: 0 0 10px 0; }
+      .project-show .side > .widget .side_image img {
+        width: 100%;
+        height: auto; }
     .project-show .side > .widget.project-support .supertitle {
       background-color: #828282;
       color: #fff;
@@ -2754,6 +2770,8 @@ body.js .superform > div.elements ol li.element div.contents p {
         font-size: 14px; }
     .project-show .side > .widget.project-support .meter {
       padding-bottom: 0; }
+      .project-show .side > .widget.project-support .meter dl.percent {
+        top: 58px; }
     .project-show .side > .widget .project-investors {
       background: none;
       padding: 0; }
@@ -3028,20 +3046,6 @@ body.js .superform > div.elements ol li.element div.contents p {
         background-color: #f2f2f2; }
         .project-show .center.supporters .project-invest div.individual ul li.disabled label.amount {
           color: #454545; }
-  .project-show .center.supporters .project-invest button.pay-tpv {
-    background: url("/view/images/button/tpv.gif") no-repeat 0 0 transparent;
-    height: 35px;
-    padding: 3px;
-    text-indent: 2000px;
-    width: 178px; }
-  .project-show .center.supporters .project-invest button.pay-paypal {
-    background: url("/view/images/button/paypal.gif") no-repeat 0 0 transparent;
-    height: 32px;
-    padding: 3px;
-    text-indent: 2000px;
-    width: 145px; }
-  .project-show .center.supporters .project-invest button:hover {
-    border: 1px solid #0093c4; }
   .project-show .center.supporters .project-invest p label {
     cursor: pointer;
     line-height: 14px; }
