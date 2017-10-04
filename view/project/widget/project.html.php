@@ -31,9 +31,7 @@ if ($this['global'] === true) {
 } else {
     $blank = '';
 }
-
 $categories = Category::getNames($project->id, 2);
-
 ?>
 
 <div class="widget project activable heightLine-project<?php if (isset($this['balloon'])) echo ' balloon' ?>">
@@ -86,13 +84,14 @@ $categories = Category::getNames($project->id, 2);
                 </a>
             </div>
 
-            <?php if (!empty($categories)): ?>
-                <div class="categories">
-                    <?php $sep = ''; foreach ($categories as $key=>$value) :
-                        echo $sep.htmlspecialchars($value);
-                        $sep = ', '; endforeach; ?>
-                </div>
-            <?php endif ?>
+	        <?php if (!empty($categories)): ?>
+				<div class="categories">
+			        <?php $sep = ''; foreach ($categories as $key=>$value) :
+				        echo $sep.'<a href="/discover/results/'.$key.'">'.htmlspecialchars($value).'</a>';
+				        $sep = ', '; endforeach; ?>
+				</div>
+	        <?php endif; ?>
+
         </div>
 
         <?php echo new View('view/project/meter_hor.html.php', array('project' => $project)) ?>
@@ -105,7 +104,7 @@ $categories = Category::getNames($project->id, 2);
             </div>
             <div>
                 <h<?php echo $level + 1 ?>>残り</h<?php echo $level + 1 ?>>
-                <div class="days"><strong><?php echo number_format($days) ?></strong><span><?php echo Text::get('regular-days'); ?></span></div>
+                <div class="days"><strong><?php echo number_format($project->days) ?></strong><span><?php echo Text::get('regular-days'); ?></span></div>
             </div>
 
         </div>

@@ -183,6 +183,13 @@
   .project-rewards-summary {
     background: none;
     padding: 0;
+    .image{
+      width: 100%;
+      margin: 0 0 20px 0;
+      img{
+        width: 100%;
+      }
+    }
     > div {
       background-color: #fff;
       padding: 20px;
@@ -774,7 +781,7 @@
         }
       }
       //累計寄付額
-      .worthcracy {
+      .project-invest {
         margin-bottom: 20px;
       }
 
