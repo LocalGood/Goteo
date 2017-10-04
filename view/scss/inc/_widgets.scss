@@ -1170,6 +1170,94 @@
       }
     }
   }
+
+
+  //決済の事前ページウィジェット
+  &.invest-pre-info {
+    form {
+      display: flex;
+      justify-content: space-around;
+      > * {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+
+
+  //決済後のページにでる埋め込み用プロジェクトのウィジェット
+  //todo: 表示ができないので、旧cssより移行したのみ
+  &.project-spread {
+    .widget.projects {
+      width: 280px;
+      margin: 20px auto 0;
+      border: 1px dashed #c0c0c0;
+      &.activable {
+        margin-bottom: 50px!important;
+      }
+      div.left {
+        float: none;
+        width: 280px;
+        height: auto;
+        border-right: none;
+        div.subtitle {
+          width: 100%;
+          margin: 0 0 10px 7px;
+          text-align: left;
+        }
+      }
+      > div.left {
+        float:left;
+        width:280px;
+        border-right:$solidBorder;
+      }
+      > div.right{
+        float:left;
+        width:245px;
+        margin-left:12px;
+      }
+      #widget-code {
+        clear: both;
+        width: 260px;
+        float: none;
+        margin: 0 0 0 20px;
+        textarea{
+          clear: both;
+          width:230px;
+          height: 130px;
+          margin: 10px 0;
+          padding:10px;
+          background:#E7E7E7;
+          border:none;
+          font-size:12px;
+          resize:none;
+          opacity: 1;
+        }
+      }
+    }
+    > h3.title {
+      padding-left:46px;
+    }
+    div.subtitle{
+      width:245px;
+      margin:0 0 10px 7px;
+      > span{
+        display:block;
+        &.primero{
+          margin-bottom:3px;
+        }
+        &.segundo{
+          color:#28ACAB;
+          font-weight:bold;
+        }
+      }
+    }
+    h3.title {
+      padding :0;
+      margin: 0;
+    }
+  }
+
 }
 
 
