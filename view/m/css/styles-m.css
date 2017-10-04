@@ -12,7 +12,6 @@ discover      :cfのトップ、プロジェクト一覧
 project-show  :プロジェクト詳細
 dashboard     :マイメニュー
 user-profile  :ユーザープロフィール
-user-login    :ログインページ
 page          :スタイル調整が必要なページ
 */
 /* Main Color */
@@ -2158,6 +2157,60 @@ ul#pagination {
   .widget.invest-message img {
     float: left;
     margin-right: 20px; }
+.widget.invest-pre-info {
+  background-color: #ffffff;
+  margin: 16px;
+  padding: 4px 16px; }
+.widget.project-spread .widget {
+  background-color: #fff;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+.widget.project-spread .widget.projects .left {
+  float: none;
+  width: 100%; }
+.widget.project-spread .widget.projects #widget-code {
+  clear: both;
+  float: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 20px;
+  width: auto; }
+  .widget.project-spread .widget.projects #widget-code textarea {
+    background: #E7E7E7;
+    border: none;
+    clear: both;
+    font-size: 12px;
+    height: 130px;
+    margin: 10px;
+    padding: 10px;
+    resize: none;
+    width: 240px;
+    word-wrap: break-word; }
+.widget.project-spread .widget.projects > div.left {
+  border-right: 1px solid #d9d9d9;
+  float: left;
+  width: 280px; }
+.widget.project-spread .widget.projects > div.right {
+  float: left;
+  margin-left: 12px;
+  width: 245px; }
+.widget.project-spread .subtitle {
+  margin: 0 0 10px 7px;
+  padding: 0;
+  width: 245px; }
+  .widget.project-spread .subtitle > span {
+    display: block; }
+    .widget.project-spread .subtitle > span.primero {
+      margin-bottom: 3px; }
+    .widget.project-spread .subtitle > span.segundo {
+      color: #28ACAB;
+      font-weight: bold; }
+.widget.project-spread > h3.title {
+  padding-left: 46px; }
+.widget.project-spread .obtained {
+  display: none; }
 
 .meter {
   margin: 0 16px;

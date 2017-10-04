@@ -1590,6 +1590,78 @@ body.project-embed {
       .widget.gestrew .investor .left.username label.amount,
       .widget.gestrew .investor .left.username span.date {
         font-size: 12px; }
+  .widget.invest-pre-info form {
+    display: flex;
+    justify-content: space-around; }
+    .widget.invest-pre-info form > * {
+      margin-left: 0;
+      margin-right: 0; }
+  .widget.invest-pre-info .project_name,
+  .widget.invest-pre-info .amount {
+    font-size: 16px;
+    font-weight: 600; }
+  .widget.invest-pre-info .project_name {
+    padding-right: 4px; }
+  .widget.invest-pre-info .amount {
+    padding: 0 4px; }
+  .widget.invest-pre-info .caution {
+    margin-top: 24px; }
+    .widget.invest-pre-info .caution .first_text {
+      margin-bottom: 24px; }
+  .widget.project-spread .widget.projects {
+    width: 280px;
+    margin: 20px auto 0;
+    border: 1px dashed #c0c0c0; }
+    .widget.project-spread .widget.projects.activable {
+      margin-bottom: 50px !important; }
+    .widget.project-spread .widget.projects div.left {
+      float: none;
+      width: 280px;
+      height: auto;
+      border-right: none; }
+      .widget.project-spread .widget.projects div.left div.subtitle {
+        width: 100%;
+        margin: 0 0 10px 7px;
+        text-align: left; }
+    .widget.project-spread .widget.projects > div.left {
+      float: left;
+      width: 280px;
+      border-right: 1px solid #d9d9d9; }
+    .widget.project-spread .widget.projects > div.right {
+      float: left;
+      width: 245px;
+      margin-left: 12px; }
+    .widget.project-spread .widget.projects #widget-code {
+      clear: both;
+      width: 260px;
+      float: none;
+      margin: 0 0 0 20px; }
+      .widget.project-spread .widget.projects #widget-code textarea {
+        clear: both;
+        width: 230px;
+        height: 130px;
+        margin: 10px 0;
+        padding: 10px;
+        background: #E7E7E7;
+        border: none;
+        font-size: 12px;
+        resize: none;
+        opacity: 1; }
+  .widget.project-spread > h3.title {
+    padding-left: 46px; }
+  .widget.project-spread div.subtitle {
+    width: 245px;
+    margin: 0 0 10px 7px; }
+    .widget.project-spread div.subtitle > span {
+      display: block; }
+      .widget.project-spread div.subtitle > span.primero {
+        margin-bottom: 3px; }
+      .widget.project-spread div.subtitle > span.segundo {
+        color: #28ACAB;
+        font-weight: bold; }
+  .widget.project-spread h3.title {
+    padding: 0;
+    margin: 0; }
 
 /*----------------------------------------------------------------------
  .meter

@@ -1,6 +1,7 @@
 <?php
 use Goteo\Core\View,
-    Goteo\Model\User;
+    Goteo\Model\User,
+    Goteo\Library\Text;
 
 $invest = $this['invest'];
 $bodyClass = 'invest';
@@ -25,11 +26,9 @@ $item_price = $invest->amount;
     <div class="contents_wrapper">
         <div id="main" class="">
             <div class="widget invest-pre-info">
-                <p><span class="project_name"><?php echo $invest->project_name ?></span>に<span class="amount"><?php echo $invest->amount;?></span>円寄付します。</p>
-
-<?php print<<<FORM1
-                <form method="post" action="$redirect">
-                    <input type="hidden" name="amount" value="$item_price">
+                <p><span class="project_name"><?php echo $invest->project_name ?></span><?php echo Text::get('invest-amount-to') ?><span class="amount"><?php echo $invest->amount;?></span><?php echo Text::get('invest-price') ?></p>
+                <form method="post" action="<?php echo $redirect; ?>">
+                    <input type="hidden" name="amount" value="<?php echo $item_price; ?>">
 
                     <button type="submit" id="submit" class="process pay-axes" name="method" value="epsilongo">決済ページへ</button>
                     <!-- input type="submit" value="決済ページへ" -->
@@ -39,10 +38,7 @@ $item_price = $invest->amount;
 
                 </form>
                 <div class="caution">
-                    <br />
-                    実際の決済はプロジェクト成立後に行われます。
-                    <br />
-                    <br />
+                    <p class="first_text"><?php echo Text::get('invest-card-normal-description') ?></p>
                     <h3>【クレジットカード決済に関するご説明】</h3>
                     <p>決済システムは（株）ＧＭＯイプシロンを利用しています。<br />
                         クレジットカードの一括払いでのお支払となります。クレジットカード番号はローカルグッドに知らされることはございませんのでご安心ください。<br />
@@ -57,9 +53,6 @@ $item_price = $invest->amount;
             </div>
         </div>
     </div>
-
-FORM1;
-?>
 
 <?php include 'view/footer.html.php' ?>
 <?php include 'view/epilogue.html.php' ?>

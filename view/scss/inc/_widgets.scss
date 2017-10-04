@@ -1182,6 +1182,23 @@
         margin-right: 0;
       }
     }
+    .project_name,
+    .amount {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .project_name {
+      padding-right: 4px;
+    }
+    .amount {
+      padding: 0 4px;
+    }
+    .caution {
+      margin-top: 24px;
+      p {
+        margin-bottom: 24px;
+      }
+    }
   }
 
 

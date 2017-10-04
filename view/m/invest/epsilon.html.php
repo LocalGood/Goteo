@@ -1,8 +1,10 @@
 <?php
 use Goteo\Core\View,
-    Goteo\Model\User;
+    Goteo\Model\User,
+    Goteo\Library\Text;
 
 $invest = $this['invest'];
+$bodyClass = 'invest';
 
 
 
@@ -24,9 +26,7 @@ $item_price = $invest->amount;
     <div class="contents_wrapper">
         <div id="main" class="">
             <div class="widget invest-pre-info">
-                <p><span class="project_name"><?php echo $invest->project_name ?></span>に<span class="amount"><?php echo $invest->amount;?></span>円寄付します。</p>
-
-<?php print<<<FORM1
+                <p><span class="project_name"><?php echo $invest->project_name ?></span><?php echo Text::get('invest-amount-to') ?><span class="amount"><?php echo $invest->amount;?></span><?php echo Text::get('invest-price') ?></p>
                 <form method="post" action="$redirect">
                     <input type="hidden" name="amount" value="$item_price">
 
@@ -56,9 +56,6 @@ $item_price = $invest->amount;
             </div>
         </div>
     </div>
-
-FORM1;
-?>
 
 <?php include VIEW_PATH . '/footer.html.php' ?>
 <?php include VIEW_PATH . '/epilogue.html.php' ?>
