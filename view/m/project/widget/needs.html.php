@@ -60,10 +60,10 @@ foreach ($project->costs as $cost) {
 
         usort($list, function ($a, $b) {if ($a->req == $b->req) return 0; if ($a->req && !$b->req) return -1; if ($b->req && !$a->req) return 1;});
         ?>
+		<h<?php echo $level+2 ?> class="summary"><span><?php echo htmlspecialchars($types[$type]) ?></span></h<?php echo $level+2 ?>>
 
     <?php foreach ($list as $cost): ?>
     <div class="<?php echo htmlspecialchars($type); echo ($cost->req == 1) ? " req" : " noreq"; ?>">
-        <h<?php echo $level+2 ?> class="summary"><span><?php echo htmlspecialchars($types[$type]) ?></span></h<?php echo $level+2 ?>>
         <div class="inner">
             <p class="click"><span class="text"><?php echo $cost->description ?></span></p>
             <!-- todo: #legendこのページに複数出て来るので、クラスメイなど直す -->
