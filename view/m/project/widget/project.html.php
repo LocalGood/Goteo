@@ -97,7 +97,7 @@ if (isset($this['investor']) && is_object($this['investor'])) {
         <?php if (!empty($categories)): ?>
             <div class="categories">
                 <?php $sep = ''; foreach ($categories as $key=>$value) :
-                    echo $sep.htmlspecialchars($value);
+                    echo $sep.'<a href="/discover/results/'.$key.'">'.htmlspecialchars($value).'</a>';
                     $sep = ', '; endforeach; ?>
             </div>
         <?php endif ?>
