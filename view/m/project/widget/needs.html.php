@@ -65,6 +65,7 @@ foreach ($project->costs as $cost) {
     <?php foreach ($list as $cost): ?>
     <div class="<?php echo htmlspecialchars($type); echo ($cost->req == 1) ? " req" : " noreq"; ?>">
         <div class="inner">
+			<p><strong><?php echo htmlspecialchars($cost->name) ?></strong></p>
             <p class="click"><span class="text"><?php echo $cost->description ?></span></p>
             <!-- todo: #legendこのページに複数出て来るので、クラスメイなど直す -->
             <dl class="needs_list">
