@@ -72,7 +72,6 @@ uasort($project->individual_rewards,
 
             <h<?php echo $level + 2 ?> class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>
             <p><?php echo htmlspecialchars($individual->description)?></p>
-            <img src="<?php echo SRC_URL ?>/view/images/" alt="<?/*php todo: $project->新しく追加されるお礼画像のキャプション　を出す */?>">
 
         </li>
         <?php endforeach ?>
