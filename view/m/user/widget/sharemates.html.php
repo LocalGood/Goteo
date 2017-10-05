@@ -51,14 +51,14 @@ function displayCategories(categoryId1,categoryId2){
     		$cnt = 0;
     		foreach ($categories as $catId=>$catName) {
                 if (count($shares[$catId]) == 0) {$cnt++;continue;} ?>
-                <li><a href="#" onclick="displayCategories(<?php echo $catId;?>,
+                <li><span href="#" onclick="displayCategories(<?php echo $catId;?>,
                 <?php 
     			if(($cnt+1)==count($categories))echo $keys[0];
     			else echo $keys[$cnt+1];
     			$cnt++;
     			?>
                 ); return false;">
-                <?php echo $catName?></a></li>
+                <?php echo $catName?></span></li>
             <?php 	
     		} ?>
         </ul>
@@ -74,7 +74,7 @@ function displayCategories(categoryId1,categoryId2){
             shuffle($sharemates);
             ?>
         <div class="users" id="mates-<?php echo $catId ?>" 
-    	<?php if ($muestra > 2) {echo 'style="display:none;"';} else {$muestra++;} ?>>
+    	<?/*php if ($muestra > 2) {echo 'style="display:none;"';} else {$muestra++;} */?>>
     	    
             <h4 class="supertitle"><?php echo $categories[$catId] ?></h4>
 

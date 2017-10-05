@@ -48,8 +48,11 @@
         margin:0;
         overflow:hidden;
         position: relative;
-        img {
-          min-height: 135px;
+        a {
+          display: block;
+          img {
+            min-height: 135px;
+          }
         }
       }
 

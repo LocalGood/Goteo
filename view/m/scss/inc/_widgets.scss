@@ -30,7 +30,7 @@
   //プロジェクト一覧ウィジェット
   &.projects {
     background-color: $baseWhite;
-    margin: 20px 0;
+    margin: 0 0 20px;
     padding-top: 20px;
     h2.title {
       padding-top: 0;
@@ -113,17 +113,19 @@
         z-index:99;
       }
       .image {
-        background-color: #deddde;
-        min-height: 180px;
+        background-color: $grayCol01;
         overflow: hidden;
         padding: 0 !important;
         position: relative;
         text-align: center;
         width: 100%;
-        a img {
+        a {
           display: block;
-          width: 100vw;
-          height: auto;
+          min-height: 180px;
+          img {
+            width: 100vw;
+            height: auto;
+          }
         }
       }
       .tagmark{
@@ -1183,7 +1185,11 @@
       margin: 0 0 8px;
       padding: 0;
     }
+    .table_wrapper {
+      overflow-x: scroll;
+    }
     table {
+      background-color: $baseCol;
       border-collapse: separate;
       width: 100%;
       td,
@@ -1212,7 +1218,7 @@
       tbody {
         th,
         td {
-          border-bottom: 8px solid $baseWhite;
+          border-bottom: 8px solid $baseCol;
           box-sizing: content-box;
           height: 30px;
           padding: 0 8px;
@@ -1221,7 +1227,7 @@
         th {
           font-weight: 300;
           text-align: left;
-          width: 150px;
+          min-width: 120px;
         }
         td {
           &.on {
@@ -1284,14 +1290,9 @@
             }
           }
           .avatar {
-            width: auto;
-            height: 44px;
-            text-align: center;
+            @include circleAvatar(44px);
             display: block;
-            left:6px;
-              img {
-              background-color: white;
-            }
+            margin: 0 auto;
           }
           h3, h4, h5, h6 {
             font-size: 12px;
@@ -1392,6 +1393,7 @@
         .image {
           min-height: 130px;
           a {
+            display: block;
             img {
               width: auto;
               height: 100%;

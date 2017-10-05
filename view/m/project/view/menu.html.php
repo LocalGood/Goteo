@@ -23,6 +23,7 @@ use Goteo\Library\Text;
 <div class="project-menu viewport_projectnav">
     <ul class="flipsnap_projectnav">
         <?php
+        var_dump($this['project']);
         foreach (array(
             'home'        => Text::get('project-menu-home'),
             'needs'       => Text::get('project-menu-needs'),
@@ -31,7 +32,12 @@ use Goteo\Library\Text;
             'supporters'  => Text::get('project-menu-supporters').' <span class="digits">'.'('.count($this['project']->investors).')'.'</span>',
             'updates'     => Text::get('project-menu-updates').' <span class="digits">'.$this['updates'].'</span>',
             'evaluation'  => Text::get('project-menu-evaluation').' <span class="digits">'.$this['evaluation'].'</span>'
-        ) as $id => $show): ?>
+        ) as $id => $show):
+            if (($id == 'evaluation' && empty($this['evaluation'])) || ($id == 'evaluation' && ($this['project']->status < 4 ))){
+                continue;
+            }
+            ?>
+
         <li class="item <?php echo $id ?><?php if ($this['show'] == $id) echo ' show' ?>">
         	<a href="/project/<?php echo htmlspecialchars($this['project']->id) ?>/<?php echo $id ?>"><?php echo $show ?></a>
         </li>

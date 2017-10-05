@@ -26,8 +26,12 @@
     }
   }
 
-  //ユーザーにメッセージを送るウィジェット
+  //ユーザー、プロジェクトオーナーにメッセージを送るウィジェット
   .widget.user-message{
+    background-color: $baseWhite;
+    padding: 16px;
+    position:relative;
+    z-index:99;
     label{
       display: block;
     }
@@ -45,14 +49,6 @@
     a.preview{
       display: none;
     }
-  }
-
-  //プロジェクトオーナーへメッセージ送信するウィジェット
-  .widget.user-message {
-    background-color: $baseWhite;
-    padding: 16px;
-    position:relative;
-    z-index:99;
     h3.title {
       margin: 0 0 16px 0;
       padding-left: 0;
@@ -63,21 +59,6 @@
     textarea#message_user{
       display:block;
     }
-    /*#bocadillo{
-      background:url('/view/m/images/bocadillo.jpg') no-repeat;
-      height:51px;
-      position:absolute;
-      width:56px;
-      z-index:100;
-    }
-    #a-preview{
-      color: #2EAB58;
-      font-weight: bold;
-      left: 52px;
-      position: relative;
-      text-decoration: none;
-      top: 10px;
-    }*/
     button{
       float:right;
       margin-right:8px;
@@ -202,6 +183,9 @@
       border-radius: 4px;
       box-sizing: content-box;
       padding-bottom: 16px;
+    }
+    .meter {
+      padding-bottom: 70px;
     }
   }
 
