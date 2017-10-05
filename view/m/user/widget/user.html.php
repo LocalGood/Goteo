@@ -42,11 +42,14 @@ $user->about = nl2br(Text::urlink($user->about));
 
         <div class="user-head">
             <div class="image">
-                <?php if (!empty($user->avatar)): ?><img alt="<?php echo htmlspecialchars($user->name) ?>" src="<?php echo $user->avatar->getLink(80, 80, true); ?>" /><?php endif ?>
+                <a class="" href="/user/<?php echo $user->id; ?>">
+                    <?php if (!empty($user->avatar)): ?><img alt="<?php echo htmlspecialchars($user->name) ?>" src="<?php echo $user->avatar->getLink(80, 80, true); ?>" /><?php endif ?>
+                </a>
             </div>
             <div class="user-head-right">
                 <h<?php echo $level + 1 ?> class="title">
-                    <?php echo htmlspecialchars($user->name) ?></h<?php echo $level + 1 ?>>
+                    <a class="" href="/user/<?php echo $user->id; ?>"><?php echo htmlspecialchars($user->name) ?></a>
+                </h<?php echo $level + 1 ?>>
                 <?php if (isset($user->location)): ?>
                     <div class="location">
                         <span><?php echo Text::GmapsLink($user->location); ?></span>
@@ -60,9 +63,6 @@ $user->about = nl2br(Text::urlink($user->about));
                 <p>
                     <?php echo $user->about ?>
                 </p>
-                <div class="about-link">
-                    <a class="" href="/user/<?php echo $user->id; ?>"><?php echo Text::get('profile-widget-button'); ?></a>
-                </div>
             </div>
         <?php endif ?>
 

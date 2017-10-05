@@ -1079,6 +1079,11 @@ body.project-embed {
         width: 200px; }
         .widget.user .user-head-right .title {
           margin: 0 0 4px; }
+          .widget.user .user-head-right .title a {
+            color: #255b7f;
+            text-decoration: none; }
+            .widget.user .user-head-right .title a:hover {
+              color: #009acb; }
         .widget.user .user-head-right .location {
           background: url(/view/images/location/s.png) no-repeat left center;
           padding-left: 18px; }
@@ -1089,27 +1094,6 @@ body.project-embed {
       line-height: 1.5;
       margin: 0 0 20px;
       padding: 0 2px; }
-    .widget.user .about-link {
-      margin-bottom: 20px;
-      text-align: right; }
-      .widget.user .about-link a {
-        display: inline-block;
-        font: normal normal normal 14px/1 FontAwesome;
-        font-size: inherit;
-        text-rendering: auto;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        color: #255b7f;
-        display: inline-block;
-        font-size: 14px;
-        line-height: 20px;
-        text-decoration: none; }
-        .widget.user .about-link a:after {
-          content: "\f105";
-          color: #255b7f;
-          font-weight: bold; }
-        .widget.user .about-link a:hover {
-          color: #009acb; }
     .widget.user .links {
       line-height: 36px;
       margin: 0 0 14px 0;
@@ -1606,7 +1590,7 @@ body.project-embed {
     padding: 0 4px; }
   .widget.invest-pre-info .caution {
     margin-top: 24px; }
-    .widget.invest-pre-info .caution .first_text {
+    .widget.invest-pre-info .caution p {
       margin-bottom: 24px; }
   .widget.project-spread .widget.projects {
     width: 280px;

@@ -511,6 +511,10 @@
         width: 200px;
         .title {
           margin: 0 0 4px;
+          a {
+            color: $mainCol01;
+            text-decoration: none;
+          }
         }
         .location {
           background: url(/view/images/location/s.png) no-repeat left center;
@@ -527,21 +531,6 @@
         line-height: 1.5;
         margin: 0 0 20px;
         padding: 0 2px;
-      }
-      &-link {
-        margin-bottom: 20px;
-        text-align: right;
-        a {
-          @include text_link_arrow($mainCol01);
-          color: $mainCol01;
-          display: inline-block;
-          font-size: 14px;
-          line-height: 20px;
-          text-decoration: none;
-          &:after {
-            padding-left: 4px;
-          }
-        }
       }
     }
     .links {
