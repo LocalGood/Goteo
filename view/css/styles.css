@@ -9,14 +9,11 @@ widgets       :主にプロジェクトウィジェットに対する設定。.w
 meter         :メーターの設定
 superform     :.superformに対する設定。form要素。プロジェクト作成、編集、プロフィール編集（マイページ内）などに使用。
 discover      :cfのトップ、プロジェクト一覧
-review        :マイメニューのうち、レビューのみ
 project-show  :プロジェクト詳細
 project-edit  :プロジェクト新規・編集
 dashboard     :マイメニュー
-community     :マニメニュー > このユーザーの興味
 admin         :管理者メニュー
 user-profile  :ユーザープロフィール
-user-login    :ログインページに対する設定
 page          :スタイル調整が必要なページ
 */
 /* Main Color */
@@ -1082,6 +1079,11 @@ body.project-embed {
         width: 200px; }
         .widget.user .user-head-right .title {
           margin: 0 0 4px; }
+          .widget.user .user-head-right .title a {
+            color: #255b7f;
+            text-decoration: none; }
+            .widget.user .user-head-right .title a:hover {
+              color: #009acb; }
         .widget.user .user-head-right .location {
           background: url(/view/images/location/s.png) no-repeat left center;
           padding-left: 18px; }
@@ -1092,27 +1094,6 @@ body.project-embed {
       line-height: 1.5;
       margin: 0 0 20px;
       padding: 0 2px; }
-    .widget.user .about-link {
-      margin-bottom: 20px;
-      text-align: right; }
-      .widget.user .about-link a {
-        display: inline-block;
-        font: normal normal normal 14px/1 FontAwesome;
-        font-size: inherit;
-        text-rendering: auto;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        color: #255b7f;
-        display: inline-block;
-        font-size: 14px;
-        line-height: 20px;
-        text-decoration: none; }
-        .widget.user .about-link a:after {
-          content: "\f105";
-          color: #255b7f;
-          font-weight: bold; }
-        .widget.user .about-link a:hover {
-          color: #009acb; }
     .widget.user .links {
       line-height: 36px;
       margin: 0 0 14px 0;
@@ -1593,6 +1574,78 @@ body.project-embed {
       .widget.gestrew .investor .left.username label.amount,
       .widget.gestrew .investor .left.username span.date {
         font-size: 12px; }
+  .widget.invest-pre-info form {
+    display: flex;
+    justify-content: space-around; }
+    .widget.invest-pre-info form > * {
+      margin-left: 0;
+      margin-right: 0; }
+  .widget.invest-pre-info .project_name,
+  .widget.invest-pre-info .amount {
+    font-size: 16px;
+    font-weight: 600; }
+  .widget.invest-pre-info .project_name {
+    padding-right: 4px; }
+  .widget.invest-pre-info .amount {
+    padding: 0 4px; }
+  .widget.invest-pre-info .caution {
+    margin-top: 24px; }
+    .widget.invest-pre-info .caution p {
+      margin-bottom: 24px; }
+  .widget.project-spread .widget.projects {
+    width: 280px;
+    margin: 20px auto 0;
+    border: 1px dashed #c0c0c0; }
+    .widget.project-spread .widget.projects.activable {
+      margin-bottom: 50px !important; }
+    .widget.project-spread .widget.projects div.left {
+      float: none;
+      width: 280px;
+      height: auto;
+      border-right: none; }
+      .widget.project-spread .widget.projects div.left div.subtitle {
+        width: 100%;
+        margin: 0 0 10px 7px;
+        text-align: left; }
+    .widget.project-spread .widget.projects > div.left {
+      float: left;
+      width: 280px;
+      border-right: 1px solid #d9d9d9; }
+    .widget.project-spread .widget.projects > div.right {
+      float: left;
+      width: 245px;
+      margin-left: 12px; }
+    .widget.project-spread .widget.projects #widget-code {
+      clear: both;
+      width: 260px;
+      float: none;
+      margin: 0 0 0 20px; }
+      .widget.project-spread .widget.projects #widget-code textarea {
+        clear: both;
+        width: 230px;
+        height: 130px;
+        margin: 10px 0;
+        padding: 10px;
+        background: #E7E7E7;
+        border: none;
+        font-size: 12px;
+        resize: none;
+        opacity: 1; }
+  .widget.project-spread > h3.title {
+    padding-left: 46px; }
+  .widget.project-spread div.subtitle {
+    width: 245px;
+    margin: 0 0 10px 7px; }
+    .widget.project-spread div.subtitle > span {
+      display: block; }
+      .widget.project-spread div.subtitle > span.primero {
+        margin-bottom: 3px; }
+      .widget.project-spread div.subtitle > span.segundo {
+        color: #28ACAB;
+        font-weight: bold; }
+  .widget.project-spread h3.title {
+    padding: 0;
+    margin: 0; }
 
 /*----------------------------------------------------------------------
  .meter
@@ -2313,65 +2366,6 @@ body.js .superform > div.elements ol li.element div.contents p {
   padding: 0; }
 .discover .widget.projects .project {
   min-height: 400px; }
-
-.review #main {
-  overflow: visible; }
-  .review #main div.widget {
-    margin-bottom: 20px; }
-.review #sub-header {
-  margin-bottom: 0;
-  padding-bottom: 4em; }
-.review #review-menu {
-  background-color: #d9d9d9;
-  display: block;
-  font-size: 13px;
-  margin: -2.6em auto 0;
-  max-width: 940px; }
-  .review #review-menu * {
-    box-sizing: content-box; }
-  .review #review-menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    position: relative; }
-  .review #review-menu ul li {
-    display: inline-block; }
-  .review #review-menu ul li,
-  .review #review-menu ul li a {
-    color: #FFF;
-    text-decoration: none; }
-  .review #review-menu ul li a {
-    display: inline-block;
-    height: 1.4em;
-    line-height: 1.4em;
-    padding: .6em 1em;
-    text-transform: uppercase; }
-  .review #review-menu ul li.section ul {
-    display: none; }
-  .review #review-menu ul li.section.current ul {
-    bottom: 0;
-    display: block;
-    height: 2.6em;
-    left: 0;
-    position: absolute;
-    right: 0;
-    z-index: 0; }
-  .review #review-menu ul li.section.active,
-  .review #review-menu ul li.section.current {
-    margin-bottom: 2.6em; }
-  .review #review-menu ul li.section.active ul {
-    bottom: 0;
-    display: block;
-    height: 2.6em;
-    left: 0;
-    position: absolute;
-    right: 0;
-    z-index: 9; }
-  .review #review-menu ul li.section.active,
-  .review #review-menu ul li.section.active ul,
-  .review #review-menu ul li.section.current,
-  .review #review-menu ul li.section.current ul {
-    background-color: #828282; }
 
 .project-show #main {
   margin: 0 auto; }
@@ -4712,110 +4706,6 @@ body.js .superform > div.elements ol li.element div.contents p {
   left: 100% !important;
   margin: 0 0 0 2em; }
 
-.community #main {
-  margin-top: 0; }
-.community .categorylist {
-  margin: 0 0 20px;
-  padding: 0; }
-  .community .categorylist h3.title {
-    background-color: #255b7f;
-    border-bottom: 1px solid #255b7f;
-    color: #f2f2f2;
-    font-size: 18px;
-    font-weight: 400;
-    margin: 0;
-    padding: .5em 2px .5em 20px; }
-.community .user-mates {
-  margin-bottom: 20px;
-  padding: 0;
-  overflow: hidden; }
-  .community .user-mates h3.title {
-    background-color: #454545;
-    color: #f2f2f2;
-    font-size: 14px;
-    font-weight: 400;
-    margin: 0;
-    padding: 4px 0 4px 20px; }
-  .community .user-mates > h3.title {
-    border-bottom: 1px solid #454545;
-    border-top: 1px solid #454545; }
-  .community .user-mates a.more {
-    background-color: #fff;
-    border-top: 1px dashed #d9d9d9;
-    display: block;
-    float: none;
-    font-size: 14px !important;
-    height: auto;
-    line-height: 1.5em;
-    margin: 0;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none; }
-.community .users {
-  clear: both;
-  padding: 0; }
-  .community .users ul {
-    background-color: #fff;
-    height: auto;
-    list-style: none;
-    margin: 0;
-    overflow: auto;
-    padding: 0; }
-    .community .users ul li {
-      border: none;
-      border-right: 1px dashed #d9d9d9;
-      border-top: 1px dashed #d9d9d9;
-      float: left;
-      margin: -1px 0 0;
-      max-width: 319px !important;
-      overflow: hidden;
-      padding: 10px;
-      position: relative;
-      width: 319px !important; }
-      .community .users ul li:nth-child(3n+3) {
-        border-right: none; }
-      .community .users ul li.active {
-        background-color: #f2f2f2 !important; }
-        .community .users ul li.active .user > h4 > a {
-          color: #255b7f; }
-      .community .users ul li .user {
-        padding: 3px 6px 3px 57px;
-        position: relative; }
-        .community .users ul li .user > a.expand {
-          bottom: 0;
-          left: 0;
-          position: absolute;
-          right: 0;
-          top: 0;
-          z-index: 99; }
-        .community .users ul li .user .avatar {
-          height: 50px;
-          left: 4px;
-          position: absolute;
-          text-align: center;
-          top: 8px;
-          width: 50px; }
-        .community .users ul li .user h4 {
-          margin-top: 4px; }
-          .community .users ul li .user h4 a {
-            display: inline-block;
-            font-weight: 700;
-            height: 26px; }
-      .community .users ul li a {
-        font-size: 12px !important;
-        text-decoration: none;
-        text-transform: none !important; }
-      .community .users ul li .profile {
-        display: inline-block;
-        margin-right: 15px;
-        color: #0093c4; }
-      .community .users ul li .invests {
-        color: #255B80; }
-      .community .users ul li .profile,
-      .community .users ul li .contact {
-        display: block;
-        float: left; }
-
 .admin input[type="text"],
 .admin input[type="password"],
 .admin textarea,
@@ -5835,6 +5725,223 @@ body.js .superform > div.elements ol li.element div.contents p {
   color: #f2f2f2;
   padding-left: 8px; }
 
+.about #main {
+  margin: 0 auto; }
+  .about #main > .widget {
+    margin: 0 0 20px 0; }
+.about div#sub-header div {
+  display: block;
+  max-width: 960px;
+  margin: 0 auto; }
+.about div#sub-header h2 {
+  min-height: 55px;
+  position: relative;
+  line-height: 1.2em;
+  font-size: 18px;
+  font-weight: normal; }
+  .about div#sub-header h2 a {
+    border-radius: 50%;
+    display: inline-block;
+    height: 55px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    width: 55px; }
+    .about div#sub-header h2 a img {
+      bottom: 0;
+      height: auto;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+      vertical-align: middle;
+      width: 100%; }
+  .about div#sub-header h2 em {
+    font-weight: bold;
+    font-size: 24px;
+    font-style: normal; }
+
+.review #sub-header {
+  height: 145px;
+  margin-bottom: 0;
+  padding-bottom: 4em; }
+  .review #sub-header .dashboard-header {
+    margin: 10px auto 0;
+    max-width: 960px;
+    min-height: 100px;
+    position: relative; }
+    .review #sub-header .dashboard-header h2 {
+      display: inline-block;
+      color: #666;
+      font-size: 30px;
+      margin: 0;
+      padding: 0;
+      vertical-align: middle; }
+.review #main {
+  overflow: visible; }
+  .review #main div.widget {
+    margin-bottom: 20px; }
+.review #review-menu {
+  background-color: #d9d9d9;
+  display: block;
+  font-size: 13px;
+  margin: -2.6em auto 0;
+  max-width: 940px; }
+  .review #review-menu * {
+    box-sizing: content-box; }
+  .review #review-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative; }
+  .review #review-menu ul li {
+    display: inline-block; }
+  .review #review-menu ul li,
+  .review #review-menu ul li a {
+    color: #FFF;
+    text-decoration: none; }
+  .review #review-menu ul li a {
+    display: inline-block;
+    height: 1.4em;
+    line-height: 1.4em;
+    padding: .6em 1em;
+    text-transform: uppercase; }
+  .review #review-menu ul li.section ul {
+    display: none; }
+  .review #review-menu ul li.section.current ul {
+    bottom: 0;
+    display: block;
+    height: 2.6em;
+    left: 0;
+    position: absolute;
+    right: 0;
+    z-index: 0; }
+  .review #review-menu ul li.section.active,
+  .review #review-menu ul li.section.current {
+    margin-bottom: 2.6em; }
+  .review #review-menu ul li.section.active ul {
+    bottom: 0;
+    display: block;
+    height: 2.6em;
+    left: 0;
+    position: absolute;
+    right: 0;
+    z-index: 9; }
+  .review #review-menu ul li.section.active,
+  .review #review-menu ul li.section.active ul,
+  .review #review-menu ul li.section.current,
+  .review #review-menu ul li.section.current ul {
+    background-color: #828282; }
+
+.community #main {
+  margin-top: 0; }
+.community .categorylist {
+  margin: 0 0 20px;
+  padding: 0; }
+  .community .categorylist h3.title {
+    background-color: #255b7f;
+    border-bottom: 1px solid #255b7f;
+    color: #f2f2f2;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+    padding: .5em 2px .5em 20px; }
+.community .user-mates {
+  margin-bottom: 20px;
+  padding: 0;
+  overflow: hidden; }
+  .community .user-mates h3.title {
+    background-color: #454545;
+    color: #f2f2f2;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+    padding: 4px 0 4px 20px; }
+  .community .user-mates > h3.title {
+    border-bottom: 1px solid #454545;
+    border-top: 1px solid #454545; }
+  .community .user-mates a.more {
+    background-color: #fff;
+    border-top: 1px dashed #d9d9d9;
+    display: block;
+    float: none;
+    font-size: 14px !important;
+    height: auto;
+    line-height: 1.5em;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none; }
+.community .users {
+  clear: both;
+  padding: 0; }
+  .community .users ul {
+    background-color: #fff;
+    height: auto;
+    list-style: none;
+    margin: 0;
+    overflow: auto;
+    padding: 0; }
+    .community .users ul li {
+      border: none;
+      border-right: 1px dashed #d9d9d9;
+      border-top: 1px dashed #d9d9d9;
+      float: left;
+      margin: -1px 0 0;
+      max-width: 319px !important;
+      overflow: hidden;
+      padding: 10px;
+      position: relative;
+      width: 319px !important; }
+      .community .users ul li:nth-child(3n+3) {
+        border-right: none; }
+      .community .users ul li.active {
+        background-color: #f2f2f2 !important; }
+        .community .users ul li.active .user > h4 > a {
+          color: #255b7f; }
+      .community .users ul li .user {
+        padding: 3px 6px 3px 57px;
+        position: relative; }
+        .community .users ul li .user > a.expand {
+          bottom: 0;
+          left: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
+          z-index: 99; }
+        .community .users ul li .user .avatar {
+          height: 50px;
+          left: 4px;
+          position: absolute;
+          text-align: center;
+          top: 8px;
+          width: 50px; }
+        .community .users ul li .user h4 {
+          margin-top: 4px; }
+          .community .users ul li .user h4 a {
+            display: inline-block;
+            font-weight: 700;
+            height: 26px; }
+      .community .users ul li a {
+        font-size: 12px !important;
+        text-decoration: none;
+        text-transform: none !important; }
+      .community .users ul li .profile {
+        display: inline-block;
+        margin-right: 15px;
+        color: #0093c4; }
+      .community .users ul li .invests {
+        color: #255B80; }
+      .community .users ul li .profile,
+      .community .users ul li .contact {
+        display: block;
+        float: left; }
+
+.about .weak {
+  background: #009480; }
+
 .user-login {
   min-height: unset; }
   .user-login #main {
@@ -5947,66 +6054,5 @@ body.js .superform > div.elements ol li.element div.contents p {
       .user-login .login textarea[type="checkbox"],
       .user-login .login input:not([type="submit"])[type="checkbox"] {
         display: inline-block; }
-
-.about #main {
-  margin: 0 auto; }
-  .about #main > .widget {
-    margin: 0 0 20px 0; }
-.about div#sub-header div {
-  display: block;
-  max-width: 960px;
-  margin: 0 auto; }
-.about div#sub-header h2 {
-  min-height: 55px;
-  position: relative;
-  line-height: 1.2em;
-  font-size: 18px;
-  font-weight: normal; }
-  .about div#sub-header h2 a {
-    border-radius: 50%;
-    display: inline-block;
-    height: 55px;
-    overflow: hidden;
-    position: relative;
-    text-align: center;
-    vertical-align: middle;
-    width: 55px; }
-    .about div#sub-header h2 a img {
-      bottom: 0;
-      height: auto;
-      left: 0;
-      margin: auto;
-      position: absolute;
-      right: 0;
-      top: 0;
-      vertical-align: middle;
-      width: 100%; }
-  .about div#sub-header h2 em {
-    font-weight: bold;
-    font-size: 24px;
-    font-style: normal; }
-
-.review #sub-header {
-  height: 145px; }
-  .review #sub-header .dashboard-header {
-    margin: 10px auto 0;
-    max-width: 960px;
-    min-height: 100px;
-    position: relative; }
-    .review #sub-header .dashboard-header h2 {
-      display: inline-block;
-      color: #666;
-      font-size: 30px;
-      margin: 0;
-      padding: 0;
-      vertical-align: middle; }
-
-.skillmatching-show .side .project-widget-box {
-  background: #FFF; }
-.skillmatching-show .side .invest-notice {
-  padding: 20px 20px 20px 20px; }
-
-.about .weak {
-  background: #009480; }
 
 /*# sourceMappingURL=styles.css.map */
