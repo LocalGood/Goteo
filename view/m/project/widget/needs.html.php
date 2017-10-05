@@ -72,7 +72,7 @@ foreach ($project->costs as $cost) {
                     <?php echo Text::get('project-view-metter-minimum'); ?>
                 </dt>
                 <dd class="min">
-                    <?php echo $minimum ?>
+                    <?php echo $cost->min ?>
                 </dd>
             </dl>
             <!-- todo: #legendこのページに複数出て来るので、クラスメイなど直す -->
@@ -81,7 +81,7 @@ foreach ($project->costs as $cost) {
                     <?php echo Text::get('project-view-metter-optimum'); ?>
                 </dt>
                 <dd class="max">
-                    <?php echo $optimum ?>
+                    <?php echo $cost->opt ?>
                 </dd>
             </dl>
         </div>
