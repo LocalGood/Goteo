@@ -81,7 +81,9 @@ $worthcracy = Worth::getAll();
             <h3 class="title"><?php echo Text::get('profile-user_detail-header'); ?></h3>
         </div>
         */?>
-        <?php echo new View('view/user/widget/about.html.php', array('user' => $user, 'projects' => $this['projects'])) ?>
+		<?php if(!empty($user->about) || !empty($user->interests) || !empty($user->skills)):?>
+        	<?php echo new View('view/user/widget/about.html.php', array('user' => $user, 'projects' => $this['projects'])) ?>
+		<?php endif;?>
 
         <?php echo new View('view/user/widget/social.html.php', array('user' => $user)) ?>
 
