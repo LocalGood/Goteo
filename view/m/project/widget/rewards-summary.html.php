@@ -51,6 +51,12 @@ uasort($project->individual_rewards,
         <?php foreach ($project->individual_rewards as $individual) : ?>
         <li class="<?php echo $individual->icon ?>">
 
+			<?php if(!empty($individual->image)):?>
+			<div class="image">
+				<img src="<?php echo $individual->image->getLink(580, 580) ?>" alt="<?/*php todo: $project->新しく追加されるお礼画像のキャプション　を出す */?>">
+			</div>
+			<?php endif;?>
+
             <dl class="amount">
                 <dt><?php echo Text::get('regular-support-amount'); ?></dt>
                 <dd><strong><?php echo \amount_format($individual->amount); ?></strong>円</dd>
