@@ -55,10 +55,6 @@ foreach ($project->costs as $cost) {
 	</script>
 
     <!-- todo: #legendこのページに複数出て来るので、クラスメイなど直す -->
-    <div id="legend">
-        <div class="min"><span>&nbsp;</span><?php echo Text::get('costs-field-required_cost-yes') ?></div>
-        <div class="max"><span>&nbsp;</span><?php echo Text::get('costs-field-required_cost-no') ?></div>
-    </div>
 
     <?php foreach ($costs as $type => $list):
 
