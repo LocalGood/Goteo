@@ -462,6 +462,13 @@
         width: 200px;
         .title {
           margin: 0 0 4px;
+          a {
+            color: $mainCol01;
+            text-decoration: none;
+            &:hover{
+              color: $mainCol02;
+            }
+          }
         }
         .location {
           background: url(/view/images/location/s.png) no-repeat left center;
@@ -478,29 +485,6 @@
         line-height: 1.5;
         margin: 0 0 20px;
         padding: 0 2px;
-      }
-      &-link {
-        margin-bottom: 20px;
-        text-align: right;
-        a {
-          @include text_link_arrow($mainCol01);
-          color: $mainCol01;
-          display: inline-block;
-          font-size: 14px;
-          line-height: 20px;
-          text-decoration: none;
-          //&:after {
-          //  background: url(/view/images/arrow_user_link.png) no-repeat right 50%;
-          //  content: '';
-          //  display: inline-block;
-          //  height: 8px;
-          //  padding: 0 0 4px 4px;
-          //  width: 6px;
-          //}
-          &:hover{
-            color: $mainCol02;
-          }
-        }
       }
     }
     .links {
@@ -1170,6 +1154,111 @@
       }
     }
   }
+
+
+  //決済の事前ページウィジェット
+  &.invest-pre-info {
+    form {
+      display: flex;
+      justify-content: space-around;
+      > * {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+    .project_name,
+    .amount {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .project_name {
+      padding-right: 4px;
+    }
+    .amount {
+      padding: 0 4px;
+    }
+    .caution {
+      margin-top: 24px;
+      p {
+        margin-bottom: 24px;
+      }
+    }
+  }
+
+
+  //決済後のページにでる埋め込み用プロジェクトのウィジェット
+  //todo: 表示ができないので、旧cssより移行したのみ
+  &.project-spread {
+    .widget.projects {
+      width: 280px;
+      margin: 20px auto 0;
+      border: 1px dashed #c0c0c0;
+      &.activable {
+        margin-bottom: 50px!important;
+      }
+      div.left {
+        float: none;
+        width: 280px;
+        height: auto;
+        border-right: none;
+        div.subtitle {
+          width: 100%;
+          margin: 0 0 10px 7px;
+          text-align: left;
+        }
+      }
+      > div.left {
+        float:left;
+        width:280px;
+        border-right:$solidBorder;
+      }
+      > div.right{
+        float:left;
+        width:245px;
+        margin-left:12px;
+      }
+      #widget-code {
+        clear: both;
+        width: 260px;
+        float: none;
+        margin: 0 0 0 20px;
+        textarea{
+          clear: both;
+          width:230px;
+          height: 130px;
+          margin: 10px 0;
+          padding:10px;
+          background:#E7E7E7;
+          border:none;
+          font-size:12px;
+          resize:none;
+          opacity: 1;
+        }
+      }
+    }
+    > h3.title {
+      padding-left:46px;
+    }
+    div.subtitle{
+      width:245px;
+      margin:0 0 10px 7px;
+      > span{
+        display:block;
+        &.primero{
+          margin-bottom:3px;
+        }
+        &.segundo{
+          color:#28ACAB;
+          font-weight:bold;
+        }
+      }
+    }
+    h3.title {
+      padding :0;
+      margin: 0;
+    }
+  }
+
 }
 
 

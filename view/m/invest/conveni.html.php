@@ -1,8 +1,10 @@
 <?php
 use Goteo\Core\View,
-    Goteo\Model\User;
+    Goteo\Model\User,
+    Goteo\Library\Text;
 
 $invest = $this['invest'];
+$bodyClass = 'invest';
 
 
 
@@ -22,44 +24,27 @@ $item_price = $invest->amount;
 <?php if(isset($_SESSION['messages'])) { include VIEW_PATH . '/header/message.html.php'; } ?>
 
     <div class="contents_wrapper">
-        <div id="main" class="invest-info--conveni">
-            <div class="widget">
-                <p><span class="project_name"><?php echo $invest->project_name ?></span>に<span class="amount"><?php echo $invest->amount;?></span>円寄付します。</p>
-
-<?php print<<<FORM1
+        <div id="main" class="">
+            <div class="widget invest-pre-info">
+                <p><span class="project_name"><?php echo $invest->project_name ?></span><?php echo Text::get('invest-amount-to') ?><span class="amount"><?php echo $invest->amount;?></span><?php echo Text::get('invest-price') ?></p>
                 <form method="post" action="$redirect">
-                <input type="hidden" name="amount" value="$item_price">
+                    <input type="hidden" name="amount" value="$item_price">
 
-
-                <input type="hidden" name="failure_str" value="back">
-                <input type="button" value="戻る" class="back" onClick='history.back();'>
-
-				<button type="submit" class="process pay-axes" name="method" value="convenigo">コンビニ決済ページへ</button>
+                    <button type="submit" class="process pay-axes" name="method" value="convenigo"><?php echo Text::get('invest-to-conveni') ?></button>
+                    <input type="hidden" name="failure_str" value="back">
+                    <input type="button" value="戻る" class="back" onClick='history.back();'>
 
                 </form>
                 <div class="caution">
-                    <br />
-					コンビニエンスストアでお支払い後、寄付金として反映されます。<br />
-                    <br />
-                    <br />
-                    <h3>【コンビニ決済に関するご説明】</h3>
-                    <p>決済システムは（株）ＧＭＯイプシロンを利用しています。<br />
-                        コンビニエンスストアでのお支払となります。<br />
-                        コンビニ決済の場合、プロジェクトが成立しない場合も、返金処理がございません。<br />
-                        <a href="http://www.epsilon.jp/security.html" target="_blank">必ずお読みください</a><br /><br />
-                    </p>
-                    <h3>【カード決済に関するお問い合わせ】</h3>
-                    <p>カスタマーサポート（平日 9:30 - 18:00)<br />
-                        TEL：03-3464-6211<br />
-                        <a href="mailto:support@epsilon.jp">support@epsilon.jp</a>
-                    </p>
+                    <p class="first_text"><?php echo Text::get('invest-conveni-description') ?></p>
+                    <h3><?php echo Text::get('invest-conveni-about-payment-ttl') ?></h3>
+                    <p><?php echo Text::get('invest-conveni-about-payment-desc') ?></p>
+                    <h3><?php echo Text::get('invest-about-payment-ttl') ?></h3>
+                    <p><?php echo Text::get('invest-about-payment-desc') ?></p>
                 </div>
             </div>
         </div>
     </div>
-
-FORM1;
-?>
 
 <?php include VIEW_PATH . '/footer.html.php' ?>
 <?php include VIEW_PATH . '/epilogue.html.php' ?>

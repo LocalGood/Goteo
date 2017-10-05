@@ -86,7 +86,7 @@ $action = ($step == 'start') ? '/user/login' : '/invest/' . $project->id;
                     <label class="amount" for="reward_<?php echo $individual->id; ?>">
                         <span class="left">
                             <input type="radio" name="selected_reward" id="reward_<?php echo $individual->id; ?>" value="<?php echo $individual->id; ?>" amount="<?php echo $individual->amount; ?>" class="individual_reward" title="<?php echo htmlspecialchars($individual->reward) ?>" <?php if ($individual->none) echo 'disabled="disabled"' ?> />
-                            <span class="amount"><?php echo $individual->amount; ?> 円</span>
+                            <span class="amount"><?php echo $individual->amount; ?> <?php echo Text::get('invest-currency-unit'); ?></span>
                         </span>
                         <span class="right">
                             <h<?php echo $level + 2 ?> class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>>
@@ -157,18 +157,18 @@ if ($step == 'start') : ?>
 </div>
 <?php if (ACL::check('/admin')) : ?>
 <div class="widget project-invest display-name">
-    <h<?php echo $level ?> class="beak" id="address-header">現金寄付時の表示名および連絡先メールアドレスを記入してください</h<?php echo $level ?>>
+    <h<?php echo $level ?> class="beak" id="address-header"><?php echo Text::get('invest-display-message') ?></h<?php echo $level ?>>
 
     <table>
         <tr>
             <td>
-                <label for="disp_name">表示名：</label><br />
+                <label for="disp_name"><?php echo Text::get('invest-display-name') ?></label><br />
                 <input type="text" id="disp_name" name="disp_name" value="" />
             </td>
         </tr>
         <tr>
             <td>
-                <label for="disp_name">メールアドレス：</label><br />
+                <label for="investor_email"><?php echo Text::get('invest-display-address') ?></label><br />
                 <input type="text" id="investor_email" name="investor_email" value="" />
             </td>
         </tr>
@@ -180,12 +180,12 @@ if ($step == 'start') : ?>
 
 <?php if ( defined('AXESON')) : ?>
     <h<?php echo $level ?> class="beak"><?php echo Text::get('project-invest-continue') ?>
-    <p style="color:#ff3300;margin-bottom: 0;">*注意<br />クレジットカードの決済システム上、次ページからの決済申込フォームでは料金が「￥0」と表示されますが、そのまま決済を進めていただくと正常に処理されますのでご安心ください。</p></h<?php echo $level ?>>
+    <p style="color:#ff3300;margin-bottom: 0;"><?php echo Text::get('invest-axeson-caution') ?></p></h<?php echo $level ?>>
 <?php endif; ?>
 
 <?php if ( defined('EPSILONON')) : ?>
     <h<?php echo $level ?> class="beak">
-    <p style="color:#ff3300;margin-bottom: 0;">２度目以降のご利用の場合は、「前回のクレジットカード」の利用で、クレジットカード番号の入力が不要となります。<br />なおクレジットカードの番号は、決済システムにのみ情報が保存されていますので安心してご利用いただけます。</p></h<?php echo $level ?>>
+    <p style="color:#ff3300;margin-bottom: 0;margin-top:0;"><?php echo Text::get('invest-axeson-caution-second') ?></p></h<?php echo $level ?>>
 <?php endif; ?>
 
 
@@ -193,26 +193,27 @@ if ($step == 'start') : ?>
 <input type="hidden" id="paymethod"  />
 
 <?php if (ACL::check('/admin')) : ?>
-<p><button type="submit" class="process pay-cash" name="method" value="cash">現金</button></p>
+<p><button type="submit" class="process pay-cash" name="method" value="cash"><?php echo Text::get('invest-cash') ?></button></p>
 <?php endif; ?>
 <!--<p><button type="submit" class="process pay-paypal" name="method"  value="paypal">PAYPAL</button></p>-->
 
 <?php if ( defined('AXESON')) : ?>
-<p><button type="submit" class="process pay-axes" name="method"  value="axes">クレジットカード</button></p>
+<p><button type="submit" class="process pay-axes" name="method"  value="axes"><?php echo Text::get('invest-credit-card') ?></button></p>
 <?php endif; ?>
 
 <?php if ( defined('EPSILONON')) : ?>
-<p><button type="submit" class="process pay-axes" name="method"  value="epsilon">新規のクレジットカード</button></p>
+<p><button type="submit" class="process pay-axes" name="method"  value="epsilon"><?php echo Text::get('invest-new-credit-card') ?></button></p>
 <?php if ( $repeatf != 0) : ?>
-<p><button type="submit" class="process pay-axes" name="method"  value="epsilonrepeat">前回のクレジットカード</button><br />
-<p style="color:#ff3300;margin-bottom: 0;">クレジットカード番号を変更したい場合は、「新規のクレジットカード」にて自動更新されます。</p>
-</p>
+<div>
+    <button type="submit" class="process pay-axes" name="method"  value="epsilonrepeat"><?php echo Text::get('invest-previous-credit-card') ?></button><br />
+    <p style="color:#ff3300;margin-bottom: 0;"><?php echo Text::get('invest-previous-credit-card-message') ?></p>
+</div>
 <?php endif; ?>
 
 <?php endif; ?>
 
 <?php if ( defined('EPSILONCONVENI')) : ?>
-<p><button type="submit" class="process pay-axes" name="method"  value="conveni">コンビニ決済</button></p>
+<p><button type="submit" class="process pay-axes" name="method"  value="conveni"><?php echo Text::get('invest-conveni') ?></button></p>
 <?php endif; ?>
 
 

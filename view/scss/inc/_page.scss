@@ -30,9 +30,14 @@
     }
   }
 }
+
+
+//マイページ > アクティビティ > レビュー
 .review{
   #sub-header{
     height: 145px;
+    margin-bottom:0;
+    padding-bottom:4em;
     .dashboard-header{
       margin: 10px auto 0;
       max-width: 960px;
@@ -48,14 +53,208 @@
       }
     }
   }
-}
-.skillmatching-show {
-  .side{
-    .project-widget-box{
-      background: #FFF;
+
+  #main {
+    overflow:visible;
+    div.widget {
+      margin-bottom:20px;
     }
-    .invest-notice{
-      padding: 20px 20px 20px 20px;
+  }
+
+  #review-menu {
+    background-color: $grayCol01;
+    display:block;
+    font-size:13px;
+    margin:-2.6em auto 0;
+    max-width:940px;
+    * {
+      box-sizing: content-box;
+    }
+    ul {
+      list-style:none;
+      margin:0;
+      padding:0;
+      position:relative;
+    }
+    ul li {
+      display:inline-block;
+    }
+    ul li,
+    ul li a {
+      color:#FFF;
+      text-decoration:none;
+    }
+    ul li a {
+      display:inline-block;
+      height:1.4em;
+      line-height:1.4em;
+      padding:.6em 1em;
+      text-transform:uppercase;
+    }
+    ul li.section ul {
+      display:none;
+    }
+    ul li.section.current ul {
+      bottom:0;
+      display:block;
+      height:2.6em;
+      left:0;
+      position:absolute;
+      right:0;
+      z-index:0;
+    }
+    ul li.section.active,
+    ul li.section.current {
+      margin-bottom:2.6em;
+    }
+    ul li.section.active ul {
+      bottom:0;
+      display:block;
+      height:2.6em;
+      left:0;
+      position:absolute;
+      right:0;
+      z-index:9;
+    }
+    ul li.section.active,
+    ul li.section.active ul,
+    ul li.section.current,
+    ul li.section.current ul {
+      background-color: $grayCol02;
+    }
+  }
+}
+
+
+//マイページ > このユーザーの興味
+.community {
+
+  #main {
+    margin-top: 0;
+  }
+
+  .categorylist {
+    margin: 0 0 20px;
+    padding: 0;
+    h3.title {
+      background-color: $mainCol01;//#21b0b0
+      border-bottom: 1px solid $mainCol01;//#21b0b0
+      color: $baseCol;
+      font-size: 18px;
+      font-weight: 400;
+      margin: 0;
+      padding: .5em 2px .5em 20px;
+    }
+  }
+
+  .user-mates {
+    margin-bottom: 20px;
+    padding: 0;
+    overflow: hidden;
+    h3.title {
+      background-color: $grayCol03;
+      color: $baseCol;
+      font-size: 14px;
+      font-weight: 400;
+      margin: 0;
+      padding: 4px 0 4px 20px;
+    }
+    > h3.title {
+      border-bottom: 1px solid $grayCol03;
+      border-top: 1px solid $grayCol03;
+    }
+    a.more {
+      background-color: #fff;
+      border-top: 1px dashed $grayCol01;
+      display: block;
+      float: none;
+      font-size: 14px!important;
+      height: auto;
+      line-height: 1.5em;
+      margin: 0;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+    }
+  }
+
+  .users {
+    clear: both;
+    padding: 0;
+    ul {
+      background-color: #fff;
+      height: auto;
+      list-style: none;
+      margin: 0;
+      overflow: auto;
+      padding: 0;
+      li {
+        border: none;
+        border-right: 1px dashed $grayCol01;
+        border-top: 1px dashed $grayCol01;
+        float: left;
+        margin: -1px 0 0;
+        max-width: 319px!important;
+        overflow: hidden;
+        padding: 10px;
+        position: relative;
+        width: 319px!important;
+        &:nth-child(3n+3) {
+          border-right: none;
+        }
+        &.active {
+          background-color: $baseCol!important;
+          .user > h4 > a {
+            color: $mainCol01;
+          }
+        }
+        .user {
+          padding: 3px 6px 3px 57px;
+          position: relative;
+          > a.expand {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 99;
+          }
+          .avatar {
+            height: 50px;
+            left: 4px;
+            position: absolute;
+            text-align: center;
+            top: 8px;
+            width: 50px;
+          }
+          h4 {
+            margin-top: 4px;
+            a {
+              display: inline-block;
+              font-weight: 700;
+              height: 26px;
+            }
+          }
+        }
+        a {
+          font-size: 12px!important;
+          text-decoration: none;
+          text-transform: none!important;
+        }
+        .profile {
+          display: inline-block;
+          margin-right: 15px;
+          color: $color06;//#20b3b2
+        }
+        .invests {
+          color: $color10;//#313b96
+        }
+        .profile,
+        .contact {
+          display: block;
+          float: left;
+        }
+      }
     }
   }
 }
@@ -63,5 +262,85 @@
 .about{
   .weak{
     background: $subCol01;
+  }
+}
+
+//ログインページに対する設定
+.user-login{
+  min-height: unset;
+  #main{
+    margin: 0 auto;
+  }
+  div#sub-header {
+    div {
+      display: block;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    h2 {
+      min-height: 55px;
+      position: relative;
+      line-height: 1.2em;
+      font-size: 18px;
+      font-weight: normal;
+      a {
+        @include circleAvatar(55px);
+      }
+      em {
+        font-weight: bold;
+        font-size: 24px;
+        font-style: normal;
+      }
+    }
+  }
+
+  .register,
+  .external-login,
+  .login{
+    //    min-height: calc(100vh - 2em - 758px);
+    padding: 15px 20px;
+    margin: 0 0 20px 0;
+    background: #FFF;
+    a{
+      color: $mainCol01;
+      &:hover{
+        color: $mainCol02;
+      }
+    }
+    label{
+      display: block;
+      &.conditions{
+        display: inline-block;
+      }
+    }
+    textarea{
+      width: 100%;
+      margin: 0 0 20px 0;
+    }
+    textarea,
+    input:not([type="submit"]){
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      background: #FFF;
+      &[type="text"]{
+        display: block;
+        width: 100%;
+        margin: 0 0 20px 0;
+      }
+      &[name="userid"],
+      &[name='username']{
+        display: block;
+        width: 50%;
+      }
+      &[type='password']{
+        display: block;
+        width: 50%;
+        margin: 0 0 20px 0;
+      }
+      &[type="checkbox"]{
+        display: inline-block;
+      }
+    }
   }
 }

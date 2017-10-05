@@ -28,8 +28,8 @@ $level = (int) $this['level'] ?: 3;
 	// Mark DOM as javascript-enabled
 	jQuery(document).ready(function ($) { 
 	    //change div#preview content when textarea lost focus
-		$("#message").blur(function(){
-			$("#preview").html($("#message").val().replace(/\n/g, "<br />"));
+		$("#message-text").blur(function(){
+			$("#preview").html($("#message-text").val().replace(/\n/g, "<br />"));
 		});
 		
 		//add fancybox on #a-preview click

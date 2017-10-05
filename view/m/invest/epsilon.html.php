@@ -1,8 +1,10 @@
 <?php
 use Goteo\Core\View,
-    Goteo\Model\User;
+    Goteo\Model\User,
+    Goteo\Library\Text;
 
 $invest = $this['invest'];
+$bodyClass = 'invest';
 
 
 
@@ -22,21 +24,17 @@ $item_price = $invest->amount;
 <?php if(isset($_SESSION['messages'])) { include VIEW_PATH . '/header/message.html.php'; } ?>
 
     <div class="contents_wrapper">
-        <div id="main" class="invest-info--normal">
-            <div class="widget">
-                <p><span class="project_name"><?php echo $invest->project_name ?></span>に<span class="amount"><?php echo $invest->amount;?></span>円寄付します。</p>
-
-<?php print<<<FORM1
+        <div id="main" class="">
+            <div class="widget invest-pre-info">
+                <p><span class="project_name"><?php echo $invest->project_name ?></span><?php echo Text::get('invest-amount-to') ?><span class="amount"><?php echo $invest->amount;?></span><?php echo Text::get('invest-price') ?></p>
                 <form method="post" action="$redirect">
-                <input type="hidden" name="amount" value="$item_price">
+                    <input type="hidden" name="amount" value="$item_price">
 
+                    <button type="submit" id="submit" class="process pay-axes" name="method" value="epsilongo">決済ページへ</button>
+                    <!-- input type="submit" value="決済ページへ" -->
 
-                <input type="hidden" name="failure_str" value="back">
-                <input type="button" value="戻る" class="back" onClick='history.back();'>
-
-				<button type="submit" id="submit" class="process pay-axes" name="method" value="epsilongo">決済ページへ</button>
-
-                <!-- input type="submit" value="決済ページへ" -->
+                    <input type="hidden" name="failure_str" value="back">
+                    <input type="button" value="戻る" class="back" onClick='history.back();'>
 
                 </form>
                 <div class="caution">
@@ -58,9 +56,6 @@ $item_price = $invest->amount;
             </div>
         </div>
     </div>
-
-FORM1;
-?>
 
 <?php include VIEW_PATH . '/footer.html.php' ?>
 <?php include VIEW_PATH . '/epilogue.html.php' ?>

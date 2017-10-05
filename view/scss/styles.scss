@@ -10,14 +10,11 @@ widgets       :主にプロジェクトウィジェットに対する設定。.w
 meter         :メーターの設定
 superform     :.superformに対する設定。form要素。プロジェクト作成、編集、プロフィール編集（マイページ内）などに使用。
 discover      :cfのトップ、プロジェクト一覧
-review        :マイメニューのうち、レビューのみ
 project-show  :プロジェクト詳細
 project-edit  :プロジェクト新規・編集
 dashboard     :マイメニュー
-community     :マニメニュー > このユーザーの興味
 admin         :管理者メニュー
 user-profile  :ユーザープロフィール
-user-login    :ログインページに対する設定
 page          :スタイル調整が必要なページ
 */
 
@@ -30,14 +27,11 @@ page          :スタイル調整が必要なページ
 @import "inc/_meter.scss";
 @import "inc/_superform.scss";
 @import "inc/_discover.scss";
-@import "inc/_review.scss";
 @import "inc/_project-show.scss";
 @import "inc/_project-edit.scss";
 @import "inc/_dashboard.scss";
-@import "inc/_community.scss";
 @import "inc/_admin.scss";
 @import "inc/_user-profile.scss";
-@import "inc/_user-login.scss";
 @import "inc/_page.scss";
 
 //todo:各ファイルに、htmlに絡む変更と、どのファイルに書くか迷ったものをtodoで書いてあるので、追って対応する
