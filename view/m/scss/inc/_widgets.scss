@@ -1351,39 +1351,75 @@
     }
   }
 
-  //スキルマッチングで使用するウィジェット
+  //決済後のページにでる埋め込み用プロジェクトのウィジェット
   &.project-spread {
-    > {
-      h3.title {
-        padding-left: 46px;
-      }
-      div.widget.projects > div {
-        &.left {
-          float: left;
-          width: 280px;
-          border-right: #000 1px solid;
+    > h3.title {
+      margin-top: 0;
+    }
+    .widget{
+      background-color: $baseWhite;
+      height: auto;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+    .widget.projects {
+      border: 1px dashed $grayCol02;
+      padding: 12px 20px;
+      #widget-code {
+        clear: both;
+        float: none;
+        margin: 0;
+        padding: 20px 0 0;
+        width: auto;
+        box-sizing: border-box;
+        textarea {
+          background: $baseCol;
+          border: none;
+          clear: both;
+          font-size: 12px;
+          height: 130px;
+          padding: 10px;
+          resize: none;
+          width: 100%;
+          word-wrap: break-word;
         }
-        &.right {
-          float: left;
-          width: 245px;
-          margin-left: 12px;
+      }
+      > div.right {
+        margin-left: 12px;
+      }
+      .widget.project {
+        .image {
+          min-height: 130px;
+          a {
+            img {
+              width: auto;
+              height: 100%;
+            }
+          }
+        }
+        .meter {
+          padding-bottom: 90px;
         }
       }
     }
-    div.subtitle {
-      width: 245px;
-      margin: 0 0 10px 7px;
-      &#s1, &#s2 {}
-      > span {
-        display: block;
+    .subtitle {
+      margin:0 0 10px 7px;
+      padding: 0;
+      //width: 245px;
+      > span{
+        display:block;
         &.primero {
-          margin-bottom: 3px;
+          margin-bottom:3px;
         }
         &.segundo {
           color: #28ACAB;
           font-weight: 600;
         }
       }
+    }
+    .obtained {
+      display: none;
     }
   }
 
@@ -1998,8 +2034,6 @@
 
   //支援メッセージウィジェット
   &.invest-message {
-    background:url(/view/images/project/view/invest/message_beak.png) no-repeat left bottom;
-    background-color:#cce7e8!important;
     min-height:70px;
     h2 {
       margin:0!important;
@@ -2046,76 +2080,6 @@
           margin-bottom: 0;
         }
       }
-    }
-  }
-
-
-  //決済後のページにでる埋め込み用プロジェクトのウィジェット
-  //todo: 表示ができないので、旧cssより移行したのみ
-  &.project-spread {
-    .widget{
-      background-color: #fff;
-      height: auto;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-    }
-    .widget.projects {
-      .left {
-        float: none;
-        width: 100%;
-      }
-      #widget-code {
-        clear: both;
-        float: none;
-        margin: 0;
-        overflow: hidden;
-        padding: 20px;
-        width: auto;
-        textarea {
-          background: #E7E7E7;
-          border: none;
-          clear: both;
-          font-size: 12px;
-          height: 130px;
-          margin: 10px;
-          padding: 10px;
-          resize: none;
-          width: 240px;
-          word-wrap: break-word;
-        }
-      }
-      > div.left {
-        border-right: $solidBorder;
-        float: left;
-        width: 280px;
-      }
-      > div.right {
-        float: left;
-        margin-left: 12px;
-        width: 245px;
-      }
-    }
-    .subtitle {
-      margin:0 0 10px 7px;
-      padding: 0;
-      width: 245px;
-      > span{
-        display:block;
-        &.primero {
-          margin-bottom:3px;
-        }
-        &.segundo {
-          color:#28ACAB;
-          font-weight:bold;
-        }
-      }
-    }
-    > h3.title {
-      padding-left:46px;
-    }
-    .obtained {
-      display: none;
     }
   }
 

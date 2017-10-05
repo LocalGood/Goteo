@@ -410,6 +410,51 @@
         }
       }
 
+      //サブナビ　＞　支援者
+      &.supporters {
+
+        //支援・支援完了時に出るメッセージバルーンのウィジェット
+        .invest-message {
+          position: relative;
+          //background:url('/view/images/project/view/invest/message_beak.png') no-repeat left bottom;
+          background-color: #FFF!important;
+          min-height:70px;
+          padding: 20px 15px ;
+          margin: 0 0 20px 0;
+          overflow: visible;
+          &:after{
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 40px;
+            display: block;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-top: 10px solid #FFF;
+          }
+          h2 {
+            margin:0!important;
+            span {
+              color: #000;
+              &.message {
+                color: $grayCol03!important;
+                font-size: .9em!important;
+                font-weight: 400!important;
+                padding: 0;
+                text-transform: none!important;
+              }
+            }
+            .avatar {
+              @include circleAvatar(30px);
+              float: left;
+              margin-right: 20px;
+            }
+          }
+        }
+
+      }
+
       form div.widget {
         margin: 0 auto;
         clear: left;
