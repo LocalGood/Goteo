@@ -2187,6 +2187,8 @@ body.js .superform .jshidden {
 body.js .superform > div.elements > ol > li.element {
   border-right: 1px dashed #d9d9d9;
   margin-right: 251px; }
+  body.js .superform > div.elements > ol > li.element .web input {
+    display: inline-block; }
   body.js .superform > div.elements > ol > li.element div.contents {
     font-size: 14px; }
   body.js .superform > div.elements > ol > li.element li.element {

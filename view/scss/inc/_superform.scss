@@ -615,6 +615,11 @@ body.js {
         > li.element {
           border-right:1px dashed $grayCol01;
           margin-right:251px;
+          .web{
+            input{
+              display: inline-block;
+            }
+          }
           div.contents {
             font-size:14px;
           }
