@@ -27,12 +27,10 @@ $item_price = $invest->amount;
         <div id="main" class="">
             <div class="widget invest-pre-info">
                 <p><span class="project_name"><?php echo $invest->project_name ?></span><?php echo Text::get('invest-amount-to') ?><span class="amount"><?php echo $invest->amount;?></span><?php echo Text::get('invest-price') ?></p>
+                <form method="post" action="<?php echo $redirect; ?>">
+                    <input type="hidden" name="amount" value="<?php echo $item_price; ?>">
 
-<?php print<<<FORM1
-                <form method="post" action="$redirect">
-                    <input type="hidden" name="amount" value="$item_price">
-
-                    <button type="submit" id="submit" class="process pay-axes" name="method" value="epsilongo">前回のカードで決済を実行</button>
+                    <button type="submit" id="submit" class="process pay-axes" name="method" value="epsilongo"><?php echo Text::get('invest-to-repeat-card') ?></button>
                     <!-- input type="submit" value="決済ページへ" -->
 
                     <input type="hidden" name="failure_str" value="back">
@@ -40,32 +38,16 @@ $item_price = $invest->amount;
 
                 </form>
                 <div class="caution">
-                    <br />
-                	<p style="color:#ff3300;margin-bottom: 0;">前回ご利用のクレジットカードにて決済いたします。</p>
-                	<p style="color:#ff3300;margin-bottom: 0;">初回のご利用の場合は、クレジットカード番号の入力が必要です。</p>
-                    <br />
-                    <br />
-                    <br />
-                    実際の決済はプロジェクト成立後に行われます。
-                    <br />
-                    <br />
-                    <h3>【クレジットカード決済に関するご説明】</h3>
-                    <p>決済システムは（株）ＧＭＯイプシロンを利用しています。<br />
-                        クレジットカードの一括払いでのお支払となります。クレジットカード番号はローカルグッドに知らされることはございませんのでご安心ください。<br />
-                        <a href="http://www.epsilon.jp/security.html" target="_blank">必ずお読みください</a><br /><br />
-                    </p>
-                    <h3>【カード決済に関するお問い合わせ】</h3>
-                    <p>カスタマーサポート（平日 9:30 - 18:00)<br />
-                        TEL：03-3464-6211<br />
-                        <a href="mailto:support@epsilon.jp">support@epsilon.jp</a>
-                    </p>
+                    <p class="first_text_sub"><?php echo Text::get('invest-repeat-card-description-sub') ?></p>
+                    <p class="first_text"><?php echo Text::get('invest-repeat-card-description') ?></p>
+                    <h3><?php echo Text::get('invest-card-about-payment-ttl') ?></h3>
+                    <p><?php echo Text::get('invest-card-about-payment-desc') ?></p>
+                    <h3><?php echo Text::get('invest-about-payment-ttl') ?></h3>
+                    <p><?php echo Text::get('invest-about-payment-desc') ?></p>
                 </div>
             </div>
         </div>
     </div>
-
-FORM1;
-?>
 
 <?php include VIEW_PATH . '/footer.html.php' ?>
 <?php include VIEW_PATH . '/epilogue.html.php' ?>

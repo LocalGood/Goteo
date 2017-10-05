@@ -30,7 +30,7 @@ $item_price = $invest->amount;
                 <form method="post" action="<?php echo $redirect; ?>">
                     <input type="hidden" name="amount" value="<?php echo $item_price; ?>">
 
-                    <button type="submit" id="submit" class="process pay-axes" name="method" value="epsilongo">決済ページへ</button>
+                    <button type="submit" id="submit" class="process pay-axes" name="method" value="epsilongo"><?php echo Text::get('invest-to-normal-card') ?></button>
                     <!-- input type="submit" value="決済ページへ" -->
 
                     <input type="hidden" name="failure_str" value="back">
@@ -38,17 +38,11 @@ $item_price = $invest->amount;
 
                 </form>
                 <div class="caution">
-                    <p class="first_text"><?php echo Text::get('invest-card-normal-description') ?></p>
-                    <h3>【クレジットカード決済に関するご説明】</h3>
-                    <p>決済システムは（株）ＧＭＯイプシロンを利用しています。<br />
-                        クレジットカードの一括払いでのお支払となります。クレジットカード番号はローカルグッドに知らされることはございませんのでご安心ください。<br />
-                        <a href="http://www.epsilon.jp/security.html" target="_blank">必ずお読みください</a><br /><br />
-                    </p>
-                    <h3>【カード決済に関するお問い合わせ】</h3>
-                    <p>カスタマーサポート（平日 9:30 - 18:00)<br />
-                        TEL：03-3464-6211<br />
-                        <a href="mailto:support@epsilon.jp">support@epsilon.jp</a>
-                    </p>
+                    <p class="first_text"><?php echo Text::get('invest-normal-card-description') ?></p>
+                    <h3><?php echo Text::get('invest-card-about-payment-ttl') ?></h3>
+                    <p><?php echo Text::get('invest-card-about-payment-desc') ?></p>
+                    <h3><?php echo Text::get('invest-about-payment-ttl') ?></h3>
+                    <p><?php echo Text::get('invest-about-payment-desc') ?></p>
                 </div>
             </div>
         </div>

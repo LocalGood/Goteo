@@ -1179,8 +1179,12 @@
     }
     .caution {
       margin-top: 24px;
-      p {
+      .first_text {
         margin-bottom: 24px;
+        &_sub {
+          color: $alertCol;
+          margin-bottom: 0;
+        }
       }
     }
   }
@@ -1190,9 +1194,9 @@
   //todo: 表示ができないので、旧cssより移行したのみ
   &.project-spread {
     .widget.projects {
-      width: 280px;
+      width: 320px;
       margin: 20px auto 0;
-      border: 1px dashed #c0c0c0;
+      border: 1px dashed $grayCol02;
       &.activable {
         margin-bottom: 50px!important;
       }
@@ -1210,7 +1214,6 @@
       > div.left {
         float:left;
         width:280px;
-        border-right:$solidBorder;
       }
       > div.right{
         float:left;

@@ -2026,6 +2026,27 @@
     background-color: $baseWhite;
     margin: 16px;
     padding: 4px 16px;
+    .project_name,
+    .amount {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .project_name {
+      padding-right: 4px;
+    }
+    .amount {
+      padding: 0 4px;
+    }
+    .caution {
+      margin-top: 24px;
+      .first_text {
+        margin-bottom: 24px;
+        &_sub {
+          color: $alertCol;
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 
 
