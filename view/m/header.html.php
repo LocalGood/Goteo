@@ -93,7 +93,7 @@ $configJson = json_decode( file_get_contents( 'omniconfig/apikeys.json' ) );
                     </dd>
                     <dd>
                         <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/challenge/">
-                            プロジェクトを立てる
+							プロジェクトを立ち上げる
                         </a>
                     </dd>
                 </dl>
