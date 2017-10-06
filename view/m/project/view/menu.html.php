@@ -23,7 +23,6 @@ use Goteo\Library\Text;
 <div class="project-menu viewport_projectnav">
     <ul class="flipsnap_projectnav">
         <?php
-        var_dump($this['project']);
         foreach (array(
             'home'        => Text::get('project-menu-home'),
             'needs'       => Text::get('project-menu-needs'),
