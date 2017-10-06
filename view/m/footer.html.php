@@ -135,7 +135,7 @@ jQuery(document).ready(function($) {
             </li>
             <li>
                 <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/challenge/">
-                    プロジェクトを立てる
+					プロジェクトを立ち上げる
                 </a>
             </li>
         </ul>

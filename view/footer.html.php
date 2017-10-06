@@ -78,7 +78,7 @@ else:
                         <span class="footer__upper_second_title">応援する</span>
                         <ul>
                             <li><a href="/discover/">プロジェクト一覧</a></li>
-                            <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/challenge/">プロジェクトを立てる</a></li>
+                            <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/challenge/">プロジェクトを立ち上げる</a></li>
                         </ul>
                     </li>
                 </ul>
