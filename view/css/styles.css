@@ -66,10 +66,10 @@ h1, h2, h3, h4, h5, h6 {
 
 a,
 a:link {
-  color: #255b7f; }
+  color: #74257f; }
   a:hover,
   a:link:hover {
-    color: #009acb; }
+    color: #cb0079; }
 
 img {
   border: none;
@@ -104,7 +104,7 @@ input[type="reset"],
 button,
 a.button {
   background: none;
-  background: #009480;
+  background: #889400;
   box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
   border: none;
   border-radius: 3px;
@@ -151,7 +151,7 @@ button.red,
 a.button.red,
 input.edit[type="submit"] {
   background: none;
-  background: #009480;
+  background: #889400;
   box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
   border: none;
   border-radius: 3px;
@@ -250,8 +250,8 @@ a.button.weak {
             .header__right__nav__gnav > li > a {
               padding: 0 1.6vw; } }
         .header__right__nav__gnav > li:hover > a, .header__right__nav__gnav > li.active > a {
-          color: #255b7f;
-          border-bottom: 3px solid #255b7f; }
+          color: #74257f;
+          border-bottom: 3px solid #74257f; }
         .header__right__nav__gnav > li:hover .header__right__snav, .header__right__nav__gnav > li.active .header__right__snav {
           opacity: 1;
           transition: opacity 0.2s ease;
@@ -288,7 +288,7 @@ a.button.weak {
                 font-size: 14px;
                 line-height: 1.5em; }
                 .header__right__nav__gnav > li:hover .header__right__snav__inner ul a:hover, .header__right__nav__gnav > li.active .header__right__snav__inner ul a:hover {
-                  color: #009acb; }
+                  color: #cb0079; }
           .header__right__nav__gnav > li:hover .header__right__snav .header__right__snav__second_title, .header__right__nav__gnav > li.active .header__right__snav .header__right__snav__second_title {
             opacity: 0.5;
             color: #454545;
@@ -317,7 +317,7 @@ a.button.weak {
           background-color: #fff; }
           .header__right__nav__gnav > li .header.common_header > li.gnav_goteo > a {
             color: #fff;
-            background-color: #255b7f;
+            background-color: #74257f;
             border-radius: 4px; }
           .header__right__nav__gnav > li .header.common_header > li.gnav_goteo.active > a, .header__right__nav__gnav > li .header.common_header > li.gnav_goteo:hover > a {
             border-bottom: none; }
@@ -377,7 +377,7 @@ a.button.weak {
       color: #fff;
       line-height: 36px;
       border-radius: 2px;
-      background-color: #255b7f; }
+      background-color: #74257f; }
 
 /*----------------------------------------------------------------------
  footer.css
@@ -392,7 +392,7 @@ a.button.weak {
 .footer__upper {
   zoom: 1;
   padding: 45px 0 52px;
-  background-color: #255b7f; }
+  background-color: #74257f; }
   .footer__upper:after {
     content: '';
     display: block;
@@ -527,13 +527,13 @@ a.button.weak {
           font-size: 11px;
           line-height: 34px;
           box-sizing: border-box;
-          background: #255b7f;
+          background: #74257f;
           text-decoration: none;
           -moz-border-radius: 3px;
           -webkit-border-radius: 3px;
           border-radius: 3px; }
           .goteo_menu > ul > li.dashboard > a:hover {
-            background-color: #009acb; }
+            background-color: #cb0079; }
           .goteo_menu > ul > li.dashboard > a > img {
             position: absolute;
             right: 5px;
@@ -556,7 +556,7 @@ a.button.weak {
                 font-size: 11px;
                 padding: 6px 3px; }
                 .goteo_menu > ul > li.dashboard > div > ul > li > a:hover {
-                  background-color: #009acb; }
+                  background-color: #cb0079; }
               .goteo_menu > ul > li.dashboard > div > ul > li * {
                 color: #FFF; }
 
@@ -642,20 +642,159 @@ div#message {
       margin: 0 30px 0 0;
       padding: 0; }
 
-/*iframe*/
-body.project-embed {
+.project-embed {
   min-width: unset; }
-  body.project-embed #wrapper {
+  .project-embed #wrapper {
     margin: 0;
     padding: 0; }
-  body.project-embed .alone-project .want-support {
+  .project-embed .alone-project .want-support {
     display: -webkit-flex;
     display: flex; }
-    body.project-embed .alone-project .want-support > div {
+    .project-embed .alone-project .want-support > div {
       width: 50%; }
-  body.project-embed .widget.project.activable.heightLine-project {
+  .project-embed .project {
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    box-sizing: content-box;
     height: auto !important;
-    min-height: 560px; }
+    min-height: 488px;
+    padding: 0 0 70px;
+    position: relative;
+    z-index: 98; }
+    .project-embed .project.active div.image {
+      filter: alpha(opacity=85);
+      opacity: 0.85; }
+    .project-embed .project.active a.link {
+      color: #828282; }
+    .project-embed .project a.link {
+      display: block;
+      text-decoration: none; }
+    .project-embed .project .image {
+      background-color: #f2f2f2;
+      border-radius: 4px 4px 0 0;
+      height: 160px;
+      margin: 0;
+      overflow: hidden;
+      position: relative; }
+      .project-embed .project .image a {
+        display: block; }
+        .project-embed .project .image a img {
+          min-width: 100%;
+          min-height: 160px; }
+    .project-embed .project-details {
+      margin: 20px 16px 16px; }
+      .project-embed .project-details h3.title {
+        margin: 0 0 16px; }
+      .project-embed .project-details .author {
+        color: #828282;
+        font-size: 12px;
+        margin-bottom: 10px; }
+        .project-embed .project-details .author-img {
+          border-radius: 50%;
+          display: inline-block;
+          height: 25px;
+          overflow: hidden;
+          position: relative;
+          text-align: center;
+          vertical-align: middle;
+          width: 25px; }
+          .project-embed .project-details .author-img img {
+            bottom: 0;
+            height: auto;
+            left: 0;
+            margin: auto;
+            position: absolute;
+            right: 0;
+            top: 0;
+            vertical-align: middle;
+            width: 100%; }
+        .project-embed .project-details .author span {
+          vertical-align: middle; }
+      .project-embed .project-details .categories {
+        background: url(/view/images/icon_tag.png) no-repeat left 50%;
+        color: #828282;
+        font-size: 12px;
+        padding-left: 20px; }
+    .project-embed .project .meter div.graph {
+      margin-bottom: 0; }
+    .project-embed .project .meter dl.amount-bar {
+      display: none; }
+    .project-embed .project .want-support {
+      border-top: 1px solid #d9d9d9;
+      bottom: 0;
+      letter-spacing: -.4em;
+      position: absolute;
+      text-align: center;
+      width: 100%; }
+      .project-embed .project .want-support > div {
+        display: inline-block;
+        letter-spacing: normal;
+        padding-bottom: 8px;
+        vertical-align: top;
+        width: 50%; }
+        .project-embed .project .want-support > div:first-child {
+          border-right: 1px solid #d9d9d9; }
+      .project-embed .project .want-support h4 {
+        font-size: 12px;
+        line-height: 1;
+        margin: 12px 0 8px; }
+      .project-embed .project .want-support img {
+        height: 30px; }
+      .project-embed .project .want-support .days {
+        height: 30px;
+        line-height: 30px; }
+        .project-embed .project .want-support .days strong {
+          color: #000; }
+    .project-embed .project .balloon {
+      position: relative;
+      margin: 0 0 30px 0;
+      background: #d9d9d9; }
+      .project-embed .project .balloon::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: -30px;
+        left: 20px;
+        width: 0;
+        height: 0;
+        border: 15px solid transparent;
+        border-top: solid 15px #d9d9d9; }
+      .project-embed .project .balloon > blockquote {
+        font-size: 12px;
+        height: 4.5em;
+        margin: 0;
+        overflow: hidden;
+        padding: 3px 5px; }
+      .project-embed .project .balloon > h4 {
+        font-size: 14px;
+        font-weight: 700;
+        margin: 0;
+        padding: 3px 5px 0; }
+    .project-embed .project .tagmark {
+      width: 100%;
+      color: #454545;
+      padding: 0 10px;
+      text-align: center;
+      z-index: 100;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      background: #d9d9d9;
+      position: absolute;
+      bottom: 0; }
+      .project-embed .project .tagmark.green {
+        background: #e08e22; }
+  .project-embed .skillmatching div.image span.sm-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 40px;
+    height: 40px;
+    background-image: url("/view/images/lg-project-sm.png");
+    background-size: 40px 40px; }
+  .project-embed .skillmatching div.meter dl .days {
+    top: 160px; }
 
 /*----------------------------------------------------------------------
  .widget
@@ -697,8 +836,10 @@ body.project-embed {
         margin: 0;
         overflow: hidden;
         position: relative; }
-        .widget.projects .project .image img {
-          min-height: 135px; }
+        .widget.projects .project .image a {
+          display: block; }
+          .widget.projects .project .image a img {
+            min-height: 135px; }
       .widget.projects .project-details {
         margin: 20px 16px 16px; }
         .widget.projects .project-details h3.title {
@@ -841,7 +982,7 @@ body.project-embed {
         border: 10px solid transparent;
         border-right: 10px solid #828282; }
       .widget.projects .discover-arrow-left a.discover-arrow:hover:before {
-        border-right: 10px solid #009acb; }
+        border-right: 10px solid #cb0079; }
     .widget.projects .discover-arrow-right {
       float: right; }
       .widget.projects .discover-arrow-right a.discover-arrow:before {
@@ -853,7 +994,7 @@ body.project-embed {
         border: 10px solid transparent;
         border-left: 10px solid #828282; }
       .widget.projects .discover-arrow-right a.discover-arrow:hover:before {
-        border-left: 10px solid #009acb; }
+        border-left: 10px solid #cb0079; }
     .widget.projects .navi-bar {
       position: relative;
       clear: both;
@@ -881,18 +1022,18 @@ body.project-embed {
           .widget.projects .navi-bar ul.navi li > a {
             background-color: #d9d9d9; }
             .widget.projects .navi-bar ul.navi li > a:hover {
-              background-color: #009acb; }
+              background-color: #cb0079; }
             .widget.projects .navi-bar ul.navi li > a.active {
               background-color: #828282; }
       .widget.projects .navi-bar a.all {
         position: absolute;
         top: 5px;
         right: 35px;
-        color: #255b7f;
+        color: #74257f;
         text-decoration: none;
         text-transform: uppercase; }
         .widget.projects .navi-bar a.all:hover {
-          color: #009acb; }
+          color: #cb0079; }
     .widget.projects#colective-messages label {
       display: inline-block;
       width: 95%; }
@@ -905,7 +1046,7 @@ body.project-embed {
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       border-radius: 50%;
-      background: #91c0df;
+      background: #d591df;
       display: inline-block;
       font: normal normal normal 14px/1 FontAwesome;
       font-size: inherit;
@@ -913,7 +1054,7 @@ body.project-embed {
       -webkit-font-smoothing: antialiased; }
       .widget.projects#colective-messages #bocadillo:before {
         content: "\f075";
-        color: #255b7f;
+        color: #74257f;
         line-height: 30px; }
     .widget.projects#colective-messages #message_reward {
       background: #f2f2f2;
@@ -1026,7 +1167,7 @@ body.project-embed {
             .widget.project-investors .project-widget-box ul li .supporter h4.aqua {
               max-width: 75px;
               font-weight: bold;
-              color: #255b7f;
+              color: #74257f;
               margin: 0; }
             .widget.project-investors .project-widget-box ul li .supporter dl {
               display: -webkit-flex;
@@ -1080,10 +1221,10 @@ body.project-embed {
         .widget.user .user-head-right .title {
           margin: 0 0 4px; }
           .widget.user .user-head-right .title a {
-            color: #255b7f;
+            color: #74257f;
             text-decoration: none; }
             .widget.user .user-head-right .title a:hover {
-              color: #009acb; }
+              color: #cb0079; }
         .widget.user .user-head-right .location {
           background: url(/view/images/location/s.png) no-repeat left center;
           padding-left: 18px; }
@@ -1210,7 +1351,7 @@ body.project-embed {
     .widget.project-rewards .individual {
       margin-bottom: 20px; }
       .widget.project-rewards .individual .title a {
-        color: #255b7f !important; }
+        color: #74257f !important; }
       .widget.project-rewards .individual ul li dl {
         zoom: 1;
         margin: 0; }
@@ -1235,7 +1376,7 @@ body.project-embed {
         font-size: 13px;
         margin: 0 0 8px 0; }
     .widget.project-rewards .social .title a {
-      color: #255b7f !important; }
+      color: #74257f !important; }
   .widget.project-collaborations {
     background: none; }
     .widget.project-collaborations .project-widget-box {
@@ -1284,7 +1425,7 @@ body.project-embed {
     padding: 40px 0; }
     .widget.project-support_btn a.button {
       background: none;
-      background: #e08e22;
+      background: #e022a4;
       -moz-box-shadow: 0 3px 3px 0 #d9d9d9;
       -webkit-box-shadow: 0 3px 3px 0 #d9d9d9;
       box-shadow: 0 3px 3px 0 #d9d9d9;
@@ -1467,7 +1608,7 @@ body.project-embed {
             vertical-align: middle;
             width: 100%; }
         .widget.project-supporters .supporters .supporter h4 {
-          color: #255b7f;
+          color: #74257f;
           font-size: 16px;
           font-weight: 600;
           line-height: 1.15;
@@ -1528,7 +1669,7 @@ body.project-embed {
         .widget.project-schedule tbody td.on span {
           opacity: .75; }
         .widget.project-schedule tbody td.on.req {
-          background-color: #255b7f; }
+          background-color: #74257f; }
         .widget.project-schedule tbody td.on.noreq {
           background-color: #f2f2f2; }
     .widget.project-schedule tbody tr:not(:last-child) td {
@@ -1590,12 +1731,15 @@ body.project-embed {
     padding: 0 4px; }
   .widget.invest-pre-info .caution {
     margin-top: 24px; }
-    .widget.invest-pre-info .caution p {
+    .widget.invest-pre-info .caution .first_text {
       margin-bottom: 24px; }
+      .widget.invest-pre-info .caution .first_text_sub {
+        color: #e02d22;
+        margin-bottom: 0; }
   .widget.project-spread .widget.projects {
-    width: 280px;
+    width: 320px;
     margin: 20px auto 0;
-    border: 1px dashed #c0c0c0; }
+    border: 1px dashed #828282; }
     .widget.project-spread .widget.projects.activable {
       margin-bottom: 50px !important; }
     .widget.project-spread .widget.projects div.left {
@@ -1609,8 +1753,7 @@ body.project-embed {
         text-align: left; }
     .widget.project-spread .widget.projects > div.left {
       float: left;
-      width: 280px;
-      border-right: 1px solid #d9d9d9; }
+      width: 280px; }
     .widget.project-spread .widget.projects > div.right {
       float: left;
       width: 245px;
@@ -1711,7 +1854,7 @@ body.project-embed {
       color: #828282;
       font-size: 15px; }
     .meter div.graph .done {
-      background-color: #009acb;
+      background-color: #cb0079;
       border-radius: 9px;
       height: 18px;
       left: 0;
@@ -2058,7 +2201,7 @@ body.project-embed {
       padding: 0 10px;
       margin: 0 0 0 10px;
       text-align: center;
-      background: #e08e22; }
+      background: #e022a4; }
   .superform div.elements > ol > li.ok > .title {
     position: relative; }
     .superform div.elements > ol > li.ok > .title::before {
@@ -2073,7 +2216,7 @@ body.project-embed {
       font-weight: 100;
       padding: 0 10px;
       text-align: center;
-      background: #009480; }
+      background: #889400; }
   .superform div.elements > ol > li.error > .title {
     position: relative; }
     .superform div.elements > ol > li.error > .title::before {
@@ -2261,7 +2404,7 @@ body.js .superform > div.elements li.element > div.feedback {
   width: 250px; }
 body.js .superform .is_public {
   font-size: 12px;
-  background-color: #009480;
+  background-color: #889400;
   padding: 0 8px;
   color: #ffffff; }
 body.js .superform div.children > div.elements > ol > li.element > div.feedback {
@@ -2347,7 +2490,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     right: 40px;
     top: 0; }
     .discover .searcher .searcher-btn #searcher {
-      background: url("/view/images/search_icon.png") no-repeat center, #009480;
+      background: url("/view/images/search_icon.png") no-repeat center, #889400;
       height: 33px;
       margin: 2px 0 0;
       text-indent: -9999px;
@@ -2412,11 +2555,11 @@ body.js .superform > div.elements ol li.element div.contents p {
     max-width: 620px;
     padding-left: 20px; }
     .project-show .project-header .categories a {
-      color: #255b7f;
+      color: #74257f;
       font-size: 12px;
       text-decoration: none; }
       .project-show .project-header .categories a:hover {
-        color: #009acb; }
+        color: #cb0079; }
 .project-show .project-menu {
   margin-bottom: 20px; }
   .project-show .project-menu ul {
@@ -2445,11 +2588,11 @@ body.js .superform > div.elements ol li.element div.contents p {
       text-decoration: none;
       vertical-align: middle; }
     .project-show .project-menu ul li.active a {
-      border-bottom: 4px solid #e08e22; }
+      border-bottom: 4px solid #e022a4; }
     .project-show .project-menu ul li.show a {
-      border-bottom: 4px solid #e08e22; }
+      border-bottom: 4px solid #e022a4; }
     .project-show .project-menu ul li span.digits {
-      background-color: #e08e22;
+      background-color: #e022a4;
       border-radius: 5px;
       color: #FFF;
       display: inline-block;
@@ -2476,7 +2619,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    background: #91c0df;
+    background: #d591df;
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
     font-size: inherit;
@@ -2484,7 +2627,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     -webkit-font-smoothing: antialiased; }
     .project-show .project-message div#bocadillo:before {
       content: "\f075";
-      color: #255b7f;
+      color: #74257f;
       line-height: 30px; }
   .project-show .project-message button {
     float: right;
@@ -2504,7 +2647,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     resize: none;
     width: 525px; }
   .project-show .project-message a.preview {
-    color: #255b7f;
+    color: #74257f;
     font-style: normal;
     font-weight: 400;
     left: 80px;
@@ -2513,7 +2656,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     text-transform: uppercase;
     top: 210px; }
     .project-show .project-message a.preview:hover {
-      color: #009acb; }
+      color: #cb0079; }
   .project-show .project-message h3.title {
     padding-left: 0; }
 .project-show .project-rewards-summary {
@@ -2647,15 +2790,15 @@ body.js .superform > div.elements ol li.element div.contents p {
     line-height: 24px;
     margin: 0 0 12px; }
   .project-show .project-rewards-summary .button.supportit {
-    background: #e08e22; }
+    background: #e022a4; }
 .project-show .side {
   /* todo: 多分「支援者」が入ると要るから、取っておく */ }
   .project-show .side .button.supportit {
-    background: #e08e22; }
+    background: #e022a4; }
   .project-show .side .button.aqua {
-    background: #009480; }
+    background: #889400; }
   .project-show .side .button.green {
-    background-color: #009480; }
+    background-color: #889400; }
   .project-show .side .more {
     border-top: 1px solid #d9d9d9;
     clear: both;
@@ -2856,7 +2999,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       text-transform: none !important; }
   .project-show .center.supporters .project-invest h3.beak {
     position: relative;
-    background: #255b7f;
+    background: #74257f;
     color: #FFF;
     font-size: 1em !important;
     padding: 20px;
@@ -2870,7 +3013,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       width: 0;
       height: 0;
       border: 10px solid transparent;
-      border-top: 10px solid #255b7f; }
+      border-top: 10px solid #74257f; }
   .project-show .center.supporters .project-invest.address table {
     width: 100%; }
     .project-show .center.supporters .project-invest.address table tr td label {
@@ -2897,7 +3040,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       border-radius: 50%;
-      background: #255b7f; }
+      background: #74257f; }
     .project-show .center.supporters .project-invest-amount #amount {
       color: #255B80;
       font-size: 24px;
@@ -3104,13 +3247,13 @@ body.js .superform > div.elements ol li.element div.contents p {
     .project-show .center.messages .project-messages .user a {
       text-decoration: none; }
   .project-show .center.messages .project-messages .user_name {
-    color: #009acb; }
+    color: #cb0079; }
   .project-show .center.messages .project-messages blockquote {
     clear: both;
     margin: 0 0 16px;
     padding: 0; }
   .project-show .center.messages .project-messages .actions_date a {
-    color: #009acb;
+    color: #cb0079;
     text-decoration: none; }
   .project-show .center.messages .project-messages .actions_date .date {
     display: inline-block;
@@ -3181,7 +3324,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       text-rendering: auto;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      color: #255b7f;
+      color: #74257f;
       display: inline-block;
       font-size: 12px;
       line-height: 2;
@@ -3190,8 +3333,9 @@ body.js .superform > div.elements ol li.element div.contents p {
       text-decoration: none; }
       .project-show .center.updates .post .read_more a:after {
         content: "\f105";
-        color: #255b7f;
-        font-weight: bold; }
+        color: #74257f;
+        font-weight: bold;
+        margin-left: 4px; }
       .project-show .center.updates .post .read_more a:after {
         height: 8px;
         margin: auto;
@@ -3200,15 +3344,15 @@ body.js .superform > div.elements ol li.element div.contents p {
         top: 0;
         width: 6px; }
       .project-show .center.updates .post .read_more a:hover {
-        color: #009acb; }
+        color: #cb0079; }
   .project-show .center.updates .post .post_nav {
     margin: 0;
     padding: 0;
     list-style: none; }
     .project-show .center.updates .post .post_nav a {
-      color: #255b7f; }
+      color: #74257f; }
       .project-show .center.updates .post .post_nav a:hover {
-        color: #009acb; }
+        color: #cb0079; }
     .project-show .center.updates .post .post_nav .prev {
       float: left; }
     .project-show .center.updates .post .post_nav .next {
@@ -3238,7 +3382,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     margin: 0;
     padding: 0 0 0 26px; }
     .project-show .center.updates .post .comments-num a {
-      color: #255b7f;
+      color: #74257f;
       text-decoration: none; }
 .project-show .center.updates #pagination {
   margin-top: 10px; }
@@ -3274,7 +3418,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   .project-show .center.updates .post-comments div.message h3.user a {
     text-decoration: none; }
     .project-show .center.updates .post-comments div.message h3.user a:hover {
-      color: #009acb; }
+      color: #cb0079; }
 .project-show .center.updates .post-comments div.owner {
   background: #FFF url("/view/images/message/beak/2.png") no-repeat left top !important; }
 .project-show .center.updates .blog-comment {
@@ -3292,7 +3436,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    background: #91c0df;
+    background: #d591df;
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
     font-size: inherit;
@@ -3300,7 +3444,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     -webkit-font-smoothing: antialiased; }
     .project-show .center.updates .blog-comment #bocadillo:before {
       content: "\f075";
-      color: #255b7f;
+      color: #74257f;
       line-height: 30px; }
   .project-show .center.updates .blog-comment #send_message {
     background-color: #FFF;
@@ -3315,7 +3459,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     resize: none;
     width: 525px; }
   .project-show .center.updates .blog-comment a.preview {
-    color: #255b7f;
+    color: #74257f;
     font-style: normal;
     font-weight: 400;
     left: 52px;
@@ -3368,16 +3512,16 @@ body.js .superform > div.elements ol li.element div.contents p {
     max-width: 620px;
     font-style: normal; }
   .project-edit .project-header .project-by {
-    color: #255b7f;
+    color: #74257f;
     font-size: 12px;
     margin: 0 0 .5em; }
     .project-edit .project-header .project-by a {
       font-weight: normal;
-      color: #255b7f;
+      color: #74257f;
       font-size: 12px;
       text-decoration: none; }
       .project-edit .project-header .project-by a:hover {
-        color: #009acb; }
+        color: #cb0079; }
 .project-edit .status {
   padding: 20px 0 30px;
   color: #d9d9d9;
@@ -3484,7 +3628,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       padding: 0 0 50px;
       width: auto; }
       .project-edit #project-steps span.step > button:hover {
-        color: #009acb;
+        color: #cb0079;
         opacity: 1; }
     .project-edit #project-steps span.step.off > button {
       background-image: url("/view/images/project/edit/steps/balloon-off.png");
@@ -4032,7 +4176,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     font-weight: normal; }
   .project-edit div#main .superform > div > ol #preview .contents .button.violet {
     background: none;
-    background: #e08e22;
+    background: #e022a4;
     box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
     border: none;
     border-radius: 3px;
@@ -4053,7 +4197,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       color: #FFF; }
   .project-edit div#main .superform > div > ol #preview .contents .button.aqua {
     background: none;
-    background: #009480;
+    background: #889400;
     box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
     border: none;
     border-radius: 3px;
@@ -4074,7 +4218,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       color: #FFF; }
   .project-edit div#main .superform > div > ol #preview .contents .button.green {
     background: none;
-    background: #009480;
+    background: #889400;
     box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
     border: none;
     border-radius: 3px;
@@ -4143,7 +4287,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       color: #828282;
       font-size: 30px; }
 .dashboard #dashboard-menu {
-  border-bottom: 40px solid #255b7f;
+  border-bottom: 40px solid #74257f;
   display: block;
   font-size: 13px;
   height: 0;
@@ -4174,7 +4318,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       bottom: 0;
       right: 0;
       height: 40px;
-      background-color: #255b7f; }
+      background-color: #74257f; }
     .dashboard #dashboard-menu > ul li.section a.section {
       min-width: 80px !important;
       height: 52px;
@@ -4185,14 +4329,14 @@ body.js .superform > div.elements ol li.element div.contents p {
       background: #d9d9d9; }
     .dashboard #dashboard-menu > ul li.section.current a.section {
       background: none;
-      background-color: #255b7f;
+      background-color: #74257f;
       color: #f2f2f2; }
     .dashboard #dashboard-menu > ul li.section.current ul {
       display: block;
       z-index: 0; }
     .dashboard #dashboard-menu > ul li.section.active a.section {
       background: none;
-      background-color: #255b7f;
+      background-color: #74257f;
       color: #f2f2f2;
       font-weight: bolder; }
     .dashboard #dashboard-menu > ul li.section.active ul {
@@ -4231,12 +4375,12 @@ body.js .superform > div.elements ol li.element div.contents p {
     max-width: 620px;
     font-style: normal; }
   .dashboard .project-header .project-by {
-    color: #255b7f;
+    color: #74257f;
     font-size: 12px;
     margin: 0 0 .5em; }
     .dashboard .project-header .project-by a {
       font-weight: normal;
-      color: #255b7f;
+      color: #74257f;
       font-size: 12px;
       text-decoration: none; }
       .dashboard .project-header .project-by a:hover {
@@ -4247,7 +4391,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     text-align: right;
     top: 0; }
     .dashboard .project-header .categories h3 {
-      color: #255b7f;
+      color: #74257f;
       font-size: 0.8571428rem;
       font-weight: normal;
       margin: 0; }
@@ -4256,7 +4400,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       font-size: 12px;
       text-decoration: none; }
       .dashboard .project-header .categories a:hover {
-        color: #009acb; }
+        color: #cb0079; }
 .dashboard .summary > .widget {
   margin-bottom: 20px; }
 .dashboard .summary .select-action {
@@ -4346,7 +4490,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     height: 105px;
     overflow-y: scroll; }
   .dashboard .widget.gestrew div.reward span.aporte {
-    color: #255b7f;
+    color: #74257f;
     display: inline-block;
     font-size: 8pt;
     line-height: 22px; }
@@ -4362,14 +4506,14 @@ body.js .superform > div.elements ol li.element div.contents p {
         font-weight: bold;
         text-align: center;
         line-height: 20px;
-        background: #255b7f;
+        background: #74257f;
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
         border-radius: 50%; }
   .dashboard .widget.gestrew div.reward span.num {
     font-size: 12pt; }
   .dashboard .widget.gestrew div.reward span.cofinanciadores {
-    color: #255b7f;
+    color: #74257f;
     display: block;
     font-size: 8pt;
     line-height: 20px;
@@ -4738,9 +4882,9 @@ body.js .superform > div.elements ol li.element div.contents p {
       color: #454545;
       font-size: 18px; }
       .admin #sub-header .breadcrumbs a:hover {
-        color: #009acb; }
+        color: #cb0079; }
     .admin #sub-header .breadcrumbs strong {
-      color: #009acb; }
+      color: #cb0079; }
 .admin #main {
   margin-bottom: 0;
   margin-top: 0; }
@@ -4752,7 +4896,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     padding: 0;
     width: 100%; }
     .admin .admin-menu fieldset legend {
-      background-color: #009acb;
+      background-color: #cb0079;
       color: #fff;
       display: block;
       font-weight: 700;
@@ -4769,7 +4913,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       padding: 0;
       width: 160px; }
       .admin .admin-menu ul li.active a {
-        color: #009acb; }
+        color: #cb0079; }
       .admin .admin-menu ul li a {
         display: block;
         padding: 4px 8px;
@@ -5056,17 +5200,17 @@ body.js .superform > div.elements ol li.element div.contents p {
   color: #454545;
   text-decoration: none; }
 .admin .feed .light-blue {
-  color: #009acb; }
+  color: #cb0079; }
 .admin .feed .blue {
-  color: #009acb; }
+  color: #cb0079; }
 .admin .feed .violet {
-  color: #009acb; }
+  color: #cb0079; }
 .admin .feed .red {
   color: #e02d22; }
 .admin .feed .grey {
-  color: #009acb; }
+  color: #cb0079; }
 .admin .feed .green {
-  color: #009acb; }
+  color: #cb0079; }
 .admin .feed .subitem {
   border-bottom: #828282 1px dashed;
   height: auto;
@@ -5285,7 +5429,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     background-color: #fff;
     border-top: 1px solid #d9d9d9;
     clear: both;
-    color: #255b7f;
+    color: #74257f;
     display: block;
     float: none;
     font-size: 14px !important;
@@ -5297,7 +5441,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     text-transform: uppercase;
     top: -1px; }
     .user-profile .side .widget.user-supporters a.more:hover {
-      color: #009acb; }
+      color: #cb0079; }
 .user-profile .side .widget.user-mates {
   margin: 0 0 20px;
   padding: 0; }
@@ -5321,7 +5465,7 @@ body.js .superform > div.elements ol li.element div.contents p {
           text-decoration: none;
           text-transform: uppercase; }
           .user-profile .side .widget.user-mates div.categories ul li a:hover {
-            color: #009acb; }
+            color: #cb0079; }
   .user-profile .side .widget.user-mates .users {
     border-bottom: none; }
     .user-profile .side .widget.user-mates .users ul {
@@ -5394,7 +5538,7 @@ body.js .superform > div.elements ol li.element div.contents p {
           font-size: 12px;
           text-decoration: none; }
           .user-profile .widget.user-about > div.webs ul li a:hover {
-            color: #009acb; }
+            color: #cb0079; }
     .user-profile .widget.user-about > div.location h4 {
       display: none; }
     .user-profile .widget.user-about > div.location p {
@@ -5421,24 +5565,24 @@ body.js .superform > div.elements ol li.element div.contents p {
         display: inline-block;
         width: 25px;
         height: 25px;
-        color: #255b7f;
+        color: #74257f;
         text-align: center;
         line-height: 25px;
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
         border-radius: 50%;
-        background: #91c0df; }
+        background: #d591df; }
       .user-profile .widget.user-about > div.message p {
         display: inline-block;
         line-height: 22px;
         min-height: 22px; }
         .user-profile .widget.user-about > div.message p a {
-          color: #255b7f;
+          color: #74257f;
           font-size: 14px;
           font-weight: 700;
           text-decoration: none; }
           .user-profile .widget.user-about > div.message p a:hover {
-            color: #009acb;
+            color: #cb0079;
             text-decoration: underline; }
   .user-profile .widget.user-about h4 {
     font-size: 16px;
@@ -5615,7 +5759,7 @@ body.js .superform > div.elements ol li.element div.contents p {
         .user-profile .widget.user-mates div.users ul > li.active {
           background-color: #f2f2f2 !important; }
         .user-profile .widget.user-mates div.users ul > li:hover > div.user > h4 > a {
-          color: #009acb; }
+          color: #cb0079; }
         .user-profile .widget.user-mates div.users ul > li .user {
           padding: 20px 20px 20px 80px;
           position: relative; }
@@ -5662,16 +5806,16 @@ body.js .superform > div.elements ol li.element div.contents p {
         .user-profile .widget.user-mates div.users ul > li span {
           font-size: 12px; }
           .user-profile .widget.user-mates div.users ul > li span.projects {
-            color: #255b7f;
+            color: #74257f;
             margin-right: 8px; }
           .user-profile .widget.user-mates div.users ul > li span.invests {
-            color: #255b7f; }
+            color: #74257f; }
       .user-profile .widget.user-mates div.users ul li a {
         font-size: 12px !important;
         text-decoration: none;
         text-transform: none !important; }
         .user-profile .widget.user-mates div.users ul li a:hover {
-          color: #009acb; }
+          color: #cb0079; }
       .user-profile .widget.user-mates div.users ul li div.user h4 {
         margin-bottom: 10px; }
         .user-profile .widget.user-mates div.users ul li div.user h4 a {
@@ -5684,7 +5828,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #255b7f;
+    color: #74257f;
     font-size: 14px;
     line-height: 58px;
     margin: 0;
@@ -5695,10 +5839,11 @@ body.js .superform > div.elements ol li.element div.contents p {
     top: 0; }
     .user-profile .widget.user-mates a.more:after {
       content: "\f105";
-      color: #255b7f;
-      font-weight: bold; }
+      color: #74257f;
+      font-weight: bold;
+      margin-left: 4px; }
     .user-profile .widget.user-mates a.more:hover {
-      color: #009acb; }
+      color: #cb0079; }
   .user-profile .widget.user-mates .project-widget-box {
     background-color: #f2f2f2;
     margin: 0;
@@ -5719,9 +5864,9 @@ body.js .superform > div.elements ol li.element div.contents p {
   font-weight: normal;
   margin: 0;
   padding: .5em 2px;
-  border-bottom: 1px solid #255b7f;
+  border-bottom: 1px solid #74257f;
   font-size: 18px;
-  background-color: #255b7f;
+  background-color: #74257f;
   color: #f2f2f2;
   padding-left: 8px; }
 
@@ -5841,8 +5986,8 @@ body.js .superform > div.elements ol li.element div.contents p {
   margin: 0 0 20px;
   padding: 0; }
   .community .categorylist h3.title {
-    background-color: #255b7f;
-    border-bottom: 1px solid #255b7f;
+    background-color: #74257f;
+    border-bottom: 1px solid #74257f;
     color: #f2f2f2;
     font-size: 18px;
     font-weight: 400;
@@ -5900,7 +6045,7 @@ body.js .superform > div.elements ol li.element div.contents p {
       .community .users ul li.active {
         background-color: #f2f2f2 !important; }
         .community .users ul li.active .user > h4 > a {
-          color: #255b7f; }
+          color: #74257f; }
       .community .users ul li .user {
         padding: 3px 6px 3px 57px;
         position: relative; }
@@ -5940,7 +6085,7 @@ body.js .superform > div.elements ol li.element div.contents p {
         float: left; }
 
 .about .weak {
-  background: #009480; }
+  background: #889400; }
 
 .user-login {
   min-height: unset; }
@@ -5988,11 +6133,11 @@ body.js .superform > div.elements ol li.element div.contents p {
     .user-login .register a,
     .user-login .external-login a,
     .user-login .login a {
-      color: #255b7f; }
+      color: #74257f; }
       .user-login .register a:hover,
       .user-login .external-login a:hover,
       .user-login .login a:hover {
-        color: #009acb; }
+        color: #cb0079; }
     .user-login .register label,
     .user-login .external-login label,
     .user-login .login label {

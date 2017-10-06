@@ -548,8 +548,10 @@ div#message {
     }
   }
 }
-/*iframe*/
-body.project-embed{
+
+
+//wp側に埋め込まれたウィジェット用
+.project-embed{
   min-width: unset;
   #wrapper{
     margin: 0;
@@ -564,8 +566,173 @@ body.project-embed{
       }
     }
   }
-  .widget.project.activable.heightLine-project{
+  .project {
+    background-color: #fff;
+    border: 1px solid $grayCol01;
+    border-radius: 4px;
+    box-sizing: content-box;
     height: auto !important;
-    min-height: 560px;
+    min-height: 488px;
+    padding: 0 0 70px;
+    position:relative;
+    z-index: 98;
+    &.active {
+      div.image {
+        filter:alpha(opacity=85);
+        opacity:0.85;
+      }
+      a.link {
+        color: $grayCol02;
+      }
+    }
+    a.link {
+      display: block;
+      text-decoration:none;
+    }
+    .image {
+      background-color: $baseCol;
+      border-radius: 4px 4px 0 0;
+      height:160px;
+      margin:0;
+      overflow:hidden;
+      position: relative;
+      a {
+        display: block;
+        img {
+          min-width: 100%;
+          min-height: 160px;
+        }
+      }
+    }
+
+    &-details {
+      margin: 20px 16px 16px;
+      h3.title {
+        margin: 0 0 16px;
+      }
+      .author {
+        color: $grayCol02;
+        font-size:12px;
+        margin-bottom: 10px;
+        &-img {
+          @include circleAvatar(25px);
+        }
+        span {
+          vertical-align: middle;
+        }
+      }
+      .categories {
+        background: url(/view/images/icon_tag.png) no-repeat left 50%;
+        color: $grayCol02;
+        font-size:12px;
+        padding-left: 20px;
+      }
+    }
+
+    .meter {
+      div.graph {
+        margin-bottom: 0;
+      }
+      dl.amount-bar {
+        display: none;
+      }
+    }
+
+    .want-support {
+      border-top: 1px solid $grayCol01;
+      bottom: 0;
+      letter-spacing: -.4em;
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      > div {
+        display: inline-block;
+        letter-spacing: normal;
+        padding-bottom: 8px;
+        vertical-align: top;
+        width: 50%;
+        &:first-child {
+          border-right: 1px solid $grayCol01;
+        }
+      }
+      h4 {
+        font-size: 12px;
+        line-height: 1;
+        margin: 12px 0 8px;
+      }
+      img {
+        height: 30px;
+      }
+      .days {
+        height: 30px;
+        line-height: 30px;
+        strong {
+          color: #000;
+        }
+      }
+    }
+
+    .balloon {
+      position: relative;
+      margin: 0 0 30px 0;
+      background: $grayCol01;
+      &::after{
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: -30px;
+        left: 20px;
+        width: 0;
+        height: 0;
+        border: 15px solid transparent;
+        border-top: solid 15px $grayCol01;
+      }
+      > blockquote {
+        font-size:12px;
+        height:4.5em;
+        margin: 0;
+        overflow:hidden;
+        padding:3px 5px;
+      }
+      > h4 {
+        font-size:14px;
+        font-weight:700;
+        margin: 0;
+        padding:3px 5px 0;
+      }
+    }
+
+    .tagmark{
+      width: 100%;
+      color: $grayCol03;
+      padding: 0 10px;
+      text-align: center;
+      z-index: 100;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      background: $grayCol01;
+      position: absolute;
+      bottom: 0;
+      &.green{
+        background: $color07;
+      }
+    }
   }
+
+  .skillmatching {
+    div.image span.sm-icon {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 40px;
+      height: 40px;
+      background-image: url('/view/images/lg-project-sm.png');
+      background-size:40px 40px;
+    }
+    div.meter dl .days{
+      top:160px;
+    }
+  }
+
 }

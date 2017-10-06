@@ -290,65 +290,19 @@ textarea#leave-message {
 
 /* Sub-header */
 #sub-header {
-  margin-top: 60px;
-  /*&.banners {
-    padding: 0;
-    > div > div.mod-pojctopen {
-      margin-left: 0;
-      margin-right: 32px;
-      margin-top: 16px;
-    }
-  }*/ }
+  margin-top: 60px; }
   #sub-header h2.title {
     padding: 10px;
     text-align: center; }
-  #sub-header > div {
-    /*> div.mod-pojctopen {
-      float: right;
-      width: 180px;
-      > {
-        .modpo-open {
-          color: $alertCol;
-          font-size: 58px;
-          font-weight: 600;
-          line-height: 72px;
-          text-align: center;
-        }
-        .modpo-percent {
-          border-bottom: $solidBorder;
-          color: #908499;
-          font-size: 22px;
-          font-weight: 600;
-          margin: -10px 0 0;
-          padding: 4px 0 8px;
-          text-align: center;
-        }
-        .modpo-whyopen {
-          font-size: 14px;
-          font-weight: 600;
-          padding: 6px 0 0 50px;
-        }
-      }
-    }*/ }
-    #sub-header > div.clearfix {
-      min-width: 915px; }
-      #sub-header > div.clearfix > div {
-        float: left;
-        width: 680px; }
-    #sub-header > div > h2 {
-      margin: 0;
-      padding: 0; }
+  #sub-header > div.clearfix {
+    min-width: 915px; }
+    #sub-header > div.clearfix > div {
+      float: left;
+      width: 680px; }
+  #sub-header > div > h2 {
+    margin: 0;
+    padding: 0; }
 
-/*.subhead-banner {
-  h2.message .greenblue {
-    color: #908499;
-  }
-  .banner-button {
-    bottom: 10px;
-    position: absolute;
-    right: 20px;
-  }
-}*/
 /*--------------------------------------------------
 footer
 --------------------------------------------------*/
@@ -511,6 +465,163 @@ ul#pagination {
       ul#pagination li a:hover {
         background: #f2f2f2; }
 
+.project-embed #wrapper {
+  margin-top: 0; }
+.project-embed .project {
+  background-color: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: 520px;
+  padding-bottom: 70px;
+  position: relative;
+  z-index: 98; }
+  .project-embed .project.active div.image {
+    opacity: 0.85; }
+  .project-embed .project.active > .title a {
+    color: #c5da4d !important; }
+  .project-embed .project a.expand {
+    padding: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 99; }
+  .project-embed .project .image {
+    background-color: #d9d9d9;
+    overflow: hidden;
+    padding: 0 !important;
+    position: relative;
+    text-align: center;
+    width: 100%; }
+    .project-embed .project .image a {
+      display: block;
+      min-height: 180px; }
+      .project-embed .project .image a img {
+        width: 100vw;
+        height: auto; }
+  .project-embed .project .tagmark {
+    background: #d9d9d9;
+    bottom: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #454545;
+    padding: 2px 10px;
+    position: absolute;
+    text-align: center;
+    width: 100%; }
+    .project-embed .project .tagmark.green {
+      background: #e08e22; }
+  .project-embed .project .project-details {
+    margin: 16px; }
+    .project-embed .project .project-details h3.title {
+      background: none;
+      font-size: 14px;
+      margin: 0 0 12px;
+      padding: 0; }
+      .project-embed .project .project-details h3.title a {
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        position: relative;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 900; }
+    .project-embed .project .project-details .author {
+      margin-bottom: 10px; }
+      .project-embed .project .project-details .author .link {
+        display: block;
+        font-size: 12px;
+        text-decoration: none;
+        position: relative; }
+      .project-embed .project .project-details .author .author-img {
+        border-radius: 50%;
+        display: inline-block;
+        height: 30px;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+        vertical-align: middle;
+        width: 30px; }
+        .project-embed .project .project-details .author .author-img img {
+          bottom: 0;
+          height: auto;
+          left: 0;
+          margin: auto;
+          position: absolute;
+          right: 0;
+          top: 0;
+          vertical-align: middle;
+          width: 100%; }
+    .project-embed .project .project-details .categories {
+      background: url(/view/images/icon_tag.png) no-repeat left 50%;
+      color: #828282;
+      font-size: 12px;
+      padding-left: 20px; }
+  .project-embed .project .meter .amount-bar {
+    display: none; }
+  .project-embed .project .want-support {
+    border-top: 1px solid #d9d9d9;
+    bottom: 0;
+    letter-spacing: -.4em;
+    position: absolute;
+    text-align: center;
+    width: 100%; }
+    .project-embed .project .want-support > div {
+      display: inline-block;
+      letter-spacing: normal;
+      vertical-align: top;
+      width: 50%;
+      min-height: 70px; }
+      .project-embed .project .want-support > div:first-child {
+        border-right: 1px solid #d9d9d9; }
+    .project-embed .project .want-support h4 {
+      font-size: 12px;
+      line-height: 1;
+      margin: 10px 0 8px; }
+    .project-embed .project .want-support img {
+      height: 30px; }
+    .project-embed .project .want-support .days {
+      height: 30px;
+      line-height: 30px; }
+      .project-embed .project .want-support .days strong {
+        color: #000; }
+  .project-embed .project .balloon {
+    background: #cae4e6 url("/view/m/images/balloonbeak.png") no-repeat bottom left;
+    height: auto;
+    padding: 12px; }
+    .project-embed .project .balloon > .title a {
+      position: relative;
+      z-index: 99;
+      line-height: 1.5em;
+      font-size: 18px;
+      color: #0098c4; }
+    .project-embed .project .balloon > blockquote {
+      font-size: 12px;
+      margin: 0;
+      overflow: hidden;
+      padding-bottom: 10px; }
+    .project-embed .project .balloon > h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0 0 .5em;
+      padding: 0; }
+  .project-embed .project .skillmatching div.image span.sm-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 40px;
+    height: 40px;
+    background-image: url("/view/images/lg-project-sm.png");
+    background-size: 40px 40px; }
+  .project-embed .project .skillmatching div.meter dl .days {
+    top: 160px; }
+
 .widget .title {
   font-size: 18px;
   font-weight: 600; }
@@ -533,7 +644,7 @@ ul#pagination {
   text-decoration: none; }
 .widget.projects {
   background-color: #ffffff;
-  margin: 20px 0;
+  margin: 0 0 20px;
   padding-top: 20px; }
   .widget.projects h2.title {
     padding-top: 0; }
@@ -600,17 +711,18 @@ ul#pagination {
       width: 100%;
       z-index: 99; }
     .widget.projects .project .image {
-      background-color: #deddde;
-      min-height: 180px;
+      background-color: #d9d9d9;
       overflow: hidden;
       padding: 0 !important;
       position: relative;
       text-align: center;
       width: 100%; }
-      .widget.projects .project .image a img {
+      .widget.projects .project .image a {
         display: block;
-        width: 100vw;
-        height: auto; }
+        min-height: 180px; }
+        .widget.projects .project .image a img {
+          width: 100vw;
+          height: auto; }
     .widget.projects .project .tagmark {
       background: #d9d9d9;
       bottom: 0;
@@ -1473,7 +1585,10 @@ ul#pagination {
 .widget.project-schedule h3.title {
   margin: 0 0 8px;
   padding: 0; }
+.widget.project-schedule .table_wrapper {
+  overflow-x: scroll; }
 .widget.project-schedule table {
+  background-color: #f2f2f2;
   border-collapse: separate;
   width: 100%; }
   .widget.project-schedule table td,
@@ -1488,7 +1603,7 @@ ul#pagination {
       display: none; }
   .widget.project-schedule table tbody th,
   .widget.project-schedule table tbody td {
-    border-bottom: 8px solid #ffffff;
+    border-bottom: 8px solid #f2f2f2;
     box-sizing: content-box;
     height: 30px;
     padding: 0 8px;
@@ -1496,7 +1611,7 @@ ul#pagination {
   .widget.project-schedule table tbody th {
     font-weight: 300;
     text-align: left;
-    width: 150px; }
+    min-width: 120px; }
   .widget.project-schedule table tbody td.on {
     background-color: #255B80; }
 .widget.project-supporters {
@@ -1544,13 +1659,26 @@ ul#pagination {
           max-width: 175px;
           overflow: hidden; }
       .widget.project-supporters .supporters ul li .avatar {
-        width: auto;
+        border-radius: 50%;
+        display: inline-block;
         height: 44px;
+        overflow: hidden;
+        position: relative;
         text-align: center;
+        vertical-align: middle;
+        width: 44px;
         display: block;
-        left: 6px; }
+        margin: 0 auto; }
         .widget.project-supporters .supporters ul li .avatar img {
-          background-color: white; }
+          bottom: 0;
+          height: auto;
+          left: 0;
+          margin: auto;
+          position: absolute;
+          right: 0;
+          top: 0;
+          vertical-align: middle;
+          width: 100%; }
       .widget.project-supporters .supporters ul li h3, .widget.project-supporters .supporters ul li h4, .widget.project-supporters .supporters ul li h5, .widget.project-supporters .supporters ul li h6 {
         font-size: 12px;
         font-weight: 600;
@@ -1592,25 +1720,56 @@ ul#pagination {
     .widget.project-supporters ul#pagination li {
       margin-top: 10px; }
 .widget.project-spread > h3.title {
-  padding-left: 46px; }
-.widget.project-spread > div.widget.projects > div.left {
-  float: left;
-  width: 280px;
-  border-right: #000 1px solid; }
-.widget.project-spread > div.widget.projects > div.right {
-  float: left;
-  width: 245px;
-  margin-left: 12px; }
-.widget.project-spread div.subtitle {
-  width: 245px;
-  margin: 0 0 10px 7px; }
-  .widget.project-spread div.subtitle > span {
+  margin-top: 0; }
+.widget.project-spread .widget {
+  background-color: #ffffff;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+.widget.project-spread .widget.projects {
+  border: 1px dashed #828282;
+  padding: 12px 20px; }
+  .widget.project-spread .widget.projects #widget-code {
+    clear: both;
+    float: none;
+    margin: 0;
+    padding: 20px 0 0;
+    width: auto;
+    box-sizing: border-box; }
+    .widget.project-spread .widget.projects #widget-code textarea {
+      background: #f2f2f2;
+      border: none;
+      clear: both;
+      font-size: 12px;
+      height: 130px;
+      padding: 10px;
+      resize: none;
+      width: 100%;
+      word-wrap: break-word; }
+  .widget.project-spread .widget.projects > div.right {
+    margin-left: 12px; }
+  .widget.project-spread .widget.projects .widget.project .image {
+    min-height: 130px; }
+    .widget.project-spread .widget.projects .widget.project .image a {
+      display: block; }
+      .widget.project-spread .widget.projects .widget.project .image a img {
+        width: auto;
+        height: 100%; }
+  .widget.project-spread .widget.projects .widget.project .meter {
+    padding-bottom: 90px; }
+.widget.project-spread .subtitle {
+  margin: 0 0 10px 7px;
+  padding: 0; }
+  .widget.project-spread .subtitle > span {
     display: block; }
-    .widget.project-spread div.subtitle > span.primero {
+    .widget.project-spread .subtitle > span.primero {
       margin-bottom: 3px; }
-    .widget.project-spread div.subtitle > span.segundo {
+    .widget.project-spread .subtitle > span.segundo {
       color: #28ACAB;
       font-weight: 600; }
+.widget.project-spread .obtained {
+  display: none; }
 .widget.post {
   line-height: 18px;
   margin: 0; }
@@ -2121,8 +2280,6 @@ ul#pagination {
   .widget.project-invest p label input[type="checkbox"]:checked + span.chkbox {
     background-position: 0 -13px; }
 .widget.invest-message {
-  background: url(/view/images/project/view/invest/message_beak.png) no-repeat left bottom;
-  background-color: #cce7e8 !important;
   min-height: 70px; }
   .widget.invest-message h2 {
     margin: 0 !important; }
@@ -2141,56 +2298,21 @@ ul#pagination {
   background-color: #ffffff;
   margin: 16px;
   padding: 4px 16px; }
-.widget.project-spread .widget {
-  background-color: #fff;
-  height: auto;
-  margin: 0;
-  padding: 0;
-  width: 100%; }
-.widget.project-spread .widget.projects .left {
-  float: none;
-  width: 100%; }
-.widget.project-spread .widget.projects #widget-code {
-  clear: both;
-  float: none;
-  margin: 0;
-  overflow: hidden;
-  padding: 20px;
-  width: auto; }
-  .widget.project-spread .widget.projects #widget-code textarea {
-    background: #E7E7E7;
-    border: none;
-    clear: both;
-    font-size: 12px;
-    height: 130px;
-    margin: 10px;
-    padding: 10px;
-    resize: none;
-    width: 240px;
-    word-wrap: break-word; }
-.widget.project-spread .widget.projects > div.left {
-  border-right: 1px solid #d9d9d9;
-  float: left;
-  width: 280px; }
-.widget.project-spread .widget.projects > div.right {
-  float: left;
-  margin-left: 12px;
-  width: 245px; }
-.widget.project-spread .subtitle {
-  margin: 0 0 10px 7px;
-  padding: 0;
-  width: 245px; }
-  .widget.project-spread .subtitle > span {
-    display: block; }
-    .widget.project-spread .subtitle > span.primero {
-      margin-bottom: 3px; }
-    .widget.project-spread .subtitle > span.segundo {
-      color: #28ACAB;
-      font-weight: bold; }
-.widget.project-spread > h3.title {
-  padding-left: 46px; }
-.widget.project-spread .obtained {
-  display: none; }
+  .widget.invest-pre-info .project_name,
+  .widget.invest-pre-info .amount {
+    font-size: 16px;
+    font-weight: 600; }
+  .widget.invest-pre-info .project_name {
+    padding-right: 4px; }
+  .widget.invest-pre-info .amount {
+    padding: 0 4px; }
+  .widget.invest-pre-info .caution {
+    margin-top: 24px; }
+    .widget.invest-pre-info .caution .first_text {
+      margin-bottom: 24px; }
+      .widget.invest-pre-info .caution .first_text_sub {
+        color: #e02d22;
+        margin-bottom: 0; }
 
 .meter {
   margin: 0 16px;
@@ -2683,6 +2805,7 @@ div.superform li {
   margin: 0 20px 20px; }
 .discover .searcher {
   background-color: #ffffff;
+  margin-bottom: 20px;
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0; }
@@ -3045,6 +3168,54 @@ div.superform li {
         position: relative; }
     .project-show #main .center.updates .project-updates > p {
       padding: 0 10px; }
+  .project-show #main .center.supporters .invest-message {
+    position: relative;
+    background-color: #FFF !important;
+    min-height: 70px;
+    padding: 20px 15px;
+    margin: 0 0 20px 0;
+    overflow: visible; }
+    .project-show #main .center.supporters .invest-message:after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 40px;
+      display: block;
+      width: 0;
+      height: 0;
+      border: 10px solid transparent;
+      border-top: 10px solid #FFF; }
+    .project-show #main .center.supporters .invest-message h2 {
+      margin: 0 !important; }
+      .project-show #main .center.supporters .invest-message h2 span {
+        color: #000; }
+        .project-show #main .center.supporters .invest-message h2 span.message {
+          color: #454545 !important;
+          font-size: 0.9em !important;
+          font-weight: 400 !important;
+          padding: 0;
+          text-transform: none !important; }
+      .project-show #main .center.supporters .invest-message h2 .avatar {
+        border-radius: 50%;
+        display: inline-block;
+        height: 30px;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+        vertical-align: middle;
+        width: 30px;
+        float: left;
+        margin-right: 20px; }
+        .project-show #main .center.supporters .invest-message h2 .avatar img {
+          bottom: 0;
+          height: auto;
+          left: 0;
+          margin: auto;
+          position: absolute;
+          right: 0;
+          top: 0;
+          vertical-align: middle;
+          width: 100%; }
   .project-show #main .center form div.widget {
     margin: 0 auto;
     clear: left;
@@ -3246,6 +3417,8 @@ div.superform li {
   .dashboard #main.profile div.superform li.element.web input.remove {
     margin-bottom: 1em;
     margin-top: 0; }
+  .dashboard #main.profile div.superform li.element.web input.weak {
+    background-color: #e02d22; }
   .dashboard #main.profile div.superform li.element.editweb li.element.web-accept input, .dashboard #main.profile div.superform li.element.editweb li.element.web-remove input {
     margin: 0;
     margin-right: 3px; }
@@ -3310,39 +3483,24 @@ div.superform li {
     font-size: 24px;
     font-weight: bold;
     font-style: normal; }
-.user-profile .widget.user-message label {
-  display: block; }
-.user-profile .widget.user-message input#contact-subject {
-  margin: 0 0 10px 0; }
-.user-profile .widget.user-message textarea,
-.user-profile .widget.user-message input {
-  width: 100%;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  background: #ffffff; }
-.user-profile .widget.user-message a.preview {
-  display: none; }
 .user-profile .widget.user-message {
   background-color: #ffffff;
   padding: 16px;
   position: relative;
-  z-index: 99;
-  /*#bocadillo{
-    background:url('/view/m/images/bocadillo.jpg') no-repeat;
-    height:51px;
-    position:absolute;
-    width:56px;
-    z-index:100;
-  }
-  #a-preview{
-    color: #2EAB58;
-    font-weight: bold;
-    left: 52px;
-    position: relative;
-    text-decoration: none;
-    top: 10px;
-  }*/ }
+  z-index: 99; }
+  .user-profile .widget.user-message label {
+    display: block; }
+  .user-profile .widget.user-message input#contact-subject {
+    margin: 0 0 10px 0; }
+  .user-profile .widget.user-message textarea,
+  .user-profile .widget.user-message input {
+    width: 100%;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: #ffffff; }
+  .user-profile .widget.user-message a.preview {
+    display: none; }
   .user-profile .widget.user-message h3.title {
     margin: 0 0 16px 0;
     padding-left: 0; }
@@ -3445,6 +3603,8 @@ div.superform li {
     border-radius: 4px;
     box-sizing: content-box;
     padding-bottom: 16px; }
+  .user-profile .widget.projects .meter {
+    padding-bottom: 70px; }
 .user-profile .widget.user-mates {
   padding: 0;
   position: relative;
