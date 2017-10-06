@@ -250,6 +250,7 @@ switch ($order) {
                 });
             </script>
             <div id="bocadillo"></div>
+            <!-- todo: #messageがあるが、このページはSPでは使用していないので、修正不要 -->
             <textarea rows="5" cols="50" name="message" id="message"></textarea>
             <a class="preview" href="#preview" id="a-preview" target="_blank">&middot;<?php echo Text::get('regular-preview'); ?></a>
             <div style="display:none">

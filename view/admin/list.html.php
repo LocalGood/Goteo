@@ -95,8 +95,11 @@ $per = 100 / $cols;
                     <td width="5%">
                         <a title="<?php echo Text::get('admin_registro') . $id; ?>" href="<?php echo "{$this['url']}/{$key}/{$id}/{$filter}"; ?>"><?php echo $botones[$key]; ?></a>
                     </td>
-                <?php elseif ($key == 'image') : ?>
-                    <td width="<?php echo round($per)-5; ?>%"><?php if (!empty($item->$key)) : ?><img src="<?php echo SRC_URL ?>/image/<?php echo (is_object($item)) ? $item->$key : $item[$key]; ?>/110/110" alt="image" /><?php endif; ?></td>
+                <?php elseif ($key == 'image') :
+                    $_id = (is_object($item)) ? $item->$key : $item[$key];
+                    $_image = \Goteo\Model\Image::get($_id);
+                    ?>
+                    <td width="<?php echo round($per)-5; ?>%"><?php if (!empty($item->$key)) : ?><img src="<?php echo $_image->getLink(110,110); ?>'" alt="image" /><?php endif; ?></td>
                 <?php else : ?>
                     <td width="<?php echo round($per)-5; ?>%"><?php echo (is_object($item)) ? $item->$key : $item[$key]; ?></td>
                 <?php endif; ?>

@@ -27,7 +27,6 @@ use Goteo\Library\Text,
 if (!isset($_SESSION['admin_menu'])) {
     $_SESSION['admin_menu'] = Admin::menu();
 }
-
 $bodyClass = 'admin';
 
 // funcionalidades con autocomplete
@@ -66,7 +65,7 @@ include 'view/header.html.php';
             </div>
             </div>
 
-            <div class="admin-right <?= $this['folder']; ?>">
+            <div class="admin-right <?php echo (!empty($this['isCategories']))?$this['isCategories']:$this['folder']; ?>">
                 <?php if (isset($_SESSION['user']->roles['superadmin'])) : ?>
                     <div class="widget board shortcut">
                         <ul>

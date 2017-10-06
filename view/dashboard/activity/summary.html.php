@@ -70,7 +70,7 @@ $lsuf = (LANG != 'es') ? '?lang='.LANG : '';
 </script>
 
 <!-- nivel de meritocracia -->
-<?php echo new View('view/user/widget/worth.html.php', array('worthcracy' => $worthcracy, 'level' => $user->worth, 'amount' => $support['amount'])) ?>
+<?php // echo new View('view/user/widget/worth.html.php', array('worthcracy' => $worthcracy, 'level' => $user->worth, 'amount' => $support['amount'])) ?>
 
 <!-- matching projects for YOU -->
 <?php if (!empty($this['lists']['matched_projects'])) : ?>
@@ -180,7 +180,7 @@ $lsuf = (LANG != 'es') ? '?lang='.LANG : '';
                 <?php if ($project->status > 2) : ?>
                       <div id="widget-code" style="float:none;width:250px;margin-left:25px;">
                           <div class="wc-embed" onclick="$('#widget_code').focus();$('#widget_code').select()"><?php echo Text::get('dashboard-embed_code'); ?></div>
-                        <textarea id="widget_code" style="width:230px;margin:0 0 10px;" onclick="this.focus();this.select()" readonly="readonly"><?php echo htmlentities($widget_code); ?></textarea>
+                        <textarea id="widget_code" style="width:262px;margin:0 0 10px;" onclick="this.focus();this.select()" readonly="readonly"><?php echo htmlentities($widget_code); ?></textarea>
                       </div>
 <?php /*
                       <div id="widget-code" style="float:none;width:250px;margin-left:25px;">

@@ -44,7 +44,7 @@ uasort($project->individual_rewards,
 <div class="widget project-rewards collapsable" id="project-rewards">
     
     <h<?php echo $level + 1 ?> class="supertitle"><span><?php echo Text::get('project-rewards-supertitle'); ?></span></h<?php echo $level + 1?>>
-       
+
     <div class="project-widget-box">
 
         <?php if (!empty($project->individual_rewards)) : ?>
@@ -53,23 +53,25 @@ uasort($project->individual_rewards,
             <ul>
             <?php foreach ($project->individual_rewards as $individual) : ?>
             <li class="<?php echo $individual->icon ?>">
-
                 <div class="amount"><?php echo Text::get('regular-investing'); ?> <span><?php echo \amount_format($individual->amount); ?>円</span></div>
-                <h<?php echo $level + 3 ?> class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 3 ?>
+                <h<?php echo $level + 3 ?> class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 3 ?>>
+                <?php
+                if (!empty($individual->image)):
+                    $img_src = $individual->image->getLink(200,200,false);
+                    ?>
+                    <img src="<?php echo $img_src ?>" alt="<?php echo htmlspecialchars($individual->reward) ?>" />
+                    <?php
+                endif;
+                ?>
+                <?php if (!empty($individual->units)):
+                    $units = ($individual->units - $individual->taken);
+                    ?>
+                    <p class="remain"><strong><?php echo Text::get('project-rewards-individual_reward-limited'); ?> <?php echo $units; ?></strong></p>
+                <?php endif; ?>
                 <p><?php echo nl2br(htmlspecialchars($individual->description))?></p>
-
                 <div class="buttons">
                     <a class="button violet supportit" href="/project/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it'); ?></a>
                 </div>
-
-                    <?php /* if (!empty($individual->units)) : ?>
-                    <strong><?php echo Text::get('project-rewards-individual_reward-limited'); ?></strong><br />
-                    <?php $units = ($individual->units - $individual->taken);
-                    echo Text::html('project-rewards-individual_reward-units_left', $units); ?><br />
-                <?php endif; */ ?>
-                <?php /*
-                <div class="investors"><span class="taken"><?php echo $individual->taken; ?></span><?php echo Text::get('project-view-metter-investors'); ?></div>
-                */ ?>
 
             </li>
             <?php endforeach ?>

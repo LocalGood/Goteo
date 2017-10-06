@@ -43,7 +43,7 @@ extract($oauth->user_data);
                 <p><?php echo Text::get('oauth-goteo-openid-sync-password'); ?></p>
                 <div>
 				<?php
-					echo '<img style="padding-right:12px;float:left;" src="/image/'.$user->avatar->id.'/56/56/1" alt="Profile image" />';
+					echo '<img style="padding-right:12px;float:left;" src="' . $user->avatar->getLink(56,56,true) . '" alt="Profile image" />';
 					echo '<p style="padding-top:30px;">'.$user->name.''."<br />\n";
 					echo '<strong>'.$email.'</strong>'."</p>\n";
 				?>

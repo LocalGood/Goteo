@@ -103,7 +103,7 @@ $pagedResults = new \Paginated($this['projects'], 10, isset($_GET['page']) ? $_G
             </tr>
         </table>
     </form>
-    <a href="/admin/projects/?reset=filters"><?php echo Text::_("Quitar filtros"); ?></a>
+    <a class="filter-release" href="/admin/projects/?reset=filters"><?php echo Text::_("Quitar filtros"); ?></a>
 <?php if ($filters['filtered'] != 'yes') : ?>
     <p><?php echo Text::_("Es necesario poner algun filtro, hay demasiados registros!"); ?></p>
 <?php elseif (empty($this['projects'])) : ?>
@@ -162,7 +162,7 @@ $pagedResults = new \Paginated($this['projects'], 10, isset($_GET['page']) ? $_G
                 <td colspan="7">
                     <?php echo Text::_("IR A"); ?>:&nbsp;
                     <a href="/project/edit/<?php echo $project->id; ?>" target="_blank">[<?php echo Text::_("Edit project"); ?>]</a>
-                    <a href="/admin/users/?id=<?php echo $project->owner; ?>" target="_blank">[<?php echo Text::_("Impulsor"); ?>]</a>
+                    <a href="/admin/users/?id=<?php echo $project->owner; ?>">[<?php echo Text::_("Impulsor"); ?>]</a>
                     <?php if (!isset($_SESSION['admin_node']) 
                             || (isset($_SESSION['admin_node']) && $_SESSION['admin_node'] == \GOTEO_NODE)
                             || (isset($_SESSION['admin_node']) && $user->node == $_SESSION['admin_node'])) : ?>
@@ -207,12 +207,26 @@ $pagedResults = new \Paginated($this['projects'], 10, isset($_GET['page']) ? $_G
                     <?php
 //                    var_dump($project);
                     ?>
+					<?php if ( defined('AXESON')) : ?>
+
                     <?php if (in_array($project->status,array(3,4))) : ?><a href="<?php echo "/admin/invests/csv/{$project->id}"; ?>">[AXES用の決済CSVをダウンロード(すべて)]</a><?php endif; ?>
                     <?php if (in_array($project->status,array(3,4)) && !empty($project->passed)) : ?><a href="<?php echo "/admin/invests/csv/{$project->id}?round=willpass"; ?>">[AXES用の決済CSVをダウンロード(1st Round)]</a><?php endif; ?>
                     <?php if (in_array($project->status,array(3,4)) && !empty($project->passed) && !empty($project->success)) : ?><a href="<?php echo "/admin/invests/csv/{$project->id}?round=succeed"; ?>">[AXES用の決済CSVをダウンロード(2nd Round)]</a><?php endif; ?><br>
                     <?php if (in_array($project->status,array(3,4))) : ?><a href="<?php echo "/admin/invests/dopay/{$project->id}"; ?>" onclick="return confirm('AXES用の決済CSVの処理後に実行してください。実行してよろしいですか？');">[AXES用の決済CSVの処理後に実行(すべて)]</a><?php endif; ?>
                     <?php if (in_array($project->status,array(3,4)) && !empty($project->passed)) : ?><a href="<?php echo "/admin/invests/dopay/{$project->id}?round=willpass"; ?>" onclick="return confirm('AXES用の決済CSVの処理後に実行してください。実行してよろしいですか？');">[AXES用の決済CSVの処理後に実行(1st Round)]</a><?php endif; ?>
                     <?php if (in_array($project->status,array(3,4)) && !empty($project->passed) && !empty($project->success)) : ?><a href="<?php echo "/admin/invests/dopay/{$project->id}?round=succeed"; ?>" onclick="return confirm('AXES用の決済CSVの処理後に実行してください。実行してよろしいですか？');">[AXES用の決済CSVの処理後に実行(2nd Round)]</a><?php endif; ?>
+
+					<br>
+                    <?php else : // AXESON?>
+
+                    <?php if (in_array($project->status,array(3,4))) : ?><a href="<?php echo "/admin/invests/epsilonpay/{$project->id}"; ?>" onclick="return confirm('イプシロン　実売上処理を行います。実行してよろしいですか？');">[イプシロン　実売上処理(すべて)]</a><?php endif; ?>
+
+                    <?php if (in_array($project->status,array(3,4)) && !empty($project->passed)) : ?><a href="<?php echo "/admin/invests/epsilonpay/{$project->id}?round=willpass"; ?>" onclick="return confirm('イプシロン　実売上処理を行います。実行してよろしいですか？');">[イプシロン　実売上処理(1st Round)]</a><?php endif; ?>
+
+                    <?php if (in_array($project->status,array(3,4)) && !empty($project->passed) && !empty($project->success)) : ?><a href="<?php echo "/admin/invests/epsilonpay/{$project->id}?round=succeed"; ?>" onclick="return confirm('イプシロン　実売上処理を行います。実行してよろしいですか？');">[イプシロン　実売上処理(2nd Round)]</a><?php endif; ?>
+
+					<?php endif;  // AXESON  ?>
+
                 </td>
             </tr>
         </tbody>

@@ -20,7 +20,6 @@
 
 use Goteo\Core\View,
     Goteo\Library\Text;
-
 $bodyClass = 'user-login';
 // para que el prologue ponga el c�digo js para bot�n facebook en el bannerside
 $fbCode = Text::widget(Text::get('social-account-facebook'), 'fb');

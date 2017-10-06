@@ -28,7 +28,7 @@ namespace Goteo\Controller {
 
         public function index($id, $width = 200, $height = 200, $crop = false) {
             if ($image = Model\Image::get($id)) {
-                $image->display($width, $height, $crop);
+                $image->display($width, $height, $crop, false);
             } else {
                 throw new Error(Error::NOT_FOUND);
             }

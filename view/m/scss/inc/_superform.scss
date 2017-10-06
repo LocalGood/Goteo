@@ -1,0 +1,484 @@
+body.js {
+  div.superform {
+    .jshidden {
+      display: none;
+    }
+    > div.hint {
+      background: url('/view/m/images/superform/wizard.png') no-repeat right top;
+      border-right: none;
+    }
+    li.element > div.feedback {
+      display: none;
+      position: absolute;
+    }
+    &.red li.element > div.feedback {
+      background-image: url('/view/m/images/superform/tooltip/beak/red/w.png');
+    }
+    &.aqua li.element > div.feedback {
+      background-image: url('/view/m/images/superform/tooltip/beak/aqua/w.png');
+    }
+    &.green li.element > div.feedback {
+      background-image: url('/view/m/images/superform/tooltip/beak/green/w.png');
+    }
+  }
+}
+
+
+div.superform {
+
+  > div {
+    &.hint, &.elements {
+      overflow: visible;
+    }
+    position: relative;
+  }
+
+  div.hint {
+    color: $grayCol02;
+    margin-top: 10px;
+    overflow: hidden;
+    h4,
+    blockquote {
+      background-color: $baseWhite;
+      border-width: 1px 0 0;
+      margin: 0;
+      padding: 10px;
+      vertical-align: top;
+    }
+    h4 {
+      font-size: 30px;
+      float: left;
+    }
+    blockquote {
+      font-size: 14px;
+      border-top: none;
+      padding-left: 0;
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  > div.elements {
+    li.element li.element.inline {
+      border-top: none;
+    }
+    div.elements > ol {
+      padding-left: 0;
+    }
+    > ol > li.element {
+      padding: 0;
+      overflow: hidden;
+      margin: 0;
+      &.inline {
+        border-top: none;
+        padding: 0 2em 2em 0;
+      }
+    }
+  }
+
+  li.element {
+    position: relative;
+    clear: both;
+    padding: 0;
+    &.hidden {
+      display: none;
+    }
+    &:last-child {
+      padding-bottom: 0;
+    }
+    &.textbox {
+      &.facebook > div.contents,
+      &.google > div.contents,
+      &.twitter > div.contents {
+        background-position: left center;
+        background-repeat: no-repeat;
+        padding-left: 39px;
+      }
+      &.facebook > div.contents {
+        background-image: url('/view/m/images/superform/facebook.png');
+      }
+      &.google > div.contents {
+        background-image: url('/view/m/images/superform/google.png');
+      }
+      &.twitter > div.contents {
+        background-image: url('/view/m/images/superform/twitter.png');
+      }
+      > div.contents {
+        padding-right: .6em;
+        > input[type="text"],
+        > input[type="password"] {
+          background-color: $baseCol;
+          border: $solidBorder;
+          display: block;
+          margin: 0 0 10px 0;
+          max-width: 99%;
+          min-height: 27px;
+          min-width: 99%;
+          width: 99%;
+        }
+        > textarea {
+          margin: 0 0 10px 0;
+        }
+      }
+    }
+    &.textarea {
+      > div.contents {
+      padding-right: .6em;
+        > textarea {
+          display: block;
+          width: 99%;
+          min-width: 99%;
+          max-width: 99%;
+          margin: 0;
+          background-color: $baseCol;
+          border: $solidBorder;
+          min-height: 27px;
+        }
+      }
+    }
+    &.avatar_upload div.contents input[type="submit"] {
+      width: auto;
+      height: auto;
+      line-height: 16px;
+      font-size: 12px;
+      font-weight: 300;
+    }
+    > h4, > h5, > h6 {
+      margin: 0 0 .6em;
+      font-size: 14px;
+    }
+    > h4 {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.2em;
+      margin: 1em 0;
+      padding: 0;
+    }
+    > h5 {
+      font-weight: 600;
+      margin: 0 0 .4em 0;
+    }
+    > label {
+      font-weight: 600;
+      margin: 1em 0;
+      display: block;
+    }
+    > div.contents + div {
+      &.children > div.elements > ol,
+      &.feedback + div.children > div.elements > ol {
+        margin-top: 1em;
+      }
+    }
+    > * + div.contents {
+      p {
+        font-weight: 600;
+        margin: 1.2em 0 .4em 0;
+      }
+    }
+
+    div.contents input {
+      &.add[type="submit"], &.remove[type="submit"], &.edit[type="submit"], &.erase[type="submit"] {
+        width: auto;
+        height: auto;
+        line-height: 16px;
+        font-size: 12px;
+        font-weight: 300;
+      }
+    }
+  }
+
+
+
+
+  div.elements {
+    > ol {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      > li {
+        &.required > .title {
+          &:after {
+            content: '必須';
+            display: inline-block;
+            width: 40px;
+            color: $baseWhite;
+            font-size: 12px;
+            font-weight: 100;
+            padding: 0 10px;
+            margin: 0 0 0 10px;
+            text-align: center;
+            background: $subCol02;
+          }
+        }
+        &.ok > .title {
+          position: relative;
+          &::before{
+            @include form_icon('OK',calc(100% - 19px),0,$subCol01);
+          }
+        }
+        &.error > .title {
+          position: relative;
+          &::before{
+            @include form_icon('エラー',calc(100% - 19px),0,$alertCol);
+          }
+        }
+        &.busy > .title {
+          background: url('/view/m/images/superform/badge/busy/cyan.gif') no-repeat right center;
+        }
+        div.element {
+          display: inline;
+        }
+        > div.contents + div.children > div.elements {
+          margin-top: 1em;
+        }
+      }
+      > li.element {
+        &.checkboxes,
+        &.checkboxescustom,
+        &.radios {
+          padding-bottom: 0;
+        }
+        &.checkboxes,
+        &.checkboxescustom,
+        &.radios,
+        &.slider {
+          > div.contents {
+            > ul {
+              padding: 0;
+              margin: 0;
+              list-style: none;
+              overflow: hidden;
+              > li {
+                padding: 0;
+                > label {
+                  position: relative;
+                  padding: .6em .8em;
+                  display: block;
+                  cursor: pointer;
+                  > input[type="checkbox"],
+                  > input[type="radio"] {
+                    position: absolute;
+                    right: .5em;
+                    top: 50%;
+                    margin-top: -.5em;
+                    height: 1em;
+                    cursor: pointer;
+                  }
+                }
+              }
+            }
+          }
+          &.inline {
+            > div.contents {
+              > ul {
+                >li {
+                  margin-bottom: 0;
+
+                }
+              }
+            }
+          }
+        }
+        &.checkboxescustom > div.contents > ul > li > label {
+          padding-right: 30px;
+          font-size: 13px;
+        }
+        &.checkboxes.cols_1 > div.contents > ul > li,
+        &.checkboxescustom.cols_1 > div.contents > ul > li,
+        &.radios.cols_1 > div.contents > ul > li,
+        &.slider.cols_1 > div.contents > ul > li {
+          width: 100%;
+        }
+        &.checkboxes.cols_2 > div.contents > ul > li,
+        &.checkboxescustom.cols_2 > div.contents > ul > li,
+        &.radios.cols_2 > div.contents > ul > li,
+        &.slider.cols_2 > div.contents > ul > li {
+          width: 49.5%;
+          float: left;
+        }
+        &.checkboxes.cols_4 > div.contents > ul > li,
+        &.checkboxescustom.cols_4 > div.contents > ul > li,
+        &.radios.cols_4 > div.contents > ul > li,
+        &.slider.cols_4 > div.contents > ul > li {
+          width: 24.8%;
+          float: left;
+        }
+        &.checkboxes.cols_5 > div.contents > ul > li,
+        &.checkboxescustom.cols_5 > div.contents > ul > li,
+        &.radios.cols_5 > div.contents > ul > li,
+        &.slider.cols_5 > div.contents > ul > li {
+          width: 20%;
+        }
+        &.checkboxes.cols_6 > div.contents > ul > li,
+        &.checkboxescustom.cols_6 > div.contents > ul > li,
+        &.radios.cols_6 > div.contents > ul > li,
+        &.slider.cols_6 > div.contents > ul > li {
+          width: 16.66%;
+        }
+        &.radio {
+          padding: 0 !important;
+        }
+      }
+      > li.radio {
+        > div.contents {
+          > label {
+            position: relative;
+            padding: .6em .8em;
+            display: block;
+            cursor: pointer;
+            > input[type="radio"] {
+              position: absolute;
+              right: .5em;
+              top: 50%;
+              margin-top: -.5em;
+              height: 1em;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    li {
+      &#user_avatar .children .elements {
+        border: $dashedBorder;
+        padding: 10px 20px;
+        margin: 20px 0 0 0;
+        ol li {
+          margin: 0 0 10px 0;
+          padding: 0;
+        }
+        input {
+          height: auto;
+          font-size: 12px;
+          line-height: 16px;
+          font-weight: 300;
+          width: 100%;
+        }
+      }
+      &#user_webs .children .elements {
+        margin: 20px 0 0 0;
+        ol li div.elements {
+          border: none;
+          margin: 0;
+          padding: 0;
+        }
+      }
+      &.element.inline#avatar-image .contents {
+        border: 2px solid $grayCol01;
+        border-radius: 6px;
+        margin: 6px;
+      }
+    }
+  }
+
+
+  fieldset {
+    border: 1px solid $grayCol01;
+    legend {
+      color: $grayCol03;
+    }
+  }
+  h3 {
+    font-size: 30px;
+  }
+
+  input {
+    &[type='text'],
+    &[type='password'] {
+      padding: .4em;
+      margin: 0 0 10px 0;
+      min-height: 27px;
+      background-color: $baseCol;
+      border: $solidBorder;
+      font-size: 12px;
+    }
+    &.edit[type="submit"],
+    &.remove[type="submit"],
+    &.add[type="submit"] {
+      padding: 0.3em 1.2em !important;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    &.next,
+    &.confirm,
+    &.retry,
+    &.save {
+      font-size: 15px;
+    }
+  }
+
+  textarea {
+    background-color: $baseCol;
+    border: $solidBorder;
+    font-size: 12px;
+    margin: 0 0 10px 0;
+    min-height: 6em;
+    padding: .4em;
+  }
+
+  button.image-remove {
+    position: absolute;
+    right: 5px;
+    top: -10px;
+    background: url("/view/m/images/button/cross.png") no-repeat center center !important;
+    width: 20px;
+    height: 20px;
+    padding: 0 !important;
+    margin: 0 10px 0 0 !important;
+    &:hover {
+      background: url("/view/m/images/button/cross-active.png") no-repeat center center !important;
+    }
+  }
+
+  li {
+    &#user_avatar li.avatar_upload input[type="submit"] {
+      padding: 10px 16px;
+    }
+    &#social_rewards h4.title,
+    &#individual_rewards h4.title,
+    &#supports h4.title,
+    &#costs h4.title {
+      padding-left: 25px;
+    }
+    /*&#supports,
+    &#social_rewards {
+      background-color: #f3f9f2 !important;
+    }
+    &#individual_rewards {
+      background-color: #f8e3e3 !important;
+    }
+    &.editcost {
+      background-color: #fdf3f4;
+      &.required_cost-yes {
+        background-color: #f2e5f1 !important;
+      }
+      li.required_cost-yes {
+        background-color: #e4c9e2 !important;
+      }
+      &.required_cost-no {
+        background-color: #f3f3f3 !important;
+      }
+      li.required_cost-no {
+        background-color: #e2e2e2 !important;
+      }
+    }
+    &.cost.required_cost-yes {
+      background-color: #f2e5f1 !important;
+    }
+    &.cost.required_cost-no {
+     background-color: #f3f3f3 !important;
+    }*/
+    &#gallery div.elements li.gallery-image {
+     margin: 5px 25px !important;
+     display: inline-block !important;
+     width: 153px !important;
+    }
+    &#scope,
+    &#supports,
+    &#social_rewards,
+    &#individual_rewards {
+     border-bottom: $dashedBorder;
+    }
+  }
+}

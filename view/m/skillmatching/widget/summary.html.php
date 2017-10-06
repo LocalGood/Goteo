@@ -21,62 +21,65 @@
 use Goteo\Library\Text,
     Goteo\Core\View;
 
-$project = $this['skillmatching'];
+$skillmatching = $this['skillmatching'];
 
 //tratamos los saltos de linea y los links en las descripciones del proyecto
-//$project->description = nl2br(Text::urlink($project->description));
-//$project->about       = nl2br(Text::urlink($project->about));
-//$project->motivation  = nl2br(Text::urlink($project->motivation));
-$project->goal        = nl2br(Text::urlink($project->goal));
-$project->related     = nl2br(Text::urlink($project->related));
+//$project->description = nl2br(Text::urlink($skillmatching->description));
+//$skillmatching->about       = nl2br(Text::urlink($skillmatching->about));
+//$skillmatching->motivation  = nl2br(Text::urlink($skillmatching->motivation));
+$skillmatching->goal        = nl2br(Text::urlink($skillmatching->goal));
+$skillmatching->related     = nl2br(Text::urlink($skillmatching->related));
 
 $level = (int) $this['level'] ?: 3;
 ?>
 
 <div class="widget project-summary">
 
-    <?php if (!empty($project->description)): ?>
+    <?php if (!empty($skillmatching->description)): ?>
     <div class="description">
-        <?php echo $project->description; ?>
+        <?php echo $skillmatching->description; ?>
     </div>
     <?php endif ?>
 
-    <?/*php if (!empty($project->about)): ?>
-    <div class="about">
-        <h<?php echo $level + 1?>><?php echo Text::get('overview-field-about'); ?></h<?php echo $level + 1?>>
-        <?php echo $project->about; ?>
-    </div>    
-    <?php endif */?>
-
-    <?php if (!empty($project->motivation)): ?>
+    <?php if (!empty($skillmatching->motivation)): ?>
     <div class="motivation">
         <h<?php echo $level + 1?>><?php echo Text::get('overview-field-motivation-sm'); ?></h<?php echo $level + 1?>>
-        <?php echo $project->motivation; ?>
+        <?php echo $skillmatching->motivation; ?>
     </div>
     <?php endif ?>
-</div>
 
-<?
-    echo new View('view/m/skillmatching/widget/video.html.php', array('skillmatching' => $project));
-?>
+    <?
+        echo new View(VIEW_PATH . '/skillmatching/widget/video.html.php', array('skillmatching' => $skillmatching));
+    ?>
 
-<div class="widget project-summary">
-
-    <?php if (!empty($project->goal)): ?>
+    <?php if (!empty($skillmatching->goal)): ?>
     <div class="goal">
         <h<?php echo $level + 1?>><?php echo Text::get('overview-field-goal-sm'); ?></h<?php echo $level + 1?>>
-        <?php echo $project->goal; ?>
+        <?php echo $skillmatching->goal; ?>
     </div>    
     <?php endif ?>
     
-    <?php if (!empty($project->related)): ?>
+    <?php if (!empty($skillmatching->related)): ?>
     <div class="related">
         <h<?php echo $level + 1?>><?php echo Text::get('overview-field-related-sm'); ?></h<?php echo $level + 1?>>
-        <?php echo $project->related ?>
+        <?php echo $skillmatching->related ?>
     </div>
     <?php endif ?>
 
 </div>
-<?
-    echo new View('view/m/skillmatching/widget/share.html.php', array('skillmatching' => $project));
-?>
+
+<?php if ($skillmatching->status <= 3): ?>
+    <div class="widget project-support_btn">
+        <a class="button supportit" href="/skillmatching/<?php echo $skillmatching->id; ?>/invest"><?php echo Text::get('regular-invest_it'); ?></a>
+    </div>
+<?php endif; ?>
+
+<?php if (!empty($skillmatching->id)): ?>
+    <div class="widget project-share">
+        <h<?php echo $level + 1?> class="title"><?php echo Text::get('overview-field-share-head'); ?></h<?php echo $level + 1?>>
+        <?
+        echo new View(VIEW_PATH . '/skillmatching/widget/share.html.php', array('skillmatching' => $skillmatching));
+        ?>
+    </div>
+<?php endif ?>
+

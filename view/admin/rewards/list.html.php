@@ -9,7 +9,7 @@ $emails = Invest::emails(true);
 <div class="widget board">
     <h3 class="title"><?php echo Text::_('Rewards Filtros'); ?></h3>
     <form id="filter-form" action="/admin/rewards" method="get">
-        <div style="float:left;margin:5px;">
+        <div class="rewards-search-line">
             <label for="projects-filter"><?php echo Text::_("Proyecto"); ?></label><br />
             <select id="projects-filter" name="project" onchange="document.getElementById('filter-form').submit();">
                 <option value=""><?php echo Text::_('Todos los proyectos'); ?></option>
@@ -19,12 +19,12 @@ $emails = Invest::emails(true);
             </select>
         </div>
         
-        <div style="float:left;margin:5px;">
+        <div class="rewards-search-line">
             <label for="name-filter"><?php echo Text::_('User'); ?></label><br />
             <input type="text" id ="name-filter" name="name" value ="<?php echo $filters['name']?>" />
         </div>
 
-        <div style="float:left;margin:5px;">
+        <div class="rewards-search-line">
             <label for="status-filter"><?php echo Text::_('Mostrar por estado de recompensa'); ?>:</label><br />
             <select id="status-filter" name="status" >
                 <option value=""><?php echo Text::_('Todos'); ?></option>
@@ -34,11 +34,7 @@ $emails = Invest::emails(true);
             </select>
         </div>
 
-        <br clear="both" />
-
-        <div style="float:left;margin:5px;">
-            <input type="submit" value="<?php echo Text::_("Buscar"); ?>" />
-        </div>
+        <input type="submit" value="<?php echo Text::_("Buscar"); ?>" />
     </form>
     <br clear="both" />
     <a href="/admin/rewards/?reset=filters"><?php echo Text::_("Quitar filtros"); ?></a>

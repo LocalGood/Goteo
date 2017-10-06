@@ -34,43 +34,21 @@ if ($this['global'] === true) {
     $blank = '';
 }
 
-//$categories = Category::getNames($project->id, 2);
 $categories = Category::getNames($project->prefixed_id, 2);
 
 //si llega $this['investor'] sacamos el total aportado para poner en "mi aporte"
 if (isset($this['investor']) && is_object($this['investor'])) {
     $investor = $this['investor'];
-    $invest = Invest::supported($investor->id, $project->id);
+    $invest = Invest::supported($investor->id, $project->prefixed_id);
 }
 ?>
 <div class="widget project skillmatching activable<?php if (isset($this['balloon'])) echo ' balloon' ?>">
-	<a href="<?php echo SITE_URL ?>/skillmatching/<?php echo $project->id ?>" class="expand"></a>
+	<!--<a href="<?php echo SITE_URL ?>/skillmatching/<?php echo $project->id ?>" class="expand"></a>-->
     <?php if (isset($this['balloon'])): ?>
     <div class="balloon"><?php echo $this['balloon'] ?></div>
     <?php endif ?>
 
     <div class="image">
-        <?php switch ($project->tagmark) {
-            case 'onrun': // "en marcha"
-                echo '<div class="tagmark green">' . Text::get('regular-onrun_mark-sm') . '</div>';
-                break;
-            case 'keepiton': // "aun puedes"
-                echo '<div class="tagmark green">' . Text::get('regular-keepiton_mark') . '</div>';
-                break;
-            case 'onrun-keepiton': // "en marcha" y "aun puedes"
-                  echo '<div class="tagmark green twolines"><span class="small"><strong>' . Text::get('regular-onrun_mark-sm') . '</strong><br />' . Text::get('regular-keepiton_mark') . '</span></div>';
-                break;
-            case 'gotit': // "financiado"
-                echo '<div class="tagmark violet">' . Text::get('regular-gotit_mark') . '</div>';
-                break;
-            case 'success': // "exitoso"
-                echo '<div class="tagmark red">' . Text::get('regular-success_mark') . '</div>';
-                break;
-            case 'fail': // "caducado"
-                echo '<div class="tagmark grey">' . Text::get('regular-fail_mark') . '</div>';
-                break;
-        } ?>
-        <span class="sm-icon"></span>
         <?
         $project->gallery = Goteo\Model\Skillmatching\Image::getGallery($project->id);
         ?>
@@ -80,8 +58,41 @@ if (isset($this['investor']) && is_object($this['investor'])) {
         <?php endif ?>
     </div>
 
-    <h<?php echo $level ?> class="title"><a href="<?php echo SITE_URL ?>/skillmatching/<?php echo $project->id ?>" target="_parent"><?php echo htmlspecialchars(Text::shorten($project->name,50)) ?></a></h<?php echo $level ?>>
+    <div class="project-details">
+        <h<?php echo $level ?> class="title">
+            <a href="<?php echo SITE_URL ?>/skillmatching/<?php echo $project->id ?>" target="_parent"><?php echo htmlspecialchars(Text::shorten($project->name,50)) ?></a>
+        </h<?php echo $level ?>>
 
-    <?php echo new View('view/m/skillmatching/meter_hor.html.php', array('skillmatching' => $project)) ?>
+        <div class="author">
+            <a class="link" href="<?php echo SITE_URL ?>/user/profile/<?php echo htmlspecialchars($project->user->id) ?>"<?php echo $blank; ?>>
+                    <span class="author-img">
+                        <img src="<?php echo $project->user->avatar->getLink(50, 50, true); ?>" alt="<?php echo $project->user->name; ?>">
+                    </span>
+                <span><?php echo htmlspecialchars(Text::shorten($project->user->name,40)) ?></span>
+            </a>
+        </div>
+
+        <?php if (!empty($categories)): ?>
+            <div class="categories">
+                <?php $sep = ''; foreach ($categories as $key=>$value) :
+                    echo $sep.'<a href="/discover/results/'.$key.'">'.htmlspecialchars($value).'</a>';
+                    $sep = ', '; endforeach; ?>
+            </div>
+        <?php endif ?>
+    </div>
+
+    <?php echo new View(VIEW_PATH . '/skillmatching/meter_hor.html.php', array('skillmatching' => $project)) ?>
+
+    <div class="want-support">
+        <div>
+            <h<?php echo $level + 1 ?>>必要な支援</h<?php echo $level + 1 ?>>
+            <img src="<?php echo SRC_URL ?>/view/images/icon_skill.png" alt="資金">
+        </div>
+        <div>
+            <h<?php echo $level + 1 ?>>残り</h<?php echo $level + 1 ?>>
+            <div class="days"><strong><?php echo number_format($project->days) ?></strong><span><?php echo Text::get('regular-days'); ?></span></div>
+        </div>
+
+    </div>
 
 </div>

@@ -78,7 +78,6 @@ $pagedResults = new \Paginated($users, 20, isset($_GET['page']) ? $_GET['page'] 
             <dt><label for="name-filter"><?php echo Text::_('Por nombre o email'); ?>:</label></dt>
             <dd class="name">
                 <input id="name-filter" name="name" value="<?php echo $filters['name']; ?>" />
-                <input type="submit" name="filter" value="<?php echo Text::_('Buscar') ?>">
             </dd>
             <dt><label for="skill-filter"><?php echo Text::_('Mostrar usuarios interesados en'); ?>:</label></dt>
             <dd>
@@ -107,6 +106,7 @@ $pagedResults = new \Paginated($users, 20, isset($_GET['page']) ? $_GET['page'] 
                 </select>
             </dd>
         </dl>
+        <input type="submit" name="filter" value="<?php echo Text::_('Buscar') ?>">
 
         <?/*
         <table>

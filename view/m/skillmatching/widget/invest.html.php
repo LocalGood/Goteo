@@ -138,16 +138,6 @@ if ($step == 'start') : ?>
                 <input type="text" id="zipcode" name="zipcode" value="<?php echo $personal->zipcode; ?>" />
             </td>
         </tr>
-        <tr>
-            <td>
-                <label for="location"><?php echo Text::get('invest-address-location-field') ?></label><br />
-                <input type="text" id="location" name="location" value="<?php echo $personal->location; ?>" />
-            </td>
-            <td>
-                <label for="country"><?php echo Text::get('invest-address-country-field') ?></label><br />
-                <input type="text" id="country" name="country" value="<?php echo $personal->country; ?>" />
-            </td>
-        </tr>
     </table>
 
     <p>
@@ -168,7 +158,7 @@ if ($step == 'start') : ?>
 <?php endif; ?>
 </form>
 
-<?php // echo new View('view/m/skillmatching/widget/worth.html.php', array('worthcracy' => $worthcracy, 'level' => $_SESSION['user']->worth)) ?>
+<?php // echo new View(VIEW_PATH . '/skillmatching/widget/worth.html.php', array('worthcracy' => $worthcracy, 'level' => $_SESSION['user']->worth)) ?>
 <?php /*
 <a name="commons"></a>
 <div class="widget project-invest">

@@ -60,7 +60,7 @@ if ($this['show'] == 'list') {
 $level = (int) $this['level'] ?: 3;
 
 ?>
-<div class="project-updates"> 
+<div class="widget project-updates">
     <!-- una entrada -->
     <?php if ($action == 'post') : ?>
     <div class="post widget">
@@ -81,13 +81,6 @@ $level = (int) $this['level'] ?: 3;
                 ?>
                 <div class="widget post">
                     <?php echo new View('view/blog/post.html.php', array('post' => $post->id, 'show' => 'list', 'url' => '/skillmatching/'.$project->id.'/updates/')); ?>
-					<ul class="share-goteo">
-						<?/*<li class="sharetext"><?php echo Text::get('regular-share_this'); ?></li>*/?>
-						<li class="twitter"><a href="<?php echo htmlspecialchars($twitter_url) ?>" target="_blank"><?php echo Text::get('regular-twitter'); ?></a></li>
-						<li class="facebook"><a href="<?php echo htmlspecialchars($facebook_url) ?>" target="_blank"><?php echo Text::get('regular-facebook'); ?></a></li>
-					</ul>
-<!--                    <div class="fb-comments" data-href="--><?php //echo $share_url; ?><!--" data-numposts="5" data-colorscheme="light" width="580"></div>-->
-					<div class="comments-num"><a href="/skillmatching/<?php echo $project->id; ?>/updates/<?php echo $post->id; ?>"><?php echo $post->num_comments > 0 ? $post->num_comments . ' ' .Text::get('blog-comments') : Text::get('blog-no_comments'); ?></a></div>
                 </div>
             <?php endwhile; ?>
             <ul id="pagination">
@@ -100,10 +93,11 @@ $level = (int) $this['level'] ?: 3;
     <?php endif; ?>
 
     <?php
-    if(preg_match('/^\/project\/(.*)\/updates\/[0-9]{1,}$/', $_SERVER['REQUEST_URI'], $m)):
+    if(preg_match('/^\/skillmatching\/(.*)\/updates\/[0-9]{1,}$/', $_SERVER['REQUEST_URI'], $m)):
         $permalink = SITE_URL . $_SERVER['REQUEST_URI'];
         ?>
-        <div id="social_bookmark" class="update">
+    <div class="blog-share">
+        <div class="social_bookmark">
             <div id="twitter">
                 <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
                 <script>
@@ -130,9 +124,8 @@ $level = (int) $this['level'] ?: 3;
                     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
                 })();
             </script>
-
-            <div style="clear:both"></div>
-            <div class="fb-comments" data-href="<?php echo $permalink; ?>" data-numposts="5" data-colorscheme="light" width="620" style="float:none;"></div>
         </div><!-- #social_bookmark -->
+        <div class="fb-comments" data-href="<?php echo $permalink; ?>" data-numposts="5" data-colorscheme="light" width="620" style="float:none;"></div>
+    </div>
     <?php endif; ?>
 </div>

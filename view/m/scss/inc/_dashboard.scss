@@ -1,0 +1,287 @@
+@charset "utf-8";
+
+.dashboard {
+
+  #sub-header {
+    .dashboard-header {
+      @include cf;
+      padding: 8px;
+      h2 {
+        float: left;
+        padding-left: 5%;
+        width: 80%;
+        span,
+        span.leave {
+          font-size: 18px;
+          font-weight: 600;
+          line-height: 22px;
+          vertical-align: middle;
+        }
+      }
+      > a {
+        @include circleAvatar(50px);
+        float: left;
+      }
+    }
+  }
+
+  #dashboard-menu {
+    display: block;
+    font-size: 13px;
+    .viewport_dashboard{
+      background-color: $baseWhite;
+      border-bottom: $solidBorder;
+      margin: 0 auto;
+      margin-left: 0;
+      overflow: hidden;
+      -webkit-transform: translateZ(0); /* Optional: When heavy at iOS6+ */
+      width: 100vw;
+      .flipsnap_dashboard {
+        @include cf;
+        margin: 0 5%;
+        padding-left: 0;
+        width: 400px;
+        li.option {
+          border-right: $solidBorder;
+          float: left;
+          list-style-type: none;
+          &:last-child {
+            border-right: none;
+          }
+          a {
+            color: $grayCol03;
+            display: block;
+            font-size: 12px;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 8px;
+            text-decoration: none;
+          }
+          &.current,
+          &.active {
+            a {
+              border-bottom: 4px solid $mainCol01;
+            }
+          }
+        }
+      }
+      .controls {
+        margin: 0;
+        .db_prev,
+        .db_next {
+          background-color: $baseWhite;
+          display: block;
+          position: absolute;
+          top: 0;
+          width: 5%;
+          height: 42px;
+          font-size: 12px;
+          text-align: center;
+          line-height: 42px;
+        }
+        .db_prev {
+          left: 0;
+          border-right: $solidBorder;
+        }
+        .db_next {
+          right: 0;
+          border-left: $solidBorder;
+        }
+      }
+    }
+  }
+
+  .footer {
+    margin-top: 60px;
+  }
+
+  > .widget {
+    > p > strong {
+      font-size: 16px;
+    }
+  }
+
+  .superform {
+    background-color: $baseWhite;
+    padding: 10px 20px;
+  }
+
+
+  #main {
+    overflow: visible;
+    hr {
+      display: none;
+    }
+    > div.widget {
+      margin-bottom: 20px;
+    }
+    /*div.status {
+      float: left;
+      color: #bcbdbd;
+      border: none !important;
+      padding: 0 !important;
+      margin-right: 20px;
+      #project-status {
+        h3 {
+          font-size: 20px;
+        }
+      }
+    }*/
+
+    //マイページ > アクティビティ > 概要
+    &.summary {
+
+      > .widget.projects {
+        margin-top: 0;
+      }
+
+      //マイページ > アクティビティ > 概要 > 累計寄付金額
+      /*.widget.user-worthcracy {
+        padding-bottom: 60px;
+        div.worth-amount {
+          top: 25px;
+        }
+      }*/
+
+      //マイページ > アクティビティ > 概要 > あなたのスキルがマッチしたプロジェクト（一覧）
+      /*.widget.projects {
+        background: none;
+        margin: 0 auto 20px;
+        padding-top: 0;
+        h2.title {
+          background-color: $baseWhite;
+          padding-top: 20px;
+        }
+        .discover-group {
+          background-color: $baseWhite;
+          padding-bottom: 20px;
+          &.discover-group-matched_projects {
+            .project:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+
+        //プロジェクトウィジェット
+        .widget.project {
+          .meter {
+            dl dd.optimum span {
+              height: auto;
+              position: relative;
+            }
+            &.activable {
+              dl dd.minimum > span {
+                right: -54px;
+              }
+            }
+          }
+        }
+      }*/
+    }
+
+    //マイページ > プロフィール > 公開プロフィール編集
+    &.profile {
+      .footer {
+        padding-bottom: 20px;
+        margin: 0;
+      }
+      div.superform {
+        li.element {
+          &.user_avatar {
+            > div.children > div.elements > ol > li.element {
+              display: inline-block;
+              vertical-align: top;
+            }
+            ol {
+              padding: 0;
+            }
+            li.element {
+              &.avatar-image {
+                padding: 0 2em;
+                margin: 0 !important;
+              }
+              &.avatar img {
+                width: 128px;
+                height: 128px;
+              }
+              .title {
+                display: none;
+              }
+            }
+          }
+          &.web {
+            div.title {
+              font-size: 14px;
+              width: 70%;
+              float: left;
+            }
+            input {
+              &.edit {
+                margin-top: -1em;
+              }
+              &.remove {
+                margin-bottom: 1em;
+                margin-top: 0;
+              }
+              &.weak {
+                background-color: $alertCol;
+              }
+            }
+          }
+          &.editweb li {
+            &.element {
+              &.web-accept input, &.web-remove input {
+                margin: 0;
+                margin-right: 3px;
+              }
+            }
+            &.buttons {
+              div.contents {
+                margin: 0 !important;
+                padding: 0 !important;
+              }
+              ol {
+                margin: 0 !important;
+                padding: 0 !important;
+                text-align: right;
+              }
+              li {
+                display: inline-block;
+                padding: 0;
+                margin: 0;
+              }
+              input {
+                width: auto;
+                float: left;
+                margin: 0 10px 0 0;
+              }
+            }
+          }
+        }
+        > div.elements > ol > li.element {
+          padding: 0;
+        }
+      }
+    }
+
+    //マイページ > プロフィール > アカウント設定
+    &.access {
+      a.button {
+        line-height: 40px;
+        margin-bottom: 20px;
+      }
+      div.superform {
+        margin: 0 0 10px 0;
+      }
+    }
+
+    //マイページ > プロフィール > 通知設定
+    &.preferences {
+      div.superform div.elements > ol > li.element.slider > div.contents > ul > li > label > input[type="radio"] {
+        position: relative;
+        right: auto;
+      }
+    }
+  }
+
+}

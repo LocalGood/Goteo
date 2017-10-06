@@ -33,7 +33,6 @@ $step    = $this['step'];
 $post    = $this['post'];
 $blog    = $this['blog'];
 $thread    = $this['thread'];
-
 $evaluation = \Goteo\Library\Evaluation::get($project->id);
 
 $user    = $_SESSION['user'];
@@ -64,79 +63,30 @@ if (!empty($evaluation->content)){
     $ev_label = '';
 }
 
-
-
-
-
 $bodyClass = 'project-show'; include 'view/prologue.html.php' ?>
 
 <?php include 'view/header.html.php' ?>
 
         <div id="sub-header">
             <div class="project-header">
-                <a href="/user/<?php echo $project->owner; ?>"><img src="<?php echo $project->user->avatar->getLink(56,56, true) ?>" /></a>
                 <h2><span><?php echo htmlspecialchars($project->name) ?></span></h2>
                 <div class="project-subtitle"><?php echo htmlspecialchars($project->subtitle) ?></div>
-                <?/*
-                <div class="wants-skills">
-                    スキル: <?php
-                        // スキル表示
-                        if (!empty($skills)):
-                            foreach( $skills as $_skill_id => $_skill_name):
-                                ?>
-                                <a href=""><?php echo $_skill_name ?></a>
-                                <?
-                            endforeach;
-                        endif;
+
+                <div class="project-header-bottom">
+                    <?
+                    $_value = '/project/' . $project->id;
+                    $_url = urldecode($_SERVER['REQUEST_URI']);
+                    if(strstr($_url,$_value) && preg_match('/^\/project\/(.*)$/',$_url)):
+                        echo new View('view/project/widget/share.html.php', array('project' => $project));
+                    endif;
                     ?>
-                </div>
-                */?>
-
-                <div class="project-by"><a href="/user/<?php echo $project->owner; ?>"><?php echo Text::get('regular-by') ?> <?php echo $project->user->name; ?></a></div>
-                <?
-                $_value = '/project/' . $project->id;
-                $_url = urldecode($_SERVER['REQUEST_URI']);
-                if(strstr($_url,$_value) && preg_match('/^\/project\/((?!\/).)*$/',$_url)):
-                    ?>
-                    <div id="social_bookmark">
-                        <div id="twitter">
-                            <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
-                            <script>
-                                !function(d,s,id){
-                                    var js,fjs=d.getElementsByTagName(s)[0];
-                                    if(!d.getElementById(id)){
-                                        js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";
-                                        fjs.parentNode.insertBefore(js,fjs);
-                                    }
-                                }(document,"script","twitter-wjs");
-                            </script>
+                    <?php if (!empty($categories)): ?>
+                        <div class="categories">
+                            <?php $sep = ''; foreach ($categories as $key=>$value) :
+                                echo $sep.'<a href="/discover/results/'.$key.'">'.htmlspecialchars($value).'</a>';
+                            $sep = ', '; endforeach; ?>
                         </div>
-                        <div id="facebook">
-                            <div class="fb-like" data-href="<?= $ogmeta['url']; ?>" data-layout="button_count" data-action="recommend" data-show-faces="false" data-share="true"></div>
-                        </div>
-
-                        <div class="g-plusone" data-size="medium" data-width="60"></div>
-                        <script type="text/javascript">
-                            window.___gcfg = {lang: 'ja'};
-
-                            (function() {
-                                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                                po.src = 'https://apis.google.com/js/platform.js';
-                                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-                            })();
-                        </script>
-
-                        <div style="clear:both"></div>
-                    </div><!-- #social_bookmark -->
-                <?
-                endif;
-                ?>
-                <br clear="both" />
-
-                <div class="categories"><h3><?php echo Text::get('project-view-categories-title'); ?></h3>
-                    <?php $sep = ''; foreach ($categories as $key=>$value) :
-                        echo $sep.'<a href="/discover/results/'.$key.'">'.htmlspecialchars($value).'</a>';
-                    $sep = ', '; endforeach; ?>
+                    <?php endif; ?>
                 </div>
             </div>
 
@@ -145,9 +95,9 @@ $bodyClass = 'project-show'; include 'view/prologue.html.php' ?>
                             array(
                                 'project' => $project,
                                 'show' => $show,
-                                'supporters' => $supporters,
                                 'messages' => $messages,
                                 'updates' => $updates,
+                                'supporters' => $supporters,
                                 'evaluation' => $ev_label
                             )
                     );
@@ -164,8 +114,9 @@ $bodyClass = 'project-show'; include 'view/prologue.html.php' ?>
             <div class="side">
             <?php
             // el lateral es diferente segun el show (y el invest)
-            echo
-                new View('view/project/widget/support.html.php', array('project' => $project));
+            echo new View('view/project/widget/support.html.php', array('project' => $project));
+
+            echo new View('view/user/widget/user.html.php', array('user' => $project->user));
 
             if ((!empty($project->investors) &&
                 !empty($step) &&
@@ -181,8 +132,6 @@ $bodyClass = 'project-show'; include 'view/prologue.html.php' ?>
             if ($show != 'rewards') {
                 echo new View('view/project/widget/rewards.html.php', array('project' => $project));
             }
-
-            echo new View('view/user/widget/user.html.php', array('user' => $project->user));
 
             ?>
             </div>
@@ -231,12 +180,12 @@ $bodyClass = 'project-show'; include 'view/prologue.html.php' ?>
 									
                                 case 'fail':
                                     echo
-                                        new View('view/project/widget/investMsg.html.php', array('message' => $step, 'user' => User::get($_SESSION['user']->id))),
+//                                        new View('view/project/widget/investMsg.html.php', array('message' => $step, 'user' => User::get($_SESSION['user']->id))),
                                         new View('view/project/widget/invest.html.php', array('project' => $project, 'personal' => User::getPersonal($_SESSION['user']->id), 'allowpp'=> $this['allowpp']));
                                     break;
                                 default:
                                     echo
-                                        new View('view/project/widget/investMsg.html.php', array('message' => $step, 'user' => $user)),
+//                                        new View('view/project/widget/investMsg.html.php', array('message' => $step, 'user' => $user)),
                                         new View('view/project/widget/invest.html.php', array('project' => $project, 'personal' => $personalData, 'step' => $step, 'allowpp'=> $this['allowpp']));
                                     break;
                             }
@@ -246,7 +195,7 @@ $bodyClass = 'project-show'; include 'view/prologue.html.php' ?>
                                 new View('view/worth/legend.html.php');
                         }
                         break;
-						
+
                     case 'messages':
                         echo
                             new View('view/project/widget/collaborations_message.html.php', array('project' => $project,'thread' => $thread)),
@@ -276,13 +225,12 @@ $bodyClass = 'project-show'; include 'view/prologue.html.php' ?>
                         break;
                 }
                 ?>
-             </div>
-
 			<?php
-				if($printSendMsg){
-					 echo new View('view/project/widget/sendMsg.html.php',array('project' => $project));
-				}
-            ?>
+			if($printSendMsg){
+				echo new View('view/project/widget/sendMsg.html.php',array('project' => $project));
+			}
+			?>
+             </div>
 
         </div>
 

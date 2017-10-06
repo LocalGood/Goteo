@@ -1,0 +1,187 @@
+@charset "utf-8";
+
+.meter {
+  margin: 0 16px;
+  padding-bottom: 20px;
+  position: relative;
+  h2, h3, h4, h5, h6 {
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0;
+    padding: 2px 0 0;
+  }
+  dl {
+    margin: 0;
+    dt,
+    dd {
+      margin:0;
+    }
+  }
+  dl.reached-bar {
+    margin-bottom: 35px;
+    .reached {
+      color: #000;
+      display: inline-block;
+    }
+    .supporters {
+      display:none;
+    }
+  }
+  h3.title.obtained {
+    display: none;
+  }
+  div.graph {
+    background-color: $grayCol01;
+    border-radius: 9px;
+    height:20px;
+    position:relative;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    &:after{
+      content: '目標';
+      position: absolute;
+      top: -30px;
+      right: -0.9em;
+      display: inline-block;
+      width: 2em;
+      font-size: 11px;
+      background: #FFF;
+      z-index: 101;
+    }
+    &:before{
+      content: '\f175';
+      position: absolute;
+      top: -16px;
+      right: 0;
+      text-align: center;
+      color: $grayCol02;
+      font-size: 15px;
+    }
+
+    .done {
+      background-color: $mainCol02;
+      border-radius: 9px;
+      height:100%;
+      left:0;
+      position:absolute;
+      top:0;
+      strong {
+        background:url('/view/images/project/widget/project_marker.png') no-repeat;
+        display:block;
+        height:11px;
+        line-height:2000px;
+        margin-right:-5px;
+        margin-top:-11px;
+        position:absolute;
+        right:0;
+        text-indent:2000px;
+        width:10px;
+      }
+    }
+    .minimum {
+      border-radius: 9px;
+      height:100%;
+      left:0;
+      overflow: hidden;
+      position:absolute;
+      top:0;
+      .left {
+        float:right;
+        height: 100%;
+        padding-left: 16px;
+      }
+    }
+    .optimum {
+      height:100%;
+      position:absolute;
+      right:0;
+    }
+  }
+  dl.percent {
+    color: $baseWhite;
+    font-size: 12px;
+    line-height: 20px;
+    margin-left: 16px;
+    position: absolute;
+    top: 55px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
+    dt,dd {
+      display: inline-block;
+    }
+  }
+  dl.amount-bar {
+    position:relative;
+    .optimum,
+    .minimum {
+      display: inline-block;
+      line-height: 1.8;
+    }
+    .days {
+      display: none;
+    }
+  }
+
+  &.activable {
+    padding-left: 0;
+    padding-right: 0;
+    z-index: 999;
+  }
+
+  &__minimum{
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: #FFF;
+    z-index: 100;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    &:after{
+      content: "\f175";
+      position: absolute;
+      top: -16px;
+      left: -2px;
+      text-align: center;
+      color: $grayCol02;
+      font-size: 15px;
+    }
+    &:before{
+      content: '必須';
+      position: absolute;
+      top: -30px;
+      left: -0.9em;
+      width: 2em;
+      font-size: 11px;
+    }
+  }
+
+  &.skillmatching {
+    padding: 4px 0 78px;
+    dl.reached-bar {
+      text-align: center;
+      .days,
+      .supporters {
+        color: #000;
+        display: inline-block;
+        strong {
+          color: #000;
+          font-size: 16px;
+        }
+      }
+      dt.supporters {
+        &:before {
+          content: '/';
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+

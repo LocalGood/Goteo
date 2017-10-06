@@ -23,7 +23,6 @@ use Goteo\Library\Text;
 $project = $this['project'];
 $thread = $this['thread'];
 $level = (int) $this['level'] ?: 3;
-
 ?>
 <script type="text/javascript">
 	jQuery(document).ready(function ($) { 
@@ -66,7 +65,6 @@ $level = (int) $this['level'] ?: 3;
 <?php endif; ?>
 <div class="widget project-messages">
 
-
     <div id="project-messages">
 
 		<?php foreach ($project->messages as $message) : ?>
@@ -79,19 +77,19 @@ $level = (int) $this['level'] ?: 3;
 
                    <h<?php echo $level ?> class="user">
 				   <a href="/user/profile/<?php echo htmlspecialchars($message->user->id)?>" target="_blank">
-				   <?php echo htmlspecialchars($message->user->name); if ($message->blocked == 1) echo ' ' . Text::get('regular-looks_for'); ?>
+                       <span class="user_name"><?php echo htmlspecialchars($message->user->name);?></span><?php if ($message->blocked == 1) echo ' ' . Text::get('regular-looks_for'); ?>
                    </a>
                    </h<?php echo $level ?>>
                    <a name="message<?php echo $message->id; ?>"></a>
-                   <div class="date"><span><?php echo $message->timeago ?>前</span></div>
                    <blockquote><?php echo $message->message; ?></blockquote>
                 <?php if (!empty($_SESSION['user'])) : ?>
-                    <div class="actions">
+                    <div class="actions_date">
                         <a class="" href="#" onclick="answer('<?php echo $message->id; ?>')"><?php echo Text::get('project-messages-answer_it'); ?></a>
                         <?php // si puede borrar este mensaje
                         if (\Goteo\Core\ACL::check("/message/delete/{$message->id}/{$project->id}")) : ?>
                                 <a href="/message/delete/<?php echo $message->id; ?>/<?php echo $project->id; ?>"><?php echo Text::get('regular-delete'); ?></a>
                         <?php endif ?>
+                        <span class="date"><?php echo $message->timeago ?>前</span>
                     </div>
                 <?php endif; ?>
                 </div>
@@ -108,15 +106,15 @@ $level = (int) $this['level'] ?: 3;
                            <a name="message<?php echo $child->id; ?>" />
                            <h<?php echo $level ?> class="user">
 						   <a href="/user/profile/<?php echo htmlspecialchars($child->user->id) ?>" target="_blank">
-						   <?php echo $child->user->name; ?>
+                               <span class="user_name"><?php echo $child->user->name; ?></span>
                            </a>
                            </h<?php echo $level ?>>
-                           <div class="date"><span><?php echo $child->timeago; ?>前</span></div>
                            <blockquote><?php echo $child->message; ?></blockquote>
                            <?php // si puede borrar este mensaje
                            if (\Goteo\Core\ACL::check("/message/delete/{$child->id}/{$project->id}")) : ?>
-                           <div class="actions">
+                           <div class="actions_date">
                                 <a href="/message/delete/<?php echo $child->id; ?>/<?php echo $project->id; ?>"><?php echo Text::get('regular-delete'); ?></a>
+                               <span class="date"><?php echo $child->timeago; ?>前</span>
                            </div>
                            <?php endif; ?>
                        </div>

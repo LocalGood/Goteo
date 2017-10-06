@@ -95,7 +95,9 @@ switch ($order) {
                 <div class="contenedorrecompensa">
                     <span class="recompensa"><strong style="color:#666;"><?= Text::get('dashboard-rewards-management-reward'); ?></strong><br/> <?php echo Text::shorten($rewardData->description, 100); ?></span>
                 </div>
-                <a class="button green" onclick="msgto('<?php echo $rewardData->id; ?>')" ><?= Text::get('dashboard-rewards-management-message'); ?></a>
+                <?php if (!empty($invests)): ?>
+                    <a class="button green" onclick="msgto('<?php echo $rewardData->id; ?>')" ><?= Text::get('dashboard-rewards-management-message'); ?></a>
+                <?php endif; ?>
             </div>
             <?php ++$num;
         endforeach; ?>
@@ -248,8 +250,8 @@ switch ($order) {
                     // Mark DOM as javascript-enabled
                     jQuery(document).ready(function ($) {
                         //change div#preview content when textarea lost focus
-                        $("#message").blur(function(){
-                            $("#preview").html($("#message").val());
+                        $("#message_reward").blur(function(){
+                            $("#preview").html($("#message_reward").val());
                         });
 
                         //add fancybox on #a-preview click
@@ -262,7 +264,8 @@ switch ($order) {
                 </script>
                 <div id="bocadillo"></div>
                 <input type="hidden" name="username" value="<?php echo $investData->user->name; ?>" />
-                <textarea rows="5" cols="50" name="message" id="message"></textarea>
+                <?php /* todo: ボタンを押すと遷移するはずだが出てない。出たら#messageを直す */?>
+                <textarea rows="5" cols="50" name="message" id="message_reward"></textarea>
                 <a class="preview" href="#preview" id="a-preview" target="_blank"><?php echo Text::get('regular-preview'); ?></a>
                 <div style="display:none">
                     <div style="width:400px;height:300px;overflow:auto;" id="preview"></div>
@@ -276,7 +279,7 @@ switch ($order) {
 <script type="text/javascript">
     function msgto(reward) {
         document.getElementById('msg_reward-'+reward).checked = 'checked';
-        document.location.href = '#message';
-        $("#message").focus();
+        document.location.href = '#message_reward';
+        $("#message_reward").focus();
     }
 </script>

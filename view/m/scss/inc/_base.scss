@@ -1,0 +1,165 @@
+@charset "utf-8";
+
+* {
+  box-sizing: border-box;
+  //font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+  overflow: auto;
+}
+
+body {
+  background-color: $baseCol;
+  color: $grayCol03;
+  font-family: 'メイリオ', "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
+  font-size: 14px;
+  margin: 0;
+  min-height: 100%;
+  overflow: hidden !important;
+  padding: 0;
+  position: relative;
+  top: 0;
+  word-wrap: break-word;
+
+  .inner{
+    margin: 0 auto;
+    overflow: hidden;
+    zoom: 1;
+  }
+}
+
+td, th, a, a:link, a:visited, a:active, a:hover, input, textarea, button {
+  color: $grayCol03;
+  font-size: 14px;
+  word-wrap: break-word;
+}
+
+img {
+  border: none;
+}
+
+input, textarea, button {
+  font-size: 14px;
+}
+
+h1 {
+  display: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  margin: 1em 0;
+}
+
+a,
+a:link{
+  color: $mainCol01;
+  &:hover{
+    color: $mainCol02;
+  }
+}
+
+
+
+input[type="text"],
+input[type="password"] {
+  box-sizing: border-box;
+}
+
+input[type="text"],
+input[type="password"],
+textarea,
+fieldset {
+  background-color: $baseWhite;
+  border: $solidBorder;
+  min-height: 27px;
+  padding: .3em;
+}
+
+fieldset {
+  background: transparent;
+  display: inline-block;
+}
+
+textarea {
+  min-height: 8em;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  background-color: white !important;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button,
+a.button {
+  background: none;
+  background-color: $subCol01;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-size: 14px;
+  font-weight: 300;
+  height: 40px;
+  line-height: 40px;
+  margin: 10px auto;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  width: 250px;
+  &.disabled {
+    background: $grayCol01;
+    box-shadow: none;
+    color: $baseWhite;
+    cursor: default;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+input.back[type="button"] {
+  background: none;
+  background: $grayCol02;
+}
+
+button.green {
+  line-height: 38px;
+  height: 38px;
+  padding: 0;
+  width: 140px;
+}
+
+a.button.red {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 50px;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.clearfix { display: inline-table; }
+/* Hides from IE-mac \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* End hide from IE-mac */
+
+/* /user/m/leave */
+textarea#leave-message {
+  width:100%;
+}

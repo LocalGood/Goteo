@@ -40,7 +40,7 @@ $filters = $this['filters'];
         'label' => Text::_("Para revisión"),
         'first' => Text::_("Todos")),
 ); ?>
-<a href="/admin/skillmatching_accounts/viewer" class="button"><?php echo Text::_("Visor de logs"); ?></a>&nbsp;&nbsp;&nbsp;
+<a href="/admin/skillmatching_accounts/viewer" class="button"><?php echo Text::_("Visor de logs"); ?></a>
 <div class="widget board">
     <h3 class="title"><?php echo Text::_("Account information"); ?></h3>
     <form id="filter-form" action="/admin/skillmatching_accounts" method="get">

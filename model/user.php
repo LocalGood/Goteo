@@ -694,6 +694,10 @@ namespace Goteo\Model {
                 $sqlFilter .= " AND active = :active";
                 $values[':active'] = $filters['status'] == 'active' ? '1' : '0';
             }
+            if (!empty($filters['home'])) {
+                $sqlFilter .= " AND home = :home";
+                $values[':home'] = $filters['home'];
+            }
             if (!empty($filters['interest'])) {
                 $sqlFilter .= " AND id IN (
                     SELECT user
@@ -729,6 +733,7 @@ namespace Goteo\Model {
                     $values[':project'] = $filters['project'];
                 }
             }
+
 
             // por tipo de usuario (un usuario puede ser de más de un tipo)
             if (!empty($filters['type'])) {
@@ -799,12 +804,13 @@ namespace Goteo\Model {
                     break;
             }
 
-            // ログイン履歴 で絞り込んだ状態でユーザーを返す
+            // 拠点で絞り込んだ状態でユーザーを返す
             $sqlInner = '';
             if (!empty($home)){
                 $values[':user_places'] = $home;
-                $sqlInner = 'INNER JOIN user_login_log ON id = user_login_log.user';
-                $sqlFilter = 'AND user_login_log.node = :user_places ' . $sqlFilter;
+//                $sqlInner = 'INNER JOIN user_login_log ON id = user_login_log.user';
+//                $sqlFilter = 'AND user_login_log.node = :user_places ' . $sqlFilter;
+                $sqlFilter .= " AND home = :user_places";
             }
 
             $sql = "SELECT
@@ -1219,6 +1225,22 @@ namespace Goteo\Model {
             $invest = $query->fetch();
             return array('projects' => $projects, 'amount' => $invest[0], 'invests' => $invest[1]);
         }
+
+
+
+        /**
+         * 過去にイプシロンで決済済みかを取得
+         *
+         * @return type int
+         */
+        public function getUsedEpsilon () {
+            $query = self::query("SELECT COUNT(project) FROM invest WHERE user = ? AND status IN ('0', '1', '3') AND method='epsilon' ", array($this->id));
+            $invest = $query->fetch();
+            return array('usedcnt' => $invest[0]);
+        }
+
+
+
 
         /**
          * Nivel actual de meritocracia. (1-5)

@@ -1,0 +1,528 @@
+@charset "utf-8";
+.admin {
+
+  input[type="text"],
+  input[type="password"],
+  textarea,
+  fieldset {
+    min-height: inherit;
+    padding: 0;
+  }
+
+  input[type="text"].readonly {
+    color: $grayCol01;
+  }
+
+  input[type="reset"],
+  button,
+  a.button {
+    height: 24px;
+    line-height: 24px;
+    margin: 20px 0;
+    width: 80px;
+  }
+
+  input[type="submit"] {
+    height: 50px;
+    line-height: 50px;
+    margin: 20px 0;
+    width: 200px;
+  }
+
+  #sub-header {
+    padding-bottom: 10px;
+    .breadcrumbs {
+      color: $grayCol02;
+      display: block;
+      font-size: 18px;
+      margin: 0 auto;
+      max-width: 960px;
+      a {
+        color: $grayCol03;
+        font-size:18px;
+        &:hover {
+          color: $mainCol02;//#20B2B3
+        }
+      }
+      strong {
+        color: $mainCol02;//#20B2B3
+      }
+    }
+  }
+
+  #main {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  .admin-menu {
+    margin: 0 10px 0 0;
+    fieldset {
+      border: none;
+      margin-bottom: 10px;
+      padding: 0;
+      width: 100%;
+      legend {
+        background-color: $mainCol02;//#20B2B3
+        color: #fff;
+        display: block;
+        font-weight: 700;
+        padding: 8px;
+        width: 100%;
+      }
+    }
+    ul {
+      font-size: 0;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        background-color: #FFF;
+        margin-bottom: 1px;
+        padding: 0;
+        width: 160px;
+        &.active {
+          a {
+            color: $mainCol02;
+          }
+        }
+        a {
+          display: block;
+          padding: 4px 8px;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  #pagination {
+    margin: 10px 0 20px;
+  }
+
+  .board {
+    h3 {
+      text-transform: uppercase;
+    }
+  }
+
+  //左カラム
+  .admin-center {
+    float: left;
+    margin-right: 10px;
+    width: 160px;
+  }
+
+  //右カラム
+  .admin-right {
+    float: right;
+    width: 790px;
+
+    //管理者画面 -> ホーム（左カラム）
+    .admin-home {
+      box-sizing: content-box;
+      float: left;
+      margin-left:0;
+      width:440px;
+    }
+    //管理者画面 -> ホーム（右カラム）
+    .admin-side {
+      float: left;
+      margin-left:10px;
+      width:300px;
+    }
+    ul {
+      //font-size: 0;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        display: inline-block;
+        margin-right: 1px;
+        &.active {
+          a {
+            background-color: $grayCol01;
+          }
+        }
+        a {
+          color: #000;
+          display: inline-block;
+          padding: .6em 2em .2em .6em;
+          text-decoration: none;
+          &:hover {
+            background-color: $grayCol01;
+          }
+        }
+      }
+    }
+    .board {
+      padding:0;
+      &.shortcut {
+        padding:15px 20px;
+        a {
+          color: #000;
+        }
+      }
+      table {
+        border-spacing:0;
+        box-sizing: content-box;
+        width: 100%;
+        &.t_border {
+          tr:nth-child(even) td {
+            background-color: $baseCol;
+          }
+        }
+        th {
+          background-color: $grayCol02;
+          box-sizing: content-box;
+          color: $baseCol;
+        }
+        td {
+          border-bottom:1px dotted $grayCol01;
+          box-sizing: content-box;
+          padding:8px 4px;
+          &.w70 {width: 70px;}
+          &.w100 {width: 100px;}
+          &.w200 {width: 200px;}
+          &.w300 {width: 300px;}
+          &.pl4 {padding-left: 4px;}
+          &.pr4 {padding-right: 4px;}
+        }
+      }
+      > h3.title {
+        padding-left:20px;
+      }
+      a {
+        color: $grayCol02;
+        text-decoration: none;
+      }
+      form {
+        table {
+          td {
+            border-bottom: none;
+          }
+        }
+        input[type="submit"] {
+          margin-bottom: 10px;
+        }
+      }
+      form,
+      > a,
+      > p {
+        padding:15px 20px;
+      }
+      textarea {
+        width: 500px;
+      }
+      #cke_richtext_content {
+        box-sizing: content-box;
+        float: none!important;
+      }
+    }
+
+    a.button {
+      display: inline-block;
+      margin: 10px 0 6px;
+      min-width: 80px;
+      padding: 0 8px;
+      width: auto;
+    }
+
+    //コンテンツ/マスタ管理 -> 固定ページ
+    &.pages {
+    }
+
+    //コンテンツ/マスタ管理 -> 課題カテゴリー
+    &.categories {
+      &.edit {
+        dl {
+          @include adminList(100px);
+        }
+      }
+    }
+
+    //コンテンツ/マスタ管理 -> スキル
+    &.skills {
+      dl {
+        @include adminList(80px);
+      }
+    }
+
+    //コンテンツ/マスタ管理 -> ライセンス
+    &.licenses {
+      .board {
+        table {
+          th {
+            &.license_name {
+              width:150px;
+            }
+            &.tooltip {
+              width:230px;
+            }
+            &.type {
+              width:70px;
+            }
+          }
+        }
+      }
+      dl {
+        @include adminList(150px);
+      }
+    }
+
+    //コンテンツ/マスタ管理 -> お礼カテゴリ
+    &.icons {
+      .board {
+        table {
+          th {
+            &.tooltip {
+              width:400px;
+            }
+          }
+        }
+      }
+      dl {
+        @include adminList(150px);
+      }
+    }
+
+    //コンテンツ/マスタ管理 -> レビュー基準
+    &.criteria {
+      dl {
+        @include adminList(150px);
+      }
+    }
+
+    //コンテンツ/マスタ管理 -> メールテンプレート
+    &.templates {
+      .board {
+        table {
+          th {
+            &.template {
+              width:240px;
+            }
+            &.description {
+              width:400px;
+            }
+            td p {
+              width:400px;
+            }
+          }
+        }
+        input#tpltitle,
+        textarea#tpltext {
+          width:740px;
+        }
+      }
+    }
+
+    //プロジェクト -> プロジェクト管理
+    &.projects {
+      div.widget p {
+        margin:0 0 8px;
+      }
+      a {
+        padding: .3em .2em .2em .3em;
+      }
+      a.filter-release {
+        margin-left: 20px;
+        padding-left: 0;
+      }
+      table {
+        td {
+          border-bottom: none;
+        }
+      }
+    }
+
+    //プロジェクト -> レビュー
+    &.reviews {
+      .reviews-search-line:first-child {
+        margin-bottom: 10px;
+      }
+      table td a {
+        padding: 0;
+      }
+    }
+
+    //プロジェクト -> お礼の管理
+    &.rewards {
+      .rewards-search-line:not(:last-child) {
+        margin-bottom: 20px;
+      }
+      .board {
+        table {
+          th {
+            &.change_btn {
+              width:50px;
+            }
+            &.support_status {
+              width:60px;
+            }
+            &.implementation_status {
+              width:120px;
+            }
+          }
+        }
+      }
+    }
+
+    //支援 -> 支援
+    &.invests {
+      .board {
+        table td a {
+          padding: 0;
+        }
+      }
+    }
+
+    //ユーザー -> ユーザー管理
+    &.users {
+      .board {
+        form {
+          dl {
+            @include adminList(180px);
+            dd {
+              &.name input[type="submit"] {
+                display: inline-block;
+                font-size:14px;
+                height:24px;
+                line-height:24px;
+                margin:0;
+                width:80px;
+              }
+              select#role-filter,
+              select#interest-filter,
+              select#skill-filter {
+                width:289px;
+              }
+              input#name-filter {
+                margin:0;
+                padding:0;
+                width:285px;
+              }
+            }
+          }
+        }
+        table {
+          tr {
+            &.record1 {
+              td {
+                border-bottom:none;
+                padding-bottom:0;
+                &.pj_count {
+                  text-align: center;
+                }
+                &.admin_amount {
+                  text-align: right;
+                }
+              }
+            }
+            &.record2 {
+              td {
+                padding-top:0;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //ユーザー -> コミュニケーション
+    &.mailing {
+      form {
+        dd {
+          margin-left: 0;
+        }
+        #mail_content {
+          width: 740px;
+          padding: 4px;
+        }
+      }
+    }
+
+    //表紙 -> ピックアッププロジェクト
+    &.promete {
+      .board {
+        table {
+          width: 100%;
+          th {
+            &.view_btn {
+              width:60px;
+            }
+            &.support_status {
+              width:80px;
+            }
+          }
+          td {
+            &.pj_name {
+              width: 340px;
+            }
+
+            a {
+              padding: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .widget {
+    margin-bottom: 10px;
+  }
+
+  .feed {
+    > h3 {
+      font-weight: 400;
+    }
+    a {
+      font-size: 14px;
+      color: $grayCol03;
+      text-decoration: none;
+    }
+    .light-blue {
+      color: $mainCol02;//#1DB3B2
+    }
+    .blue {
+      color: $mainCol02;//#0B4F99
+    }
+    .violet {
+      color: $mainCol02;//#95268D
+    }
+    .red {
+      color: $alertCol;
+    }
+    .grey {
+      color: $mainCol02;
+    }
+    .green {
+      color: $mainCol02;//#20A64B
+    }
+    .subitem {
+      border-bottom: $grayCol02 1px dashed;
+      height: auto;
+      overflow: auto;
+      padding: 10px 5px 10px 0;
+      &.odd {
+        background: $baseCol;
+      }
+      .datepub {
+        clear: right;
+        color: $grayCol02;
+        display: block;
+        float: left;
+        font-size: .9em;
+        margin-bottom: 2px;
+      }
+      .content-pub {
+        clear: both;
+        color: $grayCol03;
+        font-size: .9em;
+        margin-top: 2px;
+        a {
+          font-size: 1em;
+        }
+      }
+    }
+  }
+}

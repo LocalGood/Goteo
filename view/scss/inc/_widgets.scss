@@ -1,0 +1,1281 @@
+@charset "utf-8";
+/*----------------------------------------------------------------------
+ .widget
+----------------------------------------------------------------------*/
+.widget{
+  background-color: white;
+  padding: 15px 20px;
+  overflow: hidden;
+  .title {
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  //プロジェクトウィジェット（一覧などのコンパクトにまとまったウィジェット）
+  &.projects {
+    margin-bottom: 24px;
+
+    .project {
+      background-color: #fff;
+      border: 1px solid $grayCol01;
+      box-sizing: content-box;
+      border-radius: 4px;
+      float: left;
+      margin: 0 0 24px 3.33%;
+      padding: 0 0 70px;
+      width: 260px;
+      z-index: 98;
+      overflow:visible;
+      position:relative;
+      &.active {
+        div.image {
+          filter:alpha(opacity=85);
+          opacity:0.85;
+        }
+        a.link {
+          color: $grayCol02;
+        }
+      }
+      a.link {
+        display: block;
+        text-decoration:none;
+      }
+      .image {
+        background-color: $baseCol;
+        border-radius: 4px 4px 0 0;
+        height:135px;
+        margin:0;
+        overflow:hidden;
+        position: relative;
+        a {
+          display: block;
+          img {
+            min-height: 135px;
+          }
+        }
+      }
+
+      &-details {
+        margin: 20px 16px 16px;
+        h3.title {
+          margin: 0 0 16px;
+        }
+        .author {
+          color: $grayCol02;
+          font-size:12px;
+          margin-bottom: 10px;
+          &-img {
+            @include circleAvatar(25px);
+          }
+          span {
+            vertical-align: middle;
+          }
+        }
+        .categories {
+          background: url(/view/images/icon_tag.png) no-repeat left 50%;
+          color: $grayCol02;
+          font-size:12px;
+          padding-left: 20px;
+        }
+      }
+
+      .meter {
+        div.graph {
+          margin-bottom: 0;
+        }
+        dl.amount-bar {
+          display: none;
+        }
+      }
+
+      .want-support {
+        border-top: 1px solid $grayCol01;
+        bottom: 0;
+        letter-spacing: -.4em;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        > div {
+          display: inline-block;
+          letter-spacing: normal;
+          padding-bottom: 8px;
+          vertical-align: top;
+          width: 50%;
+          &:first-child {
+            border-right: 1px solid $grayCol01;
+          }
+        }
+        h4 {
+          font-size: 12px;
+          line-height: 1;
+          margin: 12px 0 8px;
+        }
+        img {
+          height: 30px;
+        }
+        .days {
+          height: 30px;
+          line-height: 30px;
+          strong {
+            color: #000;
+          }
+        }
+      }
+
+      .balloon {
+        position: relative;
+        margin: 0 0 30px 0;
+        background: $grayCol01;
+        &::after{
+          content: '';
+          display: block;
+          position: absolute;
+          bottom: -30px;
+          left: 20px;
+          width: 0;
+          height: 0;
+          border: 15px solid transparent;
+          border-top: solid 15px $grayCol01;
+        }
+        > blockquote {
+          font-size:12px;
+          height:4.5em;
+          margin: 0;
+          overflow:hidden;
+          padding:3px 5px;
+        }
+        > h4 {
+          font-size:14px;
+          font-weight:700;
+          margin: 0;
+          padding:3px 5px 0;
+        }
+      }
+
+      .tagmark{
+        width: 100%;
+        color: $grayCol03;
+        padding: 0 10px;
+        text-align: center;
+        z-index: 100;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        background: $grayCol01;
+        position: absolute;
+        bottom: 0;
+        &.green{
+          background: $color07;
+        }
+      }
+    }
+
+    .skillmatching {
+      div.image span.sm-icon {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 40px;
+        height: 40px;
+        background-image: url('/view/images/lg-project-sm.png');
+        background-size:40px 40px;
+      }
+      div.meter dl .days{
+        top:160px;
+      }
+    }
+
+    .discover-group {
+      display: none;
+      @include cf;
+      .widget.project {
+        margin: 0 0 0 25px;
+      }
+    }
+
+    a.discover-arrow {
+      color:#FFF;
+      display:inline-block;
+      line-height:24px;
+      position:relative;
+      text-indent:24px;
+      top:200px;
+      vertical-align:middle;
+    }
+
+    .discover-arrow {
+      &-left,
+      &-right {
+        width:24px;
+      }
+      &-left {
+        float:left;
+        a.discover-arrow {
+          &:before{
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-right: 10px solid $grayCol02;
+          }
+          &:hover {
+            &:before{
+              border-right: 10px solid $mainCol02;
+            }
+          }
+        }
+      }
+      &-right {
+        float:right;
+        a.discover-arrow {
+          &:before{
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            margin: 0 0 0 20px;
+            border: 10px solid transparent;
+            border-left: 10px solid $grayCol02;
+          }
+          &:hover {
+            &:before{
+              border-left: 10px solid $mainCol02;
+            }
+          }
+        }
+      }
+    }
+
+    .navi-bar {
+      position: relative;
+      clear: both;
+      display:block;
+      height:30px;
+      ul.navi {
+        height:10px;
+        list-style:none;
+        margin:0;
+        padding:10px;
+        z-index:900;
+        li {
+          display:block;
+          float:left;
+          height:1em;
+          margin-right:.5em;
+          overflow:hidden;
+          width:1em;
+          > * {
+            display:block;
+            height:100%;
+            line-height:2000px;
+            text-indent:2000px;
+            width:100%;
+          }
+          > a {
+            background-color: $grayCol01;
+            &:hover {
+              background-color: $mainCol02;//#20b3b2
+            }
+            &.active {
+              background-color: $grayCol02;//#808184
+            }
+          }
+        }
+      }
+      a.all {
+        position: absolute;
+        top: 5px;
+        right: 35px;
+        color: $mainCol01;
+        text-decoration:none;
+        text-transform:uppercase;
+        &:hover {
+          color: $mainCol02;//#20B3B2
+        }
+      }
+    }
+
+    &#colective-messages{
+      label{
+        display: inline-block;
+        width: 95%;
+      }
+      #bocadillo{
+        @include comment_icon(30px);
+      }
+      #message_reward{
+        @include message;
+      }
+      .preview{
+        display: block;
+        margin: 10px 0 0 70px;
+      }
+    }
+  }
+
+  //支援（グラフ）
+  &.project-support {
+    .supertitle {
+      background-color: $grayCol03;
+      color: #fff;
+      font-size: 12px;
+      height: 40px;
+      line-height: 40px;
+      margin: 0;
+      text-align: center;
+      .days {
+        strong {
+          font-size: 14px;
+        }
+      }
+    }
+    .project-widget-box {
+      padding: 15px 20px;
+      position: relative;
+    }
+    .meter {
+      dl.reached-bar {
+        .supporters {
+          display: inline-block;
+        }
+        .reached,
+        .supporters {
+          strong {
+            color: #000;
+            font-size: 16px;
+          }
+        }
+        dt.supporters {
+          &:before {
+            content: '/';
+            display: inline-block;
+          }
+        }
+      }
+      dl.percent {
+        top: 59px;
+      }
+    }
+    .invest-notice {
+      font-size:13px;
+      padding:0 20px 20px;
+      dt{
+        font-weight: bold;
+      }
+      dd{
+        margin: 0 0 10px 0;
+      }
+    }
+  }
+
+  &.project-investors{
+    background: none;
+    .project-widget-box{
+      background: #FFF;
+      ul{
+        display: -webkit-flex;
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li{
+          position: relative;
+          width: 50%;
+          padding: 10px;
+          border-right: $solidBorder;
+          border-bottom: $solidBorder;
+          &:hover{
+            background: $baseCol;
+          }
+          &:nth-child(2n+2){
+            padding: 10px 20px 10px 10px;
+            border-right: none;
+          }
+          a{
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+          }
+          .supporter{
+            display: -webkit-flex;
+            display: flex;
+            flex-wrap: wrap;
+            .avatar{
+              @include circleAvatar(43px);
+              margin: 0 10px 0 0;
+            }
+            h4.aqua{
+              max-width: 75px;
+              font-weight: bold;
+              color: $mainCol01;
+              margin: 0;
+            }
+            dl{
+              display: -webkit-flex;
+              display: flex;
+              flex-wrap: wrap;
+              width: 100%;
+              margin-bottom: 0;
+              font-size: 12px;
+              dt{
+                display: none;
+                width: 25%;
+              }
+              dd{
+                width: 74%;
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+      .more {
+        position: relative;
+        top: -1px;
+      }
+    }
+  }
+
+  //オーナーウィジェット
+  &.user {
+    margin-bottom: 20px;
+    padding: 0;
+    .supertitle {
+      display: none;
+    }
+    .project-widget-box {
+      padding: 15px 20px;
+    }
+    .user-head {
+      margin-bottom: 20px;
+      .image {
+        @include circleAvatar(65px);
+      }
+      &-right {
+        display: inline-block;
+        padding-left: 20px;
+        vertical-align: middle;
+        width: 200px;
+        .title {
+          margin: 0 0 4px;
+          a {
+            color: $mainCol01;
+            text-decoration: none;
+            &:hover{
+              color: $mainCol02;
+            }
+          }
+        }
+        .location {
+          background: url(/view/images/location/s.png) no-repeat left center;
+          padding-left: 18px;
+          a {
+            color: $grayCol02;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    .about {
+      p {
+        line-height: 1.5;
+        margin: 0 0 20px;
+        padding: 0 2px;
+      }
+    }
+    .links {
+      line-height: 36px;
+      margin: 0 0 14px 0;
+      padding: 1em 0;
+      padding-bottom: 0;
+      padding-top: 0;
+      ul {
+        line-height: 18px;
+        list-style-type: none;
+        margin: 0;
+        padding-left: 0;
+        a {
+          font-size: 14px;
+          font-weight: 600;
+          text-decoration: none;
+          word-wrap: break-word;
+        }
+      }
+      &.message {
+        background: url(/view/images/bocadillo/s.png) no-repeat left center;
+        padding-left: 22px;
+        text-decoration: none;
+        text-indent: .5em;
+        a {
+          color: $color10;//#28B258
+          font-size: 14px;
+          font-weight: 600;
+          text-decoration: none;
+        }
+      }
+    }
+    .widget.user-social {
+      margin: 10px 0;
+      //margin-bottom: 30px;
+      padding: 0;
+      .title {
+        display: none;
+      }
+      ul {
+        list-style:none;
+        margin:0;
+        overflow:visible;
+        padding:0;
+        li {
+          display:block;
+          float:left;
+          margin-right: 10px;
+          a {
+            background:no-repeat left center;
+            display: inline-block;
+            text-indent: -99999px;
+            width: 20px;
+            height: 20px;
+          }
+          &.facebook {
+            a {
+              background-image:url(/view/images/social/facebook.png);
+            }
+          }
+          &.google {
+            a {
+              background-image:url(/view/images/social/google.png);
+            }
+          }
+          &.twitter {
+            a {
+              background-image:url(/view/images/social/twitter.png);
+            }
+          }
+          &.identica {
+            a {
+              background-image:url(/view/images/social/identica.png);
+            }
+          }
+          &.linkedin {
+            a {
+              background-image:url(/view/images/social/linkedin.png);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //お礼・公共リターン
+  &.project-rewards {
+    background: none;
+    margin-bottom: 10px;
+    padding: 0;
+    .project-widget-box {
+      margin: 0;
+      .individual,
+      .social {
+        padding: 0;
+      }
+    }
+    .title {
+      color: #000;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0 0 8px;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        background-color: #fff;
+        margin-bottom: 20px;
+        padding: 20px 20px 10px;
+        &:last-child {
+          border-bottom: none;
+          margin-bottom: 0;
+        }
+        .name {
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 24px;
+          margin: 0 0 16px;
+          //text-align: center;
+        }
+        p {
+          line-height: 24px;
+          margin: 0 0 24px;
+          word-wrap: break-word;
+        }
+      }
+    }
+    .license {
+      h5 {
+       border-bottom: none;
+       font-size: 14px;
+       font-weight: 600;
+       margin: 0;
+      }
+      > a {
+       text-decoration: none;
+       strong {
+         display: block;
+         padding-top: 40px;
+         background: url('/view/images/license/ccbyncnd.png') no-repeat;
+       }
+       p {
+         margin: 3px 0;
+       }
+      }
+    }
+    .individual,
+    .social {
+      padding: 15px 20px;
+      .title {
+        a {
+          font-size: 16px;
+          text-decoration: none;
+        }
+      }
+      h6.name {
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+    .individual {
+      margin-bottom: 20px;
+      .title {
+        a {
+          color: $mainCol01 !important;//#96238F
+        }
+      }
+      ul {
+        li {
+          dl {
+            @include cf;
+            margin: 0;
+            dt {
+              float: left;
+              font-size: 14px;
+              line-height: 24px;
+              width: 70px;
+            }
+            dd {
+              float: left;
+              font-size: 16px;
+              font-weight: 600;
+              line-height: 24px;
+              margin-left: 0;
+            }
+            &.remain {
+              margin-bottom: 12px;
+            }
+          }
+          .name {
+            font-size: 13px;
+            margin: 0 0 8px 0;
+          }
+        }
+      }
+    }
+    .social {
+      .title {
+        a {
+          color: $mainCol01 !important;//#28b258
+        }
+      }
+    }
+  }
+
+  //スキルと物品の募集
+  &.project-collaborations {
+    background: none;
+    .project-widget-box {
+      margin: 0;
+    }
+    .title {
+      margin-bottom: 16px;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        background-color: #fff;
+        padding: 20px 20px 10px;
+        &:not(:last-child) {
+          margin-bottom: 20px;
+        }
+        .title--flex{
+          display: -webkit-flex;
+          display: flex;
+        }
+        .name {
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 24px;
+          margin: 0 0 16px;
+          min-height: 32px;
+          //text-align: center;
+        }
+        .support_image{
+          width: 60px;
+          margin: 0 10px 0 0;
+          img{
+            width: 100%;
+            height: auto;
+          }
+        }
+        p {
+          line-height: 24px;
+          margin: 0 0 24px;
+          word-wrap: break-word;
+        }
+      }
+    }
+  }
+
+  //プロジェクト概要ウィジェット
+  &.project-summary {
+    h3 {
+      font-size: 20px;
+      font-weight: 300;
+      margin: 0 0 1em;
+    }
+    .gallery-image {
+      text-align: center;
+      img {
+        width: 540px;
+      }
+    }
+  }
+
+  //支援するボタンウィジェット
+  &.project-support_btn {
+    background-color: #fff;
+    border-bottom: $solidBorder;
+    padding: 40px 0;
+    a.button {
+      background: none;
+      background: $subCol02;
+      -moz-box-shadow: 0 3px 3px 0 $grayCol01;
+      -webkit-box-shadow: 0 3px 3px 0 $grayCol01;
+      box-shadow: 0 3px 3px 0 $grayCol01;
+      display: block;
+      font-size: 14px;
+      font-weight: 300;
+      height: 45px;
+      line-height: 45px;
+      margin: 10px auto;
+      padding: 0 8px;
+      text-align: center;
+      width: 280px;
+    }
+  }
+
+  //シェアウィジェット
+  &.project-share {
+    padding: 26px 20px 50px;
+    position: relative;
+    .title {
+      border:none;
+      margin: 0 0 26px;
+      text-align: center;
+    }
+    .social_bookmark {
+      left: 0;
+      margin: auto;
+      max-width: 500px;
+      top: 75px;
+      width: 340px;
+    }
+  }
+
+  //資金の内訳ウィジェット
+  &.project-needs {
+    margin-bottom: 20px;
+    #legend {
+      float: right;
+      font-size: 12px;
+      margin: 20px 0;
+      .min, .max {
+        line-height: 20px;
+        span {
+          display: block;
+          float: left;
+          height: 10px;
+          margin: 5px 5px 0 0;
+          width: 10px;
+        }
+      }
+      .min {
+        span {
+          background: $baseCol;
+        }
+      }
+      .max {
+        line-height: 20px;
+        span {
+          background: $baseCol;
+        }
+      }
+    }
+    table {
+      border-collapse: collapse;
+      thead {
+        th {
+          &.summary {
+            padding: 3px 8px 3px 0;
+          }
+        }
+        th {
+          background-position: left 50%;
+          background-repeat: no-repeat;
+          font-size: 16px;
+          font-weight: 700;
+          min-height: 32px;
+          padding-bottom: 16px;
+          padding-left: 40px;
+        }
+      }
+      tbody {
+        background: $baseCol;
+        th.summary {
+          padding: 16px 20px;
+        }
+      }
+      tr {
+        &:not(:last-child) {
+          border-bottom: 1px solid $grayCol01;
+        }
+        &.req {
+          background: $baseCol;
+        }
+        &.noreq {
+          background: $baseCol;
+        }
+        &.sum {
+          th {
+            padding: 12px 20px 10px 0;
+            text-align: right;
+          }
+        }
+      }
+      th {
+        padding: 3px 20px;
+        &.summary {
+          padding-right: 20px;
+          text-align: left;
+          .click {
+            margin-left: 5px;
+            span {
+              display: block;
+              margin-bottom: 12px;
+              max-width: 360px;
+            }
+            blockquote {
+              font-size: 14px;
+              font-weight: 400;
+              margin: 0;
+              padding: 0;
+            }
+          }
+        }
+        &.min,
+        &.max {
+          font-size: 14px;
+          padding: 3px 7px;
+          vertical-align: middle;
+          width: 120px;
+          word-wrap: break-word;
+        }
+      }
+      td {
+        font-size: 14px;
+        padding: 16px 20px 16px 0;
+        text-align: right;
+        vertical-align: top;
+        word-wrap: break-word;
+      }
+    }
+    table thead + tbody + thead th.min, table thead + tbody + thead th.max {
+      font-size: 0;
+    }
+  }
+
+  &.project-message {
+    textarea {
+      clear: right;
+      display: block;
+      float: right;
+      width: 240px;
+      height: 50px;
+      margin-top: 8px;
+      padding: 0.3em 0;
+      resize:none;
+      background-color: #DCEEDF;
+      border: 1px solid #2EAB58;
+    }
+    a.preview{
+      display: inline-block;
+      position: absolute;
+      top: 178px;
+      left: 48px;
+      height: 38px;
+      line-height: 38px;
+      color: #2EAB58;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: normal;
+      font-style: normal;
+    }
+  }
+
+  //支援者ウィジェット
+  &.project-supporters {
+    background: none;
+    padding: 0;
+    .supertitle {
+      margin: 0;
+    }
+    .title {
+      display: none;
+    }
+    .supporters {
+      background-color: #fff;
+      > ul {
+        list-style: none;
+        margin: 0;
+        overflow: hidden;
+        padding: 0;
+        >li {
+          border-right: $solidBorder;
+          box-sizing: content-box;
+          float: left;
+          padding: 0;
+          width: 309px;
+          &:nth-child(2n+2) {
+            border-right: none;
+          }
+          &.active {
+            background-color: $baseCol;
+          }
+        }
+      }
+      .supporterContainer {
+        padding: 0;
+        position: relative;
+      }
+      a.expand {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        text-decoration: none;
+        right: 0;
+        top: 0;
+        z-index: 999;
+      }
+      .supporter {
+        padding: 10px 10px 10px 65px;
+        .avatar {
+          @include circleAvatar(42px);
+          left: 10px;
+          position: absolute;
+        }
+        h4 {
+          color: $mainCol01;
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 1.15;
+          margin: 0 0 4px;
+          overflow: hidden;
+          position: relative;
+        }
+        dl {
+          margin: 0;
+          font-size: 12px;
+        }
+        dt {
+          &.projects {
+            display: inline-block;
+          }
+          &.date {
+            display: none;
+          }
+        }
+        dd {
+          &.projects {
+            display: inline-block;
+            margin-left: 0;
+          }
+          &.date {
+            color: $grayCol02;
+            font-size: 12px;
+            margin: 0;
+          }
+        }
+      }
+    }
+    //todo:後でテスト。旧ソースから持ってきただけ
+  }
+
+  //スケジュール
+  &.project-schedule {
+    margin-bottom: 20px;
+    table {
+      border-collapse:separate;
+      width:100%;
+      th,
+      td {
+        border:none;
+        box-sizing: content-box;
+        font-size:12px;
+        width:1.5em;
+      }
+    }
+    thead.months {
+      th {
+        font-size:14px;
+        font-weight:600;
+        &:first-child span {
+          display: none;
+        }
+      }
+    }
+    tbody {
+      th,
+      td {
+        height: 32px;
+        padding: 0;
+        vertical-align:middle;
+      }
+      th {
+        border-bottom: 14px solid #fff;
+        font-weight: 300;
+        text-align: left;
+        width: 250px;
+      }
+      td {
+        border-right: 4px solid #fff;
+        span {
+          font-size:12px;
+          font-weight:400;
+          height:5em;
+          overflow:hidden;
+          text-align:center;
+        }
+        &.on {
+          background-color: $grayCol01;//#d1edf1
+          text-align: left;
+          span {
+            opacity: .75;
+          }
+          &.req {
+            background-color: $mainCol01;//#c7d8b6
+          }
+          &.noreq {
+            background-color: $baseCol;
+          }
+        }
+      }
+      tr:not(:last-child) {
+        td {
+          border-bottom: 14px solid #fff;
+        }
+      }
+      tr td:last-child {
+        border-right: none;
+      }
+    }
+  }
+
+  &.gestrew{
+    margin: 20px 0;
+    .filters{
+      margin: 0 0 20px 0;
+      ul {
+        display: -webkit-flex;
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0 0 0 10px;
+        a {
+          display: block;
+          padding: 0 5px;
+          text-decoration: none;
+        }
+      }
+    }
+    .investor{
+      display: -webkit-flex;
+      display: flex;
+      padding: 10px 0;
+      border-bottom: solid 1px $grayCol01;
+      >.left{
+        width: auto;
+        padding: 0 10px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      .left{
+
+        > span,
+        > label{
+          display: block;
+        }
+        &.username,
+        &.recompensas,
+        &.name,
+        &.address{
+          width: calc((100% - 45px) / 5);
+        }
+        &.username{
+          span a{
+            font-weight: bold;
+          }
+          span.amount{
+            color: $color10;
+            font-size: 16px;
+            font-weight: bold;
+          }
+          label.amount,
+          span.date{
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+
+
+  //決済の事前ページウィジェット
+  &.invest-pre-info {
+    form {
+      display: flex;
+      justify-content: space-around;
+      > * {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+    .project_name,
+    .amount {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .project_name {
+      padding-right: 4px;
+    }
+    .amount {
+      padding: 0 4px;
+    }
+    .caution {
+      margin-top: 24px;
+      .first_text {
+        margin-bottom: 24px;
+        &_sub {
+          color: $alertCol;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+
+  //決済後のページにでる埋め込み用プロジェクトのウィジェット
+  //todo: 表示ができないので、旧cssより移行したのみ
+  &.project-spread {
+    .widget.projects {
+      width: 320px;
+      margin: 20px auto 0;
+      border: 1px dashed $grayCol02;
+      &.activable {
+        margin-bottom: 50px!important;
+      }
+      div.left {
+        float: none;
+        width: 280px;
+        height: auto;
+        border-right: none;
+        div.subtitle {
+          width: 100%;
+          margin: 0 0 10px 7px;
+          text-align: left;
+        }
+      }
+      > div.left {
+        float:left;
+        width:280px;
+      }
+      > div.right{
+        float:left;
+        width:245px;
+        margin-left:12px;
+      }
+      #widget-code {
+        clear: both;
+        width: 260px;
+        float: none;
+        margin: 0 0 0 20px;
+        textarea{
+          clear: both;
+          width:230px;
+          height: 130px;
+          margin: 10px 0;
+          padding:10px;
+          background:#E7E7E7;
+          border:none;
+          font-size:12px;
+          resize:none;
+          opacity: 1;
+        }
+      }
+    }
+    > h3.title {
+      padding-left:46px;
+    }
+    div.subtitle{
+      width:245px;
+      margin:0 0 10px 7px;
+      > span{
+        display:block;
+        &.primero{
+          margin-bottom:3px;
+        }
+        &.segundo{
+          color:#28ACAB;
+          font-weight:bold;
+        }
+      }
+    }
+    h3.title {
+      padding :0;
+      margin: 0;
+    }
+  }
+
+}
+
+
+//todo:project.scssで良いか検討中
+/*----------------------------------------------------------------------
+ .meter
+----------------------------------------------------------------------*/
+.meter {
+  &.activable {
+    max-width: 288px;
+    z-index: 999;
+  }
+}
+

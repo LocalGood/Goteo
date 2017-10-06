@@ -1,0 +1,184 @@
+@charset "utf-8";
+html {
+  //font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  height: 100%;
+  margin: 0;
+  overflow: auto;
+}
+
+html, body {
+  background-color: $baseCol;
+  padding: 0;
+}
+
+body {
+  font-family: 'メイリオ', "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
+  margin: 0 auto;
+  min-height: 100%;
+  min-width: 780px;
+  top: 0;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, td, th, a, a:link, a:visited, a:active, a:hover, input, textarea, button {
+  color: $grayCol03;
+  font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  margin: 1em 0;
+}
+
+a,
+a:link{
+  color: $mainCol01;
+  &:hover{
+    color: $mainCol02;
+  }
+}
+
+img {
+  border: none;
+  vertical-align: top;
+}
+
+input, textarea, button {
+  font-size: 14px;
+}
+
+input[type="text"],
+input[type="password"],
+textarea,
+fieldset {
+  background-color: $baseCol;
+  border: 1px solid $grayCol01;
+  min-height: 27px;
+  padding: .3em;
+}
+
+fieldset {
+  background: transparent;
+  display: inline-block;
+}
+
+textarea {
+  min-height: 8em;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  background-color: white !important;
+}
+
+input[type="submit"],
+input[type="reset"],
+button,
+a.button {
+  background: none;
+  background: $subCol01;
+  box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 14px;
+  font-weight: 300;
+  height: 45px;
+  line-height: 45px;
+  margin: 10px auto;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  width: 200px;
+  &.weak{
+    background: $alertCol;
+  }
+  &:hover {
+    opacity: 0.75;
+    color: #FFF;
+  }
+  &.disabled {
+    background: $grayCol01;
+    box-shadow: none;
+    color: #fff;
+    cursor: default;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+input.red[type="submit"],
+input.red[type="reset"],
+button.red,
+a.button.red,
+input.edit[type="submit"] {
+  @include button($subCol01);
+  //background: none;
+  //background: $subCol01;
+  //box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
+  //border: none;
+  //border-radius: 3px;
+  //color: #fff;
+  //cursor: pointer;
+  //display: block;
+  //font-size: 14px;
+  //font-weight: 300;
+  //height: 45px;
+  //line-height: 45px;
+  //margin: 10px auto;
+  //padding: 0;
+  //text-align: center;
+  //text-decoration: none;
+  //width: 200px;
+  //&:hover {
+  //  opacity: 0.75;
+  //  color: #FFF;
+  //}
+}
+
+input[value='削除']{
+  background: $alertCol!important;
+}
+
+input[type="button"].back{
+  background: none;
+  background: $grayCol02;
+  box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 14px;
+  font-weight: 300;
+  height: 45px;
+  line-height: 45px;
+  margin: 10px 0;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  width: 200px;
+  &:hover {
+    opacity: 0.75;
+    color: #FFF;
+  }
+}
+
+/*a.button.red,
+a.button.weak {
+  font-size:12px;
+  font-weight:400;
+  line-height:16px;
+  height:auto;
+  padding: .3em 1.2em;
+  width:auto;
+}*/

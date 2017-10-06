@@ -51,14 +51,14 @@ function displayCategories(categoryId1,categoryId2){
     		$cnt = 0;
     		foreach ($categories as $catId=>$catName) {
                 if (count($shares[$catId]) == 0) {$cnt++;continue;} ?>
-                <li><a href="#" onclick="displayCategories(<?php echo $catId;?>,
+                <li><span href="#" onclick="displayCategories(<?php echo $catId;?>,
                 <?php 
     			if(($cnt+1)==count($categories))echo $keys[0];
     			else echo $keys[$cnt+1];
     			$cnt++;
     			?>
                 ); return false;">
-                <?php echo $catName?></a></li>
+                <?php echo $catName?></span></li>
             <?php 	
     		} ?>
         </ul>
@@ -74,33 +74,33 @@ function displayCategories(categoryId1,categoryId2){
             shuffle($sharemates);
             ?>
         <div class="users" id="mates-<?php echo $catId ?>" 
-    	<?php if ($muestra > 2) {echo 'style="display:none;"';} else {$muestra++;} ?>>
+    	<?/*php if ($muestra > 2) {echo 'style="display:none;"';} else {$muestra++;} */?>>
     	    
-            <h3 class="supertitle"><?php echo $categories[$catId] ?></h3>
+            <h4 class="supertitle"><?php echo $categories[$catId] ?></h4>
 
             <!--pintar usuarios -->
             <ul>
             <?php $c=1; // limitado a 6 sharemates en el lateral
             foreach ($sharemates as $mate){ ?>
-                <li class="activable<?php if(($c%2)==0)echo " nomarginright"?> heightLine">
+                <li class="activable">
                     <div class="user">
                     	<a href="/user/<?php echo htmlspecialchars($mate->user) ?>" class="expand">&nbsp;</a>
-                        <div class="avatar">
-                            <a href="/user/<?php echo htmlspecialchars($mate->user) ?>">
-                                <img src="<?php echo $mate->avatar->getLink(43, 43, true) ?>" />
-                            </a>
+                        <a class="avatar" href="/user/<?php echo htmlspecialchars($mate->user) ?>">
+                            <img src="<?php echo $mate->avatar->getLink(43, 43, true) ?>" />
+                        </a>
+                        <div class="user-right">
+                            <h4>
+                                <a href="/user/<?php echo htmlspecialchars($mate->user) ?>">
+                                <?php echo htmlspecialchars(Text::shorten($mate->name,20)) ?>
+                                </a>
+                            </h4>
+                            <span class="projects">
+                                <?php echo Text::get('regular-projects'); ?> (<?php echo $mate->projects ?>)
+                            </span>
+                            <span class="invests">
+                                <?php echo Text::get('regular-investing'); ?> (<?php echo $mate->invests ?>)
+                            </span>
                         </div>
-                        <h4>
-                        	<a href="/user/<?php echo htmlspecialchars($mate->user) ?>">
-    						<?php echo htmlspecialchars(Text::recorta($mate->name,20)) ?>
-                            </a>
-                        </h4>
-                        <span class="projects">
-    						<?php echo Text::get('regular-projects'); ?> (<?php echo $mate->projects ?>)
-                        </span>
-                        <span class="invests">
-    						<?php echo Text::get('regular-investing'); ?> (<?php echo $mate->invests ?>)
-                        </span>
                     </div>
                 </li>
             <?php $c++;

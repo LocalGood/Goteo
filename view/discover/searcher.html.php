@@ -100,10 +100,10 @@ $params = $this['params'];
                 </select>
         </div>
 
-        <div style="float:left">
+        <div class="searcher-btn">
             <button type="submit" id="searcher" name="searcher"><?php echo Text::get('discover-searcher-button'); ?></button>
         </div>
-        
+
         <br clear="all" />
     </form>
 </div>

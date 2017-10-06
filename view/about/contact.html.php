@@ -67,8 +67,8 @@ include 'view/header.html.php';
                 </div>
 
                 <div class="field">
-                    <label for="message"><?php echo Text::get('contact-message-field'); ?></label><br />
-                    <textarea id="message" name="message" cols="50" rows="5"><?php echo $this['data']['message'] ?></textarea>
+                    <label for="message_field"><?php echo Text::get('contact-message-field'); ?></label><br />
+                    <textarea id="message_field" name="message" cols="50" rows="5"><?php echo $this['data']['message'] ?></textarea>
                 </div>
 
                 <button class="green" type="submit" name="send"><?php echo Text::get('contact-send_message-button'); ?></button>

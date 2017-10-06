@@ -46,12 +46,12 @@ $level = (int) $this['level'] ?: 3;
     
     <h<?php echo $level ?>><?php echo htmlspecialchars($project->name) ?></h<?php echo $level ?>>
 
-    <?
+    <?php
     $_value = '/project/' . $project->id;
     $_url = urldecode($_SERVER['REQUEST_URI']);
     if(strstr($_url,$_value) && preg_match('/^\/project\/((?!\/).)*$/',$_url)):
         ?>
-        <div id="social_bookmark">
+        <div class="social_bookmark">
             <div id="twitter">
                 <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
                 <script>
@@ -79,34 +79,11 @@ $level = (int) $this['level'] ?: 3;
                 })();
             </script>
         </div><!-- #social_bookmark -->
-    <?
+    <?php
     endif;
     ?>
 
     <div class="project-subtitle"><?php echo htmlspecialchars($project->subtitle) ?></div>
-    <?php
-    // スキル表示
-    if (!empty($skills)): ?>
-        <div class="wants-skills">
-            スキル:
-            <?
-            foreach( $skills as $_skill_id => $_skill_name):
-                // ログイン中のユーザーのスキルとマッチすればハイライト
-                $_match_skill = '';
-                if (!empty($_SESSION['user']->skills)){
-                    foreach ($_SESSION['user']->skills as $_id){
-                        if ($_id == $_skill_id){
-                            $_match_skill = ' class="matched_skill"';
-                            break;
-                        }
-                    }
-                }
-                ?>
-                <a<?= $_match_skill; ?> id="skill_id_<?= $_skill_id; ?>" href=""><?php echo $_skill_name ?></a>
-            <? endforeach; ?>
-        </div>
-    <? endif; ?>
-
 
     <?php if(!empty($categories)): ?>
     <div class="categories"><h3><?php echo Text::get('project-view-categories-title'); ?></h3>

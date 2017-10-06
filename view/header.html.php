@@ -23,6 +23,7 @@ use Goteo\Library\Text,
     Goteo\Library\i18n\Lang;
 //@NODESYS
 
+$configJson = json_decode( file_get_contents( 'omniconfig/apikeys.json' ) );
 ?>
 
 <script>
@@ -43,7 +44,7 @@ use Goteo\Library\Text,
 <header id="header" class="normal_header header clearfix">
 
     <h1 class="header__logo">
-        <a href="<?= LOCALGOOD_WP_BASE_URL; ?>"><img src="http://yokohama.localgood.jp/wp-content/themes/localgood/images/header_logo.png" alt=""/></a>
+        <a href="<?= LOCALGOOD_WP_BASE_URL; ?>"><img src="<?php echo $configJson->images->header_logo_2; ?>" alt=""/></a>
     </h1>
 
     <div class="header__right">
@@ -80,7 +81,8 @@ use Goteo\Library\Text,
                         </div>
                     </div>
                 </li>
-                <li><a href="http://map.yokohama.localgood.jp/" target="_blank">3Dマップ</a>
+                <li><a href="<?= LG_EARTHVIEW; ?>" target="_blank">3Dマップ</a>
+                <li><a href="<?= LOCALGOOD_WP_BASE_URL . '/about/'; ?>" ><?php echo GOTEO_META_TITLE; ?>について</a>
                 </li>
                 <li class="gnav_goteo">
                     <?php if (empty($_SESSION['user'])) {

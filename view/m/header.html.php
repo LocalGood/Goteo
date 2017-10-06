@@ -22,11 +22,12 @@ use Goteo\Library\Text,
     Goteo\Library\i18n\Lang;
 
 //@NODESYS
+$configJson = json_decode( file_get_contents( 'omniconfig/apikeys.json' ) );
 ?>
 
-<nav class="main_nav02 clearfix">
+<nav class="main_nav02">
     <a href="<?= LOCALGOOD_WP_BASE_URL; ?>" class="nav_logo">
-        <img src="/view/css/header/s-header-logo.png" alt=""/>
+        <img src="<?php echo $configJson->images->header_logo_2; ?>" alt=""/>
     </a>
     <div class="nav_menu-button">
         <span></span>
@@ -98,10 +99,15 @@ use Goteo\Library\Text,
                 </dl>
             </li>
             <li>
-                <a href="http://map.yokohama.localgood.jp/" target="_blank" class="list01__text">
+                <a href="<?= LG_EARTHVIEW; ?>" target="_blank" class="list01__text">
                     3Dマップ
                 </a>
             </li>
+			<li>
+				<a href="<?= LOCALGOOD_WP_BASE_URL; ?>/about/" class="list01__text">
+                    <?php echo GOTEO_META_TITLE; ?>について
+				</a>
+			</li>
             <?php if (empty($_SESSION['user'])) {
                 //ログインしていない
                 ?>
@@ -137,35 +143,4 @@ use Goteo\Library\Text,
         </ul>
     </nav>
 
-
-    <script>
-        $(function(){
-            var linkList = $('.main_nav__link-list');
-            $(linkList).slideUp();
-            $('.nav_menu-button').click(function(){
-                if($(linkList).hasClass('on')){
-                    $(linkList).slideUp();
-                    $(linkList).removeClass('on');
-                    $('.main_nav').css({"display":"none","position":"none"});
-                }else{
-                    $(linkList).slideDown();
-                    $(linkList).addClass('on');
-                    $(linkList).css({'position':'fixed','top':'60px','left':'0'});
-                    $('.main_nav').css({"display":"block","position":"fixed","top":"0","left":"0","z-index":"99999"});
-                }
-            });
-
-            $('.list_open dl').slideUp();
-            $('.list_open').click(function(){
-                if($(this).hasClass('on')){
-                    $(this).children('dl').slideUp();
-                    $(this).removeClass('on');
-                }else{
-                    $(this).children('dl').slideDown();
-                    $(this).addClass('on');
-                }
-            });
-
-        });
-    </script>
-    </nav>
+</nav>

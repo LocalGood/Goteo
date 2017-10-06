@@ -21,7 +21,7 @@
 use Goteo\Library\Text,
     Goteo\Core\View;
 
-$bodyClass = 'dashboard project-edit';
+$bodyClass = 'dashboard';
 
 $user = $_SESSION['user'];
 

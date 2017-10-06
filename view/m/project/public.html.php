@@ -18,4 +18,4 @@
  *
  */
 
-include 'view/m/project/view.html.php';
+include VIEW_PATH . '/project/view.html.php';

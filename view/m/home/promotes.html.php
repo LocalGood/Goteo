@@ -34,7 +34,7 @@ if (count($promotes) > 6) {
 
     <?php foreach ($promotes as $promo) : ?>
 
-            <?php echo new View('view/m/project/widget/project.html.php', array(
+            <?php echo new View(VIEW_PATH . '/project/widget/project.html.php', array(
                 'project' => $promo->projectData,
                 'balloon' => '<h4>' . htmlspecialchars($promo->title) . '</h4>' .
                              '<blockquote>' . $promo->description . '</blockquote>'

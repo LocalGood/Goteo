@@ -4,14 +4,14 @@ use Goteo\Core\View,
 
 $invest = $this['invest'];
 
-$bodyClass = 'community about';
+$bodyClass = 'project-show';
 
 include 'view/m/prologue.html.php';
 include 'view/m/header.html.php';
 ?>
 <?php if(isset($_SESSION['messages'])) { include 'view/header/message.html.php'; } ?>
 
-    <div id="main" class="axes">
+    <div id="main" class="invest-info">
         <div class="widget">
             <p class="text-center"><span class="project_name"><?php echo $invest->project_name ?></span>に<br><span class="amount"><?php echo $invest->amount;?></span>円寄付します。</p>
             <form method="post" action="https://gw.axes-payment.com/cgi-bin/credit/order.cgi">
@@ -25,7 +25,7 @@ include 'view/m/header.html.php';
                 <input type="hidden" name="failure_str" value="back">
                 <div class="text-center">
                     <input type="submit" value="決済ページへ">
-                    <input type="button" value="戻る" class="black" onClick='history.back();'>
+                    <input type="button" value="戻る" class="back" onClick='history.back();'>
                 </div>
             </form>
             <div class="caution">

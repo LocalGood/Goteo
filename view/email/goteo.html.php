@@ -189,9 +189,6 @@ color:#20B3B2;
 }
 
 
-.footer-element {
-	margin-right:50px;
-	}
 
 -->
 </style>
@@ -200,7 +197,6 @@ color:#20B3B2;
 <body>
 
 <?php if (isset($this['sinoves'])) : ?><div class="header-bar"><span class="header-element"><?php echo Text::html('mailer-sinoves', $this['sinoves']); ?></span></div><?php endif; ?>
-<?/*<div class="header"><span class="header-element"><img src="cid:logo" alt="LOCAL GOOD YOKOHAMA"/></span></div>*/?>
 
 <div class="content">
 
@@ -209,10 +205,7 @@ color:#20B3B2;
 </div>  
   
 <div class="disclaimer">
-    <?/*<p class="title"><?php echo Text::get('mailer-disclaimer') ?></p>*/?>
-    <p class="goteo-url"><a href="<?php echo SITE_URL ?>" target="_blank">LOCAL GOOD YOKOHAMA</a><?/*（横浜コミュニティデザイン・ラボ）*/?></p>
-    <?/*<p class="descubre"><a href="<?php echo SITE_URL . '/discover' ?>"><?php echo Text::get('regular-discover'); ?></a></p>
-    <p class="crea"><a href="<?php echo LOCALGOOD_WP_BASE_URL . '/user_guide/' ?>"><?php echo Text::get('regular-create'); ?></a></p>*/?>
+    <p class="goteo-url"><a href="<?php echo SITE_URL ?>" target="_blank"><?php echo GOTEO_META_TITLE; ?></a></p>
     <p>
         このメールにお心当たりのない場合は、下記よりメールにてご連絡をお願いします。<br />
         <a href="mailto:<? echo GOTEO_CONTACT_MAIL; ?>"><? echo GOTEO_CONTACT_MAIL; ?></a>
@@ -226,13 +219,7 @@ color:#20B3B2;
 </p>
 <div>※今後、本メッセージを受信しないようにする場合は、<a href="<?php echo SITE_URL ?>/dashboard/profile/preferences?email='<?$this['parts1'];?>'">こちらのリンク</a>より、送信設定を解除ください。</div>
 
-    <?
-    /*<div class="unsuscribe"><?php echo Text::html('mailer-baja', $this['baja']); ?></div>*/?>
-
-
 </div>
-
-<?/*<div class="footer-bar"><span class="footer-element"><?php echo Text::get('footer-platoniq-iniciative') ?> <strong><a href="http://platoniq.net">Platoniq</a></strong></span></div>*/?>
 
 </body>
 </html>

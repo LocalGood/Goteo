@@ -1,0 +1,399 @@
+@charset "utf-8";
+.user-profile {
+
+  #sub-header {
+    h2 {
+      align-items: center;
+      display: flex;
+      font-size: 18px;
+      font-weight: normal;
+      line-height: 1.2em;
+      min-height: 55px;
+      padding: 8px 16px;
+      position: relative;
+      a {
+        @include circleAvatar(55px);
+        margin-right: 8px;
+      }
+      span {
+        line-height: 1.3;
+      }
+      em {
+        font-size: 24px;
+        font-weight: bold;
+        font-style: normal;
+      }
+    }
+  }
+
+  //ユーザー、プロジェクトオーナーにメッセージを送るウィジェット
+  .widget.user-message{
+    background-color: $baseWhite;
+    padding: 16px;
+    position:relative;
+    z-index:99;
+    label{
+      display: block;
+    }
+    input#contact-subject{
+      margin: 0 0 10px 0;
+    }
+    textarea,
+    input{
+      width: 100%;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      background: $baseWhite;
+    }
+    a.preview{
+      display: none;
+    }
+    h3.title {
+      margin: 0 0 16px 0;
+      padding-left: 0;
+    }
+    form {
+      padding: 8px;
+    }
+    textarea#message_user{
+      display:block;
+    }
+    button{
+      float:right;
+      margin-right:8px;
+    }
+  }
+
+  //ユーザープロフィールウィジェット
+  .widget.user-about {
+    background-color: $baseWhite;
+    border-bottom: $solidBorder;
+    line-height: 16px;
+    margin-bottom: 20px;
+    padding: 16px;
+    > div {
+      border-top: $solidBorder;
+      clear: both;
+      padding-top: 16px;
+      &:nth-child(1) {
+        border-top: none;
+      }
+      &.webs {
+        ul {
+          list-style: none;
+          margin: 0;
+          overflow: visible;
+          padding: 0 0 10px;
+          li {
+            background: url('/view/m/images/social/url.png') no-repeat left top;
+            display: block;
+            line-height: 1.4;
+            margin: 0 0 10px;
+            min-height: 2em;
+            padding-left: 30px;
+            word-wrap: break-word;
+            a {
+              font-size: 12px;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+      &.location {
+        h4 {
+          display: none;
+        }
+        p {
+          background: url("/view/m/images/location/m.png") no-repeat left center;
+          line-height: 20px;
+          min-height: 22px;
+          padding-left: 28px;
+        }
+        p,
+        p * {
+          font-size: 12px;
+          font-weight: normal;
+          font-style: normal;
+          text-decoration: none;
+        }
+      }
+      &.message {
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        &:before{
+          background: lighten($mainCol01,40%);
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%;
+          color: $mainCol01;
+          content: "\f075";
+          display: inline-block;
+          height: 25px;
+          line-height: 25px;
+          text-align: center;
+          width: 25px;
+        }
+        p {
+          display: inline-block;
+          line-height: 22px;
+          margin-bottom: 0;
+          min-height: 22px;
+          a {
+            color: $mainCol01;
+            font-weight: bold;
+            text-decoration: none;
+            }
+        }
+      }
+    }
+    h4 {
+      font-size: 15px;
+      margin: 0 0 12px;
+    }
+    p {
+      margin: 0 0 16px;
+    }
+    .improper_report {
+      padding: 16px;
+      text-align: right;
+      a {
+        color: $grayCol02;
+        font-size: 11px;
+      }
+    }
+  }
+
+  //ユーザープロフィール下部　プロジェクト一覧
+  .widget.projects {
+    background-color: $baseWhite;
+    margin-bottom: 20px;
+    padding: 16px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    h2.title {
+      margin-bottom: 16px;
+      padding: 0;
+    }
+    .widget.project {
+      border: $solidBorder;
+      border-radius: 4px;
+      box-sizing: content-box;
+      padding-bottom: 16px;
+    }
+    .meter {
+      padding-bottom: 70px;
+    }
+  }
+
+  //このユーザーの興味ウィジェット
+  .widget.user-mates {
+    padding: 0;
+    position: relative;
+    margin:0 0 20px;
+    h3.supertitle {
+      color: #000;
+      font-size: 16px;
+      font-weight: 600;
+      height: 24px;
+      line-height: 24px;
+      margin: 0 0 8px;
+    }
+    h4.supertitle {
+      background: url(/view/m/images/icon_tag_b@2x.png) $baseWhite no-repeat 8px 50%;
+      background-size: 14px auto;
+      border-bottom: $solidBorder;
+      color: $grayCol03;
+      font-size: 14px;
+      font-weight: 400;
+      margin: 0;
+      padding-left: 24px;
+    }
+    div.categories {
+      ul {
+        list-style:none;
+        margin:0;
+        li {
+          display:inline-block;
+          margin: 0 5px 5px 0;
+          a {
+            color: $grayCol02;
+            font-size:12px;
+            text-decoration:none;
+            text-transform:uppercase;
+            &:hover {
+              color: $mainCol02;//#20B3B2
+            }
+          }
+        }
+      }
+    }
+    div.users {
+      border-bottom: none;
+      clear:both;
+      position: relative;
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        -webkit-align-items: stretch; /* Safari */
+        align-items: stretch;
+        background-color:$baseWhite;
+        height:auto;
+        list-style:none;
+        margin:0;
+        overflow:auto;
+        padding:0;
+        &.is-archive-all {
+          li:nth-child(5n),
+          li:nth-child(6n) {
+            border-bottom: none;
+          }
+        }
+        li {
+          border-right: $solidBorder;
+          min-height: 80px;
+          padding: 10px 5px;
+          position:relative;
+          width: 50%;
+          border-bottom: $solidBorder;
+          &:nth-child(2n+2) {
+            border-right:none;
+          }
+          .user {
+            @include cf;
+            position:relative;
+            > a.expand {
+              bottom:0;
+              font-size: 12px;
+              left:0;
+              position:absolute;
+              right:0;
+              text-decoration: none;
+              top:0;
+              z-index:99;
+              &:hover {
+                color: $mainCol02;//#20B3B2
+              }
+            }
+            .avatar {
+              float: left;
+              @include circleAvatar(43px);
+            }
+            .user-right {
+              float: left;
+              padding-left: 8px;
+              width: calc(100% - 43px);
+              h4{
+                line-height: 1.2;
+                margin-bottom: 10px;
+                a {
+                  font-weight:700;
+                }
+              }
+              .invests,
+              .projects,
+              .profile a {
+                color: $mainCol01;//#20b3b2
+                font-size: 10px;
+              }
+            }
+          }
+          h3, h4, h5, h6 {
+            font-size:12px;
+            line-height:1em;
+            margin:0;
+            a {
+              font-size:12px!important;
+              font-weight:400;
+            }
+          }
+        }
+      }
+    }
+    a.more {
+      @include text_link_arrow($mainCol01);
+      line-height: 38px;
+      margin:0;
+      min-height: 38px;
+      padding: 0;
+      text-decoration:none;
+      width: 100%;
+      &:hover {
+        color: $mainCol02;//#20b3b2
+      }
+    }
+    .project-widget-box {
+      background-color: $baseCol;
+      margin:0;
+      padding:0;
+    }
+    div.categories {
+      background-color: $baseWhite;
+      border-bottom:$solidBorder;
+      padding: 5px 0;
+      ul {
+        background: url(/view/m/images/icon_tag@2x.png) no-repeat 8px 5px;
+        background-size: 14px auto;
+        padding-left: 28px;
+      }
+    }
+  }
+
+  .widget.user {
+    h3.supertitle {
+      font-weight: normal;
+      margin: 0;
+      padding: .5em 2px;
+      border-bottom: 1px solid $mainCol01;//#21b0b0
+      font-size: 18px;
+      background-color: $mainCol01;//#21b0b0
+      color: $baseCol;
+      padding-left: 8px;
+    }
+  }
+
+
+  //サイドバー
+  .side {
+    padding-bottom: 16px;
+
+    //このユーザーの興味ウィジェット
+    .widget.user-mates {
+      padding: 16px;
+      div.users {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  .center {
+
+    //このユーザーの興味ウィジェット
+    .widget.user-mates {
+      &:first-child {
+        margin-bottom: 0;
+      }
+      .categories{
+        padding: 16px;
+        h3.title{
+          margin: 0 0 16px 0;
+          padding-left: 0;
+        }
+      }
+      div.users {
+        ul {
+          li {
+            .invests,
+            .projects,
+            .profile {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}

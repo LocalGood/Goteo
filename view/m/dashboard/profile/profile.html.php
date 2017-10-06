@@ -182,7 +182,7 @@ $sfid = 'sf-project-profile';
                     'type'  => 'html',
                     'class' => 'inline avatar-image',
                     'html'  => is_object($user->avatar) &&  $user->avatar->id != 1 ?
-                               $user->avatar . '<img src="'.SRC_URL.'/image/' . $user->avatar->id . '/128/128" alt="Avatar" /><button class="image-remove" type="submit" name="avatar-'.$user->avatar->id.'-remove" title="Quitar imagen" value="remove">X</button>' :
+                               $user->avatar . '<img src="'. $user->avatar->getLink(128,128) . '" alt="Avatar" /><button class="image-remove" type="submit" name="avatar-'.$user->avatar->id.'-remove" title="Quitar imagen" value="remove">X</button>' :
                                ''
                 )
 
@@ -267,16 +267,16 @@ $sfid = 'sf-project-profile';
                     'ok'        => !empty($okeys['facebook']) ? array($okeys['facebook']) : array(),
                     'value'     => empty($user->facebook) ? Text::get('regular-facebook-url') : $user->facebook
                 ),
-                'user_google' => array(
-                    'type'      => 'textbox',
-                    'class'     => 'google',
-                    'size'      => 40,
-                    'title'     => Text::get('regular-google'),
-//                    'hint'      => Text::get('tooltip-user-google'),
-                    'errors'    => !empty($errors['google']) ? array($errors['google']) : array(),
-                    'ok'        => !empty($okeys['google']) ? array($okeys['google']) : array(),
-                    'value'     => empty($user->google) ? Text::get('regular-google-url') : $user->google
-                ),
+//                'user_google' => array(
+//                    'type'      => 'textbox',
+//                    'class'     => 'google',
+//                    'size'      => 40,
+//                    'title'     => Text::get('regular-google'),
+////                    'hint'      => Text::get('tooltip-user-google'),
+//                    'errors'    => !empty($errors['google']) ? array($errors['google']) : array(),
+//                    'ok'        => !empty($okeys['google']) ? array($okeys['google']) : array(),
+//                    'value'     => empty($user->google) ? Text::get('regular-google-url') : $user->google
+//                ),
                 'user_twitter' => array(
                     'type'      => 'textbox',
                     'class'     => 'twitter',
@@ -286,27 +286,27 @@ $sfid = 'sf-project-profile';
                     'errors'    => !empty($errors['twitter']) ? array($errors['twitter']) : array(),
                     'ok'        => !empty($okeys['twitter']) ? array($okeys['twitter']) : array(),
                     'value'     => empty($user->twitter) ? Text::get('regular-twitter-url') : $user->twitter
-                ),
-                'user_identica' => array(
-                    'type'      => 'textbox',
-                    'class'     => 'identica',
-                    'size'      => 40,
-                    'title'     => Text::get('regular-identica'),
-//                    'hint'      => Text::get('tooltip-user-identica'),
-                    'errors'    => !empty($errors['identica']) ? array($errors['identica']) : array(),
-                    'ok'        => !empty($okeys['identica']) ? array($okeys['identica']) : array(),
-                    'value'     => empty($user->identica) ? Text::get('regular-identica-url') : $user->identica
-                ),
-                'user_linkedin' => array(
-                    'type'      => 'textbox',
-                    'class'     => 'linkedin',
-                    'size'      => 40,
-                    'title'     => Text::get('regular-linkedin'),
-//                    'hint'      => Text::get('tooltip-user-linkedin'),
-                    'errors'    => !empty($errors['linkedin']) ? array($errors['linkedin']) : array(),
-                    'ok'        => !empty($okeys['linkedin']) ? array($okeys['linkedin']) : array(),
-                    'value'     => empty($user->linkedin) ? Text::get('regular-linkedin-url') : $user->linkedin
-                )
+                )//,
+//                'user_identica' => array(
+//                    'type'      => 'textbox',
+//                    'class'     => 'identica',
+//                    'size'      => 40,
+//                    'title'     => Text::get('regular-identica'),
+////                    'hint'      => Text::get('tooltip-user-identica'),
+//                    'errors'    => !empty($errors['identica']) ? array($errors['identica']) : array(),
+//                    'ok'        => !empty($okeys['identica']) ? array($okeys['identica']) : array(),
+//                    'value'     => empty($user->identica) ? Text::get('regular-identica-url') : $user->identica
+//                ),
+//                'user_linkedin' => array(
+//                    'type'      => 'textbox',
+//                    'class'     => 'linkedin',
+//                    'size'      => 40,
+//                    'title'     => Text::get('regular-linkedin'),
+////                    'hint'      => Text::get('tooltip-user-linkedin'),
+//                    'errors'    => !empty($errors['linkedin']) ? array($errors['linkedin']) : array(),
+//                    'ok'        => !empty($okeys['linkedin']) ? array($okeys['linkedin']) : array(),
+//                    'value'     => empty($user->linkedin) ? Text::get('regular-linkedin-url') : $user->linkedin
+//                )
             )
         )
     )

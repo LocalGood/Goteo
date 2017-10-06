@@ -19,7 +19,8 @@
  */
 
 
-use Goteo\Library\Text;
+use Goteo\Core\View,
+    Goteo\Library\Text;
 
 $user = $this['user'];
 $projectType = !empty($this['projectType']) ? $this['projectType'] : 'project';
@@ -39,43 +40,45 @@ $user->about = nl2br(Text::urlink($user->about));
 
     <div class="project-widget-box">
 
-        <h<?php echo $level + 1 ?> class="title">
-        <?php echo htmlspecialchars($user->name) ?></h<?php echo $level + 1 ?>>
-
-        <div class="image">
-            <?php if (!empty($user->avatar)): ?><img alt="<?php echo htmlspecialchars($user->name) ?>" src="<?php echo $user->avatar->getLink(80, 80, true); ?>" /><?php endif ?>
+        <div class="user-head">
+            <div class="image">
+                <a class="" href="/user/<?php echo $user->id; ?>">
+                    <?php if (!empty($user->avatar)): ?><img alt="<?php echo htmlspecialchars($user->name) ?>" src="<?php echo $user->avatar->getLink(80, 80, true); ?>" /><?php endif ?>
+                </a>
+            </div>
+            <div class="user-head-right">
+                <h<?php echo $level + 1 ?> class="title">
+                    <a class="" href="/user/<?php echo $user->id; ?>"><?php echo htmlspecialchars($user->name) ?></a>
+                </h<?php echo $level + 1 ?>>
+                <?php if (isset($user->location)): ?>
+                    <div class="location">
+                        <span><?php echo Text::GmapsLink($user->location); ?></span>
+                    </div>
+                <?php endif ?>
+            </div>
         </div>
 
         <?php if (isset($user->about)): ?>
-        <blockquote class="about">
-        <?php echo $user->about ?>
-        </blockquote>
+            <div class="about">
+                <p>
+                    <?php echo $user->about ?>
+                </p>
+            </div>
         <?php endif ?>
 
-        <dl>
-
-            <?php if (isset($user->location)): ?>
-            <dt class="location"><?php echo Text::get('profile-location-header'); ?></dt>
-            <dd class="location"><?php echo Text::GmapsLink($user->location); ?></dd>
-            <?php endif ?>
-
-            <?/*
+        <div class="links">
             <?php if (!empty($user->webs)): ?>
-            <dt class="links"><?php echo Text::get('profile-webs-header'); ?></dt>
-            <dd class="links">
                 <ul>
                     <?php foreach ($user->webs as $link): ?>
-                    <li><a href="<?php echo htmlspecialchars($link->url) ?>"><?php echo htmlspecialchars($link->url) ?></a></li>
+                        <li><a href="<?php echo htmlspecialchars($link->url) ?>" target="_blank"><?php echo htmlspecialchars($link->url) ?></a></li>
                     <?php endforeach ?>
                 </ul>
-            </dd>
             <?php endif ?>
-            <dt class="message"><?php echo Text::get('regular-send_message')?></dt>
-            <dd class="message"><a href="/user/profile/<?php echo htmlspecialchars($user->id) ?>/message"><?php echo Text::get('regular-send_message')?></a></dd>
-            */?>
-            <dt>プロジェクトを見る</dt>
-            <dd class="profile"><a href="/user/<?php echo $user->id; ?>"><?php echo Text::get('profile-widget-button'); ?></a></dd>
-        </dl>
+        </div>
+
+        <?php echo new View(VIEW_PATH . '/user/widget/social.html.php', array('user' => $user)) ?>
+
+        <a class="button aqua profile" href="/user/profile/<?php echo htmlspecialchars($user->id) ?>/message"><?php echo Text::get('regular-send_message')?></a>
 
     </div>
 

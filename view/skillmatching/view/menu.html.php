@@ -19,21 +19,19 @@
  */
 
 use Goteo\Library\Text;
+$messages_count = !empty($this['messages'])?$this['messages']:'(0)';
+$updates_count = !empty($this['updates'])?'('.$this['updates'].')':'(0)';
 $menu = array(
     'home'        => Text::get('project-menu-home'),
-//    'needs'       => Text::get('project-menu-needs'),
-//    'supporters'  => Text::get('project-menu-supporters').' <span class="digits">'.$this['supporters'].'</span>',
     'supporters'  => Text::get('skillmatching-menu-supporters').' <span class="digits">'.'('.count($this['skillmatching']->investors).')'.'</span>',
-    'messages'    => Text::get('skillmatching-menu-messages').' <span class="digits">'.$this['messages'].'</span>',
-    'updates'     => Text::get('project-menu-updates').' <span class="digits">'.$this['updates'].'</span>',
+    'messages'    => Text::get('skillmatching-menu-messages').' <span class="digits">'.$messages_count.'</span>',
+    'updates'     => Text::get('project-menu-updates').' <span class="digits">'.$updates_count.'</span>',
     'evaluation'  => Text::get('project-menu-evaluation')
 );
 ?>
 <div class="project-menu">
     <ul>
         <?php
-//        var_dump($this['skillmatching']->status);
-//        exit;
         foreach ($menu as $id => $show):
             if (($id == 'evaluation' && empty($this['evaluation'])) || ($id == 'evaluation' && ($this['skillmatching']->status < 4 ))){
                 continue;

@@ -213,9 +213,9 @@ namespace Goteo\Controller {
             'newsletter' => array(
                 'label' => Text::_('Boletín'),
                 'actions' => array(
-                    'list' => array('label' => _('Estado del envío automático'), 'item' => false),
-                    'init' => array('label' => _('Iniciando un nuevo boletín'), 'item' => false),
-                    'init' => array('label' => _('Viendo listado completo'), 'item' => true)
+                    'list' => array('label' => Text::_('Estado del envío automático'), 'item' => false),
+                    'init' => array('label' => Text::_('Iniciando un nuevo boletín'), 'item' => false),
+                    'init' => array('label' => Text::_('Viendo listado completo'), 'item' => true)
                 )
                 ),
                 'pages' => array(

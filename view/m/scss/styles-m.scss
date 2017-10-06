@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+/*
+palette       :WPで設定した可変カラーの自動生成ファイル
+colors        :カラーコードの変数
+mixins        :mixin設定
+base          :リセット、タグに対するベース設定
+commons       :header,footerなどの共通要素に対する設定
+widgets       :主にプロジェクトウィジェットに対する設定。.widgetが付くものに対する設定も少々
+meter         :メーターの設定
+superform     :.superformに対する設定。form要素。プロジェクト作成、編集、プロフィール編集（マイページ内）などに使用。
+discover      :cfのトップ、プロジェクト一覧
+project-show  :プロジェクト詳細
+dashboard     :マイメニュー
+user-profile  :ユーザープロフィール
+page          :スタイル調整が必要なページ
+*/
+
+//@import "inc/pallete";
+@import "inc/_colors.scss";
+@import "inc/_mixins.scss";
+@import "inc/_base.scss";
+@import "inc/_commons.scss";
+@import "inc/_widgets.scss";
+@import "inc/_meter.scss";
+@import "inc/_superform.scss";
+@import "inc/_discover.scss";
+@import "inc/_project-show.scss";
+@import "inc/_dashboard.scss";
+@import "inc/_user-profile.scss";
+@import "inc/_page.scss";
+
+//todo:各ファイルに、htmlに絡む変更と、どのファイルに書くか迷ったものをtodoで書いてあるので、追って対応する

@@ -1,0 +1,244 @@
+@charset "utf-8";
+
+//body.home配下に対する設定
+body.home {
+
+  #main {
+    div.learn {
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    //プロジェクト一覧
+    .widget.projects {
+      overflow: hidden;
+      /*.meter {
+        dl.percent {
+          top: 55px;
+        }
+      }*/
+    }
+  }
+}
+
+
+//マニメニュー > このユーザーの興味
+.community {
+
+  //マイページ > みんなの興味
+  .widget.categorylist {
+    overflow: hidden;
+    margin-bottom: 15px;
+
+    > h3.title{
+      background-color: $mainCol01;
+      color: $baseCol;
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 40px;
+      height: 40px;
+      margin: 0;
+      padding: 0 0 0 20px;
+    }
+  }
+
+  //マイページ > みんなの興味 > 選択したカテゴリーに興味があるユーザー一覧ウィジェット
+  .widget.user-mates {
+    background-color: $baseWhite;
+    margin-bottom: 16px;
+    padding-bottom:0;
+    > h3.title {
+      background-color: $grayCol03;
+      color: $baseCol;
+      font-size: 14px;
+      font-weight: 300;
+      margin: 0;
+      padding: 4px 0 4px 20px;
+    }
+    .users {
+      margin: 0;
+      padding: 0;
+      ul {
+        margin: 0;
+        padding: 0;
+        li{
+          display:inline-block;
+          border-bottom: $solidBorder;
+          padding: 14px 8px 0;
+          width: 100%;
+          a{
+            font-size: 12px;
+            text-decoration: none;
+          }
+          h3, h4, h5, h6 {
+            font-size: 12px;
+            line-height:1em;
+            margin: 0;
+            a {
+              font-size: 14px !important;
+              font-weight: 300;
+            }
+          }
+          div.user {
+            padding: 0 0 0 80px;
+            position: relative;
+            > a.expand{
+              position:absolute;
+              top:0;bottom:0;left:0;right:0;
+              z-index:99;
+            }
+            .avatar {
+              left: 4px;
+              position: absolute;
+              top: 8px;
+              a {
+                display: block;
+                @include circleAvatar(50px);
+                box-sizing: content-box;
+              }
+            }
+            h4 {
+              margin-top:4px;
+              a {
+                font-weight: 600;
+              }
+            }
+            span {
+              color: $mainCol01;
+              display: block;
+              font-size: 12px;
+              padding-top: 4px;
+            }
+            span.profile,
+            span.contact {
+              position: relative;
+              top: -20px;
+            }
+            span.profile a{
+              background:url('/view/m/images/user/plus.png') left no-repeat;
+              padding-left:15px;
+            }
+          }
+        }
+      }
+    }
+    a.more {
+      @include text_link_arrow($mainCol01);
+      line-height: 38px;
+      min-height: 38px;
+      padding: 0;
+      width: 100%;
+      &:hover {
+        color: $mainCol02;//#20b3b2
+      }
+    }
+  }
+
+
+  #main {
+    &.axes {
+      > .widget {
+        background-color: $baseWhite;
+        margin: 15px;
+        padding: 15px 20px;
+      }
+      input[type="submit"],
+      input[type="button"] {
+        max-width: 250px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+//ログインページ
+.user-login{
+  min-height: unset;
+  #main{
+    margin: 0 auto;
+  }
+  div#sub-header {
+    div {
+      display: block;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    h2 {
+      min-height: 55px;
+      position: relative;
+      line-height: 1.2em;
+      font-size: 18px;
+      font-weight: normal;
+      a {
+        @include circleAvatar(55px);
+      }
+      em {
+        font-weight: bold;
+        font-size: 24px;
+        font-style: normal;
+      }
+    }
+  }
+
+  .register,
+  .external-login,
+  .login{
+    padding: 15px 20px;
+    margin: 0 0 20px 0;
+    background: $baseWhite;
+    a{
+      color: $mainCol01;
+      &:hover{
+        color: $mainCol02;
+      }
+    }
+  }
+  .login,
+  .register {
+    label{
+      display: block;
+    }
+    input[type="text"],
+    input[type="password"] {
+      display: block;
+      width: 100%;
+      margin: 0 0 20px 0;
+    }
+  }
+  .login {
+    input[name="username"],
+    input[name="password"] {
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      width: 100%;
+    }
+  }
+  .register {
+    textarea{
+      width: 100%;
+      margin: 0 0 20px 0;
+    }
+    textarea,
+    input:not([type="submit"]) {
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      background: $baseWhite;
+    }
+    input {
+      &[name="userid"],
+      &[name='username']{
+        display: block;
+      }
+      &[type='password']{
+        display: block;
+        margin: 0 0 20px 0;
+      }
+    }
+    .agree {
+      display: flex;
+    }
+  }
+}

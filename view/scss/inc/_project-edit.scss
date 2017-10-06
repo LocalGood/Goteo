@@ -1,0 +1,1034 @@
+@charset "utf-8";
+//todo:プロジェクト作成・編集画面に対するスタイルのみを記述する
+
+.project-edit {
+
+  #sub-header {
+    padding-bottom: 0;
+  }
+
+  .project-header {
+    position:relative;
+    max-width: 960px;
+    min-height: 75px;
+    margin: 10px auto 0;
+    img{
+      float: left;
+      margin: 0 20px 0 0;
+    }
+    h2{
+      font-size: 2rem;
+      font-weight: 300;
+      margin: 0;
+      max-width: 700px;
+      padding: 0;
+      > span{
+        display: block;
+        line-height: 1em;
+      }
+    }
+    .project-subtitle {
+      font-size: 1.1428571rem;
+      font-weight: normal;
+      margin: 3px 0;
+      max-width:620px;
+      font-style: normal;
+    }
+    .project-by {
+      color: $mainCol01;//#20B3B2
+      font-size: 12px;
+      margin: 0 0 .5em;
+      a {
+        font-weight: normal;
+        color: $mainCol01;//#cc6600
+        font-size: 12px;
+        text-decoration: none;
+        &:hover {
+          color: $mainCol02;
+        }
+      }
+    }
+  }
+
+  .status {
+    padding: 20px 0 30px;
+    color: $grayCol01;
+    border-bottom: 3px solid $grayCol01;
+    h3 {
+      margin: 0 0 .6em;
+      color: $grayCol02;
+      font-size: 26px;
+    }
+    #project-status {
+      display: table-cell;
+      width: 50%;
+      padding: 0 50px 0 30px;
+      ul {
+        margin: 0 0 0 6px;
+        padding: 0 0 0 16px;
+        font-size: 16px;
+        line-height: 1.5em;
+        list-style: none;
+        border-left: 1px solid $grayCol01;
+      }
+      strong {
+        background: url('/view/images/project/statusmarker.png') no-repeat left center;
+        color: $grayCol03;
+        display: block;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 1.6em;
+        margin-left: -22px;
+        padding-left: 20px;
+        text-shadow: 1px 1px 0 rgba(0,0,0,.25);
+      }
+    }
+    #project-score {
+      border-left: 1px dashed $grayCol01;
+      display: table-cell;
+      padding: 0 50px 0 30px;
+      width: 50%;
+      p {
+        color: $grayCol02;
+        font-size: 12px;
+        margin-top: 0;
+        width: 80%;
+      }
+      .meter {
+        height: 117px;
+        margin-top: -2em;
+        position: relative;
+        width: 369px;
+        .done {
+          background: url('/view/images/project/scoremeter.png') no-repeat left top;
+          bottom: 0;
+          left: 0;
+          position: absolute;
+          top: 0;
+        }
+        .left {
+          background: url('/view/images/project/scoremeter.png') no-repeat right bottom;
+          bottom: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+    }
+  }
+  #project-steps {
+    clear:both;
+    font-size:0;
+    padding:30px 0 45px;
+    text-align:center;
+    fieldset {
+      border:0;
+      margin:0;
+      padding:0;
+      legend {
+        display:none;
+      }
+    }
+    .steps {
+      display:inline-block;
+    }
+    span.step {
+      background: $baseCol no-repeat bottom center;
+      display:inline-block;
+      height:100%;
+      padding:0 1em;
+      position:relative;
+      &.first-off {
+        background-image:url('/view/images/project/edit/steps/line-first-off.png');
+      }
+      &.first-on {
+        background-image:url('/view/images/project/edit/steps/line-first-on.png');
+      }
+      &.on-on {
+        background-image:url('/view/images/project/edit/steps/line-on-on.png');
+      }
+      &.on-off {
+        background-image:url('/view/images/project/edit/steps/line-on-off.png');
+      }
+      &.on-last {
+        background-image:url('/view/images/project/edit/steps/line-on-off.png');
+      }
+      &.off-off {
+        background-image:url('/view/images/project/edit/steps/line-off-off.png');
+      }
+      &.off-on {
+        background-image:url('/view/images/project/edit/steps/line-off-on.png');
+      }
+      &.off-last {
+        background-image:url('/view/images/project/edit/steps/line-off-last.png');
+      }
+      > button {
+        background:url('/view/images/project/edit/steps/balloon-on.png') no-repeat bottom center;
+        box-shadow: none;
+        box-sizing: content-box;
+        border:none;
+        color: $grayCol02;//#20b2b1
+        font-size:12px;
+        font-weight:400;
+        height:100%;
+        margin:10px 15px 0;
+        max-width:150px;
+        min-width:46px;
+        padding:0 0 50px;
+        width: auto;
+        &:hover {
+          color: $mainCol02;
+          opacity: 1;
+        }
+      }
+      &.off > button {
+        background-image:url('/view/images/project/edit/steps/balloon-off.png');
+        color: $baseCol;
+      }
+      &.active > button {
+        background-image:url('/view/images/project/edit/steps/balloon-on-active.png');
+      }
+      &.off.active > button {
+        background-image:url('/view/images/project/edit/steps/balloon-off-active.png');
+      }
+      &.error > button {
+        background-image:url('/view/images/project/edit/steps/balloon-error.png');
+      }
+      &.error.active > button {
+        background-image:url('/view/images/project/edit/steps/balloon-error-active.png');
+      }
+      > button > strong.number {
+        bottom:0;
+        color:#FFF;
+        font-size:12px;
+        font-style:normal;
+        height:45px;
+        left:0;
+        line-height:45px;
+        position:absolute;
+        text-align:center;
+        width:100%;
+      }
+      &.active > button > strong.number {
+        font-size:18px;
+        font-weight:700;
+      }
+    }
+    fieldset fieldset {
+      border:1px solid $grayCol02;//#e13028
+      border-top:none;
+      padding-bottom:8px;
+      position:relative;
+      span.step {
+        margin-left:-1px;
+      }
+      span.step + span.step {
+        margin-right:-1px;
+      }
+      > legend {
+        color: $grayCol02;//#e13028
+        display:block;
+        font-size:12px;
+        left:0;
+        margin-top:1.4em;
+        position:absolute;
+        text-transform:uppercase;
+        top:100%;
+        width:100%;
+      }
+    }
+  }
+
+  #message {
+    background: none repeat scroll 0 0 $alertCol;
+    color: #FFF;
+    padding: 25px 0;
+    font-size: 14px;
+    width: 100%;
+    #message-content {
+      width: 960px;
+      margin: 0 auto;
+      position: relative;
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+
+  .superform {
+    border: solid #000;
+    border-width: 3px 0;
+    h3 {
+      font-size: 30px;
+    }
+    > .hint {
+      color: $grayCol02;
+      overflow: hidden;
+      blockquote {
+        margin-bottom: 0;
+      }
+    }
+
+    ol {
+      li {
+        &.element {
+          &#footer {
+            background-color: $baseCol;
+            border-top: 3px solid #000;
+            border-right: none;
+            margin: 46px -5px 0 0;
+            overflow: hidden;
+            padding: 20px;
+            position: relative;
+            z-index: 900;
+            ol {
+              border: none;
+              margin: 0;
+              padding: 0;
+              li {
+                border: none;
+                margin: 0;
+                padding: 0;
+                &#errors {
+                  float: left;
+                  width: 70%;
+                }
+                &#buttons {
+                  clear:none;
+                  float:left;
+                  text-align:right;
+                  width:30%;
+                  input, button {
+                    -moz-box-shadow:2px 2px 0 rgba(0,0,0,.2);
+                    -webkit-box-shadow:2px 2px 0 rgba(0,0,0,.2);
+                    box-shadow:2px 2px 0 rgba(0,0,0,.2);
+                    margin-right: 0;
+                    padding:8px 16px;
+                  }
+                  input[name="nofinish"] {
+                    box-shadow: none;
+                  }
+                }
+              }
+            }
+          }
+          .contents input {
+            font-size: 12px;
+            font-weight: 400;
+            height: auto;
+            line-height: 16px;
+            padding: 0 10px;
+            margin-top: 0;
+            width: auto;
+            &.inline {
+              margin: 0 0 2em;
+            }
+          }
+          div.project-share li.url input {
+            width:230px;
+          }
+          li.element.group div.contents input.next {
+            height:50px;
+            width:200px;
+          }
+        }
+        &.required h4.title {
+          padding: 20px 0 0;
+        }
+      }
+    }
+  }
+
+  div.preview .superform input.confirm,
+  div.preview .superform input.retry,
+  div.preview .superform input.next,
+  div.preview .superform input.confirm,
+  div.preview .superform input.retry {
+    padding:0;
+  }
+  .superform div.hint blockquote {
+    padding-left:20px;
+  }
+
+  div.access .superform ol li.submit.save div.contents input,
+  div.updates .superform ol li.image_upload div.contents input,
+  div.updates .superform ol li.submit.media-upload div.contents input,
+  div.supports .superform ol li.submit.ok div.contents input {
+    padding:.3em 1.2em!important;
+  }
+
+  li#video-upload,
+  li#media-upload {
+    padding-bottom:0;
+    padding-top:0;
+  }
+
+  li#video_usubs,
+  li#media_usubs {
+    border-right:0;
+    left:80px;
+    margin-top:-28px;
+    padding-top:0;
+    position:relative;
+  }
+
+  li#media {
+    padding-bottom:10px;
+  }
+
+
+  .superform div.hint blockquote {
+    border-right-width:0;
+    margin-bottom:10px;
+    padding-left:20px;
+  }
+
+  div.elements {
+    ol {
+      li {
+        &#individual_rewards h4.title,
+        &.required h4.title {
+          padding:20px 0 0;
+        }
+        &#costs h4.title {
+          margin:20px 0;
+          padding:0;
+        }
+        &#social_rewards h4.title {
+          margin:20px 20px 20px 0;
+          padding:0;
+        }
+        &#skills.element.checkboxescustom div.contents {
+          padding:0 0 30px;
+        }
+        h6.title {
+          margin:10px 0;
+          padding:0;
+        }
+      }
+    }
+  }
+
+  div#main{
+    //プロジェクト作成・編集　＞　step1 プロフィール
+    &.userProfile {
+      .superform div.children div.elements {
+        margin:20px 0;
+        h5.title {
+          margin:20px 0 0;
+        }
+      }
+    }
+    //プロジェクト作成・編集　＞　step3 説明
+    &.overview {
+      .superform {
+        &.aqua {
+          #image_upload input[type="submit"],
+          #video-upload input.media-upload[type="submit"],
+          #image_upload_1 input[type="submit"],
+          #image_upload_2 input[type="submit"] {
+            padding:.3em 1.2em;
+          }
+          input.ok[type="submit"] {
+            padding:.3em 1.2em;
+          }
+        }
+        div.children div.elements ol li div.contents {
+          margin:0;
+          padding:0;
+        }
+        div.children div.elements li#video {
+          margin:0;
+          padding:0;
+        }
+        ol {
+          margin:0;
+          padding: 0;
+          li.element {
+            div.contents {
+              textarea {
+                margin:0 0 10px;
+              }
+              input#video {
+                margin:0 0 10px;
+                padding:4px;
+              }
+              input#inline.media-upload {
+                padding:.3em 1.2em;
+              }
+              input#keywords {
+                margin:0;
+                padding:.4em;
+              }
+            }
+          }
+        }
+      }
+
+      div.elements ol li#name div.contents input#name,
+      div.elements ol li#subtitle div.contents input#subtitle {
+        margin:0;
+        padding:4px;
+      }
+    }
+
+    //プロジェクト作成・編集　＞　step4 必要資金
+    &.costs {
+      .superform {
+        h3 {
+          font-size: 1.17em;
+        }
+        > div.elements div.elements > ol {
+          padding-left: 0;
+        }
+        li.element {
+          &.cost {
+            padding: 16px 8px;
+            &.required_cost-no {
+              background-color: $baseCol!important;
+            }
+            input[type="text"],
+            textarea {
+              box-sizing: border-box;
+              min-height: 36px;
+            }
+            .contents {
+              padding-left: 0;
+            }
+            div.title {
+              float: left;
+              font-size: 14px;
+              width: 70%;
+            }
+            input.edit {
+              float: left;
+              margin-right: 8px;
+            }
+            input.remove.weak {
+              float: left;
+            }
+            .description {
+              clear: both;
+              p {
+                margin: .5em 0;
+              }
+            }
+            .cost-amount input {
+              background-image: url('/view/images/yen/m.png');
+              background-position: 4px 50%;
+              background-repeat: no-repeat;
+              float: left;
+              font-size: 16px;
+              font-weight: 700;
+              min-width: 6em;
+              padding-left: 20px;
+              text-align: right;
+              width: 100px;
+            }
+            .cost-dates {
+              h7 {
+                font-size: 14px;
+                font-weight: 600;
+                margin: 0 0 .5em;
+              }
+              .cost-from,
+              .cost-until {
+                clear: none;
+                float: left;
+                margin-right: 1em;
+                position: static;
+                input {
+                  margin-bottom: 10px;
+                  max-width: 8em;
+                  min-width: 8em;
+                  width: 8em;
+                }
+              }
+            }
+            li.buttons {
+              text-align: right;
+              li.submit {
+                display: inline-block;
+                margin: 0 0 16px 0;
+                padding: 0;
+                vertical-align: top;
+                input {
+                  float: left;
+                  margin: 0 10px 0 0;
+                  width: auto;
+                }
+              }
+            }
+          }
+          &.add {
+            margin-top: 16px;
+            text-align: left;
+            input {
+              margin: 0;
+            }
+          }
+
+          &.cost-meter {
+            dl,dt,dd {
+              margin:0;
+              padding:0;
+              position:relative;
+              text-indent:0;
+            }
+            dl {
+              font-size:28px;
+              padding:75px;
+              dt {
+                font-size:14px;
+                text-transform:uppercase;
+                &.minimum > span,
+                &.optimum > span {
+                  display:block;
+                  left:100%;
+                  padding-bottom:41px;
+                  position:absolute;
+                  text-align:center;
+                  width:10em;
+                }
+                &.minimum > span {
+                  bottom:0;
+                  color: $color06;//#96238F
+                  margin-left:-66px;
+                }
+                &.optimum {
+                  border-top:10px solid $color10;//#BB70B6
+                  margin-top:-10px;
+                  z-index:0;
+                  > span {
+                    color: $color10;//#BB70B6
+                    margin-left:-76px;
+                    margin-top:18px;
+                    top:100%;
+                  }
+                }
+
+              }
+              dd {
+                &.minimum {
+                  border-bottom:10px solid $color06;
+                  z-index:900;
+                  > span {
+                    border-left:10px solid $color06;//#96238F
+                    bottom:-20px;
+                    font-size:28px;
+                    height:20px;
+                    margin-bottom:10px;
+                    padding-left:5px;
+                    position:absolute;
+                    right:-15px;
+                    text-align:center;
+                    width:0;
+                    > strong {
+                      color: $color06;//#96238F
+                      padding-left:5px;
+                      position:absolute;
+                      right:0;
+                      text-align:right;
+                      top:-36px;
+                    }
+                    > span.yen {
+                      color: $color06;//#96238F
+                      font-size:20px;
+                      left:10px;
+                      position:absolute;
+                      top:-28px;
+                    }
+                  }
+                }
+                &.optimum {
+                  display:block;
+                  left: 100%;
+                  margin-left:-70px;
+                  padding-top:35px;
+                  position:absolute;
+                  text-align:center;
+                  width:10em;
+                  > span {
+                    border-left:10px solid $color10;//#BB70B6
+                    font-size:28px;
+                    height:12px;
+                    left:-15px;
+                    margin-bottom:10px;
+                    padding-left:5px;
+                    position:absolute;
+                    text-align:center;
+                    top:0;
+                    width:0;
+                    > strong {
+                      color: $color10;//#BB70B6
+                      position:absolute;
+                      right:0;
+                      top:34px;
+                    }
+                    > span.yen {
+                      color: $color10;//#BB70B6
+                      font-size:20px;
+                      left:10px;
+                      position:absolute;
+                      top:42px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          &#schedule {
+            div.contents {
+              margin:0;
+              h3.title {
+                padding:0;
+              }
+              .widget.project-schedule {
+                padding:20px;
+              }
+            }
+          }
+
+        }
+      }
+    }
+
+    //プロジェクト作成・編集　＞　step5 お礼・公共リターン
+    &.rewards {
+      div.superform {
+        li.element{
+          &.reward-new > .title {
+            display:none;
+          }
+          &.reward {
+            div.title {
+              float:left;
+              font-size:14px;
+              width:70%;
+            }
+            input[type="text"],
+            textarea {
+              box-sizing: border-box;
+              min-height: 36px;
+            }
+            input.edit {
+              float: left;
+              margin-right: 8px;
+            }
+            input.remove.weak {
+              float: left;
+            }
+            div.reward {
+              background:none no-repeat 10px center;
+              min-height:32px;
+              padding-left:0;
+            }
+            div.description {
+              float:left;
+              margin:.5em 0;
+              width:70%;
+              clear: both;
+              p {
+                margin: .5em 0;
+              }
+              span.left {
+                color: $color10;//#EE4843
+                font-weight:700;
+              }
+            }
+            /*div.license {
+              background:none no-repeat 10px center;
+              line-height:32px;
+              min-height:32px;
+              padding-left:110px!important;
+            }*/
+          }
+          .buttons {
+            ol {
+              text-align:right;
+            }
+            li {
+              display:inline-block;
+              margin:0;
+              margin-right:10px;
+              padding:0;
+              vertical-align: top;
+
+            }
+          }
+          &#social_rewards {
+            padding:0 0 20px;
+            div.elements ol li.element {
+              div.contents {
+                line-height: 24px;
+                min-height: 24px;
+              }
+              li.element {
+                border-right: none;
+                //margin: 0 20px 0 0;
+                margin-right: 20px;
+                overflow: visible!important;
+                .contents{
+                  > .children,
+                  > .jshidden{
+                    overflow: visible!important;
+                  }
+                }
+              }
+            }
+          }
+          &.editsocial_reward {
+            > .children ol,li{
+
+            }
+          }
+          &.editsocial_reward {
+            > .children ol,li.element.editindividual_reward > .children ol {
+              margin:0!important;
+              padding:0!important;
+            }
+            li.buttons div.contents,li.buttons ol,li.element.editindividual_reward li.buttons div.contents,li.element.editindividual_reward li.buttons ol {
+              margin:0!important;
+              padding:0!important;
+            }
+            li.buttons li,li.element.editindividual_reward li.buttons li {
+              display:inline-block;
+              margin:0;
+              padding:0;
+            }
+            li.buttons ol,li.element.editindividual_reward li.buttons ol {
+              text-align:right;
+            }
+            li.buttons input,li.element.editindividual_reward li.buttons input {
+              float:left;
+              margin:0 10px 0 0;
+              width:auto;
+            }
+            div.children li.element.reward-description textarea,li.element.editindividual_reward div.children li.element.reward-description textarea {
+              height:4em;
+              min-height:4em;
+            }
+            li.other div.contents,li.element.editindividual_reward li.other div.contents {
+              background-image:none!important;
+              line-height:32px;
+              min-height:32px;
+              padding-left:0!important;
+            }
+            li.reward-type div.contents,li.element.editindividual_reward li.reward-type div.contents {
+              background-position:10px 10px;
+              background-repeat:no-repeat;
+              line-height:32px;
+              min-height:32px;
+              padding-left:0;
+            }
+            .license {
+              margin-left:18px;
+            }
+            .license div.contents {
+              background:none no-repeat 10px center;
+              line-height:32px;
+              min-height:32px;
+              padding-left:110px!important;
+            }
+            div.children li.element.reward-amount > div.contents > input {
+              background-image:url('/view/images/yen/s.png');
+              background-position:7.7em center;
+              background-repeat:no-repeat;
+              float:left;
+              font-weight:700;
+              min-width:6em;
+              padding-right:3em;
+              width:6em;
+            }
+            div.children li.element.reward-units > div.contents > input {
+              min-width:7.7em;
+              width:7.7em;
+            }
+          }
+          &.submit.add {
+            margin-top: 16px;
+            text-align: left;
+            input {
+              margin: 0;
+            }
+          }
+
+        }
+      }
+    }
+
+    //プロジェクト作成・編集　＞　step6 スキル・物品支援
+    &.supports {
+      .superform {
+        .elements ol li#supports.element.group {
+          border:none;
+          margin:0 251px 20px 0;
+          padding:10px 0;
+          h4 {
+            padding:0 0 0 20px;
+          }
+        }
+        li.element {
+          &.submit.add {
+            margin-top: 16px;
+            text-align: left;
+            input {
+              margin: 0;
+            }
+          }
+        }
+        div.description {
+          float:left;
+          margin:.5em 0;
+          width:70%;
+          clear: both;
+        }
+        input.edit {
+          float: left;
+          margin-right: 8px;
+        }
+        input.remove.weak {
+          float: left;
+        }
+      }
+    }
+
+    //プロジェクト作成・編集　＞　step7 プレビュー
+    &.preview {
+      > div > div.overlay {
+        cursor:default;
+      }
+      .widget {
+        margin-bottom:20px;
+        &.project-support {
+          min-height:340px;
+        }
+        &.project-rewards {
+          div.amount {
+            margin-left:0;
+          }
+        }
+        &.project-support,
+        &.project-collaborations,
+        &.project-rewards,
+        &.user {
+          clear:right;
+          float:right;
+          margin-bottom: 20px;
+          padding: 0;
+          width:330px;
+        }
+        &.project-collaborations {
+          .supertitle {
+            color: #000;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 0 8px;
+          }
+        }
+        &.project-summary {
+          h3 {
+            font-size: 20px;
+          }
+        }
+        &.project-support_btn {
+          a.button {
+            padding: 0 8px;
+          }
+        }
+        &.project-summary,
+        &.project-support_btn,
+        &.project-share {
+          max-width:620px;
+        }
+        &.project-schedule {
+          .title {
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+          }
+        }
+        &.project-needs,
+        &.project-schedule {
+          max-width:620px;
+        }
+        &.project-media {
+          height:380px;
+          margin-right:20px;
+          max-width:620px;
+          padding:0;
+        }
+        div.project-motivation-video {
+          height:380px;
+          margin-left:-20px;
+          max-width:620px;
+          padding:0;
+        }
+        div.superform > div.hint {
+          border-right:none;
+          padding-right:0;
+        }
+      }
+      form.project {
+        .superform {
+          > div {
+            &.hint {
+              background:none;
+            }
+            &.elements {
+              > ol > li.element.html div.contents {
+                margin-left:0;
+              }
+            }
+          }
+        }
+      }
+    }
+
+
+
+    
+    .superform > div > ol{
+      margin:0;
+      padding: 20px !important;
+      background: #FFF;
+      #preview {
+        .contents {
+          p{
+            font-weight: normal;
+          }
+          .button.violet{
+            @include button($subCol02);
+          }
+
+          .button.aqua{
+            @include button($subCol01);
+          }
+
+          .button.green{
+            @include button($subCol01);
+          }
+        }
+      }
+    }
+
+    &.preview{
+      .superform > div > ol {
+        margin: 0;
+        padding: 0!important;
+        background: none;
+      }
+    }
+  }
+}
+.side_image{
+  width: 100%;
+  margin: 0 0 10px 0;
+  img{
+    width: 100%;
+    height: auto;
+  }
+}

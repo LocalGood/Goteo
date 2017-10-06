@@ -46,7 +46,7 @@ $pagedResults = new \Paginated($this['investors'], 20, isset($_GET['page']) ? $_
             <h3 class="title"><?php echo Text::get('profile-my_investors-header'); ?></h3>
             <dl class="summary">
                 <dt class="supporters"><?php echo Text::get('project-menu-supporters'); ?></dt>
-                <dd class="supporters"><?php echo count($this['investors']) ?></dd>
+                <dd class="supporters">(<?php echo count($this['investors']) ?>)</dd>
             </dl>
 
             <div class="supporters">

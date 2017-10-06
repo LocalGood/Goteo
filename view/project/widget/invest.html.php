@@ -28,6 +28,16 @@ use Goteo\Core\View,
 $project = $this['project'];
 $personal = $this['personal'];
 
+$user = $_SESSION['user'];
+if ($user != NULL) {
+	$usedepslion = $user->getUsedEpsilon ();
+	$repeatf = ($usedepslion['usedcnt'] != 0) ? 1 : 0;
+} else {
+	$repeatf = 0;
+}
+
+
+
 // cantidad de aporte
 if (isset($_SESSION['invest-amount'])) {
     $amount = $_SESSION['invest-amount'];
@@ -51,7 +61,7 @@ foreach (License::getAll() as $l) {
 $action = ($step == 'start') ? '/user/login' : '/invest/' . $project->id;
 ?>
 <div class="widget project-invest project-invest-amount">
-    <h<?php echo $level ?> class="title"><?php echo Text::get('invest-amount') ?></h<?php echo $level ?>>
+    <h<?php echo $level+1 ?> class="title"><?php echo Text::get('invest-amount') ?></h<?php echo $level+1 ?>>
     
     <form method="post" action="<?php echo $action; ?>">
 
@@ -66,25 +76,40 @@ $action = ($step == 'start') ? '/user/login' : '/invest/' . $project->id;
         <div class="individual">
             <h<?php echo $level+1 ?> class="title"><?php echo Text::get('project-rewards-individual_reward-title'); ?></h<?php echo $level+1 ?>>
             <ul>
-                <li><label class="resign"><input class="individual_reward" type="radio" id="resign_reward" name="selected_reward" value="0" amount="0"/><?php echo Text::get('invest-resign') ?></label></li>
+                <li>
+                    <label class="resign">
+                        <input class="individual_reward" type="radio" id="resign_reward" name="selected_reward" value="0" amount="0"/><?php echo Text::get('invest-resign') ?>
+                    </label>
+                </li>
             <?php foreach ($project->individual_rewards as $individual) : ?>
-            <li class="<?php echo $individual->icon ?><?php if ($individual->none) echo ' disabled' ?>">
-                
-                <label class="amount" for="reward_<?php echo $individual->id; ?>">
-                    <input type="radio" name="selected_reward" id="reward_<?php echo $individual->id; ?>" value="<?php echo $individual->id; ?>" amount="<?php echo $individual->amount; ?>" class="individual_reward" title="<?php echo htmlspecialchars($individual->reward) ?>" <?php if ($individual->none) echo 'disabled="disabled"' ?>/>
-                    <span class="amount"><?php echo $individual->amount; ?> 円</span>
-            	<h<?php echo $level + 2 ?> class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>>
-                <p><?php echo htmlspecialchars($individual->description)?></p>
-                    <?php if ($individual->none) : // no quedan ?>
-                    <span class="left"><?php echo Text::get('invest-reward-none') ?></span>
-                    <?php elseif (!empty($individual->units)) : // unidades limitadas ?>
-                    <?/*<strong><?php echo Text::get('project-rewards-individual_reward-limited'); ?></strong><br />
-                    <?php $units = ($individual->units - $individual->taken); // resto
-                    echo Text::html('project-rewards-individual_reward-units_left', $units); ?><br />*/?>
-                <?php endif; ?>
-                </label>
-                
-            </li>
+                <li class="<?php echo $individual->icon ?><?php if ($individual->none) echo ' disabled' ?>">
+                    <label class="amount" for="reward_<?php echo $individual->id; ?>">
+                        <span class="left">
+                            <input type="radio" name="selected_reward" id="reward_<?php echo $individual->id; ?>" value="<?php echo $individual->id; ?>" amount="<?php echo $individual->amount; ?>" class="individual_reward" title="<?php echo htmlspecialchars($individual->reward) ?>" <?php if ($individual->none) echo 'disabled="disabled"' ?> />
+                            <span class="amount"><?php echo $individual->amount; ?> <?php echo Text::get('invest-currency-unit'); ?></span>
+                        </span>
+                        <span class="right">
+                            <h<?php echo $level + 2 ?> class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>>
+                            <?php
+                            if (!empty($individual->image)):
+                                $img_src = $individual->image->getLink(300,300,false);
+                                ?>
+                                <img src="<?php echo $img_src ?>" alt="<?php echo htmlspecialchars($individual->reward) ?>" />
+                                <?php
+                            endif;
+                            ?>
+                            <p><?php echo htmlspecialchars($individual->description)?></p>
+                            <?php if ($individual->none) : // no quedan ?>
+                                <span class="left"><?php echo Text::get('invest-reward-none') ?></span>
+                            <?php elseif (!empty($individual->units)) : // unidades limitadas ?>
+                                <?/*<strong><?php echo Text::get('project-rewards-individual_reward-limited'); ?></strong><br />
+                        <?php $units = ($individual->units - $individual->taken); // resto
+                        echo Text::html('project-rewards-individual_reward-units_left', $units); ?><br />*/?>
+                            <?php endif; ?>
+                            <img src="" alt="">
+                        </span>
+                    </label>
+                </li>
             <?php endforeach ?>
             </ul>
         </div>
@@ -114,10 +139,6 @@ if ($step == 'start') : ?>
                 <label for="fullname"><?php echo Text::get('invest-address-name-field') ?></label><br />
                 <input type="text" id="fullname" name="fullname" value="<?php echo $personal->contract_name; ?>" />
             </td>
-            <!--<td><?php /* Para ocultar el campo nif:  id="donation-data" style="display:none;"  */ ?>
-                <label for="nif"><?php echo Text::get('invest-address-nif-field') ?></label><br />
-                <input type="text" id="nif" name="nif" value="<?php echo $personal->contract_nif; ?>" />
-            </td>-->
         </tr>
         <tr>
             <td>
@@ -129,44 +150,77 @@ if ($step == 'start') : ?>
                 <input type="text" id="zipcode" name="zipcode" value="<?php echo $personal->zipcode; ?>" />
             </td>
         </tr>
-        <? /*
-        <tr>
-            <td>
-                <label for="location"><?php echo Text::get('invest-address-location-field') ?></label><br />
-                <input type="text" id="location" name="location" value="<?php echo $personal->location; ?>" />
-            </td>
-            <td>
-                <label for="country"><?php echo Text::get('invest-address-country-field') ?></label><br />
-                <input type="text" id="country" name="country" value="<?php echo $personal->country; ?>" />
-            </td>
-        </tr>
-        */ ?>
     </table>
-
     <p>
         <label><input type="checkbox" name="anonymous" value="1" /><span class="chkbox"></span><?php echo Text::get('invest-anonymous') ?></label>
     </p>
 </div>
+<?php if (ACL::check('/admin')) : ?>
+<div class="widget project-invest display-name">
+    <h<?php echo $level ?> class="beak" id="address-header"><?php echo Text::get('invest-display-message') ?></h<?php echo $level ?>>
 
+    <table>
+        <tr>
+            <td>
+                <label for="disp_name"><?php echo Text::get('invest-display-name') ?></label><br />
+                <input type="text" id="disp_name" name="disp_name" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="investor_email"><?php echo Text::get('invest-display-address') ?></label><br />
+                <input type="text" id="investor_email" name="investor_email" value="" />
+            </td>
+        </tr>
+    </table>
+</div>
+<?php endif; ?>
 
 <div class="widget project-invest method">
+
+<?php if ( defined('AXESON')) : ?>
     <h<?php echo $level ?> class="beak"><?php echo Text::get('project-invest-continue') ?>
-    <p style="color:#ff3300;margin-bottom: 0;">*注意<br />クレジットカードの決済システム上、次ページからの決済申込フォームでは料金が「￥0」と表示されますが、そのまま決済を進めていただくと正常に処理されますのでご安心ください。</p></h<?php echo $level ?>>
+    <p style="color:#ff3300;margin-bottom: 0;"><?php echo Text::get('invest-axeson-caution') ?></p></h<?php echo $level ?>>
+<?php endif; ?>
+
+<?php if ( defined('EPSILONON')) : ?>
+    <h<?php echo $level ?> class="beak">
+    <p style="color:#ff3300;margin-bottom: 0;margin-top:0;"><?php echo Text::get('invest-axeson-caution-second') ?></p></h<?php echo $level ?>>
+<?php endif; ?>
+
+
             
 <input type="hidden" id="paymethod"  />
 
 <?php if (ACL::check('/admin')) : ?>
-<p><button type="submit" class="process pay-cash" name="method" value="cash">現金</button></p>
+<p><button type="submit" class="process pay-cash" name="method" value="cash"><?php echo Text::get('invest-cash') ?></button></p>
 <?php endif; ?>
 <!--<p><button type="submit" class="process pay-paypal" name="method"  value="paypal">PAYPAL</button></p>-->
-<p><button type="submit" class="process pay-axes" name="method"  value="axes">クレジットカード</button></p>
+
+<?php if ( defined('AXESON')) : ?>
+<p><button type="submit" class="process pay-axes" name="method"  value="axes"><?php echo Text::get('invest-credit-card') ?></button></p>
+<?php endif; ?>
+
+<?php if ( defined('EPSILONON')) : ?>
+<p><button type="submit" class="process pay-axes" name="method"  value="epsilon"><?php echo Text::get('invest-new-credit-card') ?></button></p>
+<?php if ( $repeatf != 0) : ?>
+<div>
+    <button type="submit" class="process pay-axes" name="method"  value="epsilonrepeat"><?php echo Text::get('invest-previous-credit-card') ?></button><br />
+    <p style="color:#ff3300;margin-bottom: 0;"><?php echo Text::get('invest-previous-credit-card-message') ?></p>
+</div>
+<?php endif; ?>
+
+<?php endif; ?>
+
+<?php if ( defined('EPSILONCONVENI')) : ?>
+<p><button type="submit" class="process pay-axes" name="method"  value="conveni"><?php echo Text::get('invest-conveni') ?></button></p>
+<?php endif; ?>
 
 
 </div>
 <?php endif; ?>
 </form>
 
-<?php echo new View('view/project/widget/worth.html.php', array('worthcracy' => $worthcracy, 'level' => $_SESSION['user']->worth)) ?>
 
 <a name="commons"></a>
 <div class="widget project-invest">
@@ -360,7 +414,7 @@ if ($step == 'start') : ?>
 
 
                     /* Has elegido las siguientes recompensas */
-                    if (!confirm( reward+' <?php echo Text::slash('invest-alert-rewards') ?>')) {
+                    if (!confirm( reward+' <?php echo Text::slash('invest-alert-rewards') ?> ')) {
                         return false;
                     }
                 }
@@ -378,6 +432,16 @@ if ($step == 'start') : ?>
 /* Seteo inicial por url */
         reset_amount('<?php echo $amount ?>');
 
-    });    
+        /* 寄付IDを指定して遷移 */
+        var reward_id = 0;
+        var match = location.search.match(/reward=(.*?)(&|$)/);
+        if(match) {
+          reward_id = decodeURIComponent(match[1]);
+          if (reward_id>0){
+            $('input#reward_'+reward_id).trigger('click');
+          }
+        }
+
+    });
     
 </script>

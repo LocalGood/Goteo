@@ -1,0 +1,121 @@
+@charset "utf-8";
+/*----------------------------------------------------------------------
+ discover
+----------------------------------------------------------------------*/
+.discover {
+
+  #sub-header {
+    > div {
+      display: block;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+  }
+
+  //検索ウィジェット
+  .searcher {
+    background-color: transparent;
+    border-bottom: 1px solid $grayCol01;
+    margin-bottom: 24px;
+    padding: 0;
+    form {
+      margin:0 auto;
+      width:960px;
+    }
+    .text-filter {
+      display:block;
+      margin-bottom:20px;
+      label {
+        float:left;
+        font-size:14px;
+        font-weight:700;
+        padding-top:9px;
+        text-transform:uppercase;
+      }
+    }
+    #text-query {
+      background-color:#fff;
+      border:1px solid $grayCol01;
+      box-sizing: content-box;
+      color: $grayCol02;
+      float:left;
+      font-size:16px;
+      margin-left:16px;
+      padding:4px 5px 4px 10px;
+      width:650px;
+    }
+
+    .filter {
+      float:left;
+      margin-right:2px;
+      position:relative;
+      width:190px;
+      &:last-child {
+        margin-right:0;
+      }
+      label {
+        border-bottom:1px solid $grayCol01;
+        color: $grayCol03;
+        display:block;
+        font-size:14px;
+        font-weight:700;
+        padding:5px 5px 6px 0;
+        text-transform:uppercase;
+      }
+      select {
+        background-color: $baseCol;
+        border-style:none;
+        color: $grayCol03;
+        font-size:.9em;
+        margin:0;
+        padding-top:10px;
+        width:100%;
+        option {
+          color: $grayCol03;
+        }
+        option[selected=selected] {
+          background-color: $baseCol;
+          color: $grayCol03;
+        }
+        option.all {
+          color: $grayCol03;
+          font-size:1em;
+          font-weight:700;
+        }
+      }
+    }
+    .searcher-btn {
+      position:absolute;
+      right:40px;
+      top:0;
+      #searcher {
+        background:url('/view/images/search_icon.png') no-repeat center,$subCol01;
+        height:33px;
+        margin: 2px 0 0;
+        text-indent:-9999px;
+        width:80px;
+      }
+    }
+  }
+
+  .widget.projects {
+    > .title {
+      margin-bottom: 30px;
+    }
+    > blockquote {
+      overflow: hidden;
+      padding-bottom: 10px;
+      margin: 0;
+      font-size: 12px;
+    }
+    > h4 {
+      font-size:  14px;
+      font-weight: bold;
+      margin: 0 0 .5em;
+      padding: 0;
+    }
+    .project {
+      min-height: 400px;
+    }
+  }
+}

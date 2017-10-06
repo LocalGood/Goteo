@@ -1,0 +1,2088 @@
+.widget{
+
+  .title {
+    font-size: 18px;
+    font-weight: 600;
+    //text-decoration: none;
+  }
+  .supertitle {
+    font-size: 18px;
+    font-weight: 300;
+    margin: 0;
+    padding: .5em 2px .5em 8px;
+  }
+  h4.supertitle, h3.supertitle {
+    color: $baseWhite;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+  }
+  a.more {
+    float: none;
+    display: block;
+    background-color: $baseWhite;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+
+  //プロジェクト一覧ウィジェット
+  &.projects {
+    background-color: $baseWhite;
+    margin: 0 0 20px;
+    padding-top: 20px;
+    h2.title {
+      padding-top: 0;
+    }
+    #widget-code {
+      width: 350px;
+      float: left;
+      margin: 0 0 0 20px;
+      .wc-embed {
+        background: url("/view/m/images/social/embed.png") no-repeat;
+        min-height: 20px;
+        padding: 3px 0 0 25px;
+      }
+      textarea {
+        width: 200px;
+        height: 130px;
+        margin: 10px 0;
+        padding: 10px;
+        background: #E7E7E7;
+        border: none;
+        font-size: 12px;
+      }
+    }
+    > .title {
+      margin: 0;
+      padding: 16px;
+    }
+    > .more {
+      clear: both;
+      text-align: right;
+      a {
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    .widget-title {
+      padding: 0 0 0 30px;
+    }
+    .widget-porject-legend {
+      margin: 0 0 20px 30px;
+    }
+    > .project-code {
+      float: left;
+      height: auto;
+      margin-left: 45px;
+      overflow: auto;
+      width: auto;
+    }
+    .discover-arrow-left,
+    .discover-arrow-right {
+      display: none;
+    }
+
+    //プロジェクトウィジェット
+    .project{
+      background-color: $baseWhite;
+      border: $solidBorder;
+      border-radius: 4px;
+      margin: 0 auto 20px;
+      padding-bottom: 70px;
+      position: relative;
+      overflow: hidden;
+      width: 92%;
+      z-index:98;
+      &.active{
+        div.image {
+          opacity: 0.85;
+        }
+        > .title a {
+          color: #c5da4d !important;
+        }
+      }
+      a.expand{
+        padding: 0;
+        position:absolute;
+        top:0;bottom:0;left:0;right:0;
+        width:100%;
+        z-index:99;
+      }
+      .image {
+        background-color: $grayCol01;
+        overflow: hidden;
+        padding: 0 !important;
+        position: relative;
+        text-align: center;
+        width: 100%;
+        a {
+          display: block;
+          min-height: 180px;
+          img {
+            width: 100vw;
+            height: auto;
+          }
+        }
+      }
+      .tagmark{
+        background: $grayCol01;
+        bottom: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        color: $grayCol03;
+        padding: 2px 10px;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        &.green{
+          background: $color07;
+        }
+      }
+      .project-details {
+        margin: 16px;
+        h3.title {
+          background: none;
+          font-size: 14px;
+          margin: 0 0 12px;
+          padding: 0;
+          a {
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            position: relative;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 900;
+          }
+        }
+        .author {
+          margin-bottom: 10px;
+          .link {
+            display: block;
+            font-size: 12px;
+            text-decoration: none;
+            position:relative;
+          }
+          .author-img {
+            @include circleAvatar(30px);
+          }
+        }
+        .categories {
+          background: url(/view/images/icon_tag.png) no-repeat left 50%;
+          color: $grayCol02;
+          font-size:12px;
+          padding-left: 20px;
+        }
+      }
+      .meter {
+        .amount-bar {
+          display: none;
+        }
+      }
+      .want-support {
+        border-top: 1px solid $grayCol01;
+        bottom: 0;
+        letter-spacing: -.4em;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        > div {
+          display: inline-block;
+          letter-spacing: normal;
+          vertical-align: top;
+          width: 50%;
+          min-height: 70px;
+          &:first-child {
+            border-right: 1px solid $grayCol01;
+          }
+        }
+        h4 {
+          font-size: 12px;
+          line-height: 1;
+          margin: 10px 0 8px;
+        }
+        img {
+          height: 30px;
+        }
+        .days {
+          height: 30px;
+          line-height: 30px;
+          strong {
+            color: #000;
+          }
+        }
+      }
+      .balloon {
+        background: #cae4e6 url('/view/m/images/balloonbeak.png') no-repeat bottom left;
+        height: auto;
+        padding: 12px;
+        > .title a {
+          position:relative;
+          z-index:99;
+          line-height: 1.5em;
+          font-size: 18px;
+          color: #0098c4
+        }
+        > blockquote {
+          font-size: 12px;
+          margin: 0;
+          overflow: hidden;
+          padding-bottom: 10px;
+        }
+        > h4 {
+          font-size:  14px;
+          font-weight: 600;
+          margin: 0 0 .5em;
+          padding: 0;
+        }
+      }
+
+      .skillmatching {
+        div.image span.sm-icon {
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          width: 40px;
+          height: 40px;
+          background-image: url('/view/images/lg-project-sm.png');
+          background-size:40px 40px;
+        }
+        div.meter dl .days{
+          top:160px;
+        }
+      }
+
+    }
+  }
+
+  //支援（グラフ）
+  &.project-support {
+    .supertitle {
+      background-color: #58585a;
+      color: $baseWhite;
+      font-size: 12px;
+      height: 40px;
+      line-height: 40px;
+      margin: 0;
+      text-align: center;
+      .days {
+        strong {
+          font-size: 14px;
+        }
+      }
+    }
+    .project-widget-box {
+      padding: 15px 20px;
+      position: relative;
+    }
+    .invest-notice {
+      font-size:13px;
+      padding:0 20px 20px;
+    }
+    .meter {
+      dl.reached-bar {
+        .supporters {
+          display: inline-block;
+          strong {
+            color: #000;
+            font-size: 16px;
+          }
+        }
+        dt.supporters {
+          :before {
+            content: '/';
+            display: inline-block;
+          }
+        }
+      }
+      dl.percent {
+        top: 58px;
+      }
+      dl.amount-bar {
+        dt {
+          min-width: 90px;
+        }
+        dd {
+            min-width: 110px;
+        }
+      }
+    }
+  }
+
+  //プロジェクト概要
+  &.project-summary{
+    border-bottom: $solidBorder;
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 600;
+      line-height: 1.3em;
+      margin-top: 0;
+    }
+    h1, h2 {
+      font-size: 20px;
+      font-weight: 300;
+    }
+    h4 {
+      font-size: 18px;
+    }
+    h5, h6 {
+      font-size: 16px;
+    }
+    > div {
+      font-size: 14px;
+    }
+    &.h_ttl {
+      background: none;
+      border-bottom: none;
+      padding: 20px;
+      h3 {
+        margin: 0 0 15px 0;
+        font-size: 18px;
+        font-weight: 300;
+      }
+      .project-subtitle {
+        font-size: 13px;
+      }
+      .wants-skills,
+      .wants-skills a,
+      .categories > h3,
+      .categories > a {
+        font-size: 11px;
+      }
+      .wants-skills {
+        margin-bottom: 8px;
+      }
+      .categories {
+        background: url('/view/m/images/icon_tag@2x.png') no-repeat left 50% / 12px;
+        margin-bottom: 0;
+        padding-left: 16px;
+        h3 {
+          display: none;
+        }
+        a {
+          color: #58595B;
+          display: inline-block;
+          text-decoration: none;
+          &:hover {
+            color: #20B3B2;
+          }
+        }
+      }
+    }
+    > .wants-skills .matched_skill {
+      background-color:#f99;
+      font-size: 11px;
+    }
+    img {
+      height: auto;
+      width: 100% !important;
+    }
+    .description {
+      margin: 0 0 20px 0;
+    }
+    .about,
+    .motivation,
+    .goal,
+    .related {
+      margin: 0 0 10px 0;
+      h4 {
+        font-size: 16px;
+        margin: 0 0 1em 0;
+        padding: 0;
+      }
+    }
+  }
+
+  //支援するボタンウィジェット
+  &.project-support_btn {
+    border-bottom: $solidBorder;
+    padding: 40px 0;
+    a.button {
+      background-color: $subCol02;
+    }
+  }
+
+  //シェアウィジェット
+  &.project-share {
+    padding: 26px 20px 50px;
+    position: relative;
+    .title {
+      border:none;
+      margin: 0 0 26px;
+      text-align: center;
+    }
+    .social_bookmark {
+      left: 0;
+      margin: auto;
+      max-width: 500px;
+      top: 75px;
+    }
+  }
+
+  //オーナーウィジェット
+  &.user {
+    background-color: $baseWhite;
+    .supertitle {
+      display: none;
+    }
+    h3.supertitle {
+      background-color: #669900;
+      border-bottom: none;
+      color: $baseWhite;
+      font-size: 15px;
+      font-weight: 300;
+      height: 40px;
+      line-height: 40px;
+      padding: 0;
+      padding-left: 20px;
+    }
+    .project-widget-box {
+      margin: 0;
+      padding: 16px;
+      position: relative;
+      blockquote.about {
+        font-size: 12px;
+        line-height: 1.4em;
+        margin: 10px 0 0 0;
+      }
+      dl {
+        border: $solidBorder;
+        border-radius: 6px;
+        font-size: 13px;
+        margin: 20px 0;
+        padding: 0;
+        dt {
+          display: none;
+        }
+        dd {
+          border: none;
+          border-bottom: $solidBorder;
+          line-height: 1.4em;
+          margin-left: 0;
+          padding: 0.8em 1.5em 0.8em 50px;
+          text-align: left;
+          text-indent: 0;
+          a {
+            text-decoration: none;
+          }
+          &:last-child {
+            border: none;
+          }
+          &.location {
+            background: url('/view/m/images/location/s.png') no-repeat 1.5em center;
+          }
+          &.message {
+            background: url('/view/m/images/bocadillo/s.png') no-repeat 1.5em center;
+            a {
+              color: #666;
+              font-size: 14px;
+              font-weight: 300;
+            }
+          }
+          &.links {
+            background: url('/view/m/images/social/url.png') no-repeat 1.5em center;
+            ul {
+              line-height: 1.2em !important;
+              li a {
+                font-size: 14px;
+                font-weight: 300;
+              }
+            }
+          }
+          &.profile {
+            background: url('/view/m/images/icon/m/s_task.png')no-repeat 1.1em center;
+          }
+        }
+      }
+    }
+    .user-head {
+      margin-bottom: 20px;
+      .image {
+        @include circleAvatar(60px);
+      }
+      &-right {
+        display: inline-block;
+        padding-left: 10px;
+        vertical-align: middle;
+        width: 200px;
+        .title {
+          margin: 0 0 4px;
+          a {
+            color: $mainCol01;
+            text-decoration: none;
+          }
+        }
+        .location {
+          background: url(/view/images/location/s.png) no-repeat left center;
+          padding-left: 18px;
+          a {
+            color: $grayCol02;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    .about {
+      p {
+        line-height: 1.5;
+        margin: 0 0 20px;
+        padding: 0 2px;
+      }
+    }
+    .links {
+      line-height: 36px;
+      margin: 0 0 20px 0;
+      padding: 0;
+      ul {
+        line-height: 18px;
+        list-style-type: none;
+        margin: 0;
+        padding-left: 0;
+        a {
+          font-size: 14px;
+          font-weight: 600;
+          text-decoration: none;
+          word-wrap: break-word;
+        }
+      }
+      &.message {
+        background: url(/view/images/bocadillo/s.png) no-repeat left center;
+        padding-left: 22px;
+        text-decoration: none;
+        text-indent: .5em;
+        a {
+          color: #28B258;
+          font-size: 14px;
+          font-weight: 600;
+          text-decoration: none;
+        }
+      }
+    }
+    .widget.user-social {
+      margin-bottom: 20px;
+      padding: 0;
+      .title {
+        display: none;
+      }
+      ul {
+        @include cf;
+        list-style:none;
+        margin:0;
+        overflow:visible;
+        padding:0;
+        li {
+          float:left;
+          margin-right: 10px;
+          a {
+            background:no-repeat left center;
+            display: inline-block;
+            text-indent: -99999px;
+            width: 20px;
+            height: 20px;
+          }
+          &.facebook {
+            a {
+              background-image:url(/view/images/social/facebook.png);
+            }
+          }
+          &.google {
+            a {
+              background-image:url(/view/images/social/google.png);
+            }
+          }
+          &.twitter {
+            a {
+              background-image:url(/view/images/social/twitter.png);
+            }
+          }
+          &.identica {
+            a {
+              background-image:url(/view/images/social/identica.png);
+            }
+          }
+          &.linkedin {
+            a {
+              background-image:url(/view/images/social/linkedin.png);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //スキルと物品の募集ウィジェット
+  &.project-collaborations {
+    .project-widget-box {
+      background-color: $baseWhite;
+    }
+    h4.supertitle {
+      background-color: #33cc99;
+    }
+    h5.title {
+      margin-top: 0;
+      margin-bottom: 0;
+      color: #58595b;
+      font-weight: 600;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      li {
+        line-height: 32px;
+        min-height: 32px;
+        > p {
+          font-size: 13px;
+          line-height: 1.7em;
+          margin:  0;
+        }
+      }
+    }
+    a.button {
+      display: block;
+      width: 200px;
+      height: 50px;
+      margin: 0 auto;
+      padding: 0;
+      background: none;
+      background: #66cc99; /* Old browsers */
+      background: -moz-linear-gradient(top,  #66cc99 0%, #339966 100%); /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#66cc99), color-stop(100%,#339966)); /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top,  #66cc99 0%,#339966 100%); /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top,  #66cc99 0%,#339966 100%); /* Opera 11.10+ */
+      background: linear-gradient(to bottom,  #66cc99 0%,#339966 100%); /* W3C */
+      font-size: 12px;
+      line-height: 50px;
+    }
+  }
+
+  //メッセージ送信ウィジェット
+  &.project-message {
+    position:relative;
+    h3.title {
+      margin: 0 0 12px;
+      padding: 0;
+    }
+    form {
+      overflow: hidden;
+    }
+    div#bocadillo{
+      @include comment_icon(30px);
+    }
+    textarea#message_text {
+      background-color: $baseWhite;
+      border: $solidBorder;
+      box-sizing: content-box;
+      border-radius: 3px;
+      clear: right;
+      display: block;
+      float: right;
+      height: 50px;
+      margin: 0 0 12px;
+      padding: .3em 0;
+      width: 85%;
+    }
+    a.preview{
+      display: inline-block;
+      position: absolute;
+      top: 178px;
+      left: 48px;
+      height: 38px;
+      line-height: 38px;
+      color: #2EAB58;
+      text-decoration: none;
+      font-weight: 300;
+      font-style: normal;
+    }
+    .button {
+      float: right;
+      margin: 1em 0 0;
+    }
+  }
+
+  //メッセージ表示ウィジェット
+  &.project-messages {
+    #project-messages {
+      > div {
+        @include message_box;
+      }
+    }
+    div.message + div.message,
+    div.child + div.message,
+    div.child {
+      margin-top: 20px;
+    }
+    div.message,
+    div.child {
+      .avatar {
+        @include circleAvatar(40px);
+        left: -50px;
+        text-align: left;
+        top: 0;
+        position: absolute;
+      }
+      h3.user {
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0 0 1em;
+        a{
+          text-decoration:none;
+          .user_name {
+            color: $mainCol01;
+          }
+        }
+      }
+      blockquote {
+        margin: 0 0 16px;
+        padding: 0;
+      }
+      .actions_date {
+        margin-top: 1em;
+        padding-top: .4em;
+        a {
+          color: $mainCol01;
+          font-size: 12px;
+          text-decoration: none;
+        }
+        .date {
+          float: right;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  //お礼・公共リターン
+  &.project-rewards-summary {
+    h4.title {
+      margin: 0 0 16px;
+      padding-left: 0;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        background-color: $baseCol;
+        font-size: 12px;
+        margin-bottom: 12px;
+        min-height: 33px;
+        padding: 12px 16px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        h5.name {
+          font-size: 14px;
+          font-weight: 600;
+          margin: 0 0 6px;
+        }
+        > p {
+          margin:  0 0 1em;
+        }
+      }
+    }
+    div.individual {
+      background-color: $baseWhite;
+      margin-bottom: 20px;
+      padding: 20px;
+      ul {
+        li{
+          dl {
+            @include cf;
+            margin: 0;
+            dt {
+              float: left;
+              font-size: 13px;
+              line-height: 22px;
+              width: 70px;
+            }
+            dd {
+              color: $grayCol03;
+              float: left;
+              font-size: 14px;
+              font-weight: 600;
+              line-height: 22px;
+              margin-left: 0;
+            }
+            &.remain {
+              margin-bottom: 12px;
+            }
+          }
+          img {
+            width: 100%;
+            height: auto;
+            min-height: 200px;
+          }
+        }
+      }
+    }
+    div.social {
+      background-color: $baseWhite;
+      margin-bottom: 20px;
+      padding: 20px;
+      ul {
+        margin-top: 0;
+        li {
+          &.active {
+            background-color: #d5ebd7;
+          }
+          &.money {
+            h4.name {
+              line-height: 1em;
+            }
+          }
+          &.file {
+            h5.name {
+              font-size: 14px;
+              font-weight: 600;
+              margin: 0 0 6px;
+            }
+          }
+          &.service,
+          &.file {
+            > h5.name {
+              padding-top: 0;
+              margin-bottom: .4em;
+            }
+          }
+          span.name{
+            font-size: 13px;
+            font-weight: 600;
+            margin: 0 0 .4em;
+          }
+          span.taken {
+            border: #313B96 1px solid;
+            color: #313B96;
+            margin-left: 6px;
+            margin-right: 5px;
+            padding: 2px 6px;
+          }
+          span.left {
+            color: #EE4843;
+            font-weight: 600;
+          }
+          div.investors {
+            color: #313B96;
+            padding: 2px 6px 2px 3px;
+            margin-top: 10px;
+          }
+          div.license {
+            font-size: 12px;
+            h6 {
+              font-size: 14px;
+              font-weight: 600;
+              margin: 0;
+              padding: 0;
+            }
+            p {
+              margin: .2em 0;
+            }
+            a {
+              text-decoration: none;
+            }
+            > a strong {
+              background: url("/view/m/images/license/license.png") no-repeat left 4px;
+              display: block;
+              padding-top: 40px;
+            }
+
+            &.agpl > a strong {
+              background-image: url('/view/m/images/license/agpl.png');
+            }
+            &.apache > a strong {
+              background-image: url('/view/m/images/license/apache.png');
+            }
+            &.balloon > a strong {
+              background-image: url('/view/m/images/license/balloon.png');
+            }
+            &.bsd > a strong {
+              background-image: url('/view/m/images/license/bsd.png');
+            }
+            &.cc0 > a strong {
+              background-image: url('/view/m/images/license/cc0.png');
+            }
+            &.ccby > a strong {
+              background-image: url('/view/m/images/license/ccby.png');
+            }
+            &.ccbync > a strong {
+              background-image: url('/view/m/images/license/ccbync.png');
+            }
+            &.ccbyncnd > a strong {
+              background-image: url('/view/m/images/license/ccbyncnd.png');
+            }
+            &.ccbyncsa > a strong {
+              background-image: url('/view/m/images/license/ccbyncsa.png');
+            }
+            &.ccbynd > a strong {
+              background-image: url('/view/m/images/license/ccbynd.png');
+            }
+            &.ccbysa > a strong {
+              background-image: url('/view/m/images/license/ccbysa.png');
+            }
+            &.fal > a strong {
+              background-image: url('/view/m/images/license/fal.png');
+            }
+            &.fdl > a strong {
+              background-image: url('/view/m/images/license/fdl.png');
+            }
+            &.freebsd > a strong {
+              background-image: url('/view/m/images/license/freebsd.png');
+            }
+            &.gpl > a strong {
+              background-image: url('/view/m/images/license/gpl.png');
+            }
+            &.gpl2 > a strong {
+              background-image: url('/view/m/images/license/gpl2.png');
+            }
+            &.lgpl > a strong {
+              background-image: url('/view/m/images/license/lgpl.png');
+            }
+            &.mit > a strong {
+              background-image: url('/view/m/images/license/mit.png');
+            }
+            &.mpl > a strong {
+              background-image: url('/view/m/images/license/mpl.png');
+            }
+            &.odbl > a strong {
+              background-image: url('/view/m/images/license/odbl.png');
+            }
+            &.odcby > a strong {
+              background-image: url('/view/m/images/license/odcby.png');
+            }
+            &.oshw > a strong {
+              background-image: url('/view/m/images/license/oshw.png');
+            }
+            &.pd > a strong {
+              background-image: url('/view/m/images/license/pd.png');
+            }
+            &.php > a strong {
+              background-image: url('/view/m/images/license/php.png');
+            }
+            &.tapr > a strong {
+              background-image: url('/view/m/images/license/tapr.png');
+            }
+            &.xoln > a strong {
+              background-image: url('/view/m/images/license/xoln.png');
+            }
+          }
+        }
+      }
+    }
+    a.button {
+      background: linear-gradient(to bottom, #f2bb67 0%,#ff9900 100%);
+      display: block;
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2bb67', endColorstr='#ff9900',GradientType=0 );
+      font-size: 14px;
+      height: 30px;
+      line-height: 30px;
+      margin: 10px auto;
+      padding-left: 8px!important;
+      padding-right: 8px!important;
+      width: 160px;
+    }
+  }
+
+  //資金の内訳ウィジェット
+  &.project-needs {
+    padding: 0 0 20px;
+    h4 {
+      background-color: #666666;
+      color: #f5f5f5;
+      font-weight: 300;
+      margin: 0;
+    }
+    div#legend{
+      background-color: $baseWhite;
+      margin-bottom: 20px;
+      div.min,
+      div.max {
+        font-size: 13px;
+        line-height:20px;
+        margin-bottom: 8px;
+        span {
+          background-color: $baseCol;
+          display:inline-block;
+          height:20px;
+          margin-right: 4px;
+          width:20px;
+        }
+      }
+    }
+    .summary {
+      font-size: 18px;
+      font-weight: 600;
+      padding-left: 16px;
+      text-align: left;
+    }
+    p.click {
+      margin: 0 0 12px;
+      span.text {
+        clear:left;
+        font-size: 14px;
+        font-weight: 300;
+        margin: 3px 0 0 10px;
+        padding: 0;
+      }
+    }
+    .needs_list {
+      margin: 0 auto;
+      overflow: hidden;
+      width: 230px;
+      dt,
+      dd {
+        display: inline-block;
+        height: 24px;
+        line-height: 24px;
+        margin-right: 4px;
+        width: 90px;
+        &.min {
+          span {
+            background: $baseWhite;
+          }
+        }
+        &.max {
+          line-height: 20px;
+          span {
+            background: $baseWhite;
+          }
+        }
+      }
+      dd {
+        font-weight: 600;
+        margin-left: 0;
+        width: 120px;
+        &.max{
+          padding-right: 0;
+        }
+      }
+    }
+    .req,
+    .noreq {
+      margin-bottom: 20px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      .inner {
+        background-color: $baseCol;
+        padding: 20px;
+      }
+    }
+    .structure #legend dd.min {
+      margin-right: 0;
+    }
+    h5.summary {
+      background: no-repeat 16px 50%;
+      margin: 0;
+      min-height: 32px;
+      padding-left: 0;
+    }
+    .task {
+      h5.summary {
+        display: table;
+        font-size: 18px;
+        margin: 0;
+        span {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+  //資金の内訳ウィジェット
+  &.project-needs {
+    table {
+      border-collapse: collapse;
+      thead {
+        th {
+          &.summary {
+            padding: 3px 8px 3px 0;
+          }
+        }
+        th {
+          background-position: left 50%;
+          background-repeat: no-repeat;
+          font-size: 16px;
+          font-weight: 700;
+          min-height: 32px;
+          padding-bottom: 16px;
+          padding-left: 40px;
+        }
+      }
+      tbody {
+        background: $baseWhite;
+        th.summary {
+          padding: 16px 20px;
+        }
+      }
+      tr {
+        &:not(:last-child) {
+          border-bottom: $solidBorder;
+        }
+        &.req {
+          background: $baseWhite;
+        }
+        &.noreq {
+          background: $baseWhite;
+        }
+        &.sum {
+          th {
+            padding: 12px 20px 10px 0;
+            text-align: right;
+          }
+        }
+      }
+      th {
+        padding: 3px 20px;
+        &.summary {
+          padding-right: 20px;
+          text-align: left;
+          .click {
+            margin-left: 5px;
+            span {
+              display: block;
+              margin-bottom: 12px;
+              max-width: 360px;
+            }
+            blockquote {
+              font-size: 14px;
+              font-weight: 400;
+              margin: 0;
+              padding: 0;
+            }
+          }
+        }
+        &.min,
+        &.max {
+          font-size: 14px;
+          padding: 3px 7px;
+          vertical-align: middle;
+          width: 120px;
+          word-wrap: break-word;
+        }
+      }
+      td {
+        font-size: 14px;
+        padding: 16px 20px 16px 0;
+        text-align: right;
+        vertical-align: top;
+        word-wrap: break-word;
+      }
+    }
+    table thead + tbody + thead th.min, table thead + tbody + thead th.max {
+      font-size: 0;
+    }
+  }
+
+  //スケジュールウィジェット
+  &.project-schedule {
+    h3.title {
+      margin: 0 0 8px;
+      padding: 0;
+    }
+    .table_wrapper {
+      overflow-x: scroll;
+    }
+    table {
+      background-color: $baseCol;
+      border-collapse: separate;
+      width: 100%;
+      td,
+      th {
+        box-sizing: content-box;
+        font-size: 12px;
+      }
+      thead {
+        &.days,
+        &.weeks {
+          display: none;
+        }
+        &.months {
+          tr {
+            th {
+              font-size: 14px;
+              &:first-child {
+                span {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+      tbody {
+        th,
+        td {
+          border-bottom: 8px solid $baseCol;
+          box-sizing: content-box;
+          height: 30px;
+          padding: 0 8px;
+          vertical-align: middle;
+        }
+        th {
+          font-weight: 300;
+          text-align: left;
+          min-width: 120px;
+        }
+        td {
+          &.on {
+            background-color: $color10;
+          }
+        }
+      }
+    }
+  }
+
+  //支援者ウィジェット
+  &.project-supporters {
+    @include cf;
+    .supporters {
+      ul {
+        background-color: $baseWhite;
+        list-style: none;
+        margin: -20px 0 0 0;
+        overflow: hidden;
+        padding: 0;
+        li{
+          border-bottom: $solidBorder;
+          border-right: $solidBorder;
+          float: left;
+          height:110px;
+          position: relative;
+          width: 50%;
+          &:nth-child(2n+2) {
+            border-right: none;
+          }
+          &.active {
+            background-color: #f3f3f3;
+            h3, h4, h5, h6 {
+              color: #20B3B2;
+            }
+          }
+          .supporterContainer {
+            padding: 6px;
+          }
+          a.expand {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            text-decoration: none;
+            z-index: 999;
+          }
+          > div.supporter {
+            h4{
+              padding-bottom:3px;
+              border-bottom:#D5D5D6 1px solid;
+              overflow:hidden;
+              margin-bottom:6px;
+              > a {
+                max-height: 6px;
+                max-width: 175px;
+                overflow: hidden;
+              }
+            }
+          }
+          .avatar {
+            @include circleAvatar(44px);
+            display: block;
+            margin: 0 auto;
+          }
+          h3, h4, h5, h6 {
+            font-size: 12px;
+            font-weight: 600;
+            margin: 0 0 .5em;
+            a {
+              font-size: 12px !important;
+              text-decoration: none;
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              padding: 10px 10px 10px 70px;
+              z-index: 9999;
+              display: block;
+            }
+          }
+          h4 {
+            font-size: 16px;
+            line-height: 16px;
+            margin: 8px 0 4px;
+            overflow: hidden;
+            text-align: center;
+            word-wrap: break-word;
+          }
+          a:hover {
+            color: #20B3B2;
+          }
+          dl,
+          dl dt,
+          dl dd {
+            margin: 0;
+            font-size: 12px;
+            text-align: center;
+          }
+          dl {
+            dt {
+              display: none;
+            }
+            dd {
+              &.date {
+                color: #a6a8ab;
+                font-size: 10px;
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+    ul#pagination {
+      clear: both;
+      li {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  //決済後のページにでる埋め込み用プロジェクトのウィジェット
+  &.project-spread {
+    > h3.title {
+      margin-top: 0;
+    }
+    .widget{
+      background-color: $baseWhite;
+      height: auto;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+    .widget.projects {
+      border: 1px dashed $grayCol02;
+      padding: 12px 20px;
+      #widget-code {
+        clear: both;
+        float: none;
+        margin: 0;
+        padding: 20px 0 0;
+        width: auto;
+        box-sizing: border-box;
+        textarea {
+          background: $baseCol;
+          border: none;
+          clear: both;
+          font-size: 12px;
+          height: 130px;
+          padding: 10px;
+          resize: none;
+          width: 100%;
+          word-wrap: break-word;
+        }
+      }
+      > div.right {
+        margin-left: 12px;
+      }
+      .widget.project {
+        .image {
+          min-height: 130px;
+          a {
+            display: block;
+            img {
+              width: auto;
+              height: 100%;
+            }
+          }
+        }
+        .meter {
+          padding-bottom: 90px;
+        }
+      }
+    }
+    .subtitle {
+      margin:0 0 10px 7px;
+      padding: 0;
+      //width: 245px;
+      > span{
+        display:block;
+        &.primero {
+          margin-bottom:3px;
+        }
+        &.segundo {
+          color: #28ACAB;
+          font-weight: 600;
+        }
+      }
+    }
+    .obtained {
+      display: none;
+    }
+  }
+
+  //ブログ活動報告ウィジェット
+  &.post {
+    line-height: 18px;
+    margin: 0 ;
+    h4 {
+      margin: 0 0 16px;
+      line-height: 32px;
+      a {
+        font-size: 15px;
+        font-weight: 600;
+        margin: 0 0 5px;
+        text-decoration: none;
+      }
+    }
+    .date {
+      display: block;
+      color: $grayCol02;
+      font-size: 12px;
+    }
+    blockquote {
+      font-size: 13px;
+      line-height: 1.7em;
+      margin: 8px 0 12px;
+    }
+    .read_more {
+      margin-top: 12px;
+      a {
+        @include text_link_arrow($mainCol02);
+        color: $mainCol01;
+        display: inline-block;
+        font-size: 12px;
+        line-height: 2;
+        position: relative;
+        text-decoration: none;
+        &:after {
+          padding-left: 4px;
+        }
+        &:hover{
+          color: $mainCol02;
+        }
+      }
+    }
+    .categories{
+      display:block;
+      color:$grayCol02;
+      margin: 0 0 8px 0;
+    }
+    .gallery-image {
+      text-align: center;
+      margin: 0 auto;
+      img {
+        margin: 0 auto;
+        width: auto;
+        max-height: 240px;
+      }
+    }
+    .embed{
+      width: 500px;
+      height: 285px;
+      margin: 10px  18px;
+    }
+    .embed-legend{
+      border-left: 2px solid #58595B;
+      color: #9B9B9D;
+      font-size: 0.9em;
+      margin-left: 16px;
+      width: 495px;
+      padding-left: 10px;
+      margin-bottom:10px;
+      font-style:oblique
+    }
+    .comments-num {
+      float: none;
+      background: transparent url('/view/m/images/ico-blogcomment.png') scroll no-repeat 10px 0;
+      background-color: $baseWhite;
+      padding: 0 0 0 40px;
+      height: 40px;
+      width: auto;
+      margin: 0;
+      line-height: 24px;
+      a {
+        color: #00ad4e;
+        font-size: 12px;
+        text-decoration: none;
+        line-height: 16px;
+      }
+    }
+    .post-gallery-container{
+      width:580px;
+      height:300px;
+      display:none;
+    }
+    .post-gallery {
+      ul.slderpag {
+        margin: 8px 0 0 0;
+        list-style:none;
+        padding:0;
+        float:left;
+        height:auto;
+        li{
+          cursor:pointer;
+          display: block;
+          float: left;
+          overflow: hidden;
+          margin: 0 4px 5px 4px;
+          a{
+            width: 12px;
+            height: 12px;
+            margin-top: 2px;
+            background-color: #cdcdce;
+            color: #cdcdce;
+            display:block;
+            &:hover{
+              background-color: #20b3b2;
+              color: #20b3b2;
+            }
+          }
+          &.current {
+            a {
+              background-color: #808184 !important;
+              color: #808184 !important;
+            }
+          }
+        }
+      }
+      a {
+        &.next,
+        &.prev {
+          width: 16px;
+          height: 16px;
+          line-height: 2000px;
+          overflow: hidden;
+          float:left;
+          margin: 8px 0 0 0;
+          cursor:pointer;
+        }
+        &.prev{
+          background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 0;
+          &:hover {
+            background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 -32px;
+          }
+        }
+        &.next{
+          background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 -16px;
+          &:hover{
+            background: url('/view/m/images/small_arrowslider-sprt.png') scroll no-repeat 0 -48px;
+          }
+        }
+      }
+    }
+  }
+
+  //ブログ活動報告コメントウィジェット
+  &.post-comments {
+    background-color: $baseWhite;
+    margin: 0;
+    padding: 20px 10px 10px;
+    #post-comments {
+      > div {
+        @include message_box;
+        &.message {
+          .avatar {
+            @include circleAvatar(40px);
+            position: absolute;
+            left: -50px;
+            top: 0;
+          }
+          .user {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0 0 1em;
+            float: left;
+          }
+          .date {
+            float: right;
+            color: #808080;
+            font-size: 12px;
+          }
+          blockquote {
+            margin: 0;
+            padding: 0;
+            clear: both;
+          }
+        }
+      }
+    }
+    div.message + div.message {
+      margin-top: 20px;
+    }
+  }
+
+  //ブログ活動報告コメントを書く　ウィジェット
+  &.blog-comment{
+    background-color: $baseWhite;
+    margin: 0;
+    overflow: hidden;
+    padding: 10px 0;
+    position:relative;
+    form {
+      @include cf;
+    }
+    textarea#send_message {
+      background-color: $baseWhite;
+      border: $solidBorder;
+      box-sizing: content-box;
+      border-radius: 3px;
+      clear: right;
+      display: block;
+      float: right;
+      height: 50px;
+      margin: 0 0 12px;
+      padding: .3em 0;
+      width: 85%;
+    }
+    a.preview{
+      color: #2EAB58;
+      font-weight: 300;
+      left: 60px;
+      position: absolute;
+      text-decoration: none;
+      top: 194px;
+      font-style: normal;
+      display: block;
+      width: 60px;
+      font-size: 12px;
+    }
+    button.green{
+      display: block;
+      float: right;
+      margin: 0 10px 10px 10px;
+      text-align: center;
+    }
+    div#bocadillo{
+      @include comment_icon(30px);
+    }
+  }
+
+  //達成報告
+  &.project-evaluation {
+    padding: 10px 0;
+    h3.title {
+      margin-top: 0;
+      padding-left: 0;
+    }
+  }
+
+
+  //ユーザー
+  &.worthcracy {
+    text-align: center;
+    .title {
+      text-align: left !important;
+    }
+    ul {
+      padding: 3em 52px 3em 0;
+      margin: 0;
+      list-style: none;
+      position: relative;
+      display: inline-block;
+      background: url('yen/xl.png') no-repeat right center;
+      li {
+        display: inline-block;
+        width: 92px;
+        height: 8px;
+        overflow: visible;
+        background-color: #e7e7e7;
+        position: relative;
+        > span.threshold,
+        > strong,
+        > em {
+          display: block;
+          width: 92px;
+          position: absolute;
+          text-align: center;
+        }
+        > span.threshold {
+          top: -25px;
+          font-size: 16px;
+        }
+        > em,
+        > strong {
+          top: 12px;
+          width: 300px;
+          left: 50%;
+          margin-left: -150px;
+          color: $grayCol02;
+        }
+        > em {
+          font-style: normal;
+          font-size: 12px;
+        }
+        &.done {
+          &.worth-1,
+          &.active {
+            background-color: #B6CAE0 !important;
+            color: #B6CAE0;
+          }
+          &.worth-2,
+          &.worth-2.active {
+            background-color: #92AFD1 !important;
+            color: #92AFD1;
+          }
+          &.worth-3,
+          &.worth-3.active {
+            background-color: #799EC7 !important;
+            color: #799EC7;
+          }
+          &.worth-4,
+          &.worth-4.active {
+            background-color: #3C71AE !important;
+            color: #3C71AE;
+          }
+          &.worth-5,
+          &.worth-5.active {
+            background-color: #0C4E99 !important;
+            color: #0C4E99;
+          }
+        }
+      }
+    }
+    &.user-worthcracy {
+      h3.title {
+        padding-left: 20px;
+      }
+      ul li > strong {
+        font-weight: 600;
+        font-size: 18px;
+        top: 15px;
+        padding-top: 9px;
+        background: url('/view/m/images/worth/beak.png') no-repeat top center;
+      }
+      div.worth-amount {
+        display: inline;
+        float: left;
+        color: #990033;
+        font-weight: 600;
+        font-size: 30px;
+        position: relative;
+        top: -10px;
+        left: 35px;
+        line-height: 33px;
+        padding-right: 30px;
+        background: url('/view/m/images/yen/violet/l.png') no-repeat center right;
+        border-bottom: 1px solid #990033;
+      }
+    }
+  }
+
+  //支援するウィジェット
+  //支援する
+  &.project-invest {
+    h1,h2,h3,h4,h5,h6 {
+      font-weight: 700;
+      margin-top: 0;
+      text-transform: none;
+    }
+    h1,h2,h3 {
+      font-size: 24px;
+    }
+    h4 {
+      font-size: 18px;
+    }
+    h5,h6 {
+      font-size: 16px;
+    }
+    h3.title {}
+    > div {
+      margin-bottom: 2em;
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    div.invest-message {
+      background: url('/view/images/project/view/invest/message_beak.png') no-repeat left bottom;
+      min-height:70px;
+      h2 {
+        margin: 0!important;
+        span {
+          color: #000;
+        }
+      }
+      img {
+        float: left;
+        margin-right: 20px;
+      }
+      span.message {
+        color: $grayCol03!important;
+        font-size: .9em!important;
+        font-weight: 400!important;
+        padding: 0;
+        text-transform: none!important;
+      }
+    }
+    h3.beak {
+      position: relative;
+      background: $mainCol01;
+      color: $baseWhite;
+      font-size: 1em!important;
+      padding: 20px;
+      text-transform: uppercase!important;
+      &::after{
+        border: 10px solid transparent;
+        border-top: 10px solid $mainCol01;
+        bottom: -20px;
+        content: '';
+        display: block;
+        height: 0;
+        left: 20px;
+        position: absolute;
+        width: 0;
+      }
+      span {
+        display: block;
+      }
+    }
+    //todo: 多分いらない
+    //.address {
+    //  margin: 0 auto;
+    //  padding: 0 0 20px 0;
+    //  clear: left;
+    //  background-color: $baseWhite;
+    //}
+    form {
+      padding: 24px 0 24px 8px;
+    }
+
+    //支援する -> 支援額(.project-investと同時に指定)
+    &.project-invest-amount {
+      margin-bottom: 20px;
+      h3.title {
+        font-size: 20px;
+        margin-bottom: 12px;
+        padding-left: 0;
+      }
+      form {
+        padding: 12px 0;
+      }
+      h4 {
+        margin-bottom: 12px;
+      }
+      label::before{
+        background: $mainCol01;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        content: '￥';
+        display: inline-block;
+        color: $baseWhite;
+        font-size: 16px;
+        font-weight: bold;
+        height: 25px;
+        line-height: 27px;
+        margin-right: 6px;
+        text-align: center;
+        vertical-align: top;
+        width: 25px;
+      }
+      #amount {
+        color: $color10;
+        font-size: 24px;
+        font-weight: 700;
+        height: 24px;
+        line-height: 40px;
+        margin-right: 8px;
+        padding: 0 8px;
+        width: 140px;
+      }
+    }
+
+    //支援する -> 住所部分
+    &.address {
+      table {
+        width:100%;
+        td {
+          padding-bottom: 8px;
+        }
+      }
+      label {
+        padding-right:5px;
+        text-align:right;
+      }
+      #fullname,
+      #address {
+        width: 100%;
+      }
+      #nif,#zipcode {
+        width: 100px;
+      }
+    }
+
+    //支援する -> 支払いボタン部分
+    &.method {
+      h3.beak {
+        &::after {
+          left: 0;
+          right: 0;
+          margin: auto;
+        }
+      }
+      input#paymethod {
+        width: 145px;
+        margin: 0 auto;
+        padding-bottom: 25px;
+      }
+    }
+
+    div.individual {
+      ul {
+        border-top: $solidBorder;
+        li {
+          border-bottom: $solidBorder;
+          padding:0;
+          label {
+            @include cf;
+            padding: 16px 20px;
+            &.amount {
+              color: $color10;
+              cursor: pointer;
+              display: block;
+              font-weight: 700;
+              h1, h2, h3, h4, h5, h6 {
+                color: #000;
+                font-size: 13px;
+                font-weight: 400;
+              }
+              h5 {
+                color: $grayCol03;
+                font-weight: 600;
+                margin-bottom: 8px;
+              }
+              p {
+                color: $grayCol03;
+                font-size: 13px;
+                font-weight: 400;
+                margin: 0;
+              }
+            }
+            &.resign {
+              cursor: pointer;
+              display: block;
+            }
+            .left {
+              display: block;
+              float: left;
+              width: 60%;
+            }
+            .right {
+              display: block;
+              float: right;
+              width: 40%;
+              img {
+                width: 100%;
+                height: auto;
+              }
+            }
+          }
+          &.disabled {
+            background-color: $baseCol;
+            label.amount {
+              color: $grayCol03;
+            }
+          }
+        }
+      }
+    }
+
+    button {
+      &.pay-tpv {
+        background:url('/view/images/button/tpv.gif') no-repeat 0 0 transparent;
+        height: 35px;
+        padding: 3px;
+        text-indent: 2000px;
+        width: 178px;
+      }
+      &.pay-paypal {
+        background:url('/view/images/button/paypal.gif') no-repeat 0 0 transparent;
+        height: 32px;
+        padding: 3px;
+        text-indent: 2000px;
+        width: 145px;
+      }
+      &:hover {
+        border: 1px solid $color06;//#20b2b3
+      }
+    }
+
+    p label {
+      cursor:pointer;
+      line-height:14px;
+      input[type="checkbox"] {
+        opacity:0;
+      }
+      input[type="checkbox"] + span.chkbox {
+        background:url('/view/images/project/widget/checkbox_disabled.png') no-repeat scroll 0 0 transparent;
+        display: block;
+        height: 12px;
+        margin-top: -15px;
+        position: absolute;
+        width: 12px;
+      }
+      input[type="checkbox"]:checked + span.chkbox {
+        background-position: 0 -13px;
+      }
+    }
+  }
+
+
+  //支援メッセージウィジェット
+  &.invest-message {
+    min-height:70px;
+    h2 {
+      margin:0!important;
+      span {
+        color:#232020;
+        &.message {
+          color:#57595b!important;
+          font-size:.9em!important;
+          font-weight:400!important;
+          padding:0;
+          text-transform:none!important;
+        }
+      }
+    }
+    img {
+      float:left;
+      margin-right:20px;
+    }
+  }
+
+
+  //決済の事前ページウィジェット
+  &.invest-pre-info {
+    background-color: $baseWhite;
+    margin: 16px;
+    padding: 4px 16px;
+    .project_name,
+    .amount {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .project_name {
+      padding-right: 4px;
+    }
+    .amount {
+      padding: 0 4px;
+    }
+    .caution {
+      margin-top: 24px;
+      .first_text {
+        margin-bottom: 24px;
+        &_sub {
+          color: $alertCol;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+}

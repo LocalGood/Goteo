@@ -18,9 +18,7 @@
  *
  */
 
-use Goteo\Core\View,
-    Goteo\Model\Image,
-    Goteo\Library\Text;
+use Goteo\Core\View;
 
 //@NODESYS
 //@CALLSYS

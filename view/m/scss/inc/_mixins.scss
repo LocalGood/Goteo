@@ -1,0 +1,134 @@
+@charset "utf-8";
+/*----------------------------------------------------------------------
+ font-size (exchange rem)
+----------------------------------------------------------------------*/
+$fz12px: 0.8571428rem;
+$fz13px: 0.9285714rem;
+$fz14px: 1rem;
+$fz15px: 1.0714285rem;
+
+
+/*----------------------------------------------------------------------
+ media query
+----------------------------------------------------------------------*/
+@mixin mediaSP {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+
+/*----------------------------------------------------------------------
+ commons
+----------------------------------------------------------------------*/
+@mixin cf {
+  zoom: 1;
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin circleAvatar($size) {
+  border-radius: 50%;
+  display: inline-block;
+  height: $size;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: $size;
+  img {
+    bottom: 0;
+    height: auto;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    vertical-align: middle;
+    width: 100%;
+  }
+}
+
+//form icon
+@mixin form_icon($text,$t-position,$r-position,$bk){
+  content: $text;
+  position: absolute;
+  top: $t-position;
+  right: $r-position;
+  display: block;
+  width: 40px;
+  color: #FFF;
+  font-size: 12px;
+  font-weight: 100;
+  padding: 0 10px;
+  text-align: center;
+  background: $bk;
+}
+@mixin comment_icon($size){
+  position: absolute;
+  width: $size;
+  height: $size;
+  text-align: center;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background: lighten($mainCol01,40%);
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  &:before{
+    content: "\f075";
+    color: $mainCol01;
+    line-height: 30px;
+  }
+}
+@mixin text_link_arrow($color){
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  &:after{
+    content: "\f105";
+    color: $color;
+    display: inline-block;
+    font-weight: bold;
+    margin-left: 4px;
+  }
+}
+//messages
+@mixin message_box{
+  background-color: $baseCol;
+  border-radius: 8px;
+  margin-left: 50px;
+  overflow: visible;
+  position: relative;
+  padding: 12px 16px;
+  &:before {
+    background: none;
+    border: 10px solid transparent;
+    border-right: 15px solid $baseCol;
+    content: '';
+    display: block;
+    height: 0;
+    left: -20px;
+    position: absolute;
+    top: 10px;
+    width: 0;
+  }
+  &.child {
+    margin-left: 90px;
+  }
+}
+
+/*----------------------------------------------------------------------
+ borders
+----------------------------------------------------------------------*/
+$solidBorder: 1px solid $grayCol01;
+$dashedBorder: 1px dashed $grayCol01;

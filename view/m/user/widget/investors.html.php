@@ -23,7 +23,7 @@ use Goteo\Core\View,
 
 $cuantos = count($this['investors']);
 ?>
-<?php if($cuantos > 0){	/* for_apps_review ?>
+<?/*php if($cuantos > 0){	 for_apps_review ?>
 <div class="widget user-supporters">
     <h3 class="supertitle"><?php echo Text::get('profile-my_investors-header') . " ($cuantos)" ?></h3>
     <div class="project-widget-box">
@@ -31,7 +31,7 @@ $cuantos = count($this['investors']);
             <ul>
                 <?php $c=1; // limitado a 6 cofinanciadores en el lateral
                 foreach ($this['investors'] as $user => $investor): ?>
-                <li class="activable"><?php echo new View('view/m/user/widget/supporter.html.php', array('user' => $investor, 'worthcracy' => $this['worthcracy'])) ?></li>
+                <li class="activable"><?php echo new View(VIEW_PATH . '/user/widget/supporter.html.php', array('user' => $investor, 'worthcracy' => $this['worthcracy'])) ?></li>
                 <?php if ($c>5) break; else $c++;
                 endforeach ?>
             </ul>
@@ -39,5 +39,5 @@ $cuantos = count($this['investors']);
     </div>
     <a class="more" href="/user/profile/<?php echo $this['user']->id ?>/investors"><?php echo Text::get('regular-see_more'); ?></a>
 </div>
-	*/
-<?php }?>
+
+<?php }*/?>

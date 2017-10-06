@@ -39,7 +39,7 @@ echo new View('view/project/widget/video.html.php', array('project' => $project)
     <h<?php echo $level ?>><?php echo htmlspecialchars($project->name) ?></h<?php echo $level ?>>
 
     <?php
-    if ( strtotime($project->created) >= strtotime(LG_DATE_NEW_PROJ_FORMAT) && isset($project->gallery[0] )) {
+    if ( isset($project->gallery[0] )) {
         echo new View('view/project/widget/gallery.html.php', array('project' => $project, 'index' => 0));
     }
     ?>
@@ -51,13 +51,8 @@ echo new View('view/project/widget/video.html.php', array('project' => $project)
     <?php endif ?>
 
     <?php
-    // 旧ギャラリー互換
-    if ( strtotime($project->created) < strtotime(LG_DATE_NEW_PROJ_FORMAT) ){
-        echo new View('view/project/widget/gallery.html.php', array('project' => $project));
-    } else {
-        if (isset($project->gallery[1])){
-            echo new View('view/project/widget/gallery.html.php', array('project' => $project, 'index' => 1));
-        }
+    if (isset($project->gallery[1])){
+        echo new View('view/project/widget/gallery.html.php', array('project' => $project, 'index' => 1));
     }
     ?>
 
@@ -68,7 +63,7 @@ echo new View('view/project/widget/video.html.php', array('project' => $project)
     <?php endif ?>
 
     <?php
-    if (strtotime($project->created) >= strtotime(LG_DATE_NEW_PROJ_FORMAT) && isset($project->gallery[2])){
+    if (isset($project->gallery[2])){
         echo new View('view/project/widget/gallery.html.php', array('project' => $project, 'index' => 2));
     }
     ?>
@@ -111,6 +106,18 @@ echo new View('view/project/widget/video.html.php', array('project' => $project)
     <?php endif ?>
 
 </div>
-<?
-    echo new View('view/project/widget/share.html.php', array('project' => $project));
-?>
+
+<?php if ($project->status <= 3): ?>
+<div class="widget project-support_btn">
+    <a class="button supportit" href="/project/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it'); ?></a>
+</div>
+<?php endif; ?>
+
+<?php if (!empty($project->id)): ?>
+    <div class="widget project-share">
+        <h<?php echo $level + 1?> class="title"><?php echo Text::get('overview-field-share-head'); ?></h<?php echo $level + 1?>>
+            <?php
+            echo new View('view/project/widget/share.html.php', array('project' => $project));
+        ?>
+    </div>
+<?php endif ?>

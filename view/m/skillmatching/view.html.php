@@ -33,6 +33,8 @@ $step    = $this['step'];
 $post    = $this['post'];
 $blog    = $this['blog'];
 $thread    = $this['thread'];
+$evaluation = \Goteo\Library\Evaluation::get($project->id);
+$level = (int) $this['level'] ?: 3;
 
 $user    = $_SESSION['user'];
 $personalData = ($user instanceof User) ? User::getPersonal($user->id) : new stdClass();
@@ -57,58 +59,34 @@ if (!empty($blog->posts)) {
 } else {
     $updates = '';
 }
+if (!empty($evaluation->content)){
+    $ev_label = '評価';
+} else {
+    $ev_label = '';
+}
 
 
-$bodyClass = 'project-show'; include 'view/m/prologue.html.php' ?>
+$bodyClass = 'project-show'; include VIEW_PATH . '/prologue.html.php' ?>
 
-<?php include 'view/m/header.html.php' ?>
+<?php include VIEW_PATH . '/header.html.php' ?>
 
         <div id="sub-header">
-            <?/*
-            <div class="project-header">
-                <a href="/user/<?php echo $project->owner; ?>"><img src="<?php echo $project->user->avatar->getLink(56,56, true) ?>" /></a>
-                <h2><span><?php echo htmlspecialchars($project->name) ?></span></h2>
-                <div class="project-subtitle"><?php echo htmlspecialchars($project->subtitle) ?></div>
-                <div class="wants-skills">
-                    スキル: <?php
-                        // スキル表示
-                        if (!empty($skills)):
-                            foreach( $skills as $_skill_id => $_skill_name):
-                                ?>
-                                <a href=""><?php echo $_skill_name ?></a>
-                                <?
-                            endforeach;
-                        endif;
-                    ?>
-                </div>
-
-                <div class="project-by"><a href="/user/<?php echo $project->owner; ?>"><?php echo Text::get('regular-by') ?> <?php echo $project->user->name; ?></a></div>
-                <br clear="both" />
-
-                <div class="categories"><h3><?php echo Text::get('project-view-categories-title'); ?></h3>
-                    <?php $sep = ''; foreach ($categories as $key=>$value) :
-                        echo $sep.'<a href="/discover/results/'.$key.'">'.htmlspecialchars($value).'</a>';
-                    $sep = ', '; endforeach; ?>
-                </div>
-            </div>
-            */?>
-
             <div class="sub-menu">
-                <?php echo new View('view/m/skillmatching/view/menu.html.php',
-                            array(
-                                'skillmatching' => $project,
-                                'show' => $show,
-                                'supporters' => $supporters,
-                                'messages' => $messages,
-                                'updates' => $updates
-                            )
-                    );
+                <?php echo new View(VIEW_PATH . '/skillmatching/view/menu.html.php',
+                    array(
+                        'skillmatching' => $project,
+                        'show' => $show,
+                        'supporters' => $supporters,
+                        'messages' => $messages,
+                        'updates' => $updates,
+                        'evaluation' => $evaluation
+                    )
+                );
                 ?>
             </div>
-
         </div>
 
-<?php if(isset($_SESSION['messages'])) { include 'view/m/header/message.html.php'; } ?>
+<?php if(isset($_SESSION['messages'])) { include VIEW_PATH . '/header/message.html.php'; } ?>
 
 
         <div id="main" class="threecols">
@@ -121,22 +99,22 @@ $bodyClass = 'project-show'; include 'view/m/prologue.html.php' ?>
                 // los modulos centrales son diferentes segun el show
                 switch ($show) {
                     case 'needs':
-                        echo new View('view/m/skillmatching/widget/summary.h_ttl.html.php', array('skillmatching' => $project));
+                        echo new View(VIEW_PATH . '/skillmatching/widget/summary.h_ttl.html.php', array('skillmatching' => $project));
                         if ($this['non-economic']) {
                             echo
-                                new View('view/m/skillmatching/widget/non-needs.html.php',
+                                new View(VIEW_PATH . '/skillmatching/widget/non-needs.html.php',
                                     array('skillmatching' => $project, 'types' => Support::types()));
                             $non_flug = 1;
                         } else {
                         echo
-                            new View('view/m/skillmatching/widget/needs.html.php', array('skillmatching' => $project, 'types' => Cost::types())),
-                            new View('view/m/skillmatching/widget/schedule.html.php', array('skillmatching' => $project)),
-                            new View('view/m/skillmatching/widget/sendMsg.html.php', array('skillmatching' => $project));
+                            new View(VIEW_PATH . '/skillmatching/widget/needs.html.php', array('skillmatching' => $project, 'types' => Cost::types())),
+                            new View(VIEW_PATH . '/skillmatching/widget/schedule.html.php', array('skillmatching' => $project)),
+                            new View(VIEW_PATH . '/skillmatching/widget/sendMsg.html.php', array('skillmatching' => $project));
                         }
                         break;
                         
                     case 'supporters':
-                        echo new View('view/m/skillmatching/widget/summary.h_ttl.html.php', array('skillmatching' => $project));
+                        echo new View(VIEW_PATH . '/skillmatching/widget/summary.h_ttl.html.php', array('skillmatching' => $project));
 
                         // segun el paso de aporte
                         if (!empty($step) && in_array($step, array('start', 'login', 'confirm', 'continue', 'ok', 'fail'))) {
@@ -144,108 +122,86 @@ $bodyClass = 'project-show'; include 'view/m/prologue.html.php' ?>
                             switch ($step) {
                                 case 'continue':
                                     echo
-                                        new View('view/m/skillmatching/widget/investMsg.html.php', array('message' => $step, 'user' => $user)),
-                                        new View('view/m/skillmatching/widget/invest_redirect.html.php', array('skillmatching' => $project, 'personal' => $personalData, 'step' => $step, 'allowpp'=> $this['allowpp']));
+                                        new View(VIEW_PATH . '/skillmatching/widget/investMsg.html.php', array('message' => $step, 'user' => $user)),
+                                        new View(VIEW_PATH . '/skillmatching/widget/invest_redirect.html.php', array('skillmatching' => $project, 'personal' => $personalData, 'step' => $step, 'allowpp'=> $this['allowpp']));
                                     break;
                                     
                                 case 'ok':
                                     echo
-                                        new View('view/m/skillmatching/widget/investMsg.html.php', array('message' => $step, 'user' => $user)), new View('view/skillmatching/widget/spread.html.php',array('skillmatching' => $project));
+                                        new View(VIEW_PATH . '/skillmatching/widget/investMsg.html.php', array('message' => $step, 'user' => $user)), new View('view/skillmatching/widget/spread.html.php',array('skillmatching' => $project));
                                         //sacarlo de div#center
                                         $printSendMsg=true;                                     
                                     break;
                                     
                                 case 'fail':
                                     echo
-                                        new View('view/m/skillmatching/widget/investMsg.html.php', array('message' => $step, 'user' => User::get($_SESSION['user']->id))),
-                                        new View('view/m/skillmatching/widget/invest.html.php', array('skillmatching' => $project, 'personal' => User::getPersonal($_SESSION['user']->id), 'allowpp'=> $this['allowpp']));
+                                        new View(VIEW_PATH . '/skillmatching/widget/investMsg.html.php', array('message' => $step, 'user' => User::get($_SESSION['user']->id))),
+                                        new View(VIEW_PATH . '/skillmatching/widget/invest.html.php', array('skillmatching' => $project, 'personal' => User::getPersonal($_SESSION['user']->id), 'allowpp'=> $this['allowpp']));
                                     break;
                                 default:
                                     echo
-                                        new View('view/m/skillmatching/widget/investMsg.html.php', array('message' => $step, 'user' => $user)),
-                                        new View('view/m/skillmatching/widget/invest.html.php', array('skillmatching' => $project, 'personal' => $personalData, 'step' => $step, 'allowpp'=> $this['allowpp']));
+                                        new View(VIEW_PATH . '/skillmatching/widget/investMsg.html.php', array('message' => $step, 'user' => $user)),
+                                        new View(VIEW_PATH . '/skillmatching/widget/invest.html.php', array('skillmatching' => $project, 'personal' => $personalData, 'step' => $step, 'allowpp'=> $this['allowpp']));
                                     break;
                             }
                         } else {
                             echo
-                                new View('view/m/skillmatching/widget/supporters.html.php', $this),
-                                new View('view/m/worth/legend.html.php');
+                                new View(VIEW_PATH . '/skillmatching/widget/supporters.html.php', $this),
+                                new View(VIEW_PATH . '/worth/legend.html.php');
                         }
                         break;
                         
                     case 'messages':
                         echo
-                            new View('view/m/skillmatching/widget/summary.h_ttl.html.php', array('skillmatching' => $project)),
-//                            new View('view/m/skillmatching/widget/collaborations_message.html.php', array('skillmatching' => $project,'thread' => $thread)),
-                            new View('view/m/skillmatching/widget/messages.html.php', array('skillmatching' => $project,'thread' => $thread));
+                            new View(VIEW_PATH . '/skillmatching/widget/summary.h_ttl.html.php', array('skillmatching' => $project)),
+//                            new View(VIEW_PATH . '/skillmatching/widget/collaborations_message.html.php', array('skillmatching' => $project,'thread' => $thread)),
+                            new View(VIEW_PATH . '/skillmatching/widget/messages.html.php', array('skillmatching' => $project,'thread' => $thread));
                         break;
                    
                     case 'rewards':
                         echo
-                            new View('view/m/skillmatching/widget/summary.h_ttl.html.php', array('skillmatching' => $project)),
-                            new View('view/m/skillmatching/widget/rewards-summary.html.php', array('skillmatching' => $project));
+                            new View(VIEW_PATH . '/skillmatching/widget/summary.h_ttl.html.php', array('skillmatching' => $project)),
+                            new View(VIEW_PATH . '/skillmatching/widget/rewards-summary.html.php', array('skillmatching' => $project));
                         break;
                     
                     case 'updates':
                         echo
-                            new View('view/m/skillmatching/widget/summary.h_ttl.html.php', array('skillmatching' => $project)),
-                            new View('view/m/skillmatching/widget/updates.html.php', array('skillmatching' => $project, 'blog' => $blog, 'post' => $post));
+                            new View(VIEW_PATH . '/skillmatching/widget/summary.h_ttl.html.php', array('skillmatching' => $project)),
+                            new View(VIEW_PATH . '/skillmatching/widget/updates.html.php', array('skillmatching' => $project, 'blog' => $blog, 'post' => $post));
                         break;
-                    
+
+                    case 'evaluation':
+                        echo
+                        new View(VIEW_PATH . '/skillmatching/widget/summary.h_ttl.html.php', array('skillmatching' => $project)),
+                        new View(VIEW_PATH . '/skillmatching/widget/evaluation.html.php', array('skillmatching' => $project, 'evaluation' => $evaluation));
+                        break;
+
                     case 'home':
                     
                     default:
                         echo
-                            new View('view/m/skillmatching/widget/gallery.html.php', array('skillmatching' => $project)),
-                            new View('view/m/skillmatching/widget/summary.h_ttl.html.php', array('skillmatching' => $project)),
-                            new View('view/m/skillmatching/meter.home.html.php', array('skillmatching' => $project, 'lavel' => $lavel, 'supporters' => $supporters)),
-                            new View('view/m/skillmatching/widget/summary.html.php', array('skillmatching' => $project));
-                            ;
+                            new View(VIEW_PATH . '/skillmatching/widget/summary.h_ttl.html.php', array('skillmatching' => $project)),
+                            new View(VIEW_PATH . '/skillmatching/widget/support.html.php', array('skillmatching' => $project)),
+                            new View(VIEW_PATH . '/skillmatching/widget/gallery.html.php', array('skillmatching' => $project)),
+                            new View(VIEW_PATH . '/skillmatching/widget/summary.html.php', array('skillmatching' => $project));
                         break;
                 }
                 ?>
              </div>
 
             <div class="side">
-            <?php
-            // el lateral es diferente segun el show (y el invest)
-            /*
-            if($show !== 'home'){
-*/
-                echo
-                    new View('view/m/skillmatching/widget/support.html.php', array('skillmatching' => $project));
-/*
-            }
-            if ((!empty($project->investors) &&
-                !empty($step) &&
-                in_array($step, array('start', 'login', 'confirm', 'continue', 'ok', 'fail')) )
-                || $show == 'messages' ) {
-                echo new View('view/m/skillmatching/widget/investors.html.php', array('skillmatching' => $project));
-            }
-
-            if (!empty($project->supports) && $show !='messages') {
-                echo new View('view/m/skillmatching/widget/collaborations.html.php', array('skillmatching' => $project));
-            }
-            */
-
-            if ($show != 'rewards') {
-                echo new View('view/m/skillmatching/widget/rewards.html.php', array('skillmatching' => $project));
-            }
-
-            echo new View('view/m/user/widget/user.html.php', array('user' => $project->user, 'projectType' => 'skillmatching'));
-
-            ?>
+            <?php echo new View(VIEW_PATH . '/user/widget/user.html.php', array('user' => $project->user, 'projectType' => 'skillmatching')); ?>
             </div>
 
             <?php $printSendMsg = false; ?>
 
 			<?php
 				if($printSendMsg){
-					 echo new View('view/m/skillmatching/widget/sendMsg.html.php',array('skillmatching' => $project));
+					 echo new View(VIEW_PATH . '/skillmatching/widget/sendMsg.html.php',array('skillmatching' => $project));
 				}
             ?>
 
         </div>
 
-        <?php include 'view/m/footer.html.php' ?>
-		<?php include 'view/m/epilogue.html.php' ?>
+        <?php include VIEW_PATH . '/footer.html.php' ?>
+		<?php include VIEW_PATH . '/epilogue.html.php' ?>

@@ -1,0 +1,782 @@
+@charset "utf-8";
+//todo:ログインして自分のプロジェクトやユーザー設定する画面のスタイルのみを記述する
+
+.dashboard {
+
+  #sub-header {
+    height: 145px;
+  }
+
+  .dashboard-header {
+    margin: 10px auto 0;
+    max-width: 960px;
+    min-height: 100px;
+    position: relative;
+    a {
+      @include circleAvatar(56px);
+      display: inline-block;
+      margin-right: 20px;
+      vertical-align: middle;
+    }
+    h2 {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      vertical-align: middle;
+      span {
+        color: $grayCol02;
+        font-size: 30px;
+      }
+    }
+  }
+
+  #dashboard-menu {
+    border-bottom: 40px solid $mainCol01;//#39c
+    display: block;
+    font-size: 13px;
+    height: 0;
+    margin: 0 auto 40px;
+    //mainタブ、subタブ共通
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      li {
+        display: inline-block;
+        vertical-align: top;
+        a {
+          display: inline-block;
+          padding: 8px 14px;
+          font-weight: 600;
+          text-decoration: none;
+          vertical-align: top;
+        }
+      }
+    }
+    > ul {
+      top: -52px;
+      width: 960px;
+      margin: 0 auto;
+      li {
+        &.section {
+          ul {
+            display: none;
+            position: absolute;
+            top: 52px;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            height: 40px;
+            background-color: $mainCol01;//#39c
+          }
+          a.section {
+            min-width: 80px!important;
+            height: 52px;
+            color: $grayCol03;//#699
+            font-size: 14px;
+            line-height: 36px;
+            text-align: center;
+            background: $grayCol01;//#ccf4ff
+          }
+          &.current {
+            a.section {
+              background: none;
+              background-color: $mainCol01;//#39c
+              color: $baseCol;
+            }
+            ul {
+              display: block;
+              z-index: 0;
+            }
+          }
+          &.active {
+            a.section {
+              background: none;
+              background-color: $mainCol01;//#39c
+              color: $baseCol;
+              font-weight: bolder;
+            }
+            ul {
+              display: block;
+              z-index: 9;
+            }
+          }
+        }
+        &.option {
+          a {
+            color: $baseCol;
+            display: block;
+            height: 40px;
+            line-height: 27px;
+            &:hover {
+              border-bottom: 5px solid #FFF;//#f93
+            }
+          }
+          &.current {
+            a {
+              border-bottom: 5px solid #FFF;//#f93
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .project-header {
+    position:relative;
+    top:10px;
+    max-width: 960px;
+    min-height: 75px;
+    margin: 0 auto;
+    img{
+      float: left;
+      margin: 0 20px 0 0;
+    }
+    h2{
+      max-width: 700px;
+      margin-top: 0;
+      font-size: 2rem;
+      font-weight: 300;
+      > span{
+        display: block;
+        line-height: 1em;
+      }
+    }
+    .project-subtitle {
+      font-size: 1.1428571rem;
+      font-weight: normal;
+      margin: 3px 0;
+      max-width:620px;
+      font-style: normal;
+    }
+    .project-by {
+      color: $mainCol01;
+      font-size: 12px;
+      margin: 0 0 .5em;
+      a {
+        font-weight: normal;
+        color: $mainCol01;//#cc6600
+        font-size: 12px;
+        text-decoration: none;
+        &:hover {
+          color: $grayCol03;
+        }
+      }
+    }
+    .categories {
+      position: absolute;
+      right: 10px;
+      text-align: right;
+      top: 0;
+      h3 {
+        color: $mainCol01;
+        font-size: 0.8571428rem;
+        font-weight: normal;
+        margin: 0;
+      }
+      a {
+        color: $grayCol03;
+        font-size: 12px;
+        text-decoration: none;
+        &:hover {
+          color: $mainCol02;
+        }
+      }
+    }
+  }
+
+  //.widgetがつくboxは以下で、.widgetがつかないboxはそれぞれのクラスにmb20付与
+  .summary {
+    > .widget {
+      margin-bottom: 20px;
+    }
+    .select-action {
+      display: flex;
+      margin: 0 auto;
+      width: 700px;
+      a.button.red {
+        height: 45px;
+        line-height: 45px;
+        width: 200px;
+      }
+    }
+
+    .widget.projects {
+      .project {
+        min-height: 450px;
+      }
+    }
+  }
+
+  .user-worthcracy {
+    h3.title {
+      padding-left: 0;
+    }
+    .worth-amount {
+      display: inline;
+      position: relative;
+      float: left;
+      top: -10px;
+      left: 35px;
+      color: $color10;//#903
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 33px;
+      border-bottom: 1px solid $color10;
+      &:after{
+        content: '￥';
+        display: inline-block;
+        color: #FFF;
+        font-size: 15px;
+        width: 20px;
+        height: 20px;
+        margin: 0 0 0 15px;
+        text-align: center;
+        line-height: 23px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        background: $color10;
+      }
+    }
+  }
+
+  //マイプロジェクト -> お礼と支援者の管理
+  .widget.gestrew {
+    div.message {
+      position: relative;
+      color: $grayCol03;
+      height:auto;
+      padding: 20px;
+      background: $baseCol;
+      &:after{
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        left: 20px;
+        display: block;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-top: 10px solid $baseCol;
+      }
+    }
+    div.rewards {
+      height:auto;
+      margin-top:10px;
+    }
+    div.reward {
+      background: $baseCol;
+      float:left;
+      height:300px;
+      margin-right:10px;
+      min-height:310px;
+      padding:10px;
+      position:relative;
+      width:197px;
+      &.last {
+        margin-right:0;
+      }
+      div.orden {
+        background-color: $baseCol;
+        border:2px solid $grayCol01;
+        color: $grayCol02;
+        display:inline-block;
+        font-size: 13pt;
+        font-weight:700;
+        text-align:center;
+        width:20px;
+      }
+      div.tiporec {
+        border-bottom: $grayCol01 1px solid;
+        display:block;
+        margin-bottom:5px;
+        ul li {
+          background:none no-repeat scroll 0 0 transparent;
+          min-height:34px;
+        }
+      }
+      div.contenedorrecompensa {
+        height: 105px;
+        overflow-y: scroll;
+      }
+      span {
+        &.aporte {
+          color: $mainCol01;//#96238F
+          display:inline-block;
+          font-size:8pt;
+          line-height:22px;
+          > span.euro {
+            display:inline-block;
+            height: 20px;
+            width: 20px;
+            &:after{
+              content: '￥';
+              display: block;
+              color: #FFF;
+              font-size: 13px;
+              font-weight: bold;
+              text-align: center;
+              line-height: 20px;
+              background: $mainCol01;
+              -webkit-border-radius: 50%;
+              -moz-border-radius: 50%;
+              border-radius: 50%;
+            }
+          }
+        }
+        &.num
+        {
+          font-size:12pt;
+        }
+        &.cofinanciadores {
+          color: $mainCol01;//#40509F
+          display:block;
+          font-size:8pt;
+          line-height:20px;
+          margin-left:29px;
+          text-transform:uppercase;
+        }
+        &.recompensa {
+          color: $grayCol02;
+          font-size:12px;
+        }
+      }
+      ul {
+        float:none;
+        font-size:12px;
+        list-style:none outside none;
+        margin:0 0 3px;
+        padding:0;
+      }
+      a.green {
+        bottom: 8px;
+        left: 0;
+        margin: auto;
+        position:absolute;
+        right: 0;
+        width:180px;
+      }
+    }
+  }
+
+  #project-selector {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    label {
+      font-size: 16px;
+      font-weight: 700;
+      margin-right: 5px;
+    }
+    #selector {
+      height: 40px;
+    }
+    select {
+      font-size: 14px;
+      width: 770px;
+    }
+  }
+
+  .status {
+    float: left;
+    margin-right: 20px;
+  }
+
+  #project-status {
+    display: table-cell;
+    width: 50%;
+    padding: 20px 20px 30px 30px;
+    color: $grayCol01;
+    background-color: #fff;
+    h3 {
+      margin: 0 0 .6em;
+      color: $grayCol02;
+      font-size: 20px;
+      font-weight: 400;
+    }
+    ul {
+      margin: 0 0 0 6px;
+      padding: 0 0 0 16px;
+      font-size: 16px;
+      line-height: 1.5em;
+      list-style: none;
+      border-left: 1px solid $grayCol02;
+    }
+    strong {
+      background: url('/view/images/project/statusmarker.png') no-repeat left center;
+      color: $grayCol03;
+      display: block;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.6em;
+      margin-left: -22px;
+      padding-left: 20px;
+      text-shadow: 1px 1px 0 rgba(0,0,0,.25);
+    }
+  }
+
+  #meter-big {
+    position: relative;
+    min-height: 200px;
+    .graph {
+      top: 20px;
+    }
+    .percent{
+      top: 102px;
+    }
+    .meter.big {
+      width: 420px;
+      padding-top: 30px;
+      h3 {
+        position: relative;
+        top: -40px;
+        padding-left: 0;
+      }
+      .graph {
+        position: relative;
+        top: 0;
+        height: 8px;
+        margin: 40px 5px 70px;
+        background-color: $baseCol;//#BB70B6
+        border-right: 40px solid $color06;//#DFBDDD
+        .optimum {
+          position: absolute;
+          right: 0;
+          height: 19px;
+          margin-right: -2px;
+          margin-top: -6px;
+          border-right: 4px solid yellow;//#BB70B6
+        }
+        .minimum {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          background-color: yellow;//#96238F
+          .left {
+            float: right;
+            height: 19px;
+            margin-right: -2px;
+            margin-top: -6px;
+            border-right: 4px solid yellow;//#96238F
+          }
+          .done {
+            position: absolute;
+            top: -2px;
+            left: 0;
+            max-width: 580px;
+            height: 10px;
+            background-color: yellow;//#20B3B2
+            strong {
+              background: url('/view/images/dashboard/projects_marker.png') no-repeat;
+              color: #fff;
+              display: block;
+              font-size: 12px;
+              height: 21px;
+              margin-right: -13px;
+              margin-top: -11px;
+              overflow: hidden;
+              position: absolute;
+              right: 0;
+              text-align: center;
+              width: 25px;
+            }
+          }
+        }
+      }
+      dl {
+        position: relative;
+        top: 0;
+        width: 420px;
+        height: 100px;
+        margin: -78px 40px 0 0;
+        dt {
+          &.optimum {
+            clear: right;
+            float: right;
+            margin-right: -40px;
+            color: yellow;//#BB70B6
+
+            display: block;
+            position: absolute;
+            right: 82px;
+            top: 0;
+            width: auto;
+            margin-top: 18px;
+            font-size: 12px;
+            line-height: 14px;
+            white-space: nowrap;
+          }
+          &.minimum {
+            display: block;
+            position: absolute;
+            left: -10px;
+            top: -65px;
+            min-width: 10%;
+            color: yellow;//#96238F
+            font-size: 12px;
+            line-height: 14px;
+            white-space: nowrap;
+            span {
+              display: block;
+              position: absolute;
+              top: 21px;
+              right: 0;
+              width: auto;
+              margin-right: -30px;
+              font-weight: 300;
+            }
+          }
+          &.reached {
+            position: absolute;
+            top: 55px;
+            margin-top: 6px;
+            padding: 10px 0;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 30px;
+          }
+          &.days {
+            position: absolute;
+            top: 55px;
+            left: 200px;
+            margin-top: 6px;
+            padding: 10px 0;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 30px;
+          }
+          &.supporters {
+            position: absolute;
+            top: 55px;
+            left: 340px;
+            margin-top: 6px;
+            padding: 10px 0;
+            color: yellow;//#1b5b9e
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 30px;
+          }
+        }
+        dd {
+          margin: 0;
+          &.optimum {
+            clear: right;
+            float: right;
+            display: block;
+            position: absolute;
+            right: 82px;
+            top: 32px;
+            width: auto;
+            margin-right: -40px;
+            color: yellow;//#BB70B6
+            font-size: 16px;
+            font-weight: 400;
+            text-align: right;
+            white-space: nowrap;
+          }
+          &.minimum {
+            display: block;
+            position: relative;
+            left: -10px;
+            min-width: 10%;
+            color: yellow;//#96238F
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 14px;
+            white-space: nowrap;
+            > * {
+              display: block;
+              position: absolute;
+              top: -25px;
+              margin-right: -30px;
+            }
+            strong {
+              text-align: right;
+              right: 16px;
+            }
+            span {
+              right: 0;
+              font-weight: 300;
+            }
+          }
+          &.reached {
+            position: absolute;
+            top: 55px;
+            left: 60px;
+            margin-top: 6px;
+            padding: 10px 0;
+            color: yellow;//#96238F
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 30px;
+          }
+          &.days {
+            position: absolute;
+            top: 55px;
+            left: 285px;
+            margin-top: 6px;
+            padding: 10px 0;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 30px;
+          }
+          &.supporters {
+            position: absolute;
+            top: 55px;
+            left: 390px;
+            margin-top: 6px;
+            padding: 10px 0;
+            color: yellow;//#1b5b9e
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 30px;
+          }
+        }
+        .optimum {
+          clear: right;
+          float: right;
+          margin-right: -40px;
+          color: yellow;//#BB70B6
+        }
+      }
+    }
+  }
+
+  &.dashboard .superform {
+    padding-left: 20px;
+    padding-top: 1px;
+    background-color: #fff;
+    border: none;
+    .contents{
+      input[name="upload"]{
+        padding: 0.3em 1.2em !important;
+        margin: 10px 0 0 0;
+      }
+    }
+    .hint blockquote {
+      border-right: none;
+      margin-bottom: 10px;
+      //padding-left: 20px;
+    }
+    > div.footer {
+      margin-top: 0;
+      padding-bottom: 20px;
+      input[type="submit"], input[type="reset"], button, a.button {
+        margin-left: 0;
+      }
+    }
+  }
+
+  div#main {
+
+    //プロフィール
+    &.profile {
+      div.superform {
+        li.element {
+          &.user_avatar {
+            > div.children > div.elements > ol > li.element {
+              display: inline-block;
+              vertical-align: top;
+            }
+            ol {
+              padding: 0;
+            }
+            li.element {
+              &.avatar-image {
+                margin: 0 !important;
+                padding: 0 2em;
+              }
+              &.avatar img {
+                height: 128px;
+                width: 128px;
+              }
+              .title {
+                display: none;
+              }
+            }
+          }
+          &.web {
+            div.title {
+              float: left;
+              font-size: 14px;
+              text-transform: uppercase;
+              width: 70%;
+              word-wrap: break-word;
+            }
+            input.edit {
+              display: inline-block;
+              margin: -1em 0 0 0;
+            }
+            input.remove {
+              display: inline-block;
+              margin: 0 0 1em 0;
+            }
+          }
+          &.editweb {
+            li.element.web-accept input,
+            li.element.web-remove input {
+              margin: 0 3px 0 0;
+            }
+            li.buttons {
+              div.contents, li.buttons ol {
+                margin: 0 !important;
+                padding: 0 !important;
+              }
+              ol {
+                text-align: right;
+              }
+              li {
+                display: inline-block;
+                margin: 0;
+                padding: 0;
+              }
+              input {
+                float: left;
+                margin: 0 10px 0 0;
+                width: auto;
+                &.remove{
+                  margin: 0;
+                }
+              }
+            }
+          }
+          &.add {
+            input.add {
+              margin-left: 0;
+            }
+          }
+        }
+        > div.elements > ol > li.element {
+          padding: 30px 2em 22px 0;
+          input[type="submit"]{
+            margin: 10px 0 0 0 !important;
+          }
+        }
+      }
+    }
+    //アカウント設定
+    &.access {
+      div.superform {
+        li.element {
+          &.save {
+            input[type="submit"] {
+              height: 45px;
+              line-height: 45px;
+              width: 200px;
+            }
+          }
+          input.inline {
+            margin: 0 0 2em;
+          }
+        }
+      }
+    }
+  }
+  .superform div.children > div.elements > ol > li.element > div.feedback{
+    left: 100%!important;
+    margin: 0 0 0 2em;
+  }
+}

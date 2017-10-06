@@ -48,11 +48,9 @@ namespace Goteo\Model\Project {
          * @return array of categories identifiers
          */
 	 	public static function get ($id, $section = null) {
-            
-//            $URL = SITE_URL;
-            $URL = preg_replace('/[A-Za-z0-9.]+\.localgood/','static.localgood',SITE_URL);
-            
-            
+
+            $URL = STATIC_SVR_DOMAIN;
+
             $array = array ();
             try {
                 $values = array(':id' => $id);
@@ -77,7 +75,7 @@ namespace Goteo\Model\Project {
                     if (!empty($image->url)) {
                         $image->link = (substr($image->url, 0, strlen('http://')) == 'http://') ? $image->url : $URL.'/'.$image->url;
                     }
-                    
+
                     $array[] = $image;
                 }
                 

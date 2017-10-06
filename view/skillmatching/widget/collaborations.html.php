@@ -26,8 +26,8 @@ $project = $this['skillmatching'];
 
 ?>
 <div class="widget project-collaborations collapsable" id="project-collaborations">
-    
-    <h<?php echo $level + 1?> class="supertitle"><?php echo Text::get('project-collaborations-supertitle'); ?></h<?php echo $level + 1 ?>>
+
+<!--    <h--><?php //echo $level + 1?><!-- class="supertitle">--><?php //echo Text::get('project-collaborations-supertitle'); ?><!--</h--><?php //echo $level + 1 ?><!-->-->
 
     <div class="project-widget-box">
         <h<?php echo $level + 2 ?> class="title"><?php echo Text::get('project-collaborations-title') . '・' . Text::get('cost-type-lend'); ?></h<?php echo $level + 2 ?>>

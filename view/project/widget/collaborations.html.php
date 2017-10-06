@@ -30,13 +30,25 @@ $project = $this['project'];
     <h<?php echo $level + 1?> class="supertitle"><?php echo Text::get('project-collaborations-supertitle'); ?></h<?php echo $level + 1 ?>>
 
     <div class="project-widget-box">
+        <?/*php
         <h<?php echo $level + 2 ?> class="title"><?php echo Text::get('project-collaborations-title') . '・' . Text::get('cost-type-lend'); ?></h<?php echo $level + 2 ?>>
+                */?>
 
         <ul>
             <?php foreach ($project->supports as $support) : ?>
             <?php if(!empty($support->support)):?>
             <li class="support <?php echo htmlspecialchars($support->type) ?>">
-                <h6 class="name"><span><?php echo htmlspecialchars($support->support) ?></span></h6>
+	            <?php
+	            $has_image = !empty($individual->image);
+	            if ($has_image):
+		            ?>
+					<div class="side_image">
+						<img src="<?php echo $individual->image->getLink() ?>" alt="">
+					</div>
+		            <?php
+	            endif;
+	            ?>
+				<h6 class="name"><span><?php echo htmlspecialchars($support->support) ?></span></h6>
                 <p><?php echo htmlspecialchars($support->description) ?></p>
                 <a class="button green" href="/project/<?php echo $project->id; ?>/messages?msgto=<?php echo $support->id;?>"><?php echo Text::get('regular-collaborate'); ?></a>
             </li>
@@ -44,5 +56,4 @@ $project = $this['project'];
             <?php endforeach ?>
         </ul>
     </div>
-    <a class="more" href="/project/<?php echo $project->id; ?>/messages"><?php echo Text::get('regular-see_all_needs'); ?></a>
 </div>

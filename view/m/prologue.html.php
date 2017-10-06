@@ -23,7 +23,7 @@ if($_SERVER['REQUEST_URI']=="/"):
         'title' => GOTEO_META_TITLE,
         'description' => GOTEO_META_DESCRIPTION,
         'url' => SITE_URL,
-        'image' => array(SITE_URL . '/view/css/ogimg.png')
+        'image' => array(SITE_URL . '/view/images/ogimg.png')
     );
 elseif(strstr($_SERVER['REQUEST_URI'],'project')):
     if(!empty($this['project']->subtitle)) {
@@ -101,6 +101,9 @@ $_blog_key = substr($ogmeta['url'], $blog_post+9);
         <meta property="og:url" content="<?php echo SITE_URL ?>" />
 <?php endif; ?>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="<?php echo SRC_URL ?>/view/m/css/styles-m.css" />
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <?php if (!isset($useJQuery) || !empty($useJQuery)): ?>
         <?/*<script type="text/javascript" src="<?php echo SRC_URL ?>/view/m/js/jquery-1.6.4.min.js"></script>*/?>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -134,19 +137,7 @@ $_blog_key = substr($ogmeta['url'], $blog_post+9);
             echo GOTEO_ANALYTICS_TRACKER;
         }  ?>
 
-        <?/*<link rel="stylesheet" type="text/css" href="<?php echo SRC_URL ?>/view/m/css/goteo.css" />*/?>
-        <link rel="stylesheet" type="text/css" href="<?php echo SRC_URL ?>/view/m/css/cssmarge_mobile.css" />
-        <!--[if IE]>
-        <link href="<?php echo SRC_URL ?>/view/m/css/ie.css" media="screen" rel="stylesheet" type="text/css" />
-        <![endif]-->
-        <?php /*
-        <script type="text/javascript">
-        if(navigator.userAgent.indexOf('Mac') != -1)
-		{
-			document.write ('<link rel="stylesheet" type="text/css" href="<?php echo SRC_URL ?>/view/m/css/mac.css" />');
-		}
-	    </script>
-*/ ?>
+        <link rel="stylesheet" type="text/css" href="<?php echo SRC_URL ?>/view/m/css/styles.css" />
 
     </head>
 
@@ -156,7 +147,7 @@ $_blog_key = substr($ogmeta['url'], $blog_post+9);
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
             js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=<? if(defined('OAUTH_FACEBOOK_ID')){echo OAUTH_FACEBOOK_ID;} ?>&version=v2.0";
+            js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=<? if(defined('OAUTH_FACEBOOK_ID')){echo OAUTH_FACEBOOK_ID;} ?>&version=v2.9";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
         <script type="text/javascript">

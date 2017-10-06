@@ -102,7 +102,7 @@ if ($this['action'] == 'none') return;
                 'type'  => 'html',
                 'class' => 'inline gallery-image',
                 'html'  => is_object($image) ?
-                           $image . '<img src="'.SRC_URL.'/image/'.$image->id.'/128/128" alt="Imagen" /><button class="image-remove weak" type="submit" name="gallery-'.$image->id.'-remove" title="Quitar imagen" value="remove"></button>' :
+                           $image . '<img src="' . $image->getLink(128,128) . '" alt="Imagen" /><button class="image-remove weak" type="submit" name="gallery-'.$image->id.'-remove" title="Quitar imagen" value="remove"></button>' :
                            ''
             );
 

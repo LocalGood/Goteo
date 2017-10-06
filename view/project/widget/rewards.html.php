@@ -42,8 +42,6 @@ uasort($project->individual_rewards,
     );
 ?>
 <div class="widget project-rewards collapsable" id="project-rewards">
-    
-    <h<?php echo $level + 1 ?> class="supertitle"><span><?php echo Text::get('project-rewards-supertitle'); ?></span></h<?php echo $level + 1?>>
 
     <div class="project-widget-box">
 
@@ -51,24 +49,48 @@ uasort($project->individual_rewards,
             $count = 1;
         ?>
             <div class="individual">
-                <h<?php echo $level + 2 ?> class="title"><a href="/project/<?php echo $project->id; ?>/rewards#individual_ttl"><?php echo Text::get('project-rewards-individual_reward-title'); ?></a></h<?php echo $level + 2 ?>>
+                <h<?php echo $level+1 ?> id="individual_ttl" class="title"><?php echo Text::get('project-rewards-individual_reward-title'); ?></h<?php echo $level+1 ?>>
                 <ul>
                     <?php foreach ($project->individual_rewards as $individual) : ?>
 
                         <li class="<?php echo $individual->icon ?>">
-                            <?/*<div class="title">*/?>
-                            <div class="amount"><?php echo Text::get('regular-investing'); ?> <span><?php echo \amount_format($individual->amount); ?>円</span></div>
-                            <h<?php echo $level + 3 ?> class="name"><a href="/project/<?php echo $project->id; ?>/rewards#<? echo 'individual_num' . $count; ?>"><?php echo htmlspecialchars($individual->reward) ?></a></h<?php echo $level + 3 ?>>
+	                        <?php
+	                        $has_image = !empty($individual->image);
+	                        if ($has_image):
+		                        ?>
+								<div class="side_image">
+									<img src="<?php echo $individual->image->getLink() ?>" alt="">
+								</div>
+		                        <?php
+	                        endif;
+	                        ?>
+							<h<?php echo $level + 3 ?> class="name">
+								<a href="/project/<?php echo $project->id; ?>/rewards#<? echo 'individual_num' . $count; ?>"><?php echo htmlspecialchars($individual->reward) ?></a></h<?php echo $level + 3 ?>>
+                            <dl class="amount">
+                                <dt><?php echo Text::get('regular-support-amount'); ?></dt>
+                                <dd><?php echo \amount_format($individual->amount); ?>円</dd>
+                            </dl>
                             <?php if (!empty($individual->units)):
                                 $units = ($individual->units - $individual->taken);
                                 ?>
-                            <p class="remain"><strong><?php echo Text::get('project-rewards-individual_reward-limited'); ?> <?php echo $units; ?></strong></p>
+                            <dl class="remain">
+                                <dt><?php echo Text::get('project-rewards-individual_reward-limited'); ?></dt>
+                                <dd><?php echo $units; ?></dd>
+                            </dl>
                             <?php endif; ?>
-                            <?/*</div>*/?>
+                            <?php /*
+                            if ($has_image):
+                                $img_src = $individual->image->getLink(200,200,false);
+                                ?>
+                                <div class="image">
+                                    <img src="<?php echo $img_src ?>" alt="<?php echo htmlspecialchars($individual->reward) ?>" />
+                                </div>
+                                <?php
+                            endif;
+                            */?>
                             <p><?php echo nl2br(htmlspecialchars($individual->description))?></p>
-
                             <div class="buttons">
-                                <a class="button violet supportit" href="/project/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it'); ?></a>
+                                <a class="button violet supportit" href="/project/<?php echo $project->id; ?>/invest<?php echo '?reward=' . $individual->id ?>"><?php echo Text::get('regular-invest'); ?></a>
                             </div>
                         </li>
                         <? $count++; ?>
@@ -81,7 +103,7 @@ uasort($project->individual_rewards,
             $count = 1;
         ?>
         <div class="social">
-            <h<?php echo $level + 2 ?> class="title"><a href="/project/<?php echo $project->id; ?>/rewards#social_ttl"><?php echo Text::get('project-rewards-social_reward-title'); ?></a></h<?php echo $level + 2 ?>>
+            <h<?php echo $level + 1 ?> id="social_ttl" class="title"><?php echo Text::get('project-rewards-social_reward-title'); ?></h<?php echo $level + 1 ?>>
             <ul>
             <?php foreach ($project->social_rewards as $social) : ?>
                 <li class="<?php echo $social->icon ?>">
@@ -105,8 +127,6 @@ uasort($project->individual_rewards,
             </ul>
         </div>
         <?php endif; ?>
-
-        <a class="more" href="/project/<?php echo $project->id; ?>/rewards"><?php echo Text::get('regular-see_more'); ?></a>
     </div>
     
 </div>

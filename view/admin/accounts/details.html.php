@@ -134,21 +134,22 @@ array_walk($rewards, function (&$reward) { $reward = $reward->reward; });
             ?>
         </dd>
     </dl>
-
-    <dl>
-        <dt><?php echo Text::_("Códigos de seguimiento"); ?>: <a href="/admin/invests/details/<?php echo $invest->id ?>"><?php echo Text::_("Ir al aporte"); ?></a></dt>
-        <dd><?php
-                if (!empty($invest->preapproval)) {
-                    echo 'Preapproval: '.$invest->preapproval . '   ';
-                }
-
-                if (!empty($invest->payment)) {
-                    echo 'Cargo: '.$invest->payment . '   ';
-                }
-            ?>
-        </dd>
-    </dl>
-
+    <?php if (!empty($invest->disp_name)) : ?>
+        <dl>
+            <dt><?php echo Text::get('admin-account-detail-disp_name') ?>:</dt>
+            <dd>
+                <?php echo $invest->disp_name; ?>
+            </dd>
+        </dl>
+    <?php endif; ?>
+    <?php if (!empty($invest->investor_email)) : ?>
+        <dl>
+            <dt><?php echo Text::get('admin-account-detail-investor_email') ?>:</dt>
+            <dd>
+                <?php echo $invest->investor_email; ?>
+            </dd>
+        </dl>
+    <?php endif; ?>
     <?php if (!empty($invest->rewards)) : ?>
     <dl>
         <dt><?php echo Text::_("Recompensas elegidas"); ?>:</dt>

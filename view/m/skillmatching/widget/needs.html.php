@@ -70,7 +70,7 @@ foreach ($project->costs as $cost) {
     <div class="<?php echo htmlspecialchars($type); echo ($cost->req == 1) ? " req" : " noreq"; ?>">
         <h<?php echo $level+2 ?> class="summary"><span><?php echo htmlspecialchars($types[$type]) ?></span></h<?php echo $level+2 ?>>
         <p class="click"><span class="text"><?php echo $cost->description ?></span></p>
-        <dl id="legend">
+        <dl class="needs_list">
             <dt class="min">
                 <?php echo Text::get('project-view-metter-minimum'); ?>
             </dt>

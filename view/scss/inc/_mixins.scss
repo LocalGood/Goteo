@@ -1,0 +1,185 @@
+@charset "utf-8";
+/*----------------------------------------------------------------------
+ colors
+----------------------------------------------------------------------*/
+$colLinkText01: $mainCol02; //リンクテキストのバリエーションカラー
+$borderCol01: $grayCol01; //実線のボーダーカラー
+
+/*----------------------------------------------------------------------
+ font-size (exchange rem)
+----------------------------------------------------------------------*/
+$fz12px: 0.8571428rem;
+$fz13px: 0.9285714rem;
+$fz14px: 1rem;
+$fz15px: 1.0714285rem;
+
+
+/*----------------------------------------------------------------------
+ media query
+----------------------------------------------------------------------*/
+@mixin mediaSP {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+
+/*----------------------------------------------------------------------
+ commons
+----------------------------------------------------------------------*/
+@mixin cf {
+  zoom: 1;
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin circleAvatar($size) {
+  border-radius: 50%;
+  display: inline-block;
+  height: $size;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: $size;
+  img {
+    bottom: 0;
+    height: auto;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    vertical-align: middle;
+    width: 100%;
+  }
+}
+
+//管理画面のdl用
+@mixin adminList($leftWidth) {
+  letter-spacing: -.4em;
+  dt {
+    display: inline-block;
+    letter-spacing: normal;
+    vertical-align: top;
+    width: $leftWidth;
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+  dd {
+    display: inline-block;
+    letter-spacing: normal;
+    margin-left: 20px;
+    vertical-align: top;
+    width: 750px - 20px - $leftWidth;
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+}
+//form icon
+@mixin form_icon($text,$t-position,$r-position,$bk){
+  content: $text;
+  position: absolute;
+  top: $t-position;
+  right: $r-position;
+  display: block;
+  width: 40px;
+  color: #FFF;
+  font-size: 12px;
+  font-weight: 100;
+  padding: 0 10px;
+  text-align: center;
+  background: $bk;
+}
+@mixin comment_icon($size){
+  position: absolute;
+  width: $size;
+  height: $size;
+  margin-top: 8px;
+  text-align: center;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background: lighten($mainCol01,40%);
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  &:before{
+    content: "\f075";
+    color: $mainCol01;
+    line-height: $size;
+  }
+}
+
+@mixin text_link_arrow($color){
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  &:after{
+    content: "\f105";
+    color: $color;
+    font-weight: bold;
+    margin-left: 4px;
+  }
+}
+@mixin message{
+  background: $baseCol;
+  border-radius: 8px;
+  margin-left: 70px;
+  overflow: visible;
+  padding: 20px;
+  position: relative;
+  word-break: normal;
+  word-wrap: break-word;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -20px;
+    display: block;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-right: 15px solid $baseCol;
+    background: none;
+  }
+}
+
+@mixin button($color){
+  background: none;
+  background: $color;
+  box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 14px;
+  font-weight: 300;
+  height: 45px;
+  line-height: 45px;
+  margin: 10px auto;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  width: 200px;
+  &:hover{
+    opacity: 0.75;
+    color: #FFF;
+  }
+}
+/*----------------------------------------------------------------------
+ borders
+----------------------------------------------------------------------*/
+$solidBorder: 1px solid $grayCol01;
+$dashedBorder: 1px dashed $grayCol01;

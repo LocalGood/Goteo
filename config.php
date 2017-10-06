@@ -1,4 +1,5 @@
 <?php
+
 /*
  *  Copyright (C) 2012 Platoniq y Fundaci�n Fuentes Abiertas (see README for details)
  *	This file is part of Goteo.
@@ -31,6 +32,7 @@ define('GOTEO_NODE', 'goteo');
 define('PEAR', GOTEO_PATH . 'library' . '/' . 'pear' . '/');
 if (function_exists('ini_set')) {
     ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . PEAR);
+    ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . '/usr/local/lib/php/');
 } else {
     throw new Exception("No puedo a�adir las librer�as PEAR al include_path.");
 }
@@ -58,228 +60,209 @@ if (!defined('OAUTH_LIBS')) {
     define ('OAUTH_LIBS', GOTEO_PATH . 'library' . DIRECTORY_SEPARATOR . 'oauth' . DIRECTORY_SEPARATOR . 'SocialAuth.php');
 }
 
-//Uploads static files
-$static_dir = preg_replace('/\/[A-Za-z0-9.]+\.localgood/','/static.localgood',dirname(__FILE__));
-define('GOTEO_DATA_PATH', $static_dir . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR);
-
-/**
- * Carga de configuraci�n local si existe
- * Si no se carga el real (si existe)
-**/
 if (file_exists('local-settings.php')) //en .gitignore
+{
     require 'local-settings.php';
-elseif (file_exists('live-settings.php')) //se considera en git
-    require 'live-settings.php';
-else
+} else {
     die(<<<EOF
-No se encuentra el archivo de configuraci&oacute;n <strong>local-settings.php</strong>, debes crear este archivo en la raiz.<br />
-Puedes usar el siguiente c&oacute;digo modificado con los credenciales adecuados.<br />
+Localgood Goteo is not installed.<br />
+Create local-setting.php like following:
 <pre>
 &lt;?php
+/******************************************************
+from local-settings.php
+ *******************************************************/
 
+// 言語設定（日本語固定）
 mb_language("Japanese");
 mb_internal_encoding("UTF-8");
 
-// Metadata
-define('GOTEO_META_TITLE', '--meta-title--');
-define('GOTEO_META_DESCRIPTION', '--meta-description--');
-define('GOTEO_META_KEYWORDS', '--keywords--');
-define('GOTEO_META_AUTHOR', '--author--');
-define('GOTEO_META_COPYRIGHT', '--copyright--');
+// 環境変数より
+\$env_ids = array(
+    // LG Base Name
+    'LG_PLACE_NAME',
+    // Metadata
+    'GOTEO_META_TITLE',
+    'GOTEO_META_DESCRIPTION',
+    'GOTEO_META_KEYWORDS',
+    'GOTEO_META_AUTHOR',
+    'GOTEO_META_COPYRIGHT',
+    // Database
+    'GOTEO_DB_HOST',
+    'GOTEO_DB_PORT',
+    'GOTEO_DB_CHARSET',
+    'GOTEO_DB_SCHEMA',
+    'GOTEO_DB_USERNAME',
+    'GOTEO_DB_PASSWORD',
+    // LocalGood Common Authentication Database
+    'COMMON_AUTH_DB_SCHEMA',
+    // Mail
+    'GOTEO_MAIL_FROM',
+    'GOTEO_MAIL_NAME',
+    'GOTEO_MAIL_TYPE',
+    'GOTEO_MAIL_SMTP_AUTH',
+    'GOTEO_MAIL_SMTP_SECURE',
+    'GOTEO_MAIL',
+    'GOTEO_CONTACT_MAIL',
+    'GOTEO_FAIL_MAIL',
+    'GOTEO_LOG_MAIL',
+    'GOTEO_MAIL_QUOTA',
+    // Language
+    'GOTEO_DEFAULT_LANG',
+    // name of the gettext .po file (used for admin only texts at the moment)
+    'GOTEO_GETTEXT_DOMAIN',
+    // gettext files are cached, to reload a new one requires to restart Apache which is stupid (and annoying while
+    //	developing) this setting tells the langueage code to bypass caching by using a clever file-renaming
+    // mechanism described in http://blog.ghost3k.net/articles/php/11/gettext-caching-in-php
+    'GOTEO_GETTEXT_BYPASS_CACHING',
+    /*
+     * LocalGood Server Environment
+     */
+    // url
+    'SITE_URL', // endpoint url
+    'SRC_URL',  // host for statics
+    'SEC_URL',  // with SSL certified
+    // Wordpress URL
+    'LOCALGOOD_WP_BASE_URL',
+    //
+    'LOG_PATH',
+    'LG_INTEGRATION_URL',
+    'LG_NAME',
+    'LG_TWITTER',
+    'LG_FACEBOOK_PAGE',
+    // Cron params (for cron processes using wget)
+    'CRON_PARAM',
+    'CRON_VALUE',
+    /*
+     * Social Services constants  (needed to login-with on the controller/user and library/oauth)
+     */
+    // twitter api key
+    'OAUTH_TWITTER_ID',
+    'OAUTH_TWITTER_SECRET',
+    'OAUTH_TWITTER_DUMMY_ID',
+    // Credentials Facebook app
+//    'OAUTH_FACEBOOK_ID',
+    'OAUTH_FACEBOOK_SECRET',
+    /*
+     * Google Analytics
+     */
+    // ga tracking code
+    'GOTEO_ANALYTICS_TRACKER',
+    /*
+     * AWS - Credentials SES
+     */
+    'AWS_SES_SOURCE',
+    'AWS_SES_ACCESS',
+    'AWS_SES_SECERET',
+    'AWS_SES_CHARSET',
+    /*
+     * AXES
+     */
+    'AXES_CLIENTIP',
+    /*
+     * CESIUM
+     */
+    'LG_EARTHVIEW',
+    /*
+     *  SCSS Compiler
+     */
+    'LG_SCSS_COMPILE_PARAM',
+    // WP generated json
+    'LG_OMNICONFIG_JSON_FILE'
+);
+
+foreach (\$env_ids as \$env_id){
+    if (getenv(\$env_id)){
+        define(\$env_id, getenv(\$env_id));
+    } elseif (\$defs[\$env_id]){
+        define(\$env_id, \$defs[\$env_id]);
+    } else {
+        define(\$env_id, '');
+    }
+}
 
 //Mail management: ses (amazon), phpmailer (php library)
-define("MAIL_HANDLER", "phpmailer");
+define("MAIL_HANDLER", "phpmailer");    //def
 
 // Database
-define('GOTEO_DB_DRIVER', 'mysql');
-define('GOTEO_DB_HOST', 'localhost');
-define('GOTEO_DB_PORT', 3306);
-define('GOTEO_DB_CHARSET', 'UTF-8');
-define('GOTEO_DB_SCHEMA', 'db-schema');
-define('GOTEO_DB_USERNAME', 'db-username');
-define('GOTEO_DB_PASSWORD', 'db-password');
+define('GOTEO_DB_DRIVER', 'mysql');     //def
 
-// LocalGood Common Authentication Database
-define('COMMON_AUTH_DB_SCHEMA', 'db_auth');
-
-// Mail
-define('GOTEO_MAIL_FROM', 'localgood@yokohamalab.jp');
-define('GOTEO_MAIL_NAME', 'LOCAL GOOD YOKOHAMA');
-define('GOTEO_MAIL_TYPE', 'smtp'); // mail, sendmail or smtp
-define('GOTEO_MAIL_SMTP_AUTH', true);
-define('GOTEO_MAIL_SMTP_SECURE', 'ssl');
-define('GOTEO_MAIL_SMTP_HOST', 'smtp--host');
-define('GOTEO_MAIL_SMTP_PORT', --portnumber--);
-define('GOTEO_MAIL_SMTP_USERNAME', 'smtp-usermail');
-define('GOTEO_MAIL_SMTP_PASSWORD', 'smtp-password');
-
-define('GOTEO_MAIL', 'localgood@yokohamalab.jp');
-define('GOTEO_CONTACT_MAIL', 'localgood@yokohamalab.jp');
-define('GOTEO_FAIL_MAIL', 'localgood@yokohamalab.jp');
-define('GOTEO_LOG_MAIL', 'localgood@yokohamalab.jp');
-
-//Quota de envio m�ximo para goteo en 24 horas
-define('GOTEO_MAIL_QUOTA', 50000);
 //Quota de envio m�ximo para newsletters para goteo en 24 horas
-define('GOTEO_MAIL_SENDER_QUOTA', round(GOTEO_MAIL_QUOTA * 0.8));
-//clave de Amazon SNS para recopilar bounces automaticamente: 'arn:aws:sns:us-east-1:XXXXXXXXX:amazon-ses-bounces'
-//la URL de informacion debe ser: goteo_url.tld/aws-sns.php
-define('AWS_SNS_CLIENT_ID', 'XXXXXXXXX');
-define('AWS_SNS_REGION', 'us-east-1');
-define('AWS_SNS_BOUNCES_TOPIC', 'amazon-ses-bounces');
-define('AWS_SNS_COMPLAINTS_TOPIC', 'amazon-ses-complaints');
-
-// Language
-define('GOTEO_DEFAULT_LANG', 'en');
-// name of the gettext .po file (used for admin only texts at the moment)
-define('GOTEO_GETTEXT_DOMAIN', 'messages');
-// gettext files are cached, to reload a new one requires to restart Apache which is stupid (and annoying while 
-//	developing) this setting tells the langueage code to bypass caching by using a clever file-renaming 
-// mechanism described in http://blog.ghost3k.net/articles/php/11/gettext-caching-in-php
-define('GOTEO_GETTEXT_BYPASS_CACHING', true);
-
-// url
-define('SITE_URL', 'http://yokohama.localgood.jp/'); // endpoint url
-define('SRC_URL', 'http://yokohama.localgood.jp/');  // host for statics
-define('SEC_URL', 'http://yokohama.localgood.jp/');  // with SSL certified
-define('LOCALGOOD_WP_BASE_URL', '----wp site address----');
-define('LOG_PATH', '/var/www/html/localgood/cf.fukuoka.localgood.jp.il3c.com/htdocs/logs/');
-define('LG_INTEGRATION_URL', '----integration site url----');
-define('LG_NAME', 'LOCAL GOOD FUKUOKA');
-
+if (getenv('GOTEO_MAIL_QUOTA')){
+    define('GOTEO_MAIL_SENDER_QUOTA', round(GOTEO_MAIL_QUOTA * 0.8));   // def
+} else {
+    define('GOTEO_MAIL_SENDER_QUOTA', round(50000 * 0.8));   // def
+}
 
 //Sessions
 //session handler: php, dynamodb
-define("SESSION_HANDLER", "php");
+define("SESSION_HANDLER", "php");   // def
 
 //Files management: s3, file
-define("FILE_HANDLER", "file");
+define("FILE_HANDLER", "file");     // def
 
 //Log file management: s3, file
-define("LOG_HANDLER", "file");
+define("LOG_HANDLER", "file");      // def
 
 // environment: local, beta, real
-define("GOTEO_ENV", "local");
-
-//S3 bucket (if you set FILE_HANDLER to s3)
-define("AWS_S3_BUCKET", "static.example.com");
-define("AWS_S3_PREFIX", "");
-
-//bucket para logs (if you set LOG_HANDLER to s3)
-define("AWS_S3_LOG_BUCKET", "bucket");
-define("AWS_S3_LOG_PREFIX", "applogs/");
-
-// Cron params (for cron processes using wget)
-define('CRON_PARAM', '--------------');
-define('CRON_VALUE', '--------------');
+define("GOTEO_ENV", "local");       // def
 
 
-/****************************************************
-Paypal constants (sandbox)
-* Must set cretentials on library/paypal/paypal_config.php as well
-****************************************************/
-define('PAYPAL_REDIRECT_URL', '---Sandbox/Production-url-----https://www.sandbox.paypal.com/webscr&cmd=');
-define('PAYPAL_DEVELOPER_PORTAL', '--developper-domain--');
-define('PAYPAL_DEVICE_ID', '--domain--');
-define('PAYPAL_APPLICATION_ID', '--PayPal-app-Id---');
-define('PAYPAL_BUSINESS_ACCOUNT', '--mail-like-paypal-account--');
-define('PAYPAL_IP_ADDRESS', '127.0.0.1');
-
-/****************************************************
-TPV [Bank Name] (depends on your bank)
-****************************************************/
-define('TPV_MERCHANT_CODE', 'xxxxxxxxx');
-define('TPV_REDIRECT_URL', '--bank-rest-api-url--');
-define('TPV_ENCRYPT_KEY', 'xxxxxxxxx');
-
-/*
-Any other payment system configuration should be setted here
-*/
-
-/****************************************************
-Social Services constants  (needed to login-with on the controller/user and library/oauth)
-****************************************************/
-// Credentials Facebook app
-define('OAUTH_FACEBOOK_ID', '-----------------------------------'); //
-define('OAUTH_FACEBOOK_SECRET', '-----------------------------------'); //
-
-// Credentials Twitter app
-define('OAUTH_TWITTER_ID', '-----------------------------------'); //
-define('OAUTH_TWITTER_SECRET', '-----------------------------------'); //
-
-// Credentials Linkedin app
-define('OAUTH_LINKEDIN_ID', '-----------------------------------'); //
-define('OAUTH_LINKEDIN_SECRET', '-----------------------------------'); //
-
-// Un secreto inventado cualquiera para encriptar los emails que sirven de secreto en openid
-define('OAUTH_OPENID_SECRET','-----------------------------------');
-
-//SNS link
-define('LG_FACEBOOK_PAGE', '----facebook url----');
-define('LG_TWITTER', '----twitter url----');
-define('LG_GOOGLE_PLUS', '----google plus url----');
-
-// recaptcha ( to be used in /contact form )
-define('RECAPTCHA_PUBLIC_KEY','-----------------------------------');
-define('RECAPTCHA_PRIVATE_KEY','-----------------------------------');
-
-/****************************************************
-Google Analytics
-****************************************************/
-define('GOTEO_ANALYTICS_TRACKER', "<script type=\"text/javascript\">
-__your_tracking_js_code_goes_here___
-</script>
-");
-
-/****************************************************
-AWS
-****************************************************/
-//Amazon Web Services Credentials
-define("AWS_KEY", "--------------");
-define("AWS_SECRET", "----------------------------------");
-define("AWS_REGION", "-----------");
-
-// Credentials SES
-define('AWS_SES_SOURCE', '--------------');
-define('AWS_SES_ACCESS', '--------------');
-define('AWS_SES_SECERET', '--------------');
-define('AWS_SES_CHARSET', 'UTF-8');
-
-/****************************************************
-AXES
- ****************************************************/
-define('AXES_CLIENTIP', '----------');
-
-/****************************************************
-CESIUM
- ****************************************************/
-define('LG_EARTHVIEW', 'http://map.yokohama.localgood.jp.il3c.com/');
-
-/****************************************************
-New Project Format
- ****************************************************/
-define('LG_DATE_NEW_PROJ_FORMAT', '2016-07-14');
+//iPad, AndroidタブレットはPCビュー
+//if(preg_match('/iPod|iPhone|Android.+Mobile/i', \$ua) || strpos(\$ua, 'LocalGood/iOS (Yokohama) ') === 0 || strpos(\$ua, 'LocalGood/Android (Yokohama) ') === 0 ) {
+if(isset(\$_SERVER['HTTP_USER_AGENT'])){
+    \$ua = \$_SERVER['HTTP_USER_AGENT'];
+}else{
+    \$ua = null;
+}
+//if(isset(\$_SERVER['HTTP_X_LOCALGOOD_UA']) && in_array(\$_SERVER['HTTP_X_LOCALGOOD_UA'], array('iOS', 'Android')) || strpos(\$ua, 'LocalGood/iOS (Yokohama)') === 0 || strpos(\$ua, 'LocalGood/Android (Yokohama)') === 0 ) {
+if( !empty(\$ua) && ( preg_match('/iPod|iPhone/i', \$_SERVER['HTTP_USER_AGENT']) === 1 || preg_match('/Android.+Mobile/i', \$_SERVER['HTTP_USER_AGENT']) === 1 ) ){
+    define('PC_VIEW', false);       //def
+    define('VIEW_PATH', 'view/m');  // def
+} else {
+    define('PC_VIEW', true);        // def
+    define('VIEW_PATH', 'view');    // def
+}
 
 /****************************************************
 Skillmatching
  ****************************************************/
-define('LG_SM_DB_PREFIX', 'skillmatching_');
+define('LG_SM_DB_PREFIX', 'skillmatching_');    // def
 
-/****************************************************
-Change view type
- ****************************************************/
-\$ua = \$_SERVER['HTTP_USER_AGENT'];
-if(strpos(\$ua, 'LocalGood/iOS (Yokohama)') === 0 || strpos(\$ua, 'LocalGood/Android (Yokohama)') === 0 ) {
-    define('PC_VIEW', false);
-    define('VIEW_PATH', 'view/m');
-} else {
-    define('PC_VIEW', true);
-    define('VIEW_PATH', 'view');
+//
+/*
+ *  omniconfig
+ */
+if (getenv('LG_OMNICONFIG_JSON_FILE')){
+    \$_json = file_get_contents(LG_OMNICONFIG_JSON_FILE);
+    if (\$_json){
+        \$json = json_decode(\$_json);
+        if (isset(\$json->facebook)){
+            // facebook AppID
+            define('OAUTH_FACEBOOK_ID',\$json->facebook);
+            // google map api key
+            // define('LG_GOOGLE_MAP_API_KEY',\$json->facebook);
+        }
+    }
 }
+
+//Uploads static files
+// define('STATIC_SVR_DOMAIN','http://static.staging.localgood.jp');
+\$static_svr = '';
+if (getenv('STATIC_SVR_DOMAIN')){
+    \$static_svr = getenv('STATIC_SVR_DOMAIN');
+} else {
+    \$static_svr = constant('SRC_URL');
+}
+define('STATIC_SVR_DOMAIN',\$static_svr);
+\$static_dir = str_replace(constant('SRC_URL'), STATIC_SVR_DOMAIN, dirname(__FILE__) );
+define('GOTEO_DATA_PATH', \$static_dir . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR);
+
 ?&gt;
 </pre>
 EOF
 );
+}
 
 if (file_exists('tmp-settings.php'))
     require 'tmp-settings.php';

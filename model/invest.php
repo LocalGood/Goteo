@@ -40,6 +40,8 @@ namespace Goteo\Model {
                     // -1 en proceso, 0 pendiente, 1 cobrado (charged), 2 devuelto (returned)
             $issue, // aporte con incidencia
             $anonymous, //no debe aparecer su careto ni su nombre, nivel, etc... pero si aparece en la cuenta de cofinanciadores y de aportes
+            $disp_name,
+            $investor_email,
             $resign, //renuncia a cualquier recompensa
             $invested, //fecha en la que se ha iniciado el aporte
             $charged, //fecha en la que se ha cargado el importe del aporte a la cuenta del usuario
@@ -336,6 +338,8 @@ namespace Goteo\Model {
                         invest.campaign as campaign,
                         invest.amount as amount,
                         invest.anonymous as anonymous,
+                        invest.disp_name as disp_name,
+                        invest.investor_email as investor_email,
                         invest.resign as resign,
                         DATE_FORMAT(invest.invested, '%y/%m/%d') as invested,
                         DATE_FORMAT(invest.charged , '%y/%m/%d') as charged,
@@ -398,6 +402,8 @@ namespace Goteo\Model {
                 'method',
                 'status',
                 'anonymous',
+                'disp_name',
+                'investor_email',
                 'resign',
                 'invested',
                 'charged',
@@ -721,7 +727,10 @@ namespace Goteo\Model {
                     DATE_FORMAT(invest.invested, '%Y/%m/%d') as date,
                     ";
             $sql .= "user.hide as hide,
-                     invest.anonymous as anonymous
+                     invest.anonymous as anonymous,
+                     invest.disp_name as disp_name,
+                     invest.investor_email as investor_email,
+                     invest.method as method
                 FROM    invest
                 INNER JOIN user
                     ON  user.id = invest.user
@@ -740,7 +749,10 @@ namespace Goteo\Model {
 
 
                 // si el usuario es hide o el aporte es anonymo, lo ponemos como el usuario anonymous (avatar 1)
-                if (!$showall && ($investor->hide == 1 || $investor->anonymous == 1)) {
+
+                $hide_flag = ($investor->method == 'cash') ? (false || is_null($investor->disp_name)) : ( $investor->hide == 1 );
+
+                if (!$showall && ($hide_flag || $investor->anonymous == 1)) {
 
                     // mantenemos la fecha del anonimo mas reciente
                     $anonymous_date = empty($investors['anonymous']->date) ? $investor->date : $investors['anonymous']->date;
@@ -763,9 +775,9 @@ namespace Goteo\Model {
 
                     $investors[] = (object) array(
                         'user' => $investor->user,
-                        'name' => $investor->name,
+                        'name' => ($investor->method == 'cash') ? $investor->disp_name : $investor->name,
                         'projects' => $investor->projects,
-                        'avatar' => $investor->avatar,
+                        'avatar' => ($investor->method == 'cash') ? Image::get(1) : $investor->avatar,
                         'worth' => $worth[$investor->user],
                         'amount' => $investor->amount,
                         'date' => $investor->date

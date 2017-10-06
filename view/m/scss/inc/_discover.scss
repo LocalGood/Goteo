@@ -1,0 +1,115 @@
+@charset "utf-8";
+
+.discover {
+
+  #sub-header {
+    div {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  #main {
+    div.widget {
+      overflow: hidden;
+    }
+  }
+
+  ul#pagination {
+    margin: 0 20px 20px;
+  }
+
+  .searcher {
+    background-color: $baseWhite;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    form {
+      padding: 4px 8px;
+    }
+    .text-filter {
+      display: block;
+      margin: 0 8px 20px;
+      label {
+        display: block;
+        font-weight: 600;
+        font-size: 14px;
+        padding-top: 9px;
+      }
+    }
+    #text-query {
+      background-color: $baseWhite;
+      border: $solidBorder;
+      color: $grayCol02;
+      float: left;
+      font-size: 16px;
+      padding: 6px;
+      width: 70%;
+    }
+    .searcher-btn {
+      height: 33px;
+      position: absolute;
+      right: 12px;
+      top: 34px;
+      width: 25%;
+      #searcher {
+        background-color: $subCol01;
+        height: 33px;
+        line-height: 33px;
+        margin: 0;
+        width: 100%;
+      }
+    }
+    .filter {
+      box-sizing: content-box;
+      margin: 0 auto 8px;
+      padding: 4px 8px;
+      position: relative;
+      width: 81.25vw;
+      &:last-child {
+        margin-right: 0;
+      }
+      label {
+        border-bottom: $solidBorder;
+        display: block;
+        font-weight: 600;
+        padding: 5px 5px 6px 0;
+      }
+      select {
+        background-color: $baseCol;
+        border: $solidBorder;
+        font-size: 1.5em;
+        height: 35px;
+        margin: 10px 0 0;
+        width: 100%;
+        option {
+          &[selected="selected"] {
+            background-color: $baseCol;
+          }
+          &.all {
+            font-size: 1em;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+
+  .navi-bar {
+    background-color: $baseWhite;
+    border-top: $solidBorder;
+    text-align: center;
+    a.all {
+      box-sizing: content-box;
+      display: block;
+      height: 30px;
+      line-height: 30px;
+      padding: 8px;
+      text-decoration: none;
+      &:hover {
+        color: $subCol01;
+      }
+    }
+  }
+}

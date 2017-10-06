@@ -28,33 +28,6 @@ $shares     = $this['shares'];
        <!-- lista de categorías -->
         <div class="widget categorylist">
             <h3 class="title"><?php echo Text::get('profile-sharing_interests-header');?></h3>
-            <?/*
-			<!--
-            <div class="filters">
-                <span>Ver por:</span>
-                <ul>
-                    <li><a href="#" class="active">Por categorías</a></li>
-                    <li class="separator">|</li>
-                    <li><a href="#">Por tags</a></li>                
-                </ul>
-            </div>
-			-->
-            <script type="text/javascript">
-            function displayCategory(categoryId){
-                $(".user-mates").css("display","none");
-                $("#cat" + categoryId).fadeIn("slow");
-                $(".active").removeClass('active');
-                $("#catlist" + categoryId).addClass('active');
-            }
-            </script>
-            <div class="list">
-                <ul>
-                    <?php foreach ($categories as $catId=>$catName) : if (count($shares[$catId]) == 0) continue; ?>
-                    <li><a id="catlist<?php echo $catId ?>" href="/community/sharemates/<?php echo $catId ?>" <?php if (!empty($this['category'])) : ?>onclick="displayCategory(<?php echo $catId ?>); return false;"<?php endif; ?> <?php if ($catId == $this['category']) echo 'class="active"'?>><?php echo $catName ?></a></li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        */?>
         </div>
         <!-- fin lista de categorías -->
         
