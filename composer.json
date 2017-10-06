@@ -1,8 +1,6 @@
 {
-"require-dev": {
-    "panique/php-sass": "1.0"
-},
     "require": {
+        "panique/php-sass": "1.0",
         "aws/aws-sdk-php": "^3.36"
     }
 }
