@@ -66,7 +66,7 @@ $week = array('日','月','火','水','木','金','土');
             ?>
             <?/*php todo: 下の1行は募集中じゃないと出ない。ここの見た目をどうするか */?>
             <dl class="invest-notice">
-                <dt>1stラウンド </dt><dd><?php echo $until; ?>〜<?php echo $published; ?>23:59</dd>
+                <dt>1stラウンド </dt><dd><?php echo $published; ?>〜<?php echo $until; ?>23:59</dd>
                 <dt>2ndラウンド </dt><dd><?php echo $willpass; ?>〜<?php echo $willclose; ?>23:59</dd>
             </dl>
             <?php
