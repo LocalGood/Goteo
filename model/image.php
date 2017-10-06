@@ -98,8 +98,7 @@ namespace Goteo\Model {
 
                 //si es un archivo que se sube
                 if(is_uploaded_file($this->tmp)) {
-                    move_uploaded_file($this->tmp,$this->dir_originals . $this->name);
-                    chmod($this->dir_originals . $this->name, 0777);
+                    $this->s3save($this->tmp, $this->dir_originals . $this->name);
                 }
                 else {
                     $errors[] = Text::get('image-upload-fail');
@@ -197,11 +196,17 @@ die("test");
 		*/
 		public static function check_filename($name='',$dir=null){
 			$name = preg_replace("/[^a-z0-9_~\.-]+/","-",strtolower(self::idealiza($name, true)));
-			if(is_dir($dir)) {
-				while ( file_exists ( "$dir/$name" )) {
+            $s3Client = new \Aws\S3\S3Client([
+                'version' => STATIC_S3_VERSION,
+                'region'  => STATIC_S3_REGION
+            ]);
+//			if(is_dir($dir)) {
+//            error_log('checkfilename: ' . $dir . $name);
+                while ($s3Client->doesObjectExist(STATIC_S3_BUCKET_NAME,$dir . $name)){
+//				while ( file_exists ( "$dir/$name" )) {
 					$name = preg_replace ( "/^(.+?)(_?)(\d*)(\.[^.]+)?$/e", "'\$1_'.(\$3+1).'\$4'", $name );
 				}
-			}
+//			}
 			return $name;
 		}
 
@@ -405,20 +410,30 @@ die("test");
 		public function getLink ($width = 200, $height = 200, $crop = false) {
 
             $ret = "";
+            $res = false;
 
             $src_url = STATIC_SVR_DOMAIN;
             $tc = $crop ? 'c' : '';
 
-            $cache = $this->dir_cache . "{$width}x{$height}{$tc}" . DIRECTORY_SEPARATOR . $this->name;
-//            $ret = $src_url . "/data/cache/{$width}x{$height}{$tc}/{$this->name}";
-            if (\file_exists($cache)) {
-                $ret = $src_url . "/data/cache/{$width}x{$height}{$tc}/{$this->name}";
-            } else {
-                $ret = SRC_URL . "/image/{$this->id}/{$width}/{$height}/" . $crop;
-            }
+            $ret = $src_url . "/goteo/data/cache/{$width}x{$height}{$tc}/{$this->name}";
+//            error_log('getLink: ' . $ret);
+            $res = file_get_contents($ret);
+
+//            error_log(var_export($res,true));
+            if ($res === false){
+//
+//                $ret = $src_url . "/data/cache/{$width}x{$height}{$tc}/{$this->name}";
+//            } else {
+//                $ret = SRC_URL . "/image/{$this->id}/{$width}/{$height}/" . $crop;
+                $ret = $this->display($width, $height, $crop, true);
+//                if (!$ret){
+//                    $ret = $src_url . "/data/images/avatar.png";
+//                }
+            }/* else {
+                error_log('cache exist!');
+            }*/
 
             return $ret;
-
 		}
 
 		/**
@@ -466,64 +481,121 @@ die("test");
 		 * @param type int	$width
 		 * @param type int	$height
 		 */
-        public function display ($width, $height, $crop) {
+        public function display ($width, $height, $crop, $saveOnly = false) {
             require_once PEAR . 'Image/Transform.php';
             $it =& \Image_Transform::factory('GD');
             if (\PEAR::isError($it)) {
                 die($it->getMessage() . '<br />' . $it->getDebugInfo());
             }
+//            $cache = $this->dir_cache . $width."x$height" . ($crop ? "c" : "") . DIRECTORY_SEPARATOR;
+//            if(!is_dir($cache)) mkdir($cache);
+            $tc = $crop ? "c" : "";
+            $cache = STATIC_SVR_DOMAIN . "/goteo/data/cache/{$width}x{$height}{$tc}/{$this->name}";
 
-            $cache = $this->dir_cache . $width."x$height" . ($crop ? "c" : "") . DIRECTORY_SEPARATOR;
-            if(!is_dir($cache)) mkdir($cache);
-
-			$cache .= $this->name;
+//			$cache .= $this->name;
 			//comprova si existeix  catxe
-			if(!is_file($cache)) {
-				$it->load($this->dir_originals . $this->name);
 
-				if($crop) {
-					if ($width > $height) {
+            $ret = file_get_contents($cache);
+            $res = '';
 
-						$f = $height / $width;
-						$new_y = round($it->img_x * $f);
-						//
+            if ($ret === false){
+                $orig_image = STATIC_SVR_DOMAIN . DIRECTORY_SEPARATOR . $this->dir_originals . $this->name;
+//                error_log($orig_image);
+                if (file_get_contents($orig_image)){
+                    $it->load($orig_image);
+//                    error_log(var_export($it,true));
+                    if($crop) {
+                        if ($width > $height) {
 
-						if($new_y < $it->img_y) {
-							$at = round(( $it->img_y - $new_y ) / 2);
-							$it->crop($it->img_x, $new_y, 0, $at);
-							$it->img_y = $new_y;
-						}
+                            $f = $height / $width;
+                            $new_y = round($it->img_x * $f);
+                            //
 
-						$it->resized = false;
-						$it->scaleByX($width);
+                            if($new_y < $it->img_y) {
+                                $at = round(( $it->img_y - $new_y ) / 2);
+                                $it->crop($it->img_x, $new_y, 0, $at);
+                                $it->img_y = $new_y;
+                            }
 
-					} else {
+                            $it->resized = false;
+                            $it->scaleByX($width);
 
-						$f = $width / $height;
-						$new_x = round($it->img_y * $f);
+                        } else {
 
-						if($new_x < $it->img_x) {
-							$at = round(( $it->img_x - $new_x ) / 2);
-							$it->crop($new_x, $it->img_y, $at, 0);
-							$it->img_x = $new_x;
-						}
+                            $f = $width / $height;
+                            $new_x = round($it->img_y * $f);
 
-						$it->resized = false;
-						$it->scaleByY($height);
+                            if($new_x < $it->img_x) {
+                                $at = round(( $it->img_x - $new_x ) / 2);
+                                $it->crop($new_x, $it->img_y, $at, 0);
+                                $it->img_x = $new_x;
+                            }
 
-					}
+                            $it->resized = false;
+                            $it->scaleByY($height);
 
-				}
-				else $it->fit($width,$height);
+                        }
 
-				$it->save($cache);
-                chmod($cache, 0777);
+                    }
+                    else $it->fit($width,$height);
+                } else {
+                    return false;
+                }
+
+//				error_log('imageHandle: ' . $it->imageHandle);
+//				error_log('type: ' . $this->type);
+				$tmp = tempnam(sys_get_temp_dir(),'gtCache');
+//				error_log($tmp);
+
+				$it->save($tmp);
+//                chmod($cache, 0777);
+
+                $cacheName = 'goteo/data/cache' . DIRECTORY_SEPARATOR .$width."x$height" . ($crop ? "c" : "") . DIRECTORY_SEPARATOR . $this->name;
+                $res = $this->s3save($tmp, $cacheName);
+                if ($res){
+                    unlink($tmp);
+                }
             }
-
-			header("Content-type: " . $this->type);
-			readfile($cache);
-			return true;
+            if (!$saveOnly){
+                header("Content-type: " . $this->type);
+                readfile($cache);
+                return true;
+            } else {
+//                $ret = "";
+//                if (\file_exists($cache)){
+//                    $tc = $crop ? 'c' : '';
+//                    $ret = STATIC_SVR_DOMAIN . "/data/cache/{$width}x{$height}{$tc}/{$this->name}";
+//                }
+//                return $ret;
+                return $res ? $res : $cache;
+            }
 		}
+
+        /**
+         * S3にファイルを保存
+         * @param type int	$sourceFile
+         * @param type int	$destFile
+         */
+		public function s3save($sourceFile, $destFile){
+            $s3Client = new \Aws\S3\S3Client([
+                'version' => STATIC_S3_VERSION,
+                'region'  => STATIC_S3_REGION
+            ]);
+            try {
+                $result = $s3Client->putObject([
+                    'Bucket' => STATIC_S3_BUCKET_NAME,
+                    'Key' => $destFile,
+                    'SourceFile' => $sourceFile,
+                    'ContentType'  => $this->type,
+                    'ACL'          => 'public-read'
+                ]);
+//                error_log(var_export($result,true));
+                return $result['ObjectURL'];
+            } catch (\Aws\S3\Exception\S3Exception $e) {
+                error_log( $e->getMessage() . "\n" );
+                return false;
+            }
+        }
 
 		public function isGIF () {
 		    return ($this->type == 'image/gif');
