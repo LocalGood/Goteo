@@ -22,11 +22,12 @@ use Goteo\Library\Text,
     Goteo\Library\i18n\Lang;
 
 //@NODESYS
+$configJson = json_decode( file_get_contents( 'omniconfig/apikeys.json' ) );
 ?>
 
 <nav class="main_nav02">
     <a href="<?= LOCALGOOD_WP_BASE_URL; ?>" class="nav_logo">
-        <img src="/view/m/images/header/s-header-logo.png" alt=""/>
+        <img src="<?php echo $configJson->images->header_logo_2; ?>" alt=""/>
     </a>
     <div class="nav_menu-button">
         <span></span>
