@@ -104,7 +104,7 @@ $level = (int) $this['level'] ?: 3;
                 $share_title = $post->title;
                 $share_url = SITE_URL . '/project/'.$project->id.'/updates/' . $post->id;
                 $facebook_url = 'http://facebook.com/sharer.php?u=' . rawurlencode($share_url) . '&t=' . rawurlencode($share_title);
-                $twitter_url = 'http://twitter.com/home?status=' . rawurlencode($share_title . ': ' . $share_url . ' #横浜 @LogooYOKOHAMA');
+                $twitter_url = 'http://twitter.com/home?status=' . rawurlencode($share_title . ': ' . $share_url . ' #' . LG_PLACE_LABEL .' @' . LG_TWITTER);
             ?>
             <div class="widget post">
                 <?php echo new View('view/blog/post.html.php', array('post' => $post->id, 'show' => 'list', 'url' => '/project/'.$project->id.'/updates/')); ?>

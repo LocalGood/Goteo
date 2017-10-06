@@ -80,8 +80,8 @@ use Goteo\Library\Text,
                         </div>
                     </div>
                 </li>
-                <li><a href="http://map.yokohama.localgood.jp/" target="_blank">3Dマップ</a>
-                <li><a href="<?= LOCALGOOD_WP_BASE_URL . '/about/'; ?>" >Local Good YOKOHAMAについて</a>
+                <li><a href="<?= LG_EARTHVIEW; ?>" target="_blank">3Dマップ</a>
+                <li><a href="<?= LOCALGOOD_WP_BASE_URL . '/about/'; ?>" ><?php echo GOTEO_META_TITLE; ?>について</a>
                 </li>
                 <li class="gnav_goteo">
                     <?php if (empty($_SESSION['user'])) {

@@ -40,6 +40,8 @@ require_once 'core/common.php';
 require_once 'library/i18n/Locale.php';
 require_once 'library/i18n/Lang.php';
 
+require __DIR__ . '/vendor/autoload.php';
+
 /*
  * Pagina de en mantenimiento
  */
@@ -53,7 +55,7 @@ if (GOTEO_MAINTENANCE === true && $_SERVER['REQUEST_URI'] != '/about/maintenance
 
 */
 if (!empty($_REQUEST['scss']) && $_REQUEST['scss'] === md5(LG_SCSS_COMPILE_PARAM)){
-    require_once __DIR__ . '/vendor/autoload.php';
+//    require_once __DIR__ . '/vendor/autoload.php';
     SassCompiler::run(__DIR__ . "/view/scss/", __DIR__ . "/view/css/");
     SassCompiler::run(__DIR__ . "/view/m/scss/", __DIR__ . "/view/m/css/");
 }

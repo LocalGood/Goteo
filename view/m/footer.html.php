@@ -45,7 +45,7 @@ jQuery(document).ready(function($) {
         <ul>
             <li>
                 <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/about/">
-                    LOCAL GOOD YOKOHAMAについて
+                    <?php echo GOTEO_META_TITLE; ?>について
                 </a>
             </li>
             <li>

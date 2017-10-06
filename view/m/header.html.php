@@ -98,13 +98,13 @@ use Goteo\Library\Text,
                 </dl>
             </li>
             <li>
-                <a href="http://map.yokohama.localgood.jp/" target="_blank" class="list01__text">
+                <a href="<?= LG_EARTHVIEW; ?>" target="_blank" class="list01__text">
                     3Dマップ
                 </a>
             </li>
 			<li>
-				<a href="http://yokohama.localgood.jp.il3c.com/about/" class="list01__text">
-					Local Good YOKOHAMAについて
+				<a href="<?= LOCALGOOD_WP_BASE_URL; ?>/about/" class="list01__text">
+                    <?php echo GOTEO_META_TITLE; ?>について
 				</a>
 			</li>
             <?php if (empty($_SESSION['user'])) {

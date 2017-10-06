@@ -36,12 +36,12 @@ else:
             <div class="c-w1200">
                 <div class="footer__upper_left">
                     <div class="footer__logo">
-                        <img src="/view/images/footer_logo.png" alt="LOCAL GOOD YOKOHAMAロゴ">
+                        <img src="/view/images/footer_logo.png" alt="<?php echo GOTEO_META_TITLE; ?>ロゴ">
                     </div>
                     <ul class="footer__sns_link">
                         <li class="rss"><a href="<?= LOCALGOOD_WP_BASE_URL . '/feed/'; ?>" target="_blank"><img src="/view/images/rss_btn.png" alt="rss" /></a></li>
                         <li class="g_plus"><a href="<?= LG_GOOGLE_PLUS; ?>" target="_blank"><img src="/view/images/gplus_btn.png" alt="google plus" /></a></li>
-                        <li class="tw_btn"><a href="<?= LG_TWITTER; ?>" target="_blank"><img src="/view/images/tw_btn.png" alt="twitter" /></a></li>
+                        <li class="tw_btn"><a href="http://twitter.com/<?= LG_TWITTER; ?>" target="_blank"><img src="/view/images/tw_btn.png" alt="twitter" /></a></li>
                         <li class="fb_btn"><a href="<?= LG_FACEBOOK_PAGE; ?>" target="_blank"><img src="/view/images/fb_btn.png" alt="facebook" /></a></li>
                     </ul>
                     <a class="footer__integration_site" href="<?= LG_INTEGRATION_URL; ?>">LOCAL GOOD 地域課題プラットフォーム</a>
@@ -50,7 +50,7 @@ else:
                     <li>
                         <span class="footer__upper_second_title">ご利用にあたって</span>
                         <ul>
-                            <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/about/">LOCAL GOOD YOKOHAMAについて</a></li>
+                            <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/about/"><?php echo GOTEO_META_TITLE; ?>について</a></li>
                             <li class="syoutorihikihou"><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/syoutorihikihou/">特定商取引法に基づく表記</a></li>
                             <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/privacypolicy/">プライバシーポリシー</a></li>
                             <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/user_guide/">ユーザーガイド</a></li>
@@ -98,7 +98,7 @@ else:
                 </ul>
             </div>
             <p class="footer__copyright">
-                <span>COPYRIGHT© LOCAL GOOD YOKOHAMA. Some rights reserved.</span>
+                <span>COPYRIGHT© <?php echo GOTEO_META_TITLE; ?>. Some rights reserved.</span>
             </p>
         </div>
     </footer>
