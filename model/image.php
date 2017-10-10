@@ -416,10 +416,11 @@ die("test");
             $tc = $crop ? 'c' : '';
 
             $ret = $src_url . "/goteo/data/cache/{$width}x{$height}{$tc}/{$this->name}";
-            // error_log('getLink: ' . $ret);
+
+            //            error_log('getLink: ' . $ret);
 
             $res = $this->s3exist($ret);
-            // error_log('cache exist?: '.var_export($res,true));
+//            error_log('cache exist?: '.var_export($res,true));
             if (!$res){
                 $ret = $this->display($width, $height, $crop, true);
             }
@@ -434,7 +435,7 @@ die("test");
          */
 		public function s3exist($url){
             $header = get_headers($url);
-            if (preg_match('/^HTTP¥/.*¥s+200¥s/i', $header[0])) {
+            if (preg_match('/^HTTP\/.*\s+200\s/i', $header[0])) {
                 return true;
             } else {
                 return false;
@@ -498,13 +499,13 @@ die("test");
 
 			//comprova si existeix  catxe
 
-            $ret = file_get_contents($cache);
+            $ret = $this->s3exist($cache);
             $res = '';
             //error_log(var_export(($ret === false),true));
             if ($ret === false){
                 $orig_image = STATIC_SVR_DOMAIN . DIRECTORY_SEPARATOR . $this->dir_originals . $this->name;
                 //error_log('cache1: '.$orig_image);
-                if (file_get_contents($orig_image)){
+                if ($this->s3exist($orig_image)){
                     $it->load($orig_image);
                     // error_log(var_export($it,true));
                     if($crop) {
