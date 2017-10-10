@@ -149,7 +149,8 @@ if (getenv('STATIC_SVR_DOMAIN')){
 }
 define('STATIC_SVR_DOMAIN',$static_svr);
 $static_dir = str_replace(constant('SRC_URL'), STATIC_SVR_DOMAIN, dirname(__FILE__) );
-define('GOTEO_DATA_PATH', $static_dir . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR);
+//define('GOTEO_DATA_PATH', $static_dir . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR);
+define('GOTEO_DATA_PATH', 'goteo/data' . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR);
 
 // オーダー情報送信先URL																	// 本番環境
 define('EPSILON_ORDER_URL', "https://secure.epsilon.jp/cgi-bin/order/receive_order3.cgi");
