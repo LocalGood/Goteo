@@ -22,7 +22,7 @@ use Goteo\Library\Text,
     Goteo\Library\i18n\Lang;
 
 //@NODESYS
-$configJson = json_decode( file_get_contents( 'omniconfig/apikeys.json' ) );
+$configJson = json_decode( file_get_contents( __DIR__ . '/../../omniconfig/apikeys.json' ) );
 ?>
 
 <nav class="main_nav02">

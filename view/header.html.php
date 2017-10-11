@@ -23,7 +23,7 @@ use Goteo\Library\Text,
     Goteo\Library\i18n\Lang;
 //@NODESYS
 
-$configJson = json_decode( file_get_contents( 'omniconfig/apikeys.json' ) );
+$configJson = json_decode( file_get_contents( __DIR__ . '/../omniconfig/apikeys.json' ) );
 ?>
 
 <script>
@@ -44,7 +44,7 @@ $configJson = json_decode( file_get_contents( 'omniconfig/apikeys.json' ) );
 <header id="header" class="normal_header header clearfix">
 
     <h1 class="header__logo">
-        <a href="<?= LOCALGOOD_WP_BASE_URL; ?>"><img src="<?php echo $configJson->images->header_logo_2; ?>" alt=""/></a>
+        <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>"><img src="<?php echo $configJson->images->header_logo_2; ?>" alt=""/></a>
     </h1>
 
     <div class="header__right">
@@ -52,37 +52,37 @@ $configJson = json_decode( file_get_contents( 'omniconfig/apikeys.json' ) );
             <ul id="gnav" class="header__right__nav__gnav">
                 <? $a = 'class="active"'; ?>
                 <li>
-                    <a href="<?= LOCALGOOD_WP_BASE_URL . '/lgnews/' ?>">地域を知る</a>
+                    <a href="<?php echo LOCALGOOD_WP_BASE_URL . '/lgnews/' ?>">地域を知る</a>
                     <div class="snav header__right__snav">
                         <div class="header__right__snav__inner">
                             <span class="header__right__snav__second_title">記事</span>
                             <ul>
-                                <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/lgnews/' ?>">ニュース</a></span></li>
-                                <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/event/' ?>">イベント</a></span></li>
-                                <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/data/' ?>">データ</a></span></li>
-                                <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/lgplayer/' ?>">人/団体</a></span></li>
+                                <li><span><a href="<?php echo LOCALGOOD_WP_BASE_URL . '/lgnews/' ?>">ニュース</a></span></li>
+                                <li><span><a href="<?php echo LOCALGOOD_WP_BASE_URL . '/event/' ?>">イベント</a></span></li>
+                                <li><span><a href="<?php echo LOCALGOOD_WP_BASE_URL . '/data/' ?>">データ</a></span></li>
+                                <li><span><a href="<?php echo LOCALGOOD_WP_BASE_URL . '/lgplayer/' ?>">人/団体</a></span></li>
                             </ul>
                             <span class="header__right__snav__second_title">みんなの声</span>
                             <ul>
-                                <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/subject/' ?>">投稿一覧</a></span></li>
-                                <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/submit_subject/' ?>">あなたの声を投稿する</a></span></li>
+                                <li><span><a href="<?php echo LOCALGOOD_WP_BASE_URL . '/subject/' ?>">投稿一覧</a></span></li>
+                                <li><span><a href="<?php echo LOCALGOOD_WP_BASE_URL . '/submit_subject/' ?>">あなたの声を投稿する</a></span></li>
                             </ul>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <a href="<?= SITE_URL; ?>">応援する</a>
+                    <a href="<?php echo SITE_URL; ?>">応援する</a>
                     <div class="header__right__snav">
                         <div class="header__right__snav__inner">
                             <ul>
-                                <li><span><a href="<?= SITE_URL; ?>/discover/">プロジェクト一覧</a></span></li>
-                                <li><span><a href="<?= LOCALGOOD_WP_BASE_URL . '/challenge/'; ?>">プロジェクトを立ち上げる</a></span></li>
+                                <li><span><a href="<?php echo SITE_URL; ?>/discover/">プロジェクト一覧</a></span></li>
+                                <li><span><a href="<?php echo LOCALGOOD_WP_BASE_URL . '/challenge/'; ?>">プロジェクトを立ち上げる</a></span></li>
                             </ul>
                         </div>
                     </div>
                 </li>
-                <li><a href="<?= LG_EARTHVIEW; ?>" target="_blank">3Dマップ</a>
-                <li><a href="<?= LOCALGOOD_WP_BASE_URL . '/about/'; ?>" ><?php echo GOTEO_META_TITLE; ?>について</a>
+                <li><a href="<?php echo LG_EARTHVIEW; ?>" target="_blank">3Dマップ</a>
+                <li><a href="<?php echo LOCALGOOD_WP_BASE_URL . '/about/'; ?>" ><?php echo GOTEO_META_TITLE; ?>について</a>
                 </li>
                 <li class="gnav_goteo">
                     <?php if (empty($_SESSION['user'])) {
