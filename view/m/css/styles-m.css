@@ -319,10 +319,12 @@ footer {
     font-size: 10px;
     margin-bottom: 10px; }
   footer ul {
-    line-height: 2em;
+    line-height: 24px;
     list-style: none;
     margin-bottom: 30px;
     padding-left: 0; }
+  footer a {
+    display: block; }
   footer a,
   footer a:link,
   footer a:active,
@@ -3631,12 +3633,13 @@ div.superform li {
     .user-profile .widget.user-mates div.categories ul li {
       display: inline-block;
       margin: 0 5px 5px 0; }
-      .user-profile .widget.user-mates div.categories ul li a {
+      .user-profile .widget.user-mates div.categories ul li span {
         color: #828282;
+        cursor: pointer;
         font-size: 12px;
         text-decoration: none;
         text-transform: uppercase; }
-        .user-profile .widget.user-mates div.categories ul li a:hover {
+        .user-profile .widget.user-mates div.categories ul li span:hover {
           color: #009acb; }
   .user-profile .widget.user-mates div.users {
     border-bottom: none;

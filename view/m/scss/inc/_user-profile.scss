@@ -219,8 +219,9 @@
         li {
           display:inline-block;
           margin: 0 5px 5px 0;
-          a {
+          span {
             color: $grayCol02;
+            cursor: pointer;
             font-size:12px;
             text-decoration:none;
             text-transform:uppercase;

@@ -172,10 +172,13 @@ footer {
     margin-bottom: 10px;
   }
   ul {
-    line-height: 2em;
+    line-height: 24px;
     list-style: none;
     margin-bottom: 30px;
     padding-left:0;
+  }
+  a {
+    display: block;
   }
   a,
   a:link,

@@ -29,6 +29,10 @@ $lang = (LANG != 'es') ? '?lang='.LANG : '';
 $categories = Category::getList();  // categorias que se usan en proyectos
 $posts      = Post::getList('footer');
 $sponsors   = Sponsor::getList();
+
+if (file_exists('omniconfig/footer-sp.html')):
+    include 'omniconfig/footer-sp.html';
+else:
 ?>
 
 <script type="text/javascript">
@@ -227,3 +231,6 @@ jQuery(document).ready(function($) {
             COPYRIGHT© LOCAL GOOD YOKOHAMA. Some rights reserved.
         </div>
     </div>
+    <?php
+endif;
+?>
