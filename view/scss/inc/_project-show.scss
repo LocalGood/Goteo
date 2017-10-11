@@ -536,6 +536,10 @@
     &.supporters {
       margin-bottom: 20px;
 
+      #pagination{
+        margin: 30px 0 0 0;
+      }
+
       //支援・支援完了時に出るメッセージバルーンのウィジェット
       .invest-message {
         position: relative;
@@ -788,7 +792,7 @@
 
       //支援者ウィジェット
       .project-supporters {
-        ul li {
+        ul:not(#pagination) li {
           min-height: 80px;
           &:first-child,
           &:nth-child(2) {
