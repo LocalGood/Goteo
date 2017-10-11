@@ -21,6 +21,7 @@
 <div id="dashboard-menu">
     <ul>
     <?php foreach ($this['menu'] as $section=>$item) : ?>
+		<?php if( !( $item['permission'] === false)):?>
         <li class="section<?php if ($section == $this['section']) echo ' current'; if (($section == 'projects') && ($item['permission'] == false) ) echo ' forbidden'; ?>">
             <a class="section" href="/dashboard/<?php echo $section; ?>"><?php echo $item['label']; ?></a>
             <ul>
@@ -31,6 +32,7 @@
             <?php endforeach; ?>
             </ul>
         </li>
+		<?php endif;?>
     <?php endforeach; ?>
     </ul>
 </div>
