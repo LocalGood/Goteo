@@ -52,7 +52,7 @@ $fields = Content::_fields();
             <textarea id="<?php echo 'id'.$field ?>" name="<?php echo $field ?>" <?php echo $sizes[$field] ?>><?php echo $content->$field; ?></textarea>
         </p>
         <?php endforeach;  ?>
-        <input type="submit" name="save" value="<?= Text::_('Guardar'); ?>" />
+        <input type="submit" name="save" value="<?php echo Text::_('Guardar'); ?>" />
 
     </form>
 </div>

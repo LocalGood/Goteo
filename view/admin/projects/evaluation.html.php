@@ -29,6 +29,6 @@ $evaluation = $this['evaluation'];
         <input type="hidden" name="id" value="<?php echo $project->id; ?>" />
         <p>プロジェクト: <span style="font-weight:bold"><?php echo $this['project']->name; ?></span> の評価</p>
         <textarea id="richtext_content" name="content" cols="100" rows="20"><?php echo $evaluation->content; ?></textarea>
-        <p><input type="submit" name="save" value="<?= Text::_('Guardar'); ?>" /></p>
+        <p><input type="submit" name="save" value="<?php echo Text::_('Guardar'); ?>" /></p>
     </form>
 </div>

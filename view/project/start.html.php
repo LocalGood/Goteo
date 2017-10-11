@@ -44,7 +44,7 @@ include 'view/header.html.php'; ?>
                 </label>
                 <?php
                 if($this['error_message']): ?>
-                    <p class="error" style="color:#ff6666"><?= $this['error_message']; ?></p>
+                    <p class="error" style="color:#ff6666"><?php echo $this['error_message']; ?></p>
                 <?php else: ?>
                     <p class="notice">※半角のアルファベット、ハイフン、アンダーバーのみ使用可能。10文字以内32文字以下。</p>
                 <?php endif; ?>

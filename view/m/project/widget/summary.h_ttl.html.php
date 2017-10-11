@@ -65,7 +65,7 @@ $level = (int) $this['level'] ?: 3;
                 </script>
             </div>
             <div id="facebook">
-                <div class="fb-like" data-href="<?= $ogmeta['url']; ?>" data-layout="button_count" data-action="recommend" data-show-faces="false" data-share="true"></div>
+                <div class="fb-like" data-href="<?php echo $ogmeta['url']; ?>" data-layout="button_count" data-action="recommend" data-show-faces="false" data-share="true"></div>
             </div>
 
             <div class="g-plusone" data-size="medium" data-width="60"></div>

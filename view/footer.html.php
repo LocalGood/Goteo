@@ -39,46 +39,47 @@ else:
                         <img src="/view/images/footer_logo.png" alt="<?php echo GOTEO_META_TITLE; ?>ロゴ">
                     </div>
                     <ul class="footer__sns_link">
-                        <li class="rss"><a href="<?= LOCALGOOD_WP_BASE_URL . '/feed/'; ?>" target="_blank"><img src="/view/images/rss_btn.png" alt="rss" /></a></li>
-                        <li class="g_plus"><a href="<?= LG_GOOGLE_PLUS; ?>" target="_blank"><img src="/view/images/gplus_btn.png" alt="google plus" /></a></li>
-                        <li class="tw_btn"><a href="http://twitter.com/<?= LG_TWITTER; ?>" target="_blank"><img src="/view/images/tw_btn.png" alt="twitter" /></a></li>
-                        <li class="fb_btn"><a href="<?= LG_FACEBOOK_PAGE; ?>" target="_blank"><img src="/view/images/fb_btn.png" alt="facebook" /></a></li>
+                        <li class="rss"><a href="<?php echo LOCALGOOD_WP_BASE_URL . '/feed/'; ?>" target="_blank"><img src="/view/images/rss_btn.png" alt="rss" /></a></li>
+                        <li class="g_plus"><a href="<?php echo LG_GOOGLE_PLUS; ?>" target="_blank"><img src="/view/images/gplus_btn.png" alt="google plus" /></a></li>
+                        <li class="tw_btn"><a href="http://twitter.com/<?php echo LG_TWITTER; ?>" target="_blank"><img src="/view/images/tw_btn.png" alt="twitter" /></a></li>
+                        <li class="fb_btn"><a href="<?php echo LG_FACEBOOK_PAGE; ?>" target="_blank"><img src="/view/images/fb_btn.png" alt="facebook" /></a></li>
                     </ul>
-                    <a class="footer__integration_site" href="<?= LG_INTEGRATION_URL; ?>">LOCAL GOOD 地域課題プラットフォーム</a>
+                    <a class="footer__integration_site" href="<?php echo LG_INTEGRATION_URL; ?>">LOCAL GOOD 地域課題プラットフォーム</a>
                 </div>
                 <ul class="footer__upper_right">
                     <li>
                         <span class="footer__upper_second_title">ご利用にあたって</span>
                         <ul>
-                            <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/about/"><?php echo GOTEO_META_TITLE; ?>について</a></li>
-                            <li class="syoutorihikihou"><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/syoutorihikihou/">特定商取引法に基づく表記</a></li>
-                            <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/privacypolicy/">プライバシーポリシー</a></li>
-                            <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/user_guide/">ユーザーガイド</a></li>
-                            <li><a href="<?= LG_INTEGRATION_URL; ?>/riyou_kiyaku_menu/">利用規約</a></li>
-                            <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/contact/">お問い合わせ</a></li>
-                            <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/authors/">記者一覧</a></li>
+                            <li><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/about/"><?php echo GOTEO_META_TITLE; ?>について</a></li>
+                            <li><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/mailnews/">メルマガ登録</a></li>
+                            <li class="syoutorihikihou"><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/syoutorihikihou/">特定商取引法に基づく表記</a></li>
+                            <li><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/privacypolicy/">プライバシーポリシー</a></li>
+                            <li><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/user_guide/">ユーザーガイド</a></li>
+                            <li><a href="<?php echo LG_INTEGRATION_URL; ?>/riyou_kiyaku_menu/">利用規約</a></li>
+                            <li><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/contact/">お問い合わせ</a></li>
+                            <li><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/authors/">記者一覧</a></li>
                         </ul>
                     </li>
                     <li>
                         <span class="footer__upper_second_title">地域を知る</span>
                         <span class="footer__upper__third_title">記事</span>
                         <ul>
-                            <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/lgnews/">ニュース</a></li>
-                            <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/event/">イベント</a></li>
-                            <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/lgplayer/">人/団体</a></li>
-                            <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/data/">データ</a></li>
+                            <li><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/lgnews/">ニュース</a></li>
+                            <li><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/event/">みんなの拠点/イベント</a></li>
+                            <li><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/lgplayer/">人/団体</a></li>
+                            <li><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/data/">データ</a></li>
                         </ul>
                         <span class="footer__upper__third_title">みんなの声</span>
                         <ul>
-                            <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/subject/">投稿一覧</a></li>
-                            <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/submit_subject/">あなたの声を投稿する</a></li>
+                            <li><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/subject/">投稿一覧</a></li>
+                            <li><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/submit_subject/">あなたの声を投稿する</a></li>
                         </ul>
                     </li>
                     <li>
                         <span class="footer__upper_second_title">応援する</span>
                         <ul>
                             <li><a href="/discover/">プロジェクト一覧</a></li>
-                            <li><a href="<?= LOCALGOOD_WP_BASE_URL; ?>/challenge/">プロジェクトを立ち上げる</a></li>
+                            <li><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/challenge/">プロジェクトを立ち上げる</a></li>
                         </ul>
                     </li>
                 </ul>

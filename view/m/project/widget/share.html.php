@@ -62,7 +62,7 @@ if(strstr($_url,$_value) && preg_match('/^\/project\/(.*)$/',$_url)): ?>
             </script>
         </div>
         <div id="facebook" class="facebook">
-            <div class="fb-like" data-href="<?= $ogmeta['url']; ?>" data-layout="button_count" data-action="recommend" data-show-faces="false" data-share="true"></div>
+            <div class="fb-like" data-href="<?php echo $ogmeta['url']; ?>" data-layout="button_count" data-action="recommend" data-show-faces="false" data-share="true"></div>
         </div>
         <div class="gPlus">
             <div id="g-plusone" class="g-plusone" data-size="medium" data-width="60"></div>

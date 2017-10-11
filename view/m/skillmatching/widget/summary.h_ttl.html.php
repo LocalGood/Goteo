@@ -65,7 +65,7 @@ $level = (int) $this['level'] ?: 3;
                 </script>
             </div>
             <div id="facebook">
-                <div class="fb-like" data-href="<?= $ogmeta['url']; ?>" data-layout="button_count" data-action="recommend" data-show-faces="false" data-share="true"></div>
+                <div class="fb-like" data-href="<?php echo $ogmeta['url']; ?>" data-layout="button_count" data-action="recommend" data-show-faces="false" data-share="true"></div>
             </div>
 
             <div class="g-plusone" data-size="medium" data-width="60"></div>
@@ -102,7 +102,7 @@ $level = (int) $this['level'] ?: 3;
                     }
                 }
                 ?>
-                <a<?= $_match_skill; ?> id="skill_id_<?= $_skill_id; ?>" href=""><?php echo $_skill_name ?></a>
+                <a<?php echo $_match_skill; ?> id="skill_id_<?php echo $_skill_id; ?>" href=""><?php echo $_skill_name ?></a>
             <? endforeach; ?>
         </div>
     <? endif; ?>

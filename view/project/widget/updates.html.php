@@ -139,7 +139,7 @@ if(preg_match('/^\/project\/(.*)\/updates\/[0-9]{1,}$/', $_SERVER['REQUEST_URI']
                 </script>
             </div>
             <div id="facebook">
-                <div class="fb-like" data-href="<?= $permalink; ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+                <div class="fb-like" data-href="<?php echo $permalink; ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
             </div>
 
             <div class="g-plusone" data-size="medium" data-width="60"></div>

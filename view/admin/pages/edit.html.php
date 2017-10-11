@@ -57,6 +57,6 @@ $(document).ready(function(){
         <textarea name="description" id="page-description" cols="60" rows="4"><?php echo $this['page']->description; ?></textarea>
 <br />
         <textarea id="richtext_content" name="content" cols="100" rows="20"><?php echo $this['page']->content; ?></textarea>
-        <input type="submit" name="save" value="<?= Text::_('Guardar'); ?>" />
+        <input type="submit" name="save" value="<?php echo Text::_('Guardar'); ?>" />
     </form>
 </div>

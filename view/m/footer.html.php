@@ -48,37 +48,37 @@ jQuery(document).ready(function($) {
         </div>
         <ul>
             <li>
-                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/about/">
+                <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/about/">
                     <?php echo GOTEO_META_TITLE; ?>について
                 </a>
             </li>
             <li>
-                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/syoutorihikihou/">
+                <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/syoutorihikihou/">
                     特定商取引法について
                 </a>
             </li>
             <li>
-                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/privacypolicy/">
+                <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/privacypolicy/">
                     プライバシーポリシー
                 </a>
             </li>
             <li>
-                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/user_guide/">
+                <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/user_guide/">
                     ユーザーガイド
                 </a>
             </li>
             <li>
-                <a href="<?= LG_INTEGRATION_URL; ?>/riyou_kiyaku_menu/">
+                <a href="<?php echo LG_INTEGRATION_URL; ?>/riyou_kiyaku_menu/">
                     利用規約
                 </a>
             </li>
             <li>
-                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/contact/">
+                <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/contact/">
                     お問い合わせ
                 </a>
             </li>
             <li>
-                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/authors/">
+                <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/authors/">
                     記者一覧
                 </a>
             </li>
@@ -92,22 +92,22 @@ jQuery(document).ready(function($) {
         </span>
         <ul>
             <li>
-                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/lgnews/">
+                <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/lgnews/">
                     ニュース
                 </a>
             </li>
             <li>
-                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/event/">
+                <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/event/">
                     イベント
                 </a>
             </li>
             <li>
-                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/lgplayer/">
+                <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/lgplayer/">
                     人/団体
                 </a>
             </li>
             <li>
-                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/data/">
+                <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/data/">
                     データ
                 </a>
             </li>
@@ -117,12 +117,12 @@ jQuery(document).ready(function($) {
         </span>
         <ul>
             <li>
-                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/subject/">
+                <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/subject/">
                     投稿一覧
                 </a>
             </li>
             <li>
-                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/submit_subject/">
+                <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/submit_subject/">
                     あなたの声を投稿する
                 </a>
             </li>
@@ -133,12 +133,12 @@ jQuery(document).ready(function($) {
         </div>
         <ul>
             <li>
-                <a href="<?= SITE_URL; ?>/discover">
+                <a href="<?php echo SITE_URL; ?>/discover">
                     プロジェクト一覧
                 </a>
             </li>
             <li>
-                <a href="<?= LOCALGOOD_WP_BASE_URL; ?>/challenge/">
+                <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/challenge/">
 					プロジェクトを立ち上げる
                 </a>
             </li>
@@ -147,7 +147,7 @@ jQuery(document).ready(function($) {
 
     <section class="footer_bottom">
         <div class="footer_logo">
-            <a href="<?= LOCALGOOD_WP_BASE_URL; ?>">
+            <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>">
                 <img src="/view/images/s-footer-logo.png" alt="LOCAL GOOD">
             </a>
         </div>
@@ -177,7 +177,7 @@ jQuery(document).ready(function($) {
             <span>
                 >
             </span>
-            <a href="<?= LG_INTEGRATION_URL; ?>">
+            <a href="<?php echo LG_INTEGRATION_URL; ?>">
                 LOCAL GOOD 地域課題プラットフォーム
             </a>
         </div>

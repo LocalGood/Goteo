@@ -75,7 +75,7 @@ $per = 100 / $cols;
         <thead>
             <tr>
                 <?php foreach ($this['columns'] as $key=>$label) : ?>
-                    <th class="<?= $key; ?>"><?php echo !empty($label) ? Text::_($label) : $label; ?></th>
+                    <th class="<?php echo $key; ?>"><?php echo !empty($label) ? Text::_($label) : $label; ?></th>
                 <?php endforeach; ?>
             </tr>
         </thead>
@@ -102,9 +102,9 @@ $per = 100 / $cols;
                     ?>
                     <td><?php if (!empty($item->$key)) : ?><img src="<?php echo $_image->getLink(110,110)  ?>" alt="image" /><?php endif; ?></td>
                 <?php elseif ($key == 'name') : ?>
-                   <td class="w200"><?=!empty($item->parent_skill_id) ? "&nbsp;&lfloor;" : ""?><?php echo (is_object($item)) ? $item->$key : $item[$key]; ?></td>
+                   <td class="w200"><?php echo!empty($item->parent_skill_id) ? "&nbsp;&lfloor;" : ""?><?php echo (is_object($item)) ? $item->$key : $item[$key]; ?></td>
                 <?php elseif ($key == 'order') : ?>
-                   <td><?=!empty($item->parent_skill_id) ? "&nbsp;&lfloor;" : ""?><?php echo (is_object($item)) ? $item->$key : $item[$key]; ?></td>
+                   <td><?php echo!empty($item->parent_skill_id) ? "&nbsp;&lfloor;" : ""?><?php echo (is_object($item)) ? $item->$key : $item[$key]; ?></td>
                 <?php else : ?>
                     <td><?php echo (is_object($item)) ? $item->$key : $item[$key]; ?></td>
                 <?php endif; ?>

@@ -110,7 +110,7 @@ $_blog_key = substr($ogmeta['url'], $blog_post+9);
         <?php endif; ?>
         <meta property="og:url" content="<?php echo $ogmeta['url'] ?>" />
         <meta property="og:locale" content="ja_JP" />
-        <meta property="fb:app_id" content="<?= OAUTH_FACEBOOK_ID ?>" />
+        <meta property="fb:app_id" content="<?php echo OAUTH_FACEBOOK_ID ?>" />
     <?php elseif (isset($ogmeta) && $blog_post): ?>
         <? $_blog = Post::get($this['post'], LANG);
         $blog_post = $this['blog'];
