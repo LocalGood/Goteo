@@ -31,8 +31,7 @@ include 'view/header.html.php'; ?>
 
         <div id="sub-header">
             <div class="dashboard-header">
-                <a href="/user/<?php echo $user->id; ?>" target="_blank"><img src="<?php
-                                        if(method_exists($_SESSION['user'], 'avatar')) { echo $_SESSION['user']->avatar->getLink(28,28, true); }  ?>?>" alt="<?php echo $_SESSION['user']->name?>" /></a>
+                <a href="/user/<?php echo $user->id; ?>" target="_blank"><img src="<?php if( property_exists($user,'avatar') && (($user->avatar) instanceof \Goteo\Model\Image)) { echo $user->avatar->getLink(56, 56, true); } ?>" /></a>
                 <h2><span><?php if (empty($option)) {
                         echo Text::get('dashboard-header-main');
                     } else {

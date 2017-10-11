@@ -95,7 +95,7 @@ $configJson = json_decode( file_get_contents( '/var/www/vhosts/yokohama.localgoo
                         <div id="goteo_menu" class="goteo_menu">
                             <ul>
                                 <li class="dashboard active"><a href="/dashboard"><span>マイページ</span><img src="<?php
-                                        if(property_exists($_SESSION['user'], 'avatar')) { echo $_SESSION['user']->avatar->getLink(28,28, true); }  ?>?>" alt="<?php echo $_SESSION['user']->name?>"></a>
+                                        if(property_exists($_SESSION['user'], 'avatar') && (($_SESSION['user']->avatar) instanceof \Goteo\Model\Image)) { echo $_SESSION['user']->avatar->getLink(28,28, true); } ?>" alt="<?php echo $_SESSION['user']->name?>"></a>
                                     <div>
                                         <ul>
                                             <li><a href="/dashboard/activity"><span>アクティビティ</span></a></li>

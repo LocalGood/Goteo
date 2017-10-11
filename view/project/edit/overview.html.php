@@ -172,7 +172,7 @@ $superform = array(
                     'type'  => 'html',
                     'class' => 'inline project-image',
                     'html'  => is_object($project->gallery[0]) ?
-                        $project->gallery[0] . '<input type="hidden" name="image_order" value="1"><img src="'.STATIC_SVR_DOMAIN.'/data/cache/128x128/'.$project->gallery[1]->name.'" alt="Imagen" /><button class="image-remove weak" type="submit" name="gallery-'.$project->gallery[0]->id.'-remove" title="Quitar imagen" value="remove"></button>' :
+                        $project->gallery[0] . '<input type="hidden" name="image_order" value="1"><img src="' . $project->gallery[0]->getLink(128,128) . '" alt="Imagen" /><button class="image-remove weak" type="submit" name="gallery-'.$project->gallery[0]->id.'-remove" title="Quitar imagen" value="remove"></button>' :
                         ''
                 )
             )
@@ -205,7 +205,7 @@ $superform = array(
                     'type'  => 'html',
                     'class' => 'inline project-image',
                     'html'  => is_object($project->gallery[1]) ?
-                        $project->gallery[1] . '<input type="hidden" name="image_order" value="2"><img src="'.STATIC_SVR_DOMAIN.'/data/cache/128x128/'.$project->gallery[1]->name.'" alt="Imagen" /><button class="image-remove weak" type="submit" name="gallery-'.$project->gallery[1]->id.'-remove" title="Quitar imagen" value="remove"></button>' :
+                        $project->gallery[1] . '<input type="hidden" name="image_order" value="2"><img src="' . $project->gallery[1]->getLink(128,128) .'" alt="Imagen" /><button class="image-remove weak" type="submit" name="gallery-'.$project->gallery[1]->id.'-remove" title="Quitar imagen" value="remove"></button>' :
                         ''
                 )
             )
@@ -238,7 +238,7 @@ $superform = array(
                     'type'  => 'html',
                     'class' => 'inline project-image',
                     'html'  => is_object($project->gallery[2]) ?
-                        $project->gallery[2] . '<input type="hidden" name="image_order" value="3"><img src="'.STATIC_SVR_DOMAIN.'/data/cache//128x128/'.$project->gallery[1]->name.'" alt="Imagen" /><button class="image-remove weak" type="submit" name="gallery-'.$project->gallery[2]->id.'-remove" title="Quitar imagen" value="remove"></button>' :
+                        $project->gallery[2] . '<input type="hidden" name="image_order" value="3"><img src="' . $project->gallery[2]->getLink(128,128) .'" alt="Imagen" /><button class="image-remove weak" type="submit" name="gallery-'.$project->gallery[2]->id.'-remove" title="Quitar imagen" value="remove"></button>' :
                         ''
                 )
             )
