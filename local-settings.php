@@ -92,7 +92,9 @@ $env_ids = array(
     // S3 static
     'STATIC_S3_VERSION',
     'STATIC_S3_REGION',
-    'STATIC_S3_BUCKET_NAME'
+    'STATIC_S3_BUCKET_NAME',
+    // epsilon code
+    'EPSILON_CONTRACT_CODE'
 );
 
 foreach ($env_ids as $env_id){
