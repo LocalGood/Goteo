@@ -88,7 +88,7 @@ $env_ids = array(
      */
     'LG_SCSS_COMPILE_PARAM',
     // WP generated json
-    'LG_OMNICONFIG_JSON_FILE'
+    'LG_OMNICONFIG_JSON_FILE',
     // S3 static
     'STATIC_S3_VERSION',
     'STATIC_S3_REGION',
