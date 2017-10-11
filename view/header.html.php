@@ -23,7 +23,7 @@ use Goteo\Library\Text,
     Goteo\Library\i18n\Lang;
 //@NODESYS
 
-$configJson = json_decode( file_get_contents( 'omniconfig/apikeys.json' ) );
+$configJson = json_decode( file_get_contents( '/var/www/vhosts/yokohama.localgood.jp/htdocs/omniconfig/apikeys.json' ) );
 ?>
 
 <script>
@@ -95,7 +95,7 @@ $configJson = json_decode( file_get_contents( 'omniconfig/apikeys.json' ) );
                         <div id="goteo_menu" class="goteo_menu">
                             <ul>
                                 <li class="dashboard active"><a href="/dashboard"><span>マイページ</span><img src="<?php
-                                        if($_SESSION['user']->avatar) { echo $_SESSION['user']->avatar->getLink(28,28, true); }  ?>?>" alt="<?php echo $_SESSION['user']->name?>"></a>
+                                        if(property_exists($_SESSION['user'], 'avatar')) { echo $_SESSION['user']->avatar->getLink(28,28, true); }  ?>?>" alt="<?php echo $_SESSION['user']->name?>"></a>
                                     <div>
                                         <ul>
                                             <li><a href="/dashboard/activity"><span>アクティビティ</span></a></li>
