@@ -964,11 +964,26 @@
           font-size: 12px;
         }
         .post-gallery {
+          position: relative;
           margin-bottom: 30px;
           a.prev {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            display: inline-block;
+            width: 20px;
+            cursor: pointer;
+            text-indent: -99999px;
             background: url('/view/images/small_arrowslider-sprt.png') scroll no-repeat 0 0;
           }
           a.next {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            display: inline-block;
+            width: 20px;
+            cursor: pointer;
+            text-indent: -99999px;
             background: url('/view/images/small_arrowslider-sprt.png') scroll no-repeat 0 -16px;
           }
           .slderpag {

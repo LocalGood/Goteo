@@ -3277,10 +3277,25 @@ body.js .superform > div.elements ol li.element div.contents p {
     display: block;
     font-size: 12px; }
   .project-show .center.updates .post .post-gallery {
+    position: relative;
     margin-bottom: 30px; }
     .project-show .center.updates .post .post-gallery a.prev {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      display: inline-block;
+      width: 20px;
+      cursor: pointer;
+      text-indent: -99999px;
       background: url("/view/images/small_arrowslider-sprt.png") scroll no-repeat 0 0; }
     .project-show .center.updates .post .post-gallery a.next {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      display: inline-block;
+      width: 20px;
+      cursor: pointer;
+      text-indent: -99999px;
       background: url("/view/images/small_arrowslider-sprt.png") scroll no-repeat 0 -16px; }
     .project-show .center.updates .post .post-gallery .slderpag {
       float: left;
