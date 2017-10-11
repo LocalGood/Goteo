@@ -241,6 +241,7 @@
     padding: 45px 0 52px;
     background-color: $mainCol01;
     &_left {
+      box-sizing: content-box;
       float: left;
       width: 25%;
       margin-right: 60px;

@@ -29,11 +29,10 @@ else:
         $('.scroll-pane').jScrollPane({showArrows: true});
       });
     </script>
-
     <footer class="footer">
 
         <div class="footer__upper">
-            <div class="c-w1200">
+            <div class="c-w1096">
                 <div class="footer__upper_left">
                     <div class="footer__logo">
                         <img src="/view/images/footer_logo.png" alt="<?php echo GOTEO_META_TITLE; ?>ロゴ">
@@ -51,7 +50,6 @@ else:
                         <span class="footer__upper_second_title">ご利用にあたって</span>
                         <ul>
                             <li><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/about/"><?php echo GOTEO_META_TITLE; ?>について</a></li>
-                            <li><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/mailnews/">メルマガ登録</a></li>
                             <li class="syoutorihikihou"><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/syoutorihikihou/">特定商取引法に基づく表記</a></li>
                             <li><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/privacypolicy/">プライバシーポリシー</a></li>
                             <li><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/user_guide/">ユーザーガイド</a></li>
