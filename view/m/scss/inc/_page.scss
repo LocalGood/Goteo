@@ -203,7 +203,7 @@ body.home {
     input[type="password"] {
       display: block;
       width: 100%;
-      margin: 0 0 20px 0;
+      margin-bottom: 6px;
     }
   }
   .login {
@@ -212,13 +212,23 @@ body.home {
       -webkit-border-radius: 3px;
       -moz-border-radius: 3px;
       border-radius: 3px;
-      width: 100%;
+      margin-bottom: 14px;
+    }
+  }
+  .external-login {
+    &-fb-caution {
+      color: $alertCol;
+      font-size: 12px;
+      margin: 10px;
     }
   }
   .register {
+    form > div {
+      margin-bottom: 14px;
+    }
     textarea{
       width: 100%;
-      margin: 0 0 20px 0;
+      margin-bottom: 20px;
     }
     textarea,
     input:not([type="submit"]) {
@@ -227,15 +237,15 @@ body.home {
       border-radius: 3px;
       background: $baseWhite;
     }
-    input {
-      &[name="userid"],
-      &[name='username']{
-        display: block;
-      }
-      &[type='password']{
-        display: block;
-        margin: 0 0 20px 0;
-      }
+    p {
+      margin-top: 0;
+    }
+    em {
+      color: $alertCol;
+      display: block;
+    }
+    label.conditions {
+      margin-bottom: 20px;
     }
     .agree {
       display: flex;

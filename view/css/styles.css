@@ -6217,66 +6217,51 @@ body.js .superform > div.elements ol li.element div.contents p {
       .user-login .external-login a:hover,
       .user-login .login a:hover {
         color: #009acb; }
-    .user-login .register label,
-    .user-login .external-login label,
-    .user-login .login label {
-      display: block; }
-      .user-login .register label.conditions,
-      .user-login .external-login label.conditions,
-      .user-login .login label.conditions {
-        display: inline-block; }
-    .user-login .register textarea,
-    .user-login .external-login textarea,
-    .user-login .login textarea {
-      width: 100%;
-      margin: 0 0 20px 0; }
-    .user-login .register textarea,
-    .user-login .register input:not([type="submit"]),
-    .user-login .external-login textarea,
-    .user-login .external-login input:not([type="submit"]),
-    .user-login .login textarea,
-    .user-login .login input:not([type="submit"]) {
-      -webkit-border-radius: 3px;
-      -moz-border-radius: 3px;
-      border-radius: 3px;
-      background: #FFF; }
-      .user-login .register textarea[type="text"],
-      .user-login .register input:not([type="submit"])[type="text"],
-      .user-login .external-login textarea[type="text"],
-      .user-login .external-login input:not([type="submit"])[type="text"],
-      .user-login .login textarea[type="text"],
-      .user-login .login input:not([type="submit"])[type="text"] {
-        display: block;
-        width: 100%;
-        margin: 0 0 20px 0; }
-      .user-login .register textarea[name="userid"], .user-login .register textarea[name='username'],
-      .user-login .register input:not([type="submit"])[name="userid"],
-      .user-login .register input:not([type="submit"])[name='username'],
-      .user-login .external-login textarea[name="userid"],
-      .user-login .external-login textarea[name='username'],
-      .user-login .external-login input:not([type="submit"])[name="userid"],
-      .user-login .external-login input:not([type="submit"])[name='username'],
-      .user-login .login textarea[name="userid"],
-      .user-login .login textarea[name='username'],
-      .user-login .login input:not([type="submit"])[name="userid"],
-      .user-login .login input:not([type="submit"])[name='username'] {
-        display: block;
-        width: 50%; }
-      .user-login .register textarea[type='password'],
-      .user-login .register input:not([type="submit"])[type='password'],
-      .user-login .external-login textarea[type='password'],
-      .user-login .external-login input:not([type="submit"])[type='password'],
-      .user-login .login textarea[type='password'],
-      .user-login .login input:not([type="submit"])[type='password'] {
-        display: block;
-        width: 50%;
-        margin: 0 0 20px 0; }
-      .user-login .register textarea[type="checkbox"],
-      .user-login .register input:not([type="submit"])[type="checkbox"],
-      .user-login .external-login textarea[type="checkbox"],
-      .user-login .external-login input:not([type="submit"])[type="checkbox"],
-      .user-login .login textarea[type="checkbox"],
-      .user-login .login input:not([type="submit"])[type="checkbox"] {
-        display: inline-block; }
+  .user-login .login label,
+  .user-login .register label {
+    display: block; }
+    .user-login .login label.conditions,
+    .user-login .register label.conditions {
+      display: inline-block; }
+  .user-login .login input[type="text"],
+  .user-login .login input[type="password"],
+  .user-login .register input[type="text"],
+  .user-login .register input[type="password"] {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    display: block;
+    width: 50%; }
+  .user-login .login input[name="username"],
+  .user-login .login input[name="password"] {
+    margin-bottom: 20px;
+    width: 50%; }
+  .user-login .external-login-fb-caution {
+    color: #e02d22;
+    font-size: 12px;
+    margin: 10px 0; }
+  .user-login .register form > div {
+    margin-bottom: 20px; }
+  .user-login .register textarea {
+    width: 100%;
+    margin-bottom: 20px; }
+  .user-login .register textarea,
+  .user-login .register input:not([type="submit"]) {
+    background: #FFF;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-bottom: 6px; }
+    .user-login .register textarea[name="email"], .user-login .register textarea[name="remail"],
+    .user-login .register input:not([type="submit"])[name="email"],
+    .user-login .register input:not([type="submit"])[name="remail"] {
+      width: 100%; }
+  .user-login .register p {
+    margin-top: 0; }
+  .user-login .register em {
+    color: #e02d22;
+    display: block; }
+  .user-login .register label.conditions {
+    margin-bottom: 20px; }
 
 /*# sourceMappingURL=styles.css.map */

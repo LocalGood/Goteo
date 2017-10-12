@@ -152,7 +152,7 @@ if (empty($username) && isset($this['username'])) $username = $this['username'];
                     ?>
 
                 </ul>
-                <p style="font-size:12px;margin:10px 0;color:#ff5555;"><?php echo Text::get('login-signin-facebook-caution'); ?></p>
+                <p class="external-login-fb-caution"><?php echo Text::get('login-signin-facebook-caution'); ?></p>
             </div>
         </div>
         <div class="register">
@@ -188,8 +188,9 @@ if (empty($username) && isset($this['username'])) $username = $this['username'];
                     </div>
 
                     <div class="password">
-                        <label for="RegisterPassword"><?php echo Text::get('login-register-password-field'); ?><br /><span class="tips"><?echo Text::get('login-register-password-field-tips');?></span></label> <?php if (isset($errors['password']) && (strlen($password) < 6)) echo '<em>'.Text::get('login-register-password-minlength').'</em>'; ?>
+                        <label for="RegisterPassword"><?php echo Text::get('login-register-password-field'); ?><br /><span class="tips"><?echo Text::get('login-register-password-field-tips');?></span></label>
                         <input type="password" id="RegisterPassword" name="password" value="<?php echo htmlspecialchars($password) ?>"/>
+                        <?php if (isset($errors['password']) && (strlen($password) < 6)) echo '<em>'.Text::get('login-register-password-minlength').'</em>'; ?>
                         <?php if(isset($errors['password'])) { ?><em><?php echo $errors['password']?></em><?php } ?>
                         <p class="add_info"><?php echo Text::get('login-register-password-description'); ?></p>
                     </div>

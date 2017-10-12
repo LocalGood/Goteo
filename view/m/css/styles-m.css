@@ -1870,7 +1870,7 @@ ul#pagination {
       display: block;
       float: left;
       overflow: hidden;
-      margin: 0 4px 4px 2px; }
+      margin: 0 4px 4px 4px; }
       .widget.post .post-gallery ul.slderpag li a {
         background-color: #d9d9d9;
         color: #d9d9d9;
@@ -3948,27 +3948,35 @@ body.home #main .widget.projects {
   .user-login .register input[type="password"] {
     display: block;
     width: 100%;
-    margin: 0 0 20px 0; }
+    margin-bottom: 6px; }
   .user-login .login input[name="username"],
   .user-login .login input[name="password"] {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    width: 100%; }
+    margin-bottom: 14px; }
+  .user-login .external-login-fb-caution {
+    color: #e02d22;
+    font-size: 12px;
+    margin: 10px; }
+  .user-login .register form > div {
+    margin-bottom: 14px; }
   .user-login .register textarea {
     width: 100%;
-    margin: 0 0 20px 0; }
+    margin-bottom: 20px; }
   .user-login .register textarea,
   .user-login .register input:not([type="submit"]) {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
     background: #ffffff; }
-  .user-login .register input[name="userid"], .user-login .register input[name='username'] {
+  .user-login .register p {
+    margin-top: 0; }
+  .user-login .register em {
+    color: #e02d22;
     display: block; }
-  .user-login .register input[type='password'] {
-    display: block;
-    margin: 0 0 20px 0; }
+  .user-login .register label.conditions {
+    margin-bottom: 20px; }
   .user-login .register .agree {
     display: flex; }
 
