@@ -152,7 +152,7 @@ if (empty($username) && isset($this['username'])) $username = $this['username'];
                     ?>
 
                 </ul>
-                <p style="font-size:12px;margin:10px 0;color:#ff5555;">※2016年6月6日以前にFacebookアカウントでの自動ログインをご登録された場合は、「Facebookアカウントでログイン」を押したあとに表示される画面に沿って、改めて登録をお願いいたします。なお、過去にLOCAL GOODで登録・ご支援いただいた情報は引き継がれます。</p>
+                <p class="external-login-fb-caution"><?php echo Text::get('login-signin-facebook-caution'); ?></p>
             </div>
         </div>
         <div class="register">
@@ -164,21 +164,21 @@ if (empty($username) && isset($this['username'])) $username = $this['username'];
                         <label for="RegisterUserid"><?php echo Text::get('login-register-userid-field'); ?><br /><span class="tips"><?echo Text::get('login-register-userid-field-tips');?></span></label>
                         <input type="text" id="RegisterUserid" name="userid" value="<?php echo htmlspecialchars($userid) ?>" maxlength="15" />
                         <?php if(isset($errors['userid'])) { ?><em><?php echo $errors['userid']?></em><?php } ?>
-                        <p class="add_info">ログイン時に使用するIDです。</p>
+                        <p class="add_info"><?php echo Text::get('login-register-id-description'); ?></p>
                     </div>
 
                     <div class="username">
                         <label for="RegisterUsername"><?php echo Text::get('login-register-username-field'); ?></label>
                         <input type="text" id="RegisterUsername" name="username" value="<?php echo htmlspecialchars($username) ?>" maxlength="20" />
                         <?php if(isset($errors['username'])) { ?><em><?php echo $errors['username']?></em><?php } ?>
-                        <p class="add_info">支援時にサイトに表示される名前です。<br>＊支援時に匿名にすることもできます。</p>
+                        <p class="add_info"><?php echo Text::get('login-register-username-description'); ?></p>
                     </div>
 
                     <div class="email">
                         <label for="RegisterEmail"><?php echo Text::get('login-register-email-field'); ?></label>
                         <input type="text" id="RegisterEmail" name="email" value="<?php echo htmlspecialchars($email) ?>"/>
                         <?php if(isset($errors['email'])) { ?><em><?php echo $errors['email']?></em><?php } ?>
-                        <p class="add_info">各種通知が届きます。必ず有効なメールアドレスを記入してください。</p>
+                        <p class="add_info"><?php echo Text::get('login-register-email-description'); ?></p>
                     </div>
 
                     <div class="remail">
@@ -188,10 +188,11 @@ if (empty($username) && isset($this['username'])) $username = $this['username'];
                     </div>
 
                     <div class="password">
-                        <label for="RegisterPassword"><?php echo Text::get('login-register-password-field'); ?><br /><span class="tips"><?echo Text::get('login-register-password-field-tips');?></span></label> <?php if (isset($errors['password']) && (strlen($password) < 6)) echo '<em>'.Text::get('login-register-password-minlength').'</em>'; ?>
+                        <label for="RegisterPassword"><?php echo Text::get('login-register-password-field'); ?><br /><span class="tips"><?echo Text::get('login-register-password-field-tips');?></span></label>
                         <input type="password" id="RegisterPassword" name="password" value="<?php echo htmlspecialchars($password) ?>"/>
+                        <?php if (isset($errors['password']) && (strlen($password) < 6)) echo '<em>'.Text::get('login-register-password-minlength').'</em>'; ?>
                         <?php if(isset($errors['password'])) { ?><em><?php echo $errors['password']?></em><?php } ?>
-                        <p class="add_info">ログイン時に使用するパスワードです。</p>
+                        <p class="add_info"><?php echo Text::get('login-register-password-description'); ?></p>
                     </div>
 
                     <div class="rpassword">

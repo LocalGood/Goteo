@@ -297,7 +297,6 @@
   .register,
   .external-login,
   .login{
-    //    min-height: calc(100vh - 2em - 758px);
     padding: 15px 20px;
     margin: 0 0 20px 0;
     background: #FFF;
@@ -307,40 +306,67 @@
         color: $mainCol02;
       }
     }
+  }
+  .login,
+  .register {
     label{
       display: block;
       &.conditions{
         display: inline-block;
       }
     }
-    textarea{
-      width: 100%;
-      margin: 0 0 20px 0;
-    }
-    textarea,
-    input:not([type="submit"]){
+    input[type="text"],
+    input[type="password"] {
       -webkit-border-radius: 3px;
       -moz-border-radius: 3px;
       border-radius: 3px;
+      display: block;
+      width: 50%;
+    }
+  }
+  .login {
+    input[name="username"],
+    input[name="password"] {
+      margin-bottom: 20px;
+      width: 50%;
+    }
+  }
+  .external-login {
+    &-fb-caution {
+      color: $alertCol;
+      font-size: 12px;
+      margin: 10px 0;
+    }
+  }
+  .register {
+    form > div {
+      margin-bottom: 20px;
+    }
+    textarea{
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    textarea,
+    input:not([type="submit"]){
       background: #FFF;
-      &[type="text"]{
-        display: block;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      margin-bottom: 6px;
+      &[name="email"],
+      &[name="remail"] {
         width: 100%;
-        margin: 0 0 20px 0;
       }
-      &[name="userid"],
-      &[name='username']{
-        display: block;
-        width: 50%;
-      }
-      &[type='password']{
-        display: block;
-        width: 50%;
-        margin: 0 0 20px 0;
-      }
-      &[type="checkbox"]{
-        display: inline-block;
-      }
+    }
+    p {
+      margin-top: 0;
+    }
+    em {
+      color: $alertCol;
+      display: block;
+    }
+    label.conditions {
+      margin-bottom: 20px;
     }
   }
 }
