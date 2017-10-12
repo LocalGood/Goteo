@@ -536,10 +536,6 @@
     &.supporters {
       margin-bottom: 20px;
 
-      #pagination{
-        margin: 30px 0 0 0;
-      }
-
       //支援・支援完了時に出るメッセージバルーンのウィジェット
       .invest-message {
         position: relative;
@@ -819,10 +815,6 @@
         .title {
           margin-bottom: 20px;
         }
-        .supertitle {
-        }
-
-
         ul {
           list-style: none;
           margin: 0;
@@ -1044,52 +1036,6 @@
               }
             }
           }
-
-
-          /*a.prev {
-            cursor: pointer;
-            background: url('/view/images/small_arrowslider-sprt.png') scroll no-repeat 0 0;
-            display: block;
-            float: left;
-            margin-top: 8px;
-            text-indent: -99999px;
-            width: 20px;
-          }
-          a.next {
-            cursor: pointer;
-            background: url('/view/images/small_arrowslider-sprt.png') scroll no-repeat 0 -16px;
-            display: block;
-            float: left;
-            margin-top: 8px;
-            text-indent: -99999px;
-            width: 20px;
-          }
-          .slderpag {
-            float: left;
-            height: auto;
-            list-style: none;
-            margin-top: 8px;
-            padding: 0;
-            li {
-              cursor: pointer;
-              display: block;
-              float: left;
-              margin: 0 4px 5px;
-              overflow: hidden;
-              &.current a {
-                background-color: $grayCol02;
-                color: $grayCol02;
-              }
-              a {
-                background-color: $grayCol01;
-                color: $grayCol01;
-                display: block;
-                height: 12px;
-                margin-top: 2px;
-                width: 12px;
-              }
-            }
-          }*/
         }
         .post-gallery-container {
           display: none;
@@ -1122,10 +1068,6 @@
             position: relative;
             text-decoration: none;
             &:after {
-              //background: url('/view/images/arrow-link.png') no-repeat 50%;
-              //bottom: 0;
-              //content: '';
-              //display: block;
               height: 8px;
               margin: auto;
               right: 0;
@@ -1188,9 +1130,6 @@
             text-decoration: none;
           }
         }
-      }
-      #pagination {
-        margin-top: 10px;
       }
       .post-comments {
         div.message {

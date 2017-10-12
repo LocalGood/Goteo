@@ -1472,6 +1472,9 @@
       color:$grayCol02;
       margin: 0 0 8px 0;
     }
+    .post-gallery {
+      @include cf;
+    }
     .gallery-image {
       text-align: center;
       margin: 0 auto;

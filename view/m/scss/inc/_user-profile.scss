@@ -189,6 +189,61 @@
     }
   }
 
+  .widget.user-social {
+    background-color: $baseWhite;
+    border-bottom: $solidBorder;
+    margin-bottom: 20px;
+    padding: 16px;
+    .title {
+      display:none;
+    }
+    ul {
+      @include cf;
+      list-style:none;
+      margin:0;
+      padding:0;
+      li {
+        background:no-repeat left center;
+        display:block;
+        float:left;
+        margin-right: 8px;
+        min-width: 20px;
+        a {
+          display: block;
+          text-decoration:none;
+          text-indent: -9999px;
+          background-repeat: no-repeat;
+          background-size: 20px auto;
+        }
+        &.facebook {
+          a {
+            background-image:url(/view/images/social/facebook.png);
+          }
+        }
+        &.google {
+          a {
+            background-image:url(/view/images/social/google.png);
+          }
+        }
+        &.twitter {
+          a {
+            background-image:url(/view/images/social/twitter.png);
+          }
+        }
+        &.identica {
+          a {
+            background-image:url(/view/images/social/identica.png);
+          }
+        }
+        &.linkedin {
+          a {
+            background-image:url(/view/images/social/linkedin.png);
+          }
+        }
+      }
+    }
+  }
+
   //このユーザーの興味ウィジェット
   .widget.user-mates {
     padding: 0;
