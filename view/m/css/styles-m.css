@@ -207,7 +207,8 @@ textarea#leave-message {
   .main_nav02 .nav_logo {
     float: left; }
     .main_nav02 .nav_logo img {
-      width: 35%; }
+      margin-top: 4%;
+      width: 60%; }
   .main_nav02 .nav_menu-button {
     background: #ffffff;
     box-sizing: content-box;
