@@ -2876,6 +2876,7 @@ div.superform li {
       padding: 5px 5px 6px 0; }
     .discover .searcher .filter select {
       width: 100%;
+      font-size: 16px;
       margin: 10px 0 0;
       border: 1px solid #d9d9d9;
       background-color: #f2f2f2; }
