@@ -33,7 +33,7 @@ $project = $this['skillmatching'];
 //					generatePagination: false,
 //					play: 0
 //				});
-			});
+//			});
 		</script>
     <?php endif; ?>
 

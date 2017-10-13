@@ -33,7 +33,7 @@ $project = $this['project'];
 //					generatePagination: false,
 //					play: 0
 //				});
-			});
+//			});
 		</script>
     <?php endif; ?>
 
