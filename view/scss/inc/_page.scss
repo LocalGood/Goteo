@@ -221,11 +221,14 @@
           }
           .avatar {
             height: 50px;
-            left: 4px;
+            left: 0;
             position: absolute;
             text-align: center;
             top: 8px;
             width: 50px;
+            a {
+              @include circleAvatar(50px)
+            }
           }
           h4 {
             margin-top: 4px;

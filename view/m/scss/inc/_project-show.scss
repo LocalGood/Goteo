@@ -1,3 +1,4 @@
+@charset "utf-8";
 .project-show {
 
   .button.supportit {
@@ -297,6 +298,13 @@
         //メッセージ表示
         .widget.project-messages {
           padding-top: 0;
+        }
+        //スキルマッチング -> 問い合わせ掲示板　の、メッセージ欄
+        #message-text {
+          clear: right;
+          float: right;
+          width: 85%;
+          margin-bottom: 20px;
         }
       }
 

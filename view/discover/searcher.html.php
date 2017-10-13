@@ -44,13 +44,13 @@ $params = $this['params'];
 <div class="widget searcher">
     <form method="post" action="/discover/results">
         <div class="text-filter">
-            <label for="text-query"><?php echo Text::get('discover-searcher-bycontent-header'); ?></label>
+            <label for="text-query"><?php echo Text::get('discover-searcher-byskill-header'); ?></label>
             <input type="text" id="text-query" name="query" size="48" value="<?php echo \htmlspecialchars($params['query']); ?>" />
             <br clear="all" />
         </div>
 
         <div class="filter">
-            <label for="types"><?php echo Text::get('discover-searcher-byskill-header'); ?></label>
+            <label for="types"><?php echo Text::get('discover-searcher-bytype-header'); ?></label>
             <select id="types" name="types[]" multiple size="10">
                 <option class="all" value="all"<?php if (empty($params['types'])) echo ' selected="selected"'; ?>><?php echo Text::get('discover-searcher-bycategory-all'); ?></option>
                 <?php foreach ($types as $id=>$name) : ?>

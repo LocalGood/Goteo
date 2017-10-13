@@ -77,12 +77,11 @@
         padding: 5px 5px 6px 0;
       }
       select {
-        background-color: $baseCol;
-        border: $solidBorder;
-        font-size: 1.5em;
-        height: 35px;
-        margin: 10px 0 0;
         width: 100%;
+        font-size: 16px;
+        margin: 10px 0 0;
+        border: $solidBorder;
+        background-color: $baseCol;
         option {
           &[selected="selected"] {
             background-color: $baseCol;

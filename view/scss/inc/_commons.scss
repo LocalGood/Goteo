@@ -493,7 +493,7 @@
       margin-right: 10px;
     }
     &.selected {
-      background: $baseCol;
+      background: #fff;
       font-weight: bold;
       padding: 6px 20px;
     }
@@ -506,7 +506,7 @@
       padding: 6px 20px;
       text-decoration:none;
       &:hover {
-        background: $baseCol;
+        background: $grayCol01;
       }
     }
   }

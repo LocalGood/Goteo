@@ -91,7 +91,7 @@ namespace Goteo\Controller\Dashboard {
             if ($skillmatching instanceof \Goteo\Model\Skillmatching) {
                 $_SESSION['skillmatching'] = $skillmatching; // lo guardamos en sesión para la próxima verificación
             } else {
-                Message::Error(Text::get('dashboard-skillmatchings-error-noupdate-skillmatching'));
+                Message::Error(Text::get('dashboard-skillmatchings-error-noupdate-sm'));
                 $skillmatching = null;
             }
 
@@ -130,7 +130,7 @@ namespace Goteo\Controller\Dashboard {
                                 )
                 );
                 if (!$blog->save($errors)) {
-                    Message::Error(Text::get('dashboard-skillmatching-blog-fail'));
+                    Message::Error(Text::get('dashboard-project-blog-fail'));
                     Message::Error(implode('<br />', $errors));
                     throw new Redirection('/dashboard/skillmatchings/summary');
                 }
@@ -173,14 +173,14 @@ namespace Goteo\Controller\Dashboard {
                     break;
                 case 'edit':
                     if (empty($id)) {
-                        Message::Error(Text::get('dashboard-skillmatching-updates-nopost'));
+                        Message::Error(Text::get('dashboard-project-updates-nopost'));
                         $action = 'list';
                         break;
                     } else {
                         $post = Model\Blog\Post::get($id);
 
                         if (!$post instanceof Model\Blog\Post) {
-                            Message::Error(Text::get('dashboard-skillmatching-updates-postcorrupt'));
+                            Message::Error(Text::get('dashboard-project-updates-postcorrupt'));
                             $action = 'list';
                             break;
                         }
@@ -191,9 +191,9 @@ namespace Goteo\Controller\Dashboard {
                 case 'delete':
                     $post = Model\Blog\Post::get($id);
                     if ($post->delete($id)) {
-                        Message::Info(Text::get('dashboard-skillmatching-updates-deleted'));
+                        Message::Info(Text::get('dashboard-project-updates-deleted'));
                     } else {
-                        Message::Error(Text::get('dashboard-skillmatching-updates-delete_fail'));
+                        Message::Error(Text::get('dashboard-project-updates-delete_fail'));
                     }
                     $posts = Model\Blog\Post::getAll($blog, null, false);
                     $action = 'list';
@@ -557,9 +557,9 @@ namespace Goteo\Controller\Dashboard {
             if ($post->save($errors)) {
                 $id = $post->id;
                 if ($action == 'edit') {
-                    Message::Info(Text::get('dashboard-skillmatching-updates-saved'));
+                    Message::Info(Text::get('dashboard-project-updates-saved'));
                 } else {
-                    Message::Info(Text::get('dashboard-skillmatching-updates-inserted'));
+                    Message::Info(Text::get('dashboard-project-updates-inserted'));
                 }
                 $action = $editing ? 'edit' : 'list';
 
@@ -591,7 +591,7 @@ namespace Goteo\Controller\Dashboard {
                     unset($log);
                 }
             } else {
-                $errors[] = Text::get('dashboard-skillmatching-updates-fail');
+                $errors[] = Text::get('dashboard-project-updates-fail');
             }
 
             return array($action, $id);
