@@ -521,4 +521,14 @@
       color: $grayCol01;
     }
   }
+  #pagination{
+    float: none;
+    margin: 12px 0 0 0;
+    zoom: 1;
+    &:after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
 }
