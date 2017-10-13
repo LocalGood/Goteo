@@ -217,7 +217,6 @@ footer {
     .link {
       margin-bottom: 30px;
       span {
-        background: $baseWhite;
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
         border-radius: 50%;
@@ -225,10 +224,16 @@ footer {
         display: inline-block;
         font-size: 80%;
         font-weight: 600;
-        height: 15px;
         text-align: center;
         vertical-align: middle;
-        width: 15px;
+        img {
+          width: 15px;
+          height: auto;
+        }
+      }
+      a {
+        display: inline-block;
+        vertical-align: middle;
       }
     }
   }

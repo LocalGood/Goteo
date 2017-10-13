@@ -354,7 +354,6 @@ footer {
   footer .footer_bottom .link {
     margin-bottom: 30px; }
     footer .footer_bottom .link span {
-      background: #ffffff;
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       border-radius: 50%;
@@ -362,10 +361,14 @@ footer {
       display: inline-block;
       font-size: 80%;
       font-weight: 600;
-      height: 15px;
       text-align: center;
-      vertical-align: middle;
-      width: 15px; }
+      vertical-align: middle; }
+      footer .footer_bottom .link span img {
+        width: 15px;
+        height: auto; }
+    footer .footer_bottom .link a {
+      display: inline-block;
+      vertical-align: middle; }
 
 .sp_footer_logo-area {
   background: #ffffff;
