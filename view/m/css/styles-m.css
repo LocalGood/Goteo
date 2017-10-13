@@ -14,8 +14,6 @@ dashboard     :マイメニュー
 user-profile  :ユーザープロフィール
 page          :スタイル調整が必要なページ
 */
-/* Main Color */
-/* Sub Color */
 /* Gray Color */
 /* Alert Color*/
 /* Other Color */
@@ -354,7 +352,6 @@ footer {
   footer .footer_bottom .link {
     margin-bottom: 30px; }
     footer .footer_bottom .link span {
-      background: #ffffff;
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       border-radius: 50%;
@@ -362,10 +359,14 @@ footer {
       display: inline-block;
       font-size: 80%;
       font-weight: 600;
-      height: 15px;
       text-align: center;
-      vertical-align: middle;
-      width: 15px; }
+      vertical-align: middle; }
+      footer .footer_bottom .link span img {
+        width: 15px;
+        height: auto; }
+    footer .footer_bottom .link a {
+      display: inline-block;
+      vertical-align: middle; }
 
 .sp_footer_logo-area {
   background: #ffffff;
@@ -943,7 +944,7 @@ ul#pagination {
   border-bottom: 1px solid #d9d9d9;
   padding: 40px 0; }
   .widget.project-support_btn a.button {
-    background-color: #E08E22; }
+    background-color: #e08e22; }
 .widget.project-share {
   padding: 26px 20px 50px;
   position: relative; }
@@ -2627,7 +2628,7 @@ div.superform div.elements > ol {
     padding: 0 10px;
     margin: 0 0 0 10px;
     text-align: center;
-    background: #E08E22; }
+    background: #e08e22; }
   div.superform div.elements > ol > li.ok > .title {
     position: relative; }
     div.superform div.elements > ol > li.ok > .title::before {
@@ -2877,12 +2878,11 @@ div.superform li {
       font-weight: 600;
       padding: 5px 5px 6px 0; }
     .discover .searcher .filter select {
-      background-color: #f2f2f2;
-      border: 1px solid #d9d9d9;
-      font-size: 1.5em;
-      height: 35px;
+      width: 100%;
+      font-size: 16px;
       margin: 10px 0 0;
-      width: 100%; }
+      border: 1px solid #d9d9d9;
+      background-color: #f2f2f2; }
       .discover .searcher .filter select option[selected="selected"] {
         background-color: #f2f2f2; }
       .discover .searcher .filter select option.all {
@@ -2903,7 +2903,7 @@ div.superform li {
       color: #009480; }
 
 .project-show .button.supportit {
-  background: #E08E22; }
+  background: #e08e22; }
 .project-show #sub-header {
   height: 40px;
   position: relative;
@@ -3135,7 +3135,8 @@ div.superform li {
     padding-bottom: 8px; }
   .project-show #main .center .widget.project-supporters {
     margin-top: 20px;
-    padding: 0; }
+    padding: 0;
+    background: none; }
     .project-show #main .center .widget.project-supporters h3.title {
       display: none; }
   .project-show #main .center .widget.project-share {
@@ -3271,6 +3272,14 @@ div.superform li {
   padding: 4px; }
 .project-show .widget.project-invest .disabled {
   color: #d9d9d9; }
+.project-show #pagination {
+  float: none;
+  margin: 12px 0 0 0;
+  zoom: 1; }
+  .project-show #pagination:after {
+    content: '';
+    display: block;
+    clear: both; }
 
 .dashboard #sub-header .dashboard-header {
   zoom: 1;
