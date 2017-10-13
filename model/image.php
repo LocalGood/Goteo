@@ -434,8 +434,8 @@ die("test");
          * @return bool
          */
 		public function s3exist($url){
-            $header = get_headers($url);
-            if (preg_match('/^HTTP\/.*\s+200\s/i', $header[0])) {
+            $response = @file_get_contents($url, NULL, NULL, 0, 1);
+            if ($response !== false) {
                 return true;
             } else {
                 return false;
