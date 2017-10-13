@@ -14,6 +14,8 @@ dashboard     :マイメニュー
 user-profile  :ユーザープロフィール
 page          :スタイル調整が必要なページ
 */
+/* Main Color */
+/* Sub Color */
 /* Gray Color */
 /* Alert Color*/
 /* Other Color */
@@ -941,7 +943,7 @@ ul#pagination {
   border-bottom: 1px solid #d9d9d9;
   padding: 40px 0; }
   .widget.project-support_btn a.button {
-    background-color: #e08e22; }
+    background-color: #E08E22; }
 .widget.project-share {
   padding: 26px 20px 50px;
   position: relative; }
@@ -2625,7 +2627,7 @@ div.superform div.elements > ol {
     padding: 0 10px;
     margin: 0 0 0 10px;
     text-align: center;
-    background: #e08e22; }
+    background: #E08E22; }
   div.superform div.elements > ol > li.ok > .title {
     position: relative; }
     div.superform div.elements > ol > li.ok > .title::before {
@@ -2875,11 +2877,12 @@ div.superform li {
       font-weight: 600;
       padding: 5px 5px 6px 0; }
     .discover .searcher .filter select {
-      width: 100%;
-      font-size: 16px;
-      margin: 10px 0 0;
+      background-color: #f2f2f2;
       border: 1px solid #d9d9d9;
-      background-color: #f2f2f2; }
+      font-size: 1.5em;
+      height: 35px;
+      margin: 10px 0 0;
+      width: 100%; }
       .discover .searcher .filter select option[selected="selected"] {
         background-color: #f2f2f2; }
       .discover .searcher .filter select option.all {
@@ -2900,7 +2903,7 @@ div.superform li {
       color: #009480; }
 
 .project-show .button.supportit {
-  background: #e08e22; }
+  background: #E08E22; }
 .project-show #sub-header {
   height: 40px;
   position: relative;
@@ -3033,7 +3036,6 @@ div.superform li {
     background-color: #ffffff;
     display: block;
     margin: 0 auto;
-    max-height: 240px;
     overflow: hidden;
     text-align: center;
     width: 100%; }
@@ -3043,15 +3045,77 @@ div.superform li {
       height: auto;
       width: 100%; }
   .project-show #main .center #prjct-gallery {
-    float: left; }
+    zoom: 1; }
+    .project-show #main .center #prjct-gallery:after {
+      content: '';
+      display: block;
+      clear: both; }
     .project-show #main .center #prjct-gallery .prjct-gallery-container {
-      display: none;
-      height: 210px; }
+      display: none; }
+      .project-show #main .center #prjct-gallery .prjct-gallery-container .slides_control {
+        padding-top: 73%; }
       .project-show #main .center #prjct-gallery .prjct-gallery-container .gallery-image {
         display: block;
         height: auto;
         text-align: center;
         width: 100vw; }
+    .project-show #main .center #prjct-gallery ul.slderpag {
+      float: left;
+      height: auto;
+      list-style: none;
+      margin-top: 8px;
+      padding: 0; }
+      .project-show #main .center #prjct-gallery ul.slderpag li {
+        cursor: pointer;
+        display: block;
+        float: left;
+        overflow: hidden;
+        margin: 0 4px 4px 4px; }
+        .project-show #main .center #prjct-gallery ul.slderpag li a {
+          background-color: #d9d9d9;
+          color: #d9d9d9;
+          display: block;
+          height: 12px;
+          width: 12px; }
+          .project-show #main .center #prjct-gallery ul.slderpag li a:hover {
+            background-color: #009acb;
+            color: #009acb; }
+        .project-show #main .center #prjct-gallery ul.slderpag li.current a {
+          background-color: #009acb;
+          color: #009acb; }
+    .project-show #main .center #prjct-gallery a.next, .project-show #main .center #prjct-gallery a.prev {
+      cursor: pointer;
+      float: left;
+      height: 12px;
+      margin-top: 8px;
+      overflow: hidden;
+      position: relative;
+      text-indent: -9999px;
+      width: 12px; }
+      .project-show #main .center #prjct-gallery a.next:after, .project-show #main .center #prjct-gallery a.prev:after {
+        content: '';
+        border-bottom: 6px solid transparent;
+        border-top: 6px solid transparent;
+        display: block;
+        height: 0;
+        position: absolute;
+        top: 0;
+        width: 0; }
+    .project-show #main .center #prjct-gallery a.prev {
+      margin-left: 20px;
+      margin-right: 4px; }
+      .project-show #main .center #prjct-gallery a.prev:after {
+        border-left: 2px solid transparent;
+        border-right: 10px solid #828282; }
+      .project-show #main .center #prjct-gallery a.prev:hover:after {
+        border-right-color: #009acb; }
+    .project-show #main .center #prjct-gallery a.next {
+      margin-left: 4px; }
+      .project-show #main .center #prjct-gallery a.next:after {
+        border-left: 10px solid #828282;
+        border-right: 2px solid transparent; }
+      .project-show #main .center #prjct-gallery a.next:hover:after {
+        border-left-color: #009acb; }
   .project-show #main .center .widget.project-support .project-widget-box {
     border-bottom: none;
     padding-bottom: 0;
