@@ -3135,7 +3135,8 @@ div.superform li {
     padding-bottom: 8px; }
   .project-show #main .center .widget.project-supporters {
     margin-top: 20px;
-    padding: 0; }
+    padding: 0;
+    background: none; }
     .project-show #main .center .widget.project-supporters h3.title {
       display: none; }
   .project-show #main .center .widget.project-share {
