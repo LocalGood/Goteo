@@ -68,7 +68,7 @@
     }
 
     .done {
-      background-color: $mainCol02;//#c5da4d
+      background-color: $mainCol02;
       border-radius: 9px;
       height:18px;
       left:0;
@@ -132,10 +132,10 @@
     }
     dt, dd {
       &.optimum {
-        color: $grayCol03;//#69c
+        color: $grayCol03;
       }
       &.minimum {
-        color: $grayCol03;//#c60
+        color: $grayCol03;
       }
       &.reached {
         margin-top: 16px;
@@ -155,14 +155,15 @@
       &.days {
         width: 118px;
         strong {
-          color: $grayCol03;//#82656f
+          color: $grayCol03;
         }
       }
     }
   }
 
   &.activable {
-    z-index:999;
+    max-width: 288px;
+    z-index: 999;
   }
 
   &__minimum{

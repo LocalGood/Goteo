@@ -4,7 +4,6 @@
   .title {
     font-size: 18px;
     font-weight: 600;
-    //text-decoration: none;
   }
   .supertitle {
     font-size: 18px;
@@ -1409,7 +1408,6 @@
     .subtitle {
       margin:0 0 10px 7px;
       padding: 0;
-      //width: 245px;
       > span{
         display:block;
         &.primero {
@@ -1868,13 +1866,6 @@
         display: block;
       }
     }
-    //todo: 多分いらない
-    //.address {
-    //  margin: 0 auto;
-    //  padding: 0 0 20px 0;
-    //  clear: left;
-    //  background-color: $baseWhite;
-    //}
     form {
       padding: 24px 0 24px 8px;
     }
@@ -2035,7 +2026,7 @@
         width: 145px;
       }
       &:hover {
-        border: 1px solid $color06;//#20b2b3
+        border: 1px solid $color06;
       }
     }
 

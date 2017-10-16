@@ -41,11 +41,11 @@
         color: $grayCol03;
         font-size:18px;
         &:hover {
-          color: $mainCol02;//#20B2B3
+          color: $mainCol02;
         }
       }
       strong {
-        color: $mainCol02;//#20B2B3
+        color: $mainCol02;
       }
     }
   }
@@ -63,7 +63,7 @@
       padding: 0;
       width: 100%;
       legend {
-        background-color: $mainCol02;//#20B2B3
+        background-color: $mainCol02;
         color: #fff;
         display: block;
         font-weight: 700;
@@ -131,7 +131,6 @@
       width:300px;
     }
     ul {
-      //font-size: 0;
       list-style: none;
       margin: 0;
       padding: 0;
@@ -225,10 +224,6 @@
       min-width: 80px;
       padding: 0 8px;
       width: auto;
-    }
-
-    //コンテンツ/マスタ管理 -> 固定ページ
-    &.pages {
     }
 
     //コンテンツ/マスタ管理 -> 課題カテゴリー
@@ -481,13 +476,13 @@
       text-decoration: none;
     }
     .light-blue {
-      color: $mainCol02;//#1DB3B2
+      color: $mainCol02;
     }
     .blue {
-      color: $mainCol02;//#0B4F99
+      color: $mainCol02;
     }
     .violet {
-      color: $mainCol02;//#95268D
+      color: $mainCol02;
     }
     .red {
       color: $alertCol;
@@ -496,7 +491,7 @@
       color: $mainCol02;
     }
     .green {
-      color: $mainCol02;//#20A64B
+      color: $mainCol02;
     }
     .subitem {
       border-bottom: $grayCol02 1px dashed;

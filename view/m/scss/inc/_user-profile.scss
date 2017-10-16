@@ -281,7 +281,7 @@
             text-decoration:none;
             text-transform:uppercase;
             &:hover {
-              color: $mainCol02;//#20B3B2
+              color: $mainCol02;
             }
           }
         }
@@ -331,7 +331,7 @@
               top:0;
               z-index:99;
               &:hover {
-                color: $mainCol02;//#20B3B2
+                color: $mainCol02;
               }
             }
             .avatar {
@@ -352,7 +352,7 @@
               .invests,
               .projects,
               .profile a {
-                color: $mainCol01;//#20b3b2
+                color: $mainCol01;
                 font-size: 10px;
               }
             }
@@ -378,7 +378,7 @@
       text-decoration:none;
       width: 100%;
       &:hover {
-        color: $mainCol02;//#20b3b2
+        color: $mainCol02;
       }
     }
     .project-widget-box {
@@ -403,9 +403,9 @@
       font-weight: normal;
       margin: 0;
       padding: .5em 2px;
-      border-bottom: 1px solid $mainCol01;//#21b0b0
+      border-bottom: 1px solid $mainCol01;
       font-size: 18px;
-      background-color: $mainCol01;//#21b0b0
+      background-color: $mainCol01;
       color: $baseCol;
       padding-left: 8px;
     }

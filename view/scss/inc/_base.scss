@@ -1,6 +1,5 @@
 @charset "utf-8";
 html {
-  //font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'メイリオ', Helvetica, Arial, sans-serif;
   font-size: 14px;
   height: 100%;
   margin: 0;
@@ -122,27 +121,6 @@ button.red,
 a.button.red,
 input.edit[type="submit"] {
   @include button($subCol01);
-  //background: none;
-  //background: $subCol01;
-  //box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
-  //border: none;
-  //border-radius: 3px;
-  //color: #fff;
-  //cursor: pointer;
-  //display: block;
-  //font-size: 14px;
-  //font-weight: 300;
-  //height: 45px;
-  //line-height: 45px;
-  //margin: 10px auto;
-  //padding: 0;
-  //text-align: center;
-  //text-decoration: none;
-  //width: 200px;
-  //&:hover {
-  //  opacity: 0.75;
-  //  color: #FFF;
-  //}
 }
 
 input[value='削除']{
@@ -172,13 +150,3 @@ input[type="button"].back{
     color: #FFF;
   }
 }
-
-/*a.button.red,
-a.button.weak {
-  font-size:12px;
-  font-weight:400;
-  line-height:16px;
-  height:auto;
-  padding: .3em 1.2em;
-  width:auto;
-}*/

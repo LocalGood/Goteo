@@ -13,7 +13,6 @@
       margin: 0 auto;
     }
     h2 {
-      //margin-bottom: 20px;
       min-height: 55px;
       position: relative;
       line-height: 1.2em;
@@ -137,8 +136,8 @@
     margin: 0 0 20px;
     padding: 0;
     h3.title {
-      background-color: $mainCol01;//#21b0b0
-      border-bottom: 1px solid $mainCol01;//#21b0b0
+      background-color: $mainCol01;
+      border-bottom: 1px solid $mainCol01;
       color: $baseCol;
       font-size: 18px;
       font-weight: 400;
@@ -247,10 +246,10 @@
         .profile {
           display: inline-block;
           margin-right: 15px;
-          color: $color06;//#20b3b2
+          color: $color06;
         }
         .invests {
-          color: $color10;//#313b96
+          color: $color10;
         }
         .profile,
         .contact {

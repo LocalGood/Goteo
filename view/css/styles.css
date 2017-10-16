@@ -200,15 +200,6 @@ input[type="button"].back {
     opacity: 0.75;
     color: #FFF; }
 
-/*a.button.red,
-a.button.weak {
-  font-size:12px;
-  font-weight:400;
-  line-height:16px;
-  height:auto;
-  padding: .3em 1.2em;
-  width:auto;
-}*/
 /*----------------------------------------------------------------------
  header.css
 ----------------------------------------------------------------------*/
@@ -351,13 +342,7 @@ a.button.weak {
   width: 100%;
   height: 60px;
   background-color: #fff;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-  /*.header__right__search_box {
-    padding-top: 16px;
-  }*/
-  /*.c-social_bookmark {
-    margin: 20px 25px 15px 0;
-  }*/ }
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1); }
   .normal_header.header {
     position: fixed;
     z-index: 5;
@@ -492,14 +477,6 @@ a.button.weak {
   width: 1096px;
   margin: 0 auto; }
 
-/*.c-clearfix {
-  zoom: 1;
-}
-.c-clearfix:after {
-  content: '';
-  display: block;
-  clear: both;
-}*/
 /*----------------------------------------------------------------------
  contents
 ----------------------------------------------------------------------*/
@@ -1426,7 +1403,7 @@ div#message {
     padding: 40px 0; }
     .widget.project-support_btn a.button {
       background: none;
-      background: #E08E22;
+      background: #e08e22;
       -moz-box-shadow: 0 3px 3px 0 #d9d9d9;
       -webkit-box-shadow: 0 3px 3px 0 #d9d9d9;
       box-shadow: 0 3px 3px 0 #d9d9d9;
@@ -1793,13 +1770,6 @@ div#message {
     padding: 0;
     margin: 0; }
 
-/*----------------------------------------------------------------------
- .meter
-----------------------------------------------------------------------*/
-.meter.activable {
-  max-width: 288px;
-  z-index: 999; }
-
 .meter {
   margin: 0 16px;
   padding-bottom: 20px;
@@ -1923,6 +1893,7 @@ div#message {
       .meter dl.amount-bar dd.days strong {
         color: #454545; }
   .meter.activable {
+    max-width: 288px;
     z-index: 999; }
   .meter__minimum {
     position: absolute;
@@ -2204,7 +2175,7 @@ div#message {
       padding: 0 10px;
       margin: 0 0 0 10px;
       text-align: center;
-      background: #E08E22; }
+      background: #e08e22; }
   .superform div.elements > ol > li.ok > .title {
     position: relative; }
     .superform div.elements > ol > li.ok > .title::before {
@@ -2591,11 +2562,11 @@ body.js .superform > div.elements ol li.element div.contents p {
       text-decoration: none;
       vertical-align: middle; }
     .project-show .project-menu ul li.active a {
-      border-bottom: 4px solid #E08E22; }
+      border-bottom: 4px solid #e08e22; }
     .project-show .project-menu ul li.show a {
-      border-bottom: 4px solid #E08E22; }
+      border-bottom: 4px solid #e08e22; }
     .project-show .project-menu ul li span.digits {
-      background-color: #E08E22;
+      background-color: #e08e22;
       border-radius: 5px;
       color: #FFF;
       display: inline-block;
@@ -2793,113 +2764,111 @@ body.js .superform > div.elements ol li.element div.contents p {
     line-height: 24px;
     margin: 0 0 12px; }
   .project-show .project-rewards-summary .button.supportit {
-    background: #E08E22; }
-.project-show .side {
-  /* todo: 多分「支援者」が入ると要るから、取っておく */ }
-  .project-show .side .button.supportit {
-    background: #E08E22; }
-  .project-show .side .button.aqua {
-    background: #009480; }
-  .project-show .side .button.green {
-    background-color: #009480; }
-  .project-show .side .more {
-    border-top: 1px solid #d9d9d9;
-    clear: both;
-    display: block;
-    line-height: 38px;
-    text-align: center;
-    text-decoration: none; }
-  .project-show .side > .widget {
-    margin-bottom: 20px;
-    padding: 0; }
-    .project-show .side > .widget .supertitle {
-      color: #000;
-      font-size: 16px;
-      font-weight: 600;
-      margin: 0 0 8px; }
-    .project-show .side > .widget .side_image {
+    background: #e08e22; }
+.project-show .side .button.supportit {
+  background: #e08e22; }
+.project-show .side .button.aqua {
+  background: #009480; }
+.project-show .side .button.green {
+  background-color: #009480; }
+.project-show .side .more {
+  border-top: 1px solid #d9d9d9;
+  clear: both;
+  display: block;
+  line-height: 38px;
+  text-align: center;
+  text-decoration: none; }
+.project-show .side > .widget {
+  margin-bottom: 20px;
+  padding: 0; }
+  .project-show .side > .widget .supertitle {
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 8px; }
+  .project-show .side > .widget .side_image {
+    width: 100%;
+    margin: 0 0 10px 0; }
+    .project-show .side > .widget .side_image img {
       width: 100%;
-      margin: 0 0 10px 0; }
-      .project-show .side > .widget .side_image img {
-        width: 100%;
-        height: auto; }
-    .project-show .side > .widget.project-support .supertitle {
-      background-color: #828282;
-      color: #fff;
-      font-size: 12px;
-      height: 40px;
-      line-height: 40px;
+      height: auto; }
+  .project-show .side > .widget.project-support .supertitle {
+    background-color: #828282;
+    color: #fff;
+    font-size: 12px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0;
+    text-align: center; }
+    .project-show .side > .widget.project-support .supertitle .days strong {
+      font-size: 14px; }
+  .project-show .side > .widget.project-support .meter {
+    padding-bottom: 0; }
+    .project-show .side > .widget.project-support .meter dl.percent {
+      top: 58px; }
+  .project-show .side > .widget .project-investors {
+    background: none;
+    padding: 0; }
+    .project-show .side > .widget .project-investors .project-widget-box {
+      background-color: #fff; }
+    .project-show .side > .widget .project-investors .investors {
+      padding: 8px 20px 0; }
+    .project-show .side > .widget .project-investors ul {
+      list-style: none;
       margin: 0;
-      text-align: center; }
-      .project-show .side > .widget.project-support .supertitle .days strong {
-        font-size: 14px; }
-    .project-show .side > .widget.project-support .meter {
-      padding-bottom: 0; }
-      .project-show .side > .widget.project-support .meter dl.percent {
-        top: 58px; }
-    .project-show .side > .widget .project-investors {
-      background: none;
       padding: 0; }
-      .project-show .side > .widget .project-investors .project-widget-box {
-        background-color: #fff; }
-      .project-show .side > .widget .project-investors .investors {
-        padding: 8px 20px 0; }
-      .project-show .side > .widget .project-investors ul {
-        list-style: none;
-        margin: 0;
-        padding: 0; }
-        .project-show .side > .widget .project-investors ul li {
-          border-bottom: 1px dashed #d9d9d9; }
-          .project-show .side > .widget .project-investors ul li:last-child {
-            border-bottom: none; }
-      .project-show .side > .widget .project-investors .supporterContainer {
-        height: 80px;
-        padding: 10px 10px 10px 60px;
-        position: relative; }
-      .project-show .side > .widget .project-investors a.expand {
-        display: none; }
-      .project-show .side > .widget .project-investors .supporter .avatar {
-        border-radius: 50%;
-        display: inline-block;
-        height: 43px;
-        overflow: hidden;
-        position: relative;
-        text-align: center;
+      .project-show .side > .widget .project-investors ul li {
+        border-bottom: 1px dashed #d9d9d9; }
+        .project-show .side > .widget .project-investors ul li:last-child {
+          border-bottom: none; }
+    .project-show .side > .widget .project-investors .supporterContainer {
+      height: 80px;
+      padding: 10px 10px 10px 60px;
+      position: relative; }
+    .project-show .side > .widget .project-investors a.expand {
+      display: none; }
+    .project-show .side > .widget .project-investors .supporter .avatar {
+      border-radius: 50%;
+      display: inline-block;
+      height: 43px;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+      vertical-align: middle;
+      width: 43px;
+      background-color: #fff;
+      display: block;
+      left: 10px;
+      position: absolute;
+      top: 10px; }
+      .project-show .side > .widget .project-investors .supporter .avatar img {
+        bottom: 0;
+        height: auto;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
         vertical-align: middle;
-        width: 43px;
-        background-color: #fff;
-        display: block;
-        left: 10px;
-        position: absolute;
-        top: 10px; }
-        .project-show .side > .widget .project-investors .supporter .avatar img {
-          bottom: 0;
-          height: auto;
-          left: 0;
-          margin: auto;
-          position: absolute;
-          right: 0;
-          top: 0;
-          vertical-align: middle;
-          width: 100%; }
-      .project-show .side > .widget .project-investors .supporter h4 {
-        font-size: 12px;
-        font-weight: 300;
-        height: 14px;
-        margin: 0 0 .5em;
-        overflow: hidden; }
-      .project-show .side > .widget .project-investors .supporter dl {
-        font-size: 12px;
-        margin: 0; }
-      .project-show .side > .widget .project-investors .supporter dt.date {
-        display: none; }
-      .project-show .side > .widget .project-investors .supporter dd.date {
-        bottom: 4px;
-        color: #828282;
-        font-size: 12px;
-        margin-top: 5px;
-        position: absolute;
-        right: 16px; }
+        width: 100%; }
+    .project-show .side > .widget .project-investors .supporter h4 {
+      font-size: 12px;
+      font-weight: 300;
+      height: 14px;
+      margin: 0 0 .5em;
+      overflow: hidden; }
+    .project-show .side > .widget .project-investors .supporter dl {
+      font-size: 12px;
+      margin: 0; }
+    .project-show .side > .widget .project-investors .supporter dt.date {
+      display: none; }
+    .project-show .side > .widget .project-investors .supporter dd.date {
+      bottom: 4px;
+      color: #828282;
+      font-size: 12px;
+      margin-top: 5px;
+      position: absolute;
+      right: 16px; }
 .project-show .center > .widget:last-child {
   margin-bottom: 20px; }
 .project-show .center.home .project-media {
@@ -3511,13 +3480,6 @@ body.js .superform > div.elements ol li.element div.contents p {
     position: relative; }
   .project-show .center.updates .blog-share .fb-comments {
     margin-top: 8px; }
-.project-show .center.evaluation .project-evaluation {
-  /*h3.title {
-    font-size:18px;
-    font-weight:600;
-    margin:0;
-    padding:0 20px;
-  }*/ }
 
 .project-edit #sub-header {
   padding-bottom: 0; }
@@ -4024,40 +3986,33 @@ body.js .superform > div.elements ol li.element div.contents p {
     padding: 20px; }
 .project-edit div#main.rewards div.superform li.element.reward-new > .title {
   display: none; }
-.project-edit div#main.rewards div.superform li.element.reward {
-  /*div.license {
-    background:none no-repeat 10px center;
-    line-height:32px;
-    min-height:32px;
-    padding-left:110px!important;
-  }*/ }
-  .project-edit div#main.rewards div.superform li.element.reward div.title {
-    float: left;
-    font-size: 14px;
-    width: 70%; }
-  .project-edit div#main.rewards div.superform li.element.reward input[type="text"],
-  .project-edit div#main.rewards div.superform li.element.reward textarea {
-    box-sizing: border-box;
-    min-height: 36px; }
-  .project-edit div#main.rewards div.superform li.element.reward input.edit {
-    float: left;
-    margin-right: 8px; }
-  .project-edit div#main.rewards div.superform li.element.reward input.remove.weak {
-    float: left; }
-  .project-edit div#main.rewards div.superform li.element.reward div.reward {
-    background: none no-repeat 10px center;
-    min-height: 32px;
-    padding-left: 0; }
-  .project-edit div#main.rewards div.superform li.element.reward div.description {
-    float: left;
-    margin: .5em 0;
-    width: 70%;
-    clear: both; }
-    .project-edit div#main.rewards div.superform li.element.reward div.description p {
-      margin: .5em 0; }
-    .project-edit div#main.rewards div.superform li.element.reward div.description span.left {
-      color: #255B80;
-      font-weight: 700; }
+.project-edit div#main.rewards div.superform li.element.reward div.title {
+  float: left;
+  font-size: 14px;
+  width: 70%; }
+.project-edit div#main.rewards div.superform li.element.reward input[type="text"],
+.project-edit div#main.rewards div.superform li.element.reward textarea {
+  box-sizing: border-box;
+  min-height: 36px; }
+.project-edit div#main.rewards div.superform li.element.reward input.edit {
+  float: left;
+  margin-right: 8px; }
+.project-edit div#main.rewards div.superform li.element.reward input.remove.weak {
+  float: left; }
+.project-edit div#main.rewards div.superform li.element.reward div.reward {
+  background: none no-repeat 10px center;
+  min-height: 32px;
+  padding-left: 0; }
+.project-edit div#main.rewards div.superform li.element.reward div.description {
+  float: left;
+  margin: .5em 0;
+  width: 70%;
+  clear: both; }
+  .project-edit div#main.rewards div.superform li.element.reward div.description p {
+    margin: .5em 0; }
+  .project-edit div#main.rewards div.superform li.element.reward div.description span.left {
+    color: #255B80;
+    font-weight: 700; }
 .project-edit div#main.rewards div.superform li.element .buttons ol {
   text-align: right; }
 .project-edit div#main.rewards div.superform li.element .buttons li {
@@ -4209,7 +4164,7 @@ body.js .superform > div.elements ol li.element div.contents p {
     font-weight: normal; }
   .project-edit div#main .superform > div > ol #preview .contents .button.violet {
     background: none;
-    background: #E08E22;
+    background: #e08e22;
     box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
     border: none;
     border-radius: 3px;
