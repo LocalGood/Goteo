@@ -39,7 +39,7 @@ if ($this['action'] == 'none') return;
 <?php if ($this['action'] == 'list') : ?>
 <div class="widget">
     <?php if (!empty($blog->id) && $blog->active) : ?>
-        <a class="button" href="<?php echo $url; ?>/add"><?echo Text::get('project-updates-create_new'); ?></a>
+        <a class="button" href="<?php echo $url; ?>/add"><?php echo Text::get('project-updates-create_new'); ?></a>
     <?php endif; ?>
 
     <!-- lista -->
@@ -47,7 +47,7 @@ if ($this['action'] == 'none') return;
     <?php foreach ($posts as $post) : ?>
         <div class="post">
             <a class="button" href="<?php echo $url; ?>/edit/<?php echo $post->id; ?>"><?php echo Text::get('regular-edit') ?></a>&nbsp;&nbsp;&nbsp;
-            <a class="remove button weak" href="<?php echo $url; ?>/delete/<?php echo $post->id; ?>" onclick="return confirm(Text::_('delete this update'));"><?php echo Text::get('regular-delete') ?></a>
+            <a class="remove button weak" href="<?php echo $url; ?>/delete/<?php echo $post->id; ?>" onclick="return confirm(<?php Text::_('delete this update') ?>);"><?php echo Text::get('regular-delete') ?></a>
             <span><?php echo $post->publish ? Text::get('regular-published_yes') : Text::get('regular-published_no'); ?></span>
             <strong><?php echo $post->title; ?></strong>
             <span><?php echo $post->date; ?></span>
