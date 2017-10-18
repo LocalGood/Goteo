@@ -19,10 +19,10 @@
   }
   dl.reached-bar {
     margin-bottom: 35px;
-    .reached {
+    /*.reached {
       color: #000;
       display: inline-block;
-    }
+    }*/
     .supporters {
       display:none;
     }
@@ -32,8 +32,8 @@
   }
   div.graph {
     background-color: $grayCol01;
-    border-radius: 9px;
-    height:20px;
+    border-radius: 12px;
+    height:24px;
     position:relative;
     font: normal normal normal 14px/1 FontAwesome;
     font-size: inherit;
@@ -64,7 +64,7 @@
 
     .done {
       background-color: $mainCol02;
-      border-radius: 9px;
+      border-radius: 12px;
       height:100%;
       left:0;
       position:absolute;
@@ -83,7 +83,7 @@
       }
     }
     .minimum {
-      border-radius: 9px;
+      border-radius: 12px;
       height:100%;
       left:0;
       overflow: hidden;
@@ -104,10 +104,10 @@
   dl.percent {
     color: $baseWhite;
     font-size: 12px;
-    line-height: 20px;
+    line-height: 24px;
     margin-left: 16px;
     position: absolute;
-    top: 55px;
+    top: 56px;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
     dt,dd {
       display: inline-block;

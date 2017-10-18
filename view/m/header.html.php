@@ -52,7 +52,7 @@ $configJson = json_decode( file_get_contents( __DIR__ . '/../../omniconfig/apike
                     </dd>
                     <dd>
                         <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/event/">
-                            イベント
+                            みんなの拠点/イベント
                         </a>
                     </dd>
                     <dd>

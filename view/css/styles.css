@@ -266,6 +266,10 @@ input[type="button"].back {
               display: table;
               width: 100%;
               border-bottom: 1px solid #d9d9d9; }
+              .header__right__nav__gnav > li:hover .header__right__snav__inner ul > li span, .header__right__nav__gnav > li.active .header__right__snav__inner ul > li span {
+                display: block;
+                padding-left: 12px;
+                background: url("/view/images/snav_text_arrow.png") no-repeat left 50%; }
             .header__right__nav__gnav > li:hover .header__right__snav__inner ul, .header__right__nav__gnav > li.active .header__right__snav__inner ul {
               padding-left: 0;
               list-style-type: none; }
@@ -1785,10 +1789,11 @@ div#message {
     .meter dl dd {
       margin: 0; }
   .meter dl.reached-bar {
-    margin-bottom: 35px; }
-    .meter dl.reached-bar .reached {
+    margin-bottom: 35px;
+    /*.reached {
       color: #000;
-      display: inline-block; }
+      display: inline-block;
+    }*/ }
     .meter dl.reached-bar dt.reached {
       font-size: 14px;
       font-weight: 300;
@@ -1799,12 +1804,12 @@ div#message {
     display: none; }
   .meter div.graph {
     background-color: #d9d9d9;
-    border-radius: 9px;
+    border-radius: 12px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font: normal normal normal 14px/1 FontAwesome;
     font-size: inherit;
-    height: 18px;
+    height: 24px;
     margin-bottom: 20px;
     position: relative;
     text-rendering: auto; }
@@ -1828,8 +1833,8 @@ div#message {
       font-size: 15px; }
     .meter div.graph .done {
       background-color: #009acb;
-      border-radius: 9px;
-      height: 18px;
+      border-radius: 12px;
+      height: 24px;
       left: 0;
       position: absolute;
       top: 0; }
@@ -1845,7 +1850,7 @@ div#message {
         text-indent: 2000px;
         width: 10px; }
     .meter div.graph .minimum {
-      border-radius: 9px;
+      border-radius: 12px;
       height: 100%;
       left: 0;
       position: absolute;
@@ -1853,19 +1858,19 @@ div#message {
       overflow: hidden; }
       .meter div.graph .minimum .left {
         float: right;
-        height: 18px;
+        height: 24px;
         padding-left: 16px; }
     .meter div.graph .optimum {
-      height: 18px;
+      height: 24px;
       position: absolute;
       right: 0; }
   .meter dl.percent {
     color: #FFF;
     font-size: 12px;
-    line-height: 18px;
+    line-height: 24px;
     margin-left: 16px;
     position: absolute;
-    top: 55px;
+    top: 56px;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7); }
     .meter dl.percent dt, .meter dl.percent dd {
       display: inline-block; }

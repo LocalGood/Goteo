@@ -18,10 +18,10 @@
   }
   dl.reached-bar {
     margin-bottom: 35px;
-    .reached {
+    /*.reached {
       color: #000;
       display: inline-block;
-    }
+    }*/
     dt.reached {
       font-size: 14px;
       font-weight: 300;
@@ -36,12 +36,12 @@
   }
   div.graph {
     background-color: $grayCol01;
-    border-radius: 9px;
+    border-radius: 12px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font: normal normal normal 14px/1 FontAwesome;
     font-size: inherit;
-    height:18px;
+    height:24px;
     margin-bottom: 20px;
     position:relative;
     text-rendering: auto;
@@ -69,8 +69,8 @@
 
     .done {
       background-color: $mainCol02;
-      border-radius: 9px;
-      height:18px;
+      border-radius: 12px;
+      height:24px;
       left:0;
       position:absolute;
       top:0;
@@ -89,7 +89,7 @@
     }
 
     .minimum {
-      border-radius: 9px;
+      border-radius: 12px;
       height:100%;
       left:0;
       position:absolute;
@@ -97,12 +97,12 @@
       overflow: hidden;
       .left {
         float:right;
-        height:18px;
+        height:24px;
         padding-left: 16px;
       }
     }
     .optimum {
-      height:18px;
+      height:24px;
       position:absolute;
       right:0;
     }
@@ -110,10 +110,10 @@
   dl.percent {
     color: #FFF;
     font-size: 12px;
-    line-height: 18px;
+    line-height: 24px;
     margin-left: 16px;
     position: absolute;
-    top: 55px;
+    top: 56px;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
     dt,dd {
       display: inline-block;

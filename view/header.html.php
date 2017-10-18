@@ -58,7 +58,7 @@ $configJson = json_decode( file_get_contents( __DIR__ . '/../omniconfig/apikeys.
                             <span class="header__right__snav__second_title">記事</span>
                             <ul>
                                 <li><span><a href="<?php echo LOCALGOOD_WP_BASE_URL . '/lgnews/' ?>">ニュース</a></span></li>
-                                <li><span><a href="<?php echo LOCALGOOD_WP_BASE_URL . '/event/' ?>">イベント</a></span></li>
+                                <li><span><a href="<?php echo LOCALGOOD_WP_BASE_URL . '/event/' ?>">みんなの拠点/イベント</a></span></li>
                                 <li><span><a href="<?php echo LOCALGOOD_WP_BASE_URL . '/data/' ?>">データ</a></span></li>
                                 <li><span><a href="<?php echo LOCALGOOD_WP_BASE_URL . '/lgplayer/' ?>">人/団体</a></span></li>
                             </ul>

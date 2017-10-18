@@ -2354,18 +2354,19 @@ ul#pagination {
     .meter dl dd {
       margin: 0; }
   .meter dl.reached-bar {
-    margin-bottom: 35px; }
-    .meter dl.reached-bar .reached {
+    margin-bottom: 35px;
+    /*.reached {
       color: #000;
-      display: inline-block; }
+      display: inline-block;
+    }*/ }
     .meter dl.reached-bar .supporters {
       display: none; }
   .meter h3.title.obtained {
     display: none; }
   .meter div.graph {
     background-color: #d9d9d9;
-    border-radius: 9px;
-    height: 20px;
+    border-radius: 12px;
+    height: 24px;
     position: relative;
     font: normal normal normal 14px/1 FontAwesome;
     font-size: inherit;
@@ -2392,7 +2393,7 @@ ul#pagination {
       font-size: 15px; }
     .meter div.graph .done {
       background-color: #009acb;
-      border-radius: 9px;
+      border-radius: 12px;
       height: 100%;
       left: 0;
       position: absolute;
@@ -2409,7 +2410,7 @@ ul#pagination {
         text-indent: 2000px;
         width: 10px; }
     .meter div.graph .minimum {
-      border-radius: 9px;
+      border-radius: 12px;
       height: 100%;
       left: 0;
       overflow: hidden;
@@ -2426,10 +2427,10 @@ ul#pagination {
   .meter dl.percent {
     color: #ffffff;
     font-size: 12px;
-    line-height: 20px;
+    line-height: 24px;
     margin-left: 16px;
     position: absolute;
-    top: 55px;
+    top: 56px;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7); }
     .meter dl.percent dt, .meter dl.percent dd {
       display: inline-block; }
@@ -2781,45 +2782,16 @@ div.superform button.image-remove {
   margin: 0 10px 0 0 !important; }
   div.superform button.image-remove:hover {
     background: url("/view/m/images/button/cross-active.png") no-repeat center center !important; }
-div.superform li {
-  /*&#supports,
-  &#social_rewards {
-    background-color: #f3f9f2 !important;
-  }
-  &#individual_rewards {
-    background-color: #f8e3e3 !important;
-  }
-  &.editcost {
-    background-color: #fdf3f4;
-    &.required_cost-yes {
-      background-color: #f2e5f1 !important;
-    }
-    li.required_cost-yes {
-      background-color: #e4c9e2 !important;
-    }
-    &.required_cost-no {
-      background-color: #f3f3f3 !important;
-    }
-    li.required_cost-no {
-      background-color: #e2e2e2 !important;
-    }
-  }
-  &.cost.required_cost-yes {
-    background-color: #f2e5f1 !important;
-  }
-  &.cost.required_cost-no {
-   background-color: #f3f3f3 !important;
-  }*/ }
-  div.superform li#user_avatar li.avatar_upload input[type="submit"] {
-    padding: 10px 16px; }
-  div.superform li#social_rewards h4.title, div.superform li#individual_rewards h4.title, div.superform li#supports h4.title, div.superform li#costs h4.title {
-    padding-left: 25px; }
-  div.superform li#gallery div.elements li.gallery-image {
-    margin: 5px 25px !important;
-    display: inline-block !important;
-    width: 153px !important; }
-  div.superform li#scope, div.superform li#supports, div.superform li#social_rewards, div.superform li#individual_rewards {
-    border-bottom: 1px dashed #d9d9d9; }
+div.superform li#user_avatar li.avatar_upload input[type="submit"] {
+  padding: 10px 16px; }
+div.superform li#social_rewards h4.title, div.superform li#individual_rewards h4.title, div.superform li#supports h4.title, div.superform li#costs h4.title {
+  padding-left: 25px; }
+div.superform li#gallery div.elements li.gallery-image {
+  margin: 5px 25px !important;
+  display: inline-block !important;
+  width: 153px !important; }
+div.superform li#scope, div.superform li#supports, div.superform li#social_rewards, div.superform li#individual_rewards {
+  border-bottom: 1px dashed #d9d9d9; }
 
 .discover #sub-header div {
   padding: 0;
@@ -2906,43 +2878,7 @@ div.superform li {
   background: #e08e22; }
 .project-show #sub-header {
   height: 40px;
-  position: relative;
-  /*.project-subtitle {
-    font-size: 16px;
-    font-weight: 300;
-    margin: 3px 0;
-    max-width: 620px;
-    font-style: normal;
-  }
-  .wants-skills {
-    margin-bottom: 8px;
-    font-size: 12px;
-    a {
-      font-size: 12px;
-    }
-  }
-  .categories {
-    position: absolute;
-    text-align: right;
-    top: 90px;
-    width: 100%;
-    h3 {
-      font-weight: 300;
-      color: #20B3B2;
-      margin: 0;
-      display: inline-block;
-    }
-    * {
-      font-size: 12px;
-    }
-    a {
-      color: #58595B;
-      text-decoration: none;
-      &:hover {
-        color: #20B3B2;
-      }
-    }
-  }*/ }
+  position: relative; }
   .project-show #sub-header > div {
     position: fixed;
     z-index: 1; }
@@ -3382,65 +3318,13 @@ div.superform li {
   background-color: #ffffff;
   padding: 10px 20px; }
 .dashboard #main {
-  overflow: visible;
-  /*div.status {
-    float: left;
-    color: #bcbdbd;
-    border: none !important;
-    padding: 0 !important;
-    margin-right: 20px;
-    #project-status {
-      h3 {
-        font-size: 20px;
-      }
-    }
-  }*/ }
+  overflow: visible; }
   .dashboard #main hr {
     display: none; }
   .dashboard #main > div.widget {
     margin-bottom: 20px; }
-  .dashboard #main.summary {
-    /*.widget.user-worthcracy {
-      padding-bottom: 60px;
-      div.worth-amount {
-        top: 25px;
-      }
-    }*/
-      /*.widget.projects {
-        background: none;
-        margin: 0 auto 20px;
-        padding-top: 0;
-        h2.title {
-          background-color: $baseWhite;
-          padding-top: 20px;
-        }
-        .discover-group {
-          background-color: $baseWhite;
-          padding-bottom: 20px;
-          &.discover-group-matched_projects {
-            .project:last-child {
-              margin-bottom: 0;
-            }
-          }
-        }
-
-        //プロジェクトウィジェット
-        .widget.project {
-          .meter {
-            dl dd.optimum span {
-              height: auto;
-              position: relative;
-            }
-            &.activable {
-              dl dd.minimum > span {
-                right: -54px;
-              }
-            }
-          }
-        }
-      }*/ }
-    .dashboard #main.summary > .widget.projects {
-      margin-top: 0; }
+  .dashboard #main.summary > .widget.projects {
+    margin-top: 0; }
   .dashboard #main.profile .footer {
     padding-bottom: 20px;
     margin: 0; }
@@ -3877,12 +3761,7 @@ body.home #main div.learn {
   margin-bottom: 16px;
   position: relative; }
 body.home #main .widget.projects {
-  overflow: hidden;
-  /*.meter {
-    dl.percent {
-      top: 55px;
-    }
-  }*/ }
+  overflow: hidden; }
 
 .community .widget.categorylist {
   overflow: hidden;

@@ -81,7 +81,6 @@ $minimum_ratio =  min(100, round(($minimum / $optimum) * 100));
 <div class="meter meter_2_record">
 
     <dl class="reached-bar">
-        <dt class="reached"><span><?php echo Text::get('project-view-metter-got'); ?></span></dt>
         <dd class="reached"><strong><?php echo \amount_format($reached) ?></strong><span>円</span></dd>
 
         <dt class="supporters"><span><?php echo Text::get('project-view-metter-investors'); ?></span></dt>

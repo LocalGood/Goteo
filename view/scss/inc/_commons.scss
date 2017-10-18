@@ -75,6 +75,13 @@
                   display: table;
                   width: 100%;
                   border-bottom: 1px solid $grayCol01;
+
+                  span {
+                    display: block;
+                    padding-left: 12px;
+                    background: url('/view/images/snav_text_arrow.png') no-repeat left 50%;
+                  }
+
                 }
                 ul {
                   padding-left: 0;
