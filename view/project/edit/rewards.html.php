@@ -439,7 +439,9 @@ $(function () {
 
     socials.delegate('li.element.editsocial_reward input.ok', 'click', function (event) {
         var data = {};
-        data[this.name.substring(0, 18) + 'edit'] = '0';
+        var name_split = this.name.split('-');
+        name_split[name_split.length - 1] = 'edit';
+        data[name_split.join('-')] = '0';
         Superform.update(socials, data);
         event.preventDefault();
     });

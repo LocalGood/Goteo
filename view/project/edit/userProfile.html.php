@@ -324,7 +324,9 @@ $(function () {
 
     webs.delegate('li.element.editweb input.ok', 'click', function (event) {
         var data = {};
-        data[this.name.substring(0, 7) + 'edit'] = '0';
+        var name_split = this.name.split('-');
+        name_split[name_split.length - 1] = 'edit';
+        data[name_split.join('-')] = '0';
         Superform.update(webs, data);
         event.preventDefault();
     });

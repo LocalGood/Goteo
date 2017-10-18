@@ -278,10 +278,12 @@ $(function () {
         Superform.update(costs, data);
         event.preventDefault();
     });
-    
+
     costs.delegate('li.element.editcost input.ok', 'click', function (event) {
         var data = {};
-        data[this.name.substring(0, 9) + 'edit'] = '0';
+        var name_split = this.name.split('-');
+        name_split[name_split.length - 1] = 'edit';
+        data[name_split.join('-')] = '0';
         //Superform.update($(this).parents('li.element.editcost'), data);
         Superform.update(costs, data);
         event.preventDefault();
