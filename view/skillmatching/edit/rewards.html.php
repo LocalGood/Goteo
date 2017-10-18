@@ -447,7 +447,7 @@ $(function () {
     individuals.delegate('li.element.individual_reward input.edit', 'click', function (event) {
         var data = {};
         data[this.name] = '1';
-//        console.log(individuals);
+        console.log(individuals);
         Superform.update(individuals, data);
         event.preventDefault();
     });
@@ -460,7 +460,6 @@ $(function () {
     });
 
     individuals.delegate('li.element.editindividual_reward input.remove, li.element.individual_reward input.remove', 'click', function (event) {
-        console.log('remove');
         var data = {};
         data[this.name] = '1';
         Superform.update(individuals, data);
@@ -476,7 +475,6 @@ $(function () {
 
     individuals.delegate('li.reward-type input[type="radio"]', 'click', function (event) {
        var data = {};
-        console.log('aa');
        data[this.name] = '1';
        Superform.update(individuals, data);
     });

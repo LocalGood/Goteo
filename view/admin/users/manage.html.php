@@ -55,7 +55,6 @@ $userPersonal = $this['user_personal'];
                     if (in_array($role, array('user', 'superadmin', 'root'))) {
                         echo '['.Text::get($roleData->id) . ']&nbsp;&nbsp;';
                     } else {
-                        /* // onclick="return confirm('<?php echo Text::_("Se le va a quitar el rol de <?php echo $roleData->name ? > a este usuario"); ?>')"*/
                         ?>
                         [<a href="/admin/users/manage/<?php echo $user->id ?>/no<?php echo $role ?>" style="color:red;text-decoration:none;"><?php echo Text::get($roleData->id) ?></a>]&nbsp;&nbsp;
                         <?php
@@ -70,7 +69,6 @@ $userPersonal = $this['user_personal'];
                 <?php
                 foreach ($roles as $roleId=>$roleName) {
                     if (!in_array($roleId, array_keys($user->roles)) && !in_array($roleId, array('root', 'superadmin'))) {
-                       /* // onclick="return confirm('<?php echo Text::_("Se le va a dar el rol de <?php echo $roleName ? > a este usuario"); ?>')" */
                         ?>
                         <a href="/admin/users/manage/<?php echo $user->id ?>/<?php echo $roleId ?>" style="color:green;text-decoration:none;">[<?php echo Text::get($roleId) ?>]</a>&nbsp;&nbsp;
                         <?php

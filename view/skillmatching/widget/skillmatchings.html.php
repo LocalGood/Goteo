@@ -27,13 +27,11 @@ use Goteo\Core\View,
 
 $project = $this['skillmatching'];
 $level = $this['level'] ?: 3;
-//var_dump($project->individual_rewards);
 if ($this['global'] === true) {
     $blank = ' target="_parent"';
 } else {
     $blank = '';
 }
-//var_dump($project);exit;
 $categories = Category::getNames($project->prefixed_id, 2);
 
 //si llega $this['investor'] sacamos el total aportado para poner en "mi aporte"
@@ -48,7 +46,6 @@ if (isset($this['investor']) && is_object($this['investor'])) {
     <div class="balloon"><?php echo $this['balloon'] ?></div>
     <?php endif ?>
         <div class="image">
-<!--            <span class="sm-icon"></span>-->
             <?
             $project->gallery = Goteo\Model\Skillmatching\Image::getGallery($project->id);
             ?>
@@ -79,29 +76,6 @@ if (isset($this['investor']) && is_object($this['investor'])) {
                 </div>
             <?php endif ?>
         </div>
-
-        <?/*php
-        // スキル表示
-        $skills = Skill::getNames($project->prefixed_id);
-        if (!empty($skills)): ?>
-        <div class="skills">
-            <?
-            foreach( $skills as $_skill_id => $_skill_name):
-                // ログイン中のユーザーのスキルとマッチすればハイライト
-                $_match_skill = '';
-                if (!empty($_SESSION['user']->skills)){
-                    foreach ($_SESSION['user']->skills as $_id){
-                        if ($_id == $_skill_id){
-                            $_match_skill = ' class="matched_skill"';
-                            break;
-                        }
-                    }
-                }
-            ?>
-                <a<?= $_match_skill; ?> id="skill_id_<?= $_skill_id; ?>" href=""><?php echo $_skill_name ?></a>
-            <? endforeach; ?>
-        </div>
-        <? endif; */?>
 
     <?php echo new View('view/skillmatching/meter_hor.html.php', array('skillmatching' => $project)) ?>
 

@@ -102,9 +102,7 @@ $filters = $this['filters'];
                 <th><?php echo Text::_("Cofinanciador"); ?></th>
                 <th><?php echo Text::_("Proyecto"); ?></th>
                 <th><?php echo Text::_("Estado"); ?></th>
-<!--                <th>--><?php //echo Text::_("Metodo"); ?><!--</th>-->
                 <th><?php echo Text::_("Estado aporte"); ?></th>
-<!--                <th>--><?php //echo Text::_("Importe"); ?><!--</th>-->
                 <th><?php echo Text::_("Extra"); ?></th>
                 <th></th>
                 <th></th>
@@ -119,10 +117,6 @@ $filters = $this['filters'];
 
                 <td><?php /* 支援をした日時 */ echo $invest->invested ?></td>
                 <td><?php echo $this['users'][$invest->user] ?></td>
-<?php
-/*
-                <td><a href="/admin/users/manage/<?php echo $this['users'][$invest->user] ?>" target="_blank" title="<?php echo $this['users'][$invest->user]; ?>"><?php echo $reward->email; ?></a></td>
-*/?>
                 <td><?php
                     $inv_pj = preg_replace('/^'.LG_SM_DB_PREFIX.'/','',$invest->project);
                     echo $this['projects'][$inv_pj];
@@ -130,9 +124,7 @@ $filters = $this['filters'];
                     ?>
                 </td>
                 <td><?php echo $this['status'][$invest->status] ?></td>
-<!--                <td>--><?php //echo $this['methods'][$invest->method] ?><!--</td>-->
                 <td><?php echo $this['investStatus'][$invest->investStatus] ?></td>
-<!--                <td>--><?php //echo $invest->amount ?><!--</td>-->
                 <td><?php echo $invest->charged ?></td>
                 <td><?php echo $invest->returned ?></td>
                 <td>

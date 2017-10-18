@@ -50,11 +50,6 @@ include 'view/header.html.php' ?>
                         } else {
                             echo new View('view/project/widget/project.html.php', array('project' => $project));
                         }
-/*
-                        echo new View('view/project/widget/project.html.php', array(
-                            'project' => $project
-                            ));
-*/
                 endwhile; ?>
             </div>
 

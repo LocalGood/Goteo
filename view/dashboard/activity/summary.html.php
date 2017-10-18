@@ -69,9 +69,6 @@ $lsuf = (LANG != 'es') ? '?lang='.LANG : '';
     });
 </script>
 
-<!-- nivel de meritocracia -->
-<?php // echo new View('view/user/widget/worth.html.php', array('worthcracy' => $worthcracy, 'level' => $user->worth, 'amount' => $support['amount'])) ?>
-
 <!-- matching projects for YOU -->
 <?php if (!empty($this['lists']['matched_projects'])) : ?>
     <div class="widget projects">
@@ -99,16 +96,6 @@ $lsuf = (LANG != 'es') ? '?lang='.LANG : '';
 
             </div>
         <?php endforeach; ?>
-
-
-        <!-- carrusel de cuadritos -->
-        <div class="navi-bar">
-            <ul class="navi">
-                <?php foreach (array_keys($list) as $group) : ?>
-                    <li><a id="navi-discover-group-<?php echo 'matched_projects-'.$group ?>" href="#matched_projects" rev="matched_projects" rel="<?php echo "matched_projects-{$group}" ?>" class="navi-discover-group navi-discover-group-matched_projects"><?php echo $group ?></a></li>
-                <?php endforeach ?>
-            </ul>
-        </div>
 
     </div>
 <?php endif; ?>
@@ -141,16 +128,6 @@ $lsuf = (LANG != 'es') ? '?lang='.LANG : '';
             </div>
         <?php endforeach; ?>
 
-
-        <!-- carrusel de cuadritos -->
-        <div class="navi-bar">
-            <ul class="navi">
-                <?php foreach (array_keys($list) as $group) : ?>
-                <li><a id="navi-discover-group-<?php echo 'my_projects-'.$group ?>" href="#my_projects" rev="my_projects" rel="<?php echo "my_projects-{$group}" ?>" class="navi-discover-group navi-discover-group-my_projects"><?php echo $group ?></a></li>
-                <?php endforeach ?>
-            </ul>
-        </div>
-
     </div>
 <?php endif; ?>
 
@@ -182,12 +159,6 @@ $lsuf = (LANG != 'es') ? '?lang='.LANG : '';
                           <div class="wc-embed" onclick="$('#widget_code').focus();$('#widget_code').select()"><?php echo Text::get('dashboard-embed_code'); ?></div>
                         <textarea id="widget_code" style="width:262px;margin:0 0 10px;" onclick="this.focus();this.select()" readonly="readonly"><?php echo htmlentities($widget_code); ?></textarea>
                       </div>
-<?php /*
-                      <div id="widget-code" style="float:none;width:250px;margin-left:25px;">
-                        <div class="wc-embed" onclick="$('#investor_code').focus();$('#investor_code').select()"><?php echo Text::get('dashboard-embed_code_investor'); ?></div>
-                        <textarea id="investor_code" style="width:230px;margin:0 0 10px;" onclick="this.focus();this.select()" readonly="readonly"><?php echo htmlentities($widget_code_investor); ?></textarea>
-                      </div>
- */?>
                 <?php endif; ?>
                 </div>
                 <?php endforeach; ?>
@@ -198,16 +169,6 @@ $lsuf = (LANG != 'es') ? '?lang='.LANG : '';
 
             </div>
         <?php endforeach; ?>
-
-
-        <!-- carrusel de cuadritos -->
-        <div class="navi-bar">
-            <ul class="navi">
-                <?php foreach (array_keys($list) as $group) : ?>
-                <li><a id="navi-discover-group-<?php echo 'invest_on-'.$group ?>" href="#invest_on" rev="invest_on" rel="<?php echo "invest_on-{$group}" ?>" class="navi-discover-group navi-discover-group-invest_on"><?php echo $group ?></a></li>
-                <?php endforeach ?>
-            </ul>
-        </div>
 
     </div>
 <?php endif; ?>

@@ -202,7 +202,6 @@ switch ($order) {
                             <span class="<?php echo ' '.$estilo;?>">
                             〒<?php echo $address->zipcode; ?></span>
                             <span><?php echo $address->address; ?></span>
-                            <?/*php echo $address->location; ?>, <?php echo $address->country; */?>
                         </div>
 
                         <div class="left">

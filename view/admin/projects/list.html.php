@@ -204,9 +204,6 @@ $pagedResults = new \Paginated($this['projects'], 10, isset($_GET['page']) ? $_G
             </tr>
             <tr>
                 <td colspan="7">
-                    <?php
-//                    var_dump($project);
-                    ?>
 					<?php if ( defined('AXESON')) : ?>
 
                     <?php if (in_array($project->status,array(3,4))) : ?><a href="<?php echo "/admin/invests/csv/{$project->id}"; ?>">[AXES用の決済CSVをダウンロード(すべて)]</a><?php endif; ?>

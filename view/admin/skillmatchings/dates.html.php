@@ -102,10 +102,6 @@ $elements = array(
         echo Text::_('El proyecto terminará la primera ronda el día') . '<strong>'.date('Y/m/d', strtotime($project->willpass)).'</strong>.';
     } ?>
 
-</p>
-
-    <p><?php // echo Text::_('Cambiar las fechas puede causar cambios en los días de campaña del proyecto.'); ?></p>
-
     <form method="post" action="/admin/skillmatchings" >
         <input type="hidden" name="id" value="<?php echo $project->id ?>" />
 
