@@ -74,17 +74,6 @@ echo new View('view/project/widget/video.html.php', array('project' => $project)
         </div>
     <?php endif ?>
 
-    <?/*php if (!empty($project->about)): ?>
-    <div class="about">
-        <h<?php echo $level + 1?>><?php echo Text::get('overview-field-about'); ?></h<?php echo $level + 1?>>
-        <?php echo $project->about; ?>
-    </div>    
-    <?php endif */?>
-
-    <?
-//    echo new View('view/project/widget/gallery.html.php', array('project' => $project));
-    ?>
-
     <?php if (!empty($project->motivation)): ?>
     <div class="motivation">
         <h<?php echo $level + 1?>><?php echo Text::get('overview-field-motivation'); ?></h<?php echo $level + 1?>>

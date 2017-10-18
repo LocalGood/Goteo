@@ -37,9 +37,6 @@ $types = array(
 
 $params = $this['params'];
 
-//var_dump($locations);
-//exit;
-
 ?>
 <div class="widget searcher">
     <form method="post" action="/discover/results">

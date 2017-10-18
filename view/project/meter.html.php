@@ -22,7 +22,6 @@ use Goteo\Library\Text;
 
 $level = (int) $this['level'] ?: 3;
 
-//$horizontal = !empty($this['horizontal']);
 $horizontal = true;
 $big = !empty($this['big']);
 $activable = !empty($this['activable']);
@@ -77,21 +76,7 @@ $optimum_left = 100 - $optimum_done;
 
 $minimum_ratio =  min(100, round(($minimum / $optimum) * 100));
 
-/*
-var_dump($minimum);
-var_dump($optimum);
-var_dump($reached);
-
-var_dump($minimum_done);
-var_dump($minimum_done_per);
-var_dump($minimum_left);
-
-var_dump($more);
-var_dump($over);
-*/
-
 ?>
-<?/*php<div class="meter <?php echo $horizontal ? 'hor' : 'ver'; echo $big ? ' big' : ''; echo $activable ? ' activable' : ''; ?>">*/?>
 <div class="meter">
 
     <dl class="reached-bar">
@@ -107,13 +92,6 @@ var_dump($over);
     <? endif; ?>
     <?php if ($activable) : ?><h<?php echo $level ?> class="title obtained"><?php echo Text::get('project-view-metter-got'); ?></h<?php echo $level ?>><?php endif; ?>
 
-    <?/*php if ($activable) : ?>
-        <div class="reached">
-            <h<?php echo $level ?>>現在</h<?php echo $level ?>>
-            <div><strong><?php echo \amount_format($reached) ?></strong>円</div>
-        </div>
-    <?php endif; */?>
-
     <div class="graph">
         <?php
         // 寄付金額が最低金額(minimum)に達したら、以降は目標金額(optimum)を親とするメーターに差し替えてしまう
@@ -126,8 +104,8 @@ var_dump($over);
             </div>
         <?php else: ?>
             <div class="minimum" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_ratio) ?>%">
-                <div class="left" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_left) ?>%"><!-- <strong><?php // echo number_format($minimum_left) ?>%</strong> --></div>
-                <div class="done" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_done) ?>%"><!--<strong><?php // echo number_format($minimum_done_per) ?>%</strong>--></div>
+                <div class="left" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_left) ?>%"></div>
+                <div class="done" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_done) ?>%"></div>
             </div>
         <?php endif; ?>
 		<?php if($minimum_ratio < 100):?>
@@ -147,17 +125,9 @@ var_dump($over);
         <dd class="days"><strong><?php echo number_format($days) ?></strong><span><?php echo Text::get('regular-days'); ?></span></dd>
     </dl>
 
-    <?/*php if ($activable) : */?>
-        <dl class="percent">
-            <dt>達成率：</dt>
-            <dd><strong><?php echo number_format($minimum_done_per) ?></strong>%</dd>
-        </dl>
-    <?/*php endif; */?>
-
-    <?php /*
-    // si en estado 3 ha alcanzado el optimo o segunda ronda, "aun puedes seguir aportando" junto al quedan tantos días
-    if ($project->status == 3 && ($project->round == 2  || $project->amount >= $project->maxcost || ($project->round == 1  && $project->amount >= $project->mincost) )) : ?>
-        <div class="keepiton"><?php echo Text::get('regular-keepiton') ?></div>
-    <?php endif; */ ?>
+    <dl class="percent">
+        <dt>達成率：</dt>
+        <dd><strong><?php echo number_format($minimum_done_per) ?></strong>%</dd>
+    </dl>
 
     </div>

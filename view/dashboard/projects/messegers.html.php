@@ -35,4 +35,4 @@ $messegers = $this['messegers'];
 		</a>
 	</li>
 <?php endforeach;?>
- </url>
+ </ul>

@@ -1,5 +1,5 @@
 @charset "utf-8";
-//todo:プロジェクト詳細画面に出るもののみを記述する
+
 .project-show {
 
   #main {
@@ -84,7 +84,6 @@
       padding: 0;
       background: #FFF;
       li {
-        //display: inline-block;
         a {
           background-color: #fff;
           box-sizing: border-box;
@@ -101,13 +100,13 @@
           vertical-align: middle;
         }
         &.active a {
-          border-bottom: 4px solid $subCol02;//#ff9900
+          border-bottom: 4px solid $subCol02;
         }
         &.show a {
-          border-bottom: 4px solid $subCol02;//#ff9900
+          border-bottom: 4px solid $subCol02;
         }
         span.digits{
-          background-color: $subCol02;//#ffd89d
+          background-color: $subCol02;
           border-radius: 5px;
           color: #FFF;
           display:inline-block;
@@ -139,8 +138,6 @@
     margin: 20px 0 0 0;
     div#bocadillo {
       @include comment_icon(30px);
-      //background:url('/view/images/bocadillo.jpg') no-repeat;
-      //height:50px;
     }
     button {
       float:right;
@@ -149,8 +146,8 @@
       margin:25px 0 0;
     }
     textarea#message-text {
-      background-color: #FFF;//#DCEEDF
-      border:1px solid $grayCol01;//#2EAB58
+      background-color: #FFF;
+      border:1px solid $grayCol01;
       border-radius: 3px;
       clear:right;
       display:block;
@@ -162,7 +159,7 @@
       width:525px;
     }
     a.preview {
-      color: $mainCol01;//#2EAB58
+      color: $mainCol01;
       font-style:normal;
       font-weight:400;
       left:80px;
@@ -207,12 +204,10 @@
           margin-bottom: 20px;
           padding: 20px;
           .left {
-            //float: left;
             display: inline-block;
             min-width: 60%;
           }
           .right {
-            //float: right;
             display: inline-block;
             min-width: 35%;
             margin: 0 0 0 5%;
@@ -370,7 +365,6 @@
     .button.green {
       background-color: $subCol01;
     }
-    /* todo: 多分「支援者」が入ると要るから、取っておく */
     .more {
       border-top: $solidBorder;
       clear: both;
@@ -539,7 +533,6 @@
       //支援・支援完了時に出るメッセージバルーンのウィジェット
       .invest-message {
         position: relative;
-        //background:url('/view/images/project/view/invest/message_beak.png') no-repeat left bottom;
         background-color: #FFF!important;
         min-height:70px;
         padding: 20px 15px ;
@@ -810,7 +803,6 @@
         padding: 0;
         .project-widget-box {
           margin: 0;
-          //padding: 15px 20px;
         }
         .title {
           margin-bottom: 20px;
@@ -1108,12 +1100,12 @@
             margin: 0 0 0 10px;
             &.twitter a {
               background: transparent url('/view/images/twitter.png') scroll no-repeat 0 0;
-              color: yellow;//#13c2ec
+              color: yellow;
               text-decoration: none;
             }
             &.facebook a {
               background: transparent url('/view/images/facebook.png') scroll no-repeat 0 0;
-              color: yellow;//#4a6393
+              color: yellow;
               text-decoration: none;
             }
           }
@@ -1126,7 +1118,7 @@
           margin: 0;
           padding: 0 0 0 26px;
           a {
-            color: $mainCol01;//#00ad4e
+            color: $mainCol01;
             text-decoration: none;
           }
         }
@@ -1169,7 +1161,7 @@
           h3.user a {
             text-decoration:none;
             &:hover {
-              color: $mainCol02;//#20B3B2
+              color: $mainCol02;
             }
           }
         }
@@ -1187,12 +1179,11 @@
           overflow:hidden;
         }
         #bocadillo{
-          //background:url('/view/images/bocadillo.jpg') no-repeat;
           @include comment_icon(30px);
         }
         #send_message {
-          background-color: #FFF;//#DCEEDF
-          border:1px solid $grayCol01;//#2EAB58
+          background-color: #FFF;
+          border:1px solid $grayCol01;
           border-radius: 3px;
           clear:right;
           display:block;
@@ -1204,7 +1195,7 @@
           width:525px;
         }
         a.preview {
-          color: $mainCol01;//#2EAB58
+          color: $mainCol01;
           font-style:normal;
           font-weight:400;
           left:52px;
@@ -1228,18 +1219,6 @@
         .fb-comments {
           margin-top: 8px;
         }
-      }
-    }
-
-    //サブナビ　＞　達成レポート
-    &.evaluation {
-      .project-evaluation {
-        /*h3.title {
-          font-size:18px;
-          font-weight:600;
-          margin:0;
-          padding:0 20px;
-        }*/
       }
     }
   }

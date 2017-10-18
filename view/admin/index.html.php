@@ -52,7 +52,6 @@ include 'view/header.html.php';
                         <legend><?php echo $section['label'] ?></legend>
                         <ul>
                             <?php foreach ($section['options'] as $oCode=>$option) :
-                                //$hide_list = array('blog', 'texts', 'tags', 'translates', 'worth', 'news', 'banners', 'faq');
                                 if ($oCode != 'blog' && $oCode != 'texts' && $oCode != 'tags' && $oCode != 'translates' && $oCode != 'worth' && $oCode != 'news' && $oCode != 'banners' && $oCode != 'faq' && !empty($option['label'])):
                                 echo '<li><a href="/admin/'.$oCode.'">'.$option['label'].'</a></li>';
                                 endif;
@@ -74,10 +73,6 @@ include 'view/header.html.php';
                             <li><a href="/admin/accounts"><?php echo Text::_("Aportes"); ?></a></li>
                             <li><a href="/admin/skillmatchings"><?php echo Text::_("Skillmatching"); ?></a></li>
                             <li><a href="/admin/skillmatching_accounts"><?php echo Text::_("Skillmatching Accounts"); ?></a></li>
-
-                            <?/*<li><a href="/admin/texts"><?php echo Text::_("Textos"); ?></a></li>
-                            <li><a href="/admin/tasks"><?php echo Text::_("Tareas"); ?></a></li>
-                            <li><a href="/admin/newsletter"><?php echo Text::_("Mailings"); ?></a></li>*/?>
                         </ul>
                     </div>
                 <?php endif; ?>

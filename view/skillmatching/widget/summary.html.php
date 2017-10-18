@@ -45,13 +45,6 @@ echo new View('view/skillmatching/widget/video.html.php', array('skillmatching' 
     </div>
     <?php endif ?>
 
-    <?/*php if (!empty($skillmatching->about)): ?>
-    <div class="about">
-        <h<?php echo $level + 1?>><?php echo Text::get('overview-field-about'); ?></h<?php echo $level + 1?>>
-        <?php echo $skillmatching->about; ?>
-    </div>    
-    <?php endif */?>
-
     <?php
     echo new View('view/skillmatching/widget/gallery.html.php', array('skillmatching' => $skillmatching));
     ?>

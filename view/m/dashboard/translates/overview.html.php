@@ -91,7 +91,6 @@ if (!empty($project->video->url)) {
             'type'      => 'textbox',
             'title'     => Text::get('overview-field-name'),
             'required'  => true,
-            'hint'      => Text::get('tooltip-project-name'),
             'value'     => $project->name,
             'errors'    => !empty($errors['name']) ? array($errors['name']) : array(),
             'ok'        => !empty($okeys['name']) ? array($okeys['name']) : array()

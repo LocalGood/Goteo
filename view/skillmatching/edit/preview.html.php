@@ -95,7 +95,6 @@ if ($project->finishable) {
             'title' => Text::get('preview-send-comment'),
             'rows'  => 8,
             'cols'  => 100,
-            // 'hint'  => Text::get('tooltip-project-comment'),
             'value' => $project->comment
         );
 }

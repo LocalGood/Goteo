@@ -276,10 +276,10 @@
           > a {
             background-color: $grayCol01;
             &:hover {
-              background-color: $mainCol02;//#20b3b2
+              background-color: $mainCol02;
             }
             &.active {
-              background-color: $grayCol02;//#808184
+              background-color: $grayCol02;
             }
           }
         }
@@ -292,7 +292,7 @@
         text-decoration:none;
         text-transform:uppercase;
         &:hover {
-          color: $mainCol02;//#20B3B2
+          color: $mainCol02;
         }
       }
     }
@@ -514,7 +514,7 @@
         text-decoration: none;
         text-indent: .5em;
         a {
-          color: $color10;//#28B258
+          color: $color10;
           font-size: 14px;
           font-weight: 600;
           text-decoration: none;
@@ -523,7 +523,6 @@
     }
     .widget.user-social {
       margin: 10px 0;
-      //margin-bottom: 30px;
       padding: 0;
       .title {
         display: none;
@@ -609,7 +608,6 @@
           font-weight: 600;
           line-height: 24px;
           margin: 0 0 16px;
-          //text-align: center;
         }
         p {
           line-height: 24px;
@@ -656,7 +654,7 @@
       margin-bottom: 20px;
       .title {
         a {
-          color: $mainCol01 !important;//#96238F
+          color: $mainCol01 !important;
         }
       }
       ul {
@@ -691,7 +689,7 @@
     .social {
       .title {
         a {
-          color: $mainCol01 !important;//#28b258
+          color: $mainCol01 !important;
         }
       }
     }
@@ -726,7 +724,6 @@
           line-height: 24px;
           margin: 0 0 16px;
           min-height: 32px;
-          //text-align: center;
         }
         .support_image{
           width: 60px;
@@ -1077,13 +1074,13 @@
           text-align:center;
         }
         &.on {
-          background-color: $grayCol01;//#d1edf1
+          background-color: $grayCol01;
           text-align: left;
           span {
             opacity: .75;
           }
           &.req {
-            background-color: $mainCol01;//#c7d8b6
+            background-color: $mainCol01;
           }
           &.noreq {
             background-color: $baseCol;
@@ -1196,7 +1193,6 @@
 
 
   //決済後のページにでる埋め込み用プロジェクトのウィジェット
-  //todo: 表示ができないので、旧cssより移行したのみ
   &.project-spread {
     .widget.projects {
       width: 320px;
@@ -1267,17 +1263,5 @@
     }
   }
 
-}
-
-
-//todo:project.scssで良いか検討中
-/*----------------------------------------------------------------------
- .meter
-----------------------------------------------------------------------*/
-.meter {
-  &.activable {
-    max-width: 288px;
-    z-index: 999;
-  }
 }
 

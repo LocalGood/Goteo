@@ -122,7 +122,7 @@
           -moz-box-shadow:2px 3px 0 rgba(0,0,0,.2);
           -webkit-border-radius:7px;
           -webkit-box-shadow:2px 3px 0 rgba(0,0,0,.2);
-          background-color: $baseCol;//#def1f1
+          background-color: $baseCol;
           border-radius:7px;
           box-shadow:2px 3px 0 rgba(0,0,0,.2);
           color: $grayCol03;
@@ -158,7 +158,7 @@
         }
         &.error {
           + div.hint > blockquote {
-            border-top:1px dashed $grayCol01;//#b7c2C5
+            border-top:1px dashed $grayCol01;
             padding-top:1em;
           }
           blockquote {
@@ -458,7 +458,7 @@
           -moz-border-radius: 7px;
           border-radius: 7px;
           box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
-          background-color: $baseCol;//#35b8b8
+          background-color: $baseCol;
           &:after{
             content: '';
             display: block;
@@ -487,7 +487,7 @@
       > div.feedback {
         background-image:url(/view/images/superform/tooltip/beak/red/n.png);
         > div {
-          background-color: $alertCol;//#e13028
+          background-color: $alertCol;
           color: #FFF;
           &.error + div.hint > blockquote {
             border-top-color:#FFF;
@@ -498,13 +498,13 @@
     input[type="text"],
     input[type="password"],
     textarea {
-      background-color: #FFF;//#fdedec
-      border-color: $alertCol;//#ee4843
+      background-color: #FFF;
+      border-color: $alertCol;
     }
     > div.hint h4,
     > div.hint blockquote {
-      background-color: #FFF;//#fdedec
-      color: $alertCol;//#ee4843
+      background-color: #FFF;
+      color: $alertCol;
     }
     div.elements > ol > li.busy > .title {
       background:url(/view/images/superform/badge/busy/red.gif) no-repeat right top;
@@ -516,7 +516,7 @@
       > div.feedback {
         background-image:url(/view/images/superform/tooltip/beak/green/n.png);
         > div {
-          background-color: $color10;//#00b05b
+          background-color: $color10;
           color:#FFF;
         }
       }
@@ -524,13 +524,13 @@
     input[type="text"],
     input[type="password"],
     textarea {
-      background-color: $grayCol01;//#e7f3e8
-      border-color: $grayCol03;//#00b05b
+      background-color: $grayCol01;
+      border-color: $grayCol03;
     }
     > div.hint h4,
     > div.hint blockquote {
-      background-color: $grayCol01;//#e7f3e8
-      color: $grayCol03;//#00b05b
+      background-color: $grayCol01;
+      color: $grayCol03;
     }
     div.elements > ol > li.busy > .title {
       background:url(/view/images/superform/badge/busy/green.gif) no-repeat right top;
@@ -549,7 +549,7 @@
   }
 
   li.editcost li.required_cost-yes {
-    background-color: $baseCol!important;//#e4c9e2
+    background-color: $baseCol!important;
   }
 
   li.cost.required_cost-no,
@@ -650,7 +650,7 @@ body.js {
 
     .is_public {
       font-size: 12px;
-      background-color: $subCol01;//#92c450
+      background-color: $subCol01;
       padding: 0 8px;
       color: #ffffff;
     }

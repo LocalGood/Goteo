@@ -62,7 +62,6 @@ jQuery(document).ready(function($) {
         </div>
 
     </div>
-<?// var_dump($this['content']); ?>
 
 <?php include 'view/footer.html.php' ?>
 

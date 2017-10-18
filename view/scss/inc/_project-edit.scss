@@ -1,5 +1,4 @@
 @charset "utf-8";
-//todo:プロジェクト作成・編集画面に対するスタイルのみを記述する
 
 .project-edit {
 
@@ -35,12 +34,12 @@
       font-style: normal;
     }
     .project-by {
-      color: $mainCol01;//#20B3B2
+      color: $mainCol01;
       font-size: 12px;
       margin: 0 0 .5em;
       a {
         font-weight: normal;
-        color: $mainCol01;//#cc6600
+        color: $mainCol01;
         font-size: 12px;
         text-decoration: none;
         &:hover {
@@ -167,7 +166,7 @@
         box-shadow: none;
         box-sizing: content-box;
         border:none;
-        color: $grayCol02;//#20b2b1
+        color: $grayCol02;
         font-size:12px;
         font-weight:400;
         height:100%;
@@ -215,7 +214,7 @@
       }
     }
     fieldset fieldset {
-      border:1px solid $grayCol02;//#e13028
+      border:1px solid $grayCol02;
       border-top:none;
       padding-bottom:8px;
       position:relative;
@@ -226,7 +225,7 @@
         margin-right:-1px;
       }
       > legend {
-        color: $grayCol02;//#e13028
+        color: $grayCol02;
         display:block;
         font-size:12px;
         left:0;
@@ -594,15 +593,15 @@
                 }
                 &.minimum > span {
                   bottom:0;
-                  color: $color06;//#96238F
+                  color: $color06;
                   margin-left:-66px;
                 }
                 &.optimum {
-                  border-top:10px solid $color10;//#BB70B6
+                  border-top:10px solid $color10;
                   margin-top:-10px;
                   z-index:0;
                   > span {
-                    color: $color10;//#BB70B6
+                    color: $color10;
                     margin-left:-76px;
                     margin-top:18px;
                     top:100%;
@@ -615,7 +614,7 @@
                   border-bottom:10px solid $color06;
                   z-index:900;
                   > span {
-                    border-left:10px solid $color06;//#96238F
+                    border-left:10px solid $color06;
                     bottom:-20px;
                     font-size:28px;
                     height:20px;
@@ -626,7 +625,7 @@
                     text-align:center;
                     width:0;
                     > strong {
-                      color: $color06;//#96238F
+                      color: $color06;
                       padding-left:5px;
                       position:absolute;
                       right:0;
@@ -634,7 +633,7 @@
                       top:-36px;
                     }
                     > span.yen {
-                      color: $color06;//#96238F
+                      color: $color06;
                       font-size:20px;
                       left:10px;
                       position:absolute;
@@ -651,7 +650,7 @@
                   text-align:center;
                   width:10em;
                   > span {
-                    border-left:10px solid $color10;//#BB70B6
+                    border-left:10px solid $color10;
                     font-size:28px;
                     height:12px;
                     left:-15px;
@@ -662,13 +661,13 @@
                     top:0;
                     width:0;
                     > strong {
-                      color: $color10;//#BB70B6
+                      color: $color10;
                       position:absolute;
                       right:0;
                       top:34px;
                     }
                     > span.yen {
-                      color: $color10;//#BB70B6
+                      color: $color10;
                       font-size:20px;
                       left:10px;
                       position:absolute;
@@ -735,16 +734,10 @@
                 margin: .5em 0;
               }
               span.left {
-                color: $color10;//#EE4843
+                color: $color10;
                 font-weight:700;
               }
             }
-            /*div.license {
-              background:none no-repeat 10px center;
-              line-height:32px;
-              min-height:32px;
-              padding-left:110px!important;
-            }*/
           }
           .buttons {
             ol {
@@ -768,7 +761,6 @@
               }
               li.element {
                 border-right: none;
-                //margin: 0 20px 0 0;
                 margin-right: 20px;
                 overflow: visible!important;
                 .contents{

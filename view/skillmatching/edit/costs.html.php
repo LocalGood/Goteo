@@ -48,7 +48,6 @@ if (!empty($project->costs)) {
                     'type'  => 'radio',
                     'class' => "cost-type $id",
                     'label' => $type,
-                    //'hint'  => Text::get('tooltip-project-cost-type-'.$id),
                     'checked' => $id == $cost->type  ? true : false
                 );
             }
@@ -70,7 +69,6 @@ if (!empty($project->costs)) {
                         'value'     => $cost->cost,
                         'errors'    => !empty($errors["cost-{$cost->id}-cost"]) ? array($errors["cost-{$cost->id}-cost"]) : array(),
                         'ok'        => !empty($okeys["cost-{$cost->id}-cost"]) ? array($okeys["cost-{$cost->id}-cost"]) : array(),
-                        //'hint'      => Text::get('tooltip-project-cost-cost'),
                     ),
                     "cost-{$cost->id}-type" => array(
                         'title'     => Text::get('costs-field-type'),
@@ -81,7 +79,6 @@ if (!empty($project->costs)) {
                         'value'     => $cost->type,
                         'errors'    => !empty($errors["cost-{$cost->id}-type"]) ? array($errors["cost-{$cost->id}-type"]) : array(),
                         'ok'        => !empty($okeys["cost-{$cost->id}-type"]) ? array($okeys["cost-{$cost->id}-type"]) : array(),
-                        //'hint'      => Text::get('tooltip-project-cost-type'),
                     ),
                     "cost-{$cost->id}-description" => array(
                         'type'      => 'textarea',
@@ -90,7 +87,6 @@ if (!empty($project->costs)) {
                         'cols'      => 100,
                         'rows'      => 4,
                         'class'     => 'inline cost-description',
-                        //'hint'      => Text::get('tooltip-project-cost-description'),
                         'errors'    => !empty($errors["cost-{$cost->id}-description"]) ? array($errors["cost-{$cost->id}-description"]) : array(),
                         'ok'        => !empty($okeys["cost-{$cost->id}-description"]) ? array($okeys["cost-{$cost->id}-description"]) : array(),
                         'value'     => $cost->description
@@ -101,14 +97,12 @@ if (!empty($project->costs)) {
                         'title'     => Text::get('costs-field-amount'),
                         'size'      => 8,
                         'class'     => 'inline cost-amount',
-                        //'hint'      => Text::get('tooltip-project-cost-amount'),
                         'errors'    => !empty($errors["cost-{$cost->id}-amount"]) ? array($errors["cost-{$cost->id}-amount"]) : array(),
                         'ok'        => !empty($okeys["cost-{$cost->id}-amount"]) ? array($okeys["cost-{$cost->id}-amount"]) : array(),
                         'value'     => $cost->amount
                     ),
                     "cost-{$cost->id}-required"  => array(
                         'required'  => true,
-/*                        'title'     => Text::get('costs-field-required_cost'),  */
                         'class'     => 'inline cost-required cols_2',
                         'type'      => 'radios',
                         'options'   => array (
@@ -126,7 +120,6 @@ if (!empty($project->costs)) {
                         'value'     => $cost->required,
                         'errors'    => !empty($errors["cost-{$cost->id}-required"]) ? array($errors["cost-{$cost->id}-required"]) : array(),
                         'ok'        => !empty($okeys["cost-{$cost->id}-required"]) ? array($okeys["cost-{$cost->id}-required"]) : array(),
-                        //'hint'      => Text::get('tooltip-project-cost-required'),
                     ),
                     "cost-{$cost->id}-dates" => array(
                         'type'      => 'group',
@@ -135,7 +128,6 @@ if (!empty($project->costs)) {
                         'class'     => 'inline cost-dates',
                         'errors'    => !empty($errors["cost-{$cost->id}-dates"]) ? array($errors["cost-{$cost->id}-dates"]) : array(),
                         'ok'        => !empty($okeys["cost-{$cost->id}-dates"]) ? array($okeys["cost-{$cost->id}-dates"]) : array(),
-                        //'hint'      => Text::get('tooltip-project-cost-dates'),
                         'children'  => array(
                             "cost-{$cost->id}-from"  => array(
                                 'class'     => 'inline cost-from',
@@ -207,7 +199,6 @@ echo new SuperForm(array(
             'type'      => 'group',
             'required'  => true,
             'title'     => Text::get('costs-fields-main-title'),
-            //'hint'      => Text::get('tooltip-project-costs'),
             'errors'    => !empty($errors["costs"]) ? array($errors["costs"]) : array(),
             'ok'        => !empty($okeys["costs"]) ? array($okeys["costs"]) : array(),
             'children'  => $costs  + array(
@@ -228,7 +219,6 @@ echo new SuperForm(array(
             'view'      => new View('view/skillmatching/edit/costs/meter.html.php', array(
                 'skillmatching'   => $project
             )),
-            //'hint'      => Text::get('tooltip-project-totals')
         ),
         
         'resource' => array(
@@ -236,7 +226,6 @@ echo new SuperForm(array(
             'cols'      => 40,
             'rows'      => 4,
             'title'     => Text::get('costs-field-resoure'),
-            //'hint'      => Text::get('tooltip-project-resource'),
             'errors'    => !empty($errors["resource"]) ? array($errors["resource"]) : array(),
             'ok'        => !empty($okeys["resource"]) ? array($okeys["resource"]) : array(),
             'value'     => $project->resource
@@ -245,7 +234,6 @@ echo new SuperForm(array(
         'schedule' => array(
             'type'      => 'html',
             'class'     => 'schedule',
-            //'hint'      => Text::get('tooltip-project-schedule'),
             'html'      => new View('view/skillmatching/widget/schedule.html.php', array('skillmatching' => $project))
         ),
         
@@ -286,7 +274,6 @@ $(function () {
     costs.delegate('li.element.cost input.edit', 'click', function (event) {
         var data = {};
         data[this.name] = '1';
-        //Superform.update(this, data);
         Superform.update(costs, data);
         event.preventDefault();
     });
@@ -294,7 +281,6 @@ $(function () {
     costs.delegate('li.element.editcost input.ok', 'click', function (event) {
         var data = {};
         data[this.name.substring(0, 9) + 'edit'] = '0';
-        //Superform.update($(this).parents('li.element.editcost'), data);
         Superform.update(costs, data);
         event.preventDefault();
     });

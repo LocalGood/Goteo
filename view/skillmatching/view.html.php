@@ -201,7 +201,6 @@ $bodyClass = 'project-show skillmatching-show'; include 'view/prologue.html.php'
 						
                     case 'messages':
                         echo
-//                            new View('view/skillmatching/widget/collaborations_message.html.php', array('skillmatching' => $skillmatching,'thread' => $thread)),
                             new View('view/skillmatching/widget/messages.html.php', array('skillmatching' => $skillmatching,'thread' => $thread));
                         break;
                    
@@ -229,7 +228,6 @@ $bodyClass = 'project-show skillmatching-show'; include 'view/prologue.html.php'
                 }
                 ?>
 			<?php
-			//            var_dump($printSendMsg);
 			if($printSendMsg){
 				echo new View('view/skillmatching/widget/sendMsg.html.php',array('skillmatching' => $skillmatching));
 			}

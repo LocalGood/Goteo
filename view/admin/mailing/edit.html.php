@@ -22,7 +22,6 @@
 use Goteo\Library\Text,
     Goteo\Library\Template;
 
-//$templates = Template::getAllMini();
 $templates = array(
     '11' => Text::_("Base"),
     '27' => Text::_("Aviso a los talleristas")

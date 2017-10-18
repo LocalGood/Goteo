@@ -39,10 +39,6 @@ include 'view/header.html.php'; ?>
                     } ?></span></h2>
             </div>
         </div>
-<?
-//    var_dump($this);
-?>
-
 
         <?php  echo new View ('view/dashboard/menu.html.php', $this) ?>
 
@@ -52,7 +48,6 @@ include 'view/header.html.php'; ?>
 
 <?php if ($this['section'] == 'projects') echo new View ('view/dashboard/projects/selector.html.php', $this); ?>
 <?php if ($this['section'] == 'skillmatchings') echo new View ('view/dashboard/skillmatchings/selector.html.php', $this); ?>
-<?php // if ($this['section'] == 'translates') echo new View ('view/dashboard/translates/selector.html.php', $this); ?>
 
             <?php if (!empty($this['message'])) : ?>
                 <div class="widget">

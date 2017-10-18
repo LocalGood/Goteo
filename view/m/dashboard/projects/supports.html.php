@@ -56,7 +56,7 @@ foreach ($project->supports as $support) {
                 'value' => $id,
                 'type'  => 'radio',
                 'class' => "support-type support_{$id}",
-                'hint'  => Text::get('tooltip-project-support-type-'.$id),
+                //'hint'  => Text::get('tooltip-project-support-type-'.$id),
                 'label' => $type,
                 'checked' => $id == $support->type  ? true : false
             );
@@ -88,7 +88,7 @@ foreach ($project->supports as $support) {
                         'children'  => $support_types,
                     'errors'    => !empty($errors["support-{$support->id}-type"]) ? array($errors["support-{$support->id}-type"]) : array(),
                     'ok'        => !empty($okeys["support-{$support->id}-type"]) ? array($okeys["support-{$support->id}-type"]) : array(),
-                    'hint'      => Text::get('tooltip-project-support-type'),
+                    //'hint'      => Text::get('tooltip-project-support-type'),
                 ),
                 "support-{$support->id}-description" => array(
                     'type'      => 'textarea',
@@ -166,7 +166,7 @@ $sfid = 'sf-project-supports';
         'supports' => array(
             'type'      => 'group',
             'title'     => Text::get('supports-fields-support-title'),
-            'hint'      => Text::get('tooltip-project-supports'),
+            //'hint'      => Text::get('tooltip-project-supports'),
             'children'  => $supports + array(
                 'support-add' => array(
                     'type'  => 'submit',

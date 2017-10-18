@@ -46,9 +46,8 @@ class Facebook {
 
 		$access_url = $this->access_url . "?client_id=".$this->consumer_key."&redirect_uri=".urlencode($this->callback_url)."&client_secret=".$this->consumer_secret."&code=".$_GET['code'];
 		$after_access_request = $this->httpRequest($access_url);
-		parse_str($after_access_request,$access_tokens);
-
-		$oauth_token = $access_tokens['access_token'];
+		$access_tokens = json_decode($after_access_request);
+		$oauth_token = $access_tokens->access_token;
 		return $oauth_token;
 
 	}

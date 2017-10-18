@@ -12,11 +12,6 @@ body.home {
     //プロジェクト一覧
     .widget.projects {
       overflow: hidden;
-      /*.meter {
-        dl.percent {
-          top: 55px;
-        }
-      }*/
     }
   }
 }
@@ -129,7 +124,7 @@ body.home {
       padding: 0;
       width: 100%;
       &:hover {
-        color: $mainCol02;//#20b3b2
+        color: $mainCol02;
       }
     }
   }

@@ -26,36 +26,12 @@ use Goteo\Core\ACL,
     <h2><?php echo Text::get('regular-menu'); ?></h2>
 
     <ul>
-        <?/*<li class="home"><a href="/"><?php echo Text::get('regular-home'); ?></a></li>*/?>
         <li class="explore"><a class="button red" href="/discover"><?php echo Text::get('regular-discover'); ?></a></li>
         <?php if( isset( $_SESSION['user']->roles['project_owner'] ) || (isset( $_SESSION['user']->roles['localadmin'] ) && $_SESSION['user']->home == LG_PLACE_NAME)) { ?>
             <li class="create"><a class="button aqua" href="/project/create"><?php echo Text::get('regular-create'); ?></a></li>
         <?php } else { ?>
             <li class="create"><a class="button aqua" href="<?php echo LOCALGOOD_WP_BASE_URL ?>/challenge"><?php echo Text::get('regular-create'); ?></a></li>
         <?php } ?>
-        <?php /*<li class="search">
-                <form method="get" action="/discover/results">
-                    <fieldset>
-                        <legend><?php echo Text::get('regular-search'); ?></legend>
-                        <input type="text" name="query"  />
-                        <input type="submit" value="<?php echo Text::_('Buscar') ?>" >
-                    </fieldset>
-                </form>
-            </li>*/?>
-        <?/*php if (!empty($_SESSION['user'])): ?>
-            <li class="community"><a href="/community"><span><?php echo Text::get('community-menu-main'); ?></span></a>
-                <div>
-                    <ul>
-                        <li><a href="/community/activity"><span><?php echo Text::get('community-menu-activity'); ?></span></a></li>
-                        <li><a href="/community/sharemates"><span><?php echo Text::get('community-menu-sharemates'); ?></span></a></li>
-                    </ul>
-                </div>
-            </li>
-            <?php else: ?>
-            <li class="login">
-                <a href="/community"><span><?php echo Text::get('community-menu-main'); ?></span></a>
-            </li>
-            <?php endif */?>
 
         <?php if (!empty($_SESSION['user'])): ?>
             <li class="dashboard"><a href="/dashboard"><span><?php echo Text::get('dashboard-menu-main'); ?></span><img src="<?php echo $_SESSION['user']->avatar->getLink(28, 28, true); ?>" /></a>

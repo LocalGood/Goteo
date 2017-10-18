@@ -31,7 +31,7 @@
   }
 
   #dashboard-menu {
-    border-bottom: 40px solid $mainCol01;//#39c
+    border-bottom: 40px solid $mainCol01;
     display: block;
     font-size: 13px;
     height: 0;
@@ -68,21 +68,21 @@
             bottom: 0;
             right: 0;
             height: 40px;
-            background-color: $mainCol01;//#39c
+            background-color: $mainCol01;
           }
           a.section {
             min-width: 80px!important;
             height: 52px;
-            color: $grayCol03;//#699
+            color: $grayCol03;
             font-size: 14px;
             line-height: 36px;
             text-align: center;
-            background: $grayCol01;//#ccf4ff
+            background: $grayCol01;
           }
           &.current {
             a.section {
               background: none;
-              background-color: $mainCol01;//#39c
+              background-color: $mainCol01;
               color: $baseCol;
             }
             ul {
@@ -93,7 +93,7 @@
           &.active {
             a.section {
               background: none;
-              background-color: $mainCol01;//#39c
+              background-color: $mainCol01;
               color: $baseCol;
               font-weight: bolder;
             }
@@ -110,12 +110,12 @@
             height: 40px;
             line-height: 27px;
             &:hover {
-              border-bottom: 5px solid #FFF;//#f93
+              border-bottom: 5px solid #FFF;
             }
           }
           &.current {
             a {
-              border-bottom: 5px solid #FFF;//#f93
+              border-bottom: 5px solid #FFF;
             }
           }
         }
@@ -156,7 +156,7 @@
       margin: 0 0 .5em;
       a {
         font-weight: normal;
-        color: $mainCol01;//#cc6600
+        color: $mainCol01;
         font-size: 12px;
         text-decoration: none;
         &:hover {
@@ -219,7 +219,7 @@
       float: left;
       top: -10px;
       left: 35px;
-      color: $color10;//#903
+      color: $color10;
       font-size: 30px;
       font-weight: 700;
       line-height: 33px;
@@ -303,7 +303,7 @@
       }
       span {
         &.aporte {
-          color: $mainCol01;//#96238F
+          color: $mainCol01;
           display:inline-block;
           font-size:8pt;
           line-height:22px;
@@ -331,7 +331,7 @@
           font-size:12pt;
         }
         &.cofinanciadores {
-          color: $mainCol01;//#40509F
+          color: $mainCol01;
           display:block;
           font-size:8pt;
           line-height:20px;
@@ -453,7 +453,6 @@
     .hint blockquote {
       border-right: none;
       margin-bottom: 10px;
-      //padding-left: 20px;
     }
     > div.footer {
       margin-top: 0;

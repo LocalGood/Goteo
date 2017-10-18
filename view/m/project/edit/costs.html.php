@@ -108,7 +108,6 @@ if (!empty($project->costs)) {
                     ),
                     "cost-{$cost->id}-required"  => array(
                         'required'  => true,
-/*                        'title'     => Text::get('costs-field-required_cost'),  */
                         'class'     => 'inline cost-required cols_2',
                         'type'      => 'radios',
                         'options'   => array (

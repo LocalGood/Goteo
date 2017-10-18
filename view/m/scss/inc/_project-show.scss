@@ -85,42 +85,6 @@
       }
     }
 
-    /*.project-subtitle {
-      font-size: 16px;
-      font-weight: 300;
-      margin: 3px 0;
-      max-width: 620px;
-      font-style: normal;
-    }
-    .wants-skills {
-      margin-bottom: 8px;
-      font-size: 12px;
-      a {
-        font-size: 12px;
-      }
-    }
-    .categories {
-      position: absolute;
-      text-align: right;
-      top: 90px;
-      width: 100%;
-      h3 {
-        font-weight: 300;
-        color: #20B3B2;
-        margin: 0;
-        display: inline-block;
-      }
-      * {
-        font-size: 12px;
-      }
-      a {
-        color: #58595B;
-        text-decoration: none;
-        &:hover {
-          color: #20B3B2;
-        }
-      }
-    }*/
   }
 
   .social_bookmark {
@@ -167,7 +131,6 @@
         background-color: $baseWhite;
         display:block;
         margin: 0 auto;
-        //max-height: 240px;
         overflow: hidden;
         text-align:center;
         width: 100%;
@@ -181,11 +144,9 @@
 
       //画像スライダー
       #prjct-gallery {
-        //float:left;
         @include cf;
         .prjct-gallery-container {
           display:none;
-          //height:240px;
           .slides_control {
             padding-top: 73%;
           }
@@ -445,7 +406,6 @@
         //支援・支援完了時に出るメッセージバルーンのウィジェット
         .invest-message {
           position: relative;
-          //background:url('/view/images/project/view/invest/message_beak.png') no-repeat left bottom;
           background-color: #FFF!important;
           min-height:70px;
           padding: 20px 15px ;

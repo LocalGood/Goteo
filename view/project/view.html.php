@@ -180,12 +180,10 @@ $bodyClass = 'project-show'; include 'view/prologue.html.php' ?>
 									
                                 case 'fail':
                                     echo
-//                                        new View('view/project/widget/investMsg.html.php', array('message' => $step, 'user' => User::get($_SESSION['user']->id))),
                                         new View('view/project/widget/invest.html.php', array('project' => $project, 'personal' => User::getPersonal($_SESSION['user']->id), 'allowpp'=> $this['allowpp']));
                                     break;
                                 default:
                                     echo
-//                                        new View('view/project/widget/investMsg.html.php', array('message' => $step, 'user' => $user)),
                                         new View('view/project/widget/invest.html.php', array('project' => $project, 'personal' => $personalData, 'step' => $step, 'allowpp'=> $this['allowpp']));
                                     break;
                             }
