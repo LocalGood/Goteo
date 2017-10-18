@@ -191,7 +191,6 @@ echo new SuperForm(array(
             'cols'      => 40,
             'rows'      => 4,
             'title'     => Text::get('profile-field-about'),
-            // 'hint'      => Text::get('tooltip-user-about'),
             'errors'    => !empty($errors['about']) ? array($errors['about']) : array(),
             'ok'        => !empty($okeys['about']) ? array($okeys['about']) : array(),
             'value'     => $user->about
@@ -203,7 +202,6 @@ echo new SuperForm(array(
             'class'     => 'cols_3',
             'name'      => 'user_interests[]',
             'title'     => Text::get('profile-field-interests'),
-            // 'hint'      => Text::get('tooltip-user-interests'),
             'errors'    => !empty($errors['interests']) ? array($errors['interests']) : array(),
             'ok'        => !empty($okeys['interests']) ? array($okeys['interests']) : array(),
             'options'   => $interests
@@ -215,7 +213,6 @@ echo new SuperForm(array(
             'class'     => 'cols_3',
             'name'      => 'user_skills[]',
             'title'     => Text::get('profile-field-skills'),
-            // 'hint'      => Text::get('tooltip-user-skills'),
             'errors'    => !empty($errors['skills']) ? array($errors['skills']) : array(),
             'ok'        => !empty($okeys['skills']) ? array($okeys['skills']) : array(),
             'options'   => $skills,

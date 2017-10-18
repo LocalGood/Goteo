@@ -126,7 +126,6 @@ echo new SuperForm(array(
                     'required'  => true,
                     'size'      => 20,
                     'title'     => Text::get('personal-field-contract_name'),
-//                    'hint'      => Text::get('tooltip-project-contract_name'),
                     'errors'    => !empty($errors['contract_name']) ? array($errors['contract_name']) : array(),
                     'ok'        => !empty($okeys['contract_name']) ? array($okeys['contract_name']) : array(),
                     'value'     => $project->contract_name
@@ -150,7 +149,6 @@ echo new SuperForm(array(
                     'required'  => true,
                     'title'     => Text::get('personal-field-phone'),
                     'dize'      => 15,
-//                    'hint'      => Text::get('tooltip-project-phone'),
                     'errors'    => !empty($errors['phone']) ? array($errors['phone']) : array(),
                     'ok'        => !empty($okeys['phone']) ? array($okeys['phone']) : array(),
                     'value'     => $project->phone
@@ -298,7 +296,6 @@ echo new SuperForm(array(
 /*                        'post_location' => array(
                             'type'      => 'textbox',
                             'class'     => 'inline',
-                            'title'     => Text::get('personal-field-location'),
                             'size'      => 25,
                             //'hint'      => Text::get('tooltip-project-post_address'),
                             'errors'    => !empty($errors['post_location']) ? array($errors['post_location']) : array(),

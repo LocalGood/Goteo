@@ -21,8 +21,6 @@
 use Goteo\Core\View,
     Goteo\Model\Project,
     Goteo\Library\Text;
-//$projects = Goteo\Model\Project::published("available");
-//$skillmatchings = Goteo\Model\Skillmatching::published("available");
 // random y que solo pinte seis si hubiera más
 if ($_GET['type'] == 'p'){
     $allpjsm = Goteo\Model\Project::published("available");
@@ -33,10 +31,6 @@ if ($_GET['type'] == 'p'){
 }
 ?>
 <div class="widget projects">
-
-    <?php /*
-    <h2 class="title">プロジェクト<?php //echo Text::get('home-projects-header'); ?></h2>
-    */ ?>
 
     <?php foreach ($allpjsm as $pj) :
         if (get_class($pj) == 'Goteo\Model\Skillmatching'){

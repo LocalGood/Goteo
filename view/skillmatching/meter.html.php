@@ -24,7 +24,6 @@ $level = (int) $this['level'] ?: 3;
 
 $horizontal = !empty($this['horizontal']);
 $big = !empty($this['big']);
-//$activable = !empty($this['activable']);
 $activable = false;
 $project = $this['skillmatching'];
 
@@ -75,19 +74,6 @@ $optimum_left = 100 - $optimum_done;
 
 $minimum_ratio =  min(100, round(($minimum / $optimum) * 100));
 
-/*
-var_dump($minimum);
-var_dump($optimum);
-var_dump($reached);
-
-var_dump($minimum_done);
-var_dump($minimum_done_per);
-var_dump($minimum_left);
-
-var_dump($more);
-var_dump($over);
-*/
-
 ?>    <div class="meter <?php echo $horizontal ? 'hor' : 'ver'; echo $big ? ' big' : ''; echo $activable ? ' activable' : ''; ?>">
         <dl>
             <dt class="days"><span><?php echo Text::get('project-view-metter-days'); ?></span></dt>
@@ -104,12 +90,6 @@ var_dump($over);
             <span class="percent"><?php echo number_format($minimum_done_per) ?>%</span>
         </div>
         <?php endif; ?>
-
-    <?php /*
-    // si en estado 3 ha alcanzado el optimo o segunda ronda, "aun puedes seguir aportando" junto al quedan tantos días
-    if ($project->status == 3 && ($project->round == 2  || $project->amount >= $project->maxcost || ($project->round == 1  && $project->amount >= $project->mincost) )) : ?>
-        <div class="keepiton"><?php echo Text::get('regular-keepiton') ?></div>
-    <?php endif; */ ?>
 
     </div>
 

@@ -72,7 +72,6 @@ foreach ($project->individual_rewards as $individual_reward) {
                 'type'  => 'radio',
                 'class' => "reward-type reward_{$type->id} individual_{$type->id}",
                 'label' => $type->name,
-                //'hint'  => $type->description,
                 'id'    => "individual_reward-{$individual_reward->id}-icon-{$type->id}",
                 'checked' => $type->id == $individual_reward->icon ? true : false,
                 'children' => $children
@@ -133,8 +132,7 @@ foreach ($project->individual_rewards as $individual_reward) {
                             "image_upload_{$individual_reward->id}" => array(
                                 'type'  => 'file',
                                 'label' => Text::get('form-image_upload-button'),
-                                'class' => 'inline image_upload',
-                                //'hint'  => Text::get('tooltip-project-image')
+                                'class' => 'inline image_upload'
                             ),
                             "reward-image_{$individual_reward->id}" => array(
                                 'type'  => 'html',
@@ -499,7 +497,6 @@ $(function () {
 
     individuals.delegate('li.reward-type input[type="radio"]', 'click', function (event) {
        var data = {};
-        console.log('aa');
        data[this.name] = '1';
        Superform.update(individuals, data);
     });

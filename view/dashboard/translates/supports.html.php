@@ -132,7 +132,7 @@ $sfid = 'sf-project-supports';
         'supports' => array(
             'type'      => 'group',
             'title'     => Text::get('supports-fields-support-title'),
-            'hint'      => Text::get('tooltip-project-supports'),
+            //'hint'      => Text::get('tooltip-project-supports'),
             'children'  => $supports
         )
     )

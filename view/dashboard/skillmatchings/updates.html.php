@@ -157,7 +157,6 @@ if ($this['action'] == 'none') return;
                 'type'      => 'textbox',
                 'required'  => true,
                 'size'      => 20,
-//                'title'     => 'Título',
                 'title'     => Text::get('project-updates-title'),
                 'hint'      => Text::get('tooltip-updates-title'),
                 'errors'    => !empty($errors['title']) ? array($errors['title']) : array(),
@@ -168,14 +167,12 @@ if ($this['action'] == 'none') return;
                 'required'  => true,
                 'cols'      => 40,
                 'rows'      => 16,
-//                'title'     => 'Texto de la entrada',
                 'title'     => Text::get('project-updates-text'),
                 'hint'      => Text::get('tooltip-updates-text'),
                 'errors'    => !empty($errors['text']) ? array($errors['text']) : array(),
                 'value'     => $post->text
             ),
             'image' => array(
-//                'title'     => 'Imagen',
                 'title'     => Text::get('project-updates-image'),
                 'type'      => 'group',
                 'hint'      => Text::get('tooltip-updates-image'),
@@ -194,14 +191,12 @@ if ($this['action'] == 'none') return;
 
             'gallery' => array(
                 'type'  => 'group',
-//                'title' => Text::get('overview-field-image_gallery'),
                 'class' => 'inline',
                 'children'  => $images
             ),
 
             'media' => array(
                 'type'      => 'textbox',
-//                'title'     => 'Vídeo',
                 'title'     => Text::get('project-updates-video'),
                 'class'     => 'media',
                 'hint'      => Text::get('tooltip-updates-media'),
@@ -218,22 +213,15 @@ if ($this['action'] == 'none') return;
 
             'media-preview' => $media,
 
-//            'legend' => array(
-//                'type'      => 'textarea',
-//                'title'     => Text::get('regular-media_legend'),
-//                'value'     => $post->legend,
-//            ),
             "date" => array(
                 'type'      => 'datebox',
                 'required'  => true,
-//                'title'     => 'Fecha de publicación',
                 'title'     => Text::get('project-updates-date'),
                 'hint'      => Text::get('tooltip-updates-date'),
                 'size'      => 8,
                 'value'     => $post->date
             ),
             'allow' => array(
-//                'title'     => 'Permite comentarios',
                 'title'     => Text::get('project-updates-allow_comments'),
                 'type'      => 'slider',
                 'options'   => $comment_allow,
@@ -243,7 +231,6 @@ if ($this['action'] == 'none') return;
                 'value'     => (int) $post->allow
             ),
             'publish' => array(
-//                'title'     => 'Publicado',
                 'title'     => Text::get('project-updates-publish'),
                 'type'      => 'slider',
                 'options'   => $publish_allow,

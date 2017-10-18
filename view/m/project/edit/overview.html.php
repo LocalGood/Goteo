@@ -128,7 +128,6 @@ $superform = array(
             'type'      => 'textbox',
             'title'     => Text::get('overview-field-name'),
             'required'  => true,
-            'hint'      => Text::get('tooltip-project-name'),
             'value'     => $project->name,
             'errors'    => !empty($errors['name']) ? array($errors['name']) : array(),
             'ok'        => !empty($okeys['name']) ? array($okeys['name']) : array()
@@ -163,7 +162,7 @@ $superform = array(
         ),        
         'gallery' => array(
             'type'  => 'group',
-            'title' => Text::get('overview-field-image_gallery'),
+            //'title' => Text::get('overview-field-image_gallery'),
             'class' => 'inline',
             'children'  => $images
         ),
@@ -193,7 +192,6 @@ $superform = array(
                     'type'      => 'textarea',       
                     'title'     => Text::get('overview-field-motivation'),
                     'required'  => true,
-                    'hint'      => Text::get('tooltip-project-motivation'),
                     'errors'    => !empty($errors['motivation']) ? array($errors['motivation']) : array(),
                     'ok'        => !empty($okeys['motivation']) ? array($okeys['motivation']) : array(),
                     'value'     => $project->motivation

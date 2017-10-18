@@ -27,25 +27,6 @@ $this['level'] = 3;
 
 $message = $this['action'] == 'recover' ? $this['message'] : '';
 
-/*
-if ($_SESSION['recovering'] == $_SESSION['user']->id) {
-    $old_pass = array(
-                    'type'  => 'hidden',
-                    'errors'=> array(),
-                    'value' => $user->id
-                );
-} else {
-    $old_pass = array(
-                    'type'  => 'password',
-                    'class' => 'inline',
-                    'title' => Text::get('user-changepass-old'),
-                    // 'hint'  => Text::get('tooltip-dashboard-user-user_password'),
-                    'errors'=> !empty($errors['password']) ? array($errors['password']) : array(),
-                    'value' => $user_password
-                );
-}
-*/
-
 extract($_POST);
 ?>
 <form action="/dashboard/profile/access" method="post" enctype="multipart/form-data">
@@ -67,20 +48,17 @@ echo new SuperForm(array(
         'data' => array(
             'type'  => 'html',
             'title' => Text::get('dashboard-menu-profile-access'),
-            // 'hint'  => Text::get('tooltip-dashboard-user-access_data'),
             'html'  => '<strong>'.Text::get('login-access-username-field').': </strong>'.$user->id.'<br /><strong>'.Text::get('login-register-email-field').': </strong>'.$user->email
         ),
 
         'change_email' => array(
             'type'      => 'group',
             'title'     => Text::get('user-changeemail-title'),
-//            'hint'      => Text::get('tooltip-dashboard-user-change_email'),
             'children'  => array(
                 'user_nemail' => array(
                     'type'  => 'textbox',
                     'class' => 'inline',
                     'title' => Text::get('login-register-email-field'),
-                    // 'hint'  => Text::get('tooltip-dashboard-user-new_email'),
                     'errors'=> !empty($errors['email']) ? array($errors['email']) : array(),
                     'value' => $user_nemail
                 ),
@@ -104,11 +82,7 @@ echo new SuperForm(array(
         'change_password' => array(
             'type'      => 'group',
             'title'     => Text::get('user-changepass-title'),
-//            'hint'      => Text::get('tooltip-dashboard-user-change_password'),
             'children'  => array(
-                /* Ya no requerimos la pasword actual.
-                'user_password' => $old_pass ,
-                 */
                 'pass_anchor' => array(
                     'type'  => 'html',
                     'class' => 'inline',
@@ -138,10 +112,6 @@ echo new SuperForm(array(
 
             )
         ),
-
-
-
-
     )
 
 ));
