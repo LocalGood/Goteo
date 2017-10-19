@@ -310,7 +310,7 @@ namespace Goteo\Controller {
 
 //                    $viewData['currently'] = Model\Project::currentStatus();
 //                    $viewData['scope'] = Model\Project::scope();
-                    $viewData['project_location'] = Model\Project::yokohamaLocation();
+                    $viewData['project_location'] = Model\Project::getLocationNames();
                     break;
 
                 case 'costs':
