@@ -4234,6 +4234,121 @@ body.js .superform > div.elements ol li.element div.contents p {
   margin: 0;
   padding: 0 !important;
   background: none; }
+.project-edit .datepicker {
+  cursor: default;
+  display: none;
+  left: 0;
+  position: absolute;
+  top: 0; }
+  .project-edit .datepicker .datepickerContainer {
+    background: #FFF;
+    -moz-box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 99999; }
+  .project-edit .datepicker .datepickerBorderT,
+  .project-edit .datepicker .datepickerBorderB,
+  .project-edit .datepicker .datepickerBorderL,
+  .project-edit .datepicker .datepickerBorderR,
+  .project-edit .datepicker .datepickerBorderTL,
+  .project-edit .datepicker .datepickerBorderTR,
+  .project-edit .datepicker .datepickerBorderBL,
+  .project-edit .datepicker .datepickerBorderBR {
+    display: none; }
+  .project-edit .datepicker .datepickerHidden {
+    display: none; }
+  .project-edit .datepicker table {
+    border-collapse: collapse;
+    width: 100%; }
+    .project-edit .datepicker table td {
+      border: none;
+      font-size: 12px;
+      margin: 0;
+      text-align: right; }
+    .project-edit .datepicker table tbody td a {
+      color: #1fb0b0;
+      font-size: 12px !important;
+      text-decoration: none; }
+    .project-edit .datepicker table tbody th {
+      text-align: left; }
+    .project-edit .datepicker table tbody a {
+      display: block; }
+  .project-edit .datepicker a {
+    outline: none; }
+  .project-edit .datepicker table td,
+  .project-edit .datepicker div.datepicker th {
+    color: #999;
+    font-weight: 400;
+    text-align: center; }
+  .project-edit .datepicker table.datepickerViewDays tr.datepickerDoW th {
+    color: #666;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 8px 4px;
+    text-align: center; }
+  .project-edit .datepicker .datepickerDays td,
+  .project-edit .datepicker .datepickerDays th,
+  .project-edit .datepicker tbody.datepickerMonths td,
+  .project-edit .datepicker tbody.datepickerYears td {
+    padding: .1em; }
+  .project-edit .datepicker .datepickerDays a,
+  .project-edit .datepicker tbody.datepickerMonths td a,
+  .project-edit .datepicker tbody.datepickerYears td a {
+    background-color: #dff2f3;
+    border: 1px solid #1fb0b0;
+    line-height: 1em;
+    padding: 4px; }
+  .project-edit .datepicker tbody.datepickerMonths td a,
+  .project-edit .datepicker tbody.datepickerYears td a {
+    height: 3.9em;
+    line-height: 3.9em;
+    text-align: center;
+    width: 3.15em; }
+  .project-edit .datepicker tbody.datepickerDays td.datepickerSelected a {
+    background-color: #1FB0B0;
+    color: #FFF; }
+  .project-edit .datepicker tbody.datepickerDays td.datepickerNotInMonth.datepickerSelected,
+  .project-edit .datepicker tbody.datepickerYears td.datepickerSelected,
+  .project-edit .datepicker tbody.datepickerMonths td.datepickerSelected {
+    background: #17384d; }
+  .project-edit .datepicker div.datepicker a:hover {
+    background-color: #1FB0B0;
+    color: #FFF; }
+  .project-edit .datepicker td.datepickerNotInMonth a {
+    color: #68c9c9 !important; }
+  .project-edit .datepicker .datepickerGoNext,
+  .project-edit .datepicker .datepickerGoPrev,
+  .project-edit .datepicker .datepickerMonth {
+    background-color: #1FB0B0;
+    height: 40px;
+    line-height: 40px; }
+    .project-edit .datepicker .datepickerGoNext a,
+    .project-edit .datepicker .datepickerGoPrev a,
+    .project-edit .datepicker .datepickerMonth a {
+      color: #FFF !important;
+      text-align: center; }
+  .project-edit .datepicker .datepickerGoNext a {
+    float: right;
+    width: 2em; }
+  .project-edit .datepicker .datepickerGoPrev a {
+    float: left;
+    width: 2em; }
+  .project-edit .datepicker table.datepickerViewDays tbody.datepickerMonths,
+  .project-edit .datepicker table.datepickerViewDays tbody.datepickerYears {
+    display: none; }
+  .project-edit .datepicker table.datepickerViewMonths tbody.datepickerDays,
+  .project-edit .datepicker table.datepickerViewMonths tbody.datepickerYears,
+  .project-edit .datepicker table.datepickerViewMonths tr.datepickerDoW {
+    display: none; }
+  .project-edit .datepicker table.datepickerViewYears tbody.datepickerDays,
+  .project-edit .datepicker table.datepickerViewYears tbody.datepickerMonths,
+  .project-edit .datepicker table.datepickerViewYears tr.datepickerDoW {
+    display: none; }
+  .project-edit .datepicker td.datepickerDisabled a,
+  .project-edit .datepicker td.datepickerDisabled.datepickerNotInMonth a {
+    color: #333; }
+  .project-edit .datepicker td.datepickerDisabled a:hover {
+    color: #333; }
 
 .side_image {
   width: 100%;
