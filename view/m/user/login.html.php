@@ -74,17 +74,6 @@ jQuery(document).ready(function($) {
 });
 </script>
 
-<?/*
-<div id="sub-header">
-	<div class="clearfix">
-		<div class="subhead-banner">
-			<h2 class="message"><?php echo Text::html('login-banner-header'); ?></h2>
-		</div>
-		<div class="mod-pojctopen"><?php echo Text::html('open-banner-header', $fbCode); ?></div>
-	</div>
-</div>
-*/?>
-
 <?php if(isset($_SESSION['messages'])) { include VIEW_PATH . '/header/message.html.php'; } ?>
 
     <div id="main">

@@ -36,16 +36,6 @@ if (!isset($_POST['email']) && isset($_GET['email'])) {
     $email = $_GET['email'];
 }
 ?>
-<?php /*
-<div id="sub-header">
-	<div class="clearfix">
-		<div class="subhead-banner">
-			<h2 class="message"><?php echo Text::html('login-banner-header'); ?></h2>
-		</div>
-		<div class="mod-pojctopen"><?php echo Text::html('open-banner-header', $fbCode); ?></div>
-	</div>
-</div>
-*/ ?>
     <div id="sub-header">
         <div class="dashboard-header">
             <a href="/user/<?php echo $user->id; ?>" target="_blank"><img src="<?php echo $user->avatar->getLink(56, 56, true); ?>" /></a>
