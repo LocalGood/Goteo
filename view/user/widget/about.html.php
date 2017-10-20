@@ -84,13 +84,6 @@ $skills = Skill::getAll(null,true);
     </div>
     <?php endif ?>
     
-    <?php /* if (!empty($user->location)): ?>
-     <div class="location">    
-        <h4><?php echo Text::get('profile-location-header'); ?></h4>
-        <p><?php echo Text::GmapsLink($user->location); ?></p>
-     </div>
-    <?php endif */ ?>
-
     <?php if (!empty($this['projects'])): ?>
      <div class="message">
          <p><a href="/user/profile/<?php echo $user->id ?>/message"><?php echo Text::get('regular-send_message')?></a></p>

@@ -27,19 +27,19 @@ $user = $this['user']
     <h4 class="title"><?php echo Text::get('profile-social-header'); ?></h4>
     <ul>
         <?php if (!empty($user->facebook)): ?>
-        <li class="facebook"><a href="<?php echo htmlspecialchars($user->facebook) ?>" target="_blank"><?php /* echo Text::get('regular-facebook'); */?></a></li>
+        <li class="facebook"><a href="<?php echo htmlspecialchars($user->facebook) ?>" target="_blank"></a></li>
         <?php endif ?>
         <?php if (!empty($user->google)): ?>
-        <li class="google"><a href="<?php echo htmlspecialchars($user->google) ?>" target="_blank"><?php /*echo Text::get('regular-google');*/ ?></a></li>
+        <li class="google"><a href="<?php echo htmlspecialchars($user->google) ?>" target="_blank"></a></li>
         <?php endif ?>
         <?php if (!empty($user->twitter)): ?>
-        <li class="twitter"><a href="<?php echo htmlspecialchars($user->twitter) ?>" target="_blank"><?php /*echo Text::get('regular-twitter');*/ ?></a></li>
+        <li class="twitter"><a href="<?php echo htmlspecialchars($user->twitter) ?>" target="_blank"></a></li>
         <?php endif ?>
         <?php if (!empty($user->identica)): ?>
-        <li class="identica"><a href="<?php echo htmlspecialchars($user->identica) ?>" target="_blank"><?php /*echo Text::get('regular-identica');*/ ?></a></li>
+        <li class="identica"><a href="<?php echo htmlspecialchars($user->identica) ?>" target="_blank"></a></li>
         <?php endif ?>
         <?php if (!empty($user->linkedin)): ?>
-        <li class="linkedin"><a href="<?php echo htmlspecialchars($user->linkedin) ?>" target="_blank"><?php /*echo Text::get('regular-linkedin');*/ ?></a></li>
+        <li class="linkedin"><a href="<?php echo htmlspecialchars($user->linkedin) ?>" target="_blank"></a></li>
         <?php endif ?>
     </ul>                
 </div>            
