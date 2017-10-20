@@ -23,10 +23,6 @@ use Goteo\Library\Text,
 
 $skillmatching = $this['skillmatching'];
 
-//tratamos los saltos de linea y los links en las descripciones del proyecto
-//$project->description = nl2br(Text::urlink($skillmatching->description));
-//$skillmatching->about       = nl2br(Text::urlink($skillmatching->about));
-//$skillmatching->motivation  = nl2br(Text::urlink($skillmatching->motivation));
 $skillmatching->goal        = nl2br(Text::urlink($skillmatching->goal));
 $skillmatching->related     = nl2br(Text::urlink($skillmatching->related));
 
