@@ -46,7 +46,6 @@ echo new SuperForm(array(
         'contract_entity-radioset' => array(
             'type'      => 'group',
             'title'     => Text::get('personal-field-contract_entity'),
-//            'hint'      => Text::get('tooltip-project-contract_entity'),
             'children'  => array(
                 'contract_entity-person' =>  array(
                     'name'  => 'contract_entity',
@@ -81,23 +80,10 @@ echo new SuperForm(array(
                             'required'  => true,
                             'size'      => 20,
                             'title'     => Text::get('personal-field-entity_name'),
-//                            'hint'      => Text::get('tooltip-project-entity_name'),
                             'errors'    => !empty($errors['entity_name']) ? array($errors['entity_name']) : array(),
                             'ok'        => !empty($okeys['entity_name']) ? array($okeys['entity_name']) : array(),
                             'value'     => $project->entity_name
                         ),
-                        
-/*                        'entity_cif' => array(
-                            'type'      => 'textbox',
-                            'class'     => 'inline',
-                            'required'  => true,
-                            'title'     => Text::get('personal-field-entity_cif'),
-                            'size'      => 15,
-                            'hint'      => Text::get('tooltip-project-entity_cif'),
-                            'errors'    => !empty($errors['entity_cif']) ? array($errors['entity_cif']) : array(),
-                            'ok'        => !empty($okeys['entity_cif']) ? array($okeys['entity_cif']) : array(),
-                            'value'     => $project->entity_cif
-                        ),*/
                         
                         'entity_office' => array(
                             'type'      => 'textbox',
@@ -105,7 +91,6 @@ echo new SuperForm(array(
                             'required'  => true,
                             'size'      => 20,
                             'title'     => Text::get('personal-field-entity_office'),
-//                            'hint'      => Text::get('tooltip-project-entity_office'),
                             'errors'    => !empty($errors['entity_office']) ? array($errors['entity_office']) : array(),
                             'ok'        => !empty($okeys['entity_office']) ? array($okeys['entity_office']) : array(),
                             'value'     => $project->entity_office
@@ -118,7 +103,6 @@ echo new SuperForm(array(
         'contract' => array(
             'type'      => 'group',
             'title'     => Text::get('personal-field-contract_data'),
-            // 'hint'      => Text::get('tooltip-project-contract_data'),
             'children'  => array(
                 'contract_name' => array(
                     'type'      => 'textbox',
@@ -130,18 +114,6 @@ echo new SuperForm(array(
                     'ok'        => !empty($okeys['contract_name']) ? array($okeys['contract_name']) : array(),
                     'value'     => $project->contract_name
                 ),
-
-                /*'contract_nif' => array(
-                    'type'      => 'textbox',
-                    'class'     => 'inline',
-                    'required'  => true,
-                    'title'     => Text::get('personal-field-contract_nif'),
-                    'size'      => 9,
-                    'hint'      => Text::get('tooltip-project-contract_nif'),
-                    'errors'    => !empty($errors['contract_nif']) ? array($errors['contract_nif']) : array(),
-                    'ok'        => !empty($okeys['contract_nif']) ? array($okeys['contract_nif']) : array(),
-                    'value'     => $project->contract_nif
-                ),*/
 
                 'phone' => array(
                     'type'      => 'textbox',
@@ -160,7 +132,6 @@ echo new SuperForm(array(
                     'required'  => true,
                     'title'     => Text::get('personal-field-contract_email'),
                     'size'      => 9,
-//                    'hint'      => Text::get('tooltip-project-contract_email'),
                     'errors'    => !empty($errors['contract_email']) ? array($errors['contract_email']) : array(),
                     'ok'        => !empty($okeys['contract_email']) ? array($okeys['contract_email']) : array(),
                     'value'     => $project->contract_email
@@ -171,8 +142,6 @@ echo new SuperForm(array(
                     'required'  => false,
                     'size'      => 8,
                     'title'     => Text::get('personal-field-contract_birthdate'),
-//                    'hint'      => Text::get('tooltip-project-contract_birthdate'),
-//                    'errors'    => !empty($errors['contract_birthdate']) ? array($errors['contract_birthdate']) : array(),
                     'ok'        => !empty($okeys['contract_birthdate']) ? array($okeys['contract_birthdate']) : array(),
                     'value'     => $project->contract_birthdate
                 )
@@ -184,7 +153,6 @@ echo new SuperForm(array(
         'main_address' => array(
             'type'      => 'group',
             'title'     => Text::get('personal-field-main_address'),
-            //'hint'      => Text::get('tooltip-project-main_address'),
             'children'  => array(
                 'address' => array(
                     'type'      => 'textbox',
@@ -193,7 +161,6 @@ echo new SuperForm(array(
                     'title'     => Text::get('personal-field-address'),
                     'rows'      => 6,
                     'cols'      => 40,
-//                    'hint'      => Text::get('tooltip-project-main_address'),
                     'errors'    => !empty($errors['address']) ? array($errors['address']) : array(),
                     'ok'        => !empty($okeys['address']) ? array($okeys['address']) : array(),
                     'value'     => $project->address
@@ -205,7 +172,6 @@ echo new SuperForm(array(
                     'required'  => true,
                     'title'     => Text::get('personal-field-zipcode'),
                     'size'      => 7,
-//                    'hint'      => Text::get('tooltip-project-main_address'),
                     'errors'    => !empty($errors['zipcode']) ? array($errors['zipcode']) : array(),
                     'ok'        => !empty($okeys['zipcode']) ? array($okeys['zipcode']) : array(),
                     'value'     => $project->zipcode
@@ -217,106 +183,11 @@ echo new SuperForm(array(
                     'required'  => false,
                     'title'     => Text::get('personal-field-location'),
                     'size'      => 25,
-//                    'hint'      => Text::get('tooltip-project-main_address'),
-                    //'errors'    => !empty($errors['location']) ? array($errors['location']) : array(),
                     'ok'        => !empty($okeys['location']) ? array($okeys['location']) : array(),
                     'value'     => $project->location
                 ),
-                /*
-                                'country' => array(
-                                    'type'      => 'textbox',
-                                    'class'     => 'inline',
-                                    'required'  => true,
-                                    'title'     => Text::get('personal-field-country'),
-                                    'size'      => 25,
-                //                    'hint'      => Text::get('tooltip-project-main_address'),
-                                    'errors'    => !empty($errors['country']) ? array($errors['country']) : array(),
-                                    'ok'        => !empty($okeys['country']) ? array($okeys['country']) : array(),
-                                    'value'     => $project->country
-                                )*/
             )
         ),
-
-        /* Radio de domicilio postal igual o diferente*/
-/*
-        'post_address-radioset' => array(
-            'type'      => 'group',
-            'class'     => 'inline',
-            'title'     => Text::get('personal-field-post_address'),
-            //'hint'      => Text::get('tooltip-project-post_address'),
-            'children'  => array(
-                'post_address-radio-same' =>  array(
-                    'name'  => 'secondary_address',
-                    'value' => false,
-                    'type'  => 'radio',
-                    'class' => 'inline',
-                    'label' => Text::get('personal-field-post_address-same'),
-                    'id'    => 'post_address-radio-same',
-                    'checked' => !$project->secondary_address ? true : false,
-                    'children' => array(
-                        'post_address-same' => array(
-                            'type' => 'hidden',
-                            'name' => "post_address-same",
-                            'value' => 'same'
-                        ),
-                    )
-                ),
-                'post_address-radio-different' =>  array(
-                    'name'  => 'secondary_address',
-                    'value' => true,
-                    'type'  => 'radio',
-                    'class' => 'inline',
-                    'label' => Text::get('personal-field-post_address-different'),
-                    'id'    => 'post_address-radio-different',
-                    'checked' => $project->secondary_address ? true : false,
-                    'children' => array(
-                        'post_address' => array(
-                            'type'      => 'textbox',
-                            'class'     => 'inline',
-                            'title'     => Text::get('personal-field-address'),
-                            'rows'      => 6,
-                            'cols'      => 40,
-                            //'hint'      => Text::get('tooltip-project-post_address'),
-                            'errors'    => !empty($errors['post_address']) ? array($errors['post_address']) : array(),
-                            'ok'        => !empty($okeys['post_address']) ? array($okeys['post_address']) : array(),
-                            'value'     => $project->post_address
-                        ),
-
-                        'post_zipcode' => array(
-                            'type'      => 'textbox',
-                            'class'     => 'inline',
-                            'title'     => Text::get('personal-field-zipcode'),
-                            'size'      => 7,
-                            //'hint'      => Text::get('tooltip-project-post_address'),
-                            'errors'    => !empty($errors['post_zipcode']) ? array($errors['post_zipcode']) : array(),
-                            'ok'        => !empty($okeys['post_zipcode']) ? array($okeys['post_zipcode']) : array(),
-                            'value'     => $project->post_zipcode
-                        ),
-*/
-/*                        'post_location' => array(
-                            'type'      => 'textbox',
-                            'class'     => 'inline',
-                            'size'      => 25,
-                            //'hint'      => Text::get('tooltip-project-post_address'),
-                            'errors'    => !empty($errors['post_location']) ? array($errors['post_location']) : array(),
-                            'ok'        => !empty($okeys['post_location']) ? array($okeys['post_location']) : array(),
-                            'value'     => $project->post_location
-                        ),*/
-/*
-                        'post_country' => array(
-                            'type'      => 'textbox',
-                            'class'     => 'inline',
-                            'title'     => Text::get('personal-field-country'),
-                            'size'      => 25,
-                            //'hint'      => Text::get('tooltip-project-post_address'),
-                            'errors'    => !empty($errors['post_country']) ? array($errors['post_country']) : array(),
-                            'ok'        => !empty($okeys['post_country']) ? array($okeys['post_country']) : array(),
-                            'value'     => $project->post_country
-                        )
-                    )
-                ),
-            )
-        ),*/
 
         'footer' => array(
             'type'      => 'group',

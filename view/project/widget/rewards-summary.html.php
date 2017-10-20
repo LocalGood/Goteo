@@ -56,7 +56,7 @@ uasort($project->individual_rewards,
         <li class="<?php echo $individual->icon ?>">
 			<?php if(!empty($individual->image)):?>
 			<div class="image">
-				<img src="<?php echo $individual->image->getLink(350, 350) ?>" alt="<?/*php todo: $project->新しく追加されるお礼画像のキャプション　を出す */?>">
+				<img src="<?php echo $individual->image->getLink(350, 350) ?>" alt="">
 			</div>
 			<?php endif;?>
 			<h<?php echo $level + 2 ?> id="<? echo 'individual_num' . $count; ?>" class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>>

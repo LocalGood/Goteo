@@ -133,11 +133,6 @@ $until = mktime(0, 0, 0, date('m', $until) + 1, -1, date('Y', $until));
                 </th>
 
                 <?php
-                /*todo:
-                - その月の日数/3し、ひと月をtd3つで表現、間に余白をつける
-                - $cost_until - $cons_fromの日数で、月のどこまで塗るか決めて、塗るtdにはclass付与
-                */
-
                 $d = $from;
 
                 $span = 0;
