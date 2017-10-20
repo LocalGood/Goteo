@@ -100,8 +100,6 @@ body {
     background-color: #20B3B2;
     color: #f5f5f5;
     font-size: 18px;
-    /*border-top: 1px solid #00ad4e;
-    border-bottom: 1px solid #00ad4e;*/
 }
 .goteo-url {
 	font-size:12px;
