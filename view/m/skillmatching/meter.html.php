@@ -32,7 +32,6 @@ $project = $this['skillmatching'];
 $minimum    = $project->mincost;
 $optimum    = $project->maxcost;
 $reached    = $project->invested;
-//$supporters = count($project->investors);
 $supporters = $project->getTotalInvestors($project->id);
 $days       = $project->total_days;
 

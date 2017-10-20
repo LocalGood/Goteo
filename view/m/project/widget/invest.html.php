@@ -99,9 +99,6 @@ $action = ($step == 'start') ? '/user/login' : '/invest/' . $project->id;
                         <?php if ($individual->none) : // no quedan ?>
                             <span class="left"><?php echo Text::get('invest-reward-none') ?></span>
                         <?php elseif (!empty($individual->units)) : // unidades limitadas ?>
-                        <?/*<strong><?php echo Text::get('project-rewards-individual_reward-limited'); ?></strong><br />
-                    <?php $units = ($individual->units - $individual->taken); // resto
-                    echo Text::html('project-rewards-individual_reward-units_left', $units); ?><br />*/?>
                         <?php endif; ?>
                     </label>
                 </li>
@@ -192,7 +189,6 @@ if ($step == 'start') : ?>
 <?php if (ACL::check('/admin')) : ?>
 <p><button type="submit" class="process pay-cash" name="method" value="cash"><?php echo Text::get('invest-cash') ?></button></p>
 <?php endif; ?>
-<!--<p><button type="submit" class="process pay-paypal" name="method"  value="paypal">PAYPAL</button></p>-->
 
 <?php if ( defined('AXESON')) : ?>
 <p><button type="submit" class="process pay-axes" name="method"  value="axes"><?php echo Text::get('invest-credit-card') ?></button></p>
@@ -215,8 +211,6 @@ if ($step == 'start') : ?>
 </div>
 <?php endif; ?>
 </form>
-
-<?php //echo new View(VIEW_PATH . '/project/widget/worth.html.php', array('worthcracy' => $worthcracy, 'level' => $_SESSION['user']->worth)) ?>
 
 <a name="commons"></a>
 <div class="widget project-invest">
@@ -335,11 +329,9 @@ if ($step == 'start') : ?>
             // si es renuncio
             if ($('#resign_reward').prop('checked')) {
                 $("#address-header").html('<?php echo Text::slash('invest-donation-header') ?>');
-                /*$("#donation-data").show();*/
                 reset_reward(i);
             } else {
                 $("#address-header").html('<?php echo Text::slash('invest-address-header') ?>');
-                /*$("#donation-data").hide();*/
                 reset_reward(i);
             }
             <?php endif; ?>
@@ -386,20 +378,14 @@ if ($step == 'start') : ?>
 
                 if (reward == '') {
                     if (confirm('<?php echo Text::slash('invest-alert-noreward') ?>')) {
-//                        if (confirm('<?php //echo Text::slash('invest-alert-noreward_renounce') ?>//')) {
-                            $("#address-header").html('<?php echo Text::slash('invest-donation-header') ?>');
-                            /*$("#donation-data").show();*/
-                            $('#resign_reward').click();
-//                            $('#nif').focus();
-                            return false;
-//                        }
+                        $("#address-header").html('<?php echo Text::slash('invest-donation-header') ?>');
+                        $('#resign_reward').click();
+                        return false;
                     } else {
-//                        $('#nif').focus();
                         return false;
                     }
                 } else {
                     //When the supporter has selected a reward　--add 141030
-                    //var reward = $('#resign_reward').val();
                     var name = $('#fullname').val();
                     var add = $('#address').val();
 

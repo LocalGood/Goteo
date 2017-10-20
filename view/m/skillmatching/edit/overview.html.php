@@ -162,7 +162,6 @@ $superform = array(
         ),        
         'gallery' => array(
             'type'  => 'group',
-            //'title' => Text::get('overview-field-image_gallery'),
             'class' => 'inline',
             'children'  => $images
         ),
@@ -319,7 +318,6 @@ $superform = array(
         'currently' => array(    
             'title'     => Text::get('overview-field-currently'),
             'type'      => 'slider',
-//            'required'  => true,
             'options'   => $currently,
             'class'     => 'currently cols_' . count($currently),
             'hint'      => Text::get('tooltip-project-currently'),
@@ -342,7 +340,6 @@ $superform = array(
         'scope' => array(
             'title'     => Text::get('overview-field-scope'),
             'type'      => 'slider',
-//            'required'  => true,
             'options'   => $scope,
             'class'     => 'scope cols_' . count($currently),
             'hint'      => Text::get('tooltip-project-scope'),

@@ -168,7 +168,6 @@ if ($this['action'] == 'none') return;
 
             'gallery' => array(
                 'type'  => 'group',
-                //'title' => Text::get('overview-field-image_gallery'),
                 'class' => 'inline',
                 'children'  => $images
             ),
@@ -193,7 +192,6 @@ if ($this['action'] == 'none') return;
 
             'legend' => array(
                 'type'      => 'textarea',
-                //'title'     => Text::get('regular-media_legend'),
                 'value'     => $post->legend,
             ),
             "date" => array(

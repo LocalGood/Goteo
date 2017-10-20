@@ -51,7 +51,6 @@ include VIEW_PATH . '/header.html.php'; ?>
         <div id="main" class="<?php echo $this['option'] ?>">
 
 <?php if ($this['section'] == 'projects') echo new View (VIEW_PATH . '/dashboard/projects/selector.html.php', $this); ?>
-<?php // if ($this['section'] == 'translates') echo new View (VIEW_PATH . '/dashboard/translates/selector.html.php', $this); ?>
 
             <?php if (!empty($this['message'])) : ?>
                 <div class="widget">
