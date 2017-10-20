@@ -310,7 +310,7 @@ namespace Goteo\Controller {
 
 //                    $viewData['currently'] = Model\Skillmatching::currentStatus();
 //                    $viewData['scope'] = Model\Skillmatching::scope();
-                    $viewData['project_location'] = Model\Skillmatching::yokohamaLocation();
+                    $viewData['project_location'] = Model\Skillmatching::getLocationNames();
                     break;
 
                 case 'costs':

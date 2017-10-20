@@ -2580,28 +2580,14 @@ namespace Goteo\Model {
 
             return $errors;
         }
-        public static function yokohamaLocation () {
-            return array(
-                1=>Text::get('横浜市'),
-                11=>Text::get('中区'),
-                12=>Text::get('保土ケ谷区'),
-                13=>Text::get('南区'),
-                14=>Text::get('戸塚区'),
-                15=>Text::get('旭区'),
-                16=>Text::get('栄区'),
-                17=>Text::get('泉区'),
-                18=>Text::get('港北区'),
-                19=>Text::get('港南区'),
-                20=>Text::get('瀬谷区'),
-                21=>Text::get('磯子区'),
-                22=>Text::get('神奈川区'),
-                23=>Text::get('緑区'),
-                24=>Text::get('西区'),
-                25=>Text::get('都筑区'),
-                26=>Text::get('金沢区'),
-                27=>Text::get('青葉区'),
-                28=>Text::get('鶴見区')
-            );
+        public static function getLocationNames () {
+			$env_locations = explode(',', getenv('GOTEO_LOCATION_NAMES'));
+			$result = array();
+			foreach ($env_locations as $index => $location) {
+				$idx = ($index === 0) ? 1 : $index + 10;
+				$result[$idx] = Text::get($location);
+			}
+			return $result;
         }
         public static function getTotalInvestors($id){
             $prefixed_id = self::getPrefixedId($id);
