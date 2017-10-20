@@ -28,13 +28,6 @@ $user = $_SESSION['user'];
 include 'view/prologue.html.php';
 include 'view/header.html.php';
 
-/*
- *
- <img src="<?php echo $user->avatar->getLink(75, 75, true); ?>" /><br />
-                    <em><?php echo $user->name; ?></em>
- *
- */
-
 ?>
 
         <div id="sub-header">
