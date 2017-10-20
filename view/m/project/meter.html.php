@@ -22,7 +22,6 @@ use Goteo\Library\Text;
 
 $level = (int) $this['level'] ?: 3;
 
-//$horizontal = !empty($this['horizontal']);
 $horizontal = true;
 $big = !empty($this['big']);
 $activable = !empty($this['activable']);
@@ -99,8 +98,8 @@ $minimum_ratio =  min(100, round(($minimum / $optimum) * 100));
             </div>
         <?php else: ?>
             <div class="minimum" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_ratio) ?>%">
-                <div class="left" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_left) ?>%"><!-- <strong><?php // echo number_format($minimum_left) ?>%</strong> --></div>
-                <div class="done" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_done) ?>%"><!--<strong><?php // echo number_format($minimum_done_per) ?>%</strong>--></div>
+                <div class="left" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_left) ?>%"></div>
+                <div class="done" style="<?php echo $horizontal ? 'width' : 'height' ?>: <?php echo number_format($minimum_done) ?>%"></div>
             </div>
         <?php endif; ?>
         <?php if($minimum_ratio < 100):?>
@@ -116,11 +115,9 @@ $minimum_ratio =  min(100, round(($minimum / $optimum) * 100));
         <dd class="optimum"><strong><?php echo \amount_format($optimum) ?></strong><span>円</span></dd>
     </dl>
 
-    <?/*php if ($activable) : */?>
     <dl class="percent">
         <dt>達成率：</dt>
         <dd><strong><?php echo number_format($minimum_done_per) ?></strong>%</dd>
     </dl>
-    <?/*php endif; */?>
 
 </div>

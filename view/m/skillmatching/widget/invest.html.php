@@ -46,8 +46,6 @@ $step = $this['step'];
 
 $level = (int) $this['level'] ?: 3;
 
-//$worthcracy = Worth::getAll();
-
 $licenses = array();
 
 foreach (License::getAll() as $l) {
@@ -75,14 +73,11 @@ $action = ($step == 'start') ? '/user/login' : '/invest/' . $project->id;
                 <?php /*
                 <li><label class="resign"><input class="individual_reward" type="radio" id="resign_reward" name="selected_reward" value="0" amount="0"/><?php echo Text::get('invest-resign') ?></label></li>
  */ ?>
-                <!-- <span class="chkbox"></span> -->
             <?php foreach ($project->individual_rewards as $individual) : ?>
             <li class="<?php echo $individual->icon ?><?php if ($individual->none) echo ' disabled' ?>">
 
                 <label class="amount" for="reward_<?php echo $individual->id; ?>">
                     <input type="radio" name="selected_reward" id="reward_<?php echo $individual->id; ?>" value="<?php echo $individual->id; ?>" amount="<?php echo $individual->amount; ?>" class="individual_reward" title="<?php echo htmlspecialchars($individual->reward) ?>" <?php if ($individual->none) echo 'disabled="disabled"' ?>/>
-<!--                    <span class="amount">--><?php //echo $individual->amount; ?><!-- 円</span>-->
-                <!-- <span class="chkbox"></span> -->
             	<h<?php echo $level + 2 ?> class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>>
                 <p><?php echo htmlspecialchars($individual->description)?></p>
                     <?php if ($individual->none) : // no quedan ?>
@@ -109,56 +104,21 @@ if ($step == 'start') : ?>
     <div class="buttons">
         <button type="submit" class="button red" name="go-login" value=""><?php echo Text::get('imperative-register'); ?></button>
     </div>
-<?php /*
-    <div class="reminder"><?php echo Text::get('invest-alert-investing') ?> <span id="amount-reminder"><?php echo $amount ?></span></div>
-*/ ?>
 </div>
 <?php else : ?>
 <a name="continue"></a>
     <input type="hidden" id="fullname" name="fullname" value="<?php echo !empty($personal->contract_name)?$personal->contract_name:'___DUMMY_FOR_SM___'; ?>" />
     <input type="hidden" id="address" name="address" value="<?php echo !empty($personal->address)?$personal->address:'___DUMMY_FOR_SM___'; ?>" />
     <input type="hidden" id="zipcode" name="zipcode" value="<?php echo !empty($personal->zipcode)?$personal->zipcode:'___DUMMY_FOR_SM___'; ?>" />
-<?php /*
-    <div class="widget project-invest address">
-    <h<?php echo $level ?> class="beak" id="address-header"><?php echo Text::get('invest-address-header') ?></h<?php echo $level ?>>
-    <table>
-        <tr>
-            <td>
-                <label for="fullname"><?php echo Text::get('invest-address-name-field') ?></label><br />
-                <input type="text" id="fullname" name="fullname" value="<?php echo $personal->contract_name; ?>" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="address"><?php echo Text::get('invest-address-address-field') ?></label><br />
-                <input type="text" id="address" name="address" value="<?php echo $personal->address; ?>" />
-            </td>
-            <td>
-                <label for="zipcode"><?php echo Text::get('invest-address-zipcode-field') ?></label><br />
-                <input type="text" id="zipcode" name="zipcode" value="<?php echo $personal->zipcode; ?>" />
-            </td>
-        </tr>
-    </table>
-
-    <p>
-        <label><input type="checkbox" name="anonymous" value="1" /><span class="chkbox"></span><?php echo Text::get('invest-anonymous') ?></label>
-    </p>
-</div>
-*/ ?>
 
 <div class="widget project-invest method">
     <h<?php echo $level ?> class="beak"><?php echo Text::get('skillmatching-invest-continue') ?></h<?php echo $level ?>>
     <input type="hidden" id="paymethod"  />
     <p><button type="submit" class="process pay-cash<?php echo $isInvested ? ' disabled': '' ?>" name="method" value="cash"<?php echo $isInvested ? ' disabled': '' ?>><?php echo $isInvested ? '応募済み': '応募する' ?></button></p>
-<!--    <p><button type="submit" class="process pay-cash" name="method" value="cash">現金</button></p>-->
-    <!--<p><button type="submit" class="process pay-paypal" name="method"  value="paypal">PAYPAL</button></p>-->
-    <!--<p><button type="submit" class="process pay-axes" name="method"  value="axes">クレジットカード</button></p>-->
-
 </div>
 <?php endif; ?>
 </form>
 
-<?php // echo new View(VIEW_PATH . '/skillmatching/widget/worth.html.php', array('worthcracy' => $worthcracy, 'level' => $_SESSION['user']->worth)) ?>
 <?php /*
 <a name="commons"></a>
 <div class="widget project-invest">
@@ -196,7 +156,6 @@ if ($step == 'start') : ?>
         var update = function () {
 
             var $reward = null;
-//            var val = parseFloat($('#amount').val());
             var val = 1;
 
             $('div.widget.project-invest-individual_rewards input.individual_reward').each(function (i, cb) {
@@ -278,11 +237,9 @@ if ($step == 'start') : ?>
             // si es renuncio
             if ($('#resign_reward').prop('checked')) {
                 $("#address-header").html('<?php echo Text::slash('invest-donation-header') ?>');
-                /*$("#donation-data").show();*/
                 reset_reward(i);
             } else {
                 $("#address-header").html('<?php echo Text::slash('invest-address-header') ?>');
-                /*$("#donation-data").hide();*/
                 reset_reward(i);
             }
             <?php endif; ?>
@@ -295,7 +252,6 @@ if ($step == 'start') : ?>
         /* Verificacion, no tenemos en cuenta el paso porque solo son los botones de pago en el paso confirm */
         $('button.process').click(function () {
 
-//            var amount = $('#amount').val();
             var amount = 1;
             var rest = $('#rest').val();
 
@@ -331,20 +287,14 @@ if ($step == 'start') : ?>
 
                 if (reward == '') {
                     if (confirm('<?php echo Text::slash('invest-alert-noreward') ?>')) {
-//                        if (confirm('<?php //echo Text::slash('invest-alert-noreward_renounce') ?>//')) {
                         $("#address-header").html('<?php echo Text::slash('invest-donation-header') ?>');
-                        /*$("#donation-data").show();*/
                         $('#resign_reward').click();
-//                            $('#nif').focus();
                         return false;
-//                        }
                     } else {
-//                        $('#nif').focus();
                         return false;
                     }
                 } else {
                     //When the supporter has selected a reward　--add 141030
-                    //var reward = $('#resign_reward').val();
                     var name = $('#fullname').val();
                     var add = $('#address').val();
 
@@ -353,9 +303,7 @@ if ($step == 'start') : ?>
                         return false;
                     }
 
-
                     /* Has elegido las siguientes recompensas */
-//                    if (!confirm( reward+' <?php // echo Text::slash('invest-alert-rewards') ?>')) {
                     if (!confirm( '「' +reward+'」に応募します。' + "\n" + '<?php echo Text::slash('invest-individual-confirm-sm') ?>')) {
                         return false;
                     }

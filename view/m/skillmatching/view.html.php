@@ -154,7 +154,6 @@ $bodyClass = 'project-show'; include VIEW_PATH . '/prologue.html.php' ?>
                     case 'messages':
                         echo
                             new View(VIEW_PATH . '/skillmatching/widget/summary.h_ttl.html.php', array('skillmatching' => $project)),
-//                            new View(VIEW_PATH . '/skillmatching/widget/collaborations_message.html.php', array('skillmatching' => $project,'thread' => $thread)),
                             new View(VIEW_PATH . '/skillmatching/widget/messages.html.php', array('skillmatching' => $project,'thread' => $thread));
                         break;
                    

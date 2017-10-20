@@ -134,12 +134,10 @@ $bodyClass = 'project-show'; include VIEW_PATH . '/prologue.html.php' ?>
                                     
                                 case 'fail':
                                     echo
-                                        //new View(VIEW_PATH . '/project/widget/investMsg.html.php', array('message' => $step, 'user' => User::get($_SESSION['user']->id))),
                                         new View(VIEW_PATH . '/project/widget/invest.html.php', array('project' => $project, 'personal' => User::getPersonal($_SESSION['user']->id), 'allowpp'=> $this['allowpp']));
                                     break;
                                 default:
                                     echo
-                                        //new View(VIEW_PATH . '/project/widget/investMsg.html.php', array('message' => $step, 'user' => $user)),
                                         new View(VIEW_PATH . '/project/widget/invest.html.php', array('project' => $project, 'personal' => $personalData, 'step' => $step, 'allowpp'=> $this['allowpp']));
                                     break;
                             }
