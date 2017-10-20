@@ -129,14 +129,8 @@ jQuery(document).ready(function($) {
                 $logins = array(
 					'facebook' => '<a href="/user/oauth?provider=facebook">' . Text::get('login-signin-facebook') . '</a>',
 					'twitter' => '<a href="/user/oauth?provider=twitter">' . Text::get('login-signin-twitter') . '</a>',
-					//'Google' => '<a href="/user/oauth?provider=Google">' . Text::get('login-signin-google') . '</a>',
-					// 'Yahoo' => '<a href="/user/oauth?provider=Yahoo">' . Text::get('login-signin-yahoo') . '</a>',
-					// 'myOpenid' => '<a href="/user/oauth?provider=myOpenid">' . Text::get('login-signin-myopenid') . '</a>',
-					// 'linkedin' => '<a href="/user/oauth?provider=linkedin">' . Text::get('login-signin-linkedin') . '</a>',
-					// 'openid' => ''
                 );
                 $is_openid = !array_key_exists($openid,$logins);
-                //$logins['openid'] = '<form><input type="text"'.($is_openid ? ' class="used"' : '').' name="openid" value="' . htmlspecialchars( $is_openid ? $openid : Text::get('login-signin-openid')) . '" /><a href="/user/oauth" class="button">' . Text::get('login-signin-openid-go') . '&rarr;</a></form>';
                 //si se ha guardado la preferencia, lo ponemos primero
                 $key = '';
                 if($openid) {

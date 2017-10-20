@@ -21,7 +21,6 @@
 use Goteo\Core\View,
     Goteo\Library\Text,
     Goteo\Library\Worth;
-// var_dump($this);
 $user = $this['user'];
 
 $worthcracy = Worth::getAll();
