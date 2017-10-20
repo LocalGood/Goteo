@@ -162,7 +162,7 @@ if (empty($username) && isset($this['username'])) $username = $this['username'];
 
                     <div class="userid">
                         <label for="RegisterUserid"><?php echo Text::get('login-register-userid-field'); ?><br /><span class="tips"><?php echo Text::get('login-register-userid-field-tips');?></span></label>
-                        <input type="text" id="RegisterUserid" name="userid" value="<?php echo htmlspecialchars($userid) ?>" maxlength="15" />
+                        <input type="text" id="RegisterUserid" name="userid" value="<?php echo htmlspecialchars($userid) ?>" maxlength="20" />
                         <?php if(isset($errors['userid'])) { ?><em><?php echo $errors['userid']?></em><?php } ?>
                         <p class="add_info"><?php echo Text::get('login-register-id-description'); ?></p>
                     </div>
