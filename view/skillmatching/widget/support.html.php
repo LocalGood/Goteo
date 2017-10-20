@@ -57,7 +57,4 @@ $week = array('日','月','火','水','木','金','土');
     <div class="buttons-sm clearfix">
         <a class="button violet supportit" href="/skillmatching/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it-sm'); ?></a>
     </div>
-<?php /*
-    <a class="more" href="/skillmatching/<?php echo $project->id; ?>/needs"><?php echo Text::get('regular-see_more'); ?></a>
-*/ ?>
 </div>

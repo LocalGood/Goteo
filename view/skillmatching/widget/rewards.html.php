@@ -58,17 +58,12 @@ uasort($project->individual_rewards,
                     <?php foreach ($project->individual_rewards as $individual) :?>
 
                         <li class="<?php echo $individual->icon ?>">
-                            <?/*<div class="title">*/?>
-                            <?php /*
-                            <div class="amount"><?php echo Text::get('regular-investing'); ?> <span><?php echo \amount_format($individual->amount); ?>円</span></div>
-                            */ ?>
                             <h<?php echo $level + 3 ?> class="name"><a href="/skillmatching/<?php echo $project->id; ?>/rewards#<? echo 'individual_num' . $count; ?>"><?php echo htmlspecialchars($individual->reward) ?></a></h<?php echo $level + 3 ?>>
                             <?php if (!empty($individual->units)):
                                 $units = ($individual->units - $individual->taken);
                                 ?>
                             <p class="remain"><strong><?php echo Text::get('skillmatching-rewards-individual_reward-limited'); ?> <?php echo $units; ?></strong></p>
                             <?php endif; ?>
-                            <?/*</div>*/?>
                             <p><?php echo nl2br(htmlspecialchars($individual->description))?></p>
 
                             <div class="buttons">
@@ -81,36 +76,6 @@ uasort($project->individual_rewards,
             </div>
         <?php endif; ?>
 
-        <?php /* if (!empty($project->social_rewards)) :
-            $count = 1;
-        ?>
-        <div class="social">
-            <h<?php echo $level + 2 ?> class="title"><a href="/skillmatching/<?php echo $project->id; ?>/rewards#social_ttl"><?php echo Text::get('skillmatching-rewards-social_reward-title'); ?></a></h<?php echo $level + 2 ?>>
-            <ul>
-            <?php foreach ($project->social_rewards as $social) : ?>
-                <li class="<?php echo $social->icon ?>">
-                    <h<?php echo $level + 3 ?> class="name"><a href="/skillmatching/<?php echo $project->id; ?>/rewards#<? echo 'social_num' . $count; ?>"><span><?php echo htmlspecialchars($social->reward) ?></span></a></h<?php echo $level + 3 ?>>
-                    <p><?php echo htmlspecialchars($social->description)?></p>
-                    <?php if (!empty($social->license) && array_key_exists($social->license, $licenses)): ?>
-                    <div class="license <?php echo htmlspecialchars($social->license) ?>">
-                        <h<?php echo $level + 2 ?>><span><?php echo Text::get('regular-license'); ?></span></h<?php echo $level + 2 ?>>
-                        <a href="<?php echo htmlspecialchars($licenses[$social->license]->url) ?>" target="_blank">
-                            <strong><?php echo htmlspecialchars($licenses[$social->license]->name) ?></strong>
-                        
-                        <?php if (!empty($licenses[$social->license]->description)): ?>
-                        <p><?php echo htmlspecialchars($licenses[$social->license]->description) ?></p>
-                        <?php endif ?>
-                        </a>
-                    </div>
-                    <?php endif ?>
-                </li>
-                <? $count++; ?>
-            <?php endforeach; ?>
-            </ul>
-        </div>
-        <?php endif; */ ?>
-
-<!--        <a class="more" href="/skillmatching/--><?php //echo $project->id; ?><!--/rewards">--><?php //echo Text::get('regular-see_more'); ?><!--</a>-->
     </div>
     
 </div>
@@ -150,7 +115,6 @@ uasort($project->individual_rewards,
         </div>
         <?php endif; ?>
 
-<!--        <a class="more" href="/skillmatching/--><?php //echo $project->id; ?><!--/rewards">--><?php //echo Text::get('regular-see_more'); ?><!--</a>-->
     </div>
 
 </div>

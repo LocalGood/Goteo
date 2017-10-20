@@ -55,9 +55,6 @@ uasort($project->individual_rewards,
         <ul>
         <?php foreach ($project->individual_rewards as $individual) : ?>
         <li class="<?php echo $individual->icon ?>">
-<?php /*
-            <div class="amount"><?php echo Text::get('regular-investing'); ?> <span class="euro"><?php echo \amount_format($individual->amount); ?>円</span></div>
-*/ ?>
             <h<?php echo $level + 2 ?> id="<? echo 'individual_num' . $count; ?>" class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 2 ?>>
             <?php if (!empty($individual->units)):
                 $units = ($individual->units - $individual->taken);
