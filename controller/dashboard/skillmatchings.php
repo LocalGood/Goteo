@@ -28,7 +28,8 @@ namespace Goteo\Controller\Dashboard {
 		Goteo\Library\Mail,
 		Goteo\Library\Template,
 		Goteo\Library\Message,
-        Aws\Ses\SesClient;
+        Aws\Ses\SesClient,
+        Aws\Ses\Exception\SesException;
 
 /*
  * las opciones para /dashboard/skillmatchings:
@@ -308,12 +309,13 @@ namespace Goteo\Controller\Dashboard {
             }
 
             //mailing use aws ses
-            require 'library/aws/aws-autoloader.php';
             try {
                 $sesClient = SesClient::factory(array(
-                    'key' => AWS_SES_ACCESS,
-                    'secret' => AWS_SES_SECERET,
-                    'region' => \Aws\Common\Enum\Region::OREGON
+                    'credentials' => [
+                        'key'     => AWS_SES_ACCESS,
+                        'secret'  => AWS_SES_SECERET,
+                    ],
+                    'region'  => 'us-west-2'
                 ));
             } catch (SesException $exc) {
                 die($exc->getMessage());
