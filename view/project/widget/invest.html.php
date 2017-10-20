@@ -192,7 +192,6 @@ if ($step == 'start') : ?>
 <?php if (ACL::check('/admin')) : ?>
 <p><button type="submit" class="process pay-cash" name="method" value="cash"><?php echo Text::get('invest-cash') ?></button></p>
 <?php endif; ?>
-<!--<p><button type="submit" class="process pay-paypal" name="method"  value="paypal">PAYPAL</button></p>-->
 
 <?php if ( defined('AXESON')) : ?>
 <p><button type="submit" class="process pay-axes" name="method"  value="axes"><?php echo Text::get('invest-credit-card') ?></button></p>

@@ -31,11 +31,6 @@ if (!$project instanceof  Goteo\Model\Project) {
 $accounts = Account::get($project->id);
 
 ?>
-<!--
-<div class="widget projects">
-    <h2 class="title">Acuerdo</h2>
-</div>
--->
 
 <div class="widget projects">
     <h2 class="title">Cuentas bancarias del proyecto</h2>

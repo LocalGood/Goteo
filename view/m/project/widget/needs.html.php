@@ -54,8 +54,6 @@ foreach ($project->costs as $cost) {
 	 });
 	</script>
 
-    <!-- todo: #legendこのページに複数出て来るので、クラスメイなど直す -->
-
     <?php foreach ($costs as $type => $list):
 
         usort($list, function ($a, $b) {if ($a->req == $b->req) return 0; if ($a->req && !$b->req) return -1; if ($b->req && !$a->req) return 1;});
@@ -67,7 +65,6 @@ foreach ($project->costs as $cost) {
         <div class="inner">
 			<p><strong><?php echo htmlspecialchars($cost->name) ?></strong></p>
             <p class="click"><span class="text"><?php echo $cost->description ?></span></p>
-            <!-- todo: #legendこのページに複数出て来るので、クラスメイなど直す -->
             <dl class="needs_list">
                 <dt class="min">
                     <?php echo Text::get('project-view-metter-minimum'); ?>
@@ -76,7 +73,6 @@ foreach ($project->costs as $cost) {
                     <?php echo $cost->min ?>
                 </dd>
             </dl>
-            <!-- todo: #legendこのページに複数出て来るので、クラスメイなど直す -->
             <dl class="needs_list">
                 <dt class="max">
                     <?php echo Text::get('project-view-metter-optimum'); ?>

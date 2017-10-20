@@ -26,7 +26,6 @@ $user = $this['user'];
 $roles = $user->roles;
 array_walk($roles, function (&$role) { $role = $role->name; });
 ?>
-<!-- <span style="font-style:italic;font-weight:bold;"><?php echo Text::_('Atención! Le llegará email de verificación al usuario como si se hubiera registrado.'); ?>:</span> -->
 <div class="widget">
     <dl>
         <dt><?php echo Text::_('Nombre de usuario'); ?>:</dt>

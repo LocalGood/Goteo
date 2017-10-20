@@ -92,7 +92,7 @@ $minimum_ratio =  min(100, round(($minimum / $optimum) * 100));
                  <div class="done" style="<?php echo $horizontal ? 'width' : 'width' ?>: <?php echo number_format($optimum_done) ?>%"></div>
             </div>
             <div class="minimum" style="<?php echo $horizontal ? 'width' : 'width' ?>: <?php echo number_format($minimum_ratio) ?>%">
-                <div class="left" style="<?php echo $horizontal ? 'width' : 'width' ?>: <?php echo number_format($minimum_left) ?>%"><!-- <strong><?php echo number_format($minimum_left) ?>%</strong> --></div>
+                <div class="left" style="<?php echo $horizontal ? 'width' : 'width' ?>: <?php echo number_format($minimum_left) ?>%"></div>
                 <div class="done" style="<?php echo $horizontal ? 'width' : 'width' ?>: <?php echo number_format($minimum_done) ?>%"><strong><?php echo number_format($minimum_done_per) ?>%</strong></div>
             </div>
         </div>

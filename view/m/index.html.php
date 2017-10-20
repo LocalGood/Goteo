@@ -50,28 +50,10 @@ if (!empty($this['posts'])) {
 
 include VIEW_PATH . '/prologue.html.php';
 include VIEW_PATH . '/header.html.php';
-/*
-    <script type="text/javascript">
-        $(function(){
-            $('#sub-header').slides({
-                play: 8000
-            });
-        });
-
-    </script>
-*/ ?>
+?>
     <div class="contents_wrapper">
 
-        <?/*php if(isset($_SESSION['messages'])) { include 'view/header/message.html.php'; } */?>
-
         <div id="main">
-
-            <?/*php
-            echo new View(VIEW_PATH . "/home/available.html.php", $this);
-            foreach ($this['order'] as $item=>$itemData) {
-                if (!empty($this[$item])) echo new View(VIEW_PATH . "/home/{$item}.html.php", $this);
-            }
-            */?>
 
             <?php
                 echo new View(VIEW_PATH . "/home/available.html.php", $this);

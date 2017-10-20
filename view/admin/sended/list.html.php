@@ -93,7 +93,7 @@ $pagedResults = new \Paginated($this['sended'], 20, isset($_GET['page']) ? $_GET
                         <td><a href="/admin/users/?name=<?php echo urlencode($send->email) ?>"><?php echo $send->email; ?></a></td>
                         <td><?php echo $templates[$send->template]; ?></td>
                         <td><?php echo $send->date; ?></td>
-                        <td><!-- <a href="#" target="_blank">[<?php echo Text::_("Reenviar"); ?>]</a> --></td>
+                        <td></td>
                     </tr>
     <?php endwhile; ?>
             </tbody>

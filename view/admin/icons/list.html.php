@@ -46,7 +46,6 @@ $filters = $this['filters'];
                 <th class="tooltip"><?php echo Text::_('Tooltip'); ?></th> <!-- descripcion -->
                 <th><?php echo Text::_("Agrupación"); ?></th> <!-- group -->
                 <th><!-- Traducir--></th>
-<!--                        <th> Remove </th>  -->
             </tr>
         </thead>
 
