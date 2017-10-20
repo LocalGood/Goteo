@@ -30,9 +30,6 @@ $costs = $project->costs;
 // Preparo los datos
 $schedule = new stdClass();
 
-// Si la agenda es muy larga, mostraré meses en lugar de semanas
-//$view = 'weeks';
-
 // Obtengo la primera y última fechas en el tiempo
 $from = $until = 0;
 
@@ -70,9 +67,6 @@ $diff = date_diff(new DateTime("@$until"), new DateTime("@$from"), true);
 
 $a = $diff->format('%a');
 
-//$max_weeks = 52;
-//$min_weeks = 4;
-
 // Pongo $from a dia 1 del mes
 $from = mktime(0, 0, 0, date('m', $from), 1, date('Y', $from));
 
@@ -105,7 +99,6 @@ $until = mktime(0, 0, 0, date('m', $until) + 1, -1, date('Y', $until));
                     echo '<th colspan="', $span, '"><span>';
                     
                     if ($span > 10) {
-//                        echo htmlspecialchars(date('F', $d));
                         echo htmlspecialchars(strftime('%B', $d));
                     }
                     

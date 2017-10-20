@@ -120,7 +120,6 @@ $level = (int) $this['level'] ?: 3;
 <?php endif; ?>
 
 <?php
-//todo: share.html.phpとまとめられるのでは
 if(preg_match('/^\/project\/(.*)\/updates\/[0-9]{1,}$/', $_SERVER['REQUEST_URI'], $m)):
     $permalink = SITE_URL . $_SERVER['REQUEST_URI'];
 ?>
