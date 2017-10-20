@@ -29,22 +29,3 @@ uasort($investors,
         return ($a->amount > $b->amount) ? -1 : 1;
         }
     );
-
-/* for_apps_review
-?>
-<div class="widget user-supporters">
-    <h3 class="supertitle"><?php echo Text::get('feed-side-top_ten') ?></h3>
-    <div class="supporters">
-        <ul>
-            <?php $c=1; foreach ($investors as $user => $investor):
-                if ($user == 'anonymous') continue; ?>
-            <li class="activable"><?php echo new View('view/user/widget/supporter.html.php', array('user' => $investor)) ?></li>
-            <?php if ($c>=10) break; else $c++; endforeach; ?>
-        </ul>
-    </div>
-    <? /*
-    <div class="side-worthcracy">
-    <?php include 'view/worth/base.html.php' ?>
-    </div>
-    */ /* ?>
-</div>
