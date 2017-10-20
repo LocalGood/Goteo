@@ -28,9 +28,6 @@ foreach ($project->errors as $st => $errors) {
     $total_errors += count($errors);
 }
 
-// Para que salte al campo
-/*<!-- <a href="#<?php echo $id ?>" onclick="document.getElementById('<?php echo $id ?>').focus(); return false;"> -->*/
-
 ?>
 <div>
 

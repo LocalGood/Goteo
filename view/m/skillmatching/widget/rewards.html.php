@@ -56,25 +56,12 @@ uasort($project->individual_rewards,
             <ul>
             <?php foreach ($project->individual_rewards as $individual) : ?>
             <li class="<?php echo $individual->icon ?>">
-<?php /*
-                <div class="amount"><?php echo Text::get('regular-investing'); ?> <span><?php echo \amount_format($individual->amount); ?>円</span></div>
-*/?>
                 <h<?php echo $level + 3 ?> class="name"><?php echo htmlspecialchars($individual->reward) ?></h<?php echo $level + 3 ?>
                 <p><?php echo nl2br(htmlspecialchars($individual->description))?></p>
 
                 <div class="buttons">
                     <a class="button violet supportit" href="/skillmatching/<?php echo $project->id; ?>/invest"><?php echo Text::get('regular-invest_it-sm'); ?></a>
                 </div>
-
-                    <?php /* if (!empty($individual->units)) : ?>
-                    <strong><?php echo Text::get('project-rewards-individual_reward-limited'); ?></strong><br />
-                    <?php $units = ($individual->units - $individual->taken);
-                    echo Text::html('project-rewards-individual_reward-units_left', $units); ?><br />
-                <?php endif; */ ?>
-                <?php /*
-                <div class="investors"><span class="taken"><?php echo $individual->taken; ?></span><?php echo Text::get('project-view-metter-investors'); ?></div>
-                */ ?>
-
             </li>
             <?php endforeach ?>
             </ul>
