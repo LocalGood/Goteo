@@ -33,7 +33,7 @@ $data = $this['data'];
             <input type="text" id="user-name" name="name" value=<?php echo $data['name'] ?>"" style="width:500px" maxlength="255"/>
         </p>
         <p>
-            <label for="user-email"><?php echo Text::_('Email address'); ?></label><?/*<span style="font-style:italic;"><?php echo Text::_('Que sea válido.'); ?></span>*/?><br />
+            <label for="user-email"><?php echo Text::_('Email address'); ?></label><br />
             <input type="text" id="user-email" name="email" value="<?php echo $data['email'] ?>" style="width:500px" maxlength="255"/>
         </p>
         <p>

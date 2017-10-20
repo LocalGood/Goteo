@@ -52,18 +52,6 @@ array_walk($rewards, function (&$reward) { $reward = $reward->reward; });
     </p>
     
     <h3><?php echo Text::_("Detalles de la transaccion"); ?></h3>
-    <?php /*
-    <dl>
-        <dt><?php echo Text::_("Cantidad aportada"); ?>:</dt>
-        <dd><?php echo $invest->amount . Text::_("yen"); ?>
-            <?php
-                if (!empty($invest->campaign))
-                    echo Text::_("Campaña: ") . $campaign->name;
-            ?>
-        </dd>
-    </dl>
- */ ?>
-
     <dl>
         <dt><?php echo Text::_("Estado"); ?>:</dt>
         <dd><?php echo $this['investStatus'][$invest->status]; if ($invest->status < 0) echo ' <span style="font-weight:bold; color:red;">' . Text::_("OJO! que este aporte no fue confirmado.") . ' <span>'; if ($invest->issue) echo ' <span style="font-weight:bold; color:red;">' . Text::_("INCIDENCIA!") . '<span>'; ?></dd>
@@ -107,21 +95,6 @@ array_walk($rewards, function (&$reward) { $reward = $reward->reward; });
             ?>
         </dd>
     </dl>
-<?php /*
-    <dl>
-        <dt><?php echo Text::_("Códigos de seguimiento"); ?>: <a href="/admin/invests/details/<?php echo $invest->id ?>"><?php echo Text::_("Ir al aporte"); ?></a></dt>
-        <dd><?php
-                if (!empty($invest->preapproval)) {
-                    echo 'Preapproval: '.$invest->preapproval . '   ';
-                }
-
-                if (!empty($invest->payment)) {
-                    echo 'Cargo: '.$invest->payment . '   ';
-                }
-            ?>
-        </dd>
-    </dl>
-*/ ?>
     <?php if (!empty($invest->rewards)) : ?>
     <dl>
         <dt><?php echo Text::_("Recompensas elegidas"); ?>:</dt>

@@ -53,7 +53,6 @@ $pagedResults = new \Paginated($this['skillmatchings'], 10, isset($_GET['page'])
                     </select>
                 </td>
                 <td>
-                    <?/*<label for="skill-filter"><?php echo Text::_("De la skill"); ?>:</label><br />*/?>
                     <label for="skill-filter"><?php echo Text::get("admin-projects-skill"); ?>:</label><br />
                     <select id="skill-filter" name="skill" onchange="document.getElementById('filter-form').submit();">
                     <option value=""><?php echo Text::get('admin-projects-type-skill'); ?></option>
@@ -136,7 +135,6 @@ $pagedResults = new \Paginated($this['skillmatchings'], 10, isset($_GET['page'])
                 <td><a href="/skillmatching/<?php echo $project->id; ?>" target="_blank" title="Preview"><?php echo $project->name; ?></a></td>
                 <td style="word-break: break-all;"><a href="mailto:<?php echo $project->user->email; ?>"><?php echo substr($project->user->email, 0, 100); ?></a></td>
                 <?php $s_date = (empty($project->updated)) ? '未完了' : date('y/m/d', strtotime($project->updated)); ?>
-                <?/*<td><?php echo date('Y年m月n日', strtotime($project->updated)); ?></td>*/?>
                 <td><?php echo $s_date; ?></td>
 
                 <td><?php echo ($project->status == 1 && !$project->draft) ? '<span style="color: green;">' . Text::_('En negociación') . '</span>' : $this['status'][$project->status]; ?></td>
@@ -154,7 +152,7 @@ $pagedResults = new \Paginated($this['skillmatchings'], 10, isset($_GET['page'])
                         elseif($project->round == 2):
                             $round = 'nd';
                         endif;
-                        echo "{$project->round}".$round.Text::_('ronda')."/".Text::_('Le quedan')."{$project->days}".Text::_('días') . /*"&nbsp;&nbsp;&nbsp;<strong>" . Text::_('Achieved') . ":</strong> ".\amount_format($project->invested). Text::_('yen') . */ "&nbsp;&nbsp;&nbsp;<strong>" . Text::_('Cofin') . ":</strong> {$project->num_investors}" /* "&nbsp;&nbsp;&nbsp;<strong>" . Text::_('Colab') . ":</strong> {$project->num_messegers}"*/;
+                        echo "{$project->round}".$round.Text::_('ronda')."/".Text::_('Le quedan')."{$project->days}".Text::_('días') . "&nbsp;&nbsp;&nbsp;<strong>" . Text::_('Cofin') . ":</strong> {$project->num_investors}";
                     endif;
                 ?></td>
             </tr>
@@ -180,7 +178,6 @@ $pagedResults = new \Paginated($this['skillmatchings'], 10, isset($_GET['page'])
                 <td colspan="7">
                     :&nbsp;
                     <a href="<?php echo "/admin/skillmatchings/dates/{$project->id}"; ?>">[<?php echo Text::_("Fechas"); ?>]</a>
-                    <?/*<a href="<?php echo "/admin/skillmatchings/accounts/{$project->id}"; ?>">[<?php echo Text::_("Cuentas"); ?>]</a>*/?>
                     <?php if ($project->status < 4) : ?><a href="<?php echo "/admin/skillmatchings/rebase/{$project->id}"; ?>" onclick="return confirm('<?php echo Text::_("Esto es MUY DELICADO, seguimos?"); ?>');">[<?php echo Text::_("Id"); ?>]</a><?php endif; ?>
                     &nbsp;|&nbsp;
                     <?php if ($project->status < 2) : ?><a href="<?php echo "/admin/skillmatchings/review/{$project->id}"; ?>" onclick="return confirm('<?php echo Text::_("El creador no podrá editarlo más, ok?"); ?>');">[<?php echo Text::_("A revisión"); ?>]</a><?php endif; ?>
@@ -202,19 +199,6 @@ $pagedResults = new \Paginated($this['skillmatchings'], 10, isset($_GET['page'])
                     <?php if ($project->status < 3) : ?><a href="<?php echo "/admin/skillmatchings/reject/{$project->id}"; ?>" onclick="return confirm('<?php echo Text::_("Se va a enviar un mail automáticamente pero no cambiará el estado, ok?"); ?>');">[<?php echo Text::_("Rechazo express"); ?>]</a><?php endif; ?>
                 </td>
             </tr>
-            <?php
-            /*
-            <tr>
-                <td colspan="7">
-                    <?php if (in_array($project->status,array(3,4))) : ?><a href="<?php echo "/admin/invests/csv/{$project->id}"; ?>">[AXES用の決済CSVをダウンロード(すべて)]</a><?php endif; ?>
-                    <?php if (in_array($project->status,array(3,4)) && !empty($project->passed)) : ?><a href="<?php echo "/admin/invests/csv/{$project->id}?round=willpass"; ?>">[AXES用の決済CSVをダウンロード(1st Round)]</a><?php endif; ?>
-                    <?php if (in_array($project->status,array(3,4)) && !empty($project->passed) && !empty($project->success)) : ?><a href="<?php echo "/admin/invests/csv/{$project->id}?round=succeed"; ?>">[AXES用の決済CSVをダウンロード(2nd Round)]</a><?php endif; ?><br>
-                    <?php if (in_array($project->status,array(3,4))) : ?><a href="<?php echo "/admin/invests/dopay/{$project->id}"; ?>" onclick="return confirm('AXES用の決済CSVの処理後に実行してください。実行してよろしいですか？');">[AXES用の決済CSVの処理後に実行(すべて)]</a><?php endif; ?>
-                    <?php if (in_array($project->status,array(3,4)) && !empty($project->passed)) : ?><a href="<?php echo "/admin/invests/dopay/{$project->id}?round=willpass"; ?>" onclick="return confirm('AXES用の決済CSVの処理後に実行してください。実行してよろしいですか？');">[AXES用の決済CSVの処理後に実行(1st Round)]</a><?php endif; ?>
-                    <?php if (in_array($project->status,array(3,4)) && !empty($project->passed) && !empty($project->success)) : ?><a href="<?php echo "/admin/invests/dopay/{$project->id}?round=succeed"; ?>" onclick="return confirm('AXES用の決済CSVの処理後に実行してください。実行してよろしいですか？');">[AXES用の決済CSVの処理後に実行(2nd Round)]</a><?php endif; ?>
-                </td>
-            </tr>
-            */ ?>
         </tbody>
     </table>
 </div>

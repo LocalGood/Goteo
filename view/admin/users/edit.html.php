@@ -51,7 +51,7 @@ array_walk($roles, function (&$role) { $role = $role->name; });
 
     <form action="/admin/users/edit/<?php echo $user->id ?>" method="post">
         <p>
-            <label for="user-email"><?php echo Text::_('After the change') . Text::_('Email address'); ?></label><?/*<span style="font-style:italic;"><?php echo Text::_('Que sea válido. Se verifica que no esté repetido'); ?></span>*/?><br />
+            <label for="user-email"><?php echo Text::_('After the change') . Text::_('Email address'); ?></label><br />
             <input type="text" id="user-email" name="email" value="<?php echo $data['email'] ?>" style="width:500px" maxlength="255"/>
         </p>
         <p>

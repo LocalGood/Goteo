@@ -42,11 +42,6 @@ $side_availables = $this['side_availables'];
 $admins = Home::_admins();
 
 ?>
-<?php /* if ($node != \GOTEO_NODE) : ?><a href="/admin/home/addside" class="button" style="margin-right: 270px;">A&ntilde;adir elemento lateral</a><?php endif; ?>
-<a href="/admin/home/add" class="button">A&ntilde;adir elemento</a>
-<br />
- *
- */ ?>
 <?php if ($node != \GOTEO_NODE) : ?>
 <div class="widget board" style="width:350px; float:left; margin-right: 5px;">
     <h4 class="title"><?php echo Text::_('Laterales'); ?></h4>
