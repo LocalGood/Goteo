@@ -263,7 +263,6 @@ switch ($order) {
                 </script>
                 <div id="bocadillo"></div>
                 <input type="hidden" name="username" value="<?php echo $investData->user->name; ?>" />
-                <?/*php todo: ボタンを押すと遷移するはずだが出てない。出たら#messageを直す */?>
                 <textarea rows="5" cols="50" name="message" id="message_reward"></textarea>
                 <a class="preview" href="#preview" id="a-preview" target="_blank"><?php echo Text::get('regular-preview'); ?></a>
                 <div style="display:none">

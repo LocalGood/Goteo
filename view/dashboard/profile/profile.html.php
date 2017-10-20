@@ -28,16 +28,6 @@ $user   = $this['user'];
 $errors = $this['errors'];
 $this['level'] = 3;
 
-/*
-if (!empty($user->avatar) && is_object($user->avatar))
-    $image ["avatar-{$user->avatar->id}-remove"] = array(
-        'type'  => 'submit',
-        'label' => Text::get('form-remove-button'),
-        'class' => 'inline remove image-remove weak'
-    );
-*/
-
-
 $interests = array();
 
 foreach ($this['interests'] as $value => $label) {
