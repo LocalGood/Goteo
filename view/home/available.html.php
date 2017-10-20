@@ -41,36 +41,3 @@ if ($_GET['type'] == 'p'){
     endforeach ?>
 
 </div>
-<?php /*
-<div class="widget projects">
-
-    <h2 class="title">プロジェクト<?php //echo Text::get('home-projects-header'); ?></h2>
-
-    <?php foreach ($projects as $project) :
-
-        ?>
-
-        <?php echo new View('view/project/widget/project.html.php', array(
-            'project' => $project
-        )) ?>
-
-    <?php endforeach ?>
-
-</div>
-
-<div class="widget projects">
-
-    <h2 class="title">スキルマッチング<?php //echo Text::get('home-projects-header'); ?></h2>
-
-    <?php foreach ($skillmatchings as $skillmatching) :
-
-        ?>
-
-        <?php echo new View('view/skillmatching/widget/skillmatchings.html.php', array(
-        'skillmatching' => $skillmatching
-    )) ?>
-
-    <?php endforeach ?>
-
-</div>
- */ ?>
