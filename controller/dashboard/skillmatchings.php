@@ -311,6 +311,7 @@ namespace Goteo\Controller\Dashboard {
             //mailing use aws ses
             try {
                 $sesClient = SesClient::factory(array(
+                    'version'     => 'latest',
                     'credentials' => [
                         'key'     => AWS_SES_ACCESS,
                         'secret'  => AWS_SES_SECERET,
