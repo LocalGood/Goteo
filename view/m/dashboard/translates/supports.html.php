@@ -56,7 +56,6 @@ if (!empty($project->supports)) {
                         'value'     => $support->support,
                         'errors'    => !empty($errors["support-{$support->id}-support"]) ? array($errors["support-{$support->id}-support"]) : array(),
                         'ok'        => !empty($okeys["support-{$support->id}-support"]) ? array($okeys["support-{$support->id}-support"]) : array(),
-                        //'hint'      => Text::get('tooltip-project-support-support')
                     ),
                     "support-{$support->id}-description-orig" => array(
                         'title'     => Text::get('supports-field-description'),

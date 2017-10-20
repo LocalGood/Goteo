@@ -63,7 +63,6 @@ echo new SuperForm(array(
             'type'      => 'slider',
             'options'   => $allow,
             'class'     => 'currently cols_' . count($allow),
-//            'hint'      => Text::get('tooltip-preferences-updates'),
             'errors'    => array(),
             'value'     => (int) $preferences->updates
         ),
@@ -72,7 +71,6 @@ echo new SuperForm(array(
             'type'      => 'slider',
             'options'   => $allow,
             'class'     => 'currently cols_' . count($allow),
-//            'hint'      => Text::get('tooltip-preferences-threads'),
             'errors'    => array(),
             'value'     => (int) $preferences->threads
         ),
@@ -81,7 +79,6 @@ echo new SuperForm(array(
             'type'      => 'slider',
             'options'   => $allow,
             'class'     => 'currently cols_' . count($allow),
-//            'hint'      => Text::get('tooltip-preferences-rounds'),
             'errors'    => array(),
             'value'     => (int) $preferences->rounds
         ),
@@ -90,7 +87,6 @@ echo new SuperForm(array(
             'type'      => 'slider',
             'options'   => $allow,
             'class'     => 'currently cols_' . count($allow),
-//            'hint'      => Text::get('tooltip-preferences-mailing'),
             'errors'    => array(),
             'value'     => (int) $preferences->mailing
         )
