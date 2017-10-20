@@ -57,14 +57,6 @@ include 'view/header.html.php' ?>
         });
     });
 </script>
-<?/*
-    <div id="sub-header">
-        <div>
-            <h2><?php echo Text::html('discover-banner-header') ?></h2>
-        </div>
-    </div>
-*/
-?>
 
     <div id="main">
         <?php echo new View('view/discover/searcher.html.php',
