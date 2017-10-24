@@ -3731,6 +3731,7 @@ div.superform li#scope, div.superform li#supports, div.superform li#social_rewar
   .user-profile .widget.user-mates div.categories {
     background-color: #ffffff;
     border-bottom: 1px solid #d9d9d9;
+    margin-bottom: 16px;
     padding: 5px 0; }
     .user-profile .widget.user-mates div.categories ul {
       background: url(/view/m/images/icon_tag@2x.png) no-repeat 8px 5px;

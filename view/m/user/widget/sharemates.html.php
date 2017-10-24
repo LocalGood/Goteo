@@ -44,24 +44,26 @@ function displayCategories(categoryId1,categoryId2){
 	<!-- categorias -->
     <h3 class="supertitle"><?php echo Text::get('profile-sharing_interests-header'); ?></h3>
     <div class="project-widget-box">
-        <div class="categories">    
-        <?php $keys = array_keys($categories);?>
-        <ul>       
-            <?php 
-    		$cnt = 0;
-    		foreach ($categories as $catId=>$catName) {
-                if (count($shares[$catId]) == 0) {$cnt++;continue;} ?>
-                <li><span href="#" onclick="displayCategories(<?php echo $catId;?>,
-                <?php 
-    			if(($cnt+1)==count($categories))echo $keys[0];
-    			else echo $keys[$cnt+1];
-    			$cnt++;
-    			?>
-                ); return false;">
-                <?php echo $catName?></span></li>
-            <?php 	
-    		} ?>
-        </ul>
+        <div class="categories">
+            <div class="list">
+                <?php $keys = array_keys($categories);?>
+                <ul>
+                    <?php
+                    $cnt = 0;
+                    foreach ($categories as $catId=>$catName) {
+                        if (count($shares[$catId]) == 0) {$cnt++;continue;} ?>
+                        <li><span href="#" onclick="displayCategories(<?php echo $catId;?>,
+                        <?php
+                        if(($cnt+1)==count($categories))echo $keys[0];
+                        else echo $keys[$cnt+1];
+                        $cnt++;
+                        ?>
+                        ); return false;">
+                        <?php echo $catName?></span></li>
+                    <?php
+                    } ?>
+                </ul>
+            </div>
         </div>
         
         <!-- usuarios sociales -->
@@ -73,7 +75,7 @@ function displayCategories(categoryId1,categoryId2){
             if (count($sharemates) == 0) continue;
             shuffle($sharemates);
             ?>
-        <div class="users" id="mates-<?php echo $catId ?>" 
+        <div class="users" id="mates-<?php echo $catId ?>">
             <h4 class="supertitle"><?php echo $categories[$catId] ?></h4>
 
             <!--pintar usuarios -->

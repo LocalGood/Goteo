@@ -44,12 +44,73 @@
   .center{
 
     .widget.user-mates {
-      &:last-child {
+      background-color: $baseCol;
+      padding: 0;
+      .categories {
+        background-color: #fff;
+        border-bottom:$solidBorder;
         margin-bottom: 20px;
+        min-height: 58px;
+        padding: 15px 20px;
+        h3.title {
+          border-bottom:$solidBorder;
+          font-size:18px;
+          font-weight:400;
+          height: auto;
+          min-height: unset;
+          line-height: 16px;
+          margin: 0 0 20px 0;
+          padding: 0;
+          border: none;
+          background: none;
+        }
+        .list {
+          padding: 0;
+          > ul {
+            list-style: none;
+            > li {
+              display:inline-block;
+              margin-left:0;
+              padding-left:0;
+              a {
+                font-size: 12px;
+                line-height: 30px;
+                text-decoration:none;
+                &.active,
+                &:hover {
+                  color: $color06;
+                }
+              }
+            }
+          }
+        }
       }
-      .users ul > li {
-        max-width:305px;
-        width:305px;
+      .users {
+        &:last-child {
+          margin-bottom: 20px;
+        }
+        ul > li {
+          max-width:305px;
+          width:305px;
+        }
+        a.more {
+          @include text_link_arrow($mainCol01);
+          background-color: #fff;
+          border-bottom: $solidBorder;
+          color: $mainCol01;
+          font-size:14px;
+          line-height: 58px;
+          margin:0;
+          min-height: 58px;
+          padding: 0 20px 0 10px;
+          right: 0;
+          text-decoration:none;
+          top: 0;
+          width: 100%;
+          &:hover {
+            color: $mainCol02;
+          }
+        }
       }
     }
 
@@ -100,42 +161,6 @@
       }
     }
 
-    .widget.user-mates {
-      .categories {
-        margin:0;
-        padding:0;
-        h3.title {
-          background-color: #fff;
-          border-bottom:$solidBorder;
-          font-size:18px;
-          font-weight:400;
-          margin:0;
-          height: 80px;
-          line-height: 80px;
-          padding:0 2px 0 20px;
-        }
-        ul {
-          display:inline-block;
-          list-style:none;
-          margin:0;
-          padding-left:0;
-          li {
-            display:inline-block;
-            margin-left:0;
-            padding-left:0;
-            a {
-              font-size: 12px;
-              text-decoration:none;
-              &.active,
-              &:hover {
-                color: $color06;
-              }
-            }
-          }
-        }
-      }
-    }
-
     .widget.user-message{
       label{
         display: block;
@@ -153,29 +178,6 @@
       }
       a.preview{
         display: none;
-      }
-    }
-
-    .widget.user-mates{
-      .categories{
-        padding: 15px 20px;
-        h3.title{
-          height: auto;
-          min-height: unset;
-          line-height: 16px;
-          margin: 0 0 20px 0;
-          padding: 0;
-          border: none;
-          background: none;
-        }
-        .list{
-          padding: 0;
-          > ul{
-            list-style: none;
-            padding: 0;
-            background: none;
-          }
-        }
       }
     }
 
@@ -286,7 +288,6 @@
         .list {
           min-height: 58px;
           padding:12px 0 12px 20px;
-
         }
         ul {
           overflow:hidden;
@@ -307,7 +308,7 @@
         }
       }
       .users{
-        border-bottom: none;
+        margin-bottom: 20px;
         ul{
           display: -webkit-flex;
           display: flex;
@@ -350,6 +351,25 @@
               }
             }
           }
+        }
+      }
+      a.more {
+        background-color:#fff;
+        border-top: $solidBorder;
+        clear:both;
+        color: $mainCol01;
+        display:block;
+        float:none;
+        font-size:14px!important;
+        margin:0;
+        padding:10px;
+        position:relative;
+        text-align:center;
+        text-decoration:none;
+        text-transform:uppercase;
+        top: -1px;
+        &:hover {
+          color: $mainCol02;
         }
       }
     }
@@ -608,10 +628,11 @@
   }
 
   .widget.user-mates {
+    background-color: $baseCol;
     padding: 0;
     position: relative;
     h3.title {
-      background: url(/view/images/icon_tag_b.png) no-repeat 20px 50%;
+      background: url(/view/images/icon_tag_b.png) #fff no-repeat 20px 50%;
       border-bottom: $solidBorder;
       font-size: 14px;
       font-weight: 400;
@@ -642,7 +663,6 @@
       padding:0;
     }
     div.users {
-      border-bottom: $solidBorder;
       clear:both;
       position: relative;
       ul {
@@ -674,7 +694,7 @@
             margin-right:0;
           }
           &.active {
-            background-color: $baseCol!important;
+            background-color: $baseCol;
           }
           &:hover > div.user > h4 > a {
             color: $mainCol02;
@@ -731,7 +751,8 @@
               color: $mainCol02;
             }
           }
-          div.user h4 {
+          div.user h4,
+          div.user h5 {
             margin-bottom: 10px;
             a {
               display:inline-block;
@@ -741,29 +762,10 @@
         }
       }
     }
-    a.more {
-      @include text_link_arrow($mainCol01);
-      color: $mainCol01;
-      font-size:14px;
-      line-height: 58px;
-      margin:0;
-      min-height: 58px;
-      padding: 0 20px 0 10px;
-      right: 0;
-      text-decoration:none;
-      top: 0;
-      &:hover {
-        color: $mainCol02;
-      }
-    }
-    .project-widget-box {
-      background-color: $baseCol;
-      margin:0;
-      padding:0;
-    }
     div.categories {
       background-color: #fff;
       border-bottom:$solidBorder;
+      margin-bottom: 20px;
       min-height: 58px;
       padding:12px 0 12px 20px;
       h3.supertitle {
@@ -780,8 +782,13 @@
           }
         }
       }
-
     }
+    .project-widget-box {
+      background-color: $baseCol;
+      margin:0;
+      padding:0;
+    }
+
   }
 
   .widget.user {
