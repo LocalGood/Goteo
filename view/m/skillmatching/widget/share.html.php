@@ -28,8 +28,6 @@ $share_title = $skillmatching->name;
 
 $share_url = SITE_URL . '/skillmatching/' . $skillmatching->id;
 
-$facebook_url = 'http://facebook.com/sharer.php?u=' . urlencode($share_url) . '&t=' . urlencode($share_title);
-$twitter_url = 'http://twitter.com/home?status=' . urlencode($share_title . ': ' . $share_url . ' #' . LG_PLACE_LABEL .' @' . LG_TWITTER);
 ?>
 
 <script type="text/javascript">
