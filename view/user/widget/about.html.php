@@ -18,7 +18,8 @@
  *
  */
 
-use Goteo\Model\User\Interest,
+use Goteo\Core\View,
+    Goteo\Model\User\Interest,
     Goteo\Model\User\Skill,
     Goteo\Library\Text;
 
@@ -83,7 +84,9 @@ $skills = Skill::getAll(null,true);
         </ul>
     </div>
     <?php endif ?>
-    
+
+    <?php echo new View('view/user/widget/social.html.php', array('user' => $user)) ?>
+
     <?php if (!empty($this['projects'])): ?>
      <div class="message">
          <p><a href="/user/profile/<?php echo $user->id ?>/message"><?php echo Text::get('regular-send_message')?></a></p>

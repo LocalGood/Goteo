@@ -5598,36 +5598,48 @@ body.js .superform > div.elements ol li.element div.contents p {
           position: absolute;
           top: 10px; }
 .user-profile .widget.user-social {
-  border-bottom: 1px dashed #d9d9d9; }
+  padding: 20px 0; }
   .user-profile .widget.user-social .title {
     display: none; }
   .user-profile .widget.user-social ul {
+    zoom: 1;
     list-style: none;
     margin: 0;
     overflow: visible;
     padding: 0; }
+    .user-profile .widget.user-social ul:after {
+      content: '';
+      display: block;
+      clear: both; }
     .user-profile .widget.user-social ul li {
-      background: no-repeat left center;
       display: block;
       float: left;
-      line-height: 2em;
-      min-height: 2em;
-      min-width: 20px; }
+      margin-right: 12px;
+      /*&.identica {
+        a {
+          background-image:url(/view/images/social/identica.png);
+        }
+      }
+      &.linkedin {
+        a {
+          background-image:url(/view/images/social/linkedin.png);
+        }
+      }*/ }
+      .user-profile .widget.user-social ul li:last-child {
+        margin-right: 0; }
       .user-profile .widget.user-social ul li a {
+        background-repeat: no-repeat;
+        background-size: 24px auto;
         display: block;
-        min-height: 20px;
-        text-decoration: none;
-        background-repeat: no-repeat; }
+        min-height: 24px;
+        min-width: 24px;
+        text-decoration: none; }
       .user-profile .widget.user-social ul li.facebook a {
         background-image: url(/view/images/social/facebook.png); }
       .user-profile .widget.user-social ul li.google a {
         background-image: url(/view/images/social/google.png); }
       .user-profile .widget.user-social ul li.twitter a {
         background-image: url(/view/images/social/twitter.png); }
-      .user-profile .widget.user-social ul li.identica a {
-        background-image: url(/view/images/social/identica.png); }
-      .user-profile .widget.user-social ul li.linkedin a {
-        background-image: url(/view/images/social/linkedin.png); }
 .user-profile .widget.user-mates {
   padding: 0;
   position: relative; }

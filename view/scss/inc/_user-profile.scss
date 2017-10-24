@@ -551,28 +551,32 @@
   }
 
   .widget.user-social {
-    border-bottom: 1px dashed $grayCol01;
+    padding: 20px 0;
+    //border-bottom: 1px dashed $grayCol01;
     .title {
       display:none;
     }
 
     ul {
+      @include cf;
       list-style:none;
       margin:0;
       overflow:visible;
       padding:0;
       li {
-        background:no-repeat left center;
         display:block;
         float:left;
-        line-height:2em;
-        min-height:2em;
-        min-width: 20px;
+        margin-right: 12px;
+        &:last-child {
+          margin-right: 0;
+        }
         a {
-          display: block;
-          min-height: 20px;
-          text-decoration:none;
           background-repeat: no-repeat;
+          background-size: 24px auto;
+          display: block;
+          min-height: 24px;
+          min-width: 24px;
+          text-decoration:none;
         }
         &.facebook {
           a {
@@ -589,7 +593,7 @@
             background-image:url(/view/images/social/twitter.png);
           }
         }
-        &.identica {
+        /*&.identica {
           a {
             background-image:url(/view/images/social/identica.png);
           }
@@ -598,7 +602,7 @@
           a {
             background-image:url(/view/images/social/linkedin.png);
           }
-        }
+        }*/
       }
     }
   }

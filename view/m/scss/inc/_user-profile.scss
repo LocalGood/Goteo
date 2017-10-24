@@ -191,9 +191,9 @@
 
   .widget.user-social {
     background-color: $baseWhite;
-    border-bottom: $solidBorder;
-    margin-bottom: 20px;
-    padding: 16px;
+    //border-bottom: $solidBorder;
+    //margin-bottom: 20px;
+    padding: 16px 0;
     .title {
       display:none;
     }
@@ -203,17 +203,20 @@
       margin:0;
       padding:0;
       li {
-        background:no-repeat left center;
         display:block;
         float:left;
         margin-right: 8px;
-        min-width: 20px;
+        &:last-child {
+          margin-right: 0;
+        }
         a {
+          background-repeat: no-repeat;
+          background-size: 24px auto;
           display: block;
+          min-height: 24px;
+          min-width: 24px;
           text-decoration:none;
           text-indent: -9999px;
-          background-repeat: no-repeat;
-          background-size: 20px auto;
         }
         &.facebook {
           a {
@@ -230,7 +233,7 @@
             background-image:url(/view/images/social/twitter.png);
           }
         }
-        &.identica {
+        /*&.identica {
           a {
             background-image:url(/view/images/social/identica.png);
           }
@@ -239,7 +242,7 @@
           a {
             background-image:url(/view/images/social/linkedin.png);
           }
-        }
+        }*/
       }
     }
   }
