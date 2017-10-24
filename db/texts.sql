@@ -1281,4 +1281,11 @@ REPLACE INTO `text` VALUES ('wof-title','ja','WALL SUPPORT');
 REPLACE INTO `text` VALUES ('admin-projects-list-order_created','ja','作成日');
 REPLACE INTO `text` VALUES ('admin-projects-list-order_name','ja','プロジェクト名');
 REPLACE INTO `text` VALUES ('admin-projects-list-order_updated','ja','更新日');
+REPLACE INTO `text` VALUES ('login-signin-facebook-caution','ja','※2016年6月6日以前にFacebookアカウントでの自動ログインをご登録された場合は、「Facebookアカウントでログイン」を押したあとに表示される画面に沿って、改めて登録をお願いいたします。なお、過去にLOCAL GOODで登録・ご支援いただいた情報は引き継がれます。');
+REPLACE INTO `text` VALUES ('login-register-id-description','ja','ログイン時に使用するIDです。');
+REPLACE INTO `text` VALUES ('login-register-username-description','ja','支援時にサイトに表示される名前です。\n＊支援時に匿名にすることもできます。');
+REPLACE INTO `text` VALUES ('login-register-email-description','ja','確認のため、再度メールアドレスの入力をお願いします。');
+REPLACE INTO `text` VALUES ('login-register-password-description','ja','ログイン時に使用するパスワードです。');
+REPLACE INTO `text` VALUES ('skillmatching-selector','ja','スキルマッチング:');
+REPLACE INTO `text` VALUES ('admin-incomplete','ja','未完了');
 
