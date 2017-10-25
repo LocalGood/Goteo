@@ -783,6 +783,12 @@
         }
       }
     }
+    .not-has-categories {
+      background-color: #fff;
+      border-bottom:$solidBorder;
+      margin: 0 0 20px;
+      padding:12px 0 12px 20px;
+    }
     .project-widget-box {
       background-color: $baseCol;
       margin:0;

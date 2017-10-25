@@ -580,7 +580,7 @@ input[type="button"].back {
     #pagination li:not(:last-child) {
       margin-right: 10px; }
     #pagination li.selected {
-      background: #fff;
+      background: #d9d9d9;
       font-weight: bold;
       padding: 6px 20px; }
     #pagination li.hellip {
@@ -2625,11 +2625,16 @@ body.js .superform > div.elements ol li.element div.contents p {
     padding: .3em 0;
     resize: none;
     width: 525px; }
+  .project-show .project-message p.caution {
+    float: right;
+    margin-bottom: 0;
+    width: 525px;
+    color: #e02d22; }
   .project-show .project-message a.preview {
     color: #255b7f;
     font-style: normal;
     font-weight: 400;
-    left: 80px;
+    left: 54px;
     position: absolute;
     text-decoration: none;
     text-transform: uppercase;
@@ -2891,7 +2896,8 @@ body.js .superform > div.elements ol li.element div.contents p {
   .project-show .center.home .project-summary .gallery-image img {
     width: 100%; }
 .project-show .center.needs .widget.project-message a.preview {
-  top: 205px; }
+  position: relative;
+  top: 0; }
 .project-show .center.supporters {
   margin-bottom: 20px; }
   .project-show .center.supporters .invest-message {
@@ -5811,6 +5817,11 @@ body.js .superform > div.elements ol li.element div.contents p {
       padding-left: 20px; }
       .user-profile .widget.user-mates div.categories .list > ul > li a {
         line-height: 30px; }
+  .user-profile .widget.user-mates .not-has-categories {
+    background-color: #fff;
+    border-bottom: 1px solid #d9d9d9;
+    margin: 0 0 20px;
+    padding: 12px 0 12px 20px; }
   .user-profile .widget.user-mates .project-widget-box {
     background-color: #f2f2f2;
     margin: 0;

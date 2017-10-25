@@ -1193,6 +1193,11 @@ ul#pagination {
     margin: 0 0 12px;
     padding: .3em 0;
     width: 85%; }
+  .widget.project-message .caution {
+    float: right;
+    margin-top: 0;
+    width: 85%;
+    color: #e02d22; }
   .widget.project-message a.preview {
     display: inline-block;
     position: absolute;
@@ -3737,6 +3742,11 @@ div.superform li#scope, div.superform li#supports, div.superform li#social_rewar
       background: url(/view/m/images/icon_tag@2x.png) no-repeat 8px 5px;
       background-size: 14px auto;
       padding-left: 28px; }
+  .user-profile .widget.user-mates .not-has-categories {
+    background-color: #fff;
+    border-bottom: 1px solid #d9d9d9;
+    margin: 0 0 16px;
+    padding: 12px; }
 .user-profile .widget.user h3.supertitle {
   font-weight: normal;
   margin: 0;

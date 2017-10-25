@@ -400,6 +400,12 @@
         padding-left: 28px;
       }
     }
+    .not-has-categories {
+      background-color: #fff;
+      border-bottom:$solidBorder;
+      margin: 0 0 16px;
+      padding: 12px;
+    }
   }
 
   .widget.user {

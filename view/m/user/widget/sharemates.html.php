@@ -41,11 +41,11 @@ function displayCategories(categoryId1,categoryId2){
 }
 </script>
 
-<?php if (!empty($shares)): ?>
-    <div class="widget user-mates">
-        <!-- categorias -->
-        <h3 class="supertitle"><?php echo Text::get('profile-sharing_interests-header'); ?></h3>
-        <div class="project-widget-box">
+<div class="widget user-mates">
+    <!-- categorias -->
+    <h3 class="supertitle"><?php echo Text::get('profile-sharing_interests-header'); ?></h3>
+    <div class="project-widget-box">
+        <?php if (!empty($shares)) { ?>
             <div class="categories">
                 <div class="list">
                     <?php $keys = array_keys($categories);?>
@@ -112,7 +112,9 @@ function displayCategories(categoryId1,categoryId2){
                 <a class="more" href="/user/profile/<?php echo $this['user']->id ?>/sharemates/<?php echo $catId ?>"><?php echo Text::get('regular-see_more'); ?></a>
             </div>
             <?php } ?>
-        </div>
-
+        <?php } else { ?>
+            <p class="not-has-categories"><?php echo Text::get('project-not-interest-category') ?></p>
+        <?php } ?>
     </div>
-<?php endif; ?>
+
+</div>

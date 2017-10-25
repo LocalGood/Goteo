@@ -13,7 +13,7 @@ $(function () {
 
 
     // smooth scroll
-    $('a[href^=#]').click(function(e){
+    $('a[href^="#"]').click(function(e){
         e.preventDefault();
         var speed = 350;
         var href= $(this).attr("href");

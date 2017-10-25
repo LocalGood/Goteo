@@ -158,11 +158,17 @@
       resize:none;
       width:525px;
     }
+    p.caution {
+      float: right;
+      margin-bottom: 0;
+      width: 525px;
+      color: $alertCol;
+    }
     a.preview {
       color: $mainCol01;
       font-style:normal;
       font-weight:400;
-      left:80px;
+      left:54px;
       position:absolute;
       text-decoration:none;
       text-transform:uppercase;
@@ -521,7 +527,8 @@
     &.needs {
       .widget.project-message {
         a.preview {
-          top: 205px;
+          position: relative;
+          top: 0;
         }
       }
     }

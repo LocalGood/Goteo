@@ -24,6 +24,9 @@ use Goteo\Core\View,
 
 $user = $this['user'];
 
+$worthcracy = Worth::getAll();
+//var_dump($_SESSION)
+
 ?>
 <div class="supporterContainer">
 	<?php if ($user->campaign) : ?>
