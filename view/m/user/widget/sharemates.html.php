@@ -40,76 +40,79 @@ function displayCategories(categoryId1,categoryId2){
 	$("#mates-" + categoryId2).fadeIn("slow");
 }
 </script>
-<div class="widget user-mates">
-	<!-- categorias -->
-    <h3 class="supertitle"><?php echo Text::get('profile-sharing_interests-header'); ?></h3>
-    <div class="project-widget-box">
-        <div class="categories">
-            <div class="list">
-                <?php $keys = array_keys($categories);?>
-                <ul>
-                    <?php
-                    $cnt = 0;
-                    foreach ($categories as $catId=>$catName) {
-                        if (count($shares[$catId]) == 0) {$cnt++;continue;} ?>
-                        <li><span href="#" onclick="displayCategories(<?php echo $catId;?>,
+
+<?php if (!empty($shares)): ?>
+    <div class="widget user-mates">
+        <!-- categorias -->
+        <h3 class="supertitle"><?php echo Text::get('profile-sharing_interests-header'); ?></h3>
+        <div class="project-widget-box">
+            <div class="categories">
+                <div class="list">
+                    <?php $keys = array_keys($categories);?>
+                    <ul>
                         <?php
-                        if(($cnt+1)==count($categories))echo $keys[0];
-                        else echo $keys[$cnt+1];
-                        $cnt++;
-                        ?>
-                        ); return false;">
-                        <?php echo $catName?></span></li>
-                    <?php
-                    } ?>
-                </ul>
+                        $cnt = 0;
+                        foreach ($categories as $catId=>$catName) {
+                            if (count($shares[$catId]) == 0) {$cnt++;continue;} ?>
+                            <li><span href="#" onclick="displayCategories(<?php echo $catId;?>,
+                            <?php
+                            if(($cnt+1)==count($categories))echo $keys[0];
+                            else echo $keys[$cnt+1];
+                            $cnt++;
+                            ?>
+                            ); return false;">
+                            <?php echo $catName?></span></li>
+                        <?php
+                        } ?>
+                    </ul>
+                </div>
             </div>
-        </div>
-        
-        <!-- usuarios sociales -->
-        <?php
-        // mostramos 2
-        $muestra = 1;
-    	
-        foreach ($shares as $catId => $sharemates) {
-            if (count($sharemates) == 0) continue;
-            shuffle($sharemates);
-            ?>
-        <div class="users" id="mates-<?php echo $catId ?>">
-            <h4 class="supertitle"><?php echo $categories[$catId] ?></h4>
 
-            <!--pintar usuarios -->
-            <ul>
-            <?php $c=1; // limitado a 6 sharemates en el lateral
-            foreach ($sharemates as $mate){ ?>
-                <li class="activable">
-                    <div class="user">
-                    	<a href="/user/<?php echo htmlspecialchars($mate->user) ?>" class="expand">&nbsp;</a>
-                        <a class="avatar" href="/user/<?php echo htmlspecialchars($mate->user) ?>">
-                            <img src="<?php echo $mate->avatar->getLink(43, 43, true) ?>" />
-                        </a>
-                        <div class="user-right">
-                            <h4>
-                                <a href="/user/<?php echo htmlspecialchars($mate->user) ?>">
-                                <?php echo htmlspecialchars(Text::shorten($mate->name,20)) ?>
-                                </a>
-                            </h4>
-                            <span class="projects">
-                                <?php echo Text::get('regular-projects'); ?> (<?php echo $mate->projects ?>)
-                            </span>
-                            <span class="invests">
-                                <?php echo Text::get('regular-investing'); ?> (<?php echo $mate->invests ?>)
-                            </span>
+            <!-- usuarios sociales -->
+            <?php
+            // mostramos 2
+            $muestra = 1;
+
+            foreach ($shares as $catId => $sharemates) {
+                if (count($sharemates) == 0) continue;
+                shuffle($sharemates);
+                ?>
+            <div class="users" id="mates-<?php echo $catId ?>">
+                <h4 class="supertitle"><?php echo $categories[$catId] ?></h4>
+
+                <!--pintar usuarios -->
+                <ul>
+                <?php $c=1; // limitado a 6 sharemates en el lateral
+                foreach ($sharemates as $mate){ ?>
+                    <li class="activable">
+                        <div class="user">
+                            <a href="/user/<?php echo htmlspecialchars($mate->user) ?>" class="expand">&nbsp;</a>
+                            <a class="avatar" href="/user/<?php echo htmlspecialchars($mate->user) ?>">
+                                <img src="<?php echo $mate->avatar->getLink(43, 43, true) ?>" />
+                            </a>
+                            <div class="user-right">
+                                <h4>
+                                    <a href="/user/<?php echo htmlspecialchars($mate->user) ?>">
+                                    <?php echo htmlspecialchars(Text::shorten($mate->name,20)) ?>
+                                    </a>
+                                </h4>
+                                <span class="projects">
+                                    <?php echo Text::get('regular-projects'); ?> (<?php echo $mate->projects ?>)
+                                </span>
+                                <span class="invests">
+                                    <?php echo Text::get('regular-investing'); ?> (<?php echo $mate->invests ?>)
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                </li>
-            <?php $c++;
-    		} ?>
-            
-            </ul>
-            <a class="more" href="/user/profile/<?php echo $this['user']->id ?>/sharemates/<?php echo $catId ?>"><?php echo Text::get('regular-see_more'); ?></a>
-        </div>
-        <?php } ?>
-    </div>
+                    </li>
+                <?php $c++;
+                } ?>
 
-</div>
+                </ul>
+                <a class="more" href="/user/profile/<?php echo $this['user']->id ?>/sharemates/<?php echo $catId ?>"><?php echo Text::get('regular-see_more'); ?></a>
+            </div>
+            <?php } ?>
+        </div>
+
+    </div>
+<?php endif; ?>
