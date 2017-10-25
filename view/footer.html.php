@@ -23,6 +23,7 @@
 if (file_exists('omniconfig/footer.html')):
     include 'omniconfig/footer.html';
 else:
+	$apikeys = json_decode(file_get_contents( '/var/www/html/omniconfig/apikeys.json'));
 ?>
     <script type="text/javascript">
       jQuery(document).ready(function($) {
@@ -39,9 +40,9 @@ else:
                     </div>
                     <ul class="footer__sns_link">
                         <li class="rss"><a href="<?php echo LOCALGOOD_WP_BASE_URL . '/feed/'; ?>" target="_blank"><img src="/view/images/rss_btn.png" alt="rss" /></a></li>
-                        <li class="g_plus"><a href="<?php echo LG_GOOGLE_PLUS; ?>" target="_blank"><img src="/view/images/gplus_btn.png" alt="google plus" /></a></li>
-                        <li class="tw_btn"><a href="http://twitter.com/<?php echo LG_TWITTER; ?>" target="_blank"><img src="/view/images/tw_btn.png" alt="twitter" /></a></li>
-                        <li class="fb_btn"><a href="<?php echo LG_FACEBOOK_PAGE; ?>" target="_blank"><img src="/view/images/fb_btn.png" alt="facebook" /></a></li>
+                        <li class="g_plus"><a href="<?php echo $apikeys->snslinks->googleplus; ?>" target="_blank"><img src="/view/images/gplus_btn.png" alt="google plus" /></a></li>
+                        <li class="tw_btn"><a href="<?php echo $apikeys->snslinks->twitter; ?>" target="_blank"><img src="/view/images/tw_btn.png" alt="twitter" /></a></li>
+                        <li class="fb_btn"><a href="<?php echo $apikeys->snslinks->facebook; ?>" target="_blank"><img src="/view/images/fb_btn.png" alt="facebook" /></a></li>
                     </ul>
                     <a class="footer__integration_site" href="<?php echo LG_INTEGRATION_URL; ?>">LOCAL GOOD 地域課題プラットフォーム</a>
                 </div>

@@ -49,7 +49,6 @@ $env_ids = array(
     'LOG_PATH',
     'LG_INTEGRATION_URL',
     'LG_NAME',
-    'LG_TWITTER',
     'LG_FACEBOOK_PAGE',
     // Cron params (for cron processes using wget)
     'CRON_PARAM',
