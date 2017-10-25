@@ -194,10 +194,10 @@ $_blog_key = substr($ogmeta['url'], $blog_post+9);
         <link rel="stylesheet" type="text/css" href="<?php echo SRC_URL ?>/view/css/fancybox/jquery.fancybox.min.css" media="screen" />
         <!-- end custom fancybox-->
 
-        <script type="text/javascript" src="<?php echo SITE_URL ?>/view/js/watchdog.js"></script>
-        <script type="text/javascript" src="<?php echo SITE_URL ?>/view/js/heightLine.js"></script>
+        <script type="text/javascript" src="<?php echo SRC_URL ?>/view/js/watchdog.js"></script>
+        <script type="text/javascript" src="<?php echo SRC_URL ?>/view/js/heightLine.js"></script>
 
-        <script type="text/javascript" src="<?php echo SITE_URL ?>/view/js/localgood.js"></script>
+        <script type="text/javascript" src="<?php echo SRC_URL ?>/view/js/localgood.js"></script>
 
     <?php endif; ?>
 

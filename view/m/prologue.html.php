@@ -122,10 +122,10 @@ $_blog_key = substr($ogmeta['url'], $blog_post+9);
             <!-- end meanmenu -->
 
 		  <!-- vigilante de sesi�n -->
-		  <script type="text/javascript" src="<?php echo SITE_URL ?>/view/m/js/watchdog.js"></script>
-            <script type="text/javascript" src="<?php echo SITE_URL ?>/view/m/js/heightLine.js"></script>
-            <script type="text/javascript" src="<?php echo SITE_URL ?>/view/m/js/flipsnap.min.js"></script>
-            <script type="text/javascript" src="<?php echo SITE_URL ?>/view/m/js/localgood-sp.js"></script>
+		  <script type="text/javascript" src="<?php echo SRC_URL ?>/view/m/js/watchdog.js"></script>
+            <script type="text/javascript" src="<?php echo SRC_URL ?>/view/m/js/heightLine.js"></script>
+            <script type="text/javascript" src="<?php echo SRC_URL ?>/view/m/js/flipsnap.min.js"></script>
+            <script type="text/javascript" src="<?php echo SRC_URL ?>/view/m/js/localgood-sp.js"></script>
 
         <?php endif; ?>
 
