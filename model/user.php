@@ -25,7 +25,9 @@ namespace Goteo\Model {
         Goteo\Library\Template,
         Goteo\Library\Mail,
         Goteo\Library\Check,
-        Goteo\Library\Message;
+        Goteo\Library\Message,
+        Aws\Ses\SesClient,
+        Aws\Ses\Exception\SesException;
 
     class User extends \Goteo\Core\Model {
 
@@ -145,16 +147,46 @@ namespace Goteo\Model {
                         $content = \str_replace($search, $replace, $template->text);
 
                         // Activación
-                        $mail = new Mail();
-                        $mail->to = $this->email;
-                        $mail->toName = $this->name;
-                        $mail->subject = $subject;
-                        $mail->content = $content;
-                        $mail->html = true;
-                        $mail->template = $template->id;
-                        if ($mail->send($errors)) {
-//                            Message::Info(Text::get('register-confirm_mail-success'));
-                        } else {
+
+                        //mailing use aws ses
+                        try {
+                            $sesClient = SesClient::factory(array(
+                                'version'     => 'latest',
+                                'credentials' => [
+                                    'key'     => AWS_SES_ACCESS,
+                                    'secret'  => AWS_SES_SECERET,
+                                ],
+                                'region'  => 'us-west-2'
+                            ));
+                        } catch (SesException $exc) {
+                            die($exc->getMessage());
+                        }
+
+                        try {
+                            $result = $sesClient->sendEmail(array(
+                                'Source' => AWS_SES_SOURCE,
+                                'Destination' => array(
+                                    'ToAddresses' => array($this->email)
+                                ),
+                                'Message' => array(
+                                    'Subject' => array(
+                                        'Data' => $subject,
+                                        'Charset' => AWS_SES_CHARSET,
+                                    ),
+                                    'Body' => array(
+                                        'Text' => array(
+                                            'Data' => $content,
+                                            'Charset' => AWS_SES_CHARSET,
+                                        ),
+                                        'Html' => array(
+                                            'Data' => $content,
+                                            'Charset' => AWS_SES_CHARSET,
+                                        ),
+                                    ),
+                                ),
+                            ));
+                            Message::Info(Text::get('register-confirm_mail-success'));
+                        } catch (SesException $exc) {
                             Message::Error(Text::get('register-confirm_mail-fail', GOTEO_MAIL));
                             Message::Error(implode('<br />', $errors));
                         }
