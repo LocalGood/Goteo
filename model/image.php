@@ -160,8 +160,9 @@ die("test");
                 curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
                 $profile_image_file = curl_exec( $ch );
                 curl_close($ch);
-                file_put_contents($this->dir_originals . $this->name, $profile_image_file);
-                chmod($this->dir_originals . $this->name, 0777);
+                $tmppath = sys_get_temp_dir() . '/' . time() . $this->name;
+                file_put_contents($tmppath, $profile_image_file);
+                $this->s3save($tmppath,$this->dir_originals . $this->name);
             }
             else {
                 $errors[] = Text::get('image-upload-fail');
