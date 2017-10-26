@@ -30,7 +30,9 @@ namespace Goteo\Controller {
         Goteo\Library\Template,
         Goteo\Library\Message,
         Goteo\Library\Feed,
-        Goteo\Model;
+        Goteo\Model,
+        Aws\Ses\SesClient,
+        Aws\Ses\Exception\SesException;
 
     class Project extends \Goteo\Core\Controller {
 
@@ -193,25 +195,23 @@ namespace Goteo\Controller {
                             $_SESSION['project'] = $project;
                         }
 
-                        // email a los de goteo
-                        $mailHandler = new Mail();
+                        //mailing use aws ses
+                        $sesClient = new Model\SESMail();
 
-                        $mailHandler->reply = $project->user->email;
-                        $mailHandler->replyName = "{$project->user->name}";
-                        $mailHandler->to = \GOTEO_MAIL;
-                        $mailHandler->toName = 'Revisor de proyectos';
-                        $mailHandler->subject = 'Proyecto ' . $project->name . ' enviado a valoración';
-                        $mailHandler->content = '<p>Han enviado un nuevo proyecto a revisión</p><p>El nombre del proyecto es: <span class="message-highlight-blue">'.$project->name.'</span> <br />y se puede ver en <span class="message-highlight-blue"><a href="'.SITE_URL.'/project/'.$project->id.'">'.SITE_URL.'/project/'.$project->id.'</a></span></p>';
-                        $mailHandler->html = true;
-                        $mailHandler->template = 0;
-                        if ($mailHandler->send($errors)) {
+                        $subject = 'Proyecto ' . $project->name . ' enviado a valoración';
+                        $content = '<p>Han enviado un nuevo proyecto a revisión</p><p>El nombre del proyecto es: <span class="message-highlight-blue">'.$project->name.'</span> <br />y se puede ver en <span class="message-highlight-blue"><a href="'.SITE_URL.'/project/'.$project->id.'">'.SITE_URL.'/project/'.$project->id.'</a></span></p>';
+
+                        try {
+                            $sesClient->sendMail(array(
+                                'to' => array(\GOTEO_MAIL),
+                                'replyTo'=>array($project->user->email)
+                                ), $subject, $content, $content);
                             Message::Info(Text::get('project-review-request_mail-success'));
-                        } else {
+                        } catch (SesException $exc) {
                             Message::Error(Text::get('project-review-request_mail-fail'));
                             Message::Error(implode('<br />', $errors));
+                            Message::Error($exc->getMessage());
                         }
-
-                        unset($mailHandler);
 
                         // email al autor
                         // Obtenemos la plantilla para asunto y contenido
@@ -225,23 +225,16 @@ namespace Goteo\Controller {
                         $replace = array($project->user->name, $project->name);
                         $content = \str_replace($search, $replace, $template->text);
 
-
-                        $mailHandler = new Mail();
-
-                        $mailHandler->to = $project->user->email;
-                        $mailHandler->toName = $project->user->name;
-                        $mailHandler->subject = $subject;
-                        $mailHandler->content = $content;
-                        $mailHandler->html = true;
-                        $mailHandler->template = $template->id;
-                        if ($mailHandler->send($errors)) {
+                        //mailing use aws ses
+                        $sesClient = new Model\SESMail();
+                        try {
+                            $sesClient->sendMail(array('to' => array($project->user->email)), $subject, $content, $content);
                             Message::Info(Text::get('project-review-confirm_mail-success'));
-                        } else {
+                        } catch (SesException $exc) {
                             Message::Error(Text::get('project-review-confirm_mail-fail'));
                             Message::Error(implode('<br />', $errors));
+                            Message::Error($exc->getMessage());
                         }
-
-                        unset($mailHandler);
 
                         // Evento Feed
                         $log = new Feed();

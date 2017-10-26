@@ -32,8 +32,9 @@ namespace Goteo\Controller {
         Goteo\Library\Message,
         //Goteo\Library\Paypal,
         //Goteo\Library\Tpv;
-        Goteo\Core\View
-        ;
+        Goteo\Core\View,
+        Aws\Ses\SesClient,
+        Aws\Ses\Exception\SesException;
 
     class Invest extends \Goteo\Core\Controller {
 
@@ -232,18 +233,13 @@ namespace Goteo\Controller {
                                 $replace = array($projectData->user->name, $user->name, $projectData->name, SITE_URL, $invested_reward->reward, $user->email, SITE_URL.'/user/profile/'.$user->id.'/message');
                                 $content = \str_replace($search, $replace, $template->text);
 
-                                $mailHandler = new Mail();
-
-                                $mailHandler->to = $projectData->user->email;
-                                $mailHandler->toName = $projectData->user->name;
-                                $mailHandler->subject = $subject;
-                                $mailHandler->content = $content;
-                                $mailHandler->html = true;
-                                $mailHandler->template = $template->id;
-                                $mailHandler->send();
-
-                                unset($mailHandler);
-
+                                //mailing use aws ses
+                                $sesClient = new Model\SESMail();
+                                try {
+                                    $sesClient->sendMail(array('to' => array($projectData->user->email)), $subject, $content, $content);
+                                } catch (SesException $exc) {
+                                    error_log($exc->getMessage());
+                                }
                                 // log
                                 Model\Invest::setDetail($invest->id, 'confirmed', 'Skillmatching entry');
                             }
@@ -362,24 +358,15 @@ namespace Goteo\Controller {
             $replace = array($user->name, $projectData->name, SITE_URL.'/project/'.$projectData->id, $confirm->amount, $txt_rewards, $txt_address);
             $content = \str_replace($search, $replace, $template->text);
 
-            $mailHandler = new Mail();
-            $mailHandler->reply = GOTEO_CONTACT_MAIL;
-            $mailHandler->replyName = GOTEO_MAIL_NAME;
-            $mailHandler->to = $user->email;
-            $mailHandler->toName = $user->name;
-            $mailHandler->subject = $subject;
-            $mailHandler->content = $content;
-            $mailHandler->html = true;
-            $mailHandler->template = $template->id;
-            if ($mailHandler->send($errors)) {
+            //mailing use aws ses
+            $sesClient = new Model\SESMail();
+            try {
+                $sesClient->sendMail(array('to' => array($user->email),'replyTo'=>array(GOTEO_CONTACT_MAIL)), $subject, $content, $content);
                 Message::Info(Text::get('project-invest-thanks_mail-success'));
-            } else {
+            } catch (SesException $exc) {
                 Message::Error(Text::get('project-invest-thanks_mail-fail'));
-                Message::Error(implode('<br />', $errors));
+                Message::Error($exc->getMessage());
             }
-
-            unset($mailHandler);
-
 
             // Notificación al autor
             $template = Template::get(29);
@@ -391,19 +378,13 @@ namespace Goteo\Controller {
             $replace = array($projectData->user->name, $user->name, $projectData->name, SITE_URL, $invest->amount, SITE_URL.'/user/profile/'.$user->id.'/message');
             $content = \str_replace($search, $replace, $template->text);
 
-            $mailHandler = new Mail();
-
-            $mailHandler->to = $projectData->user->email;
-            $mailHandler->toName = $projectData->user->name;
-            $mailHandler->subject = $subject;
-            $mailHandler->content = $content;
-            $mailHandler->html = true;
-            $mailHandler->template = $template->id;
-            $mailHandler->send();
-
-            unset($mailHandler);
-
-
+            //mailing use aws ses
+            $sesClient = new Model\SESMail();
+            try {
+                $sesClient->sendMail(array('to' => array($projectData->user->email)), $subject, $content, $content);
+            } catch (SesException $exc) {
+                error_log($exc->getMessage());
+            }
 
             // marcar que ya se ha completado el proceso de aportar
             $_SESSION['invest_'.$invest->id.'_completed'] = true;
@@ -573,28 +554,19 @@ namespace Goteo\Controller {
             $replace = array($user->name, $projectData->name, SITE_URL.'/project/'.$projectData->id, $confirm->amount, $txt_rewards, $txt_address);
             $content = \str_replace($search, $replace, $template->text);
 
-            $mailHandler = new Mail();
-            $mailHandler->reply = GOTEO_CONTACT_MAIL;
-            $mailHandler->replyName = GOTEO_MAIL_NAME;
-            $mailHandler->to = $user->email;
-            $mailHandler->toName = $user->name;
-            $mailHandler->subject = $subject;
-            $mailHandler->content = $content;
-            $mailHandler->html = true;
-            $mailHandler->template = $template->id;
-
-
-            if ( !defined('DEBUGTEST')) {
-                if ($mailHandler->send($errors)) {
+            //mailing use aws ses
+            $sesClient = new Model\SESMail();
+            try {
+                $sesClient->sendMail(array('to' => array($user->email),'replyTo'=>array(GOTEO_CONTACT_MAIL)), $subject, $content, $content);
+                if ( !defined('DEBUGTEST')) {
                     Message::Info(Text::get('project-invest-thanks_mail-success'));
-                } else {
+                }
+            } catch (SesException $exc) {
+                if ( !defined('DEBUGTEST')){
                     Message::Error(Text::get('project-invest-thanks_mail-fail'));
-                    Message::Error(implode('<br />', $errors));
+                    Message::Error($exc->getMessage());
                 }
             }
-
-            unset($mailHandler);
-
 
             // Notificación al autor
             $template = Template::get(29);
@@ -606,22 +578,21 @@ namespace Goteo\Controller {
             $replace = array($projectData->user->name, $user->name, $projectData->name, SITE_URL, $invest->amount, SITE_URL.'/user/profile/'.$user->id.'/message');
             $content = \str_replace($search, $replace, $template->text);
 
-            $mailHandler = new Mail();
-
-            $mailHandler->to = $projectData->user->email;
-            $mailHandler->toName = $projectData->user->name;
-            $mailHandler->subject = $subject;
-            $mailHandler->content = $content;
-            $mailHandler->html = true;
-            $mailHandler->template = $template->id;
-
             if ( !defined('DEBUGTEST')) {
-                $mailHandler->send();
+                //mailing use aws ses
+                $sesClient = new Model\SESMail();
+                try {
+                    $sesClient->sendMail(array('to' => array($projectData->user->email)), $subject, $content, $content);
+                    if ( !defined('DEBUGTEST')) {
+                        Message::Info(Text::get('project-invest-thanks_mail-success'));
+                    }
+                } catch (SesException $exc) {
+                    if ( !defined('DEBUGTEST')){
+                        Message::Error(Text::get('project-invest-thanks_mail-fail'));
+                        Message::Error($exc->getMessage());
+                    }
+                }
             }
-
-            unset($mailHandler);
-
-
 
             // marcar que ya se ha completado el proceso de aportar
             $_SESSION['invest_'.$invest->id.'_completed'] = true;

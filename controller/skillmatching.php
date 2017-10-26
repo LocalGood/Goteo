@@ -30,6 +30,8 @@ namespace Goteo\Controller {
         Goteo\Library\Template,
         Goteo\Library\Message,
         Goteo\Library\Feed,
+        Aws\Ses\SesClient,
+        Aws\Ses\Exception\SesException,
         Goteo\Model;
 
     class Skillmatching extends \Goteo\Core\Controller {
@@ -193,25 +195,23 @@ namespace Goteo\Controller {
                             $_SESSION['skillmatching'] = $skillmatching;
                         }
 
-                        // email a los de goteo
-                        $mailHandler = new Mail();
-
-                        $mailHandler->reply = $skillmatching->user->email;
-                        $mailHandler->replyName = "{$skillmatching->user->name}";
-                        $mailHandler->to = \GOTEO_MAIL;
-                        $mailHandler->toName = 'Revisor de proyectos';
-                        $mailHandler->subject = 'Proyecto ' . $skillmatching->name . ' enviado a valoración';
-                        $mailHandler->content = '<p>Han enviado un nuevo proyecto a revisión</p><p>El nombre del proyecto es: <span class="message-highlight-blue">'.$skillmatching->name.'</span> <br />y se puede ver en <span class="message-highlight-blue"><a href="'.SITE_URL.'/skillmatching/'.$skillmatching->id.'">'.SITE_URL.'/skillmatching/'.$skillmatching->id.'</a></span></p>';
-                        $mailHandler->html = true;
-                        $mailHandler->template = 0;
-                        if ($mailHandler->send($errors)) {
+                        $sesClient = new Model\SESMail();
+                        $content = '<p>Han enviado un nuevo proyecto a revisión</p><p>El nombre del proyecto es: <span class="message-highlight-blue">'.$skillmatching->name.'</span> <br />y se puede ver en <span class="message-highlight-blue"><a href="'.SITE_URL.'/skillmatching/'.$skillmatching->id.'">'.SITE_URL.'/skillmatching/'.$skillmatching->id.'</a></span></p>';
+                        try {
+                            $sesClient->sendMail($errors,
+                                array(
+                                    'to'=>array(\GOTEO_MAIL),
+                                    'replyTo'=>array($skillmatching->user->email)
+                                ),
+                                'Proyecto ' . $skillmatching->name . ' enviado a valoración',
+                                $content,
+                                $content);
                             Message::Info(Text::get('project-review-request_mail-success'));
-                        } else {
+                        } catch (SesException $exc) {
                             Message::Error(Text::get('project-review-request_mail-fail'));
                             Message::Error(implode('<br />', $errors));
+                            Message::Error($exc->getMessage());
                         }
-
-                        unset($mailHandler);
 
                         // email al autor
                         // Obtenemos la plantilla para asunto y contenido
@@ -225,23 +225,20 @@ namespace Goteo\Controller {
                         $replace = array($skillmatching->user->name, $skillmatching->name);
                         $content = \str_replace($search, $replace, $template->text);
 
-
-                        $mailHandler = new Mail();
-
-                        $mailHandler->to = $skillmatching->user->email;
-                        $mailHandler->toName = $skillmatching->user->name;
-                        $mailHandler->subject = $subject;
-                        $mailHandler->content = $content;
-                        $mailHandler->html = true;
-                        $mailHandler->template = $template->id;
-                        if ($mailHandler->send($errors)) {
+                        $sesClient = new Model\SESMail();
+                        try {
+                            $sesClient->sendMail($errors,
+                                array(
+                                    'to'=>array($skillmatching->user->email)                                ),
+                                $subject,
+                                $content,
+                                $content);
                             Message::Info(Text::get('project-review-confirm_mail-success'));
-                        } else {
+                        } catch (SesException $exc) {
                             Message::Error(Text::get('project-review-confirm_mail-fail'));
                             Message::Error(implode('<br />', $errors));
+                            Message::Error($exc->getMessage());
                         }
-
-                        unset($mailHandler);
 
                         // Evento Feed
                         $log = new Feed();

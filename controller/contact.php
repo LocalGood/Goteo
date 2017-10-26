@@ -27,7 +27,9 @@ namespace Goteo\Controller {
         Goteo\Library\Text,
         Goteo\Library\Message,
         Goteo\Library\Mail,
-        Goteo\Library\Template;
+        Goteo\Library\Template,
+        Aws\Ses\SesClient,
+        Aws\Ses\Exception\SesException;
 
     class Contact extends \Goteo\Core\Controller {
         
@@ -101,24 +103,17 @@ namespace Goteo\Controller {
                     $replace = array($toName, $msg_content, $email);
                     $content = \str_replace($search, $replace, $template->text);
 
-
-                    $mailHandler = new Mail();
-
-                    $mailHandler->to = $to;
-                    $mailHandler->toName = $toName;
-                    $mailHandler->subject = $subject;
-                    $mailHandler->content = $content;
-                    $mailHandler->reply = $email;
-                    $mailHandler->html = true;
-                    $mailHandler->template = $template->id;
-                    if ($mailHandler->send($errors)) {
+                    //mailing use aws ses
+                    $sesClient = new Model\SESMail();
+                    try {
+                        $sesClient->sendMail(array('to' => array($to)), $subject, $content, $content);
                         Message::Info(Text::get('contact-info-sendmessage-success'));
                         $data = array();
-                    } else {
+                    } catch (SesException $exc) {
                         Message::Error(Text::get('contact-error-sendmessage-fail'));
+                        Message::Error($exc->getMessage());
                     }
 
-                    unset($mailHandler);
                 }
 
             }

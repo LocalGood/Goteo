@@ -26,7 +26,9 @@ namespace Goteo\Controller {
         Goteo\Library\Template,
         Goteo\Library\Mail,
         Goteo\Library\Paypal,
-        Goteo\Library\Tpv;
+        Goteo\Library\Tpv,
+        Aws\Ses\SesClient,
+        Aws\Ses\Exception\SesException;
 
     class Cron extends \Goteo\Core\Controller {
         
@@ -566,6 +568,7 @@ namespace Goteo\Controller {
                                         $search  = array('%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%', '%AMOUNT%', '%DETAILS%');
                                         $replace = array($userData->name, $project->name, SITE_URL . '/project/' . $project->id, $invest->amount, '');
                                         $content = \str_replace($search, $replace, $template->text);
+                                        /*
                                         // iniciamos mail
                                         $mailHandler = new Mail();
                                         $mailHandler->from = GOTEO_CONTACT_MAIL;
@@ -583,7 +586,7 @@ namespace Goteo\Controller {
                                                 'Fallo al enviar email de notificacion de incidencia PayPal' . SITE_URL,
                                                 'Fallo al enviar email de notificacion de incidencia PayPal: <pre>' . print_r($mailHandler, 1). '</pre>');
                                         }
-                                        
+                                        */
                                     }
                                     break;
                                 case 'tpv':
@@ -1405,17 +1408,17 @@ namespace Goteo\Controller {
             $projectAccount = Model\Project\Account::get($project);
 
             if (empty($projectAccount->paypal)) {
-                // iniciamos mail
-                $mailHandler = new Mail();
-                $mailHandler->to = \GOTEO_MAIL;
-                $mailHandler->toName = 'Goteo.org';
-                $mailHandler->subject = 'El proyecto '.$projectData->name.' no tiene cuenta PayPal';
-                $mailHandler->content = 'Hola Goteo, el proyecto '.$projectData->name.' no tiene cuenta PayPal y se estaba intentando realizar pagos secundarios.';
-                $mailHandler->html = false;
-                $mailHandler->template = null;
-                $mailHandler->send();
-                unset($mailHandler);
-                
+                //mailing use aws ses
+                $sesClient = new Model\SESMail();
+                try {
+                    $sesClient->sendMail(array('to' => array(GOTEO_MAIL)),
+                        'El proyecto '.$projectData->name.' no tiene cuenta PayPal',
+                        'Hola Goteo, el proyecto '.$projectData->name.' no tiene cuenta PayPal y se estaba intentando realizar pagos secundarios.',
+                        'Hola Goteo, el proyecto '.$projectData->name.' no tiene cuenta PayPal y se estaba intentando realizar pagos secundarios.'
+                    );
+                } catch (SesException $exc) {
+                    error_log($exc->getMessage());
+                }
                 die('El proyecto '.$projectData->name.' no tiene la cuenta PayPal!!');
             }
 

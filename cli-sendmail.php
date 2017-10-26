@@ -36,7 +36,9 @@ use Goteo\Core\Resource,
     Goteo\Core\Model,
     Goteo\Library\Feed,
     Goteo\Library\Mail,
-    Goteo\Library\Sender;
+    Goteo\Library\Sender,
+    Aws\Ses\SesClient,
+    Aws\Ses\Exception\SesException;
 
 require_once 'config.php';
 require_once 'core/common.php';
@@ -124,7 +126,43 @@ Model::query("UPDATE mailer_send SET blocked = 1 WHERE id = '{$user->id}' AND ma
 
 //enviar email
 $itime = microtime(true);
-try {
+//try {
+
+    //mailing use aws ses
+    $sesClient = new SESMail();
+
+    //
+    $params = array();
+
+    // reply, si es especial
+    if (!empty($mailing->reply)) {
+        $params['replyTo'] = array($mailing->reply);
+    }
+    $params['to'] = array(\trim($user->email));
+
+    $_content = str_replace(
+        array('%USERID%', '%USEREMAIL%', '%USERNAME%'),
+        array($user->user, $user->email, $user->name),
+        $content);
+
+    try {
+        $sesClient->sendMail($params, $mailing->subject, $_content, $_content);
+        // Envio correcto
+        Model::query("UPDATE mailer_send SET sended = 1, datetime = NOW() WHERE id = '{$user->id}' AND mailing =  '{$user->mailing_id}'");
+        if ($debug) echo "dbg: Enviado OK a $user->email\n";
+    } catch (SesException $exc) {
+        // falló al enviar
+        $sql = "UPDATE mailer_send
+        SET sended = 0 , error = ? , datetime = NOW()
+        WHERE id = '{$user->id}' AND mailing =  '{$user->mailing_id}'
+        ";
+        Model::query($sql, array(implode(',', $errors)));
+        if ($debug) echo "dbg: Fallo ERROR a {$user->email} ".implode(',', $errors)."\n";
+
+        die($exc->getMessage());
+    }
+
+/*
     $mailHandler = new Mail($debug);
 
     // reply, si es especial
@@ -166,15 +204,15 @@ try {
     }
 
     unset($mailHandler);
-
+*/
     // tiempo de ejecución
     $now = (microtime(true) - $itime);
     if ($debug) echo "dbg: Tiempo de envio: $now segundos\n";
 
 
-} catch (phpmailerException $e) {
-    die ($e->errorMessage());
-}
+//} catch (phpmailerException $e) {
+//    die ($e->errorMessage());
+//}
 
 //desbloquear usuario
 if($debug) echo "dbg: Desbloqueando registro {$user->id} ({$user->email}) mailing: {$user->mailing_id}\n";
