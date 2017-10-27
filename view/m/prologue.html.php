@@ -18,10 +18,22 @@
  *
  */
 //@NODESYS
+
+$apikeys = json_decode(file_get_contents( '/var/www/html/omniconfig/apikeys.json'));
+$meta_kwds = function() use($apikeys) {
+	$tmp = array();
+	if ($apikeys->meta->appName->name) array_push($tmp,$apikeys->meta->appName->name);
+	array_push($tmp,'コミュニティ','コミュニティ経済');
+	if ($apikeys->meta->appName->kanji) array_push($tmp,$apikeys->meta->appName->kanji);
+	array_push($tmp,'地域','Goteo');
+	return implode(',',$tmp);
+};
+
+
 if($_SERVER['REQUEST_URI']=="/"):
     $ogmeta = array(
         'title' => GOTEO_META_TITLE,
-        'description' => GOTEO_META_DESCRIPTION,
+        'description' => $apikeys->meta->description,
         'url' => SITE_URL,
         'image' => array(SITE_URL . '/view/images/ogimg.png')
     );
@@ -56,6 +68,7 @@ if (!empty($this['posts'])) {
         }
     }
 }
+
 $blog_post = strpos($ogmeta['url'], '/updates');
 $_blog_key = substr($ogmeta['url'], $blog_post+9);
 ?>
@@ -75,8 +88,8 @@ $_blog_key = substr($ogmeta['url'], $blog_post+9);
         ?>
         <title><?php echo htmlspecialchars($lg_title, ENT_QUOTES, 'UTF-8'); ?></title>
         <link rel="icon" type="image/png" href="/favicon.ico" />
-        <meta name="description" content="<?php echo htmlspecialchars(GOTEO_META_DESCRIPTION, ENT_QUOTES, 'UTF-8'); ?>" />
-        <meta name="keywords" content="<?php echo htmlspecialchars(GOTEO_META_KEYWORDS, ENT_QUOTES, 'UTF-8'); ?>" />
+		<meta name="description" content="<?php echo htmlspecialchars($apikeys->meta->description, ENT_QUOTES, 'UTF-8'); ?>" />
+		<meta name="keywords" content="<?php echo htmlspecialchars($meta_kwds(), ENT_QUOTES, 'UTF-8'); ?>" />
         <meta name="author" content="<?php echo htmlspecialchars(GOTEO_META_AUTHOR, ENT_QUOTES, 'UTF-8'); ?>" />
         <meta name="copyright" content="<?php echo htmlspecialchars(GOTEO_META_COPYRIGHT, ENT_QUOTES, 'UTF-8'); ?>" />
         <meta name="robots" content="all" />
@@ -96,7 +109,7 @@ $_blog_key = substr($ogmeta['url'], $blog_post+9);
         <meta property="og:url" content="<?php echo $ogmeta['url'] ?>" />
 <?php else : ?>
         <meta property="og:title" content="Goteo.org" />
-        <meta property="og:description" content="<?php echo htmlspecialchars(GOTEO_META_DESCRIPTION, ENT_QUOTES, 'UTF-8'); ?>" />
+        <meta property="og:description" content="<?php echo htmlspecialchars($apikeys->meta->description, ENT_QUOTES, 'UTF-8'); ?>" />
         <meta property="og:image" content="<?php echo SITE_URL ?>/goteo_logo.png" />
         <meta property="og:url" content="<?php echo SITE_URL ?>" />
 <?php endif; ?>

@@ -26,7 +26,7 @@ $configJson = json_decode( file_get_contents( __DIR__ . '/../../omniconfig/apike
 ?>
 
 <nav class="main_nav02">
-    <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>" class="nav_logo">
+    <a href="<?php echo LG_BASE_URL_WP; ?>" class="nav_logo">
         <img src="<?php echo $configJson->images->header_logo_2; ?>" alt=""/>
     </a>
     <div class="nav_menu-button">
@@ -46,22 +46,22 @@ $configJson = json_decode( file_get_contents( __DIR__ . '/../../omniconfig/apike
                         記事
                     </dt>
                     <dd>
-                        <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/lgnews/">
+                        <a href="<?php echo LG_BASE_URL_WP; ?>/lgnews/">
                             ニュース
                         </a>
                     </dd>
                     <dd>
-                        <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/event/">
+                        <a href="<?php echo LG_BASE_URL_WP; ?>/event/">
                             みんなの拠点/イベント
                         </a>
                     </dd>
                     <dd>
-                        <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/data/">
+                        <a href="<?php echo LG_BASE_URL_WP; ?>/data/">
                             データ
                         </a>
                     </dd>
                     <dd>
-                        <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/lgplayer/">
+                        <a href="<?php echo LG_BASE_URL_WP; ?>/lgplayer/">
                             人/団体
                         </a>
                     </dd>
@@ -69,12 +69,12 @@ $configJson = json_decode( file_get_contents( __DIR__ . '/../../omniconfig/apike
                         みんなの声
                     </dt>
                     <dd>
-                        <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/subject/">
+                        <a href="<?php echo LG_BASE_URL_WP; ?>/subject/">
                             投稿一覧
                         </a>
                     </dd>
                     <dd>
-                        <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/submit_subject/">
+                        <a href="<?php echo LG_BASE_URL_WP; ?>/submit_subject/">
                             あなたの声を投稿する
                         </a>
                     </dd>
@@ -92,19 +92,19 @@ $configJson = json_decode( file_get_contents( __DIR__ . '/../../omniconfig/apike
                         </a>
                     </dd>
                     <dd>
-                        <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/challenge/">
+                        <a href="<?php echo LG_BASE_URL_WP; ?>/challenge/">
 							プロジェクトを立ち上げる
                         </a>
                     </dd>
                 </dl>
             </li>
             <li>
-                <a href="<?php echo LG_EARTHVIEW; ?>" target="_blank" class="list01__text">
+                <a href="<?php echo $configJson->other->earthviewurl; ?>" target="_blank" class="list01__text">
                     3Dマップ
                 </a>
             </li>
 			<li>
-				<a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/about/" class="list01__text">
+				<a href="<?php echo LG_BASE_URL_WP; ?>/about/" class="list01__text">
                     <?php echo GOTEO_META_TITLE; ?>について
 				</a>
 			</li>
