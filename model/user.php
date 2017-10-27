@@ -23,7 +23,7 @@ namespace Goteo\Model {
     use Goteo\Library\Text,
         Goteo\Model\Image,
         Goteo\Library\Template,
-        Goteo\Library\Mail,
+        Goteo\Library\SESMail,
         Goteo\Library\Check,
         Goteo\Library\Message,
         Aws\Ses\SesClient,
@@ -149,46 +149,15 @@ namespace Goteo\Model {
                         // Activación
 
                         //mailing use aws ses
+                        $sesClient = new SESMail();
+                        $sesClient->template = $template->id;
                         try {
-                            $sesClient = SesClient::factory(array(
-                                'version'     => 'latest',
-                                'credentials' => [
-                                    'key'     => AWS_SES_ACCESS,
-                                    'secret'  => AWS_SES_SECERET,
-                                ],
-                                'region'  => 'us-west-2'
-                            ));
-                        } catch (SesException $exc) {
-                            die($exc->getMessage());
-                        }
-
-                        try {
-                            $result = $sesClient->sendEmail(array(
-                                'Source' => AWS_SES_SOURCE,
-                                'Destination' => array(
-                                    'ToAddresses' => array($this->email)
-                                ),
-                                'Message' => array(
-                                    'Subject' => array(
-                                        'Data' => $subject,
-                                        'Charset' => AWS_SES_CHARSET,
-                                    ),
-                                    'Body' => array(
-                                        'Text' => array(
-                                            'Data' => $content,
-                                            'Charset' => AWS_SES_CHARSET,
-                                        ),
-                                        'Html' => array(
-                                            'Data' => $content,
-                                            'Charset' => AWS_SES_CHARSET,
-                                        ),
-                                    ),
-                                ),
-                            ));
+                            $sesClient->sendMail(array('to'=>array($this->email)),$subject,$content,$content);
                             Message::Info(Text::get('register-confirm_mail-success'));
                         } catch (SesException $exc) {
                             Message::Error(Text::get('register-confirm_mail-fail', GOTEO_MAIL));
                             Message::Error(implode('<br />', $errors));
+                            Message::Error($exc->getMessage());
                         }
                     }
                 }
@@ -1108,16 +1077,15 @@ namespace Goteo\Model {
                 $search  = array('%USERNAME%', '%USERID%', '%RECOVERURL%');
                 $replace = array($row->name, $row->id, SITE_URL . '/user/recover/' . base64_encode($token));
                 $content = \str_replace($search, $replace, $template->text);
-                // Email de recuperacion
-                $mail = new Mail();
-                $mail->to = $row->email;
-                $mail->toName = $row->name;
-                $mail->subject = $subject;
-                $mail->content = $content;
-                $mail->html = true;
-                $mail->template = $template->id;
-                if ($mail->send($errors)) {
+
+                //mailing use aws ses
+                $sesClient = new SESMail();
+                $sesClient->template = $template->id;
+                try {
+                    $sesClient->sendMail(array('to' => array($row->email)), $subject, $content, $content);
                     return true;
+                } catch (SesException $exc) {
+                    error_log($exc->getMessage());
                 }
             }
             return false;
@@ -1164,31 +1132,30 @@ namespace Goteo\Model {
                 $search  = array('%USERNAME%', '%URL%');
                 $replace = array($row->name, SITE_URL . '/user/leave/' . base64_encode($token));
                 $content = \str_replace($search, $replace, $template->text);
-                // Email de recuperacion
-                $mail = new Mail();
-                $mail->to = $row->email;
-                $mail->toName = $row->name;
-                $mail->subject = $subject;
-                $mail->content = $content;
-                $mail->html = true;
-                $mail->template = $template->id;
-                $mail->send($errors);
-                unset($mail);
 
-                // email a los de goteo
-                $mail = new Mail();
-                $mail->to = \GOTEO_MAIL;
-                $mail->toName = Text::_('Admin Goteo');
-                $mail->subject = Text::_('El usuario ') . $row->id . Text::_(' se da de baja');
-                $mail->content = '<p>'.Text::_('Han solicitado la baja para el mail').'<strong>'.$email.'</strong>'.Text::_('que corresponde al usuario').'<strong>'.$row->name.'</strong>';
-                if (!empty($message)) $mail->content .= Text::_('y ha dejado el siguiente mensaje:').'</p><p> ' . $message;
-                $mail->content .= '</p>';
-                $mail->fromName = "{$row->name}";
-                $mail->from = $row->email;
-                $mail->html = true;
-                $mail->template = 0;
-                $mail->send($errors);
-                unset($mail);
+                //mailing use aws ses
+                $sesClient = new SESMail();
+                $sesClient->template = $template->id;
+                try {
+                    $sesClient->sendMail(array('to' => array($row->email)), $subject, $content, $content);
+                } catch (SesException $exc) {
+                    error_log($exc->getMessage());
+                }
+
+                //mailing use aws ses
+                $sesClient = new SESMail();
+
+                $content = '<p>'.Text::_('Han solicitado la baja para el mail').'<strong>'.$email.'</strong>'.Text::_('que corresponde al usuario').'<strong>'.$row->name.'</strong>';
+                if (!empty($message)) $content .= Text::_('y ha dejado el siguiente mensaje:').'</p><p> ' . $message;
+                $content .= '</p>';
+
+                try {
+                    $sesClient->sendMail(array('to' => array(\GOTEO_MAIL)),
+                        Text::_('El usuario ') . $row->id . Text::_(' se da de baja')
+                        , $content, $content);
+                } catch (SesException $exc) {
+                    error_log($exc->getMessage());
+                }
 
                 return true;
             }
@@ -1219,16 +1186,14 @@ namespace Goteo\Model {
                     $replace = array($this->name, SITE_URL . '/user/changeemail/' . base64_encode($token));
                     $content = \str_replace($search, $replace, $template->text);
 
-
-
-                    $mail = new Mail();
-                    $mail->to = $email;
-                    $mail->toName = $this->name;
-                    $mail->subject = $subject;
-                    $mail->content = $content;
-                    $mail->html = true;
-                    $mail->template = $template->id;
-                    $mail->send();
+                    //mailing use aws ses
+                    $sesClient = new SESMail();
+                    $sesClient->template = $template->id;
+                    try {
+                        $sesClient->sendMail(array('to' => array($email)), $subject, $content, $content);
+                    } catch (SesException $exc) {
+                        error_log($exc->getMessage());
+                    }
 
                     return self::query('UPDATE user SET token = :token WHERE id = :id', array(':id' => $this->id, ':token' => $token));
                 }

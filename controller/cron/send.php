@@ -25,8 +25,10 @@ namespace Goteo\Controller\Cron {
         Goteo\Library\Text,
         Goteo\Library\Feed,
         Goteo\Library\Template,
-        Goteo\Library\Mail,
-        Goteo\Core\Error;
+        Goteo\Core\Error,
+        Goteo\Library\SESMail,
+        Aws\Ses\SesClient,
+        Aws\Ses\Exception\SesException;
 
     class Send {
 
@@ -180,36 +182,23 @@ namespace Goteo\Controller\Cron {
                 // Sustituimos los datos
                 $subject = str_replace('%PROJECTNAME%', $project->name, $template->title);
                 $content = \str_replace($search, $replace, $template->text);
-                // iniciamos mail
-                $mailHandler = new Mail();
-                $mailHandler->to = $project->user->email;
-                $mailHandler->toName = $project->user->name;
-                // monitorización solo para 'quien-manda'
-                if ($project->id == 'quien-manda' || $project->id == 'guifi-net-extremadura') 
-                    $mailHandler->bcc = array('enric@goteo.org', 'maria@goteo.org', 'olivier@goteo.org', 'jcanaves@doukeshi.org', 'info@goteo.org');
-                
-                if ($project->id == 'cervecita-fresca') 
-                    $mailHandler->bcc = array('jcanaves@doukeshi.org');
-                
-                if ($project->id == 'keinuka') 
-                    $mailHandler->bcc = array('rosa@euskadi.goteo.org', 'jcanaves@doukeshi.org');
-                
-                // si es un proyecto de nodo: reply al mail del nodo
-                // si es de centra: reply a MAIL_GOTEO
-                $mailHandler->reply = (!empty($project->nodeData->email)) ? $project->nodeData->email : \GOTEO_CONTACT_MAIL;
-                
-                $mailHandler->subject = $subject;
-                $mailHandler->content = $content;
-                $mailHandler->html = true;
-                $mailHandler->template = $template->id;
-                if ($mailHandler->send($errors)) {
+
+                //mailing use aws ses
+                $sesClient = new SESMail();
+                $sesClient->template = $template->id;
+
+                $replyTo = (!empty($project->nodeData->email)) ? $project->nodeData->email : \GOTEO_CONTACT_MAIL;
+
+                try {
+                    $sesClient->sendMail(array(
+                        'to' => array($project->user->email),
+                        'replyTo' => array($replyTo)
+                        ), $subject, $content, $content);
                     return true;
-                } else {
-                    echo \trace($errors);
-                    @mail(\GOTEO_FAIL_MAIL,
-                        'Fallo al enviar email automaticamente al autor ' . SITE_URL,
-                        'Fallo al enviar email automaticamente al autor: <pre>' . print_r($mailHandler, 1). '</pre>');
+                } catch (SesException $exc) {
+                    echo \trace($exc->getMessage());
                 }
+
             }
 
             return false;
@@ -295,23 +284,17 @@ namespace Goteo\Controller\Cron {
                             $subject = str_replace('%PROJECTNAME%', $project->name, $template->title);
                         }
                         $content = \str_replace($search, $replace, $template->text);
-                        // iniciamos mail
-                        $mailHandler = new Mail();
-                        $mailHandler->to = $investor->email;
-                        $mailHandler->toName = $investor->name;
-                        $mailHandler->subject = $subject;
-                        $mailHandler->content = $content;
-                        $mailHandler->html = true;
-                        $mailHandler->template = $template->id;
-                        if ($mailHandler->send()) {
 
-                        } else {
+                        //mailing use aws ses
+                        $sesClient = new SESMail();
+                        $sesClient->template = $template->id;
+                        try {
+                            $sesClient->sendMail(array('to' => array($investor->email)), $subject, $content, $content);
+                        } catch (SesException $exc) {
                             $anyfail = true;
-                            @mail(\GOTEO_FAIL_MAIL,
-                                'Fallo al enviar email automaticamente al cofinanciador ' . SITE_URL,
-                                'Fallo al enviar email automaticamente al cofinanciador: <pre>' . print_r($mailHandler, 1). '</pre>');
+                            error_log($exc->getMessage());
                         }
-                        unset($mailHandler);
+
                     }
                 }
                 // fin bucle inversores

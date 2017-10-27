@@ -27,9 +27,11 @@ namespace Goteo\Controller {
         Goteo\Core\View,
         Goteo\Model,
 		Goteo\Library\Feed,
-        Goteo\Library\Mail,
+        Goteo\Library\SESMail,
         Goteo\Library\Template,
-        Goteo\Library\Text;
+        Goteo\Library\Text,
+        Aws\Ses\SesClient,
+        Aws\Ses\Exception\SesException;
 
     class Message extends \Goteo\Core\Controller {
 
@@ -144,17 +146,14 @@ namespace Goteo\Controller {
                             $replace = array($_POST['message'], $thread->user->name, $_SESSION['user']->name, $projectData->name, $project_url, $response_url);
                             $content = \str_replace($search, $replace, $template->text);
 
-                            $mailHandler = new Mail();
-
-                            $mailHandler->to = $thread->user->email;
-                            $mailHandler->toName = $thread->user->name;
-                            $mailHandler->subject = $subject;
-                            $mailHandler->content = $content;
-                            $mailHandler->html = true;
-                            $mailHandler->template = $template->id;
-                            $mailHandler->send($errors);
-
-                            unset($mailHandler);
+                            //mailing use aws ses
+                            $sesClient = new SESMail();
+                            $sesClient->template = $template->id;
+                            try {
+                                $sesClient->sendMail(array('to' => array($thread->user->email)), $subject, $content, $content);
+                            } catch (SesException $exc) {
+                                Message::Error($exc->getMessage());
+                            }
                         }
                     } else {
                         // mensaje al autor del proyecto
@@ -171,17 +170,14 @@ namespace Goteo\Controller {
                         $replace = array($_POST['message'], $projectData->user->name, $_SESSION['user']->name, $projectData->name, $project_url, $response_url);
                         $content = \str_replace($search, $replace, $template->text);
 
-                        $mailHandler = new Mail();
-
-                        $mailHandler->to = $projectData->user->email;
-                        $mailHandler->toName = $projectData->user->name;
-                        $mailHandler->subject = $subject;
-                        $mailHandler->content = $content;
-                        $mailHandler->html = true;
-                        $mailHandler->template = $template->id;
-                        $mailHandler->send($errors);
-
-                        unset($mailHandler);
+                        //mailing use aws ses
+                        $sesClient = new SESMail();
+                        $sesClient->template = $template->id;
+                        try {
+                            $sesClient->sendMail(array('to' => array($projectData->user->email)), $subject, $content, $content);
+                        } catch (SesException $exc) {
+                            Message::Error($exc->getMessage());
+                        }
                     }
 
 
@@ -243,25 +239,16 @@ namespace Goteo\Controller {
                 $search  = array('%MESSAGE%', '%OWNERNAME%', '%USERNAME%', '%PROJECTNAME%', '%SITEURL%', '%RESPONSEURL%');
                 $replace = array($msg_content, $ownerData->name, $_SESSION['user']->name, $project->name, SITE_URL, $response_url);
                 $content = \str_replace($search, $replace, $template->text);
-                
-                $mailHandler = new Mail();
 
-                $mailHandler->to = $ownerData->email;
-                $mailHandler->toName = $ownerData->name;
-                // blind copy a goteo desactivado durante las verificaciones
-//              $mailHandler->bcc = 'comunicaciones@goteo.org';
-                $mailHandler->subject = $subject;
-                $mailHandler->content = $content;
-                $mailHandler->html = true;
-                $mailHandler->template = $template->id;
-                if ($mailHandler->send($errors)) {
-                    // ok
+                $sesClient = new SESMail();
+                $sesClient->template = $template->id;
+                try {
+                    $sesClient->sendMail(array('to' => array($ownerData->email)), $subject, $content, $content);
                     \Goteo\Library\Message::Info(Text::get('regular-message_success'));
-                } else {
+                } catch (SesException $exc) {
                     \Goteo\Library\Message::Info(Text::get('regular-message_fail') . '<br />' . implode(', ', $errors));
                 }
 
-                unset($mailHandler);
 			}
 
             throw new Redirection("/project/{$project->id}/needs", Redirection::TEMPORARY);
@@ -310,24 +297,16 @@ namespace Goteo\Controller {
                 $replace = array($msg_content, $user->name, $_SESSION['user']->name, $profile_url, $response_url);
                 $content = \str_replace($search, $replace, $template->text);
 
-                $mailHandler = new Mail();
-                $mailHandler->fromName = $remite;
-                $mailHandler->to = $user->email;
-                $mailHandler->toName = $user->name;
-                // blind copy a goteo desactivado durante las verificaciones
-//                $mailHandler->bcc = 'comunicaciones@goteo.org';
-                $mailHandler->subject = $subject;
-                $mailHandler->content = $content;
-                $mailHandler->html = true;
-                $mailHandler->template = $template->id;
-                if ($mailHandler->send($errors)) {
-                    // ok
+                //mailing use aws ses
+                $sesClient = new SESMail();
+                $sesClient->template = $template->id;
+                try {
+                    $sesClient->sendMail(array('to' => array($user->email)), $subject, $content, $content);
                     \Goteo\Library\Message::Info(Text::get('regular-message_success'));
-                } else {
-                    \Goteo\Library\Message::Info(Text::get('regular-message_fail') . '<br />' . implode(', ', $errors));
+                } catch (SesException $exc) {
+                    \Goteo\Library\Message::Info(Text::get('regular-message_fail') . '<br />' . implode(', ', $exc->getMessage()));
                 }
 
-                unset($mailHandler);
 			}
 
             throw new Redirection("/user/profile/{$user->id}", Redirection::TEMPORARY);
@@ -406,17 +385,14 @@ namespace Goteo\Controller {
                     $replace = array($_POST['message'], $projectData->user->name, $_SESSION['user']->name, $projectData->name, $project_url, $response_url);
                     $content = \str_replace($search, $replace, $template->text);
 
-                    $mailHandler = new Mail();
-
-                    $mailHandler->to = $projectData->user->email;
-                    $mailHandler->toName = $projectData->user->name;
-                    $mailHandler->subject = $subject;
-                    $mailHandler->content = $content;
-                    $mailHandler->html = true;
-                    $mailHandler->template = $template->id;
-                    $mailHandler->send($errors);
-
-                    unset($mailHandler);
+                    //mailing use aws ses
+                    $sesClient = new SESMail();
+                    $sesClient->template = $template->id;
+                    try {
+                        $sesClient->sendMail(array('to' => array($projectData->user->email)), $subject, $content, $content);
+                    } catch (SesException $exc) {
+                        Message::Error($exc->getMessage());
+                    }
 
                 } else {
                     // error
