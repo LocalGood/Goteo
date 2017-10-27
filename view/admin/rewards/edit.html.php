@@ -37,7 +37,6 @@ foreach ($invest->rewards as $key => $data) {
                 <?php echo Text::_('Ninguna recompensa.'); ?>
             </label>
         </li>
-        <!-- <span class="chkbox"></span> -->
     <?php foreach ($project->individual_rewards as $individual) : ?>
     <li class="<?php echo $individual->icon ?><?php if ($individual->none) echo ' disabled' ?>">
 

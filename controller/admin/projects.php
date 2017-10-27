@@ -26,9 +26,11 @@ namespace Goteo\Controller\Admin {
 		Goteo\Library\Text,
 		Goteo\Library\Feed,
         Goteo\Library\Message,
-        Goteo\Library\Mail,
+        Goteo\Library\SESMail,
 		Goteo\Library\Template,
         Goteo\Library\Evaluation,
+        Aws\Ses\SesClient,
+        Aws\Ses\Exception\SesException,
         Goteo\Model;
 
     class Projects {
@@ -380,20 +382,18 @@ namespace Goteo\Controller\Admin {
                     $search  = array('%USERNAME%', '%PROJECTNAME%');
                     $replace = array($project->user->name, $project->name);
                     $content = \str_replace($search, $replace, $template->text);
-                    // iniciamos mail
-                    $mailHandler = new Mail();
-                    $mailHandler->to = $project->user->email;
-                    $mailHandler->toName = $project->user->name;
-                    $mailHandler->subject = $subject;
-                    $mailHandler->content = $content;
-                    $mailHandler->html = true;
-                    $mailHandler->template = $template->id;
-                    if ($mailHandler->send()) {
+
+                    //mailing use aws ses
+                    $sesClient = new SESMail();
+                    $sesClient->template = $template->id;
+
+                    try {
+                        $sesClient->sendMail(array('to'=>array($project->user->email)),$subject,$content,$content);
                         Message::Info('<strong>'.$project->user->name.'</strong>' . Text::get('admin-projects-info-sendmail-to') . '<strong>（' . $project->user->email.'）</strong>' . Text::get('admin-projects-info-sendmail'));
-                    } else {
+                    } catch (SesException $exc) {
                         Message::Error(Text::_('Ha fallado al enviar el mail a') . '<strong>'.$project->user->name.'</strong>' . Text::_('a la dirección') . '<strong>'.$project->user->email.'</strong>');
+                        Message::Error($exc->getMessage());
                     }
-                    unset($mailHandler);
                 }
 
                 throw new Redirection('/admin/projects/list');

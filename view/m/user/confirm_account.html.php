@@ -27,7 +27,6 @@ include 'view/header.html.php';
 
 $oauth = $this['oauth'];
 $user = $this['user'];
-//print_r($user);
 extract($oauth->user_data);
 
 ?>

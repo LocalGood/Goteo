@@ -42,9 +42,4 @@ uasort($investors,
             <?php if ($c>=10) break; else $c++; endforeach; ?>
         </ul>
     </div>
-    <? /*
-    <div class="side-worthcracy">
-    <?php include 'view/worth/base.html.php' ?>
-    </div>
-    */ ?>
 </div>

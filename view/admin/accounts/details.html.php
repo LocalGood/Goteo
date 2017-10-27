@@ -31,11 +31,6 @@ $user = $this['user'];
 $rewards = $invest->rewards;
 array_walk($rewards, function (&$reward) { $reward = $reward->reward; });
 ?>
-<?/*
-<a href="/admin/accounts/update/<?php echo $invest->id ?>" onclick="return confirm('<?php echo Text::_("Seguro que deseas cambiarle el estado a este aporte?, esto es delicado"); ?>')" class="button"><?php echo Text::_("Cambiarle el estado"); ?></a>
-&nbsp;&nbsp;&nbsp;
-<a href="/admin/rewards/edit/<?php echo $invest->id ?>" class="button"><?php echo Text::_("Gestionar recompensa / dirección"); ?></a>
-*/?>
 <?php if ($invest->issue) : ?>
 &nbsp;&nbsp;&nbsp;
 <a href="/admin/accounts/solve/<?php echo $invest->id ?>" onclick="return confirm('<?php echo Text::_("Esta incidencia se dará por resuelta: se va a cancelar el preaproval, el aporte pasará a ser de tipo Cash y en estado Cobrado por goteo, seguimos?"); ?>')" class="button"><?php echo Text::_("Nos han hecho la transferencia"); ?></a>
@@ -64,17 +59,6 @@ array_walk($rewards, function (&$reward) { $reward = $reward->reward; });
                class="button"><?php echo Text::_("Ejecutar cargo ahora"); ?></a>
         <?php endif; ?>
 
-        <?php /*
-        <?php if ($invest->method == 'paypal' && $invest->status == 0) : ?>
-        <a href="/admin/accounts/execute/<?php echo $invest->id ?>"
-            onclick="return confirm('<?php echo Text::_("¿Seguro que quieres ejecutar ahora el cargo del preapproval?"); ?>');"
-            class="button"><?php echo Text::_("Ejecutar cargo ahora"); ?></a>
-        <?php endif; ?>
-
-        <?php if ($invest->method != 'paypal' && $invest->status == 1) : ?>
-        <a href="/admin/accounts/move/<?php echo $invest->id ?>" class="button"><?php echo Text::_("Reubicar este aporte"); ?></a>
-        <?php endif; ?>
-        */ ?>
         <?php if (!$invest->resign && $invest->status == 1 && $invest->status == 3) : ?>
         <a href="/admin/accounts/resign/<?php echo $invest->id ?>/?token=<?php echo md5('resign'); ?>" class="button"><?php echo Text::_("Es donativo"); ?></a>
         <?php endif; ?>

@@ -31,7 +31,6 @@ $item_price = $invest->amount;
                     <input type="hidden" name="amount" value="<?php echo $item_price; ?>">
 
                     <button type="submit" id="submit" class="process pay-axes" name="method" value="epsilongo"><?php echo Text::get('invest-to-repeat-card') ?></button>
-                    <!-- input type="submit" value="決済ページへ" -->
 
                     <input type="hidden" name="failure_str" value="back">
                     <input type="button" value="戻る" class="back" onClick='history.back();'>    

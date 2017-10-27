@@ -62,20 +62,9 @@ if (empty($shares)) {
 
 		<div class="widget user-mates">
 
-       <?/*php todo:widget/sharemates.html.phpにまとめる？ */?>
        <!-- lista de categorías -->
         <div class="categories">
             <h3 class="title"><?php echo Text::get('profile-sharing_interests-header');?></h3>
-			<!--
-            <div class="filters">
-                <span>Ver por:</span>
-                <ul>
-                    <li><a href="#" class="active">Por categorías</a></li>
-                    <li class="separator">|</li>
-                    <li><a href="#">Por tags</a></li>
-                </ul>
-            </div>
-			-->
             <script type="text/javascript">
             function displayCategory(categoryId){
                 $(".user-mates").css("display","none");
@@ -125,7 +114,6 @@ if (empty($shares)) {
                                 <span class="projects"><?php echo Text::get('regular-projects'); ?> (<?php echo $mate->projects ?>)</span>
                                 <span class="invests"><?php echo Text::get('regular-investing'); ?> (<?php echo $mate->invests ?>)</span><br/>
                                 <span class="profile"><a href="/user/profile/<?php echo htmlspecialchars($mate->user) ?>"><?php echo Text::get('profile-widget-button'); ?></a> </span>
-                                <?/*php<span class="contact"><a href="/user/profile/<?php echo htmlspecialchars($mate->user) ?>/message"><?php echo Text::get('regular-send_message'); ?></a></span>*/?>
                             </div>
                         </li>
                     <?php

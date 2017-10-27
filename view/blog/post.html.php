@@ -79,7 +79,6 @@
 		</div>
 	<?php elseif (!empty($post->image)) : ?>
         <div class="gallery-image gallery-post<?php echo $post->id ?>" id="gallery-post<?php echo $post->id ?>-<?php echo $i ?>">
-<?php /*			<img src="<?php echo $post->image->getLink(500, 285); ?>" alt="<?php echo $post->title; ?>" /> */ ?>
             <img src="<?php echo $post->image->getLinkEx(); ?>" alt="<?php echo $post->title; ?>" />
         </div>
 	<?php endif; ?>

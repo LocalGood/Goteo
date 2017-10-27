@@ -74,8 +74,6 @@ function displayCategories(categoryId1,categoryId2){
             shuffle($sharemates);
             ?>
         <div class="users" id="mates-<?php echo $catId ?>" 
-    	<?/*php if ($muestra > 2) {echo 'style="display:none;"';} else {$muestra++;} */?>>
-    	    
             <h4 class="supertitle"><?php echo $categories[$catId] ?></h4>
 
             <!--pintar usuarios -->

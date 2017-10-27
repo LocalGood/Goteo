@@ -27,7 +27,7 @@ $user = $this['user'];
 ?>
 <div class="supporterContainer">
 	<?php if ($user->campaign) : ?>
-	<a <?/*class="expand" */?>href="/call/<?php echo $user->call ?>" target="_blank">&nbsp;</a>
+	<a href="/call/<?php echo $user->call ?>" target="_blank">&nbsp;</a>
 	<?php elseif ($user->user != 'anonymous') : ?>
 	<a class="expand" href="/user/<?php echo htmlspecialchars($user->user) ?>">&nbsp;</a>
 	<?php endif; ?>
@@ -35,7 +35,6 @@ $user = $this['user'];
     <div class="droped">&nbsp;</div>
     <?php endif; ?>
 	<div class="supporter">
-        <?// var_dump($user->name); ?>
 		<span class="avatar"><img src="<?php echo $user->avatar->getLink(43, 43, true); ?>" /></span>
 	    <?php if ($user->user == 'anonymous') : ?>
 	    <h4><?php echo $user->name; ?></h4>
@@ -47,15 +46,6 @@ $user = $this['user'];
 	        <dt class="projects"><?php echo Text::get('profile-invest_on-title'); ?></dt>
 	        <dd class="projects"><strong><?php echo $user->projects ?></strong> <?php echo Text::get('regular-projects'); ?></dd>
 	        <?php endif; ?>
-	<? /*
-	        <dt class="worthcracy"><?php echo Text::get('profile-worthcracy-title'); ?></dt>
-	        <dd class="worthcracy">
-	            <?php if (isset($user->worth)) echo new View('view/worth/base.html.php', array('worthcracy' => $worthcracy, 'level' => $user->worth)) ?>
-	        </dd>
-	
-	        <dt class="amount"><?php echo Text::get('profile-worth-title'); ?></dt>
-	        <dd class="amount<?php if ($user->campaign) echo ' campaign'; ?>"><strong><?php echo \amount_format($user->amount) ?></strong> <span>円</span></dd>
-    */ ?>
 	        <dt class="date"><?php echo Text::get('profile-last_worth-title'); ?></dt>
 	        <dd class="date"><?php echo date('Y年n月j日', strtotime($user->date)); ?></dd>
 	    </dl>

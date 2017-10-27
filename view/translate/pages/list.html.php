@@ -29,7 +29,6 @@ $pages = Page::getAll($_SESSION['translate_lang']);
                 <th><!-- Editar --></th>
                 <th>Página</th>
                 <th>Descripción</th>
-                <!-- <th>Previsualizar</th> -->
             </tr>
         </thead>
         <tbody>
@@ -38,7 +37,6 @@ $pages = Page::getAll($_SESSION['translate_lang']);
                 <td><a href="/translate/pages/edit/<?php echo $page->id; ?>">[Edit]</a></td>
                 <td><?php echo $page->name; ?></td>
                 <td><?php echo $page->description; ?></td>
-<!--                <td><a href="<?php echo $page->url; ?>" target="_blank">[Preview]</a></td> -->
             </tr>
             <?php endforeach; ?>
         </tbody>

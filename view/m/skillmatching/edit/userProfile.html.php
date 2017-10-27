@@ -25,16 +25,6 @@ use Goteo\Library\Text,
 $project = $this['skillmatching'];
 $user = $this['user'];
 
-/*
-if (!empty($user->avatar) && is_object($user->avatar))
-    $image ["avatar-{$user->avatar->id}-remove"] = array(
-        'type'  => 'submit',
-        'label' => Text::get('form-remove-button'),
-        'class' => 'inline remove image-remove weak'
-    );
-*/
-
-
 $interests = array();
 
 $errors = $project->errors[$this['step']] ?: array();

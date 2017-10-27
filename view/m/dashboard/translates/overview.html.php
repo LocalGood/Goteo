@@ -86,17 +86,6 @@ if (!empty($project->video->url)) {
             'value' => 'overview'
         ),
 
-        /*
-        'name' => array(
-            'type'      => 'textbox',
-            'title'     => Text::get('overview-field-name'),
-            'required'  => true,
-            'value'     => $project->name,
-            'errors'    => !empty($errors['name']) ? array($errors['name']) : array(),
-            'ok'        => !empty($okeys['name']) ? array($okeys['name']) : array()
-        ),
-        */
-
         'subtitle-orig' => array(
             'type'      => 'html',
             'title'     => Text::get('overview-field-subtitle'),

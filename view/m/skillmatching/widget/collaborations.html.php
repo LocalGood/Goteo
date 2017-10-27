@@ -46,7 +46,4 @@ $project = $this['skillmatching'];
         
     </div>
     <a class="more" href="/skillmatching/<?php echo $project->id; ?>/messages"><?php echo Text::get('regular-see_all_needs'); ?></a>
-<? /* for_apps_review
-    <a class="more" href="/skillmatching/<?php echo $project->id; ?>/needs-non"><?php echo Text::get('regular-see_more'); ?></a>
-*/ ?>
  </div>

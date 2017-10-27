@@ -50,11 +50,6 @@ include VIEW_PATH . '/header.html.php' ?>
                     } else {
                         echo new View(VIEW_PATH . '/project/widget/project.html.php', array('project' => $project));
                     }
-/*
-                        echo new View(VIEW_PATH . '/project/widget/project.html.php', array(
-                            'project' => $project
-                            ));
-*/
                 endwhile; ?>
             </div>
 

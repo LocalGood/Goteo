@@ -69,15 +69,6 @@ $_SESSION['msg_token'] = uniqid(rand(), true);
             
             <label for="message_user"><?php echo Text::get('contact-message-field'); ?></label>
             <textarea id="message_user" name="message" cols="50" rows="5"></textarea>
-<?php /*
-            <a target="_blank" id="a-preview" href="#preview" class="preview">&middot;<?php echo Text::get('regular-preview'); ?></a>
-            <div style="display:none">
-                <div id="preview" style="width:400px;height:300px;overflow:auto;">
-
-                    </div>
-            </div>
-*/ ?>
-
 
             <button class="green" type="submit"><?php echo Text::get('project-messages-send_message-button'); ?></button>
         </form>
@@ -93,8 +84,6 @@ $_SESSION['msg_token'] = uniqid(rand(), true);
 
     </div>
     <div class="side">
-        <?/*php echo new View(VIEW_PATH . '/user/widget/investors.html.php', $this) */?>
-        <?/*php echo new View(VIEW_PATH . '/user/widget/sharemates.html.php', $this) */?>
     </div>
 
 </div>

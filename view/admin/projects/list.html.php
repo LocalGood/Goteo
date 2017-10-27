@@ -53,7 +53,6 @@ $pagedResults = new \Paginated($this['projects'], 10, isset($_GET['page']) ? $_G
                     </select>
                 </td>
                 <td>
-                    <?/*<label for="skill-filter"><?php echo Text::_("De la skill"); ?>:</label><br />*/?>
                     <label for="skill-filter"><?php echo Text::get("admin-projects-skill"); ?>:</label><br />
                     <select id="skill-filter" name="skill" onchange="document.getElementById('filter-form').submit();">
                     <option value=""><?php echo Text::get('admin-projects-type-skill'); ?></option>
@@ -135,8 +134,7 @@ $pagedResults = new \Paginated($this['projects'], 10, isset($_GET['page']) ? $_G
             <tr>
                 <td><a href="/project/<?php echo $project->id; ?>" target="_blank" title="Preview"><?php echo $project->name; ?></a></td>
                 <td style="word-break: break-all;"><a href="mailto:<?php echo $project->user->email; ?>"><?php echo substr($project->user->email, 0, 100); ?></a></td>
-                <?php $s_date = (empty($project->updated)) ? '未完了' : date('y/m/d', strtotime($project->updated)); ?>
-                <?/*<td><?php echo date('Y年m月n日', strtotime($project->updated)); ?></td>*/?>
+                <?php $s_date = (empty($project->updated)) ? Text::get('admin-incomplete') : date('y/m/d', strtotime($project->updated)); ?>
                 <td><?php echo $s_date; ?></td>
 
                 <td><?php echo ($project->status == 1 && !$project->draft) ? '<span style="color: green;">' . Text::_('En negociación') . '</span>' : $this['status'][$project->status]; ?></td>
@@ -180,7 +178,6 @@ $pagedResults = new \Paginated($this['projects'], 10, isset($_GET['page']) ? $_G
                 <td colspan="7">
                     :&nbsp;
                     <a href="<?php echo "/admin/projects/dates/{$project->id}"; ?>">[<?php echo Text::_("Fechas"); ?>]</a>
-                    <?/*<a href="<?php echo "/admin/projects/accounts/{$project->id}"; ?>">[<?php echo Text::_("Cuentas"); ?>]</a>*/?>
                     <?php if ($project->status < 4) : ?><a href="<?php echo "/admin/projects/rebase/{$project->id}"; ?>" onclick="return confirm('<?php echo Text::_("Esto es MUY DELICADO, seguimos?"); ?>');">['プロジェクトIDの変更（非推奨）]</a><?php endif; ?>
                     &nbsp;|&nbsp;
                     <?php if ($project->status < 2) : ?><a href="<?php echo "/admin/projects/review/{$project->id}"; ?>" onclick="return confirm('<?php echo Text::_("El creador no podrá editarlo más, ok?"); ?>');">[<?php echo Text::_("A revisión"); ?>]</a><?php endif; ?>

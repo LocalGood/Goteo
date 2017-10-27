@@ -24,44 +24,7 @@ use Goteo\Library\Text,
 $project = $this['project'];
 
 $index = isset($this['index']) ? $this['index'] : 0;
-/*
-?>
-    <?php  if (count($project->gallery) > 1) : ?>
-		<script type="text/javascript" >
-			$(function(){
-				$('#prjct-gallery').slides({
-					container: 'prjct-gallery-container',
-					paginationClass: 'slderpag',
-					generatePagination: false,
-					play: 0
-				});
-			});
-		</script>
-    <?php endif; ?>
 
-    <?php if (count($project->gallery) > 1): ?>
-	<div id="prjct-gallery">
-		<div class="prjct-gallery-container">
-			<?php $i = 1; foreach ($project->gallery as $image) : ?>
-			<div class="gallery-image" id="gallery-image-<?php echo $i ?>">
-				<img src="<?php echo $image->getLink(540, 540); ?>" alt="<?php echo $project->name; ?>" />
-			</div>
-			<?php $i++; endforeach; ?>
-		</div>
-		<!-- carrusel de imagenes si hay mas de una -->
-        <a class="prev">prev</a>
-            <ul class="slderpag">
-                <?php $i = 1; foreach ($project->gallery as $image) : ?>
-                <li><a href="#" id="navi-gallery-image-<?php echo $i ?>" rel="gallery-image-<?php echo $i ?>" class="navi-gallery-image">
-                <?php echo htmlspecialchars($image->name) ?></a>
-                </li>
-                <?php $i++; endforeach ?>
-            </ul>
-        <a class="next">next</a>
-		<!-- carrusel de imagenes -->
-	</div>
-    <?php else
-	*/
 	if (!empty($project->gallery)) : ?>
         <div class="gallery-image" id="gallery-image-<?php echo ($index + 1) ?>"style="display:block;">
             <img src="<?php echo $project->gallery[$index]->getLink(580, 580); ?>" alt="<?php echo $project->name; ?>" />

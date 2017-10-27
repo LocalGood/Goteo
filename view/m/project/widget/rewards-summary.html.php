@@ -53,7 +53,7 @@ uasort($project->individual_rewards,
 
 			<?php if(!empty($individual->image)):?>
 			<div class="image">
-				<img src="<?php echo $individual->image->getLink(580, 580) ?>" alt="<?/*php todo: $project->新しく追加されるお礼画像のキャプション　を出す */?>">
+				<img src="<?php echo $individual->image->getLink(580, 580) ?>" alt="">
 			</div>
 			<?php endif;?>
 

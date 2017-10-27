@@ -78,16 +78,6 @@ uasort($project->individual_rewards,
                                 <dd><?php echo $units; ?></dd>
                             </dl>
                             <?php endif; ?>
-                            <?php /*
-                            if ($has_image):
-                                $img_src = $individual->image->getLink(200,200,false);
-                                ?>
-                                <div class="image">
-                                    <img src="<?php echo $img_src ?>" alt="<?php echo htmlspecialchars($individual->reward) ?>" />
-                                </div>
-                                <?php
-                            endif;
-                            */?>
                             <p><?php echo nl2br(htmlspecialchars($individual->description))?></p>
                             <div class="buttons">
                                 <a class="button violet supportit" href="/project/<?php echo $project->id; ?>/invest<?php echo '?reward=' . $individual->id ?>"><?php echo Text::get('regular-invest'); ?></a>

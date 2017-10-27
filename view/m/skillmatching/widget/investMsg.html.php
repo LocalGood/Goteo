@@ -58,5 +58,5 @@ $level = (int) $this['level'] ?: 3;
 
 ?>
 <div class="widget invest-message">
-    <h2><?php echo $avatarhtml; ?><span><?php echo $title; ?></span><?/*<br />
+    <h2><?php echo $avatarhtml; ?><span><?php echo $title; ?></span>
 </div>

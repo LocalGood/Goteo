@@ -89,10 +89,7 @@ $filters = $this['filters'];
 <div class="widget board">
 <?php if ($filters['filtered'] != 'yes') : ?>
     <p><?php echo Text::_("Es necesario poner algun filtro, hay demasiados registros!"); ?></p>
-<?php elseif (!empty($this['list'])) : /* ?>
-<?php $Total = 0; foreach ($this['list'] as $invest) { $Total += $invest->amount; } ?>
-    <p><strong><?php echo Text::_("TOTAL"); ?>:</strong>  <?php echo number_format($Total, 0, '', '.') ?> 円</p>
-<?php */ ?>
+<?php elseif (!empty($this['list'])) : ?>
     <table width="100%">
         <thead>
             <tr>

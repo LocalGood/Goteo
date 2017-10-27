@@ -25,13 +25,6 @@ $feed = $this['feed'];
 
 ?>
 <div class="widget feed">
-  <?/*
-    <script type="text/javascript">
-    jQuery(document).ready(function($) {
-        $('.scroll-pane').jScrollPane({showArrows: true});
-    });
-    </script>
-  */?>
     <h3 class="title"><?php echo Text::get('feed-header'); ?></h3>
 
     <div style="height:auto;overflow:auto;margin-left:15px">

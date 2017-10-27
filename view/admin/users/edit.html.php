@@ -26,7 +26,6 @@ $user = $this['user'];
 $roles = $user->roles;
 array_walk($roles, function (&$role) { $role = $role->name; });
 ?>
-<!-- <span style="font-style:italic;font-weight:bold;"><?php echo Text::_('Atención! Le llegará email de verificación al usuario como si se hubiera registrado.'); ?>:</span> -->
 <div class="widget">
     <dl>
         <dt><?php echo Text::_('Nombre de usuario'); ?>:</dt>
@@ -51,7 +50,7 @@ array_walk($roles, function (&$role) { $role = $role->name; });
 
     <form action="/admin/users/edit/<?php echo $user->id ?>" method="post">
         <p>
-            <label for="user-email"><?php echo Text::_('After the change') . Text::_('Email address'); ?></label><?/*<span style="font-style:italic;"><?php echo Text::_('Que sea válido. Se verifica que no esté repetido'); ?></span>*/?><br />
+            <label for="user-email"><?php echo Text::_('After the change') . Text::_('Email address'); ?></label><br />
             <input type="text" id="user-email" name="email" value="<?php echo $data['email'] ?>" style="width:500px" maxlength="255"/>
         </p>
         <p>

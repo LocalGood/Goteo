@@ -108,7 +108,6 @@ jQuery(document).ready(function($) {
 		<div style="width:500px;">
 			<p><?php echo Text::get('oauth-login-imported-data'); ?></p>
 			<?php
-			//print_r($_POST);
 			if($profile_image_url) echo '<img style="float:left;width:200px;max-height:200px;" src="'.$profile_image_url.'" alt="Imported profile image" />';
 			echo "<div>";
 			foreach(array_merge($oauth->import_user_data,array('website')) as $k) {

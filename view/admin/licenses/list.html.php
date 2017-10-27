@@ -59,7 +59,6 @@ $filters = $this['filters'];
                 <th><!-- Move up --></th>
                 <th><!-- Move down --></th>
                 <th><!-- Traducir--></th>
-<!--                                <td> Remove </td> -->
             </tr>
         </thead>
 

@@ -23,7 +23,6 @@ use Goteo\Core\View,
 
 $bodyClass = 'user-login';
 // para que el prologue ponga el c��digo js para bot��n facebook en el bannerside
-// $fbCode = Text::widget(Text::get('social-account-facebook'), 'fb');
 $jscrypt = true;
 include 'view/prologue.html.php';
 include 'view/header.html.php';
@@ -44,27 +43,6 @@ if (empty($username) && isset($this['username'])) $username = $this['username'];
                 }
             });
 
-            //openid
-          /*
-            $('.sign-in-with li.openid input').focus(function(){
-                $(this).addClass('focus');
-                if($(this).val() == '<?php // echo Text::get('login-signin-openid'); ?>') $(this).val('');
-            });
-            $('.sign-in-with li.openid input').blur(function(){
-                $(this).removeClass('focus');
-                if($(this).val().trim() == '') $(this).val('<?php // echo Text::get('login-signin-openid'); ?>');
-            });
-            $('.sign-in-with li.openid a').click(function(){
-                $(this).attr('href',$(this).attr('href') + '?provider=' + $('.sign-in-with li.openid input').val());
-                return true;
-            });
-            $('.sign-in-with li.openid input').keypress(function(event) {
-                if ( event.which == 13 ) {
-                    event.preventDefault();
-                    location = $('.sign-in-with li.openid a').attr('href') + '?provider=' + $(this).val();
-                }
-            });
-            */
             //view more
             $('.sign-in-with li.more a').click(function(){
                 $(this).parent().remove();
@@ -74,17 +52,6 @@ if (empty($username) && isset($this['username'])) $username = $this['username'];
 
         });
     </script>
-
-<?/*
-<div id="sub-header">
-	<div class="clearfix">
-		<div class="subhead-banner">
-			<h2 class="message"><?php echo Text::html('login-banner-header'); ?></h2>
-		</div>
-		<div class="mod-pojctopen"><?php echo Text::html('open-banner-header', $fbCode); ?></div>
-	</div>
-</div>
-*/?>
 
 <?php if(isset($_SESSION['messages'])) { include 'view/header/message.html.php'; } ?>
 
@@ -130,14 +97,8 @@ if (empty($username) && isset($this['username'])) $username = $this['username'];
                     $logins = array(
                         'facebook' => '<a href="/user/oauth?provider=facebook">' . Text::get('login-signin-facebook') . '</a>',
                         'twitter' => '<a href="/user/oauth?provider=twitter">' . Text::get('login-signin-twitter') . '</a>',
-                        //'Google' => '<a href="/user/oauth?provider=Google">' . Text::get('login-signin-google') . '</a>',
-                        // 'Yahoo' => '<a href="/user/oauth?provider=Yahoo">' . Text::get('login-signin-yahoo') . '</a>',
-                        // 'myOpenid' => '<a href="/user/oauth?provider=myOpenid">' . Text::get('login-signin-myopenid') . '</a>',
-                        // 'linkedin' => '<a href="/user/oauth?provider=linkedin">' . Text::get('login-signin-linkedin') . '</a>',
-                        // 'openid' => ''
                     );
                     $is_openid = !array_key_exists($openid,$logins);
-                    //$logins['openid'] = '<form><input type="text"'.($is_openid ? ' class="used"' : '').' name="openid" value="' . htmlspecialchars( $is_openid ? $openid : Text::get('login-signin-openid')) . '" /><a href="/user/oauth" class="button">' . Text::get('login-signin-openid-go') . '&rarr;</a></form>';
                     //si se ha guardado la preferencia, lo ponemos primero
                     $key = '';
                     if($openid) {

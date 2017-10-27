@@ -25,8 +25,10 @@ namespace Goteo\Controller\Cron {
         Goteo\Library\Text,
         Goteo\Library\Feed,
         Goteo\Library\Template,
-        Goteo\Library\Mail,
-        Goteo\Core\Error;
+        Goteo\Core\Error,
+        Goteo\Library\SESMail,
+        Aws\Ses\SesClient,
+        Aws\Ses\Exception\SesException;
 
     class Send {
 
@@ -46,129 +48,129 @@ namespace Goteo\Controller\Cron {
                 case 'r1_pass': // template 20, proyecto supera la primera ronda
                     $tpl = 20;
                     $search  = array('%USERNAME%', '%PROJECTNAME%', '%WIDGETURL%');
-                    $replace = array($project->user->name, $project->name, LG_BASE_URL_GT . '/dashboard/projects/widgets');
+                    $replace = array($project->user->name, $project->name, SITE_URL . '/dashboard/projects/widgets');
                     break;
 
                 case 'fail': // template 21, caduca sin conseguir el mínimo
                     $tpl = 21;
                     $search  = array('%USERNAME%', '%PROJECTNAME%', '%SUMMARYURL%');
-                    $replace = array($project->user->name, $project->name, LG_BASE_URL_GT . '/dashboard/projects/summary');
+                    $replace = array($project->user->name, $project->name, SITE_URL . '/dashboard/projects/summary');
                     break;
 
                 case 'r2_pass': // template 22, finaliza segunda ronda
                     $tpl = 22;
                     $search  = array('%USERNAME%', '%PROJECTNAME%', '%REWARDSURL%');
-                    $replace = array($project->user->name, $project->name, LG_BASE_URL_GT . '/dashboard/projects/rewards');
+                    $replace = array($project->user->name, $project->name, SITE_URL . '/dashboard/projects/rewards');
                     break;
 
                 // Estos son avisos de auto-tips de /cron/daily
                 case '8_days': // template 13, cuando faltan 8 días y no ha conseguido el mínimo
                     $tpl = 13;
                     $search  = array('%USERNAME%', '%PROJECTNAME%', '%WIDGETURL%');
-                    $replace = array($project->user->name, $project->name, LG_BASE_URL_GT . '/dashboard/projects/widgets');
+                    $replace = array($project->user->name, $project->name, SITE_URL . '/dashboard/projects/widgets');
                     break;
 
                 case '2_days': // template 14, cuando faltan 2 días y no ha conseguido el mínimo
                     $tpl = 14;
                     $search  = array('%USERNAME%', '%PROJECTNAME%', '%WIDGETURL%');
-                    $replace = array($project->user->name, $project->name, LG_BASE_URL_GT . '/dashboard/projects/widgets');
+                    $replace = array($project->user->name, $project->name, SITE_URL . '/dashboard/projects/widgets');
                     break;
 
                 case 'two_weeks': // template 19, "no bajes la guardia!" 25 días de campaña
                     $tpl = 19;
                     $search  = array('%USERNAME%', '%PROJECTNAME%', '%WIDGETURL%');
-                    $replace = array($project->user->name, $project->name, LG_BASE_URL_GT . '/dashboard/projects/widgets');
+                    $replace = array($project->user->name, $project->name, SITE_URL . '/dashboard/projects/widgets');
                     break;
 
                 case 'no_updates': // template 23, 3 meses sin novedades
                     $tpl = 23;
                     $search  = array('%USERNAME%', '%PROJECTNAME%', '%UPDATESURL%');
-                    $replace = array($project->user->name, $project->name, LG_BASE_URL_GT . '/dashboard/projects/updates');
+                    $replace = array($project->user->name, $project->name, SITE_URL . '/dashboard/projects/updates');
                     break;
 
                 case 'any_update': // template 24, no hay posts de novedades
                     $tpl = 24;
                     $search  = array('%USERNAME%', '%PROJECTNAME%', '%UPDATESURL%', '%NOVEDADES%');
-                    $replace = array($project->user->name, $project->name, LG_BASE_URL_GT . '/dashboard/projects/updates', LG_BASE_URL_GT.'/project/'.$project->id.'/updates');
+                    $replace = array($project->user->name, $project->name, SITE_URL . '/dashboard/projects/updates', SITE_URL.'/project/'.$project->id.'/updates');
                     break;
 
                 case '2m_after': // template 25, dos meses despues de financiado
                     $tpl = 25;
                     $search  = array('%USERNAME%', '%PROJECTNAME%', '%REWARDSURL%');
-                    $replace = array($project->user->name, $project->name, LG_BASE_URL_GT . '/dashboard/projects/rewards');
+                    $replace = array($project->user->name, $project->name, SITE_URL . '/dashboard/projects/rewards');
                     break;
 
                 case '8m_after': // template 52, ocho meses despues de financiado
                     $tpl = 52;
                     $search  = array('%USERNAME%', '%PROJECTNAME%', '%COMMONSURL%');
-                    $replace = array($project->user->name, $project->name, LG_BASE_URL_GT . '/dashboard/projects/commons');
+                    $replace = array($project->user->name, $project->name, SITE_URL . '/dashboard/projects/commons');
                     break;
 
                 case '20_backers': // template 46, "Apóyate en quienes te van apoyando "  (en cuanto se llega a los 20 backers
                     $tpl = 46;
                     $search  = array('%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%', '%NUMBACKERS%');
-                    $replace = array($project->user->name, $project->name, LG_BASE_URL_GT.'/project/'.$project->id, $project->num_investors);
+                    $replace = array($project->user->name, $project->name, SITE_URL.'/project/'.$project->id, $project->num_investors);
                     break;
                 
                 // consejos normales
                 case 'tip_1': // template 41, "Difunde, difunde, difunde"
                     $tpl = 41;
                     $search  = array('%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%', '%PORCENTAJE%');
-                    $replace = array($project->user->name, $project->name, LG_BASE_URL_GT.'/project/'.$project->id, $project->percent);
+                    $replace = array($project->user->name, $project->name, SITE_URL.'/project/'.$project->id, $project->percent);
                     break;
 
                 case 'tip_2': // template 42, "Comienza por lo más próximo"
                     $tpl = 42;
                     $search  = array('%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%', '%PORCENTAJE%');
-                    $replace = array($project->user->name, $project->name, LG_BASE_URL_GT.'/project/'.$project->id, $project->percent);
+                    $replace = array($project->user->name, $project->name, SITE_URL.'/project/'.$project->id, $project->percent);
                     break;
                 
                 case 'tip_3': // template 43, "Una acción a diario, por pequeña que sea"
                     $tpl = 43;
                     $search  = array('%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%', '%AMOUNT%');
-                    $replace = array($project->user->name, $project->name, LG_BASE_URL_GT.'/project/'.$project->id, $project->invested);
+                    $replace = array($project->user->name, $project->name, SITE_URL.'/project/'.$project->id, $project->invested);
                     break;
                 
                 case 'tip_4': // template 44, "Llama a todas las puertas"
                     $tpl = 44;
                     $search  = array('%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%', '%BACKERSURL%');
-                    $replace = array($project->user->name, $project->name, LG_BASE_URL_GT.'/project/'.$project->id, LG_BASE_URL_GT.'/project/'.$project->id.'/supporters');
+                    $replace = array($project->user->name, $project->name, SITE_URL.'/project/'.$project->id, SITE_URL.'/project/'.$project->id.'/supporters');
                     break;
                 
                 case 'tip_5': // template 45, "Busca dónde está tu comunidad"
                     $tpl = 45;
                     $search  = array('%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%', '%AMOUNT%', '%NUMBACKERS%');
-                    $replace = array($project->user->name, $project->name, LG_BASE_URL_GT.'/project/'.$project->id, $project->invested, $project->num_investors);
+                    $replace = array($project->user->name, $project->name, SITE_URL.'/project/'.$project->id, $project->invested, $project->num_investors);
                     break;
                 
                 case 'tip_8': // template 47, "Agradece en público e individualmente"
                     $tpl = 47;
                     $search  = array('%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%', '%MESSAGESURL%');
-                    $replace = array($project->user->name, $project->name, LG_BASE_URL_GT.'/project/'.$project->id, LG_BASE_URL_GT.'/project/'.$project->id.'/messages');
+                    $replace = array($project->user->name, $project->name, SITE_URL.'/project/'.$project->id, SITE_URL.'/project/'.$project->id.'/messages');
                     break;
                 
                 case 'tip_9': // template 48, "Busca prescriptores e implícalos"
                     $tpl = 48;
                     $search  = array('%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%', '%PORCENTAJE%');
-                    $replace = array($project->user->name, $project->name, LG_BASE_URL_GT.'/project/'.$project->id, $project->percent);
+                    $replace = array($project->user->name, $project->name, SITE_URL.'/project/'.$project->id, $project->percent);
                     break;
                 
                 case 'tip_10': // template 49, "Luce tus recompensas y retornos"
                     $tpl = 49;
                     $search  = array('%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%', '%LOWREWARD%', '%HIGHREWARD%');
-                    $replace = array($project->user->name, $project->name, LG_BASE_URL_GT.'/project/'.$project->id, $project->lower, $project->higher);
+                    $replace = array($project->user->name, $project->name, SITE_URL.'/project/'.$project->id, $project->lower, $project->higher);
                     break;
                 
                 case 'tip_11': // template 50, "Refresca tu mensaje de motivacion"
                     $tpl = 50;
                     $search  = array('%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%');
-                    $replace = array($project->user->name, $project->name, LG_BASE_URL_GT.'/project/'.$project->id);
+                    $replace = array($project->user->name, $project->name, SITE_URL.'/project/'.$project->id);
                     break;
                 
                 case 'tip_15': // template 51, "Sigue los avances y calcula lo que falta"
                     $tpl = 51;
                     $search  = array('%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%', '%DIASCAMPAÑA%', '%DAYSTOGO%');
-                    $replace = array($project->user->name, $project->name, LG_BASE_URL_GT.'/project/'.$project->id, $project->days, $project->days);
+                    $replace = array($project->user->name, $project->name, SITE_URL.'/project/'.$project->id, $project->days, $project->days);
                     break;
                 
             }
@@ -180,36 +182,23 @@ namespace Goteo\Controller\Cron {
                 // Sustituimos los datos
                 $subject = str_replace('%PROJECTNAME%', $project->name, $template->title);
                 $content = \str_replace($search, $replace, $template->text);
-                // iniciamos mail
-                $mailHandler = new Mail();
-                $mailHandler->to = $project->user->email;
-                $mailHandler->toName = $project->user->name;
-                // monitorización solo para 'quien-manda'
-                if ($project->id == 'quien-manda' || $project->id == 'guifi-net-extremadura') 
-                    $mailHandler->bcc = array('enric@goteo.org', 'maria@goteo.org', 'olivier@goteo.org', 'jcanaves@doukeshi.org', 'info@goteo.org');
-                
-                if ($project->id == 'cervecita-fresca') 
-                    $mailHandler->bcc = array('jcanaves@doukeshi.org');
-                
-                if ($project->id == 'keinuka') 
-                    $mailHandler->bcc = array('rosa@euskadi.goteo.org', 'jcanaves@doukeshi.org');
-                
-                // si es un proyecto de nodo: reply al mail del nodo
-                // si es de centra: reply a MAIL_GOTEO
-                $mailHandler->reply = (!empty($project->nodeData->email)) ? $project->nodeData->email : \GOTEO_CONTACT_MAIL;
-                
-                $mailHandler->subject = $subject;
-                $mailHandler->content = $content;
-                $mailHandler->html = true;
-                $mailHandler->template = $template->id;
-                if ($mailHandler->send($errors)) {
+
+                //mailing use aws ses
+                $sesClient = new SESMail();
+                $sesClient->template = $template->id;
+
+                $replyTo = (!empty($project->nodeData->email)) ? $project->nodeData->email : \GOTEO_CONTACT_MAIL;
+
+                try {
+                    $sesClient->sendMail(array(
+                        'to' => array($project->user->email),
+                        'replyTo' => array($replyTo)
+                        ), $subject, $content, $content);
                     return true;
-                } else {
-                    echo \trace($errors);
-                    @mail(\GOTEO_FAIL_MAIL,
-                        'Fallo al enviar email automaticamente al autor ' . LG_BASE_URL_GT,
-                        'Fallo al enviar email automaticamente al autor: <pre>' . print_r($mailHandler, 1). '</pre>');
+                } catch (SesException $exc) {
+                    echo \trace($exc->getMessage());
                 }
+
             }
 
             return false;
@@ -254,25 +243,25 @@ namespace Goteo\Controller\Cron {
 
                                 $tpl = 15;
                                 $search  = array('%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%');
-                                $replace = array($investor->name, $project->name, LG_BASE_URL_GT . '/project/' . $project->id);
+                                $replace = array($investor->name, $project->name, SITE_URL . '/project/' . $project->id);
                             break;
 
                         case 'fail': // template 17 (paypalistas) / 35 (tpvistas) , caduca sin conseguir el mínimo
                                 $tpl = ($investor->method == 'paypal') ? 17 : 35;
                                 $search  = array('%USERNAME%', '%PROJECTNAME%', '%DISCOVERURL%');
-                                $replace = array($investor->name, $project->name, LG_BASE_URL_GT . '/discover');
+                                $replace = array($investor->name, $project->name, SITE_URL . '/discover');
                             break;
 
                         case 'r2_pass': // template 16, finaliza segunda ronda
                                 $tpl = 16;
                                 $search  = array('%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%');
-                                $replace = array($investor->name, $project->name, LG_BASE_URL_GT . '/project/' . $project->id);
+                                $replace = array($investor->name, $project->name, SITE_URL . '/project/' . $project->id);
                             break;
 
                         case 'update': // template 18, publica novedad
                                 $tpl = 18;
                                 $search  = array('%USERNAME%', '%PROJECTNAME%', '%UPDATEURL%', '%POST%', '%SHAREFACEBOOK%', '%SHARETWITTER%');
-                                $post_url = LG_BASE_URL_GT.'/project/'.$project->id.'/updates/'.$post->id;
+                                $post_url = SITE_URL.'/project/'.$project->id.'/updates/'.$post->id;
                                 // contenido del post
                                 $post_content = "<p><strong>{$post->title}</strong><br />".  nl2br( Text::recorta($post->text, 500) )  ."</p>";
                                 // y preparar los enlaces para compartir en redes sociales
@@ -295,23 +284,17 @@ namespace Goteo\Controller\Cron {
                             $subject = str_replace('%PROJECTNAME%', $project->name, $template->title);
                         }
                         $content = \str_replace($search, $replace, $template->text);
-                        // iniciamos mail
-                        $mailHandler = new Mail();
-                        $mailHandler->to = $investor->email;
-                        $mailHandler->toName = $investor->name;
-                        $mailHandler->subject = $subject;
-                        $mailHandler->content = $content;
-                        $mailHandler->html = true;
-                        $mailHandler->template = $template->id;
-                        if ($mailHandler->send()) {
 
-                        } else {
+                        //mailing use aws ses
+                        $sesClient = new SESMail();
+                        $sesClient->template = $template->id;
+                        try {
+                            $sesClient->sendMail(array('to' => array($investor->email)), $subject, $content, $content);
+                        } catch (SesException $exc) {
                             $anyfail = true;
-                            @mail(\GOTEO_FAIL_MAIL,
-                                'Fallo al enviar email automaticamente al cofinanciador ' . LG_BASE_URL_GT,
-                                'Fallo al enviar email automaticamente al cofinanciador: <pre>' . print_r($mailHandler, 1). '</pre>');
+                            error_log($exc->getMessage());
                         }
-                        unset($mailHandler);
+
                     }
                 }
                 // fin bucle inversores

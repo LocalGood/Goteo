@@ -63,9 +63,6 @@ $user->about = nl2br(Text::urlink($user->about));
                 <p>
                     <?php echo $user->about ?>
                 </p>
-<!--                <div class="about-link">-->
-<!--                    <a class="" href="/user/--><?php //echo $user->id; ?><!--">--><?php //echo Text::get('profile-widget-button'); ?><!--</a>-->
-<!--                </div>-->
             </div>
         <?php endif ?>
 
