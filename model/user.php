@@ -23,7 +23,7 @@ namespace Goteo\Model {
     use Goteo\Library\Text,
         Goteo\Model\Image,
         Goteo\Library\Template,
-        Goteo\Library\Mail,
+        Goteo\Library\SESMail,
         Goteo\Library\Check,
         Goteo\Library\Message,
         Aws\Ses\SesClient,
@@ -150,6 +150,7 @@ namespace Goteo\Model {
 
                         //mailing use aws ses
                         $sesClient = new SESMail();
+                        $sesClient->template = $template->id;
                         try {
                             $sesClient->sendMail(array('to'=>array($this->email)),$subject,$content,$content);
                             Message::Info(Text::get('register-confirm_mail-success'));
@@ -1079,6 +1080,7 @@ namespace Goteo\Model {
 
                 //mailing use aws ses
                 $sesClient = new SESMail();
+                $sesClient->template = $template->id;
                 try {
                     $sesClient->sendMail(array('to' => array($row->email)), $subject, $content, $content);
                     return true;
@@ -1133,6 +1135,7 @@ namespace Goteo\Model {
 
                 //mailing use aws ses
                 $sesClient = new SESMail();
+                $sesClient->template = $template->id;
                 try {
                     $sesClient->sendMail(array('to' => array($row->email)), $subject, $content, $content);
                 } catch (SesException $exc) {
@@ -1185,6 +1188,7 @@ namespace Goteo\Model {
 
                     //mailing use aws ses
                     $sesClient = new SESMail();
+                    $sesClient->template = $template->id;
                     try {
                         $sesClient->sendMail(array('to' => array($email)), $subject, $content, $content);
                     } catch (SesException $exc) {

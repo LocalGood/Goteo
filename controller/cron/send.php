@@ -25,8 +25,8 @@ namespace Goteo\Controller\Cron {
         Goteo\Library\Text,
         Goteo\Library\Feed,
         Goteo\Library\Template,
-        Goteo\Library\Mail,
         Goteo\Core\Error,
+        Goteo\Library\SESMail,
         Aws\Ses\SesClient,
         Aws\Ses\Exception\SesException;
 
@@ -184,7 +184,8 @@ namespace Goteo\Controller\Cron {
                 $content = \str_replace($search, $replace, $template->text);
 
                 //mailing use aws ses
-                $sesClient = new Model\SESMail();
+                $sesClient = new SESMail();
+                $sesClient->template = $template->id;
 
                 $replyTo = (!empty($project->nodeData->email)) ? $project->nodeData->email : \GOTEO_CONTACT_MAIL;
 
@@ -286,6 +287,7 @@ namespace Goteo\Controller\Cron {
 
                         //mailing use aws ses
                         $sesClient = new SESMail();
+                        $sesClient->template = $template->id;
                         try {
                             $sesClient->sendMail(array('to' => array($investor->email)), $subject, $content, $content);
                         } catch (SesException $exc) {

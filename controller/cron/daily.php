@@ -76,7 +76,7 @@ namespace Goteo\Controller\Cron {
                 
                 // flag de aviso
                 $avisado = false;
-                
+error_log('### CRON $project->days ### ' . $project->days);
                 // Consejos/avisos puntuales
                 switch ($project->days) {
                     

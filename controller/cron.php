@@ -24,7 +24,7 @@ namespace Goteo\Controller {
         Goteo\Library\Text,
         Goteo\Library\Feed,
         Goteo\Library\Template,
-        Goteo\Library\Mail,
+        Goteo\Library\SESMail,
         Goteo\Library\Paypal,
         Goteo\Library\Tpv,
         Aws\Ses\SesClient,
@@ -1409,7 +1409,8 @@ namespace Goteo\Controller {
 
             if (empty($projectAccount->paypal)) {
                 //mailing use aws ses
-                $sesClient = new Model\SESMail();
+                $sesClient = new SESMail();
+                $sesClient->template = null;
                 try {
                     $sesClient->sendMail(array('to' => array(GOTEO_MAIL)),
                         'El proyecto '.$projectData->name.' no tiene cuenta PayPal',

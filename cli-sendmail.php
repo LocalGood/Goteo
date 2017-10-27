@@ -35,7 +35,7 @@ use Goteo\Core\Resource,
     Goteo\Core\Redirection,
     Goteo\Core\Model,
     Goteo\Library\Feed,
-    Goteo\Library\Mail,
+    Goteo\Library\SESMail,
     Goteo\Library\Sender,
     Aws\Ses\SesClient,
     Aws\Ses\Exception\SesException;
@@ -130,6 +130,8 @@ $itime = microtime(true);
 
     //mailing use aws ses
     $sesClient = new SESMail();
+
+    $sesClient->template = $template;
 
     //
     $params = array();

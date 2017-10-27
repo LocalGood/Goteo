@@ -25,7 +25,7 @@ namespace Goteo\Controller\Admin {
         Goteo\Core\Error,
 		Goteo\Library\Feed,
 		Goteo\Library\Template,
-		Goteo\Library\Mail;
+		Goteo\Library\SESMail;
 
     class Sended {
 
@@ -35,7 +35,7 @@ namespace Goteo\Controller\Admin {
             $node = isset($_SESSION['admin_node']) ? $_SESSION['admin_node'] : \GOTEO_NODE;
 
             if ($filters['filtered'] == 'yes'){
-                $sended = Mail::getSended($filters, $node);
+                $sended = SESMail::getSended($filters, $node);
             } else {
                 $sended = array();
             }

@@ -27,7 +27,7 @@ namespace Goteo\Controller {
         Goteo\Core\View,
         Goteo\Model,
 		Goteo\Library\Feed,
-        Goteo\Library\Mail,
+        Goteo\Library\SESMail,
         Goteo\Library\Template,
         Goteo\Library\Text,
         Aws\Ses\SesClient,
@@ -147,7 +147,8 @@ namespace Goteo\Controller {
                             $content = \str_replace($search, $replace, $template->text);
 
                             //mailing use aws ses
-                            $sesClient = new Model\SESMail();
+                            $sesClient = new SESMail();
+                            $sesClient->template = $template->id;
                             try {
                                 $sesClient->sendMail(array('to' => array($thread->user->email)), $subject, $content, $content);
                             } catch (SesException $exc) {
@@ -170,7 +171,8 @@ namespace Goteo\Controller {
                         $content = \str_replace($search, $replace, $template->text);
 
                         //mailing use aws ses
-                        $sesClient = new Model\SESMail();
+                        $sesClient = new SESMail();
+                        $sesClient->template = $template->id;
                         try {
                             $sesClient->sendMail(array('to' => array($projectData->user->email)), $subject, $content, $content);
                         } catch (SesException $exc) {
@@ -238,7 +240,8 @@ namespace Goteo\Controller {
                 $replace = array($msg_content, $ownerData->name, $_SESSION['user']->name, $project->name, SITE_URL, $response_url);
                 $content = \str_replace($search, $replace, $template->text);
 
-                $sesClient = new Model\SESMail();
+                $sesClient = new SESMail();
+                $sesClient->template = $template->id;
                 try {
                     $sesClient->sendMail(array('to' => array($ownerData->email)), $subject, $content, $content);
                     \Goteo\Library\Message::Info(Text::get('regular-message_success'));
@@ -295,7 +298,8 @@ namespace Goteo\Controller {
                 $content = \str_replace($search, $replace, $template->text);
 
                 //mailing use aws ses
-                $sesClient = new Model\SESMail();
+                $sesClient = new SESMail();
+                $sesClient->template = $template->id;
                 try {
                     $sesClient->sendMail(array('to' => array($user->email)), $subject, $content, $content);
                     \Goteo\Library\Message::Info(Text::get('regular-message_success'));
@@ -382,7 +386,8 @@ namespace Goteo\Controller {
                     $content = \str_replace($search, $replace, $template->text);
 
                     //mailing use aws ses
-                    $sesClient = new Model\SESMail();
+                    $sesClient = new SESMail();
+                    $sesClient->template = $template->id;
                     try {
                         $sesClient->sendMail(array('to' => array($projectData->user->email)), $subject, $content, $content);
                     } catch (SesException $exc) {

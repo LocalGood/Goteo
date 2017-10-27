@@ -27,11 +27,9 @@ namespace Goteo\Controller {
         Goteo\Model,
         Goteo\Library\Feed,
         Goteo\Library\Text,
-        Goteo\Library\Mail,
+        Goteo\Library\SESMail,
         Goteo\Library\Template,
         Goteo\Library\Message,
-        //Goteo\Library\Paypal,
-        //Goteo\Library\Tpv;
         Goteo\Core\View,
         Aws\Ses\SesClient,
         Aws\Ses\Exception\SesException;
@@ -234,7 +232,8 @@ namespace Goteo\Controller {
                                 $content = \str_replace($search, $replace, $template->text);
 
                                 //mailing use aws ses
-                                $sesClient = new Model\SESMail();
+                                $sesClient = new SESMail();
+                                $sesClient->template = $template->id;
                                 try {
                                     $sesClient->sendMail(array('to' => array($projectData->user->email)), $subject, $content, $content);
                                 } catch (SesException $exc) {
@@ -359,7 +358,7 @@ namespace Goteo\Controller {
             $content = \str_replace($search, $replace, $template->text);
 
             //mailing use aws ses
-            $sesClient = new Model\SESMail();
+            $sesClient = new SESMail();
             try {
                 $sesClient->sendMail(array('to' => array($user->email),'replyTo'=>array(GOTEO_CONTACT_MAIL)), $subject, $content, $content);
                 Message::Info(Text::get('project-invest-thanks_mail-success'));
@@ -379,7 +378,8 @@ namespace Goteo\Controller {
             $content = \str_replace($search, $replace, $template->text);
 
             //mailing use aws ses
-            $sesClient = new Model\SESMail();
+            $sesClient = new SESMail();
+            $sesClient->template = $template->id;
             try {
                 $sesClient->sendMail(array('to' => array($projectData->user->email)), $subject, $content, $content);
             } catch (SesException $exc) {
@@ -555,7 +555,8 @@ namespace Goteo\Controller {
             $content = \str_replace($search, $replace, $template->text);
 
             //mailing use aws ses
-            $sesClient = new Model\SESMail();
+            $sesClient = new SESMail();
+            $sesClient->template = $template->id;
             try {
                 $sesClient->sendMail(array('to' => array($user->email),'replyTo'=>array(GOTEO_CONTACT_MAIL)), $subject, $content, $content);
                 if ( !defined('DEBUGTEST')) {
@@ -580,7 +581,8 @@ namespace Goteo\Controller {
 
             if ( !defined('DEBUGTEST')) {
                 //mailing use aws ses
-                $sesClient = new Model\SESMail();
+                $sesClient = new SESMail();
+                $sesClient->template = $template->id;
                 try {
                     $sesClient->sendMail(array('to' => array($projectData->user->email)), $subject, $content, $content);
                     if ( !defined('DEBUGTEST')) {

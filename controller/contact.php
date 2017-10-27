@@ -26,7 +26,7 @@ namespace Goteo\Controller {
         Goteo\Core\View,
         Goteo\Library\Text,
         Goteo\Library\Message,
-        Goteo\Library\Mail,
+        Goteo\Library\SESMail,
         Goteo\Library\Template,
         Aws\Ses\SesClient,
         Aws\Ses\Exception\SesException;
@@ -104,7 +104,8 @@ namespace Goteo\Controller {
                     $content = \str_replace($search, $replace, $template->text);
 
                     //mailing use aws ses
-                    $sesClient = new Model\SESMail();
+                    $sesClient = new SESMail();
+                    $sesClient->template = $template->id;
                     try {
                         $sesClient->sendMail(array('to' => array($to)), $subject, $content, $content);
                         Message::Info(Text::get('contact-info-sendmessage-success'));

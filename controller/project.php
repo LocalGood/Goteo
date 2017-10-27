@@ -26,7 +26,7 @@ namespace Goteo\Controller {
         Goteo\Core\View,
         Goteo\Library\Text,
         Goteo\Library\Check,
-        Goteo\Library\Mail,
+        Goteo\Library\SESMail,
         Goteo\Library\Template,
         Goteo\Library\Message,
         Goteo\Library\Feed,
@@ -196,7 +196,8 @@ namespace Goteo\Controller {
                         }
 
                         //mailing use aws ses
-                        $sesClient = new Model\SESMail();
+                        $sesClient = new SESMail();
+                        $sesClient->template = 0;
 
                         $subject = 'Proyecto ' . $project->name . ' enviado a valoración';
                         $content = '<p>Han enviado un nuevo proyecto a revisión</p><p>El nombre del proyecto es: <span class="message-highlight-blue">'.$project->name.'</span> <br />y se puede ver en <span class="message-highlight-blue"><a href="'.SITE_URL.'/project/'.$project->id.'">'.SITE_URL.'/project/'.$project->id.'</a></span></p>';
@@ -226,7 +227,8 @@ namespace Goteo\Controller {
                         $content = \str_replace($search, $replace, $template->text);
 
                         //mailing use aws ses
-                        $sesClient = new Model\SESMail();
+                        $sesClient = new SESMail();
+                        $sesClient->template = $template->id;
                         try {
                             $sesClient->sendMail(array('to' => array($project->user->email)), $subject, $content, $content);
                             Message::Info(Text::get('project-review-confirm_mail-success'));

@@ -26,7 +26,7 @@ namespace Goteo\Controller {
         Goteo\Core\View,
         Goteo\Library\Text,
         Goteo\Library\Check,
-        Goteo\Library\Mail,
+        Goteo\Library\SESMail,
         Goteo\Library\Template,
         Goteo\Library\Message,
         Goteo\Library\Feed,
@@ -195,7 +195,8 @@ namespace Goteo\Controller {
                             $_SESSION['skillmatching'] = $skillmatching;
                         }
 
-                        $sesClient = new Model\SESMail();
+                        $sesClient = new SESMail();
+                        $sesClient->template = 0;
                         $content = '<p>Han enviado un nuevo proyecto a revisión</p><p>El nombre del proyecto es: <span class="message-highlight-blue">'.$skillmatching->name.'</span> <br />y se puede ver en <span class="message-highlight-blue"><a href="'.SITE_URL.'/skillmatching/'.$skillmatching->id.'">'.SITE_URL.'/skillmatching/'.$skillmatching->id.'</a></span></p>';
                         try {
                             $sesClient->sendMail(
@@ -225,7 +226,8 @@ namespace Goteo\Controller {
                         $replace = array($skillmatching->user->name, $skillmatching->name);
                         $content = \str_replace($search, $replace, $template->text);
 
-                        $sesClient = new Model\SESMail();
+                        $sesClient = new SESMail();
+                        $sesClient->template = $template->id;
                         try {
                             $sesClient->sendMail(
                                 array(

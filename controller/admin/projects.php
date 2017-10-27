@@ -26,7 +26,7 @@ namespace Goteo\Controller\Admin {
 		Goteo\Library\Text,
 		Goteo\Library\Feed,
         Goteo\Library\Message,
-        Goteo\Library\Mail,
+        Goteo\Library\SESMail,
 		Goteo\Library\Template,
         Goteo\Library\Evaluation,
         Aws\Ses\SesClient,
@@ -385,6 +385,8 @@ namespace Goteo\Controller\Admin {
 
                     //mailing use aws ses
                     $sesClient = new SESMail();
+                    $sesClient->template = $template->id;
+
                     try {
                         $sesClient->sendMail(array('to'=>array($project->user->email)),$subject,$content,$content);
                         Message::Info('<strong>'.$project->user->name.'</strong>' . Text::get('admin-projects-info-sendmail-to') . '<strong>（' . $project->user->email.'）</strong>' . Text::get('admin-projects-info-sendmail'));
