@@ -198,7 +198,7 @@ namespace Goteo\Controller {
                         $sesClient = new Model\SESMail();
                         $content = '<p>Han enviado un nuevo proyecto a revisión</p><p>El nombre del proyecto es: <span class="message-highlight-blue">'.$skillmatching->name.'</span> <br />y se puede ver en <span class="message-highlight-blue"><a href="'.SITE_URL.'/skillmatching/'.$skillmatching->id.'">'.SITE_URL.'/skillmatching/'.$skillmatching->id.'</a></span></p>';
                         try {
-                            $sesClient->sendMail($errors,
+                            $sesClient->sendMail(
                                 array(
                                     'to'=>array(\GOTEO_MAIL),
                                     'replyTo'=>array($skillmatching->user->email)
@@ -227,9 +227,10 @@ namespace Goteo\Controller {
 
                         $sesClient = new Model\SESMail();
                         try {
-                            $sesClient->sendMail($errors,
+                            $sesClient->sendMail(
                                 array(
-                                    'to'=>array($skillmatching->user->email)                                ),
+                                    'to'=>array($skillmatching->user->email)
+                                ),
                                 $subject,
                                 $content,
                                 $content);
