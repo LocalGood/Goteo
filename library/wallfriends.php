@@ -91,7 +91,7 @@ namespace Goteo\Library {
 		 * $num_icons: el numero de icones per fila del widget
 		 * */
 		public function html_content($num_icons = 19) {
-            $URL = (NODE_ID != GOTEO_NODE) ? NODE_URL : SITE_URL;
+            $URL = (NODE_ID != GOTEO_NODE) ? NODE_URL : LG_BASE_URL_GT;
 			$ret = array();
 			foreach($this->avatars as $user => $mult) {
 				$style = '';
@@ -190,7 +190,7 @@ namespace Goteo\Library {
 		 *
 		*/
 		public function html($width = 608, $extern = false) {
-            $URL = (NODE_ID != GOTEO_NODE) ? NODE_URL : SITE_URL;
+            $URL = (NODE_ID != GOTEO_NODE) ? NODE_URL : LG_BASE_URL_GT;
 
             // si es externo, abrimos en una ventana nueva
             $target = $extern ? ' target="_blank"' : '';

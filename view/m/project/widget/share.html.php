@@ -26,7 +26,7 @@ $level = (int) $this['level'] ?: 3;
 
 $share_title = $project->name;
 
-$share_url = SITE_URL . '/project/' . $project->id;
+$share_url = LG_BASE_URL_GT . '/project/' . $project->id;
 
 ?>
 <script type="text/javascript">

@@ -489,7 +489,7 @@ namespace Goteo\Controller {
                 if ($show == 'message') {
                     $_SESSION['jumpto'] = '/user/profile/' . $id . '/message';
                     Message::Info(Text::get('user-login-required-to_message'));
-                    throw new Redirection(SEC_URL."/user/login");
+                    throw new Redirection(LG_BASE_URL_GT."/user/login");
                 }
 
 
@@ -497,7 +497,7 @@ namespace Goteo\Controller {
                 if (!isset($user->roles['vip'])) {
                     $_SESSION['jumpto'] = '/user/profile/' . $id . '/' . $show;
                     Message::Info(Text::get('user-login-required-to_see'));
-                    throw new Redirection(SEC_URL."/user/login");
+                    throw new Redirection(LG_BASE_URL_GT."/user/login");
                 }
 
                 /*
@@ -737,7 +737,7 @@ namespace Goteo\Controller {
                             $user = Model\User::get($id);
                             $_SESSION['user'] = $user;
                             $_SESSION['recovering'] = $user->id;
-                            throw new Redirection(SEC_URL.'/dashboard/profile/access/recover#password');
+                            throw new Redirection(LG_BASE_URL_GT.'/dashboard/profile/access/recover#password');
                         }
                     }
                 }
@@ -789,10 +789,10 @@ namespace Goteo\Controller {
                             // el token coincide con el email y he obtenido una id
                             if (Model\User::cancel($id)) {
                                 Message::Info(Text::get('leave-process-completed'));
-                                throw new Redirection(SEC_URL.'/user/login');
+                                throw new Redirection(LG_BASE_URL_GT.'/user/login');
                             } else {
                                 Message::Error(Text::get('leave-process-fail'));
-                                throw new Redirection(SEC_URL.'/user/login');
+                                throw new Redirection(LG_BASE_URL_GT.'/user/login');
                             }
                         }
                     }

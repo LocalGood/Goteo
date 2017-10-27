@@ -201,7 +201,7 @@ namespace Goteo\Controller {
                         $mailHandler->to = \GOTEO_MAIL;
                         $mailHandler->toName = 'Revisor de proyectos';
                         $mailHandler->subject = 'Proyecto ' . $project->name . ' enviado a valoración';
-                        $mailHandler->content = '<p>Han enviado un nuevo proyecto a revisión</p><p>El nombre del proyecto es: <span class="message-highlight-blue">'.$project->name.'</span> <br />y se puede ver en <span class="message-highlight-blue"><a href="'.SITE_URL.'/project/'.$project->id.'">'.SITE_URL.'/project/'.$project->id.'</a></span></p>';
+                        $mailHandler->content = '<p>Han enviado un nuevo proyecto a revisión</p><p>El nombre del proyecto es: <span class="message-highlight-blue">'.$project->name.'</span> <br />y se puede ver en <span class="message-highlight-blue"><a href="'.LG_BASE_URL_GT.'/project/'.$project->id.'">'.LG_BASE_URL_GT.'/project/'.$project->id.'</a></span></p>';
                         $mailHandler->html = true;
                         $mailHandler->template = 0;
                         if ($mailHandler->send($errors)) {
@@ -415,7 +415,7 @@ namespace Goteo\Controller {
             if (empty($_SESSION['user'])) {
                 $_SESSION['jumpto'] = '/project/create';
                 Message::Info(Text::get('user-login-required-to_create'));
-                throw new Redirection(SEC_URL."/user/login");
+                throw new Redirection(LG_BASE_URL_GT."/user/login");
             }
 
             if ($_POST['action'] != 'continue' || $_POST['confirm'] != 'true') {
@@ -575,7 +575,7 @@ namespace Goteo\Controller {
                             $step = 'start';
                         } elseif ($step == 'start') {
                             // para cuando salte
-                            $_SESSION['jumpto'] = SEC_URL.'/project/' .  $id . '/invest/#continue';
+                            $_SESSION['jumpto'] = LG_BASE_URL_GT.'/project/' .  $id . '/invest/#continue';
                         } else {
                             $step = 'start';
                         }

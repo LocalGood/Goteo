@@ -56,11 +56,11 @@ namespace Goteo\Library {
             }
 
             //channel
-//            $feed->set_image('Goteo.org', SITE_URL . '/images/logo.jpg');
+//            $feed->set_image('Goteo.org', LG_BASE_URL_GT . '/images/logo.jpg');
             $feed->set_language('ES-ES'); // segun \LANG
             $feed->set_date(\date('Y-m-d\TH:i:s').'Z', DATE_UPDATED);
             $feed->set_author(null, 'Goteo');
-            $feed->set_selfLink(SITE_URL . '/rss');
+            $feed->set_selfLink(LG_BASE_URL_GT . '/rss');
 
             foreach ($data['tags'] as $tagId => $tagName) {
                 $feed->add_category($tagName);
@@ -76,7 +76,7 @@ namespace Goteo\Library {
                 $date = \mktime(0, 0, 0, $postDate[1], $postDate[0], $postDate[2]);
 
                 //item $postId
-                $feed->add_item($post->title, $post->text, SITE_URL . '/blog/' . $post->id);
+                $feed->add_item($post->title, $post->text, LG_BASE_URL_GT . '/blog/' . $post->id);
                 $feed->set_date(\date(DATE_ATOM, $date), DATE_PUBLISHED);
 
                 foreach ($post->tags as $tagId => $tagName) {

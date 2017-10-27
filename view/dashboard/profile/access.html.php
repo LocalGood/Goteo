@@ -120,4 +120,4 @@ echo new SuperForm(array(
 
 </form>
 <hr />
-<a class="button red" href="<?php echo SITE_URL ?>/user/leave?email=<?php echo urlencode($user->email) ?>"><?php echo Text::get('login-leave-header'); ?></a>
+<a class="button red" href="<?php echo LG_BASE_URL_GT ?>/user/leave?email=<?php echo urlencode($user->email) ?>"><?php echo Text::get('login-leave-header'); ?></a>

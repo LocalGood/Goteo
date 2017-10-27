@@ -32,7 +32,7 @@ $fbCode = Text::widget(Text::get('social-account-facebook'), 'fb');
 $ogmeta = array(
     'title' => 'Goteo.org',
     'description' => 'Goteo.org',
-    'url' => SITE_URL
+    'url' => LG_BASE_URL_GT
 );
 if (!empty($this['posts'])) {
     foreach ($this['posts'] as $post) {

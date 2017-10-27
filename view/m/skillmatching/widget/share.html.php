@@ -26,7 +26,7 @@ $level = (int) $this['level'] ?: 3;
 
 $share_title = $skillmatching->name;
 
-$share_url = SITE_URL . '/skillmatching/' . $skillmatching->id;
+$share_url = LG_BASE_URL_GT . '/skillmatching/' . $skillmatching->id;
 
 ?>
 

@@ -324,8 +324,8 @@ namespace Goteo\Controller\Dashboard {
             foreach($receivers as $value){
 
                 $search = array('%MESSAGE%', '%PROJECTNAME%', '%PROJECTURL%', '%OWNERURL%', '%OWNERNAME%', '%USERNAME%');
-                $replace = array($msg_content, $skillmatching->name, SITE_URL . "/skillmatching/" . $skillmatching->id,
-                    SITE_URL . "/user/profile/" . $skillmatching->owner, $skillmatching->owner, $value->name);
+                $replace = array($msg_content, $skillmatching->name, LG_BASE_URL_GT . "/skillmatching/" . $skillmatching->id,
+                    LG_BASE_URL_GT . "/user/profile/" . $skillmatching->owner, $skillmatching->owner, $value->name);
                 $content = \str_replace($search, $replace, $template->text);
 
                 try {

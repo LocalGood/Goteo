@@ -102,7 +102,7 @@ namespace Goteo\Library {
                 'user' => '/user/profile/',
                 'project' => '/project/',
                 'call' => '/call/',
-                'drop' => SITE_URL,
+                'drop' => LG_BASE_URL_GT,
                 'blog' => '/blog/',
                 'news' => '/news/',
                 'relevant' => '',
@@ -406,7 +406,7 @@ namespace Goteo\Library {
 
             if (empty($this->html)) {
                 @mail(\GOTEO_MAIL,
-                    'Evento feed sin html: ' . SITE_URL,
+                    'Evento feed sin html: ' . LG_BASE_URL_GT,
                     "Feed sin contenido html<hr /><pre>" . print_r($this, 1) . "</pre>");
                 return false;
             }
@@ -452,14 +452,14 @@ namespace Goteo\Library {
                     return true;
                 } else {
                     @mail(\GOTEO_MAIL,
-                        'Fallo al hacer evento feed: ' . SITE_URL,
+                        'Fallo al hacer evento feed: ' . LG_BASE_URL_GT,
                         "Ha fallado Feed<br /> {$sql} con <pre>" . print_r($values, 1) . "</pre><hr /><pre>" . print_r($this, 1) . "</pre>");
                     return false;
                 }
                 
 			} catch(\PDOException $e) {
                     @mail(\GOTEO_MAIL,
-                        'PDO Exception evento feed: ' . SITE_URL,
+                        'PDO Exception evento feed: ' . LG_BASE_URL_GT,
                         "Ha fallado Feed PDO Exception<br /> {$sql} con " . $e->getMessage() . "<hr /><pre>" . print_r($this, 1) . "</pre>");
                 return false;
 			}

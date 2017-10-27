@@ -27,7 +27,7 @@ use Goteo\Library\Text;
 jQuery(document).ready(function ($) {
 
     $('#faq-section').change(function () {
-        order = $.ajax({async: false, url: '<?php echo SITE_URL; ?>/ws/get_faq_order/'+$('#faq-section').val()}).responseText;
+        order = $.ajax({async: false, url: '<?php echo LG_BASE_URL_GT; ?>/ws/get_faq_order/'+$('#faq-section').val()}).responseText;
         $('#faq-order').val(order);
         $('#faq-num').html(order);
     });

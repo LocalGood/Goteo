@@ -12,8 +12,6 @@ $defs = array();
 
 // 環境変数より
 $env_ids = array(
-    // LG Base Name
-    'LG_PLACE_NAME',
     // Database
     'GOTEO_DB_HOST',
     'GOTEO_DB_PORT',
@@ -34,9 +32,9 @@ $env_ids = array(
      * LocalGood Server Environment
      */
     // url
-    'SITE_URL', // endpoint url
+    'LG_BASE_URL_GT', // endpoint url
     'SRC_URL',  // host for statics
-    'SEC_URL',  // with SSL certified
+    'LG_BASE_URL_GT',  // with SSL certified
     // Wordpress URL
     'LG_BASE_URL_WP',
     //
@@ -91,6 +89,8 @@ foreach ($env_ids as $env_id){
 $apikeys = json_decode(file_get_contents( '/var/www/html/omniconfig/apikeys.json'));
 define('GOTEO_META_TITLE', $apikeys->meta->appName->name);
 define('GOTEO_META_AUTHOR', $apikeys->meta->appName->name);
+define('LG_PLACE_NAME', $apikeys->meta->appName->es);
+
 
 
 //iPad, AndroidタブレットはPCビュー

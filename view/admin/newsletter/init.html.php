@@ -22,7 +22,7 @@ use Goteo\Library\Text;
 
 $mailing = $this['mailing'];
 
-$link = SITE_URL.'/mail/'.base64_encode(md5(uniqid()).'¬any¬'.$mailing->mail).'/?email=any';
+$link = LG_BASE_URL_GT.'/mail/'.base64_encode(md5(uniqid()).'¬any¬'.$mailing->mail).'/?email=any';
 
 // mostrar enlace de si no ves y boton para activar
 ?>

@@ -116,7 +116,7 @@ $level = (int) $this['level'] ?: 3;
 <?php
 //todo: share.html.phpとまとめられるのでは
 if(preg_match('/^\/project\/(.*)\/updates\/[0-9]{1,}$/', $_SERVER['REQUEST_URI'], $m)):
-    $permalink = SITE_URL . $_SERVER['REQUEST_URI'];
+    $permalink = LG_BASE_URL_GT . $_SERVER['REQUEST_URI'];
 ?>
     <div class="blog-share">
         <div id="social_bookmark" class="social_bookmark update">

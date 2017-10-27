@@ -87,7 +87,7 @@ $configJson = json_decode( file_get_contents( __DIR__ . '/../../omniconfig/apike
                 <dl class="list02">
                     <dt></dt>
                     <dd>
-                        <a href="<?php echo SITE_URL; ?>/discover/">
+                        <a href="<?php echo LG_BASE_URL_GT; ?>/discover/">
                             プロジェクト一覧
                         </a>
                     </dd>
@@ -112,7 +112,7 @@ $configJson = json_decode( file_get_contents( __DIR__ . '/../../omniconfig/apike
                 //ログインしていない
                 ?>
             <li>
-                <a href="<?php echo SITE_URL; ?>/user/login" class="list01__text">
+                <a href="<?php echo LG_BASE_URL_GT; ?>/user/login" class="list01__text">
                     新規登録/ログイン
                 </a>
             </li>
@@ -126,16 +126,16 @@ $configJson = json_decode( file_get_contents( __DIR__ . '/../../omniconfig/apike
                 <dl class="list02">
                     <dt></dt>
                     <dd>
-                        <a href="<?php echo SITE_URL; ?>/dashboard/activity">アクティビティ</a>
+                        <a href="<?php echo LG_BASE_URL_GT; ?>/dashboard/activity">アクティビティ</a>
                     </dd>
                     <dd>
-                        <a href="<?php echo SITE_URL; ?>/dashboard/profile">プロフィール</a>
+                        <a href="<?php echo LG_BASE_URL_GT; ?>/dashboard/profile">プロフィール</a>
                     </dd>
                     <dd>
-                        <a href="<?php echo SITE_URL; ?>/community/sharemates">みんなの興味</a>
+                        <a href="<?php echo LG_BASE_URL_GT; ?>/community/sharemates">みんなの興味</a>
                     </dd>
                     <dd class="logout mean-last">
-                        <a href="<?php echo SITE_URL; ?>/user/logout">ログアウト</a>
+                        <a href="<?php echo LG_BASE_URL_GT; ?>/user/logout">ログアウト</a>
                     </dd>
                 </dl>
             </li>

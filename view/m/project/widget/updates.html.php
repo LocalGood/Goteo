@@ -75,7 +75,7 @@ $level = (int) $this['level'] ?: 3;
             <?php while ($post = $pagedResults->fetchPagedRow()) :
                 
                     $share_title = $post->title;
-                    $share_url = SITE_URL . '/project/'.$project->id.'/updates/' . $post->id;
+                    $share_url = LG_BASE_URL_GT . '/project/'.$project->id.'/updates/' . $post->id;
                     $facebook_url = 'http://facebook.com/sharer.php?u=' . rawurlencode($share_url) . '&t=' . rawurlencode($share_title);
                     $twitter_url = 'http://twitter.com/home?status=' . rawurlencode($share_title . ': ' . $share_url . ' #Goteo');
                 ?>
@@ -94,7 +94,7 @@ $level = (int) $this['level'] ?: 3;
 
     <?php
     if(preg_match('/^\/project\/(.*)\/updates\/[0-9]{1,}$/', $_SERVER['REQUEST_URI'], $m)):
-        $permalink = SITE_URL . $_SERVER['REQUEST_URI'];
+        $permalink = LG_BASE_URL_GT . $_SERVER['REQUEST_URI'];
         ?>
         <div class="blog-share">
             <div class="social_bookmark">

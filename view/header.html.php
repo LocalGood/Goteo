@@ -71,11 +71,11 @@ $configJson = json_decode(file_get_contents( '/var/www/html/omniconfig/apikeys.j
                     </div>
                 </li>
                 <li>
-                    <a href="<?php echo SITE_URL; ?>">応援する</a>
+                    <a href="<?php echo LG_BASE_URL_GT; ?>">応援する</a>
                     <div class="header__right__snav">
                         <div class="header__right__snav__inner">
                             <ul>
-                                <li><span><a href="<?php echo SITE_URL; ?>/discover/">プロジェクト一覧</a></span></li>
+                                <li><span><a href="<?php echo LG_BASE_URL_GT; ?>/discover/">プロジェクト一覧</a></span></li>
                                 <li><span><a href="<?php echo LG_BASE_URL_WP . '/challenge/'; ?>">プロジェクトを立ち上げる</a></span></li>
                             </ul>
                         </div>

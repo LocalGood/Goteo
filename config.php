@@ -117,9 +117,9 @@ mb_internal_encoding("UTF-8");
      * LocalGood Server Environment
      */
     // url
-    'SITE_URL', // endpoint url
+    'LG_BASE_URL_GT', // endpoint url
     'SRC_URL',  // host for statics
-    'SEC_URL',  // with SSL certified
+    'LG_BASE_URL_GT',  // with SSL certified
     // Wordpress URL
     'LG_BASE_URL_WP',
     //

@@ -46,7 +46,7 @@ namespace Goteo\Controller {
             $config = array(
                 'title' => 'Goteo Rss',
                 'description' => 'Blog Goteo.org rss',
-                'link' => SITE_URL,
+                'link' => LG_BASE_URL_GT,
                 'indent' => 6
             );
 

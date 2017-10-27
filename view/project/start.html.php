@@ -35,7 +35,7 @@ include 'view/header.html.php'; ?>
 
     <div id="main" class="<?php echo htmlspecialchars($this['step']) ?>">
 
-        <form method="post" action="<?php echo SITE_URL . "/project/create/" ?>" class="project">
+        <form method="post" action="<?php echo LG_BASE_URL_GT . "/project/create/" ?>" class="project">
             <div>
                 <label>
                     <h3>プロジェクトURLとなる文字列を入力してください。</h3>

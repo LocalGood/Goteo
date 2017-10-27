@@ -134,7 +134,7 @@ jQuery(document).ready(function($) {
         </div>
         <ul>
             <li>
-                <a href="<?php echo SITE_URL; ?>/discover">
+                <a href="<?php echo LG_BASE_URL_GT; ?>/discover">
                     プロジェクト一覧
                 </a>
             </li>

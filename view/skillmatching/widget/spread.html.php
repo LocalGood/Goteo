@@ -27,7 +27,7 @@ $level = (int) $this['level'] ?: 3;
 
 $lsuf = (LANG != 'es') ? '?lang='.LANG : '';
 
-$url = SITE_URL . '/widget/skillmatching/' . urlencode($project->id);
+$url = LG_BASE_URL_GT . '/widget/skillmatching/' . urlencode($project->id);
 $widget_code = Text::widget($url . $lsuf);
 $widget_code_investor = Text::widget($url.'/invested/'.$user->id.'/'.$lsuf);
 ?>

@@ -89,12 +89,12 @@ namespace Goteo\Controller {
 
                 if (!isset($methods[$method])) {
                     Message::Error(Text::get('invest-method-error'));
-                    throw new Redirection(SEC_URL."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
+                    throw new Redirection(LG_BASE_URL_GT."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
                 }
 
                 if (empty($_POST['amount']) && ($projType === 'project')) {
                     Message::Error(Text::get('invest-amount-error'));
-                    throw new Redirection(SEC_URL."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
+                    throw new Redirection(LG_BASE_URL_GT."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
                 }
 
                 // dirección de envio para las recompensas
@@ -110,7 +110,7 @@ namespace Goteo\Controller {
 
                 if ($projectData->owner == $_SESSION['user']->id) {
                     Message::Error(Text::get('invest-owner-error'));
-                    throw new Redirection(SEC_URL."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
+                    throw new Redirection(LG_BASE_URL_GT."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
                 }
 
 
@@ -128,7 +128,7 @@ namespace Goteo\Controller {
 
                 if ( $reward && (empty($_POST['fullname'])||empty($_POST['address']))){
                     Message::Error(Text::get('invest-required-error'));
-                    throw new Redirection(SEC_URL."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
+                    throw new Redirection(LG_BASE_URL_GT."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
                 }
 
                 // insertamos los datos personales del usuario si no tiene registro aun
@@ -163,8 +163,8 @@ namespace Goteo\Controller {
                 $invest->project_name = $projectData->name;
 
                 if ($invest->save($errors)) {
-                    $invest->urlOK  = SEC_URL."/invest/done/{$invest->id}";
-                    $invest->urlNOK = SEC_URL."/invest/fail/{$invest->id}";
+                    $invest->urlOK  = LG_BASE_URL_GT."/invest/done/{$invest->id}";
+                    $invest->urlNOK = LG_BASE_URL_GT."/invest/fail/{$invest->id}";
                     Model\Invest::setDetail($invest->id, 'init', 'Se ha creado el registro de aporte, el usuario ha clickado el boton de tpv o paypal. Proceso controller/invest');
 
                     switch($method) {
@@ -229,7 +229,7 @@ namespace Goteo\Controller {
 
                                 // En el contenido:
                                 $search  = array('%OWNERNAME%', '%USERNAME%', '%PROJECTNAME%', '%SITEURL%', '%REWARD%', '%USEREMAIL%','%MESSAGEURL%');
-                                $replace = array($projectData->user->name, $user->name, $projectData->name, SITE_URL, $invested_reward->reward, $user->email, SITE_URL.'/user/profile/'.$user->id.'/message');
+                                $replace = array($projectData->user->name, $user->name, $projectData->name, LG_BASE_URL_GT, $invested_reward->reward, $user->email, LG_BASE_URL_GT.'/user/profile/'.$user->id.'/message');
                                 $content = \str_replace($search, $replace, $template->text);
 
                                 $mailHandler = new Mail();
@@ -359,7 +359,7 @@ namespace Goteo\Controller {
 
             // En el contenido:
             $search  = array('%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%', '%AMOUNT%', '%REWARDS%', '%ADDRESS%');
-            $replace = array($user->name, $projectData->name, SITE_URL.'/project/'.$projectData->id, $confirm->amount, $txt_rewards, $txt_address);
+            $replace = array($user->name, $projectData->name, LG_BASE_URL_GT.'/project/'.$projectData->id, $confirm->amount, $txt_rewards, $txt_address);
             $content = \str_replace($search, $replace, $template->text);
 
             $mailHandler = new Mail();
@@ -388,7 +388,7 @@ namespace Goteo\Controller {
 
             // En el contenido:
             $search  = array('%OWNERNAME%', '%USERNAME%', '%PROJECTNAME%', '%SITEURL%', '%AMOUNT%', '%MESSAGEURL%');
-            $replace = array($projectData->user->name, $user->name, $projectData->name, SITE_URL, $invest->amount, SITE_URL.'/user/profile/'.$user->id.'/message');
+            $replace = array($projectData->user->name, $user->name, $projectData->name, LG_BASE_URL_GT, $invest->amount, LG_BASE_URL_GT.'/user/profile/'.$user->id.'/message');
             $content = \str_replace($search, $replace, $template->text);
 
             $mailHandler = new Mail();
@@ -440,7 +440,7 @@ namespace Goteo\Controller {
 
             if ($result != 1) {   // 1:成功 0:失敗
                 Message::Error("return error from Epsilon" );
-                throw new Redirection(SEC_URL."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
+                throw new Redirection(LG_BASE_URL_GT."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
             }
 
 
@@ -570,7 +570,7 @@ namespace Goteo\Controller {
 
             // En el contenido:
             $search  = array('%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%', '%AMOUNT%', '%REWARDS%', '%ADDRESS%');
-            $replace = array($user->name, $projectData->name, SITE_URL.'/project/'.$projectData->id, $confirm->amount, $txt_rewards, $txt_address);
+            $replace = array($user->name, $projectData->name, LG_BASE_URL_GT.'/project/'.$projectData->id, $confirm->amount, $txt_rewards, $txt_address);
             $content = \str_replace($search, $replace, $template->text);
 
             $mailHandler = new Mail();
@@ -603,7 +603,7 @@ namespace Goteo\Controller {
 
             // En el contenido:
             $search  = array('%OWNERNAME%', '%USERNAME%', '%PROJECTNAME%', '%SITEURL%', '%AMOUNT%', '%MESSAGEURL%');
-            $replace = array($projectData->user->name, $user->name, $projectData->name, SITE_URL, $invest->amount, SITE_URL.'/user/profile/'.$user->id.'/message');
+            $replace = array($projectData->user->name, $user->name, $projectData->name, LG_BASE_URL_GT, $invest->amount, LG_BASE_URL_GT.'/user/profile/'.$user->id.'/message');
             $content = \str_replace($search, $replace, $template->text);
 
             $mailHandler = new Mail();
@@ -848,7 +848,7 @@ namespace Goteo\Controller {
                     case 0:	// 失敗
                         // エラー出力
                         Message::Error(Text::get('Epsilon Return Error') . "\n" . $err_code ."\n" .$err_detail);
-                        throw new Redirection(SEC_URL."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
+                        throw new Redirection(LG_BASE_URL_GT."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
                         break;
                 }
 
@@ -995,7 +995,7 @@ namespace Goteo\Controller {
                     case 0:	// 失敗
                         // エラー出力
                         Message::Error(Text::get('Epsilon Return Error'));
-                        throw new Redirection(SEC_URL."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
+                        throw new Redirection(LG_BASE_URL_GT."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
                         break;
                 }
 

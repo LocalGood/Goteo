@@ -43,7 +43,7 @@ if (isset($this['investor']) && is_object($this['investor'])) {
 }
 ?>
 <div class="widget project skillmatching activable<?php if (isset($this['balloon'])) echo ' balloon' ?>">
-	<!--<a href="<?php echo SITE_URL ?>/skillmatching/<?php echo $project->id ?>" class="expand"></a>-->
+	<!--<a href="<?php echo LG_BASE_URL_GT ?>/skillmatching/<?php echo $project->id ?>" class="expand"></a>-->
     <?php if (isset($this['balloon'])): ?>
     <div class="balloon"><?php echo $this['balloon'] ?></div>
     <?php endif ?>
@@ -54,17 +54,17 @@ if (isset($this['investor']) && is_object($this['investor'])) {
         ?>
 
         <?php if (!empty($project->gallery) && (current($project->gallery) instanceof Image)): ?>
-        <a href="<?php echo SITE_URL ?>/skillmatching/<?php echo $project->id ?>" target="_parent"><img alt="<?php echo $project->name ?>" src="<?php echo current($project->gallery)->getLink(500, 285, true) ?>" /></a>
+        <a href="<?php echo LG_BASE_URL_GT ?>/skillmatching/<?php echo $project->id ?>" target="_parent"><img alt="<?php echo $project->name ?>" src="<?php echo current($project->gallery)->getLink(500, 285, true) ?>" /></a>
         <?php endif ?>
     </div>
 
     <div class="project-details">
         <h<?php echo $level ?> class="title">
-            <a href="<?php echo SITE_URL ?>/skillmatching/<?php echo $project->id ?>" target="_parent"><?php echo htmlspecialchars(Text::shorten($project->name,50)) ?></a>
+            <a href="<?php echo LG_BASE_URL_GT ?>/skillmatching/<?php echo $project->id ?>" target="_parent"><?php echo htmlspecialchars(Text::shorten($project->name,50)) ?></a>
         </h<?php echo $level ?>>
 
         <div class="author">
-            <a class="link" href="<?php echo SITE_URL ?>/user/profile/<?php echo htmlspecialchars($project->user->id) ?>"<?php echo $blank; ?>>
+            <a class="link" href="<?php echo LG_BASE_URL_GT ?>/user/profile/<?php echo htmlspecialchars($project->user->id) ?>"<?php echo $blank; ?>>
                     <span class="author-img">
                         <img src="<?php echo $project->user->avatar->getLink(50, 50, true); ?>" alt="<?php echo $project->user->name; ?>">
                     </span>

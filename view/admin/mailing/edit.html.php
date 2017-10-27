@@ -38,7 +38,7 @@ jQuery(document).ready(function ($) {
             $('#mail_subject').val('');
             $('#mail_content').html('');
            }
-            content = $.ajax({async: false, url: '<?php echo SITE_URL; ?>/ws/get_template_content/'+$('#template').val()}).responseText;
+            content = $.ajax({async: false, url: '<?php echo LG_BASE_URL_GT; ?>/ws/get_template_content/'+$('#template').val()}).responseText;
             var arr = content.split('#$#$#');
             $('#mail_subject').val(arr[0]);
             $('#mail_content').val(arr[1]);
@@ -53,7 +53,7 @@ jQuery(document).ready(function ($) {
         <li><strong>%USERID%</strong><?php echo Text::_(" Para el id de acceso del destinatario"); ?></li>
         <li><strong>%USEREMAIL%</strong><?php echo Text::_(" Para el email del destinatario"); ?></li>
         <li><strong>%USERNAME%</strong><?php echo Text::_(" Para el nombre del destinatario"); ?></li>
-        <li><strong>%SITEURL%</strong><?php echo Text::_(" Para la url de esta plataforma "); ?>(<?php echo SITE_URL ?>)</li>
+        <li><strong>%SITEURL%</strong><?php echo Text::_(" Para la url de esta plataforma "); ?>(<?php echo LG_BASE_URL_GT ?>)</li>
         <?php if ($this['filters']['type'] == 'owner' || $this['filters']['type'] == 'investor') : ?>
             <li><strong>%PROJECTID%</strong><?php echo Text::_(" Para el id del proyecto"); ?></li>
             <li><strong>%PROJECTNAME%</strong><?php echo Text::_(" Para el nombre del proyecto"); ?></li>
