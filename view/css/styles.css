@@ -2672,7 +2672,7 @@ body.js .superform > div.elements ol li.element div.contents p {
           clear: both; }
         .project-show .project-rewards-summary > div ul li .left {
           display: inline-block;
-          min-width: 60%; }
+          min-width: 100%; }
         .project-show .project-rewards-summary > div ul li .right {
           display: inline-block;
           min-width: 35%;
