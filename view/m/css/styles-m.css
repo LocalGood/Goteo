@@ -2947,15 +2947,14 @@ div.superform li#scope, div.superform li#supports, div.superform li#social_rewar
       border-left: 1px solid #d9d9d9;
       right: 0; }
 .project-show .social_bookmark {
-  letter-spacing: -0.4em; }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  letter-spacing: -0.4em;
+  padding-bottom: 8px; }
   .project-show .social_bookmark > div {
-    display: inline-block;
     letter-spacing: normal;
-    vertical-align: top;
-    margin-right: 10px;
-    margin-bottom: 20px; }
-    .project-show .social_bookmark > div:last-child {
-      margin-right: 0; }
+    margin-bottom: 12px; }
 .project-show #main {
   clear: both;
   overflow-y: hidden;

@@ -1432,7 +1432,7 @@ div#message {
       margin: auto;
       max-width: 500px;
       top: 75px;
-      width: 340px; }
+      width: 100px; }
   .widget.project-needs {
     margin-bottom: 20px; }
     .widget.project-needs #legend {
@@ -2493,6 +2493,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   margin: 0 auto; }
 .project-show .social_bookmark {
   display: flex;
+  justify-content: space-around;
   margin: 0 0 0 30px;
   position: absolute;
   right: 0;
