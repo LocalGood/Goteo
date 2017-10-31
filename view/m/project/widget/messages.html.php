@@ -31,7 +31,14 @@ $level = (int) $this['level'] ?: 3;
 		$("#message_text").blur(function(){
 			$("#preview").html($("#message_text").val().replace(/\n/g, "<br />"));
 		});
-		
+
+		/*$('#replyMessage').on('click', function(e){
+          e.preventDefault();
+          var position = document.getElementById('project-message').offsetTop;
+          $("html, body").animate({scrollTop:position}, 350, "swing");
+          return false;
+        });*/
+
 		//add fancybox on #a-preview click
 //		$("#a-preview").fancybox({
 //			'titlePosition'		: 'inside',
@@ -46,7 +53,7 @@ $level = (int) $this['level'] ?: 3;
     }
 </script>
 <?php if (!empty($_SESSION['user']) && $project->status >= 3) : ?>
-<div class="widget project-message">
+<div id="project-message" class="widget project-message">
     <h<?php echo $level ?> class="title"><?php echo Text::get('project-messages-send_message-header'); ?></h<?php echo $level ?>>
 
     <div>
@@ -83,7 +90,7 @@ $level = (int) $this['level'] ?: 3;
                    <blockquote><?php echo $message->message; ?></blockquote>
                 <?php if (!empty($_SESSION['user'])) : ?>
                    <div class="actions_date">
-                        <a class="" href="#" onclick="answer('<?php echo $message->id; ?>')"><?php echo Text::get('project-messages-answer_it'); ?></a>
+                        <a id="replyMessage" href="#project-message" onclick="answer('<?php echo $message->id; ?>')"><?php echo Text::get('project-messages-answer_it'); ?></a>
                         <?php // si puede borrar este mensaje
                         if (\Goteo\Core\ACL::check("/message/delete/{$message->id}/{$project->id}")) : ?>
                                 <a href="/message/delete/<?php echo $message->id; ?>/<?php echo $project->id; ?>"><?php echo Text::get('regular-delete'); ?></a>

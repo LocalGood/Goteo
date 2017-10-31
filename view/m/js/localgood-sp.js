@@ -18,7 +18,13 @@ $(function () {
         var speed = 350;
         var href= $(this).attr("href");
         var target = $(href == "#" || href == "" ? 'html' : href);
-        var position = target.offset().top;
+        var position = 0;
+        //#replyMessage（プロジェクト->スキル・物品の募集）の時はpositionの値を変更
+        if ($(this).attr('id') === 'replyMessage') {
+          position = document.getElementById('project-message').offsetTop;
+        } else {
+          position = target.offset().top;
+        }
         $("html, body").animate({scrollTop:position}, speed, "swing");
         return false;
     });
