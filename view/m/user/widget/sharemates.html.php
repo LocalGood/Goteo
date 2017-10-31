@@ -34,11 +34,17 @@ foreach ($categories as $catId => $catName) {
 
 ?>
 <script type="text/javascript">
-function displayCategories(categoryId1,categoryId2){
-	$("div.users").css("display","none");
-	$("#mates-" + categoryId1).fadeIn("slow");
-	$("#mates-" + categoryId2).fadeIn("slow");
-}
+  function displayCategories(categoryId1){
+    var targetDom = '#mates-' + categoryId1;
+    $("div.users").css("display","none");
+    $(targetDom).fadeIn("slow");
+
+    //自分が最後じゃなかったら、2つ出す。
+    if ($(targetDom).next().attr('class') === 'users') {
+      var nextDom = '#' + $(targetDom).next().attr('id');
+      $(nextDom).fadeIn("slow");
+    }
+  }
 </script>
 
 <div class="widget user-mates">
