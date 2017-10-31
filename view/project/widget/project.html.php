@@ -54,7 +54,6 @@ $categories = Category::getNames($project->id, 2);
                     echo '<div class="tagmark green">' . Text::get( 'regular-keepiton_mark' ) . '</div>';
                     break;
                 case 'onrun-keepiton': // "en marcha" y "aun puedes"
-                    //                echo '<div class="tagmark green">' . Text::get('regular-onrun_mark') . '</div>';
                     echo '<div class="tagmark green twolines"><span class="small"><strong>' . Text::get( 'regular-onrun_mark' ) . '</strong><br />' . Text::get( 'regular-keepiton_mark' ) . '</span></div>';
                     break;
                 case 'gotit': // "financiado"

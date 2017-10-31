@@ -18,7 +18,8 @@
  *
  */
 
-use Goteo\Model\User\Interest,
+use Goteo\Core\View,
+    Goteo\Model\User\Interest,
     Goteo\Model\User\Skill,
     Goteo\Library\Text;
 
@@ -83,7 +84,9 @@ $skills = Skill::getAll(null,true);
         </ul>
     </div>
     <?php endif ?>
-    
+
+    <?php echo new View('view/user/widget/social.html.php', array('user' => $user)) ?>
+
     <?php if (!empty($user->location)): ?>
      <div class="location">    
         <h4><?php echo Text::get('profile-location-header'); ?></h4>

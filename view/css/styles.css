@@ -580,7 +580,7 @@ input[type="button"].back {
     #pagination li:not(:last-child) {
       margin-right: 10px; }
     #pagination li.selected {
-      background: #fff;
+      background: #d9d9d9;
       font-weight: bold;
       padding: 6px 20px; }
     #pagination li.hellip {
@@ -2625,11 +2625,16 @@ body.js .superform > div.elements ol li.element div.contents p {
     padding: .3em 0;
     resize: none;
     width: 525px; }
+  .project-show .project-message p.caution {
+    float: right;
+    margin-bottom: 0;
+    width: 525px;
+    color: #e02d22; }
   .project-show .project-message a.preview {
     color: #255b7f;
     font-style: normal;
     font-weight: 400;
-    left: 80px;
+    left: 54px;
     position: absolute;
     text-decoration: none;
     text-transform: uppercase;
@@ -2891,7 +2896,8 @@ body.js .superform > div.elements ol li.element div.contents p {
   .project-show .center.home .project-summary .gallery-image img {
     width: 100%; }
 .project-show .center.needs .widget.project-message a.preview {
-  top: 205px; }
+  position: relative;
+  top: 0; }
 .project-show .center.supporters {
   margin-bottom: 20px; }
   .project-show .center.supporters .invest-message {
@@ -5206,11 +5212,71 @@ body.js .superform > div.elements ol li.element div.contents p {
     font-weight: bold;
     font-size: 24px;
     font-style: normal; }
-.user-profile .center .widget.user-mates:last-child {
-  margin-bottom: 20px; }
-.user-profile .center .widget.user-mates .users ul > li {
-  max-width: 305px;
-  width: 305px; }
+.user-profile .center .widget.user-mates {
+  background-color: #f2f2f2;
+  padding: 0; }
+  .user-profile .center .widget.user-mates .categories {
+    background-color: #fff;
+    border-bottom: 1px solid #d9d9d9;
+    margin-bottom: 20px;
+    min-height: 58px;
+    padding: 15px 20px; }
+    .user-profile .center .widget.user-mates .categories h3.title {
+      border-bottom: 1px solid #d9d9d9;
+      font-size: 18px;
+      font-weight: 400;
+      height: auto;
+      min-height: unset;
+      line-height: 16px;
+      margin: 0 0 20px 0;
+      padding: 0;
+      border: none;
+      background: none; }
+    .user-profile .center .widget.user-mates .categories .list {
+      padding: 0; }
+      .user-profile .center .widget.user-mates .categories .list > ul {
+        list-style: none; }
+        .user-profile .center .widget.user-mates .categories .list > ul > li {
+          display: inline-block;
+          margin-left: 0;
+          padding-left: 0; }
+          .user-profile .center .widget.user-mates .categories .list > ul > li a {
+            font-size: 12px;
+            line-height: 30px;
+            text-decoration: none; }
+            .user-profile .center .widget.user-mates .categories .list > ul > li a.active, .user-profile .center .widget.user-mates .categories .list > ul > li a:hover {
+              color: #0093c4; }
+  .user-profile .center .widget.user-mates .users:last-child {
+    margin-bottom: 20px; }
+  .user-profile .center .widget.user-mates .users ul > li {
+    max-width: 305px;
+    width: 305px; }
+  .user-profile .center .widget.user-mates .users a.more {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #fff;
+    border-bottom: 1px solid #d9d9d9;
+    color: #255b7f;
+    font-size: 14px;
+    line-height: 58px;
+    margin: 0;
+    min-height: 58px;
+    padding: 0 20px 0 10px;
+    right: 0;
+    text-decoration: none;
+    top: 0;
+    width: 100%; }
+    .user-profile .center .widget.user-mates .users a.more:after {
+      content: "\f105";
+      color: #255b7f;
+      font-weight: bold;
+      margin-left: 4px; }
+    .user-profile .center .widget.user-mates .users a.more:hover {
+      color: #009acb; }
 .user-profile .center .widget.project-supporters .summary {
   background-color: #fff;
   border-bottom: 1px solid #d9d9d9;
@@ -5240,32 +5306,6 @@ body.js .superform > div.elements ol li.element div.contents p {
     padding-bottom: 20px; }
 .user-profile .center .widget.project-supporters .supporters .supporter h4 {
   min-height: 36px; }
-.user-profile .center .widget.user-mates .categories {
-  margin: 0;
-  padding: 0; }
-  .user-profile .center .widget.user-mates .categories h3.title {
-    background-color: #fff;
-    border-bottom: 1px solid #d9d9d9;
-    font-size: 18px;
-    font-weight: 400;
-    margin: 0;
-    height: 80px;
-    line-height: 80px;
-    padding: 0 2px 0 20px; }
-  .user-profile .center .widget.user-mates .categories ul {
-    display: inline-block;
-    list-style: none;
-    margin: 0;
-    padding-left: 0; }
-    .user-profile .center .widget.user-mates .categories ul li {
-      display: inline-block;
-      margin-left: 0;
-      padding-left: 0; }
-      .user-profile .center .widget.user-mates .categories ul li a {
-        font-size: 12px;
-        text-decoration: none; }
-        .user-profile .center .widget.user-mates .categories ul li a.active, .user-profile .center .widget.user-mates .categories ul li a:hover {
-          color: #0093c4; }
 .user-profile .center .widget.user-message label {
   display: block; }
 .user-profile .center .widget.user-message input#contact-subject {
@@ -5279,22 +5319,6 @@ body.js .superform > div.elements ol li.element div.contents p {
   background: #FFF; }
 .user-profile .center .widget.user-message a.preview {
   display: none; }
-.user-profile .center .widget.user-mates .categories {
-  padding: 15px 20px; }
-  .user-profile .center .widget.user-mates .categories h3.title {
-    height: auto;
-    min-height: unset;
-    line-height: 16px;
-    margin: 0 0 20px 0;
-    padding: 0;
-    border: none;
-    background: none; }
-  .user-profile .center .widget.user-mates .categories .list {
-    padding: 0; }
-    .user-profile .center .widget.user-mates .categories .list > ul {
-      list-style: none;
-      padding: 0;
-      background: none; }
 .user-profile .side > .widget {
   background: none;
   margin: 0 0 20px; }
@@ -5395,7 +5419,7 @@ body.js .superform > div.elements ol li.element div.contents p {
           .user-profile .side .widget.user-mates div.categories ul li a:hover {
             color: #009acb; }
   .user-profile .side .widget.user-mates .users {
-    border-bottom: none; }
+    margin-bottom: 20px; }
     .user-profile .side .widget.user-mates .users ul {
       display: -webkit-flex;
       display: flex;
@@ -5434,6 +5458,23 @@ body.js .superform > div.elements ol li.element div.contents p {
             width: 101px;
             font-size: 10px;
             margin: 0 0 0 5px; }
+  .user-profile .side .widget.user-mates a.more {
+    background-color: #fff;
+    border-top: 1px solid #d9d9d9;
+    clear: both;
+    color: #255b7f;
+    display: block;
+    float: none;
+    font-size: 14px !important;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    top: -1px; }
+    .user-profile .side .widget.user-mates a.more:hover {
+      color: #009acb; }
 .user-profile .widget.user-message form label[for=user_message] {
   display: block; }
 .user-profile .widget.user-message form textarea#user_message {
@@ -5598,41 +5639,54 @@ body.js .superform > div.elements ol li.element div.contents p {
           position: absolute;
           top: 10px; }
 .user-profile .widget.user-social {
-  border-bottom: 1px dashed #d9d9d9; }
+  padding: 20px 0; }
   .user-profile .widget.user-social .title {
     display: none; }
   .user-profile .widget.user-social ul {
+    zoom: 1;
     list-style: none;
     margin: 0;
     overflow: visible;
     padding: 0; }
+    .user-profile .widget.user-social ul:after {
+      content: '';
+      display: block;
+      clear: both; }
     .user-profile .widget.user-social ul li {
-      background: no-repeat left center;
       display: block;
       float: left;
-      line-height: 2em;
-      min-height: 2em;
-      min-width: 20px; }
+      margin-right: 12px;
+      /*&.identica {
+        a {
+          background-image:url(/view/images/social/identica.png);
+        }
+      }
+      &.linkedin {
+        a {
+          background-image:url(/view/images/social/linkedin.png);
+        }
+      }*/ }
+      .user-profile .widget.user-social ul li:last-child {
+        margin-right: 0; }
       .user-profile .widget.user-social ul li a {
+        background-repeat: no-repeat;
+        background-size: 24px auto;
         display: block;
-        min-height: 20px;
-        text-decoration: none;
-        background-repeat: no-repeat; }
+        min-height: 24px;
+        min-width: 24px;
+        text-decoration: none; }
       .user-profile .widget.user-social ul li.facebook a {
         background-image: url(/view/images/social/facebook.png); }
       .user-profile .widget.user-social ul li.google a {
         background-image: url(/view/images/social/google.png); }
       .user-profile .widget.user-social ul li.twitter a {
         background-image: url(/view/images/social/twitter.png); }
-      .user-profile .widget.user-social ul li.identica a {
-        background-image: url(/view/images/social/identica.png); }
-      .user-profile .widget.user-social ul li.linkedin a {
-        background-image: url(/view/images/social/linkedin.png); }
 .user-profile .widget.user-mates {
+  background-color: #f2f2f2;
   padding: 0;
   position: relative; }
   .user-profile .widget.user-mates h3.title {
-    background: url(/view/images/icon_tag_b.png) no-repeat 20px 50%;
+    background: url(/view/images/icon_tag_b.png) #fff no-repeat 20px 50%;
     border-bottom: 1px solid #d9d9d9;
     font-size: 14px;
     font-weight: 400;
@@ -5659,7 +5713,6 @@ body.js .superform > div.elements ol li.element div.contents p {
     overflow: auto;
     padding: 0; }
   .user-profile .widget.user-mates div.users {
-    border-bottom: 1px solid #d9d9d9;
     clear: both;
     position: relative; }
     .user-profile .widget.user-mates div.users ul {
@@ -5685,7 +5738,7 @@ body.js .superform > div.elements ol li.element div.contents p {
         .user-profile .widget.user-mates div.users ul > li.nomarginright {
           margin-right: 0; }
         .user-profile .widget.user-mates div.users ul > li.active {
-          background-color: #f2f2f2 !important; }
+          background-color: #f2f2f2; }
         .user-profile .widget.user-mates div.users ul > li:hover > div.user > h4 > a {
           color: #009acb; }
         .user-profile .widget.user-mates div.users ul > li .user {
@@ -5744,41 +5797,17 @@ body.js .superform > div.elements ol li.element div.contents p {
         text-transform: none !important; }
         .user-profile .widget.user-mates div.users ul li a:hover {
           color: #009acb; }
-      .user-profile .widget.user-mates div.users ul li div.user h4 {
+      .user-profile .widget.user-mates div.users ul li div.user h4,
+      .user-profile .widget.user-mates div.users ul li div.user h5 {
         margin-bottom: 10px; }
-        .user-profile .widget.user-mates div.users ul li div.user h4 a {
+        .user-profile .widget.user-mates div.users ul li div.user h4 a,
+        .user-profile .widget.user-mates div.users ul li div.user h5 a {
           display: inline-block;
           font-weight: 700; }
-  .user-profile .widget.user-mates a.more {
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #255b7f;
-    font-size: 14px;
-    line-height: 58px;
-    margin: 0;
-    min-height: 58px;
-    padding: 0 20px 0 10px;
-    right: 0;
-    text-decoration: none;
-    top: 0; }
-    .user-profile .widget.user-mates a.more:after {
-      content: "\f105";
-      color: #255b7f;
-      font-weight: bold;
-      margin-left: 4px; }
-    .user-profile .widget.user-mates a.more:hover {
-      color: #009acb; }
-  .user-profile .widget.user-mates .project-widget-box {
-    background-color: #f2f2f2;
-    margin: 0;
-    padding: 0; }
   .user-profile .widget.user-mates div.categories {
     background-color: #fff;
     border-bottom: 1px solid #d9d9d9;
+    margin-bottom: 20px;
     min-height: 58px;
     padding: 12px 0 12px 20px; }
     .user-profile .widget.user-mates div.categories h3.supertitle {
@@ -5788,6 +5817,15 @@ body.js .superform > div.elements ol li.element div.contents p {
       padding-left: 20px; }
       .user-profile .widget.user-mates div.categories .list > ul > li a {
         line-height: 30px; }
+  .user-profile .widget.user-mates .not-has-categories {
+    background-color: #fff;
+    border-bottom: 1px solid #d9d9d9;
+    margin: 0 0 20px;
+    padding: 12px 0 12px 20px; }
+  .user-profile .widget.user-mates .project-widget-box {
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0; }
 .user-profile .widget.user h3.supertitle {
   font-weight: normal;
   margin: 0;

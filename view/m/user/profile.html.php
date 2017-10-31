@@ -78,9 +78,6 @@ $worthcracy = Worth::getAll();
 
         <?php echo new View(VIEW_PATH . '/user/widget/about.html.php', array('user' => $user, 'projects' => $this['projects'])) ?>
 
-        <?php echo new View(VIEW_PATH . '/user/widget/social.html.php', array('user' => $user)) ?>
-
-
         <?php foreach ($this['lists'] as $type=>$list) :
             if (array_empty($list))
                 continue;

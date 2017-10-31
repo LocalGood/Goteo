@@ -101,7 +101,6 @@ $until = mktime(0, 0, 0, date('m', $until) + 1, -1, date('Y', $until));
                         echo '<th colspan="', $span, '"><span>';
 
                         if ($span > 10) {
-    //                        echo htmlspecialchars(date('F', $d));
                             echo htmlspecialchars(strftime('%B', $d));
                         }
 

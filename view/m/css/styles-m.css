@@ -1193,6 +1193,11 @@ ul#pagination {
     margin: 0 0 12px;
     padding: .3em 0;
     width: 85%; }
+  .widget.project-message .caution {
+    float: right;
+    margin-top: 0;
+    width: 85%;
+    color: #e02d22; }
   .widget.project-message a.preview {
     display: inline-block;
     position: absolute;
@@ -3540,9 +3545,7 @@ div.superform li#scope, div.superform li#supports, div.superform li#social_rewar
     padding-bottom: 70px; }
 .user-profile .widget.user-social {
   background-color: #ffffff;
-  border-bottom: 1px solid #d9d9d9;
-  margin-bottom: 20px;
-  padding: 16px; }
+  padding: 16px 0; }
   .user-profile .widget.user-social .title {
     display: none; }
   .user-profile .widget.user-social ul {
@@ -3555,27 +3558,35 @@ div.superform li#scope, div.superform li#supports, div.superform li#social_rewar
       display: block;
       clear: both; }
     .user-profile .widget.user-social ul li {
-      background: no-repeat left center;
       display: block;
       float: left;
       margin-right: 8px;
-      min-width: 20px; }
+      /*&.identica {
+        a {
+          background-image:url(/view/images/social/identica.png);
+        }
+      }
+      &.linkedin {
+        a {
+          background-image:url(/view/images/social/linkedin.png);
+        }
+      }*/ }
+      .user-profile .widget.user-social ul li:last-child {
+        margin-right: 0; }
       .user-profile .widget.user-social ul li a {
-        display: block;
-        text-decoration: none;
-        text-indent: -9999px;
         background-repeat: no-repeat;
-        background-size: 20px auto; }
+        background-size: 24px auto;
+        display: block;
+        min-height: 24px;
+        min-width: 24px;
+        text-decoration: none;
+        text-indent: -9999px; }
       .user-profile .widget.user-social ul li.facebook a {
         background-image: url(/view/images/social/facebook.png); }
       .user-profile .widget.user-social ul li.google a {
         background-image: url(/view/images/social/google.png); }
       .user-profile .widget.user-social ul li.twitter a {
         background-image: url(/view/images/social/twitter.png); }
-      .user-profile .widget.user-social ul li.identica a {
-        background-image: url(/view/images/social/identica.png); }
-      .user-profile .widget.user-social ul li.linkedin a {
-        background-image: url(/view/images/social/linkedin.png); }
 .user-profile .widget.user-mates {
   padding: 0;
   position: relative;
@@ -3725,11 +3736,17 @@ div.superform li#scope, div.superform li#supports, div.superform li#social_rewar
   .user-profile .widget.user-mates div.categories {
     background-color: #ffffff;
     border-bottom: 1px solid #d9d9d9;
+    margin-bottom: 16px;
     padding: 5px 0; }
     .user-profile .widget.user-mates div.categories ul {
       background: url(/view/m/images/icon_tag@2x.png) no-repeat 8px 5px;
       background-size: 14px auto;
       padding-left: 28px; }
+  .user-profile .widget.user-mates .not-has-categories {
+    background-color: #fff;
+    border-bottom: 1px solid #d9d9d9;
+    margin: 0 0 16px;
+    padding: 12px; }
 .user-profile .widget.user h3.supertitle {
   font-weight: normal;
   margin: 0;

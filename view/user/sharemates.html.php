@@ -61,70 +61,70 @@ if (empty($shares)) {
     <div class="center">
 
 		<div class="widget user-mates">
-
-       <!-- lista de categorías -->
-        <div class="categories">
-            <h3 class="title"><?php echo Text::get('profile-sharing_interests-header');?></h3>
-            <script type="text/javascript">
-            function displayCategory(categoryId){
-                $(".user-mates").css("display","none");
-                $("#cat" + categoryId).fadeIn("slow");
-                $(".active").removeClass('active');
-                $("#catlist" + categoryId).addClass('active');
-            }
-            </script>
-            <div class="list">
-                <ul>
-                    <?php foreach ($categories as $catId=>$catName) : if (count($shares[$catId]) == 0) continue; ?>
-                    <li><a id="catlist<?php echo $catId ?>" href="/user/profile/<?php echo $this['user']->id ?>/sharemates/<?php echo $catId ?>" <?php if (!empty($this['category'])) : ?>onclick="displayCategory(<?php echo $catId ?>); return false;"<?php endif; ?> <?php if ($catId == $this['category']) echo 'class="active"'?>><?php echo $catName ?></a>,</li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        </div>
-        <!-- fin lista de categorías -->
-		</div>
-
-        <!-- detalle de categoría (cabecera de categoría) -->
-        <?php foreach ($shares as $catId => $sharemates) :
-            if (count($sharemates) == 0) continue;
-            shuffle($sharemates);
-            ?>
-            <div class="widget user-mates" id="cat<?php echo $catId;?>" <?php if (!empty($this['category']) && $catId != $this['category']) echo 'style="display:none;"'?>>
-                <h3 class="title"><?php echo $categories[$catId] ?></h3>
-                <?php if (empty($this['category'])) : ?>
-                    <a class="more" href="/user/profile/<?php echo $this['user']->id ?>/sharemates/<?php echo $catId ?>"><?php echo Text::get('regular-see_more'); ?></a>
-                    <?php $isArchive = false; ?>
-                <?php else : ?>
-                    <a class="more" href="/user/profile/<?php echo $this['user']->id ?>/sharemates"><?php echo Text::get('regular-see_all'); ?></a>
-                    <?php $isArchive = true; ?>
-                <?php endif; ?>
-
-                <div class="users">
-                    <ul <?php echo ($isArchive===false)?"class='is-archive-all'":""; ?>>
-                    <?php
-                    $cnt = 1;
-                    foreach ($sharemates as $mate) :
-                        if (empty($this['category']) && $cnt > 6) break;
-                    ?>
-                        <li>
-                            <div class="user">
-                                <a href="/user/<?php echo htmlspecialchars($mate->user) ?>" class="expand">&nbsp;</a>
-                                <div class="avatar"><a href="/user/<?php echo htmlspecialchars($mate->user) ?>"><img src="<?php echo $mate->avatar->getLink(43, 43, true) ?>" /></a></div>
-                                <h4><a href="/user/<?php echo htmlspecialchars($mate->user) ?>"><?php echo Text::shorten(htmlspecialchars($mate->name),18) ?></a></h4>
-                                <span class="projects"><?php echo Text::get('regular-projects'); ?> (<?php echo $mate->projects ?>)</span>
-                                <span class="invests"><?php echo Text::get('regular-investing'); ?> (<?php echo $mate->invests ?>)</span><br/>
-                                <span class="profile"><a href="/user/profile/<?php echo htmlspecialchars($mate->user) ?>"><?php echo Text::get('profile-widget-button'); ?></a> </span>
-                            </div>
-                        </li>
-                    <?php
-                    $cnt ++;
-                    endforeach; ?>
+           <!-- lista de categorías -->
+            <div class="categories">
+                <h3 class="title"><?php echo Text::get('profile-sharing_interests-header');?></h3>
+                <script type="text/javascript">
+                function displayCategory(categoryId){
+                    $(".user-mates").css("display","none");
+                    $("#cat" + categoryId).fadeIn("slow");
+                    $(".active").removeClass('active');
+                    $("#catlist" + categoryId).addClass('active');
+                }
+                </script>
+                <div class="list">
+                    <ul>
+                        <?php foreach ($categories as $catId=>$catName) : if (count($shares[$catId]) == 0) continue; ?>
+                        <li><a id="catlist<?php echo $catId ?>" href="/user/profile/<?php echo $this['user']->id ?>/sharemates/<?php echo $catId ?>" <?php if (!empty($this['category'])) : ?>onclick="displayCategory(<?php echo $catId ?>); return false;"<?php endif; ?> <?php if ($catId == $this['category']) echo 'class="active"'?>><?php echo $catName ?></a>,</li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
+            </div>
+            <!-- fin lista de categorías -->
+
+            <!-- detalle de categoría (cabecera de categoría) -->
+            <?php foreach ($shares as $catId => $sharemates) :
+                if (count($sharemates) == 0) continue;
+                shuffle($sharemates);
+                ?>
+                <div class="users" id="cat<?php echo $catId;?>" <?php if (!empty($this['category']) && $catId != $this['category']) echo 'style="display:none;"'?>>
+                    <h3 class="title"><?php echo $categories[$catId] ?></h3>
+                    <?php if (empty($this['category'])) : ?>
+                        <a class="more" href="/user/profile/<?php echo $this['user']->id ?>/sharemates/<?php echo $catId ?>"><?php echo Text::get('regular-see_more'); ?></a>
+                        <?php $isArchive = false; ?>
+                    <?php else : ?>
+                        <a class="more" href="/user/profile/<?php echo $this['user']->id ?>/sharemates"><?php echo Text::get('regular-see_all'); ?></a>
+                        <?php $isArchive = true; ?>
+                    <?php endif; ?>
+
+                    <div class="users">
+                        <ul <?php echo ($isArchive===false)?"class='is-archive-all'":""; ?>>
+                        <?php
+                        $cnt = 1;
+                        foreach ($sharemates as $mate) :
+                            if (empty($this['category']) && $cnt > 6) break;
+                        ?>
+                            <li>
+                                <div class="user">
+                                    <a href="/user/<?php echo htmlspecialchars($mate->user) ?>" class="expand">&nbsp;</a>
+                                    <div class="avatar"><a href="/user/<?php echo htmlspecialchars($mate->user) ?>"><img src="<?php echo $mate->avatar->getLink(43, 43, true) ?>" /></a></div>
+                                    <h4><a href="/user/<?php echo htmlspecialchars($mate->user) ?>"><?php echo Text::shorten(htmlspecialchars($mate->name),18) ?></a></h4>
+                                    <span class="projects"><?php echo Text::get('regular-projects'); ?> (<?php echo $mate->projects ?>)</span>
+                                    <span class="invests"><?php echo Text::get('regular-investing'); ?> (<?php echo $mate->invests ?>)</span><br/>
+                                    <span class="profile"><a href="/user/profile/<?php echo htmlspecialchars($mate->user) ?>"><?php echo Text::get('profile-widget-button'); ?></a> </span>
+                                </div>
+                            </li>
+                        <?php
+                        $cnt ++;
+                        endforeach; ?>
+                        </ul>
+                    </div>
+
+            </div>
+            <?php endforeach; ?>
+            <!-- fin detalle de categoría (cabecera de categoría) -->
 
         </div>
-        <?php endforeach; ?>
-        <!-- fin detalle de categoría (cabecera de categoría) -->
 
     </div>
     <div class="side">

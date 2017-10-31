@@ -179,8 +179,6 @@ class EpiOAuth
     curl_setopt($ch, CURLOPT_ENCODING, '');
     if($this->followLocation)
       curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-    if(isset($_SERVER ['SERVER_ADDR']) && !empty($_SERVER['SERVER_ADDR']) && $_SERVER['SERVER_ADDR'] != '127.0.0.1')
-      curl_setopt($ch, CURLOPT_INTERFACE, $_SERVER ['SERVER_ADDR']);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
     return $ch;

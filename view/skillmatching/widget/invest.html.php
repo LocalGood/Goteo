@@ -45,8 +45,6 @@ $step = $this['step'];
 
 $level = (int) $this['level'] ?: 3;
 
-//$worthcracy = Worth::getAll();
-
 $licenses = array();
 
 foreach (License::getAll() as $l) {

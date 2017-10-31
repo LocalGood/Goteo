@@ -17,7 +17,6 @@
  *  along with Goteo.  If not, see <http://www.gnu.org/licenses/agpl.txt>.
  *
  */
-//var_dump($this);
 ?>
 <div class="widget" style="margin-bottom:20px!important;background-color:#e7eb4c">
     <h2 style="text-align:center;"><a style="font-size:1em;font-weight:bold;" href="localgood://<?php echo $_SERVER['HTTP_HOST']; ?>/skillmatching/">Local Goodアプリへはこちらからお戻り下さい。</a></h2>

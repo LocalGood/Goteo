@@ -192,6 +192,7 @@ $_blog_key = substr($ogmeta['url'], $blog_post+9);
 */?>
 
     <?php if (!isset($useJQuery) || !empty($useJQuery)): ?>
+        <!--//jQueryのverをあげるとjQueryライブラリのfancyboxが動かなくなるため,以下のverをロードしています-->
         <script type="text/javascript" src="<?php echo SRC_URL ?>/view/js/jquery-1.6.4.min.js"></script>
         <script type="text/javascript" src="<?php echo SRC_URL ?>/view/js/jquery.tipsy.min.js"></script>
         <!-- custom scrollbars -->

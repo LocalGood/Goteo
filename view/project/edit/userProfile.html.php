@@ -71,7 +71,6 @@ foreach ($user->webs as $web) {
                         'required'  => true,
                         'title'     => Text::get('profile-field-url'),
                         'value'     => $web->url,
-                        // 'hint'      => Text::get('tooltip-user-webs'),
                         'errors'    => !empty($errors['web-' . $web->id . '-url']) ? array($errors['web-' . $web->id . '-url']) : array(),
                         'ok'        => !empty($okeys['web-' . $web->id . '-url']) ? array($okeys['web-' . $web->id . '-url']) : array(),
                         'class'     => 'web-url inline'
@@ -127,7 +126,6 @@ echo new SuperForm(array(
             'is_public' => true,
             'size'      => 20,
             'title'     => Text::get('profile-field-name'),
-            // 'hint'      => Text::get('tooltip-user-name'),
             'errors'    => !empty($errors['name']) ? array($errors['name']) : array(),
             'ok'        => !empty($okeys['name']) ? array($okeys['name']) : array(),
             'value'     => $user->name
@@ -138,7 +136,6 @@ echo new SuperForm(array(
             'is_public' => true,
             'size'      => 20,
             'title'     => Text::get('profile-field-location'),
-            // 'hint'      => Text::get('tooltip-user-location'),
             'errors'    => !empty($errors['location']) ? array($errors['location']) : array(),
             'ok'        => !empty($okeys['location']) ? array($okeys['location']) : array(),
             'value'     => $user->location
@@ -148,7 +145,6 @@ echo new SuperForm(array(
             'is_public' => true,
             'required'  => true,
             'title'     => Text::get('profile-fields-image-title'),
-            // 'hint'      => Text::get('tooltip-user-image'),
             'errors'    => !empty($errors['avatar']) ? array($errors['avatar']) : array(),
             'ok'        => !empty($okeys['avatar']) ? array($okeys['avatar']) : array(),
             'class'     => 'user_avatar',
@@ -157,7 +153,6 @@ echo new SuperForm(array(
                     'type'  => 'file',
                     'label' => Text::get('form-image_upload-button'),
                     'class' => 'inline avatar_upload',
-                    // 'hint'  => Text::get('tooltip-user-image'),
                 ),
                 'avatar-current' => array(
                     'type' => 'hidden',
@@ -214,7 +209,6 @@ echo new SuperForm(array(
             'is_public' => true,
             'size'      => 20,
             'title'     => Text::get('profile-field-keywords'),
-            // 'hint'      => Text::get('tooltip-user-keywords'),
             'errors'    => !empty($errors['keywords']) ? array($errors['keywords']) : array(),
             'ok'        => !empty($okeys['keywords']) ? array($okeys['keywords']) : array(),
             'value'     => $user->keywords
@@ -225,7 +219,6 @@ echo new SuperForm(array(
             'cols'      => 40,
             'rows'      => 4,
             'title'     => Text::get('profile-field-contribution'),
-            // 'hint'      => Text::get('tooltip-user-contribution'),
             'errors'    => !empty($errors['contribution']) ? array($errors['contribution']) : array(),
             'ok'        => !empty($okeys['contribution']) ? array($okeys['contribution']) : array(),
             'value'     => $user->contribution
@@ -235,7 +228,6 @@ echo new SuperForm(array(
             'required'  => true,
             'is_public' => true,
             'title'     => Text::get('profile-field-websites'),
-            // 'hint'      => Text::get('tooltip-user-webs'),
             'class'     => 'webs',
             'errors'    => !empty($errors['webs']) ? array($errors['webs']) : array(),
             'ok'        => !empty($okeys['webs']) ? array($okeys['webs']) : array(),
@@ -257,7 +249,6 @@ echo new SuperForm(array(
                     'class'     => 'facebook',
                     'size'      => 40,
                     'title'     => Text::get('regular-facebook'),
-                    // 'hint'      => Text::get('tooltip-user-facebook'),
                     'errors'    => !empty($errors['facebook']) ? array($errors['facebook']) : array(),
                     'ok'        => !empty($okeys['facebook']) ? array($okeys['facebook']) : array(),
                     'value'     => empty($user->facebook) ? Text::get('regular-facebook-url') : $user->facebook
@@ -267,7 +258,6 @@ echo new SuperForm(array(
                     'class'     => 'twitter',
                     'size'      => 40,
                     'title'     => Text::get('regular-twitter'),
-                    // 'hint'      => Text::get('tooltip-user-twitter'),
                     'errors'    => !empty($errors['twitter']) ? array($errors['twitter']) : array(),
                     'ok'        => !empty($okeys['twitter']) ? array($okeys['twitter']) : array(),
                     'value'     => empty($user->twitter) ? Text::get('regular-twitter-url') : $user->twitter

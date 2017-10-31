@@ -90,7 +90,6 @@ $per = 100 / $cols;
             </tbody>
         </table>
     <?php else :
-        //var_dump($this);
         ?>
         <p><?php echo Text::_("No se han encontrado registros"); ?></p>
     <?php endif; ?>

@@ -25,7 +25,6 @@ $level = (int) $this['level'] ?: 3;
 
 $project = $this['skillmatching'];
 $week = array('日','月','火','水','木','金','土');
-// $willpass = strtotime($project->willpass);
 ?>
 <div class="widget project-support collapsable" id="project-support">
 

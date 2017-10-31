@@ -28,8 +28,16 @@ $level = (int) $this['level'] ?: 3;
 	// Mark DOM as javascript-enabled
 	jQuery(document).ready(function ($) { 
 	    //change div#preview content when textarea lost focus
-		$("#message").blur(function(){
-			$("#preview").html($("#message").val().replace(/\n/g, "<br />"));
+		$("#message_text").blur(function(){
+          var text = $("#message_text");
+          var nextDom = $(text).next('.caution');
+          console.log(nextDom);
+          $(nextDom).remove();
+          if(text.val() === '') {
+            $(this).after('<p class="caution">テキストを入力してください</p>');
+            return false;
+          }
+			$("#preview").html($(text).val().replace(/\n/g, "<br />"));
 		});
 		
 		//add fancybox on #a-preview click
