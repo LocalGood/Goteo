@@ -37,7 +37,8 @@ $twitter_url = 'http://twitter.com/home?status=' . urlencode($share_title . ': '
 				$(".a-proyecto").fancybox({
 					'titlePosition'		: 'inside',
 					'transitionIn'		: 'none',
-					'transitionOut'		: 'none'
+					'transitionOut'		: 'none',
+                    'padding'           : 20
 				});
 			});
 </script>
@@ -78,7 +79,7 @@ if(strstr($_url,$_value) && preg_match('/^\/skillmatching\/(.*)$/',$_url)): ?>
         <div id="embed">
             <a target="_blank" class="a-proyecto" href="#proyecto" title=""><img src="/view/images/embed_btn.png" alt="埋め込み"></a>
             <div style="display: none;">
-                <div id="proyecto" class="widget projects" style="width:600px;height:600px;overflow:hidden;">
+                <div id="proyecto" class="widget projects">
                     <h2 class="widget-title"><?php echo Text::get('project-spread-widget_title'); ?></h2>
                     <div class="widget-porject-legend"><?php echo Text::get('project-spread-widget_legend'); ?></div>
                     <?php echo new View('view/skillmatching/widget/embed.html.php', array('skillmatching'=>$skillmatching)) ?>

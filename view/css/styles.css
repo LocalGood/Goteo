@@ -790,7 +790,8 @@ div#message {
     font-weight: 600;
     text-decoration: none; }
   .widget.projects {
-    margin-bottom: 24px; }
+    margin-bottom: 24px;
+    max-width: 100%; }
     .widget.projects .project {
       background-color: #fff;
       border: 1px solid #d9d9d9;
@@ -1061,6 +1062,40 @@ div#message {
     .widget.projects#colective-messages .preview {
       display: block;
       margin: 10px 0 0 70px; }
+    .widget.projects#proyecto {
+      width: 560px;
+      height: 700px;
+      overflow: hidden;
+      padding: 0; }
+      .widget.projects#proyecto .widget-title {
+        font-size: 20px;
+        font-weight: 400;
+        margin: 0 0 20px;
+        padding: 0 0 0 30px; }
+      .widget.projects#proyecto .widget-porject-legend {
+        margin: 0 30px 16px; }
+      .widget.projects#proyecto #project-code {
+        height: auto;
+        margin-bottom: 16px;
+        overflow: auto;
+        width: auto; }
+        .widget.projects#proyecto #project-code .widget.project {
+          float: none;
+          margin: 0 auto; }
+      .widget.projects#proyecto #widget-code {
+        margin: 0 auto;
+        width: 260px; }
+        .widget.projects#proyecto #widget-code .wc-embed {
+          background: url(/view/images/social/embed.png) no-repeat;
+          height: 20px;
+          padding-left: 25px; }
+        .widget.projects#proyecto #widget-code textarea {
+          background: #E5E5E5;
+          border: none;
+          font-size: 12px;
+          margin-top: 10px;
+          padding: 10px;
+          width: 100%; }
   .widget.project-support .supertitle {
     background-color: #454545;
     color: #fff;
