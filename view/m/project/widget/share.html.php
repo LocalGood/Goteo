@@ -33,7 +33,7 @@ $twitter_url = 'http://twitter.com/home?status=' . urlencode($share_title . ': '
 ?>
 <script type="text/javascript">
   jQuery(document).ready(function ($) {
-    $("#a-proyecto").fancybox({
+    $(".a-proyecto").fancybox({
       'titlePosition'		: 'inside',
       'transitionIn'		: 'none',
       'transitionOut'		: 'none'
@@ -73,16 +73,6 @@ if(strstr($_url,$_value) && preg_match('/^\/project\/(.*)$/',$_url)): ?>
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
               })();
             </script>
-        </div>
-        <div id="embed">
-            <a target="_blank" id="a-proyecto" href="#proyecto" title=""><img src="/view/images/embed_btn.png" alt="埋め込み"></a>
-            <div style="display: none;">
-                <div id="proyecto" class="widget projects" style="width:600px;height:600px;overflow:hidden;padding:0;">
-                    <h2 class="widget-title"><?php echo Text::get('project-spread-widget_title'); ?></h2>
-                    <div class="widget-porject-legend"><?php echo Text::get('project-spread-widget_legend'); ?></div>
-                    <?php echo new View(VIEW_PATH . '/project/widget/embed.html.php', array('project'=>$project)) ?>
-                </div>
-            </div>
         </div>
     </div><!-- .social_bookmark -->
 

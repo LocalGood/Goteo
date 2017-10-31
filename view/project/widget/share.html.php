@@ -31,10 +31,11 @@ $share_url = SITE_URL . '/project/' . $project->id;
 $facebook_url = 'http://facebook.com/sharer.php?u=' . urlencode($share_url) . '&t=' . urlencode($share_title);
 $twitter_url = 'http://twitter.com/home?status=' . urlencode($share_title . ': ' . $share_url . ' #' . LG_PLACE_LABEL .' @' . LG_TWITTER);
 
+var_dump($project?true:false);
 ?>
 <script type="text/javascript">
             jQuery(document).ready(function ($) { 
-				$("#a-proyecto").fancybox({
+				$(".a-proyecto").fancybox({
 					'titlePosition'		: 'inside',
 					'transitionIn'		: 'none',
 					'transitionOut'		: 'none'
@@ -76,7 +77,7 @@ if(strstr($_url,$_value) && preg_match('/^\/project\/(.*)$/',$_url)): ?>
             </script>
         </div>
         <div id="embed">
-            <a target="_blank" id="a-proyecto" href="#proyecto" title=""><img src="/view/images/embed_btn.png" alt="埋め込み"></a>
+            <a target="_blank" class="a-proyecto" href="#proyecto" title=""><img src="/view/images/embed_btn.png" alt="埋め込み"></a>
             <div style="display: none;">
                 <div id="proyecto" class="widget projects" style="width:600px;height:600px;overflow:hidden;padding:0;">
                     <h2 class="widget-title"><?php echo Text::get('project-spread-widget_title'); ?></h2>
