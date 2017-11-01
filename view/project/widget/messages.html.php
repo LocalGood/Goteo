@@ -45,7 +45,7 @@ $level = (int) $this['level'] ?: 3;
     }
 </script>
 <?php if (!empty($_SESSION['user']) && $project->status >= 3) : ?>
-<div class="widget project-message">
+<div class="widget project-message" id="project-message">
     <h<?php echo $level ?> class="title"><?php echo Text::get('project-messages-send_message-header'); ?></h<?php echo $level ?>>
 
     <div>
@@ -84,7 +84,7 @@ $level = (int) $this['level'] ?: 3;
                    <blockquote><?php echo $message->message; ?></blockquote>
                 <?php if (!empty($_SESSION['user'])) : ?>
                     <div class="actions_date">
-                        <a class="" href="#" onclick="answer('<?php echo $message->id; ?>')"><?php echo Text::get('project-messages-answer_it'); ?></a>
+                        <a class="" href="#project-message" onclick="answer('<?php echo $message->id; ?>')"><?php echo Text::get('project-messages-answer_it'); ?></a>
                         <?php // si puede borrar este mensaje
                         if (\Goteo\Core\ACL::check("/message/delete/{$message->id}/{$project->id}")) : ?>
                                 <a href="/message/delete/<?php echo $message->id; ?>/<?php echo $project->id; ?>"><?php echo Text::get('regular-delete'); ?></a>

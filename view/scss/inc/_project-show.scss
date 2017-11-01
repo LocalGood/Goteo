@@ -8,6 +8,7 @@
 
   .social_bookmark {
     display: flex;
+    justify-content: space-around;
     margin: 0 0 0 30px;
     position: absolute;
     right: 0;
@@ -211,7 +212,7 @@
           padding: 20px;
           .left {
             display: inline-block;
-            min-width: 60%;
+            min-width: 100%;
           }
           .right {
             display: inline-block;
