@@ -35,7 +35,7 @@ if($_SERVER['REQUEST_URI']=="/"):
         'title' => GOTEO_META_TITLE,
         'description' => $apikeys->meta->description,
         'url' => LG_BASE_URL_GT,
-        'image' => array(LG_BASE_URL_GT . '/view/images/ogimg.png')
+        'image' => array($apikeys->images->main_logo)
     );
 elseif(strstr($_SERVER['REQUEST_URI'],'project')):
     if(!empty($this['project']->subtitle)) {

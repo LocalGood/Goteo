@@ -44,7 +44,7 @@ if($_SERVER['REQUEST_URI']=="/"):
         'title' => GOTEO_META_TITLE,
         'description' => $apikeys->meta->description,
         'url' => LG_BASE_URL_GT,
-        'image' => array(LG_BASE_URL_GT . '/view/images/ogimg.png')
+        'image' => array($apikeys->images->main_logo)
     );
 elseif(strstr($_SERVER['REQUEST_URI'],'project')):
     if(!empty($this['project']->subtitle)) {
@@ -155,7 +155,7 @@ $_blog_key = substr($ogmeta['url'], $blog_post+9);
     <?php else : ?>
         <meta property="og:title" content="<?php echo htmlspecialchars($ogmeta['title'], ENT_QUOTES, 'UTF-8'); ?>" />
 		<meta property="og:description" content="<?php echo htmlspecialchars($apikeys->meta->description, ENT_QUOTES, 'UTF-8'); ?>" />
-        <meta property="og:image" content="<?php if(defined('LG_BASE_URL_GT')){echo LG_BASE_URL_GT;} ?>/view/images/header/logo.png" />
+        <meta property="og:image" content="<?php echo $apikeys->images->main_logo; ?>" />
         <meta property="og:url" content="<?php if(defined('LG_BASE_URL_GT')){echo LG_BASE_URL_GT;} ?>" />
         <meta property="og:locale" content="ja_JP" />
         <meta property="fb:app_id" content="<? if(defined('OAUTH_FACEBOOK_ID')){echo OAUTH_FACEBOOK_ID;} ?>" />
