@@ -43,7 +43,7 @@ $categories = Category::getNames($project->id, 2);
             $project->gallery = Goteo\Model\Project\Image::getGallery($project->id);
             ?>
             <?php if (!empty($project->gallery) && (current($project->gallery) instanceof Image)): ?>
-                <a class="link" href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>"<?php echo $blank; ?>><img alt="<?php echo $project->name ?>" src="<?php echo current($project->gallery)->getLink(260, 135, true) ?>" /></a>
+                <a class="link" href="<?php echo LG_BASE_URL_GT ?>/project/<?php echo $project->id ?>"<?php echo $blank; ?>><img alt="<?php echo $project->name ?>" src="<?php echo current($project->gallery)->getLink(260, 135, true) ?>" /></a>
             <?php endif ?>
 
             <?php switch ( $project->tagmark ) {
@@ -70,11 +70,11 @@ $categories = Category::getNames($project->id, 2);
 
         <div class="project-details">
             <h<?php echo $level ?> class="title">
-                <a class="link" href="<?php echo SITE_URL ?>/project/<?php echo $project->id ?>"<?php echo $blank; ?>><?php echo htmlspecialchars(Text::shorten($project->name,50)) ?></a>
+                <a class="link" href="<?php echo LG_BASE_URL_GT ?>/project/<?php echo $project->id ?>"<?php echo $blank; ?>><?php echo htmlspecialchars(Text::shorten($project->name,50)) ?></a>
             </h<?php echo $level ?>>
 
             <div class="author">
-                <a class="link" href="<?php echo SITE_URL ?>/user/profile/<?php echo htmlspecialchars($project->user->id) ?>"<?php echo $blank; ?>>
+                <a class="link" href="<?php echo LG_BASE_URL_GT ?>/user/profile/<?php echo htmlspecialchars($project->user->id) ?>"<?php echo $blank; ?>>
                     <span class="author-img">
                         <img src="<?php echo $project->user->avatar->getLink(50, 50, true); ?>" alt="<?php echo $project->user->name; ?>">
                     </span>
