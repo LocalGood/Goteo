@@ -1,182 +1,42 @@
 <?php
-/******************************************************
-from local-settings.php
- *******************************************************/
-
-// 言語設定（日本語固定）
+	
 mb_language("Japanese");
 mb_internal_encoding("UTF-8");
 
-// デフォルト値（不要かも）
-$defs = array();
+// LG Base Name
+define('LG_PLACE_NAME','yokohama');
+define('LG_PLACE_LABEL','横浜');
 
-// 環境変数より
-$env_ids = array(
-    // LG Base Name
-    'LG_PLACE_NAME',
-    // Metadata
-    'GOTEO_META_TITLE',
-    'GOTEO_META_DESCRIPTION',
-    'GOTEO_META_KEYWORDS',
-    'GOTEO_META_AUTHOR',
-    'GOTEO_META_COPYRIGHT',
-    // Database
-    'GOTEO_DB_HOST',
-    'GOTEO_DB_PORT',
-    'GOTEO_DB_CHARSET',
-    'GOTEO_DB_SCHEMA',
-    'GOTEO_DB_USERNAME',
-    'GOTEO_DB_PASSWORD',
-    // LocalGood Common Authentication Database
-    'COMMON_AUTH_DB_SCHEMA',
-    // Mail
-    'GOTEO_MAIL_FROM',
-    'GOTEO_MAIL_NAME',
-    'GOTEO_MAIL',
-    'GOTEO_CONTACT_MAIL',
-    'GOTEO_FAIL_MAIL',
-    'GOTEO_LOG_MAIL',
-    /*
-     * LocalGood Server Environment
-     */
-    // url
-    'SITE_URL', // endpoint url
-    'SRC_URL',  // host for statics
-    'SEC_URL',  // with SSL certified
-    // Wordpress URL
-    'LOCALGOOD_WP_BASE_URL',
-    //
-    'LOG_PATH',
-    'LG_INTEGRATION_URL',
-    'LG_NAME',
-    'LG_TWITTER',
-    'LG_FACEBOOK_PAGE',
-    // Cron params (for cron processes using wget)
-    'CRON_PARAM',
-    'CRON_VALUE',
-    /*
-     * Social Services constants  (needed to login-with on the controller/user and library/oauth)
-     */
-    // twitter api key
-    'OAUTH_TWITTER_ID',
-    'OAUTH_TWITTER_SECRET',
-    // Credentials Facebook app
-    'OAUTH_FACEBOOK_ID',
-    'OAUTH_FACEBOOK_SECRET',
-    /*
-     * Google Analytics
-     */
-    // ga tracking code
-    'GOTEO_ANALYTICS_TRACKER',
-    /*
-     * AWS - Credentials SES
-     */
-    'AWS_SES_SOURCE',
-    'AWS_SES_ACCESS',
-    'AWS_SES_SECERET',
-    'AWS_SES_CHARSET',
-    /*
-     * AXES
-     */
-    'AXES_CLIENTIP',
-    /*
-     * CESIUM
-     */
-    'LG_EARTHVIEW',
-    /*
-     *  SCSS Compiler
-     */
-    'LG_SCSS_COMPILE_PARAM',
-    // WP generated json
-    'LG_OMNICONFIG_JSON_FILE',
-    // S3 static
-    'STATIC_S3_VERSION',
-    'STATIC_S3_REGION',
-    'STATIC_S3_BUCKET_NAME',
-    // epsilon code
-    'EPSILON_CONTRACT_CODE'
-);
+define('LG_SCSS_COMPILE_PARAM','hogehoge');
 
-foreach ($env_ids as $env_id){
-    if (getenv($env_id)){
-        define($env_id, getenv($env_id));
-    } elseif ($defs[$env_id]){
-        define($env_id, $defs[$env_id]);
-    } else {
-        define($env_id, '');
-    }
-}
+// Metadata
+define('GOTEO_META_TITLE', 'LOCAL GOOD YOKOHAMA');
+define('GOTEO_META_DESCRIPTION', 'LOCAL GOOD YOKOHAMAは地域に暮らす市民や企業、団体が地域のことに意識を持ち、できる範囲で、サービス、モノ、カネ、ヒト、情報の循環をつくっていくことを目指すウェブサイト。地域をよくする活動「地域のGOOD=ステキないいコト」に多くの主体が参加するきっかけをつくります。');
+define('GOTEO_META_KEYWORDS', 'LOCAL GOOD YOKOHAMA,クラウドファンディング,ローカルグッドヨコハマ,コミュニティ,コミュニティ経済,横浜,地域,Goteo');
+define('GOTEO_META_AUTHOR', 'LOCAL GOOD YOKOHAMA');
+define('GOTEO_META_COPYRIGHT', 'COPYRIGHT&copy; LOCAL GOOD YOKOHAMA. Some rights reserved.');
 
-//iPad, AndroidタブレットはPCビュー
-//if(preg_match('/iPod|iPhone|Android.+Mobile/i', $ua) || strpos($ua, 'LocalGood/iOS (Yokohama) ') === 0 || strpos($ua, 'LocalGood/Android (Yokohama) ') === 0 ) {
-if(isset($_SERVER['HTTP_USER_AGENT'])){
-    $ua = $_SERVER['HTTP_USER_AGENT'];
-}else{
-    $ua = null;
-}
-//if(isset($_SERVER['HTTP_X_LOCALGOOD_UA']) && in_array($_SERVER['HTTP_X_LOCALGOOD_UA'], array('iOS', 'Android')) || strpos($ua, 'LocalGood/iOS (Yokohama)') === 0 || strpos($ua, 'LocalGood/Android (Yokohama)') === 0 ) {
-if( !empty($ua) && ( preg_match('/iPod|iPhone/i', $_SERVER['HTTP_USER_AGENT']) === 1 || preg_match('/Android.+Mobile/i', $_SERVER['HTTP_USER_AGENT']) === 1 ) ){
-    define('PC_VIEW', false);       //def
-    define('VIEW_PATH', 'view/m');  // def
-} else {
-    define('PC_VIEW', true);        // def
-    define('VIEW_PATH', 'view');    // def
-}
-
-/****************************************************
-Skillmatching
- ****************************************************/
-define('LG_SM_DB_PREFIX', 'skillmatching_');    // def
-
-//
-/*
- *  omniconfig
- */
-if (getenv('LG_OMNICONFIG_JSON_FILE')){
-    $_json = file_get_contents(LG_OMNICONFIG_JSON_FILE);
-    if ($_json){
-        $json = json_decode($_json);
-        if (isset($json->facebook)){
-            // facebook AppID
-            define('OAUTH_FACEBOOK_ID',$json->facebook);
-            // google map api key
-            // define('LG_GOOGLE_MAP_API_KEY',$json->facebook);
-        }
-    }
-}
-
-//Uploads static files
-// define('STATIC_SVR_DOMAIN','http://static.staging.localgood.jp');
-$static_svr = '';
-if (getenv('STATIC_SVR_DOMAIN')){
-    $static_svr = getenv('STATIC_SVR_DOMAIN');
-} else {
-    $static_svr = constant('SRC_URL');
-}
-define('STATIC_SVR_DOMAIN',$static_svr);
-$static_dir = str_replace(constant('SRC_URL'), STATIC_SVR_DOMAIN, dirname(__FILE__) );
-//define('GOTEO_DATA_PATH', $static_dir . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR);
-define('GOTEO_DATA_PATH', 'goteo/data' . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR);
-
-// オーダー情報送信先URL																	// 本番環境
-define('EPSILON_ORDER_URL', "https://secure.epsilon.jp/cgi-bin/order/receive_order3.cgi");
-// 実売上処理URL
-define('EPSILON_SALSED_URL', "https://secure.epsilon.jp/cgi-bin/order/sales_payment.cgi");
-
-define('EPSILONON', 1);		// イプシロンをカードで利用
-define('EPSILONCONVENI', 1);	// イプシロンでコンビニ決済を利用
-
-
-//default
+//Mail management: ses (amazon), phpmailer (php library)
 define("MAIL_HANDLER", "phpmailer");
-define('GOTEO_DB_DRIVER', 'mysql');
-define('GOTEO_MAIL_QUOTA', 50000);
-define('GOTEO_MAIL_SENDER_QUOTA', round(GOTEO_MAIL_QUOTA * 0.8));
-define("SESSION_HANDLER", "php");   // def
-define("FILE_HANDLER", "file");     // def
-define("LOG_HANDLER", "file");      // def
-define("GOTEO_ENV", "local");       // def
 
+// Database
+define('GOTEO_DB_DRIVER', 'mysql');
+define('GOTEO_DB_HOST', 'mysql-localgood-stg-cluster.cluster-cqbylmzae7hn.ap-northeast-1.rds.amazonaws.com');
+//define('GOTEO_DB_HOST', 'localgood-staging.cqbylmzae7hn.ap-northeast-1.rds.amazonaws.com');
+define('GOTEO_DB_PORT', 3306);
+define('GOTEO_DB_CHARSET', 'UTF-8');
+define('GOTEO_DB_SCHEMA', 'gt_lg-yokohama');
+define('GOTEO_DB_USERNAME', 'gt_lg-yokohama');
+//define('GOTEO_DB_PASSWORD', 'HX2BhTDL0dAe');
+define('GOTEO_DB_PASSWORD', 'gt_lg-yokohama');
+
+// LocalGood Common Authentication Database
+define('COMMON_AUTH_DB_SCHEMA', 'gt_lg-common');
+
+// Mail
+define('GOTEO_MAIL_FROM', 'info@info-lounge.jp');
+define('GOTEO_MAIL_NAME', 'LOCAL GOOD YOKOHAMA');
+//define('GOTEO_MAIL_TYPE', 'smtp'); // mail, sendmail or smtp
 define('GOTEO_MAIL_TYPE', 'mail'); // mail, sendmail or smtp
 define('GOTEO_MAIL_SMTP_AUTH', true);
 define('GOTEO_MAIL_SMTP_SECURE', 'ssl');
@@ -185,23 +45,94 @@ define('GOTEO_MAIL_SMTP_PORT', '--portnumber--');
 define('GOTEO_MAIL_SMTP_USERNAME', 'smtp-usermail');
 define('GOTEO_MAIL_SMTP_PASSWORD', 'smtp-password');
 
-//bucket para logs (if you set LOG_HANDLER to s3)
-define("AWS_S3_LOG_BUCKET", "bucket");
-define("AWS_S3_LOG_PREFIX", "applogs/");
+define('GOTEO_MAIL', 'info@info-lounge.jp');
+define('GOTEO_CONTACT_MAIL', 'info@info-lounge.jp');
+define('GOTEO_FAIL_MAIL', 'info@info-lounge.jp');
+define('GOTEO_LOG_MAIL', 'info@info-lounge.jp');
 
-//Amazon Web Services Credentials
-define("AWS_KEY", "--------------");
-define("AWS_SECRET", "----------------------------------");
-define("AWS_REGION", "-----------");
+//Quota de envio m�ximo para goteo en 24 horas
+define('GOTEO_MAIL_QUOTA', 50000);
+//Quota de envio m�ximo para newsletters para goteo en 24 horas
+define('GOTEO_MAIL_SENDER_QUOTA', round(GOTEO_MAIL_QUOTA * 0.8));
+//clave de Amazon SNS para recopilar bounces automaticamente: 'arn:aws:sns:us-east-1:XXXXXXXXX:amazon-ses-bounces'
+//la URL de informacion debe ser: goteo_url.tld/aws-sns.php
 
-//S3 bucket (if you set FILE_HANDLER to s3)
-define("AWS_S3_BUCKET", "static.example.com");
-define("AWS_S3_PREFIX", "");
+// Language
+define('GOTEO_DEFAULT_LANG', 'ja');
+// name of the gettext .po file (used for admin only texts at the moment)
+define('GOTEO_GETTEXT_DOMAIN', 'messages');
+// gettext files are cached, to reload a new one requires to restart Apache which is stupid (and annoying while 
+//	developing) this setting tells the langueage code to bypass caching by using a clever file-renaming 
+// mechanism described in http://blog.ghost3k.net/articles/php/11/gettext-caching-in-php
+define('GOTEO_GETTEXT_BYPASS_CACHING', true);
 
-define('AWS_SNS_CLIENT_ID', 'XXXXXXXXX');
-define('AWS_SNS_REGION', 'us-east-1');
-define('AWS_SNS_BOUNCES_TOPIC', 'amazon-ses-bounces');
-define('AWS_SNS_COMPLAINTS_TOPIC', 'amazon-ses-complaints');
+/*
+ *  LocalGood Server Environment
+ */
+// url
+define('SITE_URL', 'https://cf.yokohama.staging.localgood.jp'); // endpoint url
+define('SRC_URL', 'https://cf.yokohama.staging.localgood.jp');  // host for statics
+define('SEC_URL', 'https://cf.yokohama.staging.localgood.jp');  // with SSL certified
+
+define('LOCALGOOD_WP_BASE_URL', 'http://yokohama.staging.localgood.jp');
+
+define('LOG_PATH', '/var/www/vhosts/cf.yokohama.staging.localgood.jp/htdocs');
+
+define('LG_INTEGRATION_URL', 'http://localgood.jp');
+define('LG_NAME', 'LOCAL GOOD YOKOHAMA');
+define('LG_GOOGLE_PLUS', 'https://plus.google.com/112981975493826894716/posts');
+define('LG_TWITTER', 'LogooYOKOHAMA');
+define('LG_FACEBOOK_PAGE', 'https://www.facebook.com/LOCALGOODYOKOHAMA');
+
+//define('STATIC_SVR_DOMAIN','https://static.staging.localgood.jp');
+define('STATIC_SVR_DOMAIN','http://static.staging.localgood.jp.s3-website-ap-northeast-1.amazonaws.com');
+//define('STATIC_S3_BUCKET_NAME',preg_replace('/https?\:\/\//','',STATIC_SVR_DOMAIN));
+define('STATIC_S3_BUCKET_NAME','static.staging.localgood.jp');
+define('STATIC_S3_VERSION','latest');
+define('STATIC_S3_REGION','ap-northeast-1');
+
+//$static_dir = str_replace(constant('SRC_URL'), STATIC_SVR_DOMAIN, dirname(__FILE__) );
+//$static_dir = preg_replace('/\/[A-Za-z0-9.]+\.localgood/','/static.staging.localgood',dirname(__FILE__));
+// todo: 環境変数->定数にする
+$static_dir = '/var/www/vhosts/static.staging.localgood.jp/htdocs';
+//define('GOTEO_DATA_PATH', $static_dir . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR);
+define('GOTEO_DATA_PATH',  'goteo/data' . DIRECTORY_SEPARATOR);
+
+//Sessions
+//session handler: php, dynamodb
+define("SESSION_HANDLER", "php");
+
+//Files management: s3, file
+define("FILE_HANDLER", "file");
+
+//Log file management: s3, file
+define("LOG_HANDLER", "file");
+
+// environment: local, beta, real
+define("GOTEO_ENV", "local");
+
+// Cron params (for cron processes using wget)
+define('CRON_PARAM', '3zwjrxy5h2d4');
+define('CRON_VALUE', 'n76autgfinru');
+
+/*
+Any other payment system configuration should be setted here
+*/
+
+/****************************************************
+Social Services constants  (needed to login-with on the controller/user and library/oauth)
+****************************************************/
+// Credentials Facebook app
+//define('OAUTH_FACEBOOK_ID', '1504174723161858'); //
+define('OAUTH_FACEBOOK_ID', '1011747602194158'); //
+//define('OAUTH_FACEBOOK_SECRET', '63c5a49cce8c91b9805747446be617a5'); //
+define('OAUTH_FACEBOOK_SECRET', 'bde48c526092181f7a004130a5e63dbd'); //
+
+// Credentials Twitter app
+define('OAUTH_TWITTER_ID', 'dnh1OR5qbdCd64ViF4ncg07ht'); //
+define('OAUTH_TWITTER_SECRET', 'EvX0gf2WCCUXyHFPboER7vTGdhDLXPTQDzi2Z6OzDTZZ54oXQq'); //
+
+//define('OAUTH_TWITTER_DUMMY_ID', '01234567890123Y'); //
 
 // Credentials Linkedin app
 define('OAUTH_LINKEDIN_ID', '-----------------------------------'); //
@@ -210,22 +141,114 @@ define('OAUTH_LINKEDIN_SECRET', '-----------------------------------'); //
 // Un secreto inventado cualquiera para encriptar los emails que sirven de secreto en openid
 define('OAUTH_OPENID_SECRET','-----------------------------------');
 
-define('PAYPAL_REDIRECT_URL', 'https://www.sandbox.paypal.com/jp/cgi-bin/webscr?cmd=');
-define('PAYPAL_DEVELOPER_PORTAL', 'goteo.il3c');
-define('PAYPAL_DEVICE_ID', 'goteo.il3c.com');
-define('PAYPAL_APPLICATION_ID', 'APP-80W284485P519543T');
-define('PAYPAL_BUSINESS_ACCOUNT', 'info+merchant@info-lounge.jp');
-define('PAYPAL_IP_ADDRESS', '127.0.0.1');
+//SNS link
+//define('LG_FACEBOOK_PAGE', 'https://www.facebook.com/LOCALGOODYOKOHAMA');
+//define('LG_TWITTER', 'https://twitter.com/LogooYOKOHAMA');
+//define('LG_GOOGLE_PLUS', 'https://plus.google.com/112981975493826894716/');
 
-define('TPV_MERCHANT_CODE', 'xxxxxxxxx');
-define('TPV_REDIRECT_URL', '--bank-rest-api-url--');
-define('TPV_ENCRYPT_KEY', 'xxxxxxxxx');
-
+// recaptcha ( to be used in /contact form )
 define('RECAPTCHA_PUBLIC_KEY','-----------------------------------');
 define('RECAPTCHA_PRIVATE_KEY','-----------------------------------');
 
-define('GOTEO_GETTEXT_BYPASS_CACHING', true);
-define('GOTEO_GETTEXT_DOMAIN', 'messages');
-define('GOTEO_DEFAULT_LANG', 'en');
+/****************************************************
+Google Analytics
+****************************************************/
+define('GOTEO_ANALYTICS_TRACKER', "<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51541652-2', 'auto');
+  ga('send', 'pageview');
+</script>");
+
+/****************************************************
+AWS
+****************************************************/
+// Credentials SES
+define('AWS_SES_SOURCE', 'localgood@yokohamalab.jp');
+define('AWS_SES_ACCESS', 'AKIAJSTOTE7ZV3Q3GJ6A');
+define('AWS_SES_SECERET', 'EX/bYr/4W6OrReHzBriIL9gLRW6WFAuLfJs1lStN');
+define('AWS_SES_CHARSET', 'UTF-8');
+
+/****************************************************
+AXES
+ ****************************************************/
+define('AXES_CLIENTIP', '1011003702');
+
+/****************************************************
+CESIUM
+ ****************************************************/
+define('LG_EARTHVIEW', 'http://map.yokohama.localgood.jp/');
+
+/****************************************************
+Skillmatching
+ ****************************************************/
+define('LG_SM_DB_PREFIX', 'skillmatching_');
+
+/****************************************************
+Change view type
+ ****************************************************/
+$ua = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : "";
+if( !empty($ua) && ( preg_match('/iPod|iPhone/i', $_SERVER['HTTP_USER_AGENT']) === 1 || preg_match('/Android.+Mobile/i', $_SERVER['HTTP_USER_AGENT']) === 1 ) ) {
+    define('PC_VIEW', false);
+    define('VIEW_PATH', 'view/m');
+} else {
+    define('PC_VIEW', true);
+    define('VIEW_PATH', 'view');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
+#	追加した項目
+#
+
+putenv('GOTEO_LOCATION_NAMES=横浜市,中区,保土ケ谷区,南区,戸塚区,旭区,栄区,泉区,港北区,港南区,瀬谷区,磯子区,神奈川区,緑区,西区,都筑区,金沢区,青葉区,鶴見区');
+
+/****************************************************
+EPSILON
+ ****************************************************/
+define('EPSILON_CLIENTIP', '219.117.226.221');		// いらないなー
+
+
+// オーダー情報送信先URL																	 // テスト環境
+//define('EPSILON_ORDER_URL', "https://beta.epsilon.jp/cgi-bin/order/receive_order3.cgi");
+// 実売上処理URL
+//define('EPSILON_SALSED_URL', "https://beta.epsilon.jp/cgi-bin/order/sales_payment.cgi");
+
+// オーダー情報送信先URL																	// 本番環境
+define('EPSILON_ORDER_URL', "https://secure.epsilon.jp/cgi-bin/order/receive_order3.cgi");
+// 実売上処理URL
+define('EPSILON_SALSED_URL', "https://secure.epsilon.jp/cgi-bin/order/sales_payment.cgi");
+
+
+
+define('EPSILON_CONTRACT_CODE', '65374640');		// イプシロン契約番号
+
+
+define('DEBUGTEST', 1);		// デバッグ用
+
+
+#define('AXESON', 1);		// AXES をカードで利用
+
+define('EPSILONON', 1);		// イプシロンをカードで利用
+define('EPSILONCONVENI', 1);	// イプシロンでコンビニ決済を利用
+
 
 ?>
