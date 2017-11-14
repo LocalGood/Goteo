@@ -59,11 +59,12 @@ $user->about = nl2br(Text::urlink($user->about));
         </div>
 
         <?php if (isset($user->about)): ?>
-            <div class="about">
-                <p>
+			<div class="about">
+                <p class="bio">
                     <?php echo $user->about ?>
                 </p>
-            </div>
+                <span class="more">[ <a class="" href="/user/<?php echo $user->id; ?>">続きを読む</a> ]</span>
+			</div>
         <?php endif ?>
 
         <div class="links">
