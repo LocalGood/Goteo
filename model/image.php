@@ -160,9 +160,8 @@ die("test");
                 curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
                 $profile_image_file = curl_exec( $ch );
                 curl_close($ch);
-                $tmppath = sys_get_temp_dir() . '/' . time() . $this->name;
-                file_put_contents($tmppath, $profile_image_file);
-                $this->s3save($tmppath,$this->dir_originals . $this->name);
+                file_put_contents($this->dir_originals . $this->name, $profile_image_file);
+                chmod($this->dir_originals . $this->name, 0777);
             }
             else {
                 $errors[] = Text::get('image-upload-fail');
@@ -196,18 +195,15 @@ die("test");
 		* @param $dir if specified, generated name will be changed if exists in that dir
 		*/
 		public static function check_filename($name='',$dir=null){
+		    $name = self::sanitize_file_name($name);
 			$name = preg_replace("/[^a-z0-9_~\.-]+/","-",strtolower(self::idealiza($name, true)));
             $s3Client = new \Aws\S3\S3Client([
                 'version' => STATIC_S3_VERSION,
                 'region'  => STATIC_S3_REGION
             ]);
-//			if(is_dir($dir)) {
-//            error_log('checkfilename: ' . $dir . $name);
-                while ($s3Client->doesObjectExist(STATIC_S3_BUCKET_NAME,$dir . $name)){
-//				while ( file_exists ( "$dir/$name" )) {
-					$name = preg_replace ( "/^(.+?)(_?)(\d*)(\.[^.]+)?$/e", "'\$1_'.(\$3+1).'\$4'", $name );
-				}
-//			}
+            while ($s3Client->doesObjectExist(STATIC_S3_BUCKET_NAME,$dir . $name)){
+                $name = preg_replace ( "/^(.+?)(_?)(\d*)(\.[^.]+)?$/e", "'\$1_'.(\$3+1).'\$4'", $name );
+            }
 			return $name;
 		}
 
@@ -373,7 +369,7 @@ die("test");
          *  画像をblog幅に合わせて出力 - 2015.11.30
          */
         public function getLinkEx(){
-            $imgpath = STATIC_SVR_DOMAIN . DIRECTORY_SEPARATOR . $this->dir_originals . $this->name;
+            $imgpath = $this->dir_originals . $this->name;
 
             $info = getimagesize($imgpath);
 
@@ -417,33 +413,27 @@ die("test");
             $tc = $crop ? 'c' : '';
 
             $ret = $src_url . "/goteo/data/cache/{$width}x{$height}{$tc}/{$this->name}";
+//            error_log('getLink: ' . $ret);
+            $res = file_get_contents($ret);
 
-            //            error_log('getLink: ' . $ret);
-
-            $res = $this->s3exist($ret);
-//            error_log('cache exist?: '.var_export($res,true));
-            if (!$res){
+//            error_log(var_export($res,true));
+            if ($res === false){
+//
+//                $ret = $src_url . "/data/cache/{$width}x{$height}{$tc}/{$this->name}";
+//            } else {
+//                $ret = SRC_URL . "/image/{$this->id}/{$width}/{$height}/" . $crop;
                 $ret = $this->display($width, $height, $crop, true);
-            }
+//                if (!$ret){
+//                    $ret = $src_url . "/data/images/avatar.png";
+//                }
+            }/* else {
+                error_log('cache exist!');
+            }*/
+            $ret = (string) $ret;
             return $ret;
 		}
 
-        /**
-         * Check static server file exists
-         *
-         * @param $url
-         * @return bool
-         */
-		public function s3exist($url){
-            $response = @file_get_contents($url, NULL, NULL, 0, 1);
-            if ($response !== false) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-        /**
+		/**
 		 * Carga la imagen en el directorio temporal del sistema.
 		 *
 		 * @return type bool
@@ -494,21 +484,23 @@ die("test");
             if (\PEAR::isError($it)) {
                 die($it->getMessage() . '<br />' . $it->getDebugInfo());
             }
-
+//            $cache = $this->dir_cache . $width."x$height" . ($crop ? "c" : "") . DIRECTORY_SEPARATOR;
+//            if(!is_dir($cache)) mkdir($cache);
             $tc = $crop ? "c" : "";
             $cache = STATIC_SVR_DOMAIN . "/goteo/data/cache/{$width}x{$height}{$tc}/{$this->name}";
 
+//			$cache .= $this->name;
 			//comprova si existeix  catxe
 
-            $ret = $this->s3exist($cache);
+            $ret = file_get_contents($cache);
             $res = '';
-            //error_log(var_export(($ret === false),true));
+
             if ($ret === false){
                 $orig_image = STATIC_SVR_DOMAIN . DIRECTORY_SEPARATOR . $this->dir_originals . $this->name;
-                //error_log('cache1: '.$orig_image);
-                if ($this->s3exist($orig_image)){
+//                error_log($orig_image);
+                if (file_get_contents($orig_image)){
                     $it->load($orig_image);
-                    // error_log(var_export($it,true));
+//                    error_log(var_export($it,true));
                     if($crop) {
                         if ($width > $height) {
 
@@ -553,6 +545,7 @@ die("test");
 //				error_log($tmp);
 
 				$it->save($tmp);
+//                chmod($cache, 0777);
 
                 $cacheName = 'goteo/data/cache' . DIRECTORY_SEPARATOR .$width."x$height" . ($crop ? "c" : "") . DIRECTORY_SEPARATOR . $this->name;
                 $res = $this->s3save($tmp, $cacheName);
@@ -565,7 +558,13 @@ die("test");
                 readfile($cache);
                 return true;
             } else {
-                return !!$res ? $res : $cache;
+//                $ret = "";
+//                if (\file_exists($cache)){
+//                    $tc = $crop ? 'c' : '';
+//                    $ret = STATIC_SVR_DOMAIN . "/data/cache/{$width}x{$height}{$tc}/{$this->name}";
+//                }
+//                return $ret;
+                return $res ? $res : $cache;
             }
 		}
 
