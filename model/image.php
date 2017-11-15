@@ -195,18 +195,15 @@ die("test");
 		* @param $dir if specified, generated name will be changed if exists in that dir
 		*/
 		public static function check_filename($name='',$dir=null){
+		    $name = self::sanitize_file_name($name);
 			$name = preg_replace("/[^a-z0-9_~\.-]+/","-",strtolower(self::idealiza($name, true)));
             $s3Client = new \Aws\S3\S3Client([
                 'version' => STATIC_S3_VERSION,
                 'region'  => STATIC_S3_REGION
             ]);
-//			if(is_dir($dir)) {
-//            error_log('checkfilename: ' . $dir . $name);
-                while ($s3Client->doesObjectExist(STATIC_S3_BUCKET_NAME,$dir . $name)){
-//				while ( file_exists ( "$dir/$name" )) {
-					$name = preg_replace ( "/^(.+?)(_?)(\d*)(\.[^.]+)?$/e", "'\$1_'.(\$3+1).'\$4'", $name );
-				}
-//			}
+            while ($s3Client->doesObjectExist(STATIC_S3_BUCKET_NAME,$dir . $name)){
+                $name = preg_replace ( "/^(.+?)(_?)(\d*)(\.[^.]+)?$/e", "'\$1_'.(\$3+1).'\$4'", $name );
+            }
 			return $name;
 		}
 
