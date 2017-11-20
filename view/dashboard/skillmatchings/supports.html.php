@@ -134,7 +134,7 @@ $sfid = 'sf-project-supports';
 
 ?>
 
-<form method="post" action="<?php echo SITE_URL ?>/dashboard/projects/supports/save" class="project" enctype="multipart/form-data">
+<form method="post" action="<?php echo LG_BASE_URL_GT ?>/dashboard/projects/supports/save" class="project" enctype="multipart/form-data">
 
 <?php echo new SuperForm(array(
 

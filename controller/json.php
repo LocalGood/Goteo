@@ -272,7 +272,7 @@ namespace Goteo\Controller {
                         if (!empty($_result)){
                             $_matched = array();
                             $_matched['id'] = $_result[0]->id;
-                            $_matched['url'] = SITE_URL . '/project/' . urlencode($_result[0]->id);
+                            $_matched['url'] = LG_BASE_URL_GT . '/project/' . urlencode($_result[0]->id);
                             $this->result = $_matched;
                         }
                     }

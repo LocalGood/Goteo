@@ -83,8 +83,6 @@ mb_internal_encoding("UTF-8");
     'LG_PLACE_NAME',
     // Metadata
     'GOTEO_META_TITLE',
-    'GOTEO_META_DESCRIPTION',
-    'GOTEO_META_KEYWORDS',
     'GOTEO_META_AUTHOR',
     'GOTEO_META_COPYRIGHT',
     // Database
@@ -119,17 +117,13 @@ mb_internal_encoding("UTF-8");
      * LocalGood Server Environment
      */
     // url
-    'SITE_URL', // endpoint url
+    'LG_BASE_URL_GT', // endpoint url
     'SRC_URL',  // host for statics
-    'SEC_URL',  // with SSL certified
+    'LG_BASE_URL_GT',  // with SSL certified
     // Wordpress URL
-    'LOCALGOOD_WP_BASE_URL',
+    'LG_BASE_URL_WP',
     //
-    'LOG_PATH',
-    'LG_INTEGRATION_URL',
-    'LG_NAME',
     'LG_TWITTER',
-    'LG_FACEBOOK_PAGE',
     // Cron params (for cron processes using wget)
     'CRON_PARAM',
     'CRON_VALUE',
@@ -155,14 +149,6 @@ mb_internal_encoding("UTF-8");
     'AWS_SES_ACCESS',
     'AWS_SES_SECERET',
     'AWS_SES_CHARSET',
-    /*
-     * AXES
-     */
-    'AXES_CLIENTIP',
-    /*
-     * CESIUM
-     */
-    'LG_EARTHVIEW',
     /*
      *  SCSS Compiler
      */

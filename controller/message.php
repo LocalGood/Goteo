@@ -139,8 +139,8 @@ namespace Goteo\Controller {
                             // Sustituimos los datos
                             $subject = str_replace('%PROJECTNAME%', $projectData->name, $template->title);
 
-                            $response_url = SITE_URL . '/user/profile/' . $_SESSION['user']->id . '/message';
-                            $project_url = SITE_URL . '/project/' . $projectData->id . '/messages#message'.$message->id;
+                            $response_url = LG_BASE_URL_GT . '/user/profile/' . $_SESSION['user']->id . '/message';
+                            $project_url = LG_BASE_URL_GT . '/project/' . $projectData->id . '/messages#message'.$message->id;
 
                             $search  = array('%MESSAGE%', '%OWNERNAME%', '%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%', '%RESPONSEURL%');
                             $replace = array($_POST['message'], $thread->user->name, $_SESSION['user']->name, $projectData->name, $project_url, $response_url);
@@ -163,8 +163,8 @@ namespace Goteo\Controller {
                         // Sustituimos los datos
                         $subject = str_replace('%PROJECTNAME%', $projectData->name, $template->title);
 
-                        $response_url = SITE_URL . '/user/profile/' . $_SESSION['user']->id . '/message';
-                        $project_url = SITE_URL . "/$projType/" . $projectData->id . '/messages#message'.$message->id;
+                        $response_url = LG_BASE_URL_GT . '/user/profile/' . $_SESSION['user']->id . '/message';
+                        $project_url = LG_BASE_URL_GT . "/$projType/" . $projectData->id . '/messages#message'.$message->id;
 
                         $search  = array('%MESSAGE%', '%OWNERNAME%', '%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%', '%RESPONSEURL%');
                         $replace = array($_POST['message'], $projectData->user->name, $_SESSION['user']->name, $projectData->name, $project_url, $response_url);
@@ -229,15 +229,15 @@ namespace Goteo\Controller {
                 // En el asunto: %PROJECTNAME% por $project->name
                 $subject = str_replace('%PROJECTNAME%', $project->name, $template->title);
 
-                $response_url = SITE_URL . '/user/profile/' . $_SESSION['user']->id . '/message';
+                $response_url = LG_BASE_URL_GT . '/user/profile/' . $_SESSION['user']->id . '/message';
 
                 // En el contenido:  nombre del autor -> %OWNERNAME% por $project->contract_name
                 // el mensaje que ha escrito el productor -> %MESSAGE% por $msg_content
                 // nombre del usuario que ha aportado -> %USERNAME% por $_SESSION['user']->name
                 // nombre del proyecto -> %PROJECTNAME% por $project->name
-                // url de la plataforma -> %SITEURL% por SITE_URL
+                // url de la plataforma -> %SITEURL% por LG_BASE_URL_GT
                 $search  = array('%MESSAGE%', '%OWNERNAME%', '%USERNAME%', '%PROJECTNAME%', '%SITEURL%', '%RESPONSEURL%');
-                $replace = array($msg_content, $ownerData->name, $_SESSION['user']->name, $project->name, SITE_URL, $response_url);
+                $replace = array($msg_content, $ownerData->name, $_SESSION['user']->name, $project->name, LG_BASE_URL_GT, $response_url);
                 $content = \str_replace($search, $replace, $template->text);
 
                 $sesClient = new SESMail();
@@ -287,12 +287,12 @@ namespace Goteo\Controller {
                 $remite = $_SESSION['user']->name . ' ' . Text::get('regular-from') . ' ';
                 $remite .= GOTEO_MAIL_NAME;
                 
-                $response_url = SITE_URL . '/user/profile/' . $_SESSION['user']->id . '/message';
-                $profile_url = SITE_URL."/user/profile/{$user->id}/sharemates";
+                $response_url = LG_BASE_URL_GT . '/user/profile/' . $_SESSION['user']->id . '/message';
+                $profile_url = LG_BASE_URL_GT."/user/profile/{$user->id}/sharemates";
                 // En el contenido:  nombre del destinatario -> %TONAME% por $user->name
                 // el mensaje que ha escrito el usuario -> %MESSAGE% por $msg_content
                 // nombre del usuario -> %USERNAME% por $_SESSION['user']->name
-                // url del perfil -> %PROFILEURL% por ".SITE_URL."/user/profile/{$user->id}/sharemates"
+                // url del perfil -> %PROFILEURL% por ".LG_BASE_URL_GT."/user/profile/{$user->id}/sharemates"
                 $search  = array('%MESSAGE%','%TONAME%',  '%USERNAME%', '%PROFILEURL%', '%RESPONSEURL%');
                 $replace = array($msg_content, $user->name, $_SESSION['user']->name, $profile_url, $response_url);
                 $content = \str_replace($search, $replace, $template->text);
@@ -378,8 +378,8 @@ namespace Goteo\Controller {
                     // Sustituimos los datos
                     $subject = str_replace('%PROJECTNAME%', $projectData->name, $template->title);
 
-                    $response_url = SITE_URL . '/user/profile/' . $_SESSION['user']->id . '/message';
-                    $project_url = SITE_URL . '/project/' . $projectData->id . '/updates/'.$postData->id.'#comment'.$comment->id;
+                    $response_url = LG_BASE_URL_GT . '/user/profile/' . $_SESSION['user']->id . '/message';
+                    $project_url = LG_BASE_URL_GT . '/project/' . $projectData->id . '/updates/'.$postData->id.'#comment'.$comment->id;
 
                     $search  = array('%MESSAGE%', '%OWNERNAME%', '%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%', '%RESPONSEURL%');
                     $replace = array($_POST['message'], $projectData->user->name, $_SESSION['user']->name, $projectData->name, $project_url, $response_url);

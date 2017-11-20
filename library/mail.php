@@ -215,7 +215,7 @@ namespace Goteo\Library {
             $sql = "INSERT INTO mail (id, email, html, template) VALUES ('', :email, :html, :template)";
                 $values = array (
                     ':email' => $this->to,
-                ':html' => str_replace('cid:logo', SITE_URL.'/goteo_logo.png', $this->content),
+                ':html' => str_replace('cid:logo', LG_BASE_URL_GT.'/goteo_logo.png', $this->content),
                 ':template' => $this->template
             );
             $query = Model::query($sql, $values);
@@ -227,13 +227,13 @@ namespace Goteo\Library {
             if (!empty($sendId)) {
                 // token para el sinoves
                 $token = md5(uniqid()) . '¬' . $the_mail  . '¬' . $sendId;
-                $viewData['sinoves'] = \SITE_URL . '/mail/' . base64_encode($token) . '/?email=' . $this->to;
+                $viewData['sinoves'] = \LG_BASE_URL_GT . '/mail/' . base64_encode($token) . '/?email=' . $this->to;
             } else {
-                $viewData['sinoves'] = \SITE_URL . '/contact';
+                $viewData['sinoves'] = \LG_BASE_URL_GT . '/contact';
             }
             $_SESSION['MAILING_TOKEN'] = $viewData['sinoves'];
 
-            $viewData['baja'] = \SITE_URL . '/user/leave/?email=' . $this->to;
+            $viewData['baja'] = \LG_BASE_URL_GT . '/user/leave/?email=' . $this->to;
 
             if ($plain) {
                 return strip_tags($this->content) . '
@@ -242,7 +242,7 @@ namespace Goteo\Library {
             } else {
                 // para plantilla boletin
                 if ($this->template == 33) {
-                    $viewData['baja'] = \SITE_URL . '/user/leave/?unsuscribe=newsletter&email=' . $this->to;
+                    $viewData['baja'] = \LG_BASE_URL_GT . '/user/leave/?unsuscribe=newsletter&email=' . $this->to;
                     return new View (GOTEO_PATH.'/view/email/newsletter.html.php', $viewData);
                 } else {
                     return new View ('view/email/goteo.html.php', $viewData);

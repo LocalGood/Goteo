@@ -100,11 +100,14 @@ $level = (int) $this['level'] ?: 3;
     <?php if ($action == 'list') : ?>
         <?php if (!empty($posts)) : ?>
             <?php while ($post = $pagedResults->fetchPagedRow()) :
-                
-                    $share_title = $post->title;
-                    $share_url = SITE_URL . '/skillmatching/'.$project->id.'/updates/' . $post->id;
+				$apikeys = json_decode(file_get_contents( '/var/www/html/omniconfig/apikeys.json'));
+				$tw_split = explode('/',$apikeys->snslinks->twitter);
+				$tw_account = $tw_split[count($tw_split) - 1];
+
+				$share_title = $post->title;
+                    $share_url = LG_BASE_URL_GT . '/skillmatching/'.$project->id.'/updates/' . $post->id;
                     $facebook_url = 'http://facebook.com/sharer.php?u=' . rawurlencode($share_url) . '&t=' . rawurlencode($share_title);
-                    $twitter_url = 'http://twitter.com/home?status=' . rawurlencode($share_title . ': ' . $share_url . ' #' . ' @' . LG_TWITTER);
+                    $twitter_url = 'http://twitter.com/home?status=' . rawurlencode($share_title . ': ' . $share_url . ' ' . $apikeys->other->twitterhash . ' @' . $tw_account);
                 ?>
                 <div class="widget post">
                     <?php echo new View('view/blog/post.html.php', array('post' => $post->id, 'show' => 'list', 'url' => '/skillmatching/'.$project->id.'/updates/')); ?>
@@ -121,7 +124,7 @@ $level = (int) $this['level'] ?: 3;
 
     <?php
     if(preg_match('/^\/project\/(.*)\/updates\/[0-9]{1,}$/', $_SERVER['REQUEST_URI'], $m)):
-        $permalink = SITE_URL . $_SERVER['REQUEST_URI'];
+        $permalink = LG_BASE_URL_GT . $_SERVER['REQUEST_URI'];
     ?>
     <div id="social_bookmark" class="update">
         <div id="twitter">

@@ -233,7 +233,7 @@ namespace Goteo\Controller\Admin {
 
 //                    die(\trace($_POST));
 
-                    $URL = (NODE_ID != GOTEO_NODE) ? NODE_URL : SITE_URL;
+                    $URL = (NODE_ID != GOTEO_NODE) ? NODE_URL : LG_BASE_URL_GT;
                     
                     // Enviando contenido recibido a destinatarios recibidos
                     $receivers = array();

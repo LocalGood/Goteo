@@ -147,10 +147,10 @@ namespace Goteo\Controller\Admin {
                         }
 
                         if ($projData->rebase($newid)) {
-                            Message::Info(Text::get('admin-projects-info-selectproject').' -> <a href="'.SITE_URL.'/skillmatching/'.$newid.'" target="_blank">'.$projData->name.'</a>');
+                            Message::Info(Text::get('admin-projects-info-selectproject').' -> <a href="'.LG_BASE_URL_GT.'/skillmatching/'.$newid.'" target="_blank">'.$projData->name.'</a>');
                             throw new Redirection('/admin/skillmatchings');
                         } else {
-                            Message::Info(Text::_('Ha fallado algo en el rebase, verificar el proyecto').' -> <a href="'.SITE_URL.'/skillmatching/'.$projData->id.'" target="_blank">'.$projData->name.' ('.$id.')</a>');
+                            Message::Info(Text::_('Ha fallado algo en el rebase, verificar el proyecto').' -> <a href="'.LG_BASE_URL_GT.'/skillmatching/'.$projData->id.'" target="_blank">'.$projData->name.' ('.$id.')</a>');
                             throw new Redirection('/admin/skillmatchings/rebase/'.$id);
                         }
 

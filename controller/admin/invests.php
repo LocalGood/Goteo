@@ -257,12 +257,12 @@ namespace Goteo\Controller\Admin {
 
 									// エラー出力
 									Message::Error( "Epsilon Return Error  $err_code: $err_detail");
-									throw new Redirection(SEC_URL."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
+									throw new Redirection(LG_BASE_URL_GT."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
 									break;
 						}
 					} else {
 #						Message::Error( "Epsilon Sales Error ");
-#						throw new Redirection(SEC_URL."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
+#						throw new Redirection(LG_BASE_URL_GT."/$projType/$project/invest/?confirm=fail", Redirection::TEMPORARY);
 					}
 
 

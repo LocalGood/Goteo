@@ -143,7 +143,7 @@ namespace Goteo\Model {
 
                         // En el contenido:
                         $search  = array('%USERNAME%', '%USERID%', '%ACTIVATEURL%');
-                        $replace = array($this->name, $this->id, SITE_URL . '/user/activate/' . $token);
+                        $replace = array($this->name, $this->id, LG_BASE_URL_GT . '/user/activate/' . $token);
                         $content = \str_replace($search, $replace, $template->text);
 
                         // Activación
@@ -1075,7 +1075,7 @@ namespace Goteo\Model {
 
                 // En el contenido:
                 $search  = array('%USERNAME%', '%USERID%', '%RECOVERURL%');
-                $replace = array($row->name, $row->id, SITE_URL . '/user/recover/' . base64_encode($token));
+                $replace = array($row->name, $row->id, LG_BASE_URL_GT . '/user/recover/' . base64_encode($token));
                 $content = \str_replace($search, $replace, $template->text);
 
                 //mailing use aws ses
@@ -1130,7 +1130,7 @@ namespace Goteo\Model {
 
                 // En el contenido:
                 $search  = array('%USERNAME%', '%URL%');
-                $replace = array($row->name, SITE_URL . '/user/leave/' . base64_encode($token));
+                $replace = array($row->name, LG_BASE_URL_GT . '/user/leave/' . base64_encode($token));
                 $content = \str_replace($search, $replace, $template->text);
 
                 //mailing use aws ses
@@ -1183,7 +1183,7 @@ namespace Goteo\Model {
 
                     // En el contenido:
                     $search  = array('%USERNAME%', '%CHANGEURL%');
-                    $replace = array($this->name, SITE_URL . '/user/changeemail/' . base64_encode($token));
+                    $replace = array($this->name, LG_BASE_URL_GT . '/user/changeemail/' . base64_encode($token));
                     $content = \str_replace($search, $replace, $template->text);
 
                     //mailing use aws ses

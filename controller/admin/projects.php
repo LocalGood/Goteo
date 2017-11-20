@@ -150,7 +150,7 @@ namespace Goteo\Controller\Admin {
                             Message::Info('IDの変更を完了しました。');
                             throw new Redirection('/admin/projects');
                         } else {
-                            Message::Info(Text::_('Ha fallado algo en el rebase, verificar el proyecto').' -> <a href="'.SITE_URL.'/project/'.$projData->id.'" target="_blank">'.$projData->name.' ('.$id.')</a>');
+                            Message::Info(Text::_('Ha fallado algo en el rebase, verificar el proyecto').' -> <a href="'.LG_BASE_URL_GT.'/project/'.$projData->id.'" target="_blank">'.$projData->name.' ('.$id.')</a>');
                             throw new Redirection('/admin/projects/rebase/'.$id);
                         }
 

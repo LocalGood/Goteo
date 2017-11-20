@@ -42,7 +42,7 @@ namespace Goteo\Controller {
                 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['send'])) {
 
                 // verificamos referer
-                $URL = (NODE_ID != GOTEO_NODE) ? NODE_URL : SITE_URL;
+                $URL = (NODE_ID != GOTEO_NODE) ? NODE_URL : LG_BASE_URL_GT;
                 $referer = $URL.'/contact';
                 
                 // verificamos token

@@ -16,14 +16,14 @@ Note that you have to write your own terms and privacy pages, those contents are
 
 On the first run you will see a settings file example, copy it into a file called `local-settings.php`.
 Modify it with database credentials:
-	· GOTEO_DB_SCHEMA is the name of your database
-	· GOTEO_DB_USERNAME is the user you created for your database
-	· GOTEO_DB_PASSWORD is the password you setted for that user
+	ï¿½ GOTEO_DB_SCHEMA is the name of your database
+	ï¿½ GOTEO_DB_USERNAME is the user you created for your database
+	ï¿½ GOTEO_DB_PASSWORD is the password you setted for that user
 
 Modify the access point to the site
-	· SITE_URL is 'http://your.intallation.site'
-	· SRC_URL is (for you and now) the same 'http://your.intallation.site'
-	· SEC_URL (if you have SSL certificate installed) is 'https://your.intallation.site'  (same otherwise)
+	ï¿½ LG_BASE_URL_GT is 'http://your.intallation.site'
+	ï¿½ SRC_URL is (for you and now) the same 'http://your.intallation.site'
+	ï¿½ SEC_URL (if you have SSL certificate installed) is 'https://your.intallation.site'  (same otherwise)
 * If you're installing on localhost you have to create a hosts entry for this
 * if you want to install on a folder go hack the dispatcher /index.php
 

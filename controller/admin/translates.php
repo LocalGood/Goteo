@@ -168,7 +168,7 @@ namespace Goteo\Controller\Admin {
                         // Sustituimos los datos
                         $subject = str_replace('%PROJECTNAME%', $project->name, $template->title);
                         $search  = array('%OWNERNAME%', '%PROJECTNAME%', '%SITEURL%');
-                        $replace = array($project->user->name, $project->name, SITE_URL);
+                        $replace = array($project->user->name, $project->name, LG_BASE_URL_GT);
                         $content = \str_replace($search, $replace, $template->text);
                         // iniciamos mail
                         $mailHandler = new Mail();

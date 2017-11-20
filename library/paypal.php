@@ -51,7 +51,7 @@ namespace Goteo\Library {
 		            payment has been succesfully authorized.
 		            The cancelURL is the location buyers are sent to when they hit the
 		            cancel button during authorization of payment during the PayPal flow                 */
-                    $URL = (NODE_ID != GOTEO_NODE) ? NODE_URL : SITE_URL;
+                    $URL = (NODE_ID != GOTEO_NODE) ? NODE_URL : LG_BASE_URL_GT;
 
                     $returnURL = $URL."/invest/confirmed/".urlencode($invest->project)."/".$invest->id; // a difundirlo @TODO mensaje gracias si llega desde un preapproval
                     $cancelURL = $URL."/invest/fail/".urlencode($invest->project)."/".$invest->id."/?amount=".$invest->amount; // a la página de aportar para intentarlo de nuevo
@@ -158,8 +158,8 @@ namespace Goteo\Library {
                 // Create request object
                 $payRequest = new \PayRequest();
                 $payRequest->memo = "{$invest->amount}円　ユーザー：{$userData->name} プロジェクト：{$project->name}";
-                $payRequest->cancelUrl = SITE_URL.'/invest/charge/fail/' . $invest->id;
-                $payRequest->returnUrl = SITE_URL.'/invest/charge/success/' . $invest->id;
+                $payRequest->cancelUrl = LG_BASE_URL_GT.'/invest/charge/fail/' . $invest->id;
+                $payRequest->returnUrl = LG_BASE_URL_GT.'/invest/charge/success/' . $invest->id;
                 $payRequest->clientDetails = new \ClientDetailsType();
 		        $payRequest->clientDetails->customerId = $invest->user;
                 $payRequest->clientDetails->applicationId = PAYPAL_APPLICATION_ID;

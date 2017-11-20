@@ -76,7 +76,7 @@ namespace Goteo\Controller\Cron {
             $query5 = Model\Project::query($sql5);
             foreach ($query5->fetchAll(\PDO::FETCH_OBJ) as $row) {
                 @mail(\GOTEO_FAIL_MAIL,
-                    'Aporte Incompleto con numero de autorización. En ' . SITE_URL,
+                    'Aporte Incompleto con numero de autorización. En ' . LG_BASE_URL_GT,
                     'Aporte Incompleto con numero de autorización: <pre>' . print_r($row, 1). '</pre>');
             }
             

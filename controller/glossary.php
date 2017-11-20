@@ -43,7 +43,7 @@ namespace Goteo\Controller {
             foreach ($glossary as $id=>$post) {
 
                 // tratar el texto para las entradas
-                $post->text = str_replace(array('%SITE_URL%'), array(SITE_URL), $post->text);
+                $post->text = str_replace(array('%LG_BASE_URL_GT%'), array(LG_BASE_URL_GT), $post->text);
                 
                 $posts[] = $post;
 

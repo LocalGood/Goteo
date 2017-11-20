@@ -56,7 +56,7 @@ namespace Goteo\Controller {
 
                 $faqs[$id] = $qs;
                 foreach ($faqs[$id] as &$question) {
-                    $question->description = nl2br(str_replace(array('%SITE_URL%'), array(SITE_URL), $question->description));
+                    $question->description = nl2br(str_replace(array('%LG_BASE_URL_GT%'), array(LG_BASE_URL_GT), $question->description));
                     if (isset($show) && $show == $question->id) {
                         $current = $id;
                     }

@@ -21,7 +21,7 @@
 	use Goteo\Core\View,
         Goteo\Library\Text;
 
-	$url = SITE_URL . '/widget/project/' . urlencode($this['project']->id);
+	$url = LG_BASE_URL_GT . '/widget/project/' . urlencode($this['project']->id);
 
 
 

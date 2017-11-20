@@ -86,7 +86,7 @@ $pagedResults = new \Paginated($this['sended'], 20, isset($_GET['page']) ? $_GET
             <tbody>
                 <?php
                 while ($send = $pagedResults->fetchPagedRow()) :
-                    $link = SITE_URL . '/mail/' . base64_encode(md5(uniqid()) . '¬' . $send->email . '¬' . $send->id) . '/?email=' . urlencode($send->email);
+                    $link = LG_BASE_URL_GT . '/mail/' . base64_encode(md5(uniqid()) . '¬' . $send->email . '¬' . $send->id) . '/?email=' . urlencode($send->email);
                     ?>
                     <tr>
                         <td><a href="<?php echo $link; ?>" target="_blank">[<?php echo Text::_("Send history"); ?>]</a></td>
