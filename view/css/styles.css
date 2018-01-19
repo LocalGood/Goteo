@@ -4710,8 +4710,7 @@ body.js .superform > div.elements ol li.element div.contents p {
   .dashboard #meter-big .percent {
     top: 84px; }
 .dashboard.dashboard .superform {
-  padding-left: 20px;
-  padding-top: 1px;
+  padding: 1px 20px 0;
   background-color: #fff;
   border: none; }
   .dashboard.dashboard .superform .contents input[name="upload"] {
@@ -4723,8 +4722,6 @@ body.js .superform > div.elements ol li.element div.contents p {
   .dashboard.dashboard .superform > div.footer {
     margin-top: 0;
     padding-bottom: 20px; }
-    .dashboard.dashboard .superform > div.footer input[type="submit"], .dashboard.dashboard .superform > div.footer input[type="reset"], .dashboard.dashboard .superform > div.footer button, .dashboard.dashboard .superform > div.footer a.button {
-      margin-left: 0; }
 .dashboard div#main.profile div.superform li.element.user_avatar > div.children > div.elements > ol > li.element {
   display: inline-block;
   vertical-align: top; }
@@ -4771,7 +4768,7 @@ body.js .superform > div.elements ol li.element div.contents p {
 .dashboard div#main.profile div.superform li.element.add input.add {
   margin-left: 0; }
 .dashboard div#main.profile div.superform > div.elements > ol > li.element {
-  padding: 30px 2em 22px 0; }
+  padding: 30px 0 22px; }
   .dashboard div#main.profile div.superform > div.elements > ol > li.element input[type="submit"] {
     margin: 10px 0 0 0 !important; }
 .dashboard div#main.access div.superform li.element.save input[type="submit"] {
@@ -4780,9 +4777,63 @@ body.js .superform > div.elements ol li.element div.contents p {
   width: 200px; }
 .dashboard div#main.access div.superform li.element input.inline {
   margin: 0 0 2em; }
+.dashboard div#main.updates .post {
+  display: flex;
+  border-bottom: 1px dashed #d9d9d9;
+  padding: 20px 0; }
+  .dashboard div#main.updates .post:last-child {
+    border-bottom: none; }
+  .dashboard div#main.updates .post-title {
+    width: 68%;
+    padding-right: 20px; }
+  .dashboard div#main.updates .post-date {
+    width: 20%;
+    max-width: 180px;
+    padding-left: 20px; }
+  .dashboard div#main.updates .post .button {
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    width: auto;
+    height: 24px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    text-decoration: none;
+    margin: 0;
+    padding: 4px 12px; }
+    .dashboard div#main.updates .post .button.edit {
+      background: #009480; }
+    .dashboard div#main.updates .post .button.remove {
+      background: #e02d22; }
+.dashboard div#main.supports .superform li#supports {
+  border-bottom: none;
+  padding-right: 0; }
+  .dashboard div#main.supports .superform li#supports h4.title {
+    margin-bottom: 20px;
+    padding-left: 0; }
+  .dashboard div#main.supports .superform li#supports .contents .support {
+    border-top: 1px dashed #d9d9d9;
+    border-bottom: 1px dashed #d9d9d9;
+    padding: 20px 0; }
+    .dashboard div#main.supports .superform li#supports .contents .support .description {
+      margin-bottom: 20px; }
+    .dashboard div#main.supports .superform li#supports .contents .support input[type="submit"] {
+      display: inline-block;
+      margin: 0; }
+      .dashboard div#main.supports .superform li#supports .contents .support input[type="submit"].edit {
+        margin-right: 8px; }
 .dashboard .superform div.children > div.elements > ol > li.element > div.feedback {
   left: 100% !important;
   margin: 0 0 0 2em; }
+.dashboard.js .superform > div.elements > ol > li.element {
+  border-right: none;
+  margin-right: 0;
+  padding-right: 0; }
 
 .admin input[type="text"],
 .admin input[type="password"],
