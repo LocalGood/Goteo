@@ -203,19 +203,19 @@ color:#20B3B2;
 </div>  
   
 <div class="disclaimer">
-    <p class="goteo-url"><a href="<?php echo SITE_URL ?>" target="_blank"><?php echo GOTEO_META_TITLE; ?></a></p>
+    <p class="goteo-url"><a href="<?php echo LG_BASE_URL_GT ?>" target="_blank"><?php echo GOTEO_META_TITLE; ?></a></p>
     <p>
         このメールにお心当たりのない場合は、下記よりメールにてご連絡をお願いします。<br />
         <a href="mailto:<? echo GOTEO_CONTACT_MAIL; ?>"><? echo GOTEO_CONTACT_MAIL; ?></a>
     </p>
 </div>
 <div class="follow">ソーシャルリンク<?//php echo Text::get('mail-template-follow'); ?>:<br />
-      <span class="facebook"><a href="<?php echo Text::get('social-account-facebook') ?>">facebook</a></span> |  <span class="twitter"><a href="<?php echo Text::get('social-account-twitter') ?>">twitter</a></span> |   <span class="rss"><a rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo SITE_URL. '/rss' ?>">RSS</a></span></div>
+      <span class="facebook"><a href="<?php echo Text::get('social-account-facebook') ?>">facebook</a></span> |  <span class="twitter"><a href="<?php echo Text::get('social-account-twitter') ?>">twitter</a></span> |   <span class="rss"><a rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo LG_BASE_URL_GT. '/rss' ?>">RSS</a></span></div>
 <p>
     ※このメールに関するご要望等ございましたら、下記よりメールにてご連絡をお願いいたします。<br />
     <a href="mailto:<? echo GOTEO_CONTACT_MAIL; ?>"><? echo GOTEO_CONTACT_MAIL; ?></a>
 </p>
-<div>※今後、本メッセージを受信しないようにする場合は、<a href="<?php echo SITE_URL ?>/dashboard/profile/preferences?email='<?$this['parts1'];?>'">こちらのリンク</a>より、送信設定を解除ください。</div>
+<div>※今後、本メッセージを受信しないようにする場合は、<a href="<?php echo LG_BASE_URL_GT ?>/dashboard/profile/preferences?email='<?$this['parts1'];?>'">こちらのリンク</a>より、送信設定を解除ください。</div>
 
 </div>
 

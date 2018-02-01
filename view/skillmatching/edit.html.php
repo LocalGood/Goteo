@@ -63,7 +63,7 @@ include 'view/prologue.html.php';
 
     <div id="main" class="<?php echo htmlspecialchars($this['step']) ?>">
 
-        <form method="post" action="<?php echo SITE_URL . "/skillmatching/edit/" . $this['skillmatching']->id ?>" class="project" enctype="multipart/form-data" >
+        <form method="post" action="<?php echo LG_BASE_URL_GT . "/skillmatching/edit/" . $this['skillmatching']->id ?>" class="project" enctype="multipart/form-data" >
 
             <input type="hidden" name="view-step-<?php echo $this['step'] ?>" value="please" />
 

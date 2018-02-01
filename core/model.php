@@ -194,6 +194,15 @@ namespace Goteo\Core {
             return $id;
         }
 
+        public static function sanitize_file_name( $name ) {
+            $info = pathinfo( $name );
+            $ext = !empty( $info['extension'] ) ? '.' . $info['extension'] : '';
+            $name = str_replace( $ext, '', $name );
+            $name_enc = rawurlencode( $name );
+            $name = ( $name == $name_enc ) ? $name . $ext : md5( $name ) . $ext;
+            return $name;
+        }
+
         public static function localNow () {
             return date('Y-m-d H:i:s', time());
         }

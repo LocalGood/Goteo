@@ -26,7 +26,7 @@ $project = $this['project'];
 
 
 $categories = Category::getNames($project->id, 2);
-$url = SITE_URL.'/project/'.$project->id;
+$url = LG_BASE_URL_GT.'/project/'.$project->id;
 
 // retornos
 $icons = array();

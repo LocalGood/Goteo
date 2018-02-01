@@ -18,12 +18,24 @@
  *
  */
 //@NODESYS
+
+$apikeys = json_decode(file_get_contents( '/var/www/html/omniconfig/apikeys.json'));
+$meta_kwds = function() use($apikeys) {
+	$tmp = array();
+	if ($apikeys->meta->appName->name) array_push($tmp,$apikeys->meta->appName->name);
+	array_push($tmp,'コミュニティ','コミュニティ経済');
+	if ($apikeys->meta->appName->kanji) array_push($tmp,$apikeys->meta->appName->kanji);
+	array_push($tmp,'地域','Goteo');
+	return implode(',',$tmp);
+};
+
+
 if($_SERVER['REQUEST_URI']=="/"):
     $ogmeta = array(
         'title' => GOTEO_META_TITLE,
-        'description' => GOTEO_META_DESCRIPTION,
-        'url' => SITE_URL,
-        'image' => array(SITE_URL . '/view/images/ogimg.png')
+        'description' => $apikeys->meta->description,
+        'url' => LG_BASE_URL_GT,
+        'image' => array($apikeys->images->main_logo)
     );
 elseif(strstr($_SERVER['REQUEST_URI'],'project')):
     if(!empty($this['project']->subtitle)) {
@@ -39,7 +51,7 @@ elseif(strstr($_SERVER['REQUEST_URI'],'project')):
     $ogmeta = array(
         'title' => $this['project']->name,
         'description' => $description,
-        'url' => SITE_URL.$_SERVER['REQUEST_URI'],
+        'url' => LG_BASE_URL_GT.$_SERVER['REQUEST_URI'],
         'image' => array($gallery)
     );
 endif;
@@ -56,6 +68,7 @@ if (!empty($this['posts'])) {
         }
     }
 }
+
 $blog_post = strpos($ogmeta['url'], '/updates');
 $_blog_key = substr($ogmeta['url'], $blog_post+9);
 ?>
@@ -75,8 +88,8 @@ $_blog_key = substr($ogmeta['url'], $blog_post+9);
         ?>
         <title><?php echo htmlspecialchars($lg_title, ENT_QUOTES, 'UTF-8'); ?></title>
         <link rel="icon" type="image/png" href="/favicon.ico" />
-        <meta name="description" content="<?php echo htmlspecialchars(GOTEO_META_DESCRIPTION, ENT_QUOTES, 'UTF-8'); ?>" />
-        <meta name="keywords" content="<?php echo htmlspecialchars(GOTEO_META_KEYWORDS, ENT_QUOTES, 'UTF-8'); ?>" />
+		<meta name="description" content="<?php echo htmlspecialchars($apikeys->meta->description, ENT_QUOTES, 'UTF-8'); ?>" />
+		<meta name="keywords" content="<?php echo htmlspecialchars($meta_kwds(), ENT_QUOTES, 'UTF-8'); ?>" />
         <meta name="author" content="<?php echo htmlspecialchars(GOTEO_META_AUTHOR, ENT_QUOTES, 'UTF-8'); ?>" />
         <meta name="copyright" content="<?php echo htmlspecialchars(GOTEO_META_COPYRIGHT, ENT_QUOTES, 'UTF-8'); ?>" />
         <meta name="robots" content="all" />
@@ -96,9 +109,9 @@ $_blog_key = substr($ogmeta['url'], $blog_post+9);
         <meta property="og:url" content="<?php echo $ogmeta['url'] ?>" />
 <?php else : ?>
         <meta property="og:title" content="Goteo.org" />
-        <meta property="og:description" content="<?php echo htmlspecialchars(GOTEO_META_DESCRIPTION, ENT_QUOTES, 'UTF-8'); ?>" />
-        <meta property="og:image" content="<?php echo SITE_URL ?>/goteo_logo.png" />
-        <meta property="og:url" content="<?php echo SITE_URL ?>" />
+        <meta property="og:description" content="<?php echo htmlspecialchars($apikeys->meta->description, ENT_QUOTES, 'UTF-8'); ?>" />
+        <meta property="og:image" content="<?php echo LG_BASE_URL_GT ?>/goteo_logo.png" />
+        <meta property="og:url" content="<?php echo LG_BASE_URL_GT ?>" />
 <?php endif; ?>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" href="<?php echo SRC_URL ?>/view/m/css/styles-m.css" />
@@ -122,10 +135,10 @@ $_blog_key = substr($ogmeta['url'], $blog_post+9);
             <!-- end meanmenu -->
 
 		  <!-- vigilante de sesi�n -->
-		  <script type="text/javascript" src="<?php echo SITE_URL ?>/view/m/js/watchdog.js"></script>
-            <script type="text/javascript" src="<?php echo SITE_URL ?>/view/m/js/heightLine.js"></script>
-            <script type="text/javascript" src="<?php echo SITE_URL ?>/view/m/js/flipsnap.min.js"></script>
-            <script type="text/javascript" src="<?php echo SITE_URL ?>/view/m/js/localgood-sp.js"></script>
+		  <script type="text/javascript" src="<?php echo SRC_URL ?>/view/m/js/watchdog.js"></script>
+            <script type="text/javascript" src="<?php echo SRC_URL ?>/view/m/js/heightLine.js"></script>
+            <script type="text/javascript" src="<?php echo SRC_URL ?>/view/m/js/flipsnap.min.js"></script>
+            <script type="text/javascript" src="<?php echo SRC_URL ?>/view/m/js/localgood-sp.js"></script>
 
         <?php endif; ?>
 

@@ -12,14 +12,6 @@ $defs = array();
 
 // 環境変数より
 $env_ids = array(
-    // LG Base Name
-    'LG_PLACE_NAME',
-    // Metadata
-    'GOTEO_META_TITLE',
-    'GOTEO_META_DESCRIPTION',
-    'GOTEO_META_KEYWORDS',
-    'GOTEO_META_AUTHOR',
-    'GOTEO_META_COPYRIGHT',
     // Database
     'GOTEO_DB_HOST',
     'GOTEO_DB_PORT',
@@ -40,17 +32,12 @@ $env_ids = array(
      * LocalGood Server Environment
      */
     // url
-    'SITE_URL', // endpoint url
+    'LG_BASE_URL_GT', // endpoint url
     'SRC_URL',  // host for statics
-    'SEC_URL',  // with SSL certified
+    'LG_BASE_URL_GT',  // with SSL certified
     // Wordpress URL
-    'LOCALGOOD_WP_BASE_URL',
+    'LG_BASE_URL_WP',
     //
-    'LOG_PATH',
-    'LG_INTEGRATION_URL',
-    'LG_NAME',
-    'LG_TWITTER',
-    'LG_FACEBOOK_PAGE',
     // Cron params (for cron processes using wget)
     'CRON_PARAM',
     'CRON_VALUE',
@@ -76,14 +63,6 @@ $env_ids = array(
     'AWS_SES_SECERET',
     'AWS_SES_CHARSET',
     /*
-     * AXES
-     */
-    'AXES_CLIENTIP',
-    /*
-     * CESIUM
-     */
-    'LG_EARTHVIEW',
-    /*
      *  SCSS Compiler
      */
     'LG_SCSS_COMPILE_PARAM',
@@ -107,6 +86,13 @@ foreach ($env_ids as $env_id){
     }
 }
 
+$apikeys = json_decode(file_get_contents( '/var/www/html/omniconfig/apikeys.json'));
+define('GOTEO_META_TITLE', $apikeys->meta->appName->name);
+define('GOTEO_META_AUTHOR', $apikeys->meta->appName->name);
+define('LG_PLACE_NAME', $apikeys->meta->appName->es);
+
+
+
 //iPad, AndroidタブレットはPCビュー
 //if(preg_match('/iPod|iPhone|Android.+Mobile/i', $ua) || strpos($ua, 'LocalGood/iOS (Yokohama) ') === 0 || strpos($ua, 'LocalGood/Android (Yokohama) ') === 0 ) {
 if(isset($_SERVER['HTTP_USER_AGENT'])){
@@ -127,23 +113,6 @@ if( !empty($ua) && ( preg_match('/iPod|iPhone/i', $_SERVER['HTTP_USER_AGENT']) =
 Skillmatching
  ****************************************************/
 define('LG_SM_DB_PREFIX', 'skillmatching_');    // def
-
-//
-/*
- *  omniconfig
- */
-if (getenv('LG_OMNICONFIG_JSON_FILE')){
-    $_json = file_get_contents(LG_OMNICONFIG_JSON_FILE);
-    if ($_json){
-        $json = json_decode($_json);
-        if (isset($json->facebook)){
-            // facebook AppID
-            define('OAUTH_FACEBOOK_ID',$json->facebook);
-            // google map api key
-            // define('LG_GOOGLE_MAP_API_KEY',$json->facebook);
-        }
-    }
-}
 
 //Uploads static files
 // define('STATIC_SVR_DOMAIN','http://static.staging.localgood.jp');

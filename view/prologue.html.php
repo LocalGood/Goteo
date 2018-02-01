@@ -27,13 +27,24 @@ use Goteo\Core\View,
 
 //$fbCode = Text::widget(Text::get('social-account-facebook'), 'fb');
 
+$apikeys = json_decode(file_get_contents( '/var/www/html/omniconfig/apikeys.json'));
+$meta_kwds = function() use($apikeys) {
+	$tmp = array();
+	if ($apikeys->meta->appName->name) array_push($tmp,$apikeys->meta->appName->name);
+	array_push($tmp,'コミュニティ','コミュニティ経済');
+	if ($apikeys->meta->appName->kanji) array_push($tmp,$apikeys->meta->appName->kanji);
+	array_push($tmp,'地域','Goteo');
+	return implode(',',$tmp);
+};
+
+
 // metas og: para que al compartir en facebook coja las imagenes de novedades
 if($_SERVER['REQUEST_URI']=="/"):
     $ogmeta = array(
         'title' => GOTEO_META_TITLE,
-        'description' => GOTEO_META_DESCRIPTION,
-        'url' => SITE_URL,
-        'image' => array(SITE_URL . '/view/images/ogimg.png')
+        'description' => $apikeys->meta->description,
+        'url' => LG_BASE_URL_GT,
+        'image' => array($apikeys->images->main_logo)
     );
 elseif(strstr($_SERVER['REQUEST_URI'],'project')):
     if(!empty($this['project']->subtitle)) {
@@ -49,7 +60,7 @@ elseif(strstr($_SERVER['REQUEST_URI'],'project')):
     $ogmeta = array(
         'title' => $this['project']->name,
         'description' => $description,
-        'url' => SITE_URL.$_SERVER['REQUEST_URI'],
+        'url' => LG_BASE_URL_GT.$_SERVER['REQUEST_URI'],
         'image' => array($gallery)
     );
 endif;
@@ -66,6 +77,8 @@ if (!empty($this['posts'])) {
         }
     }
 }
+
+
 
 $blog_post = strpos($ogmeta['url'], '/updates');
 $_blog_key = substr($ogmeta['url'], $blog_post+9);
@@ -86,8 +99,8 @@ $_blog_key = substr($ogmeta['url'], $blog_post+9);
     ?>
     <title><?php echo htmlspecialchars($lg_title, ENT_QUOTES, 'UTF-8'); ?></title>
     <link rel="icon" type="image/png" href="/favicon.ico" />
-    <meta name="description" content="<?php echo htmlspecialchars(GOTEO_META_DESCRIPTION, ENT_QUOTES, 'UTF-8'); ?>" />
-    <meta name="keywords" content="<?php echo htmlspecialchars(GOTEO_META_KEYWORDS, ENT_QUOTES, 'UTF-8'); ?>" />
+    <meta name="description" content="<?php echo htmlspecialchars($apikeys->meta->description, ENT_QUOTES, 'UTF-8'); ?>" />
+    <meta name="keywords" content="<?php echo htmlspecialchars($meta_kwds(), ENT_QUOTES, 'UTF-8'); ?>" />
     <meta name="author" content="<?php echo htmlspecialchars(GOTEO_META_AUTHOR, ENT_QUOTES, 'UTF-8'); ?>" />
     <meta name="copyright" content="<?php echo htmlspecialchars(GOTEO_META_COPYRIGHT, ENT_QUOTES, 'UTF-8'); ?>" />
     <meta name="robots" content="all" />
@@ -141,9 +154,9 @@ $_blog_key = substr($ogmeta['url'], $blog_post+9);
         <meta property="fb:app_id" content="<? if(defined('OAUTH_FACEBOOK_ID')){echo OAUTH_FACEBOOK_ID;} ?>" />
     <?php else : ?>
         <meta property="og:title" content="<?php echo htmlspecialchars($ogmeta['title'], ENT_QUOTES, 'UTF-8'); ?>" />
-        <meta property="og:description" content="<?php if(defined('GOTEO_META_DESCRIPTION')){echo htmlspecialchars(strip_tags(GOTEO_META_DESCRIPTION), ENT_QUOTES, 'UTF-8');} ?>" />
-        <meta property="og:image" content="<?php if(defined('SITE_URL')){echo SITE_URL;} ?>/view/images/header/logo.png" />
-        <meta property="og:url" content="<?php if(defined('SITE_URL')){echo SITE_URL;} ?>" />
+		<meta property="og:description" content="<?php echo htmlspecialchars($apikeys->meta->description, ENT_QUOTES, 'UTF-8'); ?>" />
+        <meta property="og:image" content="<?php echo $apikeys->images->main_logo; ?>" />
+        <meta property="og:url" content="<?php if(defined('LG_BASE_URL_GT')){echo LG_BASE_URL_GT;} ?>" />
         <meta property="og:locale" content="ja_JP" />
         <meta property="fb:app_id" content="<? if(defined('OAUTH_FACEBOOK_ID')){echo OAUTH_FACEBOOK_ID;} ?>" />
     <?php endif; ?>
@@ -195,10 +208,10 @@ $_blog_key = substr($ogmeta['url'], $blog_post+9);
         <link rel="stylesheet" type="text/css" href="<?php echo SRC_URL ?>/view/css/fancybox/jquery.fancybox.min.css" media="screen" />
         <!-- end custom fancybox-->
 
-        <script type="text/javascript" src="<?php echo SITE_URL ?>/view/js/watchdog.js"></script>
-        <script type="text/javascript" src="<?php echo SITE_URL ?>/view/js/heightLine.js"></script>
+        <script type="text/javascript" src="<?php echo SRC_URL ?>/view/js/watchdog.js"></script>
+        <script type="text/javascript" src="<?php echo SRC_URL ?>/view/js/heightLine.js"></script>
 
-        <script type="text/javascript" src="<?php echo SITE_URL ?>/view/js/localgood.js"></script>
+        <script type="text/javascript" src="<?php echo SRC_URL ?>/view/js/localgood.js"></script>
 
     <?php endif; ?>
 
@@ -207,9 +220,22 @@ $_blog_key = substr($ogmeta['url'], $blog_post+9);
         <script type="text/javascript" src="<?php echo SRC_URL ?>/view/js/jquery-ui-1.10.3.autocomplete.min.js"></script>
     <?php endif; ?>
 
-    <?php if(defined('GOTEO_ANALYTICS_TRACKER')){
-        echo GOTEO_ANALYTICS_TRACKER;
-    }  ?>
+    <?php
+	$google_analytics_id = getenv('LG_GOOGLE_ANALYTICS_GT');
+	if(!strpos($_SERVER['SERVER_NAME'], 'il3c') && $google_analytics_id):
+echo <<<EOD
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', '{$google_analytics_id}', 'localgood.jp');
+            ga('send', 'pageview');
+        </script>
+EOD;
+	endif;
+	?>
 </head>
 
 <body id="page_top" <?php if (isset($bodyClass)) echo ' class="' . htmlspecialchars($bodyClass) . '"' ?>>

@@ -24,7 +24,7 @@ $mailing = $this['mailing'];
 $list = $this['list'];
 $detail = $this['detail'];
 
-$link = SITE_URL.'/mail/'.base64_encode(md5(uniqid()).'¬any¬'.$mailing->mail).'/?email=any';
+$link = LG_BASE_URL_GT.'/mail/'.base64_encode(md5(uniqid()).'¬any¬'.$mailing->mail).'/?email=any';
 
 $title = array(
     'receivers' => 'Destinatarios',

@@ -200,7 +200,7 @@ namespace Goteo\Controller {
                         $sesClient->template = 0;
 
                         $subject = 'Proyecto ' . $project->name . ' enviado a valoración';
-                        $content = '<p>Han enviado un nuevo proyecto a revisión</p><p>El nombre del proyecto es: <span class="message-highlight-blue">'.$project->name.'</span> <br />y se puede ver en <span class="message-highlight-blue"><a href="'.SITE_URL.'/project/'.$project->id.'">'.SITE_URL.'/project/'.$project->id.'</a></span></p>';
+                        $content = '<p>Han enviado un nuevo proyecto a revisión</p><p>El nombre del proyecto es: <span class="message-highlight-blue">'.$project->name.'</span> <br />y se puede ver en <span class="message-highlight-blue"><a href="'.LG_BASE_URL_GT.'/project/'.$project->id.'">'.LG_BASE_URL_GT.'/project/'.$project->id.'</a></span></p>';
 
                         try {
                             $sesClient->sendMail(array(
@@ -405,12 +405,12 @@ namespace Goteo\Controller {
         }
 
         public function create () {
-            if(!isset($_SESSION['user']->roles['project_owner']) && !isset($_SESSION['user']->roles['localadmin'])) header("Location:" . LOCALGOOD_WP_BASE_URL . "/challenge");
+            if(!isset($_SESSION['user']->roles['project_owner']) && !isset($_SESSION['user']->roles['localadmin'])) header("Location:" . LG_BASE_URL_WP . "/challenge");
 
             if (empty($_SESSION['user'])) {
                 $_SESSION['jumpto'] = '/project/create';
                 Message::Info(Text::get('user-login-required-to_create'));
-                throw new Redirection(SEC_URL."/user/login");
+                throw new Redirection(LG_BASE_URL_GT."/user/login");
             }
 
             if ($_POST['action'] != 'continue' || $_POST['confirm'] != 'true') {
@@ -570,7 +570,7 @@ namespace Goteo\Controller {
                             $step = 'start';
                         } elseif ($step == 'start') {
                             // para cuando salte
-                            $_SESSION['jumpto'] = SEC_URL.'/project/' .  $id . '/invest/#continue';
+                            $_SESSION['jumpto'] = LG_BASE_URL_GT.'/project/' .  $id . '/invest/#continue';
                         } else {
                             $step = 'start';
                         }

@@ -30,7 +30,7 @@ $review = $this['review'];
 <div class="widget">
     <p>El proyecto <strong><?php echo $review->name; ?></strong> de <strong><?php echo $review->owner_name; ?></strong></p>
     <p><?php echo Text::_('La edición del proyecto alcanzó el '); ?><strong><?php echo $review->progress; ?>%</strong>, <?php echo Text::_('la puntuación actual de la revisión es de '); ?><strong><?php echo $review->score; ?>/<?php echo $review->max; ?></strong></p>
-    <p><a href="<?php echo SITE_URL . '/project/' . $review->project; ?>" target="_blank"><?php echo Text::_('Abrir el proyecto') ?></a><br /><a href="<?php echo SITE_URL . '/user/' . $review->owner; ?>" target="_blank"><?php echo Text::_('Abrir el perfil del creador') ?></a></p>
+    <p><a href="<?php echo LG_BASE_URL_GT . '/project/' . $review->project; ?>" target="_blank"><?php echo Text::_('Abrir el proyecto') ?></a><br /><a href="<?php echo LG_BASE_URL_GT . '/user/' . $review->owner; ?>" target="_blank"><?php echo Text::_('Abrir el perfil del creador') ?></a></p>
 </div>
 
 <div class="widget">

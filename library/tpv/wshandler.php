@@ -213,7 +213,7 @@ function tpvcall($data, $endpoint)
     
     if (curl_errno($ch)) {
         @mail(\GOTEO_MAIL,
-            'Ha fallado el handler de tpv ' . SITE_URL,
+            'Ha fallado el handler de tpv ' . LG_BASE_URL_GT,
             'curl_error: ' . curl_errno($ch) . '<br />' . curl_error($ch) . '<hr /><pre>'.print_r($data, 1).'</pre>');
         return null;
      } else {

@@ -45,8 +45,8 @@ namespace Goteo\Controller {
         public function execute () {
 
             if (!\defined('CRON_EXEC')) {
-                @mail(\GOTEO_FAIL_MAIL, 'Se ha lanzado MANUALMENTE el cron '. __FUNCTION__ .' en ' . SITE_URL,
-                    'Se ha lanzado manualmente el cron '. __FUNCTION__ .' en ' . SITE_URL.' a las ' . date ('H:i:s') . ' Usuario '. $_SESSION['user']->id);
+                @mail(\GOTEO_FAIL_MAIL, 'Se ha lanzado MANUALMENTE el cron '. __FUNCTION__ .' en ' . LG_BASE_URL_GT,
+                    'Se ha lanzado manualmente el cron '. __FUNCTION__ .' en ' . LG_BASE_URL_GT.' a las ' . date ('H:i:s') . ' Usuario '. $_SESSION['user']->id);
                echo 'Lanzamiento manual a las ' . date ('H:i:s') . ' <br />';
             } else {
                 echo 'Lanzamiento automatico a las ' . date ('H:i:s') . ' <br />';
@@ -63,7 +63,7 @@ namespace Goteo\Controller {
                 \file_put_contents($log_file, \ob_get_contents(), FILE_APPEND);
                 \chmod($log_file, 0777);
                 /*
-                @mail(\GOTEO_FAIL_MAIL, 'Cron '. __FUNCTION__ .' bloqueado en ' . SITE_URL,
+                @mail(\GOTEO_FAIL_MAIL, 'Cron '. __FUNCTION__ .' bloqueado en ' . LG_BASE_URL_GT,
                     'Se ha encontrado con que el cron '. __FUNCTION__ .' está bloqueado el '.date('d-m-Y').' a las ' . date ('H:i:s') . '
                         El contenido del bloqueo es: '. $block_content);
                  */
@@ -75,7 +75,7 @@ namespace Goteo\Controller {
                     echo $block;
                 } else {
                     echo 'No se ha podido crear el archivo de bloqueo<br />';
-                    @mail(\GOTEO_FAIL_MAIL, 'Cron '. __FUNCTION__ .' no se ha podido bloquear en ' . SITE_URL,
+                    @mail(\GOTEO_FAIL_MAIL, 'Cron '. __FUNCTION__ .' no se ha podido bloquear en ' . LG_BASE_URL_GT,
                         'No se ha podido crear el archivo '.$block_file.' el '.date('d-m-Y').' a las ' . date ('H:i:s'));
                 }
             }
@@ -219,7 +219,7 @@ namespace Goteo\Controller {
                             $log_text = Text::_('El proyecto %s ha %s obteniendo %s');
                         } else {
                             @mail(\GOTEO_FAIL_MAIL,
-                                'Fallo al archivar ' . SITE_URL,
+                                'Fallo al archivar ' . LG_BASE_URL_GT,
                                 'Fallo al marcar el proyecto '.$project->name.' como archivado ' . implode(',', $errors));
                             echo 'ERROR::' . implode(',', $errors);
                             $log_text = Text::_('El proyecto %s ha fallado al, %s obteniendo %s');
@@ -272,7 +272,7 @@ namespace Goteo\Controller {
                                 $log_text = Text::_('El proyecto %s ha sido %s obteniendo %s');
                             } else {
                                 @mail(\GOTEO_FAIL_MAIL,
-                                    'Fallo al marcar financiado ' . SITE_URL,
+                                    'Fallo al marcar financiado ' . LG_BASE_URL_GT,
                                     'Fallo al marcar el proyecto '.$project->name.' como financiado ' . implode(',', $errors));
                                 echo 'ERROR::' . implode(',', $errors);
                                 $log_text = Text::_('El proyecto %s ha fallado al ser, %s obteniendo %s');
@@ -353,14 +353,14 @@ namespace Goteo\Controller {
                                     echo ' -> Ok:: se ha creado el registro de contrato';
                                 } else {
                                     @mail(\GOTEO_FAIL_MAIL,
-                                        'Fallo al crear registro de contrato ' . SITE_URL,
+                                        'Fallo al crear registro de contrato ' . LG_BASE_URL_GT,
                                         'Fallo al crear registro de contrato para el proyecto '.$project->name.': ' . implode(',', $errors));
                                     echo ' -> semi-Ok: se ha actualiuzado el estado del proyecto pero ha fallado al crear el registro de contrato. ERROR: ' . implode(',', $errors);
                                 }
 */
                             } else {
                                 @mail(\GOTEO_FAIL_MAIL,
-                                    'Fallo al marcar fecha de paso a segunda ronda ' . SITE_URL,
+                                    'Fallo al marcar fecha de paso a segunda ronda ' . LG_BASE_URL_GT,
                                     'Fallo al marcar la fecha de paso a segunda ronda para el proyecto '.$project->name.': ' . implode(',', $errors));
                                 echo ' -> ERROR::' . implode(',', $errors);
                             }
@@ -555,7 +555,7 @@ namespace Goteo\Controller {
                                         $txt_errors = implode('; ', $err);
                                         echo 'Aporte ' . $invest->id . ': Fallo al ejecutar cargo paypal: ' . $txt_errors . '<br />';
                                         @mail(\GOTEO_FAIL_MAIL,
-                                            'Fallo al ejecutar cargo Paypal ' . SITE_URL,
+                                            'Fallo al ejecutar cargo Paypal ' . LG_BASE_URL_GT,
                                             'Aporte ' . $invest->id . ': Fallo al ejecutar cargo paypal: ' . $txt_errors);
                                         if ($debug) echo ' -> ERROR!!';
                                         Model\Invest::setDetail($invest->id, 'execution-failed', 'Fallo al ejecutar el preapproval, no ha iniciado el pago encadenado: ' . $txt_errors . '. Proceso cron/execute');
@@ -566,7 +566,7 @@ namespace Goteo\Controller {
                                         // Sustituimos los datos
                                         $subject = str_replace('%PROJECTNAME%', $project->name, $template->title);
                                         $search  = array('%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%', '%AMOUNT%', '%DETAILS%');
-                                        $replace = array($userData->name, $project->name, SITE_URL . '/project/' . $project->id, $invest->amount, '');
+                                        $replace = array($userData->name, $project->name, LG_BASE_URL_GT . '/project/' . $project->id, $invest->amount, '');
                                         $content = \str_replace($search, $replace, $template->text);
                                         /*
                                         // iniciamos mail
@@ -583,7 +583,7 @@ namespace Goteo\Controller {
                                         } else {
                                             Model\Invest::setDetail($invest->id, 'issue-notify-failed', "Ha fallado al enviar el mail de notificacion de la incidencia al usuario");
                                             @mail(\GOTEO_FAIL_MAIL,
-                                                'Fallo al enviar email de notificacion de incidencia PayPal' . SITE_URL,
+                                                'Fallo al enviar email de notificacion de incidencia PayPal' . LG_BASE_URL_GT,
                                                 'Fallo al enviar email de notificacion de incidencia PayPal: <pre>' . print_r($mailHandler, 1). '</pre>');
                                         }
                                         */
@@ -780,7 +780,7 @@ namespace Goteo\Controller {
                             $log_text = Text::_('El proyecto %s ha %s obteniendo %s');
                         } else {
                             @mail(\GOTEO_FAIL_MAIL,
-                                'Fallo al archivar ' . SITE_URL,
+                                'Fallo al archivar ' . LG_BASE_URL_GT,
                                 'Fallo al marcar el proyecto '.$skillmatching->name.' como archivado ' . implode(',', $errors));
                             echo 'ERROR::' . implode(',', $errors);
                             $log_text = Text::_('El proyecto %s ha fallado al, %s obteniendo %s');
@@ -840,7 +840,7 @@ namespace Goteo\Controller {
                                 $log_text = Text::_('El proyecto %s ha sido %s obteniendo %s');
                             } else {
                                 @mail(\GOTEO_FAIL_MAIL,
-                                    'Fallo al marcar financiado ' . SITE_URL,
+                                    'Fallo al marcar financiado ' . LG_BASE_URL_GT,
                                     'Fallo al marcar el proyecto '.$skillmatching->name.' como financiado ' . implode(',', $errors));
                                 echo 'ERROR::' . implode(',', $errors);
                                 $log_text = Text::_('El proyecto %s ha fallado al ser, %s obteniendo %s');
@@ -926,14 +926,14 @@ namespace Goteo\Controller {
                                                                     echo ' -> Ok:: se ha creado el registro de contrato';
                                                                 } else {
                                                                     @mail(\GOTEO_FAIL_MAIL,
-                                                                        'Fallo al crear registro de contrato ' . SITE_URL,
+                                                                        'Fallo al crear registro de contrato ' . LG_BASE_URL_GT,
                                                                         'Fallo al crear registro de contrato para el proyecto '.$skillmatching->name.': ' . implode(',', $errors));
                                                                     echo ' -> semi-Ok: se ha actualiuzado el estado del proyecto pero ha fallado al crear el registro de contrato. ERROR: ' . implode(',', $errors);
                                                                 }
                                 */
                             } else {
                                 @mail(\GOTEO_FAIL_MAIL,
-                                    'Fallo al marcar fecha de paso a segunda ronda ' . SITE_URL,
+                                    'Fallo al marcar fecha de paso a segunda ronda ' . LG_BASE_URL_GT,
                                     'Fallo al marcar la fecha de paso a segunda ronda para el proyecto '.$skillmatching->name.': ' . implode(',', $errors));
                                 echo ' -> ERROR::' . implode(',', $errors);
                             }
@@ -1135,7 +1135,7 @@ namespace Goteo\Controller {
                                         $txt_errors = implode('; ', $err);
                                         echo 'Aporte ' . $invest->id . ': Fallo al ejecutar cargo paypal: ' . $txt_errors . '<br />';
                                         @mail(\GOTEO_FAIL_MAIL,
-                                            'Fallo al ejecutar cargo Paypal ' . SITE_URL,
+                                            'Fallo al ejecutar cargo Paypal ' . LG_BASE_URL_GT,
                                             'Aporte ' . $invest->id . ': Fallo al ejecutar cargo paypal: ' . $txt_errors);
                                         if ($debug) echo ' -> ERROR!!';
                                         Model\Invest::setDetail($invest->id, 'execution-failed', 'Fallo al ejecutar el preapproval, no ha iniciado el pago encadenado: ' . $txt_errors . '. Proceso cron/execute');
@@ -1146,7 +1146,7 @@ namespace Goteo\Controller {
                                         // Sustituimos los datos
                                         $subject = str_replace('%PROJECTNAME%', $skillmatching->name, $template->title);
                                         $search  = array('%USERNAME%', '%PROJECTNAME%', '%PROJECTURL%', '%AMOUNT%', '%DETAILS%');
-                                        $replace = array($userData->name, $skillmatching->name, SITE_URL . '/skillmatching/' . $skillmatching->id, $invest->amount, '');
+                                        $replace = array($userData->name, $skillmatching->name, LG_BASE_URL_GT . '/skillmatching/' . $skillmatching->id, $invest->amount, '');
                                         $content = \str_replace($search, $replace, $template->text);
                                         // iniciamos mail
                                         $mailHandler = new Mail();
@@ -1162,7 +1162,7 @@ namespace Goteo\Controller {
                                         } else {
                                             Model\Invest::setDetail($invest->id, 'issue-notify-failed', "Ha fallado al enviar el mail de notificacion de la incidencia al usuario");
                                             @mail(\GOTEO_FAIL_MAIL,
-                                                'Fallo al enviar email de notificacion de incidencia PayPal' . SITE_URL,
+                                                'Fallo al enviar email de notificacion de incidencia PayPal' . LG_BASE_URL_GT,
                                                 'Fallo al enviar email de notificacion de incidencia PayPal: <pre>' . print_r($mailHandler, 1). '</pre>');
                                         }
 
@@ -1290,8 +1290,8 @@ namespace Goteo\Controller {
          */
         public function verify () {
             if (!\defined('CRON_EXEC')) {
-                @mail(\GOTEO_FAIL_MAIL, 'Se ha lanzado el cron '. __FUNCTION__ .' en ' . SITE_URL,
-                    'Se ha lanzado manualmente el cron '. __FUNCTION__ .' en ' . SITE_URL.' a las ' . date ('H:i:s') . ' Usuario '. $_SESSION['user']->id);
+                @mail(\GOTEO_FAIL_MAIL, 'Se ha lanzado el cron '. __FUNCTION__ .' en ' . LG_BASE_URL_GT,
+                    'Se ha lanzado manualmente el cron '. __FUNCTION__ .' en ' . LG_BASE_URL_GT.' a las ' . date ('H:i:s') . ' Usuario '. $_SESSION['user']->id);
                echo 'Lanzamiento manual<br />';
             } else {
                echo 'Lanzamiento automatico<br />';
@@ -1321,8 +1321,8 @@ namespace Goteo\Controller {
          */
         public function cleanup () {
             if (\defined('CRON_EXEC')) {
-                @mail(\GOTEO_FAIL_MAIL, 'Se ha lanzado el cron '. __FUNCTION__ .' en ' . SITE_URL,
-                    'Se intentaba lanzar automáticamente el cron '. __FUNCTION__ .' en ' . SITE_URL.' a las ' . date ('H:i:s') . ' Usuario '. $_SESSION['user']->id);
+                @mail(\GOTEO_FAIL_MAIL, 'Se ha lanzado el cron '. __FUNCTION__ .' en ' . LG_BASE_URL_GT,
+                    'Se intentaba lanzar automáticamente el cron '. __FUNCTION__ .' en ' . LG_BASE_URL_GT.' a las ' . date ('H:i:s') . ' Usuario '. $_SESSION['user']->id);
                die;
             } else {
                 Cron\Cleanup::process();
@@ -1338,8 +1338,8 @@ namespace Goteo\Controller {
             // no necesito email de aviso por el momento
             /*
             if (!\defined('CRON_EXEC')) {
-                @mail(\GOTEO_FAIL_MAIL, 'Se ha lanzado el cron '. __FUNCTION__ .' en ' . SITE_URL,
-                    'Se ha lanzado manualmente el cron '. __FUNCTION__ .' en ' . SITE_URL.' a las ' . date ('H:i:s') . ' Usuario '. $_SESSION['user']->id);
+                @mail(\GOTEO_FAIL_MAIL, 'Se ha lanzado el cron '. __FUNCTION__ .' en ' . LG_BASE_URL_GT,
+                    'Se ha lanzado manualmente el cron '. __FUNCTION__ .' en ' . LG_BASE_URL_GT.' a las ' . date ('H:i:s') . ' Usuario '. $_SESSION['user']->id);
                echo 'Lanzamiento manual<br />';
             } else {
                echo 'Lanzamiento automatico<br />';
@@ -1371,8 +1371,8 @@ namespace Goteo\Controller {
                 die('Este proceso no necesitamos lanzarlo automaticamente');
             }
 
-            @mail(\GOTEO_FAIL_MAIL, 'Se ha lanzado el cron '. __FUNCTION__ .' en ' . SITE_URL,
-                'Se ha lanzado manualmente el cron '. __FUNCTION__ .' para el proyecto '.$project.' en ' . SITE_URL.' a las ' . date ('H:i:s') . ' Usuario '. $_SESSION['user']->id);
+            @mail(\GOTEO_FAIL_MAIL, 'Se ha lanzado el cron '. __FUNCTION__ .' en ' . LG_BASE_URL_GT,
+                'Se ha lanzado manualmente el cron '. __FUNCTION__ .' para el proyecto '.$project.' en ' . LG_BASE_URL_GT.' a las ' . date ('H:i:s') . ' Usuario '. $_SESSION['user']->id);
             
             // a ver si existe el bloqueo
             $block_file = GOTEO_PATH.'logs/cron-'.__FUNCTION__.'.block';
@@ -1385,7 +1385,7 @@ namespace Goteo\Controller {
                 \file_put_contents($log_file, \ob_get_contents(), FILE_APPEND);
                 \chmod($log_file, 0777);
                 /*
-                @mail(\GOTEO_FAIL_MAIL, 'Cron '. __FUNCTION__ .' bloqueado en ' . SITE_URL,
+                @mail(\GOTEO_FAIL_MAIL, 'Cron '. __FUNCTION__ .' bloqueado en ' . LG_BASE_URL_GT,
                     'Se ha encontrado con que el cron '. __FUNCTION__ .' está bloqueado el '.date('d-m-Y').' a las ' . date ('H:i:s') . '
                         El contenido del bloqueo es: '. $block_content);
                  */
@@ -1397,7 +1397,7 @@ namespace Goteo\Controller {
                     echo $block;
                 } else {
                     echo 'No se ha podido crear el archivo de bloqueo<br />';
-                    @mail(\GOTEO_FAIL_MAIL, 'Cron '. __FUNCTION__ .' no se ha podido bloquear en ' . SITE_URL,
+                    @mail(\GOTEO_FAIL_MAIL, 'Cron '. __FUNCTION__ .' no se ha podido bloquear en ' . LG_BASE_URL_GT,
                         'No se ha podido crear el archivo '.$block_file.' el '.date('d-m-Y').' a las ' . date ('H:i:s'));
                 }
             }
@@ -1500,8 +1500,8 @@ namespace Goteo\Controller {
         
         public function daily () {
             if (!\defined('CRON_EXEC')) {
-                @mail(\GOTEO_FAIL_MAIL, 'Se ha lanzado el cron '. __FUNCTION__ .' en ' . SITE_URL,
-                    'Se ha lanzado manualmente el cron '. __FUNCTION__ .' en ' . SITE_URL.' a las ' . date ('H:i:s') . ' Usuario '. $_SESSION['user']->id);
+                @mail(\GOTEO_FAIL_MAIL, 'Se ha lanzado el cron '. __FUNCTION__ .' en ' . LG_BASE_URL_GT,
+                    'Se ha lanzado manualmente el cron '. __FUNCTION__ .' en ' . LG_BASE_URL_GT.' a las ' . date ('H:i:s') . ' Usuario '. $_SESSION['user']->id);
 //                die('Este proceso no necesitamos lanzarlo manualmente');
             }
             
@@ -1531,8 +1531,8 @@ namespace Goteo\Controller {
          */
         public function imgrename () {
             if (\defined('CRON_EXEC')) {
-                @mail(\GOTEO_FAIL_MAIL, 'Se ha lanzado el cron '. __FUNCTION__ .' en ' . SITE_URL,
-                    'Se intentaba lanzar automáticamente el cron '. __FUNCTION__ .' en ' . SITE_URL.' a las ' . date ('H:i:s') . ' Usuario '. $_SESSION['user']->id);
+                @mail(\GOTEO_FAIL_MAIL, 'Se ha lanzado el cron '. __FUNCTION__ .' en ' . LG_BASE_URL_GT,
+                    'Se intentaba lanzar automáticamente el cron '. __FUNCTION__ .' en ' . LG_BASE_URL_GT.' a las ' . date ('H:i:s') . ' Usuario '. $_SESSION['user']->id);
                die;
             } else {
                 Cron\Imgrename::process();

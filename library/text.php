@@ -451,9 +451,12 @@ namespace Goteo\Library {
          * Devuelve array de urls para compartir en redes sociales
          */
         static public function shareLinks ($url, $title) {
+			$apikeys = json_decode(file_get_contents( '/var/www/html/omniconfig/apikeys.json'));
+			$tw_split = explode('/',$apikeys->snslinks->twitter);
+			$tw_account = $tw_split[count($tw_split) - 1];
 
             $urls = array(
-                'twitter' => 'http://twitter.com/home?status=' . rawurlencode($title . ': ' . $url . ' #' . LG_PLACE_LABEL .' @' . LG_TWITTER),
+                'twitter' => 'http://twitter.com/home?status=' . rawurlencode($title . ': ' . $url . ' #' . $apikeys->other->twitterhash .' @' . $tw_account),
                 'facebook' => 'http://facebook.com/sharer.php?u=' . rawurlencode($url . '&t=' . rawurlencode($title)) 
             );
             

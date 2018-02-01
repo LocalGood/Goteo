@@ -76,7 +76,7 @@ class SocialAuth {
 	 * @param $provider : 'twitter', 'facebook', 'linkedin', 'any_openid_server'
 	 * */
 	function __construct($provider='') {
-        $URL = (NODE_ID != GOTEO_NODE) ? NODE_URL : SITE_URL;
+        $URL = (NODE_ID != GOTEO_NODE) ? NODE_URL : LG_BASE_URL_GT;
 		$this->host = $URL;
 		$this->callback_url = $URL . '/user/oauth?return=' . $provider;
 
