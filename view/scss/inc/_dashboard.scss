@@ -440,8 +440,7 @@
   }
 
   &.dashboard .superform {
-    padding-left: 20px;
-    padding-top: 1px;
+    padding: 1px 20px 0;
     background-color: #fff;
     border: none;
     .contents{
@@ -457,9 +456,6 @@
     > div.footer {
       margin-top: 0;
       padding-bottom: 20px;
-      input[type="submit"], input[type="reset"], button, a.button {
-        margin-left: 0;
-      }
     }
   }
 
@@ -543,7 +539,7 @@
           }
         }
         > div.elements > ol > li.element {
-          padding: 30px 2em 22px 0;
+          padding: 30px 0 22px;
           input[type="submit"]{
             margin: 10px 0 0 0 !important;
           }
@@ -567,9 +563,84 @@
         }
       }
     }
+    //ブログ/活動報告
+    &.updates {
+      .post {
+        display: flex;
+        border-bottom: $dashedBorder;
+        padding: 20px 0;
+        &:last-child {
+          border-bottom: none;
+        }
+        &-title {
+          width: 68%;
+          padding-right: 20px;
+        }
+        &-date {
+          width: 20%;
+          max-width: 180px;
+          padding-left: 20px;
+        }
+        .button {
+          border: none;
+          border-radius: 3px;
+          color: #fff;
+          cursor: pointer;
+          display: block;
+          width: auto;
+          height: 24px;
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 16px;
+          box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
+          text-align: center;
+          text-decoration: none;
+          margin: 0;
+          padding: 4px 12px;
+          &.edit {
+            background: #009480;
+          }
+          &.remove {
+            background: #e02d22;
+          }
+        }
+      }
+    }
+    //ブログ/活動報告
+    &.supports {
+      .superform li#supports {
+        border-bottom: none;
+        padding-right: 0;
+        h4.title {
+          margin-bottom: 20px;
+          padding-left: 0;
+        }
+        .contents .support {
+          border-top: $dashedBorder;
+          border-bottom: $dashedBorder;
+          padding: 20px 0;
+          .description {
+            margin-bottom: 20px;
+          }
+          input[type="submit"] {
+            display: inline-block;
+            margin: 0;
+            &.edit {
+              margin-right: 8px;
+            }
+          }
+        }
+      }
+    }
   }
+
   .superform div.children > div.elements > ol > li.element > div.feedback{
     left: 100%!important;
     margin: 0 0 0 2em;
+  }
+  &.js .superform > div.elements > ol > li.element {
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
   }
 }
