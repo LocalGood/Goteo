@@ -31,7 +31,6 @@ $share_url = SITE_URL . '/project/' . $project->id;
 $facebook_url = 'http://facebook.com/sharer.php?u=' . urlencode($share_url) . '&t=' . urlencode($share_title);
 $twitter_url = 'http://twitter.com/home?status=' . urlencode($share_title . ': ' . $share_url . ' #' . LG_PLACE_LABEL .' @' . LG_TWITTER);
 
-var_dump($project?true:false);
 ?>
 <script type="text/javascript">
             jQuery(document).ready(function ($) { 
