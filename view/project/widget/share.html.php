@@ -28,7 +28,6 @@ $share_title = $project->name;
 
 $share_url = LG_BASE_URL_GT . '/project/' . $project->id;
 
-var_dump($project?true:false);
 ?>
 <script type="text/javascript">
             jQuery(document).ready(function ($) { 
