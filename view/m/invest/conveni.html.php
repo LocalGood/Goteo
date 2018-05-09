@@ -27,8 +27,8 @@ $item_price = $invest->amount;
         <div id="main" class="">
             <div class="widget invest-pre-info">
                 <p><span class="project_name"><?php echo $invest->project_name ?></span><?php echo Text::get('invest-amount-to') ?><span class="amount"><?php echo $invest->amount;?></span><?php echo Text::get('invest-price') ?></p>
-                <form method="post" action="$redirect">
-                    <input type="hidden" name="amount" value="$item_price">
+                <form method="post" action="<?php echo $redirect; ?>">
+                    <input type="hidden" name="amount" value="<?php echo $item_price; ?>">
 
                     <button type="submit" class="process pay-axes" name="method" value="convenigo"><?php echo Text::get('invest-to-conveni') ?></button>
                     <input type="hidden" name="failure_str" value="back">
