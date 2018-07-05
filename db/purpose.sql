@@ -1281,3 +1281,6 @@ REPLACE INTO `purpose` VALUES ('login-register-email-description','login-registe
 REPLACE INTO `purpose` VALUES ('login-register-password-description','login-register-password-description',NULL,'login');
 REPLACE INTO `purpose` VALUES ('skillmatching-selector','skillmatching-selector',NULL,'admin');
 REPLACE INTO `purpose` VALUES ('admin-incomplete','admin-incomplete',NULL,'admin');
+REPLACE INTO `purpose` VALUES ('admin-invest-methods-axes','AXES',NULL,'admin');
+REPLACE INTO `purpose` VALUES ('admin-invest-methods-conveni','CS',NULL,'admin');
+REPLACE INTO `purpose` VALUES ('admin-invest-methods-epsilon','Epsilon',NULL,'admin');
