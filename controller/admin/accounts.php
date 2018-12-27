@@ -541,6 +541,10 @@ namespace Goteo\Controller\Admin {
 
             // tipos de aporte
             $methods = Model\Invest::methods();
+            if ($methods){
+                $methods['epsilonrepeat'] = $methods['epsilon'];
+            }
+
             // estados del proyecto
             $status = Model\Project::status();
             $procStatus = Model\Project::procStatus();

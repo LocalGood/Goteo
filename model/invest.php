@@ -237,8 +237,12 @@ namespace Goteo\Model {
                 $values[':id'] = $filters['id'];
             }
             if (!empty($filters['methods'])) {
-                $sqlFilter .= " AND invest.method = :methods";
-                $values[':methods'] = $filters['methods'];
+                if ($filters['methods'] === 'epsilon'){
+                    $sqlFilter .= " AND ( invest.method = 'epsilon' OR invest.method = 'epsilonrepeat' )";
+                } else {
+                    $sqlFilter .= " AND invest.method = :methods";
+                    $values[':methods'] = $filters['methods'];
+                }
             }
             if (is_numeric($filters['status'])) {
                 $sqlFilter .= " AND project.status = :status";
