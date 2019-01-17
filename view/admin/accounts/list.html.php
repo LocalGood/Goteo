@@ -56,7 +56,10 @@ $filters = $this['filters'];
                 <label for="<?php echo $filter ?>-filter"><?php echo $data['label'] ?></label>
                 <select id="<?php echo $filter ?>-filter" name="<?php echo $filter ?>" onchange="document.getElementById('filter-form').submit();">
                     <option value="<?php if ($filter == 'investStatus' || $filter == 'status') echo 'all' ?>"<?php if (($filter == 'investStatus' || $filter == 'status') && $filters[$filter] == 'all') echo ' selected="selected"'?>><?php echo $data['first'] ?></option>
-                <?php foreach ($this[$filter] as $itemId=>$itemName) : ?>
+                <?php foreach ($this[$filter] as $itemId=>$itemName) :
+                    if ($filter === 'methods' && $itemId === 'epsilonrepeat')
+                        continue;
+                    ?>
                     <option value="<?php echo $itemId; ?>"<?php if ($filters[$filter] === (string) $itemId) echo ' selected="selected"';?>><?php echo $itemName; ?></option>
                 <?php endforeach; ?>
                 </select>
