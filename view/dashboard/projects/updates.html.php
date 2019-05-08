@@ -46,11 +46,15 @@ if ($this['action'] == 'none') return;
     <?php if (!empty($posts)) : ?>
     <?php foreach ($posts as $post) : ?>
         <div class="post">
-            <a class="button" href="<?php echo $url; ?>/edit/<?php echo $post->id; ?>"><?php echo Text::get('regular-edit') ?></a>&nbsp;&nbsp;&nbsp;
-            <a class="remove button weak" href="<?php echo $url; ?>/delete/<?php echo $post->id; ?>" onclick="return confirm(<?php Text::_('delete this update') ?>);"><?php echo Text::get('regular-delete') ?></a>
-            <span><?php echo $post->publish ? Text::get('regular-published_yes') : Text::get('regular-published_no'); ?></span>
-            <strong><?php echo $post->title; ?></strong>
-            <span><?php echo $post->date; ?></span>
+            <div class="post-title">
+                <strong><?php echo $post->title; ?></strong>
+            </div>
+            <a class="button edit" href="<?php echo $url; ?>/edit/<?php echo $post->id; ?>"><?php echo Text::get('regular-edit') ?></a>&nbsp;&nbsp;&nbsp;
+            <a class="button remove" href="<?php echo $url; ?>/delete/<?php echo $post->id; ?>" onclick="return confirm(<?php Text::_('delete this update') ?>);"><?php echo Text::get('regular-delete') ?></a>
+            <div class="post-date">
+                <span><?php echo $post->publish ? Text::get('regular-published_yes') : Text::get('regular-published_no'); ?></span>
+                <span><?php echo date('Y年n月j日', strtotime($post->date)); ?></span>
+            </div>
         </div>
     <?php endforeach; ?>
     <?php else : ?>

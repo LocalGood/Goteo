@@ -628,7 +628,7 @@ REPLACE INTO `text` VALUES ('login-recover-header','ja','ログインに使っ�
 REPLACE INTO `text` VALUES ('login-recover-link','ja','パスワードを忘れた方はこちら');
 REPLACE INTO `text` VALUES ('login-recover-username-field','ja','ログイン名');
 REPLACE INTO `text` VALUES ('login-register-button','ja','新規登録');
-REPLACE INTO `text` VALUES ('login-register-conditions','ja','当サイトの<a href=\"http://localgood.jp/riyou_kiyaku_menu/\" target=\"_blank\">利用規約</a>と<a href=\"http://localgood.jp/privacypolicy/\" target=\"_blank\">プライバシーポリシー</a>に同意します');
+REPLACE INTO `text` VALUES ('login-register-conditions','ja','当サイトの<a href=\"http://localgood.jp/riyou_kiyaku_menu/\" target=\"_blank\">利用規約</a>と<a href=\"http://yokohama.localgood.jp/privacypolicy/\" target=\"_blank\">プライバシーポリシー</a>に同意します');
 REPLACE INTO `text` VALUES ('login-register-confirm-field','ja','メールアドレス（確認用）');
 REPLACE INTO `text` VALUES ('login-register-confirm-field-tips','ja','確認のため、再度メールアドレスの入力をお願いします。');
 REPLACE INTO `text` VALUES ('login-register-confirm_password-field','ja','パスワード（確認用）');
@@ -1288,4 +1288,7 @@ REPLACE INTO `text` VALUES ('login-register-email-description','ja','確認の�
 REPLACE INTO `text` VALUES ('login-register-password-description','ja','ログイン時に使用するパスワードです。');
 REPLACE INTO `text` VALUES ('skillmatching-selector','ja','スキルマッチング:');
 REPLACE INTO `text` VALUES ('admin-incomplete','ja','未完了');
+REPLACE INTO `text` VALUES ('admin-invest-methods-axes','ja','カード決済（AXES）');
+REPLACE INTO `text` VALUES ('admin-invest-methods-conveni','ja','コンビニ決済');
+REPLACE INTO `text` VALUES ('admin-invest-methods-epsilon','ja','カード決済（Epsilon）');
 

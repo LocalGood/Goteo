@@ -1116,10 +1116,10 @@ namespace Goteo\Model {
          */
         public static function methods () {
             return array (
-                //'paypal' => Text::_('Paypal'),
-                'axes' => Text::_('AXES'),
-                'tpv'    => Text::_('Tarjeta'),
-                'cash'   => Text::_('Manual')
+                'cash'   => Text::_('Manual'),
+                'conveni'=> Text::get('admin-invest-methods-conveni'),
+                'epsilon'=> Text::get('admin-invest-methods-epsilon'),
+                'axes' => Text::get('admin-invest-methods-axes')
             );
         }
 
