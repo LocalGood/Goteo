@@ -84,6 +84,7 @@ $configJson = json_decode(file_get_contents( '/var/www/html/omniconfig/apikeys.j
                 <li><a href="<?php echo $configJson->other->earthviewurl; ?>" target="_blank">3Dマップ</a>
                 <li><a href="<?php echo LG_BASE_URL_WP . '/about/'; ?>" ><?php echo GOTEO_META_TITLE; ?>について</a>
                 </li>
+                <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
                 <li class="gnav_goteo">
                     <?php if (empty($_SESSION['user'])) {
                     //ログインしていない
@@ -113,6 +114,7 @@ $configJson = json_decode(file_get_contents( '/var/www/html/omniconfig/apikeys.j
                         </div>
                     <? } ?>
                 </li>
+                <?php endif; ?>
             </ul>
         </nav>
     </div>

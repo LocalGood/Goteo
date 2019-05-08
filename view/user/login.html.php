@@ -53,7 +53,10 @@ if (empty($username) && isset($this['username'])) $username = $this['username'];
         });
     </script>
 
-<?php if(isset($_SESSION['messages'])) { include 'view/header/message.html.php'; } ?>
+<?php
+if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ):
+
+    if(isset($_SESSION['messages'])) { include 'view/header/message.html.php'; } ?>
 
     <div id="main">
         <div class="login">
@@ -174,4 +177,6 @@ if (empty($username) && isset($this['username'])) $username = $this['username'];
 
     </div>
 
-<?php include 'view/footer.html.php' ?>
+<?php include 'view/footer.html.php';
+endif;
+?>
