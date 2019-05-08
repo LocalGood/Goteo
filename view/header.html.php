@@ -64,8 +64,10 @@ $configJson = json_decode(file_get_contents( '/var/www/html/omniconfig/apikeys.j
                             </ul>
                             <span class="header__right__snav__second_title">みんなの声</span>
                             <ul>
-                                <li><span><a href="<?php echo LG_BASE_URL_WP . '/subject/' ?>">投稿一覧</a></span></li>
-                                <li><span><a href="<?php echo LG_BASE_URL_WP . '/submit_subject/' ?>">あなたの声を投稿する</a></span></li>
+                                <li><span><a href="<?php echo LOCALGOOD_WP_BASE_URL . '/subject/' ?>">投稿一覧</a></span></li>
+                                <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
+                                <li><span><a href="<?php echo LOCALGOOD_WP_BASE_URL . '/submit_subject/' ?>">あなたの声を投稿する</a></span></li>
+                                <?php endif; ?>
                             </ul>
                         </div>
                     </div>

@@ -70,8 +70,10 @@ else:
                         </ul>
                         <span class="footer__upper__third_title">みんなの声</span>
                         <ul>
-                            <li><a href="<?php echo LG_BASE_URL_WP; ?>/subject/">投稿一覧</a></li>
-                            <li><a href="<?php echo LG_BASE_URL_WP; ?>/submit_subject/">あなたの声を投稿する</a></li>
+                            <li><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/subject/">投稿一覧</a></li>
+                            <?php if( strpos($_SERVER['HTTP_HOST'], 'kitaq') === FALSE ): ?>
+                            <li><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/submit_subject/">あなたの声を投稿する</a></li>
+                            <?php endif; ?>
                         </ul>
                     </li>
                     <li>
