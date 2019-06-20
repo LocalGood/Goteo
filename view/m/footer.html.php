@@ -121,11 +121,13 @@ jQuery(document).ready(function($) {
                     投稿一覧
                 </a>
             </li>
+            <?php /*
             <li>
                 <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/submit_subject/">
                     あなたの声を投稿する
                 </a>
             </li>
+            */ ?>
         </ul>
 
         <div class="footer__link-title">

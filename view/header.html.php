@@ -65,7 +65,9 @@ $configJson = json_decode( file_get_contents( __DIR__ . '/../omniconfig/apikeys.
                             <span class="header__right__snav__second_title">みんなの声</span>
                             <ul>
                                 <li><span><a href="<?php echo LOCALGOOD_WP_BASE_URL . '/subject/' ?>">投稿一覧</a></span></li>
+                                <?php /*
                                 <li><span><a href="<?php echo LOCALGOOD_WP_BASE_URL . '/submit_subject/' ?>">あなたの声を投稿する</a></span></li>
+                                */ ?>
                             </ul>
                         </div>
                     </div>

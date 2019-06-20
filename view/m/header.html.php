@@ -73,11 +73,13 @@ $configJson = json_decode( file_get_contents( __DIR__ . '/../../omniconfig/apike
                             投稿一覧
                         </a>
                     </dd>
+                    <?php /*
                     <dd>
                         <a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/submit_subject/">
                             あなたの声を投稿する
                         </a>
                     </dd>
+                    */ ?>
                 </dl>
             </li>
             <li class="list_open">

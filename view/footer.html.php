@@ -70,7 +70,9 @@ else:
                         <span class="footer__upper__third_title">みんなの声</span>
                         <ul>
                             <li><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/subject/">投稿一覧</a></li>
+                            <?php /*
                             <li><a href="<?php echo LOCALGOOD_WP_BASE_URL; ?>/submit_subject/">あなたの声を投稿する</a></li>
+                            */ ?>
                         </ul>
                     </li>
                     <li>
