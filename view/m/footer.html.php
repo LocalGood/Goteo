@@ -122,13 +122,13 @@ jQuery(document).ready(function($) {
                     投稿一覧
                 </a>
             </li>
-            <?php if( strpos($_SERVER['HTTP_HOST'], 'sendai') !== FALSE ): ?>
+            <?php /*if( strpos($_SERVER['HTTP_HOST'], 'sendai') !== FALSE ): ?>
             <li>
                 <a href="<?php echo LG_BASE_URL_WP; ?>/submit_subject/">
                     あなたの声を投稿する
                 </a>
             </li>
-            <?php endif; ?>
+            <?php endif;*/ ?>
         </ul>
 
         <div class="footer__link-title">

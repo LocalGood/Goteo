@@ -73,13 +73,13 @@ $configJson = json_decode( file_get_contents( __DIR__ . '/../../omniconfig/apike
                             投稿一覧
                         </a>
                     </dd>
-                    <?php if( strpos($_SERVER['HTTP_HOST'], 'sendai') !== FALSE ): ?>
+                    <?php /* if( strpos($_SERVER['HTTP_HOST'], 'sendai') !== FALSE ): ?>
                     <dd>
                         <a href="<?php echo LG_BASE_URL_WP; ?>/submit_subject/">
                             あなたの声を投稿する
                         </a>
                     </dd>
-                    <?php endif; ?>
+                    <?php endif;*/ ?>
                 </dl>
             </li>
             <li class="list_open">
